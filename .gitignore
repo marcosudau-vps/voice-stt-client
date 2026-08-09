@@ -1,0 +1,49 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+github_accounts.env
+venv/
+.venv/
+
+# Python caches and test output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build and release output
+build/
+dist/
+release/
+*.manifest
+
+# Runtime data
+logs/
+*.log
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+
+# Local editor and planning state
+.idea/
+.vscode/
+.planning/
+
+# Local cleanup inventories/tools; Git is the canonical repository inventory.
+cleanup.py
+cleanup_v1.py
+persistent-files.txt
+persistent-files2.txt
+
+# Raw historical exports and generated archives are not public project docs.
+docs/2026-07-24_PROJEKT_UEBERGABE/bisheriger_projekt_verlauf/
+docs/**/agy-cli.log
+*.html
+*.zip
+
+# Local sound source collection. No sound is an active product default.
+assets/sound_effects/

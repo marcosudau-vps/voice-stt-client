@@ -1,0 +1,96 @@
+server:
+  url: wss://stt.voice.marcosudau.com/ws/transcribe
+  health_url: https://stt.voice.marcosudau.com/health
+  reconnect_min_delay: 0.5
+  reconnect_max_delay: 30.0
+  reconnect_jitter: 0.3
+  server_busy_min_delay: 10.0
+  ping_interval: 10.0
+  ping_timeout_count: 3
+  start_confirmation_timeout: 10.0
+  hello_timeout: 5.0
+  ready_timeout: 180.0
+
+# Session-lokaler Betriebsmodus. Der Server bestätigt die effektiven Werte
+# in hello.sessionConfig und ready.sessionConfig.
+session:
+  mode: hotkey
+  wake_word_backend:
+  wake_words: hey_jarvis
+  wake_word_inference_framework:
+  wake_word_sensitivity:
+  wake_word_activation_delay:
+  wake_word_timeout:
+  wake_word_buffer_duration:
+  wake_word_followup_window:
+
+# Ausschließlich im Hotkeymodus: Der Server-VAD liefert recording_started /
+# recording_ended; im Client läuft kein zweites VAD-Modell.
+dictation_window:
+  initial_speech_timeout: 15.0
+  followup_timeout: 3.0
+  extension_seconds: 15.0
+audio:
+  device: null
+  sample_rate: 16000
+  channels: 1
+  chunk_duration_ms: 40
+  dtype: int16
+text_injection:
+  final_strategy: clipboard
+  paste_delay_ms: 50
+  append_space: true
+  warn_elevated: true
+hotkey:
+  enabled: true
+  mode: actions
+  toggle_key: Ctrl+Shift+Space
+  reinsert_last_key: Ctrl+Alt+Space
+  finish_key:
+  cancel_key:
+  overlay_toggle_key:
+  auto_start: false
+overlay:
+  enabled: true
+  position: bottom_center
+  width: 600
+  max_height: 100
+  opacity: 0.85
+  fade_after: 2.0
+  font_size: 14
+  font_family:
+  background_color: "#20242a"
+  text_color: "#ffffff"
+  margin: 60
+  show_realtime_text: true
+
+feedback:
+  sounds_enabled: false
+  start_sound:
+  stop_sound:
+  cancel_sound:
+history:
+  enabled: true
+  memory:
+    max_entries: 5
+  persistent:
+    enabled: true
+    max_entries: 100
+    retention_days: 0
+    min_characters: 1000
+    store_failed_injections: true
+    store_all: false
+    db_path: null
+logging:
+  level: INFO
+  max_bytes: 5242880
+  backup_count: 3
+  stdout: true
+  json_format: true
+  channel_levels: {}
+clipboard:
+  restore_previous: false
+  restore_delay_ms: 300
+  backup_max_bytes: 1048576
+  open_retries: 5
+  open_retry_delay_ms: 20
