@@ -12,6 +12,7 @@ from PySide6.QtCore import QObject, Signal
 
 from core.config import AppConfig
 from core.controller import CommandResult, STTController
+from core.event_models import CanonicalEventType
 from core.reinsertion import ReinsertionResult, ReinsertionStatus
 
 logger = logging.getLogger("ui.core_bridge")
@@ -24,6 +25,7 @@ class CoreBridge(QObject):
 
     snapshot_changed = Signal(object)
     feedback_received = Signal(object)
+    feedback_decision_received = Signal(object)
     text_received = Signal(int, str, bool)
     transport_changed = Signal(object)
     command_completed = Signal(str, object)
@@ -97,6 +99,7 @@ class CoreBridge(QObject):
                 controller.request_initial_auto_start()
             controller.on_snapshot_change = self.snapshot_changed.emit
             controller.on_feedback_event = self.feedback_received.emit
+            controller.on_feedback_decision = self.feedback_decision_received.emit
             controller.on_text = self.text_received.emit
             controller.on_transport_change = self.transport_changed.emit
 
@@ -279,6 +282,31 @@ class CoreBridge(QObject):
                 return False
             return self._reject_command(name)
 
+    def set_microphone_muted(self, muted: bool) -> bool:
+        return self._submit_sync(
+            "set_microphone_muted",
+            lambda controller: controller.set_microphone_muted(muted),
+        )
+
+    def reconnect_server(self) -> bool:
+        loop, controller = self._get_target()
+        if loop is None or controller is None or loop.is_closed():
+            return self._reject_command("reconnect_server")
+
+        def invoke() -> None:
+            task = loop.create_task(controller.reconnect_server())
+            task.add_done_callback(
+                lambda finished: self._finish_async_command(
+                    "reconnect_server", finished
+                )
+            )
+
+        try:
+            loop.call_soon_threadsafe(invoke)
+            return True
+        except RuntimeError:
+            return self._reject_command("reconnect_server")
+
     def reinsert_last(self) -> bool:
         return self._submit_sync(
             "reinsert_last", lambda controller: controller.reinsert_last()
@@ -307,6 +335,29 @@ class CoreBridge(QObject):
         return self._submit_sync(
             "clear_history", lambda controller: controller.clear_history()
         )
+
+    def report_local_feedback(
+        self,
+        event_type: CanonicalEventType,
+        details: Optional[dict[str, object]] = None,
+    ) -> bool:
+        """Queue an adapter-local fact without creating a UI command result."""
+        loop, controller = self._get_target()
+        if loop is None or controller is None or loop.is_closed():
+            return False
+
+        def invoke() -> None:
+            try:
+                controller.report_local_feedback(event_type, details)
+            except Exception:
+                logger.exception("Failed to report local feedback %s.", event_type)
+
+        try:
+            loop.call_soon_threadsafe(invoke)
+            return True
+        except RuntimeError:
+            logger.info("Core loop closed while reporting local feedback.")
+            return False
 
     def stop(self, timeout: float = 10.0) -> bool:
         """Request Core shutdown once and wait a bounded amount of time."""

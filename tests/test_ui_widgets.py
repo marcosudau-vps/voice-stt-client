@@ -13,6 +13,15 @@ from PySide6.QtTest import QTest
 from PySide6.QtWidgets import QApplication
 
 from core.config import OverlayConfig
+from core.event_models import (
+    CanonicalEventType,
+    EventOrigin,
+    FeedbackSource,
+    FeedbackState,
+    NormalizedFeedbackEvent,
+)
+from core.feedback_mapping import AppActionId, AppEffect, FeedbackRule
+from core.feedback_reducer import FeedbackDecision
 from core.controller import (
     AvailabilityState,
     ControllerStatusSnapshot,
@@ -27,7 +36,9 @@ from ui.overlay import TranscriptOverlay
 from ui.presentation import (
     IndicatorColor,
     format_history_label,
+    presentation_for_feedback_decision,
     presentation_for_feedback,
+    presentation_for_mapped_action,
     presentation_for_snapshot,
 )
 from ui.tray import TrayController, create_status_icon
@@ -200,6 +211,36 @@ class TestPresentationMapping(unittest.TestCase):
         self.assertLessEqual(len(label.split("  ", 1)[1]), 40)
         self.assertTrue(label.endswith("…"))
 
+    def test_mapped_app_action_preserves_operating_mode_color(self):
+        hotkey = presentation_for_mapped_action(
+            AppActionId.INDICATOR_RECORDING,
+            operating_mode="hotkey",
+        )
+        wake_word = presentation_for_mapped_action(
+            AppActionId.INDICATOR_RECORDING,
+            operating_mode="wake_word",
+        )
+
+        self.assertEqual(hotkey.color, IndicatorColor.GREEN)
+        self.assertEqual(wake_word.color, IndicatorColor.BLUE)
+
+    def test_unpublished_decision_has_no_overlay_presentation(self):
+        decision = FeedbackDecision(
+            state=FeedbackState.RECORDING,
+            source=FeedbackSource.EVENT_STREAM,
+            rule=FeedbackRule(
+                app=AppEffect(AppActionId.INDICATOR_RECORDING)
+            ),
+            publish=False,
+            replay=True,
+        )
+        self.assertIsNone(
+            presentation_for_feedback_decision(
+                decision,
+                operating_mode="hotkey",
+            )
+        )
+
 
 class TestTranscriptOverlay(QtTestBase):
     def setUp(self):
@@ -270,6 +311,32 @@ class TestTrayController(QtTestBase):
             self.tray.toggle_action.text(), "Diktatzeit verlängern"
         )
         self.assertIn("Sprache wird aufgenommen", self.tray.tray.toolTip())
+
+    def test_event_stream_degradation_is_secondary_and_keeps_mode_color(self):
+        self.tray.update_snapshot(
+            snapshot(
+                dictation=DictationState.ACTIVE,
+                phase=DictationWindowPhase.SEGMENT_ACTIVE,
+            )
+        )
+        before = self.tray.status_action.text()
+        decision = FeedbackDecision(
+            state=FeedbackState.RECORDING,
+            source=FeedbackSource.STT_FALLBACK,
+            rule=FeedbackRule(
+                app=AppEffect(AppActionId.INDICATOR_WARNING)
+            ),
+            event=NormalizedFeedbackEvent(
+                event_type=CanonicalEventType.CLIENT_EVENT_STREAM_DEGRADED,
+                origin=EventOrigin.LOCAL,
+                source=FeedbackSource.LOCAL_ONLY,
+            ),
+        )
+
+        self.tray.update_feedback_decision(decision)
+
+        self.assertEqual(self.tray.status_action.text(), before)
+        self.assertIn("STT-Fallback aktiv", self.tray.tray.toolTip())
 
     def test_status_icon_renders_requested_white_border(self):
         image = create_status_icon(

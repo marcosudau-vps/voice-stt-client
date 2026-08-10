@@ -1,6 +1,6 @@
 # AP07 – Implementierungsplan für das Feedback- und Eventsystem
 
-> **Status:** verbindlicher Ausführungsfahrplan; M0–M3 abgenommen, M4 als Nächstes  
+> **Status:** verbindlicher Ausführungsfahrplan; M0–M9 abgenommen, M10 in Arbeit
 > **Stand:** 9. August 2026  
 > **Architekturvertrag:** `AP07_FEEDBACK_EVENTSYSTEM_GESAMTPLANUNG.md`  
 > **Ziel:** vollständige Umsetzung in abgegrenzten, einzeln abnehmbaren Meilensteinen
@@ -56,10 +56,16 @@ Aktueller Fortschritt:
 | M1 | abgeschlossen | SQLite-first-Serverimplementierung und Regression abgenommen |
 | M2 | abgeschlossen | produktiver Live-/SQLite-/Replay- und Zwei-Session-Nachweis |
 | M3 | abgeschlossen | lokaler Serververtrag gegen Produktivstand geprüft |
-| M4 | nächster Schritt | Clientmodelle, Konfiguration und Cursorpersistenz |
+| M4 | abgeschlossen | Clientmodelle, YAML-Mapping, Konfiguration und Cursorpersistenz; 285 Clienttests grün |
+| M5 | abgeschlossen | isolierter EventStreamTransport und Protokollprocessor; 308 Clienttests grün |
+| M6 | abgeschlossen | generationgebundener Dual-SessionCoordinator; 322 Clienttests grün |
+| M7 | abgeschlossen | Normalisierung, Reducer, Replay und Fallback; 352 Clienttests grün |
+| M8 | abgeschlossen | Qt-, Tray-, Overlay- und Soundintegration; 365 Clienttests grün |
+| M9 | abgeschlossen | ReSpeaker-XVF3800-USB-LED-Adapter; 378 Clienttests grün |
+| M10 | in Arbeit | Automatisierung, isolierte Serverkampagne, Build und Hardware-Smokes grün; gesprochene Bedien-/Langlaufmatrix offen |
 
 Der detaillierte Abnahmenachweis liegt unter
-`docs/2026-08-09_AP07_M0_BIS_M3_ABNAHME/ABSCHLUSSBERICHT.md`.
+`docs/2026-07-30_PROJEKT_EVENT_FEEDBACK_SYSTEM/zwischenstaende_bis_2026-08-01/2026-08-09_AP07_M0_BIS_M3_ABNAHME_ABSCHLUSSBERICHT.md`.
 
 ### Paketkennungen
 
@@ -330,6 +336,9 @@ WebSocketverbindung in den Controller zu integrieren.
 3. Pflicht-/Optionalfelder exakt aus dem Serververtrag übernehmen.
 4. Unbekannte zusätzliche Daten tolerant erhalten oder ignorieren.
 5. Keine UI-Typen in Coremodellen verwenden.
+6. Kanonische Ereignisschlüssel mit getrennten Namespaces für `server.*` und
+   `client.*` sowie transportneutrale Ausgabebeschreibungen für `led`,
+   `sound` und `app` definieren.
 
 ### 7.2 Konfiguration
 
@@ -340,6 +349,15 @@ WebSocketverbindung in den Controller zu integrieren.
    erweitern.
 5. Per-user Override, Kandidatenvalidierung und Rollbackpfad testen.
 6. Tokens ausdrücklich von Persistenz und Logging ausschließen.
+7. In der bestehenden `config.yaml` einen versionierten, typisierten
+   `feedback_mappings`-Abschnitt einführen. Jeder bekannte kanonische
+   Server- oder Clientereignistyp kann dort null bis drei unabhängige
+   Wirkungen (`led`, `sound`, `app`) erhalten.
+8. Nur bekannte Effekt-, Cue- und In-App-Aktions-IDs zulassen. Freie
+   Python-Aufrufe, Pluginimporte und Stringsuche in Logmeldungen sind keine
+   gültige Mappingsemantik.
+9. Projektdefaults und per-user Overrides vollständig validieren; ein
+   fehlerhaftes Mapping darf nicht teilweise übernommen werden.
 
 ### 7.3 Cursorstore
 
@@ -361,12 +379,20 @@ WebSocketverbindung in den Controller zu integrieren.
 - `config.yaml`
 - `tests/test_config.py`
 - neue `tests/test_event_models.py` und `tests/test_event_cursor_store.py`
+- neue `tests/test_feedback_mapping.py`
 
 ### Ausgangstor
 
-- Modelle und Persistenz sind ohne Netzwerk vollständig getestet.
-- Bestehende Konfigurations- und Gesamttests bleiben grün.
-- Keine UI- oder WebSocketkopplung wurde vorweggenommen.
+- [x] Modelle und Persistenz sind ohne Netzwerk vollständig getestet.
+- [x] Das YAML-Mapping deckt Server- und lokale Clientereignisse ab und lehnt
+  unbekannte Ereignis-/Wirkungs-IDs deterministisch ab.
+- [x] Bestehende Konfigurations- und Gesamttests bleiben grün.
+- [x] Keine UI- oder WebSocketkopplung wurde vorweggenommen.
+
+**Abnahme am 9. August 2026:** 32 fokussierte Modell-, Mapping-,
+Konfigurations- und Cursorstore-Tests sowie die vollständige Suite mit 285
+Tests sind erfolgreich; `compileall` über Anwendung, Core, UI, Skripte und
+Tests ist grün. Damit ist das Eingangstor für M5 erfüllt.
 
 ---
 
@@ -429,9 +455,14 @@ Mit einem deterministischen Fake-WebSocket/Testsserver prüfen:
 
 ### Ausgangstor
 
-- Transport ist isoliert vollständig testbar.
-- Es gibt noch keine direkte Qt-, Sound- oder LED-Abhängigkeit.
-- Vollständige Clientregression und `compileall` sind grün.
+- [x] Transport ist isoliert vollständig testbar.
+- [x] Es gibt noch keine direkte Qt-, Sound- oder LED-Abhängigkeit.
+- [x] Vollständige Clientregression und `compileall` sind grün.
+
+**Abnahme am 9. August 2026:** 23 fokussierte Transport-/Protokolltests
+einschließlich Warnungsprüfung sowie die vollständige Suite mit 308 Tests sind
+erfolgreich. `compileall` über Anwendung, Core, UI, Skripte und Tests ist grün.
+Damit ist das Eingangstor für M6 erfüllt.
 
 ---
 
@@ -495,6 +526,17 @@ werden gemeinsam kontrolliert, ohne den bestehenden STT-Core neu zu bauen.
 - Der bestehende Corevertrag und alle 264 Altprüfungen bleiben grün.
 - Noch keine doppelte Feedbackwirkung ist an UI angebunden.
 
+**Abnahme am 9. August 2026:** Ein dediziertes, vom `STTController` besessenes
+Modul koordiniert genau eine Eventverbindung mit der aktuellen
+Transkriptionsgeneration. 14 neue M6-Prüfungen decken Session-/Tokenbindung,
+STT-Reconnect während Replay, unabhängige Event-Reconnectzustände,
+`available=false`, Tokenablauf, stale und In-Flight-Events, doppelten Connect,
+isolierte Eventfehler und idempotenten gemeinsamen Shutdown ab. 59 relevante
+Prüfungen waren zusätzlich mit `-W error` grün; die vollständige Suite bestand
+322 Tests. `compileall` über Anwendung, Core, UI und Tests ist grün. Der
+bestehende Audio-, Finaltext-, Historien- und Injectionpfad wurde nicht
+verändert. Damit ist das Eingangstor für M7 erfüllt.
+
 ---
 
 ## 10. M7 / AP07-C4 – Normalisierung, Reducer, Replay und Fallback
@@ -511,6 +553,8 @@ Feedbackwahrheit.
 3. Eventidentität und fachliche Korrelation implementieren.
 4. Alte Session-/Generation-/Transkriptionsidentitäten verwerfen.
 5. Keine menschenlesbaren Messagefelder auswerten.
+6. Server- und lokale Clienttatsachen auf die in M4 definierten kanonischen
+   `server.*`-/`client.*`-Schlüssel abbilden.
 
 ### 10.2 Reducer
 
@@ -520,6 +564,9 @@ Feedbackwahrheit.
 4. Prioritäten lokaler Geräte-/Injectionfehler gegenüber Serverzuständen
    festlegen.
 5. Unbekannte Events begrenzt ignorieren.
+6. Nach der fachlichen Reducerentscheidung die konfigurierte Mappingwirkung
+   auflösen; keine LED-, Sound- oder In-App-Zuordnung im Reducercode
+   festverdrahten.
 
 ### 10.3 Live-/Replaypolicy
 
@@ -573,6 +620,18 @@ Feedbackwahrheit.
 - Fallback/Recovery erzeugt keine Doppelwirkung.
 - Vollständige Clientregression ist grün.
 
+**Abnahme am 9. August 2026:** Die exakten strukturierten Serverevents und
+lokalen Clienttatsachen werden strikt in ein gemeinsames kanonisches Modell
+normalisiert. Der reine Reducer trennt Dauerzustand und Impuls, behandelt
+Replay impulsfrei, wählt genau eine Serverquelle und führt den begrenzten
+STT-Fallback bei Recovery ohne Doppelwirkung zurück. Event-ID- und semantische
+Deduplizierung sowie der Katalog unbekannter Events sind speicherbegrenzt; der
+zustandsbehaftete Orchestrator serialisiert parallele Eingaben. Die Wirkung
+wird ausschließlich über das typisierte YAML-Mapping aufgelöst. 30 fokussierte
+M7-Tests, 183 relevante Prüfungen mit `-W error`, die vollständige Suite mit
+352 Tests sowie `compileall` und `git diff --check` sind grün. Damit ist das
+Eingangstor für M8 erfüllt.
+
 ---
 
 ## 11. M8 / AP07-C5 – Qt-, Tray-, Overlay- und Soundintegration
@@ -596,11 +655,14 @@ die UI zu tragen.
 4. Eventstreamdegradation als technische Nebeninformation integrieren, ohne
    den Modusstatus zu verfälschen.
 5. Soundpolicy auf normalisierte Impulse umstellen.
-6. Sicherstellen, dass die alten Timeline-/Statussignale im Normalbetrieb
+6. Sound- und In-App-Wirkungen ausschließlich aus dem in M4 typisierten
+   YAML-Mapping konsumieren; lokale Clientereignisse sind dabei gleichwertige
+   Eingaben neben Serverereignissen.
+7. Sicherstellen, dass die alten Timeline-/Statussignale im Normalbetrieb
    keine parallelen Sounds mehr auslösen.
-7. Soundfehler abfangen und begrenzen.
-8. Einstellungsdialog nur um notwendige Optionen erweitern.
-9. Headless-Modus ohne Qt-/Soundzwang erhalten.
+8. Soundfehler abfangen und begrenzen.
+9. Einstellungsdialog nur um notwendige Optionen erweitern.
+10. Headless-Modus ohne Qt-/Soundzwang erhalten.
 
 ### Tests
 
@@ -628,6 +690,20 @@ die UI zu tragen.
 - Offscreen-Qt-Tests grün.
 - Bestehendes Farb-/Bedienkonzept bleibt erhalten.
 - Ein manueller Lauf ohne LED zeigt korrekte Zustände und Sounds.
+
+**Abnahme am 9. August 2026:** Reducerausgaben werden über ein eigenes queued
+Qt-Signal ausschließlich im Main Thread verarbeitet. Das aufgelöste
+`app.action` steuert Tray und Overlay, ohne das bestehende grün/blaue
+Betriebsmoduskonzept zu überschreiben; Eventstreamdegradation erscheint als
+technische Zusatzinformation. Sounds werden nur aus `sound.cue` und den sieben
+konfigurierbaren Assetpfaden erzeugt. Replay, unveröffentlichte Entscheidungen
+und alte Command-Completion-Signale erzeugen keinen Soundauftrag. Fehlende
+Assets und Backendfehler bleiben nicht fatal, werden begrenzt und als lokales
+`client.sound.failed` wieder in den Reducer geführt. 13 neue M8-Prüfungen, 232
+relevante Prüfungen mit `-W error`, die vollständige Suite mit 365 Tests,
+`compileall`, `git diff --check`, Offscreen-Qt-Zustandsprüfungen und ein realer
+Qt-Soundbackend-Smoke mit einem lokalen Windows-WAV sind grün. Damit ist das
+Eingangstor für M9 erfüllt.
 
 ---
 
@@ -660,12 +736,15 @@ fachliche Zustandsmaschine oder eine harte Hardwareabhängigkeit einzuführen.
 
 ### 12.3 Mapping
 
-1. Farb-/Musterplan an bestehendes UI-Farbkonzept angleichen.
-2. Aufnahme, Wakeword, Finalisierung, Störung und Fehler eindeutig, aber nicht
+1. Den LED-Kanal des in M4 eingeführten YAML-Mappings konsumieren; keine
+   zweite fest verdrahtete LED-Mappingtabelle anlegen.
+2. Die konfigurierten Effekt-IDs an das bestehende UI-Farbkonzept angleichen.
+3. Aufnahme, Wakeword, Finalisierung, Störung und Fehler eindeutig, aber nicht
    alarmistisch unterscheiden.
-3. Replay rekonstruiert nur Dauerzustand.
-4. Liveimpulse dürfen kurz überlagern.
-5. Lokale TTS-/Injection-/Geräteprioritäten festlegen.
+4. Replay rekonstruiert nur Dauerzustand.
+5. Liveimpulse dürfen kurz überlagern.
+6. Lokale TTS-/Injection-/Geräteprioritäten bleiben Teil derselben
+   namespaceten Mapping- und Reducerpolicy.
 
 ### Tests und manuelle Abnahme
 
@@ -681,6 +760,24 @@ fachliche Zustandsmaschine oder eine harte Hardwareabhängigkeit einzuführen.
 - Client funktioniert vollständig mit und ohne ReSpeaker.
 - Hardwarefehler bleiben isoliert.
 - Manuelle Hardwarematrix und Lizenzquelle sind dokumentiert.
+
+**Abnahme am 9. August 2026:** Das Zielgerät wurde als ReSpeaker XVF3800 mit
+`VID_2886/PID_001A`, Control-Interface 3 und Firmware `2.0.10` nachgewiesen.
+Der eigene minimale USB-Adapter konsumiert ausschließlich den konfigurierten
+`led`-Kanal, während ein einzelner Worker Updates koalesziert, Livepulse
+überlagert, den letzten Dauerzustand wiederherstellt und zeitlich begrenzt mit
+`off` beendet. Fehlendes oder während der Laufzeit verlorenes Gerät bleibt
+isoliert und wird gedrosselt als `client.led.unavailable` gemeldet; Replay
+erzeugt weder alten Sound noch alte Lichtpulse. 13 neue M9-Prüfungen, 254
+relevante Prüfungen mit `-W error`, die vollständige Suite mit 378 Tests,
+`compileall` und `git diff --check` sind grün. Der reale Hardware-Smoke deckte
+sechs Dauerzustände und `success_pulse → recording → off` ab. Der
+PyInstaller-Onefile-Build enthält PyUSB/libusb und bestand den Versions-Smoke
+(74.752.880 Byte, SHA-256
+`7ff28d7851d6b1aa42569c4aab3fb733aabd4f9b2c63569f60aca5faaf6c4c08`).
+Die technische Entscheidung und Lizenzquellen stehen in
+`docs/decisions/ADR-003_RESPEAKER_XVF3800_USB_LED_ADAPTER.md`. Damit ist das
+Eingangstor für M10 erfüllt.
 
 ---
 
@@ -731,6 +828,18 @@ Mindestens:
 - Audio-/Realtime-/Finaltextlatenz durch den zweiten WebSocket nicht
   wesentlich verschlechtert,
 - Eventstream kann nach Rückstand vollständig aus dem Store aufholen.
+
+### Nachweisstand 9. August 2026
+
+- Clientgesamtsuite zweimal mit 396 Tests, fokussierte AP07-/Reconnect-Suite
+  mit 227 Tests und `-W error` grün.
+- Servergesamtsuite zweimal mit 379 Tests, 13 Skips und 78 Subtests grün.
+- Storedegradation, Retention, Replay/WebSocket und persistenter Neustart über
+  zwei echte Betriebssystemprozesse in einer isolierten lokalen Instanz grün.
+- ReSpeaker-Effektpfad real bis zum abschließenden `off`, Adapterfehlerpfade
+  und PyInstaller-Onefile-Build einschließlich Prozessabschluss grün.
+- Noch offen: gesprochene Hotkey-/Wake-Word-Abläufe, sichtbarer STT-Disconnect,
+  stilles Final und längere Latenz-/Ressourcenbeobachtung.
 
 ### Ausgangstor
 

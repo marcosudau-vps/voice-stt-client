@@ -3,7 +3,7 @@
 > **Status:** verbindlicher Paket- und Architekturvertrag  
 > **Beschlossen am:** 2. August 2026  
 > **Geltungsbereich:** erforderliche Serverhärtung, Clientintegration und Benutzerfeedback  
-> **Implementierungsstand:** M0–M3 abgenommen; Clientmeilensteine ab M4 offen  
+> **Implementierungsstand:** M0–M9 abgenommen; M10-Fehlerkampagne in Arbeit
 > **Ersetzt:** alle Konzept-, Vorschlags-, Stellungnahme- und Auftragsstände unter
 > `docs/2026-07-30_PROJEKT_EVENT_FEEDBACK_SYSTEM/zwischenstaende_bis_2026-08-01/`
 
@@ -59,6 +59,14 @@ Sprachausgabe und LED-Gerätefehler entstehen weiterhin ausschließlich im
 Client. Ein zentraler Feedback-Reducer führt Serverereignisse und lokale
 Tatsachen zu einer einzigen sichtbaren Wirkung zusammen.
 
+Die Zuordnung von Ereignissen zu Ausgabewirkungen ist deklarativ in der
+versionierten YAML-Konfiguration des Clients beschrieben. Kanonische,
+namespacete Ereignisschlüssel unterscheiden mindestens `server.*` und
+`client.*`. Jeder bekannte Ereignistyp kann unabhängig eine LED-Wirkung,
+einen Sound und/oder eine freigegebene In-App-Aktion auslösen. Das Mapping ist
+damit weder auf Serverereignisse beschränkt noch im Reducer, in Qt oder im
+LED-Adapter fest verdrahtet.
+
 Der Servereventstrom wird vor der Clientintegration auf SQLite-first gehärtet:
 Ein strukturiertes Ereignis darf erst nach erfolgreichem Commit mit seinem
 endgültigen Cursor über `/ws/logs` ausgeliefert werden. Live und Replay lesen
@@ -111,9 +119,18 @@ einmalige Übermittlung ohne doppelte Benutzerwirkung.
 > **Fortschrittsabgleich vom 9. August 2026:** Die nachfolgend als fehlend
 > beschriebenen Servervoraussetzungen wurden mit AP07-S1/S2 umgesetzt,
 > getestet, produktiv ausgerollt und in die Clientkopie des Serververtrags
-> übernommen. M0–M3 sind abgenommen; die Clientkomponenten aus Abschnitt 9
-> bleiben ab M4 zu implementieren. Der Abnahmenachweis steht unter
-> `docs/2026-08-09_AP07_M0_BIS_M3_ABNAHME/ABSCHLUSSBERICHT.md`.
+> übernommen. M0–M3 sind abgenommen. M4 ergänzt die transportneutralen
+> Clientmodelle, die typisierte Konfiguration einschließlich YAML-Mapping und
+> den Cursorstore. M5 ergänzt den isolierten Eventstreamtransport und
+> Protokollprocessor. M6 bindet beide WebSockets über einen generationgebundenen
+> `SessionContext` und `DualSessionCoordinator` zusammen. M7 ergänzt
+> Normalisierung, reinen Reducer, impulsfreies Replay und kontrollierten,
+> duplikatsicheren STT-Fallback. M8 bindet Qt, Tray, Overlay und Sound über die
+> aufgelöste YAML-Policy an. M9 ergänzt den isolierten ReSpeaker-XVF3800-
+> USB-Adapter. Die automatisierte M10-Härtung und sichere Live-Smokes sind
+> grün; die eingriffs- und bedienabhängige reale Matrix bleibt offen.
+> Der Abnahmenachweis für M0–M3 steht unter
+> `docs/2026-07-30_PROJEKT_EVENT_FEEDBACK_SYSTEM/zwischenstaende_bis_2026-08-01/2026-08-09_AP07_M0_BIS_M3_ABNAHME_ABSCHLUSSBERICHT.md`.
 
 ### 4.1 Client
 
@@ -513,7 +530,36 @@ Der Reducer erhält ausschließlich normalisierte Ereignisse. Er entscheidet:
 
 Er kennt keine WebSocket-Frames und öffnet keine Geräte selbst.
 
-### 9.7 Output-Adapter
+### 9.7 `FeedbackMapping`
+
+Das Feedback-Mapping wird als typisierter Abschnitt der bestehenden
+`config.yaml` geladen und ist die einzige deklarative Quelle für die
+Zuordnung kanonischer Ereignistypen zu Ausgabewirkungen. Es gilt für:
+
+- normalisierte Serverereignisse wie `server.transcription.completed`,
+- lokale Clientereignisse wie `client.microphone.lost`,
+  `client.injection.failed` oder `client.hotkey.accepted`,
+- technische Clientzustände wie Eventstream-Degradation, soweit sie als
+  kanonisches lokales Ereignis modelliert sind.
+
+Ein Mappingeintrag darf null bis drei voneinander unabhängige Wirkungen
+enthalten:
+
+- `led`: bekannte Effekt-ID und validierte Effektparameter,
+- `sound`: bekannte Cue-/Asset-ID und validierte Wiedergabeparameter,
+- `app`: bekannte In-App-Aktions-ID, zum Beispiel ein Tray-/Indikatorzustand
+  oder ein erlaubter Overlayhinweis.
+
+Die Konfiguration referenziert ausschließlich freigegebene deklarative IDs.
+Sie führt keinen Python-Code aus, importiert keine Plugins und leitet keine
+Aktion durch Stringsuche in menschenlesbaren Logmeldungen ab. Unbekannte
+Ereignis-, Effekt-, Cue- oder Aktions-IDs werden bei der
+Konfigurationsvalidierung sichtbar abgelehnt. Dauerzustand, Impuls und
+Replaypolicy bleiben fachliche Entscheidungen des Reducers; die YAML-Datei
+bestimmt ausschließlich, welche Adapterwirkung ein zulässiges normalisiertes
+Ergebnis erhält.
+
+### 9.8 Output-Adapter
 
 Qt, Sound und ReSpeaker-LED sind getrennte Adapter. Ein defekter oder fehlender
 LED-Ring darf den Eventstrom, die Transkription, Textinjektion oder UI nicht
@@ -720,6 +766,12 @@ Bounded Queues bleiben zulässig, aber ihre Semantik muss sichtbar sein:
 Neue Einstellungen werden in die vorhandene typisierte `AppConfig` und die
 deklarativen Metadaten integriert. Keine zweite Wertquelle entsteht.
 
+Das Feedback-Mapping liegt als eigener typisierter YAML-Abschnitt in der
+versionierten `config.yaml`. Projektdefaults und per-user Overrides durchlaufen
+dieselbe vollständige Kandidatenvalidierung wie die übrige `AppConfig`.
+Server- und lokale Clientereignisse verwenden denselben Schematyp, bleiben
+durch ihre Namespaces aber eindeutig unterscheidbar.
+
 Mindestens erforderlich:
 
 - Eventstream grundsätzlich aktiviert,
@@ -728,6 +780,8 @@ Mindestens erforderlich:
 - Cursorpersistenz aktiv,
 - Fallbackpolicy fest und nicht als beliebige Benutzerkombination,
 - einzelne Sound- und LED-Wirkungen aktivierbar,
+- vollständiges Mapping bekannter `server.*`- und `client.*`-Ereignisse auf
+  die Ausgabekanäle `led`, `sound` und `app`,
 - LED-Geräteauswahl beziehungsweise automatische Erkennung mit sicherem
   `unavailable`-Zustand.
 
@@ -838,6 +892,9 @@ AP07 ist erst abgeschlossen, wenn alle folgenden Aussagen belegt sind.
 - Cursor wird erst nach erfolgreicher Verarbeitung atomar persistiert.
 - Token, Session- und Generationwechsel sind abgesichert.
 - LED- und Soundausfälle bleiben lokal isoliert.
+- Das YAML-Mapping kann für Server- und lokale Clientereignisse getrennte oder
+  kombinierte LED-, Sound- und In-App-Wirkungen festlegen; ungültige IDs
+  werden vor Laufzeitübernahme abgelehnt.
 - Qt bleibt im Main Thread; beide WebSockets laufen im Core-Thread; Shutdown
   hinterlässt keine Tasks oder Threads.
 - Der vorhandene Finaltext-, Historien- und Textinjektionspfad bleibt

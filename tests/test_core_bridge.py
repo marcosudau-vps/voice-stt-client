@@ -24,6 +24,9 @@ from core.controller import (
     TransientEventType,
 )
 from core.history import HistoryEntry
+from core.event_models import CanonicalEventType, FeedbackSource, FeedbackState
+from core.feedback_mapping import FeedbackRule
+from core.feedback_reducer import FeedbackDecision
 from core.reinsertion import ReinsertionResult, ReinsertionStatus
 from ui.core_bridge import CoreBridge
 
@@ -52,6 +55,7 @@ class FakeController:
         self.config = config
         self.on_snapshot_change = None
         self.on_feedback_event = None
+        self.on_feedback_decision = None
         self.on_text = None
         self.on_transport_change = None
         self._stop_event = asyncio.Event()
@@ -81,6 +85,14 @@ class FakeController:
                     "transport_not_ready",
                     "blocked",
                     time.time(),
+                )
+            )
+        if self.on_feedback_decision:
+            self.on_feedback_decision(
+                FeedbackDecision(
+                    state=FeedbackState.IDLE,
+                    source=FeedbackSource.LOCAL_ONLY,
+                    rule=FeedbackRule(),
                 )
             )
         if self.on_text:
@@ -118,12 +130,18 @@ class FakeController:
             HistoryEntry("entry", "s", 1, 1.0, "Text", 4),
         )[:limit]
 
+    def report_local_feedback(self, event_type, details=None):
+        self.thread_calls.append(
+            ("local_feedback", threading.get_ident(), event_type, details)
+        )
+
 
 class Receiver(QObject):
     def __init__(self):
         super().__init__()
         self.snapshots = []
         self.feedback = []
+        self.feedback_decisions = []
         self.text = []
         self.commands = []
         self.history = []
@@ -141,6 +159,11 @@ class Receiver(QObject):
     def on_feedback(self, value):
         self._record()
         self.feedback.append(value)
+
+    @Slot(object)
+    def on_feedback_decision(self, value):
+        self._record()
+        self.feedback_decisions.append(value)
 
     @Slot(int, str, bool)
     def on_text(self, segment, text, final):
@@ -171,6 +194,10 @@ class TestCoreBridge(unittest.TestCase):
         queued = Qt.ConnectionType.QueuedConnection
         self.bridge.snapshot_changed.connect(self.receiver.on_snapshot, queued)
         self.bridge.feedback_received.connect(self.receiver.on_feedback, queued)
+        self.bridge.feedback_decision_received.connect(
+            self.receiver.on_feedback_decision,
+            queued,
+        )
         self.bridge.text_received.connect(self.receiver.on_text, queued)
         self.bridge.command_completed.connect(self.receiver.on_command, queued)
         self.bridge.history_received.connect(self.receiver.on_history, queued)
@@ -195,6 +222,7 @@ class TestCoreBridge(unittest.TestCase):
             self.wait_until(
                 lambda: self.receiver.snapshots
                 and self.receiver.feedback
+                and self.receiver.feedback_decisions
                 and self.receiver.text
             )
         )
@@ -217,6 +245,12 @@ class TestCoreBridge(unittest.TestCase):
         self.assertTrue(self.bridge.reinsert_entry("chosen"))
         self.assertTrue(self.bridge.request_history(5))
         self.assertTrue(
+            self.bridge.report_local_feedback(
+                CanonicalEventType.CLIENT_SOUND_FAILED,
+                {"category": "backend"},
+            )
+        )
+        self.assertTrue(
             self.wait_until(
                 lambda: len(self.receiver.commands) >= 3
                 and len(self.receiver.history) >= 1
@@ -225,10 +259,14 @@ class TestCoreBridge(unittest.TestCase):
 
         controller = FakeController.instances[0]
         command_threads = {
-            name: thread_id
-            for name, thread_id in controller.thread_calls
-            if name in {"toggle", "reinsert_last", "reinsert_entry", "history"}
+            item[0]: item[1]
+            for item in controller.thread_calls
+            if item[0] in {"toggle", "reinsert_last", "reinsert_entry", "history"}
         }
+        local_feedback = next(
+            item for item in controller.thread_calls if item[0] == "local_feedback"
+        )
+        self.assertEqual(local_feedback[1], self.bridge.worker_thread_id)
         self.assertEqual(set(command_threads.values()), {self.bridge.worker_thread_id})
         self.assertEqual(self.receiver.history[0][0].id, "entry")
 

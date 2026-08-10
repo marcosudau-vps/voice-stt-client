@@ -10,6 +10,7 @@ from __future__ import annotations
 import asyncio
 import argparse
 import logging
+import multiprocessing
 import signal
 import sys
 from typing import Optional
@@ -155,4 +156,5 @@ def main(argv: Optional[list[str]] = None) -> int:
 
 
 if __name__ == "__main__":
+    multiprocessing.freeze_support()
     raise SystemExit(main())

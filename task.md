@@ -2,8 +2,8 @@
 
 > **Status:** aktiver Tracker  
 > **Stand:** 9. August 2026  
-> **Aktives Paket:** AP7 Feedback- und Eventsystem `[M0–M3 ABGENOMMEN]`  
-> **Nächster Schritt:** M4 / AP07-C1 – Clientmodelle, Konfiguration und Cursorstore  
+> **Aktives Paket:** AP7 Feedback- und Eventsystem `[M10 IN ARBEIT]`
+> **Nächster Schritt:** gesprochene M10-Bedien-, STT-Disconnect- und Langlaufmatrix
 > **Separater Restpunkt:** AP6-Wake-Word-Bediennachweis mit echtem Mikrofon  
 > **Repository/Release:** öffentliches GitHub-Repository und geprüfte Windows-CI-/Release-Strecke eingerichtet
 
@@ -186,7 +186,7 @@ Hinweis: Es existieren weder `core/audio_processor.py` noch `core/stt_client.py`
 - [x] AP6-Dokumentation nach tatsächlicher Implementierung erneut
   synchronisieren und erst dann abschließen
 
-## Phase 7 – Feedback- und Eventsystem (AP7) `[M0–M3 ABGENOMMEN – M4 OFFEN]`
+## Phase 7 – Feedback- und Eventsystem (AP7) `[M0–M9 ABGENOMMEN – M10 IN ARBEIT]`
 
 - [x] bisherige Diskussion in eine verbindliche Gesamtplanung konsolidiert
 - [x] historische Zwischenstände nach
@@ -204,13 +204,61 @@ Hinweis: Es existieren weder `core/audio_processor.py` noch `core/stt_client.py`
   korreliert, Zwei-Session-Scope zusätzlich belegt
 - [x] M3: produktiven Serververtrag nach
   `server-docs-for-client-development/` synchronisieren
-- [ ] M4: Clientmodelle, typisierte Konfiguration und Cursorstore
-- [ ] M5: EventStreamTransport und Protokollprocessor
-- [ ] M6: gemeinsamen Dual-SessionCoordinator integrieren
-- [ ] M7: Normalisierung, Reducer, Replay und Fallback
-- [ ] M8: Qt-, Tray-, Overlay- und Soundintegration
-- [ ] M9: ReSpeaker-LED als ausfallisolierten Adapter integrieren
-- [ ] M10: automatische und reale End-to-End-Fehlerkampagne
+- [x] M4: immutable Clientmodelle, typisierte Eventstream-Konfiguration,
+  strikt validiertes YAML-Mapping für `server.*`- und lokale
+  `client.*`-Ereignisse sowie atomaren, endpointgebundenen Cursorstore
+- [x] M4-Abnahme: 32 fokussierte Tests, vollständige Regression mit 285 Tests
+  und `compileall` erfolgreich; keine UI- oder WebSocketkopplung vorgezogen
+- [x] M5: isolierten `/ws/logs`-Transport mit getrenntem Reconnect, Replay,
+  Ping/Pong und cancellation-sicherem Shutdown sowie strikten
+  Protokollprocessor implementiert
+- [x] M5-Abnahme: 23 fokussierte Tests einschließlich `-W error`, vollständige
+  Regression mit 308 Tests und `compileall` erfolgreich
+- [x] M6: gemeinsamen `DualSessionCoordinator` und generationgebundenen
+  `SessionContext` integrieren; `hello.logAccess` nur für dieselbe aktuelle
+  STT-Session übernehmen, alte Tokens/Events bei Reconnect invalidieren und
+  beide Transporte gemeinsam deterministisch beenden
+- [x] M6-Abnahme: 14 neue Race-/Lifecycle-Prüfungen, 59 relevante Tests mit
+  `-W error`, vollständige Regression mit 322 Tests und `compileall`
+  erfolgreich; Audio-, Finaltext-, Historien- und Injectionpfad unverändert
+- [x] M7: exakte Server- und lokale Clientevents normalisieren; reinen Reducer,
+  impulsfreies Replay, Ein-Quellen-Regel und duplikatsicheren STT-Fallback
+  integrieren
+- [x] M7-Abnahme: 30 fokussierte Tests, 183 relevante Tests mit `-W error`,
+  vollständige Regression mit 352 Tests, `compileall` und `git diff --check`
+  erfolgreich
+- [x] M8: veröffentlichte Reducerausgaben queued an Qt, Tray und Overlay
+  anbinden; sieben YAML-konfigurierbare Sound-Cues integrieren und alte
+  Command-Sounds entfernen
+- [x] M8-Abnahme: 13 neue Tests, 232 relevante Tests mit `-W error`, vollständige
+  Regression mit 365 Tests, `compileall`, `git diff --check`, Offscreen-Qt-
+  Zustandsprüfung und realer Qt-Soundbackend-Smoke erfolgreich
+- [x] M9: ReSpeaker XVF3800 über eigenen minimalen USB-Adapter und Nulladapter
+  integrieren; Updates koaleszieren, Pulse zurückführen, Fehler drosseln und
+  Shutdown sicher begrenzen
+- [x] M9-Abnahme: 13 neue Tests, 254 relevante Tests mit `-W error`, vollständige
+  Regression mit 378 Tests, realer Firmware-/LED-Smoke, `compileall`,
+  `git diff --check` und PyInstaller-Onefile-Build mit libusb erfolgreich
+- [ ] M10: automatische und reale End-to-End-Fehlerkampagne `[IN ARBEIT]`
+  - [x] Servergesamtsuite zweimal stabil: je 379 Tests, 13 Skips und 78
+    Subtests; `compileall` und `git diff --check` grün
+  - [x] Clientgesamtsuite nach der Härtung zweimal stabil: je 396 Tests; 227 fokussierte
+    AP07-Tests mit `-W error`, `compileall` und `git diff --check` grün
+  - [x] sichere Live-Smokes für beide Sessionmodi, zwei Laufzeitmoduswechsel,
+    sessiongebundenen `/ws/logs`-Replay/LIVE-Pfad und Adapterausfälle grün
+  - [x] Prüfbericht und vollständige 13-Punkte-Matrix unter
+    `docs/2026-08-09_AP07_M10_FEHLERKAMPAGNE/PRUEFBERICHT.md`
+  - [x] isolierte lokale Store-/Retention-/WebSocket-Kampagne sowie echter
+    Neustart über zwei Betriebssystemprozesse mit persistiertem SQLite-Store
+  - [x] realer ReSpeaker-Smoke mit fünf Effekten, abschließendem `off` und
+    ohne verwaisten Hilfsprozess
+  - [x] PyInstaller-Onefile-Build 0.1.0 einschließlich Multiprocessing,
+    libusb und `--version`-Smoke
+  - [ ] erneuter realer Hotkey-Gesamtlauf mit sichtbarem AP07-Feedback
+  - [ ] gesprochener Wake-Word-/Follow-up-Gesamtlauf mit sichtbarem Feedback
+  - [ ] sichtbare Disconnect-/Reconnect-Beobachtung während gesprochenem Diktat
+  - [ ] realer Langlauf mit Latenz-/Ressourcenbeobachtung
+  - [ ] reale stille Aufnahme für terminales `discarded`
 - [ ] M11: Dokumentation und operative Gesamtabnahme
 
 ## Phase 8 – Härtung und Polish (AP8) `[OFFEN]`
@@ -257,19 +305,25 @@ Zuletzt am 9. August 2026 ausgeführt (Vor-AP6-Baseline war 197 Tests):
 .\venv\Scripts\python.exe -m unittest discover -s tests -p "test_*.py"
 ```
 
-Ergebnis: **271 Clienttests erfolgreich**; `compileall` über `app.py`,
+Ergebnis: **396 Clienttests erfolgreich** (zweimal stabil); `compileall` über `app.py`,
 `core/`, `ui/`, `scripts/` und `tests/` ebenfalls erfolgreich. Die aktuelle
-Servergesamtsuite bestand **377 Tests bei 13 Skips**; Server-`compileall` und
+Servergesamtsuite bestand zweimal mit **379 Tests bei 13 Skips**; Server-`compileall` und
 `git diff --check` waren grün. Der AP07-Livevertrag wurde mit zwei isolierten
 Sessions sowie einem echten Audiofixture-Ereignis geprüft. Details siehe
 `ÜBERGABE.md` und
-`docs/2026-08-09_AP07_M0_BIS_M3_ABNAHME/ABSCHLUSSBERICHT.md`.
+`docs/2026-07-30_PROJEKT_EVENT_FEEDBACK_SYSTEM/zwischenstaende_bis_2026-08-01/2026-08-09_AP07_M0_BIS_M3_ABNAHME_ABSCHLUSSBERICHT.md`.
 
 - AP1 Historie: 30
 - AP2 Text-Injection-Queue: 41
 - AP3 Reinsertion: 26
-- Controller-Integration, Lifecycle und AP5-Härtung: 62
-- Config-Prüfung: 18
+- Controller-Integration, Lifecycle und AP5-Härtung: 64
+- Config-Prüfung: 19
+- AP07-M4 Eventmodelle, YAML-Mapping und Cursorstore: 13
+- AP07-M5 EventStreamTransport und Protokollprocessor: 23
+- AP07-M6 Dual-SessionCoordinator und Race-Integration: 12
+- AP07-M7 Normalisierung, Reducer und Controller-Integration: 30
+- AP07-M8 Qt-, Tray-, Overlay- und Soundintegration: 13
+- AP07-M9 ReSpeaker-USB-LED-Adapter und Replay-Härtung: 13
 - Session-, Backoff- und Ping/Pong-Härtung: 18
 - `app.py` Audio-Thread-Brücke und DI-Isolation: 10
 - native Hotkeys: 6

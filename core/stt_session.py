@@ -17,6 +17,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import math
 import random
 import struct
 import time
@@ -1194,13 +1195,22 @@ class STTSession:
         # _backoff_attempt counts failed connections. The first failure uses
         # the configured minimum, subsequent failures double from there.
         exponent = max(self._backoff_attempt - 1, 0)
-        base = min(
-            min_delay * (2 ** exponent),
-            self._config.reconnect_max_delay,
-        )
+        maximum = self._config.reconnect_max_delay
+        if min_delay >= maximum:
+            base = maximum
+        else:
+            steps_to_cap = max(
+                0,
+                math.ceil(math.log2(maximum) - math.log2(min_delay)),
+            )
+            base = (
+                maximum
+                if exponent >= steps_to_cap
+                else min(math.ldexp(min_delay, exponent), maximum)
+            )
         jitter = base * self._config.reconnect_jitter * random.random()
         total_delay = base + jitter
-        return min(total_delay, self._config.reconnect_max_delay)
+        return min(total_delay, maximum)
 
     def _record_failure(self, reason: str, *, server_busy: bool = False) -> None:
         self._backoff_attempt += 1

@@ -15,6 +15,12 @@ from core.controller import (
     TransientEventType,
 )
 from core.history import HistoryEntry
+from core.event_models import (
+    CanonicalEventType,
+    FeedbackImpulse,
+)
+from core.feedback_mapping import AppActionId
+from core.feedback_reducer import FeedbackDecision
 from core.stt_session import SessionState
 
 
@@ -43,6 +49,14 @@ class FeedbackPresentation:
     color: IndicatorColor
     text: str
     duration_ms: int = 1000
+
+
+@dataclass(frozen=True)
+class MappedAppPresentation:
+    color: IndicatorColor
+    status_text: str
+    border_color: str | None = None
+    duration_ms: int | None = None
 
 
 _AVAILABILITY_PRESENTATION = {
@@ -192,6 +206,101 @@ def presentation_for_feedback(event: TransientEvent) -> FeedbackPresentation:
         else:
             text = "Diktat konnte nicht gestartet werden"
     return FeedbackPresentation(color=color, text=text)
+
+
+def presentation_for_mapped_action(
+    action: AppActionId,
+    *,
+    operating_mode: str,
+) -> MappedAppPresentation:
+    """Translate a configured in-app action without inspecting server strings."""
+    mode_color = (
+        IndicatorColor.DARK_BLUE
+        if operating_mode == "wake_word"
+        else IndicatorColor.DARK_GREEN
+    )
+    active_color = (
+        IndicatorColor.BLUE
+        if operating_mode == "wake_word"
+        else IndicatorColor.GREEN
+    )
+    mapped = {
+        AppActionId.INDICATOR_IDLE: MappedAppPresentation(
+            mode_color,
+            "Wartet auf Wake Word" if operating_mode == "wake_word" else "Wartet auf Hotkey",
+        ),
+        AppActionId.INDICATOR_WAITING_FOR_WAKE_WORD: MappedAppPresentation(
+            mode_color,
+            "Wartet auf Wake Word",
+        ),
+        AppActionId.INDICATOR_WAITING_FOR_SPEECH: MappedAppPresentation(
+            mode_color,
+            "Wartet auf Sprache",
+            border_color="#ffffff",
+        ),
+        AppActionId.INDICATOR_RECORDING: MappedAppPresentation(
+            active_color,
+            "Sprache wird aufgenommen",
+        ),
+        AppActionId.INDICATOR_FINALIZING: MappedAppPresentation(
+            mode_color,
+            "Transkribiert",
+        ),
+        AppActionId.INDICATOR_SUCCESS: MappedAppPresentation(
+            active_color,
+            "Transkription abgeschlossen",
+            duration_ms=900,
+        ),
+        AppActionId.INDICATOR_WARNING: MappedAppPresentation(
+            IndicatorColor.YELLOW,
+            "Feedback eingeschränkt",
+            duration_ms=1200,
+        ),
+        AppActionId.INDICATOR_ERROR: MappedAppPresentation(
+            IndicatorColor.RED,
+            "Aktion fehlgeschlagen",
+            duration_ms=1400,
+        ),
+    }
+    return mapped[action]
+
+
+def presentation_for_feedback_decision(
+    decision: FeedbackDecision,
+    *,
+    operating_mode: str,
+) -> FeedbackPresentation | None:
+    """Create optional overlay feedback from one already mapped decision."""
+    if not decision.publish or decision.replay or decision.rule.app is None:
+        return None
+    mapped = presentation_for_mapped_action(
+        decision.rule.app.action,
+        operating_mode=operating_mode,
+    )
+    text = mapped.status_text
+    if decision.event is not None:
+        if (
+            decision.event.event_type
+            is CanonicalEventType.CLIENT_EVENT_STREAM_DEGRADED
+        ):
+            text = "Event-Feedback vorübergehend eingeschränkt"
+        elif decision.event.impulse is not None:
+            text = {
+                FeedbackImpulse.WAKE_WORD_DETECTED: "Wake Word erkannt",
+                FeedbackImpulse.RECORDING_STARTED: "Aufnahme läuft",
+                FeedbackImpulse.RECORDING_ENDED: "Transkription wird verarbeitet",
+                FeedbackImpulse.TRANSCRIPTION_COMPLETED: "Transkription abgeschlossen",
+                FeedbackImpulse.TRANSCRIPTION_FAILED: "Transkription fehlgeschlagen",
+                FeedbackImpulse.DICTATION_INTERRUPTED: "Diktat wurde unterbrochen",
+                FeedbackImpulse.MICROPHONE_LOST: "Mikrofon derzeit nicht verfügbar",
+                FeedbackImpulse.INJECTION_FAILED: "Text konnte nicht eingefügt werden",
+                FeedbackImpulse.ACTION_BLOCKED: "Aktion derzeit nicht verfügbar",
+            }[decision.event.impulse]
+    return FeedbackPresentation(
+        color=mapped.color,
+        text=text,
+        duration_ms=mapped.duration_ms or 1000,
+    )
 
 
 def format_history_label(entry: HistoryEntry, max_characters: int = 72) -> str:

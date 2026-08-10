@@ -94,6 +94,14 @@ class TestSTTSessionStateAndBackoff(unittest.TestCase):
                 self.config.reconnect_max_delay,
             )
 
+    def test_backoff_does_not_overflow_after_extreme_failure_count(self) -> None:
+        self.session._backoff_attempt = 100_000
+        with patch("core.stt_session.random.random", return_value=0.0):
+            self.assertEqual(
+                self.session._backoff_delay(),
+                self.config.reconnect_max_delay,
+            )
+
     def test_server_busy_uses_long_minimum_but_remains_capped(self) -> None:
         self.session._is_server_busy = True
         self.session._backoff_attempt = 1

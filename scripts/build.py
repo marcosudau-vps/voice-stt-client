@@ -20,6 +20,15 @@ DIST_DIR = REPO_ROOT / "dist"
 BUILD_DIR = REPO_ROOT / "build"
 EXE_PATH = DIST_DIR / "voice-stt-client.exe"
 VERSION_PATTERN = re.compile(r"\d+\.\d+\.\d+")
+PYINSTALLER_BOOTSTRAP = (
+    "import platform; "
+    "platform.system=lambda:'Windows'; "
+    "platform.machine=lambda:'AMD64'; "
+    "platform.win32_ver=lambda *args,**kwargs:('11','','','Multiprocessor Free'); "
+    "platform._get_machine_win32=lambda:'AMD64'; "
+    "platform._Processor.get=lambda:'AMD64'; "
+    "from PyInstaller.__main__ import run; run()"
+)
 
 
 class BuildError(RuntimeError):
@@ -105,11 +114,16 @@ def build(*, clean: bool = False, smoke_test: bool = True) -> Path:
 
         env = os.environ.copy()
         env["VOICE_STT_VERSION_FILE"] = str(temp_path)
+        site_dir = REPO_ROOT / "scripts" / "pyinstaller_site"
+        existing_python_path = env.get("PYTHONPATH")
+        env["PYTHONPATH"] = os.pathsep.join(
+            part for part in (str(site_dir), existing_python_path) if part
+        )
         run(
             [
                 sys.executable,
-                "-m",
-                "PyInstaller",
+                "-c",
+                PYINSTALLER_BOOTSTRAP,
                 "--noconfirm",
                 "--clean",
                 str(SPEC_FILE),
