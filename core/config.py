@@ -21,11 +21,15 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 import yaml
 
+from core.feedback_mapping import FeedbackMappingConfig, default_feedback_mappings
+
 logger = logging.getLogger(__name__)
 
 # Application directory: where app.py lives
 APP_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_CONFIG_PATH = APP_DIR / "config.yaml"
+LED_SINKS = ("respeaker", "simulator", "null")
+"""Where LEFX puts its frames. 'simulator' needs the optional package installed."""
 DEFAULT_LOCAL_APP_DIR = Path(os.environ.get("LOCALAPPDATA", APP_DIR)) / "RealtimeSTT Client"
 DEFAULT_LOG_DIR = DEFAULT_LOCAL_APP_DIR / "logs"
 DEFAULT_USER_CONFIG_PATH = (
@@ -168,6 +172,94 @@ class ServerConfig:
             raise ValueError("hello_timeout must be > 0")
         if self.ready_timeout <= 0:
             raise ValueError("ready_timeout must be > 0")
+
+
+@dataclass
+class EventStreamConfig:
+    """Reliable `/ws/logs` transport limits without any access token data."""
+
+    enabled: bool = True
+    connect_timeout: float = 10.0
+    handshake_timeout: float = 10.0
+    replay_timeout: float = 60.0
+    message_timeout: float = 30.0
+    reconnect_min_delay: float = 0.5
+    reconnect_max_delay: float = 30.0
+    reconnect_jitter: float = 0.3
+    max_message_size: int = 1024 * 1024
+    queue_maxsize: int = 512
+    cursor_persistence_enabled: bool = True
+    cursor_path: Optional[str] = None
+
+    def validate(self) -> None:
+        if not isinstance(self.enabled, bool):
+            raise ValueError("event_stream.enabled must be a boolean")
+        if not isinstance(self.cursor_persistence_enabled, bool):
+            raise ValueError(
+                "event_stream.cursor_persistence_enabled must be a boolean"
+            )
+        for name, value in {
+            "connect_timeout": self.connect_timeout,
+            "handshake_timeout": self.handshake_timeout,
+            "replay_timeout": self.replay_timeout,
+            "message_timeout": self.message_timeout,
+            "reconnect_min_delay": self.reconnect_min_delay,
+            "reconnect_max_delay": self.reconnect_max_delay,
+            "reconnect_jitter": self.reconnect_jitter,
+        }.items():
+            if (
+                isinstance(value, bool)
+                or not isinstance(value, (int, float))
+                or not math.isfinite(value)
+            ):
+                raise ValueError(f"event_stream.{name} must be a finite number")
+        for name in (
+            "connect_timeout", "handshake_timeout", "replay_timeout",
+            "message_timeout", "reconnect_min_delay", "reconnect_max_delay",
+        ):
+            if getattr(self, name) <= 0:
+                raise ValueError(f"event_stream.{name} must be > 0")
+        if self.reconnect_max_delay < self.reconnect_min_delay:
+            raise ValueError(
+                "event_stream.reconnect_max_delay cannot be less than reconnect_min_delay"
+            )
+        if not 0.0 <= self.reconnect_jitter < 1.0:
+            raise ValueError("event_stream.reconnect_jitter must be >= 0 and < 1")
+        for name, value, minimum, maximum in (
+            ("max_message_size", self.max_message_size, 1024, 64 * 1024 * 1024),
+            ("queue_maxsize", self.queue_maxsize, 1, 100000),
+        ):
+            if (
+                isinstance(value, bool)
+                or not isinstance(value, int)
+                or not minimum <= value <= maximum
+            ):
+                raise ValueError(
+                    f"event_stream.{name} must be between {minimum} and {maximum}"
+                )
+        if self.cursor_path is not None and (
+            not isinstance(self.cursor_path, str) or not self.cursor_path.strip()
+        ):
+            raise ValueError("event_stream.cursor_path must be null or non-empty")
+        if self.cursor_path is not None and not Path(self.cursor_path).expanduser().is_absolute():
+            raise ValueError("event_stream.cursor_path must be an absolute path")
+
+    @staticmethod
+    def build_url(server_base_url: str, websocket_path: str) -> str:
+        """Build a same-origin event URL from the server-confirmed path."""
+        if not isinstance(server_base_url, str) or not server_base_url.strip():
+            raise ValueError("server_base_url must be a non-empty string")
+        base = urlsplit(server_base_url.strip())
+        if base.scheme not in {"ws", "wss"} or not base.netloc:
+            raise ValueError("server_base_url must be an absolute ws:// or wss:// URL")
+        if base.username or base.password:
+            raise ValueError("server_base_url must not contain credentials")
+        if not isinstance(websocket_path, str) or not websocket_path.startswith("/"):
+            raise ValueError("websocket_path must be an absolute server path")
+        path = urlsplit(websocket_path)
+        if path.scheme or path.netloc or path.query or path.fragment:
+            raise ValueError("websocket_path must not change origin or contain a query")
+        return urlunsplit((base.scheme, base.netloc, path.path, "", ""))
 
 
 class OperatingMode(str, Enum):
@@ -517,20 +609,104 @@ class FeedbackConfig:
     """Optional non-blocking UI feedback."""
 
     sounds_enabled: bool = False
+    wake_word_sound: Optional[str] = None
     start_sound: Optional[str] = None
     stop_sound: Optional[str] = None
+    complete_sound: Optional[str] = None
     cancel_sound: Optional[str] = None
+    warning_sound: Optional[str] = None
+    error_sound: Optional[str] = None
 
     def validate(self) -> None:
         if not isinstance(self.sounds_enabled, bool):
             raise ValueError("feedback.sounds_enabled must be a boolean")
         for name, value in {
+            "feedback.wake_word_sound": self.wake_word_sound,
             "feedback.start_sound": self.start_sound,
             "feedback.stop_sound": self.stop_sound,
+            "feedback.complete_sound": self.complete_sound,
             "feedback.cancel_sound": self.cancel_sound,
+            "feedback.warning_sound": self.warning_sound,
+            "feedback.error_sound": self.error_sound,
         }.items():
             if value is not None and not isinstance(value, str):
                 raise ValueError(f"{name} must be null or a string")
+
+
+@dataclass
+class LedConfig:
+    """LED output, driven by the LEFX V3 controller in a thread of this process.
+
+    The client no longer speaks USB itself. What is configured here is which
+    output LEFX drives, how hard it is driven, and how long it may take to stop
+    — not firmware registers.
+
+    ``brightness`` stays on its original 0..255 scale even though LEFX takes a
+    fraction. The number is divided by 255 on the way out. Rescaling it to 0..100
+    would have been tidier and would have silently made everybody's ring four
+    times brighter on the next start.
+    """
+
+    enabled: bool = True
+    sink: str = "respeaker"
+    fps: float = 30.0
+    vendor_id: int = 0x2886
+    product_id: int = 0x001A
+    brightness: int = 64
+    usb_timeout_ms: int = 1000
+    shutdown_timeout: float = 1.5
+    effect_paths: list = field(default_factory=list)
+    simulation_offer_after_s: float = 120.0
+
+    @property
+    def brightness_fraction(self) -> float:
+        """``brightness`` as LEFX wants it: 0.0 to 1.0."""
+        return max(0.0, min(1.0, self.brightness / 255.0))
+
+    def validate(self) -> None:
+        if not isinstance(self.enabled, bool):
+            raise ValueError("led.enabled must be a boolean")
+        if self.sink not in LED_SINKS:
+            raise ValueError(f"led.sink must be one of {list(LED_SINKS)}")
+        for name, value, minimum, maximum in (
+            ("vendor_id", self.vendor_id, 0, 0xFFFF),
+            ("product_id", self.product_id, 0, 0xFFFF),
+            ("brightness", self.brightness, 0, 255),
+            ("usb_timeout_ms", self.usb_timeout_ms, 50, 5000),
+        ):
+            if (
+                isinstance(value, bool)
+                or not isinstance(value, int)
+                or not minimum <= value <= maximum
+            ):
+                raise ValueError(
+                    f"led.{name} must be an integer between {minimum} and {maximum}"
+                )
+        for name, value, minimum, maximum in (
+            ("fps", self.fps, 1.0, 120.0),
+            ("shutdown_timeout", self.shutdown_timeout, 0.1, 10.0),
+        ):
+            if (
+                isinstance(value, bool)
+                or not isinstance(value, (int, float))
+                or not math.isfinite(value)
+                or not minimum <= value <= maximum
+            ):
+                raise ValueError(f"led.{name} must be between {minimum} and {maximum}")
+        if (
+            isinstance(self.simulation_offer_after_s, bool)
+            or not isinstance(self.simulation_offer_after_s, (int, float))
+            or not math.isfinite(self.simulation_offer_after_s)
+            or self.simulation_offer_after_s < 0
+        ):
+            raise ValueError(
+                "led.simulation_offer_after_s must be 0 (never offer) or a "
+                "positive number of seconds"
+            )
+        if not isinstance(self.effect_paths, list) or not all(
+            isinstance(item, str) and item.strip() for item in self.effect_paths
+        ):
+            raise ValueError("led.effect_paths must be a list of directory paths")
 
 
 @dataclass
@@ -555,6 +731,7 @@ class AppConfig:
     """Root configuration combining all sections."""
 
     server: ServerConfig = field(default_factory=ServerConfig)
+    event_stream: EventStreamConfig = field(default_factory=EventStreamConfig)
     session: SessionConfig = field(default_factory=SessionConfig)
     dictation_window: DictationWindowConfig = field(
         default_factory=DictationWindowConfig
@@ -567,15 +744,22 @@ class AppConfig:
     logging: LoggingConfig = field(default_factory=LoggingConfig)
     clipboard: ClipboardConfig = field(default_factory=ClipboardConfig)
     feedback: FeedbackConfig = field(default_factory=FeedbackConfig)
+    led: LedConfig = field(default_factory=LedConfig)
+    feedback_mappings: FeedbackMappingConfig = field(
+        default_factory=default_feedback_mappings
+    )
 
     def validate(self) -> None:
         """Validate configuration consistency."""
         self.server.validate()
+        self.event_stream.validate()
         self.session.validate()
         self.dictation_window.validate()
         self.hotkey.validate()
         self.overlay.validate()
         self.feedback.validate()
+        self.led.validate()
+        self.feedback_mappings.validate()
 
     @classmethod
     def load(
@@ -674,6 +858,7 @@ class AppConfig:
 
         cfg = cls(
             server=_build(ServerConfig, data.get("server", {})),
+            event_stream=_build(EventStreamConfig, data.get("event_stream", {})),
             session=_build(SessionConfig, data.get("session", {})),
             dictation_window=_build(
                 DictationWindowConfig, data.get("dictation_window", {})
@@ -686,6 +871,12 @@ class AppConfig:
             logging=_build(LoggingConfig, data.get("logging", {})),
             clipboard=_build(ClipboardConfig, data.get("clipboard", {})),
             feedback=_build(FeedbackConfig, data.get("feedback", {})),
+            led=_build(LedConfig, data.get("led", {})),
+            feedback_mappings=(
+                FeedbackMappingConfig.from_mapping(data["feedback_mappings"])
+                if "feedback_mappings" in data
+                else default_feedback_mappings()
+            ),
         )
         cfg.validate()
         return cfg
@@ -695,7 +886,11 @@ class AppConfig:
         config_path = Path(path) if path else DEFAULT_CONFIG_PATH
         config_path.parent.mkdir(parents=True, exist_ok=True)
 
-        data = dataclasses.asdict(self)
+        data = self._to_plain_data(dataclasses.asdict(self))
+        # asdict produces the dataclass fields, and for a LED call the fields
+        # are not the schema: the verb is a key in the file, not a value. The
+        # section writes itself instead, so a saved file loads again.
+        data["feedback_mappings"] = self.feedback_mappings.to_mapping()
         data["hotkey"]["toggle_key"] = normalize_hotkey_spec(
             self.hotkey.effective_toggle_key
         )
@@ -725,6 +920,16 @@ class AppConfig:
             if temporary_path is not None and temporary_path.exists():
                 temporary_path.unlink()
         logger.info("Configuration saved to %s", config_path)
+
+    @classmethod
+    def _to_plain_data(cls, value: Any) -> Any:
+        if isinstance(value, Enum):
+            return value.value
+        if isinstance(value, dict):
+            return {key: cls._to_plain_data(item) for key, item in value.items()}
+        if isinstance(value, (list, tuple)):
+            return [cls._to_plain_data(item) for item in value]
+        return value
 
     def save_user(self, path: Optional[Path] = None) -> None:
         """Persist the validated user configuration outside the repository."""

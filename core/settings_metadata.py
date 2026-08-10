@@ -240,19 +240,60 @@ SETTING_DEFINITIONS = (
         SettingType.BOOLEAN, "Erscheinungsbild & Feedback", "Feedback", 80,
     ),
     SettingDefinition(
-        "feedback.start_sound", "Startsound", "Lokaler Pfad zu einem Soundasset.",
+        "feedback.wake_word_sound", "Wake-Word-Sound", "Lokaler Pfad zu einem Soundasset.",
         SettingType.STRING, "Erscheinungsbild & Feedback", "Feedback", 90,
         visible_when=("feedback.sounds_enabled", True),
     ),
     SettingDefinition(
-        "feedback.stop_sound", "Stopsound", "Lokaler Pfad zu einem Soundasset.",
+        "feedback.start_sound", "Startsound", "Lokaler Pfad zu einem Soundasset.",
         SettingType.STRING, "Erscheinungsbild & Feedback", "Feedback", 100,
         visible_when=("feedback.sounds_enabled", True),
     ),
     SettingDefinition(
-        "feedback.cancel_sound", "Abbruchsound", "Lokaler Pfad zu einem Soundasset.",
+        "feedback.stop_sound", "Stopsound", "Lokaler Pfad zu einem Soundasset.",
         SettingType.STRING, "Erscheinungsbild & Feedback", "Feedback", 110,
         visible_when=("feedback.sounds_enabled", True),
+    ),
+    SettingDefinition(
+        "feedback.complete_sound", "Abschlusssound", "Lokaler Pfad zu einem Soundasset.",
+        SettingType.STRING, "Erscheinungsbild & Feedback", "Feedback", 120,
+        visible_when=("feedback.sounds_enabled", True),
+    ),
+    SettingDefinition(
+        "feedback.cancel_sound", "Abbruchsound", "Lokaler Pfad zu einem Soundasset.",
+        SettingType.STRING, "Erscheinungsbild & Feedback", "Feedback", 130,
+        visible_when=("feedback.sounds_enabled", True),
+    ),
+    SettingDefinition(
+        "feedback.warning_sound", "Warnsound", "Lokaler Pfad zu einem Soundasset.",
+        SettingType.STRING, "Erscheinungsbild & Feedback", "Feedback", 140,
+        visible_when=("feedback.sounds_enabled", True),
+    ),
+    SettingDefinition(
+        "feedback.error_sound", "Fehlersound", "Lokaler Pfad zu einem Soundasset.",
+        SettingType.STRING, "Erscheinungsbild & Feedback", "Feedback", 150,
+        visible_when=("feedback.sounds_enabled", True),
+    ),
+    SettingDefinition(
+        "led.enabled", "ReSpeaker-LED", "LED-Ring des XVF3800 automatisch verwenden.",
+        SettingType.BOOLEAN, "Erscheinungsbild & Feedback", "Feedback", 160,
+    ),
+    SettingDefinition(
+        "led.sink", "LED-Ausgabe",
+        "Hardware-Ring, Simulatorfenster (Zusatzpaket) oder keine Ausgabe.",
+        SettingType.CHOICE, "Erscheinungsbild & Feedback", "Feedback", 165,
+        visible_when=("led.enabled", True),
+        options=(
+            ("ReSpeaker", "respeaker"),
+            ("Simulator", "simulator"),
+            ("Keine", "null"),
+        ),
+    ),
+    SettingDefinition(
+        "led.brightness", "LED-Helligkeit", "Helligkeit von 0 bis 255.",
+        SettingType.INTEGER, "Erscheinungsbild & Feedback", "Feedback", 170,
+        minimum=0, maximum=255, step=1,
+        visible_when=("led.enabled", True),
     ),
 )
 

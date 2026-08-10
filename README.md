@@ -37,7 +37,19 @@ realen Abschlusstest gefundenen Clientfehler beim Laufzeitwechsel der
 Betriebsmodi sind behoben, automatisiert regressionsgetestet und durch
 wiederholte Wechsel gegen den produktiven Server verifiziert. Für die formale
 Abnahme bleibt nur die erneute gesprochene Wake-Word-Prüfung. Für AP7 sind
-M0–M3 abgenommen; der nächste Implementierungsschritt ist M4.
+M0–M9 abgenommen. Die transportneutralen Eventmodelle, die typisierte
+Eventstream-Konfiguration, das YAML-Mapping für Server- und lokale
+Clientereignisse, die Cursorpersistenz sowie der isolierte, reconnectende
+`/ws/logs`-Transport mit strengem Protokollprocessor sind vorhanden. Der
+generationgebundene `DualSessionCoordinator` übernimmt `hello.logAccess`,
+invalidiert alte Logsessions bei STT-Reconnect und beendet beide Transporte
+deterministisch. Normalisierung, reiner Feedback-Reducer, Replay ohne alte
+Impulse und duplikatsicherer STT-Fallback sind in M7 integriert. M8 überträgt
+die Reducerausgaben queued in den Qt-Main-Thread und steuert Tray, Overlay und
+alle sieben optionalen Sound-Cues ausschließlich über das YAML-Mapping. M9
+ergänzt den koaleszierenden, ausfallisolierten USB-LED-Adapter für den
+ReSpeaker XVF3800 einschließlich Nulladapter und sicherem Shutdown. Der nächste
+Implementierungsschritt ist M10 (End-to-End-Härtung und Fehlerkampagne).
 
 ## Voraussetzungen
 

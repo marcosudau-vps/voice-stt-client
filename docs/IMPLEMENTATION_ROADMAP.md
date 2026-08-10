@@ -2,8 +2,8 @@
 
 > **Status:** verbindlicher Gesamtfahrplan  
 > **Stand:** 9. August 2026  
-> **Aktives Paket:** AP7 Feedback- und Eventsystem; M0–M3 abgenommen  
-> **Nächster Meilenstein:** M4 / AP07-C1 – Clientmodelle, Konfiguration und Cursorstore  
+> **Aktives Paket:** AP7 Feedback- und Eventsystem; M10 in Arbeit
+> **Nächster Meilenstein:** M10-Bedien-/Langlaufmatrix abschließen, danach M11
 > **Separater Restpunkt:** erneuter gesprochener AP6-Wake-Word-Nachweis  
 > **Infrastruktur:** öffentliches GitHub-Repository, Windows-CI, PyInstaller-Build und Release-Gate eingerichtet
 
@@ -298,7 +298,7 @@ Details und Abnahmekriterien des abgeschlossenen AP06-Folgeumfangs stehen in
 
 ---
 
-## Arbeitspaket 7: Feedback- und Eventsystem `[M0–M3 ABGENOMMEN – M4 OFFEN]`
+## Arbeitspaket 7: Feedback- und Eventsystem `[M0–M9 ABGENOMMEN – M10 IN ARBEIT]`
 
 Ziel ist ein zuverlässiger serverseitiger Feedbackstrom über `/ws/logs`, der
 unter einem gemeinsamen SessionCoordinator neben dem bestehenden Audio- und
@@ -308,8 +308,45 @@ Feedback-Reducer versorgt.
 Stand 9. August 2026: Die Servervorstufe, der produktive SQLite-first-
 Protokollnachweis und die Synchronisierung des Serververtrags sind als M0–M3
 abgeschlossen. Der Servercommit `dedcdd93e836b2a9df4771da8514a09645c7674f`
-liegt lokal und auf `origin/main`. Die Clientintegration wurde noch nicht
-begonnen; ihr nächster zulässiger Schnitt ist M4.
+liegt lokal und auf `origin/main`. M4 ergänzt transportneutrale Clientmodelle,
+typisierte Eventstream-Konfiguration, das strikt validierte YAML-Mapping für
+`server.*`- und lokale `client.*`-Ereignisse sowie einen atomaren Cursorstore.
+M5 ergänzt den isolierten, reconnectenden `/ws/logs`-Transport und den strikt
+validierenden Protokollprocessor einschließlich Replay-/Live-Phasen,
+expliziter Verarbeitungsbestätigung, begrenzter Deduplizierung und typisierter
+Fehlerfälle. M6 ergänzt den vom Controller besessenen
+`DualSessionCoordinator` und einen gemeinsamen `SessionContext` mit Generation,
+Session-ID, Logzugang, Eventstatus und Tokenablauf. Alte Logsessions und
+In-Flight-Events werden bei STT-Verlust oder Generationswechsel verworfen;
+Event-Reconnect bleibt innerhalb der gültigen Session unabhängig und der
+gemeinsame Shutdown ist idempotent. M7 normalisiert die exakten strukturierten
+Serverevents und lokale Clienttatsachen in ein gemeinsames Modell. Ein reiner
+Reducer trennt Dauerzustände und Impulse, rekonstruiert Replay ohne alte
+Impulse, schaltet atomar zwischen Eventstream und begrenztem STT-Fallback um
+und unterdrückt technische wie semantische Duplikate mit begrenztem Speicher.
+Das YAML-Mapping wird erst nach der fachlichen Entscheidung ausgewertet; UI-,
+Sound- und LED-Wirkungen bleiben damit außerhalb des Reducers. Der nächste
+zulässige Schnitt ist M8. M8 überträgt ausschließlich veröffentlichte
+Reducerausgaben über ein queued Qt-Signal in den Main Thread. Das konfigurierte
+In-App-Mapping steuert Tray und Overlay unter Erhalt der Hotkey-/Wake-Word-
+Farben; Eventstreamdegradation bleibt technische Zusatzinformation. Alle
+sieben Sound-Cues beziehen Asset und Lautstärke aus der typisierten
+Konfiguration, alte Command-Sounds sind entfernt und Adapterfehler werden
+begrenzt als lokales `client.sound.failed` in denselben Reducer zurückgeführt.
+M9 ergänzt einen eigenen minimalen
+USB-Control-Transfer-Adapter für den tatsächlich vorhandenen ReSpeaker XVF3800
+sowie einen Nulladapter. Ein einzelner begrenzter Worker koalesziert Updates,
+stellt nach Liveimpulsen den letzten Dauerzustand wieder her, unterdrückt
+Replay-Pulse, drosselt Gerätefehler und beendet mit einem zeitlich begrenzten
+`off`. USB-Bibliotheken und DLL sind im verifizierten Onefile-Build enthalten.
+M10 hat die vollständigen Server- und Clientsuiten wiederholt, die fokussierte
+AP07-Suite mit Warnungen als Fehler sowie sichere produktive Smokes für
+Sessionmodi, Moduswechsel und den sessiongebundenen Eventstream bestanden.
+Adapterausfälle und der echte ReSpeaker-Effektpfad bis `off` sind zusätzlich
+belegt. Die isolierte lokale Kampagne deckt Storeausfall, Retention und einen
+persistenten Neustart über zwei echte Betriebssystemprozesse ab. Offen bleiben
+die gesprochenen Bedienabläufe, ein sichtbarer STT-Disconnect, stilles Final
+und Langlauf. M11 bleibt bis zu deren Abschluss gesperrt.
 
 Verbindliche Eckpunkte:
 
@@ -327,6 +364,10 @@ Verbindliche Eckpunkte:
   duplikatsicherer `/ws/transcribe`-Fallback.
 - Lokale Clienttatsachen bleiben lokal und werden erst im Feedback-Reducer
   zusammengeführt.
+- Ein typisierter `feedback_mappings`-Abschnitt der versionierten
+  `config.yaml` ordnet kanonische `server.*`- und `client.*`-Ereignisse
+  deklarativ LED-, Sound- und freigegebenen In-App-Wirkungen zu. Die Adapter
+  enthalten keine eigene zweite Mappingtabelle.
 - ReSpeaker-LED und Sound sind ausfallisolierte Ausgabeadapter.
 - Bestehender AP1–AP6-Core, Threading- und Textinjektionsvertrag bleiben
   geschützt.
@@ -360,3 +401,49 @@ damit alle folgenden Pakete sofort durch diese Gates laufen. Für AP08 bleiben:
 - fortlaufende Repository- und Laufzeitdatei-Hygiene,
 - abschließende End-to-End- und Bedienprüfungen,
 - abschließender Release- und Dokumentationsabgleich.
+
+---
+
+## Arbeitspaket 9: LED-Ausgabe über LEFX V3 `[ABGENOMMEN]`
+
+Der eigene USB-LED-Adapter aus AP07-M9 ist ersetzt durch den eingebetteten
+**LEFX-V3-Controller** (`led-controller-version-3`), der im selben Prozess in
+einem eigenen Thread läuft. `feedback_mappings` spricht seit `schema_version: 2`
+direkt LEFX-Verben und erreicht damit den vollen Katalog aus 36 Effekten und
+71 Presets statt zehn fester Wirkungen.
+
+### Implementiert
+
+- `core/led_controller.py` als schmale Naht mit sechs Verben; die eingebettete
+  Form ist gebaut, eine HTTP-Form wäre eine zweite Implementierung desselben
+  Ports.
+- `LedFeedback` mit Warteschlange statt Einzelplatz: Zustände werden je Slot
+  zusammengefasst, Meldungen nie verworfen. Ein einziger Thread ruft LEFX auf.
+- Startprüfung gegen den Katalog: unbekanntes Effektziel bricht den Start ab
+  (Exitcode 7), fehlende Hardware niemals.
+- Mikrofon-Stummschaltung und manuelle Reconnects für Gerät und Server, im
+  Kontextmenü und im Einstellungsdialog.
+- Angebot zur Umschaltung auf den Simulator nach anhaltend unerreichbarem Ring.
+
+### Abnahme
+
+- 427 automatisierte Tests grün, `compileall` sauber.
+- Hardware-Smoke am ReSpeaker: alle 13 Zustände und Meldungen, sauberes Beenden.
+- Trennung und Wiederverbindung über den Simulator: eine Meldung je Ausfall,
+  Erholung ohne Zutun.
+- Langlauf 24 Minuten: Leerlauf 0,63 %, Betrieb 0,91 % eines Kerns; RSS und
+  Handles stabil.
+- Gefrorener Build geprüft: Kataloge im Bundle, HTTP-Stack ausgeschlossen,
+  Startprüfung besteht, +258 KB.
+
+### Offen
+
+- Physischer Kabelzug am ReSpeaker (nur von Hand prüfbar).
+- Ende-zu-Ende gegen den echten Server — dieser antwortete während der Abnahme
+  durchgehend mit HTTP 502.
+- Overlays und laufende Datenflüsse (Pegel, Countdown, DoA) sind bewusst ein
+  eigenes Folgepaket.
+
+Entscheidungen und Messwerte:
+`docs/decisions/ADR-004_LED_AUSGABE_UEBER_LEFX_V3.md`,
+`docs/work-packages/LEFX_V3_LED_CONTROLLER_INTEGRATION_PLANUNG.md`.

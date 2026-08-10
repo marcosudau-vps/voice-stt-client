@@ -3,3 +3,7 @@ sounddevice>=0.4.6,<0.6.0
 numpy>=1.24,<3.0
 PySide6>=6.7,<7.0
 PyYAML>=6.0,<7.0
+# Der LED-Ring des ReSpeaker XVF3800 wird ausschliesslich ueber LEFX V3
+# angesteuert. pyusb und libusb-package kommen transitiv mit; der Client
+# fasst den USB-Teil des Geraets nicht mehr selbst an.
+led-controller-version-3==3.0.3

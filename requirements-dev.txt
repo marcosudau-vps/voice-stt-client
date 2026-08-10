@@ -1,2 +1,6 @@
 -r requirements.txt
 pyinstaller>=6.21,<7.0
+# Der Simulator ist ein Diagnosewerkzeug: er macht den LED-Weg ohne Hardware
+# pruefbar. Er gehoert nicht ins Release -- voice-stt-client.spec schliesst ihn
+# ausdruecklich aus, damit er nicht ueber diese Datei doch in den Build rutscht.
+led-controller-version-3-device-simulated-respeaker==3.0.3

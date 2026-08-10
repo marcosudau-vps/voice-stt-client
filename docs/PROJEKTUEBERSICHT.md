@@ -3,9 +3,9 @@
 > **Status:** aktive technische Orientierung  
 > **Stand:** 9. August 2026  
 > **Zuständig für:** kompaktes Zielbild, aktueller Paketstand und Einstieg in die Projektdokumentation  
-> **Letzte Verifikation:** Client 271 Tests und Windows-PyInstaller-Build,
-> Server 377 Tests bei 13 Skips und beide Syntax-Smokes grün;
-> AP07-SQLite-first-Vertrag produktiv bis Replay und Zwei-Session-Isolation belegt
+> **Letzte Verifikation:** Client 396 Tests zweimal und 227 AP07-/Reconnect-
+> Tests mit `-W error`; Server 379 Tests zweimal bei 13 Skips; sichere
+> Live-Smokes, isolierte Serverkampagne und echter ReSpeaker-Pfad grün
 
 ## 1. Zweck und Einordnung
 
@@ -13,7 +13,8 @@ Diese Datei ist der kurze technische Einstieg für neue Bearbeiter. Sie übernim
 
 - **implementiert und automatisiert verifiziert (AP1–AP6),**
 - **AP07-Servervorstufe und Vertrag (M0–M3) abgenommen,**
-- **AP07-Clientintegration ab M4 noch offen,**
+- **AP07-Clientgrundlagen, Eventtransport, Reducer/Fallback sowie Qt-, Sound-
+  und ReSpeaker-Ausgabe M4–M9 abgenommen; M10-Fehlerkampagne in Arbeit,**
 - **manuell oder im Live-Betrieb noch offen.**
 
 Sie ist keine zweite Roadmap und keine zweite Übergabe. Bei Detailfragen gilt die Quellenhierarchie in `AGENTS.md` und `docs/ARBEITSWEISE_UND_DOKUMENTATIONSORDNUNG.md`.
@@ -133,13 +134,25 @@ Der Core-Bereich ist mit AP4 und AP5 integriert
 - `scripts/release.py`: selbstständige Versionswahl, lokales Rollback bei
   Prüffehlern und exaktes CI-Warten vor dem Tag, ohne zweites Sync-Repository.
 
-### AP07: Servervorstufe abgenommen, Clientintegration noch nicht implementiert
+### AP07: Servervorstufe und Clientintegration M0–M9 abgenommen
 
 - zweite sessiongebundene Verbindung zu `/ws/logs`,
 - abgenommener SQLite-first-Serververtrag als Grundlage,
-- Replay, Cursorpersistenz und kontrollierter `/ws/transcribe`-Fallback,
+- implementierte transportneutrale Event-/Kontrollmodelle,
+- typisierte Eventstream-Konfiguration und atomare Cursorpersistenz,
+- strikt validiertes YAML-Mapping von `server.*`- und lokalen
+  `client.*`-Ereignissen auf LED-, Sound- und In-App-Wirkungen,
+- isolierter `/ws/logs`-Transport mit Reconnect, Replay und Ping/Pong,
+- strikter Protokollprocessor mit expliziter Cursorbestätigung, begrenzter
+  Deduplizierung sowie typisierten Gap-, Cursor-, Store- und Authfehlern,
+- generationgebundener `DualSessionCoordinator` mit gemeinsamem
+  `SessionContext`, Tokenablauf, stale-event-sicherem Sessionwechsel und
+  deterministischem Shutdown beider Transporte,
 - zentrale Normalisierung und genau eine serverseitige Feedbackquelle,
-- Integration von Qt, Sound und ReSpeaker-LED,
+- reiner Reducer, impulsfreies Replay und duplikatsicherer STT-Fallback,
+- integrierte Qt-/Tray-/Overlay-/Soundausgabe aus dem YAML-Mapping,
+- ReSpeaker-XVF3800-LED über koaleszierenden, ausfallisolierten USB-Adapter,
+- noch offene End-to-End-Fehlerkampagne,
 - vollständige Dual-WebSocket- und Fehlerabnahme.
 
 Die bisherige allgemeine Härtung, Multi-Monitor/DPI, Autostart und das
@@ -333,12 +346,31 @@ Packaging-/Release-Polish bleiben AP8.
 Details zum bisherigen AP6-Abschluss:
 `docs/2026-07-28_AP06_ABSCHLUSSTEST_FEHLERANALYSE/FEHLERANALYSE_UND_INDIKATORFARBEN.md`.
 
-### AP7 – Feedback- und Eventsystem `[M0–M3 ABGENOMMEN – M4 OFFEN]`
+### AP7 – Feedback- und Eventsystem `[M0–M9 ABGENOMMEN – M10 IN ARBEIT]`
 
 Bereits abgeschlossen sind Serverbaseline, SQLite-first-Umstellung,
 Protokoll-/Deploymentabnahme und die Synchronisierung des produktiven
-Serververtrags. Der nächste zulässige Meilenstein ist M4. Für die noch offene
-Clientintegration gelten weiterhin:
+Serververtrags. M4 hat die Clientmodelle, die typisierte Eventstream-
+Konfiguration, das YAML-Feedback-Mapping für Server- und lokale Clientevents
+sowie den atomaren Cursorstore ergänzt. M5 implementiert und testet den
+isolierten Eventtransport und den strikten Protokollprocessor. M6 koordiniert
+beide WebSockets über eine gemeinsame aktuelle Generation und Session,
+invalidiert alte Tokens und Events bei STT-Reconnect und isoliert Fehler des
+Eventtransports vom Diktatpfad. M7 ergänzt die strikte Normalisierung der
+strukturierten Serverevents und lokalen Clienttatsachen, einen reinen,
+deterministischen Reducer, impulsfreies Replay, begrenzte Deduplizierung und
+den kontrollierten STT-Fallback mit atomarer Rückkehr zum Eventstream. M8
+bindet diese Reducerausgaben queued
+an Qt, Tray und Overlay an, ersetzt alte befehlsbasierte Sounds durch sieben
+konfigurierbare YAML-Cues und führt Soundadapterfehler als kanonische lokale
+Tatsache zurück. M9 ergänzt den ReSpeaker-XVF3800-USB-Adapter mit begrenztem
+Worker, Impulsrückkehr, Fehlerdrosselung, Nulladapter und sicherem `off` beim
+Shutdown. M10 hat die wiederholten Gesamtsuiten, Warnungsprüfung, sichere
+Live-Smokes, den echten ReSpeaker-Pfad und die isolierte lokale Store-,
+Retention-, WebSocket- und Prozessneustartkampagne bestanden. Gesprochene
+Bedien-, STT-Disconnect-, stille Final- und Langlaufprüfungen bleiben offen. Für
+die weitere Clientintegration gelten
+weiterhin:
 
 - SQLite-first-Servereventstrom als verpflichtende Vorstufe,
 - `/ws/logs` als primäre serverseitige Feedbackquelle,
@@ -373,7 +405,7 @@ Zuletzt am 9. August 2026 wurde die Clientgesamtsuite ausgeführt:
 Aktuelles Ergebnis nach dem Indikatorfarbkonzept:
 
 ```text
-Ran 271 tests
+Ran 396 tests
 OK
 ```
 
@@ -385,8 +417,14 @@ Aufteilung:
 - AP1 Historie: 30
 - AP2 Text-Injection-Queue: 41
 - AP3 Reinsertion: 26
-- Controller-Integration, Lifecycle und AP5-Härtung: 62
-- Config-Prüfung: 18
+- Controller-Integration, Lifecycle und AP5-Härtung: 64
+- Config-Prüfung: 19
+- AP07-M4 Eventmodelle, YAML-Mapping und Cursorstore: 13
+- AP07-M5 EventStreamTransport und Protokollprocessor: 23
+- AP07-M6 Dual-SessionCoordinator und Race-Integration: 12
+- AP07-M7 Normalisierung, Reducer und Controller-Integration: 30
+- AP07-M8 Qt-, Tray-, Overlay- und Soundintegration: 13
+- AP07-M9 ReSpeaker-USB-LED-Adapter und Replay-Härtung: 13
 - Session-, Backoff- und Ping/Pong-Härtung: 18
 - `app.py` Audio-Thread-Brücke und DI-Isolation: 10
 - native Hotkeys: 6
@@ -396,8 +434,9 @@ Aufteilung:
 - GUI-Komposition und Startfehler: 8
 - AP6-Folgeumfang (Modi, Einstellungen, Diktatfenster): 22
 - Build-, Versions- und Releaseautomation: 7
+- M10-Edge-/Prozess-/Buildhärtung: 18
 
-Diese 271 Tests prüfen zusätzlich zu AP1–AP5:
+Diese 396 Tests prüfen zusätzlich zu AP1–AP5:
 
 - native Hotkeyregistrierung, Konflikt-Rollback und Dispatch,
 - Single-Instance-Lifecycle,
@@ -410,6 +449,9 @@ Diese 271 Tests prüfen zusätzlich zu AP1–AP5:
 - Verlaufslöschung mit erhaltener Deduplizierungssemantik.
 - modusgebundene Grün-/Blauphasen, weißen Tray-Rand und die
   Gelb-/Rot-Trennung zwischen äußeren Störungen und tatsächlichen Fehlern.
+- generationgebundene Übernahme von `hello.logAccess`, STT-/Event-Reconnect-
+  Rennen, Tokenablauf, stale In-Flight-Events sowie exakt einmaligen
+  Dual-Transport-Shutdown.
 
 Zusätzlich am 25. Juli 2026 manuell verifiziert:
 
@@ -531,14 +573,16 @@ eingelesen.
 > Der Audio-/WebSocket-Core sowie AP1–AP6 sind implementiert. Der reguläre
 > Start führt in die PySide6-Shell mit Tray, passivem Overlay, nativen Hotkeys,
 > Reinsertion und Single-Instance-Guard; `--headless` bleibt als Diagnosepfad.
-> Der aktuelle Stand umfasst 271 grüne automatische Tests, `compileall`, einen
+> Der aktuelle Stand umfasst 396 zweimal grüne automatische Tests, `compileall`, einen
 > nativen Windows-Smoke und einen vollständigen AP06-Live-Smoke gegen den
 > produktiven Server einschließlich beider effektiver Sessionverträge. Der
 > anschließende reale Bedien-Smoke deckte zwei Clientfehler im
 > Laufzeit-Moduswechsel auf. Beide sind inzwischen korrigiert und durch zwei
 > weitere produktive Wechselzyklen verifiziert. Offen bleibt der gesprochene
-> Wake-Word-Nachweis. Für AP7 sind M0–M3 einschließlich produktivem
-> SQLite-first-Live-/Replay-Nachweis abgeschlossen. Clientcode für AP7 ist
-> noch nicht implementiert; nächster zulässiger Umsetzungsschritt ist M4 / AP07-C1.
+> Wake-Word-Nachweis. Für AP7 sind M0–M9 einschließlich produktivem
+> SQLite-first-Live-/Replay-Nachweis sowie Clientmodellen, YAML-Mapping und
+> Cursorstore, isoliertem Eventtransport und Dual-Session-Lifecycle
+> abgeschlossen. M10 ist mit grüner Automatisierung und sicheren Live-Smokes
+> in Arbeit; M11 bleibt bis zum Abschluss der realen Matrix gesperrt.
 > Die öffentliche GitHub-, Commit-CI-, PyInstaller- und Releasebasis ist mit
 > einem lokal gestarteten, versionierten Windows-Build bereits vorbereitet.

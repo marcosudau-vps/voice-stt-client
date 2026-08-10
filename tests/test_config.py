@@ -11,7 +11,10 @@ import yaml
 
 from core.config import (
     AppConfig,
+    EventStreamConfig,
+    FeedbackConfig,
     HotkeyConfig,
+    LedConfig,
     OverlayConfig,
     ServerConfig,
     normalize_hotkey_spec,
@@ -27,6 +30,8 @@ class TestConfigValidation(unittest.TestCase):
         self.assertEqual(cfg.server.server_busy_min_delay, 10.0)
         self.assertEqual(cfg.hotkey.toggle_key, "Ctrl+Shift+Space")
         self.assertEqual(cfg.hotkey.reinsert_last_key, "Ctrl+Alt+Space")
+        self.assertTrue(cfg.event_stream.enabled)
+        self.assertTrue(cfg.event_stream.cursor_persistence_enabled)
 
     def test_invalid_reconnect_min_delay(self):
         cfg = ServerConfig(reconnect_min_delay=0)
@@ -83,6 +88,38 @@ class TestConfigValidation(unittest.TestCase):
                 cfg = ServerConfig(**{field_name: 0})
                 with self.assertRaises(ValueError):
                     cfg.validate()
+
+    def test_event_stream_limits_and_safe_url_building(self):
+        self.assertEqual(
+            EventStreamConfig.build_url(
+                "wss://stt.voice.marcosudau.com/ws/transcribe?mode=hotkey",
+                "/ws/logs",
+            ),
+            "wss://stt.voice.marcosudau.com/ws/logs",
+        )
+        invalid_configs = (
+            EventStreamConfig(connect_timeout=0),
+            EventStreamConfig(reconnect_min_delay=5, reconnect_max_delay=2),
+            EventStreamConfig(reconnect_jitter=1),
+            EventStreamConfig(max_message_size=100),
+            EventStreamConfig(queue_maxsize=0),
+            EventStreamConfig(cursor_persistence_enabled="yes"),
+            EventStreamConfig(cursor_path="relative/cursor.json"),
+        )
+        for config in invalid_configs:
+            with self.subTest(config=config):
+                with self.assertRaises(ValueError):
+                    config.validate()
+        for base, path in (
+            ("https://example.test/ws", "/ws/logs"),
+            ("wss://user:secret@example.test/ws", "/ws/logs"),
+            ("wss://example.test/ws", "wss://evil.test/ws/logs"),
+            ("wss://example.test/ws", "//evil.test/ws/logs"),
+            ("wss://example.test/ws", "/ws/logs?token=secret"),
+        ):
+            with self.subTest(base=base, path=path):
+                with self.assertRaises(ValueError):
+                    EventStreamConfig.build_url(base, path)
 
     def test_load_yaml_with_ap05_keys(self):
         yaml_content = """
@@ -164,6 +201,54 @@ server:
             with self.subTest(config=config):
                 with self.assertRaises(ValueError):
                     config.validate()
+
+    def test_feedback_supports_every_declared_sound_cue_asset(self):
+        config = FeedbackConfig(
+            sounds_enabled=True,
+            wake_word_sound="wake.wav",
+            start_sound="start.wav",
+            stop_sound="stop.wav",
+            complete_sound="complete.wav",
+            cancel_sound="cancel.wav",
+            warning_sound="warning.wav",
+            error_sound="error.wav",
+        )
+        config.validate()
+
+        self.assertEqual(config.complete_sound, "complete.wav")
+        with self.assertRaises(ValueError):
+            FeedbackConfig(error_sound=42).validate()
+
+    def test_led_config_validates_output_and_worker_limits(self):
+        LedConfig().validate()
+        invalid = (
+            LedConfig(enabled=1),
+            LedConfig(sink="hologram"),
+            LedConfig(fps=0.0),
+            LedConfig(fps=500.0),
+            LedConfig(vendor_id=-1),
+            LedConfig(product_id=0x10000),
+            LedConfig(brightness=256),
+            LedConfig(usb_timeout_ms=10),
+            LedConfig(shutdown_timeout=20.0),
+            LedConfig(simulation_offer_after_s=-1),
+            LedConfig(effect_paths="C:/effects"),
+            LedConfig(effect_paths=[""]),
+            LedConfig(effect_paths=[3]),
+        )
+        for config in invalid:
+            with self.subTest(config=config):
+                with self.assertRaises(ValueError):
+                    config.validate()
+
+    def test_brightness_keeps_its_scale_and_is_offered_as_a_fraction(self):
+        """LEFX wants 0.0..1.0; the file keeps 0..255 so saved values still mean
+        what they meant."""
+        self.assertAlmostEqual(LedConfig(brightness=255).brightness_fraction, 1.0)
+        self.assertAlmostEqual(LedConfig(brightness=0).brightness_fraction, 0.0)
+        self.assertAlmostEqual(
+            LedConfig(brightness=64).brightness_fraction, 64 / 255
+        )
 
     def test_load_yaml_with_ap06_hotkeys(self):
         yaml_content = """

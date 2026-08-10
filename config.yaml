@@ -11,6 +11,22 @@ server:
   hello_timeout: 5.0
   ready_timeout: 180.0
 
+# Zuverlässiger, sessiongebundener SQLite-first-Eventstream. Der Zugriffstoken
+# kommt ausschließlich aus hello.logAccess und wird nie hier gespeichert.
+event_stream:
+  enabled: true
+  connect_timeout: 10.0
+  handshake_timeout: 10.0
+  replay_timeout: 60.0
+  message_timeout: 30.0
+  reconnect_min_delay: 0.5
+  reconnect_max_delay: 30.0
+  reconnect_jitter: 0.3
+  max_message_size: 1048576
+  queue_maxsize: 512
+  cursor_persistence_enabled: true
+  cursor_path:
+
 # Session-lokaler Betriebsmodus. Der Server bestätigt die effektiven Werte
 # in hello.sessionConfig und ready.sessionConfig.
 session:
@@ -66,11 +82,36 @@ overlay:
 
 feedback:
   sounds_enabled: false
+  wake_word_sound:
   start_sound:
   stop_sound:
+  complete_sound:
   cancel_sound:
-history:
+  warning_sound:
+  error_sound:
+
+# ReSpeaker XVF3800 (USB VID 0x2886 / PID 0x001A). Fehlt das Gerät, bleibt der
+# Client vollständig funktionsfähig und verwendet intern den Nulladapter.
+led:
   enabled: true
+  # respeaker = echte Hardware, simulator = Ringfenster (Zusatzpaket),
+  # null = kein Ausgang. Der Simulator ist ein Diagnosewerkzeug und liegt
+  # bewusst nicht im Release-Build.
+  sink: respeaker
+  fps: 30.0
+  vendor_id: 10374
+  product_id: 26
+  # 0..255. LEFX rechnet intern mit 0.0..1.0; die Skala bleibt erhalten, damit
+  # ein bestehender Wert nicht ueber Nacht eine andere Helligkeit bedeutet.
+  brightness: 64
+  usb_timeout_ms: 1000
+  shutdown_timeout: 1.5
+  # Zusaetzliche Ordner mit .lefxset-Katalogen. Ergaenzt die mitgelieferten
+  # Kataloge, ersetzt sie nicht. Ein fehlender Ordner ist eine Warnung.
+  effect_paths: []
+  # Nach so vielen Sekunden ohne erreichbares Geraet wird die Umschaltung auf
+  # den Simulator angeboten. 0 schaltet das Angebot ab.
+  simulation_offer_after_s: 120.0
   memory:
     max_entries: 5
   persistent:
@@ -81,6 +122,155 @@ history:
     store_failed_injections: true
     store_all: false
     db_path: null
+# Deklarative AP07-Policy. Serverereignisse und lokale Clientereignisse teilen
+# dasselbe Schema, bleiben aber durch server.* / client.* eindeutig getrennt.
+# Leere Regeln sind bewusst bekannte Ereignisse ohne sichtbare Standardwirkung.
+#
+# Der led-Abschnitt spricht LEFX direkt. Ein Aufruf nennt genau ein Verb:
+#   set_state: <effekt|preset>   dauerhafter Zustand  (+ config, slot, action)
+#   clear_state: <slot>          Zustand raeumen
+#   emit_event: <effekt|preset>  einmalige Meldung    (+ config, priority)
+#
+# Dauer gehoert in config: {duration_ms: 700}. Das Geschwister-Feld
+# duration_ms ist eine Uebersteuerung, die nur Effekte annehmen, die sie
+# ausdruecklich anbieten -- die Meldungseffekte tun das nicht.
+#   set_output: {...}            Helligkeit / Stummschaltung
+# Mehrere Aufrufe pro Regel werden als Liste geschrieben und der Reihe nach
+# ausgefuehrt -- ein Wake-Word blitzt auf UND wechselt den Folgezustand.
+#
+# Effekt- und Presetnamen liegen im selben Namensraum: 'listening' nimmt das
+# Standard-Preset, 'listening_cyan' ein fertiges, und config veraendert einzelne
+# Parameter. Welche Parameter ein Effekt kennt, entscheidet der Katalog --
+# geprueft wird hier nur die Form, nicht die Bedeutung.
+feedback_mappings:
+  schema_version: 2
+  events:
+
+    # -- Server: Diktierablauf ----------------------------------------------
+    server.wakeword.detected:
+      led: [{emit_event: wakeword_detected}, {set_state: waiting}]
+      sound: {cue: wake_word, volume: 1.0}
+      app: {action: indicator.waiting_for_speech}
+    server.recording.started:
+      led: {set_state: listening}
+      sound: {cue: start, volume: 1.0}
+      app: {action: indicator.recording}
+    server.recording.ended:
+      led: {set_state: thinking}
+      sound: {cue: stop, volume: 1.0}
+      app: {action: indicator.finalizing}
+    server.transcription.started:
+      led: {set_state: thinking}
+      app: {action: indicator.finalizing}
+    server.transcription.completed:
+      led: [{emit_event: success_event, config: {duration_ms: 700}}, {set_state: ready_state}]
+      sound: {cue: complete, volume: 1.0}
+      app: {action: indicator.success}
+    server.transcription.discarded:
+      led: {set_state: ready_state}
+      app: {action: indicator.idle}
+    server.transcription.failed:
+      led: [{emit_event: error_event, config: {duration_ms: 1200}}, {set_state: ready_state}]
+      sound: {cue: error, volume: 1.0}
+      app: {action: indicator.error}
+    server.transcription.cancelled:
+      led: [{emit_event: reject_event}, {set_state: ready_state}]
+      sound: {cue: cancel, volume: 1.0}
+      app: {action: indicator.idle}
+    server.transcription.rejected:
+      led: [{emit_event: reject_event}, {set_state: ready_state}]
+      sound: {cue: error, volume: 1.0}
+      app: {action: indicator.error}
+
+    # -- Client: Bedienung --------------------------------------------------
+    client.hotkey.accepted:
+      led: {set_state: waiting}
+      app: {action: indicator.waiting_for_speech}
+    client.action.blocked:
+      led: {emit_event: warn_event}
+      sound: {cue: warning, volume: 1.0}
+      app: {action: indicator.warning}
+    client.dictation.interrupted:
+      led: [{emit_event: warn_event, config: {duration_ms: 1000}}, {set_state: ready_state}]
+      sound: {cue: warning, volume: 1.0}
+      app: {action: indicator.warning}
+
+    # -- Client: Verbindung -------------------------------------------------
+    client.transport.disconnected:
+      led: {set_state: reconnect_network_state}
+      app: {action: indicator.warning}
+    client.event_stream.connecting: {}
+    client.event_stream.replaying: {}
+    client.event_stream.live: {}
+    client.event_stream.degraded:
+      app: {action: indicator.warning}
+
+    # -- Client: Mikrofon ---------------------------------------------------
+    client.microphone.lost:
+      led: {set_state: reconnect_mic_state}
+      sound: {cue: warning, volume: 1.0}
+      app: {action: indicator.warning}
+    client.microphone.recovered:
+      led: {set_state: ready_state}
+
+    # -- Client: Texteinfuegung ---------------------------------------------
+    client.injection.accepted: {}
+    client.injection.succeeded: {}
+    client.injection.failed:
+      led: {emit_event: error_event}
+      sound: {cue: error, volume: 1.0}
+      app: {action: indicator.error}
+
+    # -- Client: Sprachausgabe ----------------------------------------------
+    client.tts.started:
+      led: {set_state: speaking}
+    client.tts.stopped:
+      led: {set_state: ready_state}
+    client.tts.failed:
+      led: {emit_event: error_event}
+      sound: {cue: error, volume: 1.0}
+      app: {action: indicator.error}
+
+    # -- Client: Selbstauskunft ---------------------------------------------
+    # Bewusst ohne led: wenn der Ring nicht erreichbar ist, kann er es nicht
+    # selbst melden. Das laeuft ueber Tray und Overlay.
+    client.led.unavailable:
+      app: {action: indicator.warning}
+    client.sound.failed:
+      app: {action: indicator.warning}
+    client.configuration.invalid:
+      led: {emit_event: error_event}
+      app: {action: indicator.error}
+
+    # -- Client: Lebenszyklus -----------------------------------------------
+    client.lifecycle.started:
+      led: [{emit_event: init_event}, {set_state: ready_state}]
+    client.lifecycle.stopping:
+      led: {clear_state: primary}
+      app: {action: indicator.idle}
+history:
+  enabled: true
+
+  memory:
+
+    max_entries: 5
+
+  persistent:
+
+    enabled: true
+
+    max_entries: 100
+
+    retention_days: 0
+
+    min_characters: 1000
+
+    store_failed_injections: true
+
+    store_all: false
+
+    db_path: null
+
 logging:
   level: INFO
   max_bytes: 5242880
