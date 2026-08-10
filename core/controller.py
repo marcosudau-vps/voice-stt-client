@@ -8,6 +8,7 @@ TextInjectionQueue, and TranscriptReinsertionService into a unified lifecycle.
 from __future__ import annotations
 
 import asyncio
+import inspect
 import logging
 import sys
 import threading
@@ -37,6 +38,11 @@ from core.reinsertion import (
     ReinsertionResult,
     ReinsertionStatus,
 )
+from core.event_protocol import EventProtocolResult
+from core.event_models import CanonicalEventType
+from core.event_normalizer import EventNormalizationError
+from core.feedback_reducer import FeedbackDecision, FeedbackEngine
+from core.session_coordinator import DualSessionCoordinator, SessionContext
 
 logger = logging.getLogger("controller")
 
@@ -202,6 +208,8 @@ class STTController:
         injection_queue: Optional[TextInjectionQueue] = None,
         reinsertion_service: Optional[TranscriptReinsertionService] = None,
         backend: Optional[WindowsInjectionBackend] = None,
+        session_coordinator: Optional[DualSessionCoordinator] = None,
+        feedback_engine: Optional[FeedbackEngine] = None,
     ):
         self.config = config
 
@@ -245,12 +253,20 @@ class STTController:
             require_session_contract=True,
         )
         self.audio = audio or AudioCapture(config.audio)
+        self.session_coordinator = session_coordinator or DualSessionCoordinator(
+            config.server,
+            config.event_stream,
+        )
+        self.feedback_engine = feedback_engine or FeedbackEngine(
+            config.feedback_mappings
+        )
 
         # Event loop and audio bridge state
         self._loop: Optional[asyncio.AbstractEventLoop] = None
         self._audio_send_queue: asyncio.Queue[
             Tuple[bytes, int, int, int, int]
         ] = asyncio.Queue(maxsize=300)
+        self._coordinator_tasks: set[asyncio.Task] = set()
 
         # Thread safety & lifecycle state
         self._lock = threading.Lock()
@@ -296,6 +312,15 @@ class STTController:
         self.on_final_result: Optional[Callable[[FinalProcessingResult], None]] = None
         self.on_snapshot_change: Optional[Callable[[ControllerStatusSnapshot], None]] = None
         self.on_feedback_event: Optional[Callable[[TransientEvent], None]] = None
+        self.on_event_stream_event: Optional[
+            Callable[[SessionContext, EventProtocolResult], Any]
+        ] = None
+        self.on_session_context_change: Optional[
+            Callable[[SessionContext], None]
+        ] = None
+        self.on_feedback_decision: Optional[
+            Callable[[FeedbackDecision], None]
+        ] = None
 
         # Internal callback wiring
         self.session.on_event = self.handle_server_event
@@ -303,6 +328,10 @@ class STTController:
         self.session.on_state_change = self._handle_state_change
         self.session.on_text = self._handle_session_text
         self.audio.on_audio_packet = self._on_audio_packet_from_thread
+        self.session_coordinator.on_event = self._handle_event_stream_event
+        self.session_coordinator.on_context_change = (
+            self._handle_session_context_change
+        )
 
     def _get_transition_lock(self) -> asyncio.Lock:
         if self._transition_lock is None:
@@ -432,6 +461,47 @@ class STTController:
                 self.on_feedback_event(event)
             except Exception:
                 logger.exception("Error in on_feedback_event callback.")
+        canonical = {
+            TransientEventType.ACTION_BLOCKED: CanonicalEventType.CLIENT_ACTION_BLOCKED,
+            TransientEventType.DICTATION_START_FAILED: CanonicalEventType.CLIENT_ACTION_BLOCKED,
+            TransientEventType.DICTATION_INTERRUPTED: CanonicalEventType.CLIENT_DICTATION_INTERRUPTED,
+        }[event_type]
+        decision = self.feedback_engine.handle_local(
+            canonical,
+            generation=getattr(self.session, "generation", 0),
+            session_id=self.session.state.session_id,
+            correlation_id=f"client:{event_type.value}:{event.timestamp}",
+            details={"reason": reason, "action": action},
+        )
+        self._publish_feedback_decision(decision)
+
+    def _publish_feedback_decision(self, decision: FeedbackDecision) -> None:
+        if not decision.publish or self.on_feedback_decision is None:
+            return
+        try:
+            self.on_feedback_decision(decision)
+        except Exception:
+            logger.exception("Error in on_feedback_decision callback.")
+
+    def report_local_feedback(
+        self,
+        event_type: CanonicalEventType,
+        details: Optional[Dict[str, object]] = None,
+    ) -> FeedbackDecision:
+        """Feed a UI/device-local fact back through the canonical reducer."""
+        if (
+            not isinstance(event_type, CanonicalEventType)
+            or not event_type.value.startswith("client.")
+        ):
+            raise ValueError("local feedback must use a canonical client.* event")
+        decision = self.feedback_engine.handle_local(
+            event_type,
+            generation=getattr(self.session, "generation", 0),
+            session_id=self.session.state.session_id,
+            details=details,
+        )
+        self._publish_feedback_decision(decision)
+        return decision
 
     def get_status(self) -> ControllerStatus:
         """Query current UI-neutral controller status (AP4 backwards compat)."""
@@ -680,6 +750,17 @@ class STTController:
                         self.config.dictation_window.initial_speech_timeout
                         + initial_extension,
                     )
+                    self._publish_feedback_decision(
+                        self.feedback_engine.handle_local(
+                            CanonicalEventType.CLIENT_HOTKEY_ACCEPTED,
+                            generation=attempt.generation,
+                            session_id=attempt.session_id,
+                            correlation_id=(
+                                f"hotkey:{attempt.generation}:{attempt.token}"
+                            ),
+                            details={"action": "start_dictation"},
+                        )
+                    )
                 else:
                     self._publish_snapshot()
                 state_name = (
@@ -902,6 +983,44 @@ class STTController:
                 logger.info("Remote clear after cancel could not be sent.", exc_info=True)
         return CommandResult(result.success, "cancelled", result.message)
 
+    # -------------------------------------------------------------------
+    # Microphone mute and manual reconnects
+    # -------------------------------------------------------------------
+
+    @property
+    def microphone_muted(self) -> bool:
+        return self.audio.muted
+
+    def set_microphone_muted(self, muted: bool) -> CommandResult:
+        """Mute or unmute the microphone in this client.
+
+        Deliberately not a device command. The reSpeaker's own mute button
+        drives a firmware function that the documented control interface does
+        not expose -- there is no MUTE parameter and no way to light the mute
+        LED. Muting here is the part that actually matters and is the part that
+        can be guaranteed: nothing captured leaves this machine.
+        """
+        self.audio.set_muted(muted)
+        return CommandResult(
+            True,
+            "muted" if muted else "unmuted",
+            "Mikrofon stummgeschaltet" if muted else "Mikrofon wieder aktiv",
+        )
+
+    async def reconnect_server(self) -> CommandResult:
+        """Drop the server connection so the session rebuilds it now.
+
+        The session reconnects on its own schedule with a backoff that grows to
+        half a minute. That is right for an outage nobody is watching and wrong
+        for somebody who has just fixed the network and is looking at the tray.
+        """
+        try:
+            await self.session.invalidate_connection("manual_reconnect")
+        except Exception as exc:
+            logger.exception("Manual server reconnect failed.")
+            return CommandResult(False, "reconnect_failed", str(exc))
+        return CommandResult(True, "reconnecting", "Verbindung wird neu aufgebaut")
+
     async def apply_runtime_config(self, candidate: AppConfig) -> CommandResult:
         """Validate and atomically activate one complete candidate config."""
         candidate.validate()
@@ -955,6 +1074,13 @@ class STTController:
                 candidate,
                 self.audio,
                 candidate_wake_mode_desired,
+            )
+            await self.session_coordinator.update_config(
+                candidate.server,
+                candidate.event_stream,
+            )
+            self.feedback_engine.reconfigure_mapping(
+                candidate.feedback_mappings
             )
 
             if not session_changed:
@@ -1092,6 +1218,11 @@ class STTController:
                 )
 
         self._install_runtime_config(config, audio, wake_mode_desired)
+        await self.session_coordinator.update_config(
+            config.server,
+            config.event_stream,
+        )
+        self.feedback_engine.reconfigure_mapping(config.feedback_mappings)
         previous_generation = getattr(self.session, "generation", 0)
         try:
             await reconfigure(config.session, config.server)
@@ -1282,13 +1413,27 @@ class STTController:
             except Exception as e:
                 logger.error("Error stopping audio capture: %s", e)
 
-            # 2. Stop WebSocket session
+            # 2. Stop the session-bound event WebSocket before invalidating
+            # its owning transcription session.
+            try:
+                await self.session_coordinator.shutdown()
+            except Exception as e:
+                logger.error("Error stopping event session: %s", e)
+
+            pending_coordinator_tasks = tuple(self._coordinator_tasks)
+            if pending_coordinator_tasks:
+                await asyncio.gather(
+                    *pending_coordinator_tasks,
+                    return_exceptions=True,
+                )
+
+            # 3. Stop transcription WebSocket session
             try:
                 await self.session.stop()
             except Exception as e:
                 logger.error("Error stopping session: %s", e)
 
-            # 3. Stop injection queue worker thread. A failed queue start
+            # 4. Stop injection queue worker thread. A failed queue start
             # already performed its own rollback and must not be stopped twice.
             with self._lock:
                 queue_cleanup_done = self._queue_cleanup_done
@@ -1307,7 +1452,7 @@ class STTController:
                     with self._lock:
                         self._queue_cleanup_done = True
 
-        # 4. Cleanup transcript history
+        # 5. Cleanup transcript history
         try:
             self.history.cleanup()
         except Exception as e:
@@ -1352,6 +1497,22 @@ class STTController:
             )
             return None
 
+        if event_type in {"status", "timeline", "final", "error"}:
+            current_session_id = self.session.state.session_id
+            if isinstance(current_session_id, str) and current_session_id:
+                try:
+                    fallback_decision = self.feedback_engine.handle_stt_fallback(
+                        event_type,
+                        event_data,
+                        generation=getattr(self.session, "generation", 0),
+                        session_id=current_session_id,
+                    )
+                except EventNormalizationError as exc:
+                    logger.warning("Invalid STT fallback event ignored: %s", exc)
+                else:
+                    if fallback_decision is not None:
+                        self._publish_feedback_decision(fallback_decision)
+
         if event_type == "hello":
             session_id = event_data.get("sessionId")
             with self._lock:
@@ -1363,6 +1524,15 @@ class STTController:
                     if key[0] == session_id
                 )
                 self._server_error_counts.clear()
+            self._schedule_coordinator_operation(
+                self.session_coordinator.adopt_hello(
+                    event_generation
+                    if isinstance(event_generation, int)
+                    and not isinstance(event_generation, bool)
+                    else getattr(self.session, "generation", 0),
+                    dict(event_data),
+                )
+            )
             return None
 
         if event_type == "status":
@@ -1839,6 +2009,31 @@ class STTController:
                 self.on_final_result(result)
             except Exception:
                 logger.exception("Error in on_final_result callback.")
+        canonical = None
+        if result.status is FinalProcessingStatus.QUEUED:
+            canonical = CanonicalEventType.CLIENT_INJECTION_ACCEPTED
+        elif result.status in {
+            FinalProcessingStatus.FAILED,
+            FinalProcessingStatus.QUEUE_UNAVAILABLE,
+        }:
+            canonical = CanonicalEventType.CLIENT_INJECTION_FAILED
+        if canonical is not None:
+            identity = result.entry_id or (
+                f"{result.session_id}:{result.segment_id}:{result.status.value}"
+            )
+            decision = self.feedback_engine.handle_local(
+                canonical,
+                generation=getattr(self.session, "generation", 0),
+                session_id=result.session_id,
+                correlation_id=f"injection:{identity}:{canonical.value}",
+                details={
+                    "entryId": result.entry_id,
+                    "segmentId": result.segment_id,
+                    "status": result.status.value,
+                    "reason": result.reason,
+                },
+            )
+            self._publish_feedback_decision(decision)
 
     # -------------------------------------------------------------------
     # Reinsertion API
@@ -1879,6 +2074,78 @@ class STTController:
     # Internal Callbacks & Audio Thread Bridge
     # -------------------------------------------------------------------
 
+    def _schedule_coordinator_operation(self, operation: Any) -> None:
+        """Run one coordinator transition on the controller's asyncio loop."""
+        loop = self._loop
+        if loop is None or loop.is_closed() or self.is_closing:
+            close = getattr(operation, "close", None)
+            if close is not None:
+                close()
+            return
+        task = loop.create_task(operation)
+        self._coordinator_tasks.add(task)
+
+        def completed(done: asyncio.Task) -> None:
+            self._coordinator_tasks.discard(done)
+            if done.cancelled():
+                return
+            try:
+                error = done.exception()
+            except asyncio.CancelledError:
+                return
+            if error is not None:
+                logger.error(
+                    "Session coordinator operation failed: %s",
+                    error,
+                    exc_info=(type(error), error, error.__traceback__),
+                )
+
+        task.add_done_callback(completed)
+
+    async def _handle_event_stream_event(
+        self,
+        context: SessionContext,
+        result: EventProtocolResult,
+    ) -> bool:
+        """Normalize/reduce one current-session event before cursor confirmation."""
+        if (
+            self.is_closing
+            or context.generation != getattr(self.session, "generation", 0)
+            or context.session_id != self.session.state.session_id
+        ):
+            return False
+        callback = self.on_event_stream_event
+        if callback is not None:
+            accepted = callback(context, result)
+            if inspect.isawaitable(accepted):
+                accepted = await accepted
+            if accepted is not True:
+                return False
+        decision = self.feedback_engine.handle_event_stream(
+            result,
+            generation=context.generation,
+            session_id=context.session_id,
+        )
+        if decision is not None:
+            self._publish_feedback_decision(decision)
+        return True
+
+    def _handle_session_context_change(self, context: SessionContext) -> None:
+        decision = self.feedback_engine.update_connection(
+            context.event_state,
+            stt_ready=self.session.is_ready,
+            generation=context.generation,
+            session_id=context.session_id,
+            issue=context.unavailable_code,
+        )
+        self._publish_feedback_decision(decision)
+        callback = self.on_session_context_change
+        if callback is not None:
+            try:
+                callback(context)
+            except Exception:
+                logger.exception("Error in session context callback.")
+
     def _handle_transport_change(self, new_state: TransportState) -> None:
         if self.is_closing:
             if self.on_transport_change:
@@ -1887,6 +2154,16 @@ class STTController:
                 except Exception:
                     logger.exception("Error in transport change callback.")
             return
+
+        generation = getattr(self.session, "generation", 0)
+        if new_state == TransportState.CONNECTING:
+            self._schedule_coordinator_operation(
+                self.session_coordinator.begin_generation(generation)
+            )
+        elif new_state in (TransportState.DISCONNECTED, TransportState.ERROR):
+            self._schedule_coordinator_operation(
+                self.session_coordinator.invalidate_generation(generation)
+            )
 
         if new_state in (TransportState.CONNECTING, TransportState.ADMITTED):
             self._update_availability(AvailabilityState.CONNECTING, "connecting", "Connecting to server")
@@ -1936,6 +2213,17 @@ class STTController:
 
             if self._dictation_state in (DictationState.STARTING, DictationState.ACTIVE):
                 self._handle_dictation_interrupted("transport_loss")
+
+        context = getattr(self.session_coordinator, "context", None)
+        if isinstance(context, SessionContext):
+            source_decision = self.feedback_engine.update_connection(
+                context.event_state,
+                stt_ready=new_state is TransportState.READY,
+                generation=context.generation,
+                session_id=context.session_id,
+                issue=context.unavailable_code,
+            )
+            self._publish_feedback_decision(source_decision)
 
         if self.on_transport_change:
             try:

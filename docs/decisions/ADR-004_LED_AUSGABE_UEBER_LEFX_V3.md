@@ -88,29 +88,30 @@ Build `ua-io16-sqr`:
   die Hostzugriffe verweigert, und ist doch nur eine falsche Adresse. Nachgewiesen
   an den gefahrlosen Pins X0D11 und X0D39, die sich mit ihrer Nummer sauber
   setzen und zurücksetzen lassen.
-- **Der Schreibzugriff schaltet die Mute-LED, aber nicht das Mikrofon.**
-  `GPO_WRITE_VALUE [30, 1]` bringt X0D30 auf 1 und die LED am Gerät leuchtet —
-  der aufgenommene Pegel läuft dabei aber ungebremst weiter (gemessen 7209
-  während gesetzter Leitung, gegenüber flach 1 nach einem Tastendruck). Die
-  Firmware tut beim Knopfdruck mehr, als diesen Pin zu setzen: Sie zieht
-  zusätzlich `X0D33` und trennt den Audiopfad wirklich.
+- **Der Schreibzugriff schaltet Mute-LED und Mikrofon**, genau wie die
+  Dokumentation es sagt. `GPO_WRITE_VALUE [30, 1]` bringt X0D30 auf 1, die LED
+  leuchtet, der Pegel fällt flach auf 1 — im Wechsel viermal gemessen, offen
+  gegen gesetzt: 71 / 1 / 155 / 1. Die Leitung hält, solange sie gesetzt ist.
 
-  Eine vollständige Stummschaltung per Software gibt es also nicht. Was es gibt,
-  ist die sichtbare Anzeige — und die ist es wert, weil sie am Gerät dasselbe
-  zeigt wie ein Tastendruck.
+  Eine frühere Messung schien das Gegenteil zu zeigen und war ein Messfehler:
+  `AudioCapture` puffert bis zu 200 Blöcke, und das Leeren der Ergebnisliste
+  leert nicht die Warteschlange. Gemessen wurde Ton von *vor* dem
+  Stummschalten. Wer das nachmisst, muss nach dem Setzen eine Sekunde warten,
+  bevor er Pegel zählt.
 
 Daraus folgt die Aufteilung:
 
 | | Wer kann es | Wie |
 |---|---|---|
-| Mikrofon am Gerät stummschalten | nur die Taste | Firmware trennt den Audiopfad; per Software nicht erreichbar |
-| Mute-LED am Gerät schalten | der Client | `GPO_WRITE_VALUE [30, 1]` |
+| Gerät stummschalten (LED + Mikrofon) | Taste **und** Client | `GPO_WRITE_VALUE [30, 1]` |
 | Zustand erkennen | der Client | `X0D30` im Sekundentakt auf dem Worker-Thread |
 | Client stummschalten | der Client | Pakete im Verarbeitungsthread verwerfen |
 
-Der Menüeintrag tut deshalb drei Dinge zugleich: Er verwirft die Audiopakete im
-Client — das ist die eigentliche Wirkung —, setzt `X0D30`, damit die Mute-LED am
-Gerät dasselbe zeigt wie nach einem Tastendruck, und dunkelt den Ring über LEFX.
+Der Menüeintrag setzt deshalb `X0D30` — das schaltet Mute-LED und Mikrofon am
+Gerät — und verwirft zusätzlich die Audiopakete im Client. Die zweite Hälfte ist
+kein Ersatz, sondern die Zusicherung, die auch dann noch gilt, wenn der ReSpeaker
+gar nicht angeschlossen ist: Ohne Gerät gibt es keine Leitung zu ziehen, und
+stumm muss es trotzdem sein.
 
 `set_device_mute` liest nach dem Schreiben zurück, statt sich auf den
 Rückgabewert des Befehls zu verlassen; ist das Gerät nicht erreichbar, sagt der

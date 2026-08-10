@@ -41,6 +41,7 @@ class AudioCapture:
         self._config = audio_config
         self._stream: Optional[sd.InputStream] = None
         self._running = False
+        self._muted = False
 
         # Actual device sample rate (may differ from preferred)
         self._device_sample_rate: int = audio_config.sample_rate
@@ -62,6 +63,26 @@ class AudioCapture:
     @property
     def is_running(self) -> bool:
         return self._running
+
+    @property
+    def muted(self) -> bool:
+        return self._muted
+
+    def set_muted(self, muted: bool) -> None:
+        """Stop or resume passing captured audio on.
+
+        The stream keeps running while muted, and packets are dropped on their
+        way out. Closing the device instead would be the obvious reading of
+        "mute" and the wrong one: reopening takes long enough to be noticed, it
+        can fail if something else took the device meanwhile, and a mute that
+        might not come back is worse than no mute at all.
+
+        Dropping rather than sending silence, because silence is a recording.
+        A muted microphone should produce nothing for the server to transcribe,
+        bill for, or keep.
+        """
+        self._muted = bool(muted)
+        logger.info("Microphone %s.", "muted" if self._muted else "unmuted")
 
     # -------------------------------------------------------------------
     # Device management
@@ -241,7 +262,9 @@ class AudioCapture:
             if pcm_bytes is None:
                 break  # Stop signal
 
-            if self.on_audio_packet is None:
+            if self.on_audio_packet is None or self._muted:
+                # Drained and discarded: the queue must keep moving even while
+                # muted, or unmuting would replay whatever piled up behind it.
                 continue
 
             frames = len(pcm_bytes) // (self._config.channels * 2)  # int16 = 2 bytes

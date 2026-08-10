@@ -133,6 +133,14 @@ class FakeAudioCapture:
         self.stop_calls = 0
         self.on_audio_packet = None
         self._running = False
+        self._muted = False
+
+    @property
+    def muted(self) -> bool:
+        return self._muted
+
+    def set_muted(self, muted: bool) -> None:
+        self._muted = bool(muted)
 
     def start(self) -> None:
         self.start_calls += 1
@@ -224,6 +232,35 @@ class FakeSTTSession:
     async def invalidate_connection(self, reason: str = "connection_recycle") -> None:
         self.invalidate_calls.append(reason)
         self._streaming = False
+
+
+class FakeSessionCoordinator:
+    def __init__(self) -> None:
+        self.on_event = None
+        self.on_context_change = None
+        self.begin_calls = []
+        self.invalidate_calls = []
+        self.hello_calls = []
+        self.config_updates = []
+        self.shutdown_calls = 0
+
+    async def begin_generation(self, generation: int) -> bool:
+        self.begin_calls.append(generation)
+        return True
+
+    async def invalidate_generation(self, generation: int) -> bool:
+        self.invalidate_calls.append(generation)
+        return True
+
+    async def adopt_hello(self, generation: int, event: dict) -> bool:
+        self.hello_calls.append((generation, event["sessionId"]))
+        return True
+
+    async def update_config(self, server_config, event_config) -> None:
+        self.config_updates.append((server_config, event_config))
+
+    async def shutdown(self) -> None:
+        self.shutdown_calls += 1
 
 
 class BaseControllerTestCase(unittest.TestCase):
@@ -375,6 +412,64 @@ class TestSTTControllerWiringAndLifecycle(BaseControllerTestCase):
         res_direct = self.controller.process_raw_final_event(event)
         self.assertEqual(res_direct.status, FinalProcessingStatus.INVALID_FINAL)
         self.assertEqual(res_direct.reason, "closing")
+
+
+class TestSTTControllerDualSessionLifecycle(unittest.IsolatedAsyncioTestCase):
+    def make_controller(self):
+        config = AppConfig()
+        config.history.persistent.enabled = False
+        history = TranscriptHistoryManager(config.history)
+        queue = FakeInjectionQueue()
+        session = FakeSTTSession()
+        coordinator = FakeSessionCoordinator()
+        controller = STTController(
+            config,
+            session=session,
+            audio=FakeAudioCapture(),
+            history_manager=history,
+            injection_queue=queue,
+            session_coordinator=coordinator,
+        )
+        return controller, session, coordinator
+
+    async def test_transport_and_hello_callbacks_share_generation(self) -> None:
+        controller, session, coordinator = self.make_controller()
+        controller._loop = asyncio.get_running_loop()
+
+        controller._handle_transport_change(TransportState.CONNECTING)
+        controller.handle_server_event(
+            "hello",
+            {
+                "type": "hello",
+                "sessionId": session.state.session_id,
+                "_clientGeneration": session.generation,
+            },
+        )
+        await asyncio.sleep(0)
+
+        self.assertEqual(coordinator.begin_calls, [session.generation])
+        self.assertEqual(
+            coordinator.hello_calls,
+            [(session.generation, session.state.session_id)],
+        )
+        await controller.shutdown()
+
+    async def test_disconnect_invalidates_event_session_and_shutdown_is_once(self) -> None:
+        controller, session, coordinator = self.make_controller()
+        controller._loop = asyncio.get_running_loop()
+        controller.start_queue()
+
+        controller._handle_transport_change(TransportState.DISCONNECTED)
+        await asyncio.sleep(0)
+        await asyncio.gather(
+            controller.shutdown(),
+            controller.shutdown(),
+            controller.shutdown(),
+        )
+
+        self.assertEqual(coordinator.invalidate_calls, [session.generation])
+        self.assertEqual(coordinator.shutdown_calls, 1)
+        self.assertEqual(session.stop_calls, 1)
 
 
 class TestSTTControllerRunLoopAndConcurrentShutdown(unittest.IsolatedAsyncioTestCase):
@@ -1760,3 +1855,40 @@ class TestSTTControllerReinsertion(BaseControllerTestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestMicrophoneMuteAndManualReconnect(BaseControllerTestCase):
+    """Deliberate acts by somebody watching, rather than automatic behaviour."""
+
+    def test_muting_stops_audio_leaving_the_client(self) -> None:
+        self.assertFalse(self.controller.microphone_muted)
+
+        result = self.controller.set_microphone_muted(True)
+        self.assertTrue(result.success)
+        self.assertTrue(self.controller.microphone_muted)
+        self.assertTrue(self.audio.muted)
+
+        # The stream is not torn down: reopening it takes long enough to be
+        # noticed and can fail if something else took the device meanwhile.
+        self.assertEqual(self.audio.stop_calls, 0)
+
+    def test_unmuting_returns_the_microphone(self) -> None:
+        self.controller.set_microphone_muted(True)
+        result = self.controller.set_microphone_muted(False)
+        self.assertTrue(result.success)
+        self.assertFalse(self.controller.microphone_muted)
+        self.assertFalse(self.audio.muted)
+
+    def test_manual_reconnect_drops_the_connection_now(self) -> None:
+        result = asyncio.run(self.controller.reconnect_server())
+        self.assertTrue(result.success)
+        self.assertIn("manual_reconnect", self.session.invalidate_calls)
+
+    def test_a_failing_reconnect_is_reported_rather_than_raised(self) -> None:
+        async def boom(reason: str = "") -> None:
+            raise OSError("no route to host")
+
+        self.session.invalidate_connection = boom
+        result = asyncio.run(self.controller.reconnect_server())
+        self.assertFalse(result.success)
+        self.assertIn("no route to host", result.message)

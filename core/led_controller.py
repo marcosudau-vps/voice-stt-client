@@ -454,13 +454,11 @@ class InProcessLedController:
         return shared_transport()
 
     def set_device_mute(self, muted: bool) -> bool:
-        """Light the device's mute LED, and report whether the line actually moved.
+        """Mute the device, and report whether the line actually moved.
 
-        Lights it -- not mutes it. Setting X0D30 turns the LED on, and the
-        captured level carries on regardless; the firmware does more than this
-        when the button is pressed, and that part is not reachable from here.
-        The microphone is silenced by the client, and this makes the device look
-        the way it should while that is true.
+        Sets X0D30, which lights the mute LED and silences the microphone
+        together -- the same line, and the same effect, as the button on the
+        device. Measured: the captured level falls flat while it is set.
 
         Checked rather than assumed. A write with the wrong pin address is
         accepted over USB and then does nothing at all, so the command reporting

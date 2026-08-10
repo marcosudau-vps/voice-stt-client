@@ -51,6 +51,8 @@ class SettingsDialog(QDialog):
     history_reinsert_requested = Signal(str)
     history_delete_requested = Signal(str)
     history_clear_requested = Signal()
+    reconnect_device_requested = Signal()
+    reconnect_server_requested = Signal()
 
     TAB_NAMES = (
         "Verlauf",
@@ -130,6 +132,29 @@ class SettingsDialog(QDialog):
             self.microphone_result = QLabel("")
             layout.addWidget(test_button)
             layout.addWidget(self.microphone_result)
+
+            # An action, not a setting: it changes nothing that gets saved, so
+            # it sits outside the form and does not wait for "Übernehmen".
+            self.reconnect_device_button = QPushButton("ReSpeaker neu verbinden")
+            self.reconnect_device_button.setToolTip(
+                "Trennt die USB-Verbindung zum LED-Ring und baut sie sofort neu "
+                "auf, statt auf den nächsten Versuch zu warten."
+            )
+            self.reconnect_device_button.clicked.connect(
+                self.reconnect_device_requested.emit
+            )
+            layout.addWidget(self.reconnect_device_button)
+
+        if category == "Verbindung & Betriebsmodus":
+            self.reconnect_server_button = QPushButton("Server neu verbinden")
+            self.reconnect_server_button.setToolTip(
+                "Verwirft die bestehende Serververbindung, damit sie sofort neu "
+                "aufgebaut wird, statt den Wartezeitplan abzuwarten."
+            )
+            self.reconnect_server_button.clicked.connect(
+                self.reconnect_server_requested.emit
+            )
+            layout.addWidget(self.reconnect_server_button)
         layout.addStretch(1)
         return page
 

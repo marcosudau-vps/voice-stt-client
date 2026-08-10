@@ -2,27 +2,33 @@
 
 from __future__ import annotations
 
+import importlib.util
 import logging
 import signal
 import sys
 import threading
+from dataclasses import replace
 from typing import Optional, Sequence
 
-from PySide6.QtCore import QObject, Qt, Slot
+from PySide6.QtCore import QObject, Qt, QTimer, Signal, Slot
 from PySide6.QtWidgets import QApplication, QSystemTrayIcon
 
 from core.config import AppConfig
-from core.controller import CommandResult, TransientEvent
+from core.controller import CommandResult
+from core.feedback_reducer import FeedbackDecision
+from core.event_models import CanonicalEventType
+from core.led_controller import LedConfigurationError
 from core.settings_metadata import ApplyPolicy
 from core.reinsertion import ReinsertionResult, ReinsertionStatus
 from ui.core_bridge import CoreBridge
 from ui.hotkeys import GlobalHotkeyManager, HotkeyBackend
 from ui.feedback import SoundFeedback
+from ui.led_feedback import LedFeedback
 from ui.overlay import TranscriptOverlay
 from ui.presentation import (
     FeedbackPresentation,
     IndicatorColor,
-    presentation_for_feedback,
+    presentation_for_feedback_decision,
 )
 from ui.single_instance import (
     InstanceAcquireStatus,
@@ -39,10 +45,19 @@ EXIT_INSTANCE_ERROR = 3
 EXIT_TRAY_UNAVAILABLE = 4
 EXIT_CORE_START_FAILED = 5
 EXIT_UI_INITIALIZATION_FAILED = 6
+EXIT_CONFIGURATION_INVALID = 7
 
 
 class DesktopApplication(QObject):
     """Own all Qt-side AP06 components in the QApplication thread."""
+
+    device_mute_changed = Signal(bool)
+    """The device's mute line moved. Emitted from the LED worker, handled here.
+
+    A signal rather than a direct call because the reading happens on the worker
+    thread and everything it leads to -- the tray, the menu text -- belongs to
+    the Qt thread.
+    """
 
     def __init__(
         self,
@@ -52,6 +67,7 @@ class DesktopApplication(QObject):
         *,
         bridge: Optional[CoreBridge] = None,
         hotkey_backend: Optional[HotkeyBackend] = None,
+        led_feedback: Optional[LedFeedback] = None,
     ) -> None:
         super().__init__()
         if threading.current_thread() is not threading.main_thread():
@@ -63,6 +79,16 @@ class DesktopApplication(QObject):
         self.bridge = bridge or CoreBridge(config)
         self.overlay = TranscriptOverlay(config.overlay)
         self.sound_feedback = SoundFeedback(config.feedback, self)
+        self.led_feedback = led_feedback or LedFeedback(
+            config.led,
+            on_failure=self._on_led_failure,
+            on_device_mute_changed=self.device_mute_changed.emit,
+        )
+        self._muted = False
+        # Every effect a rule names has to exist before anything is meant to
+        # light up. Raises LedConfigurationError, which run_gui turns into a
+        # refusal to start -- unlike a missing device, which is not an error.
+        self.led_feedback.verify_targets(config.feedback_mappings.led_targets())
         self._hotkey_backend = hotkey_backend
         self.settings_dialog: Optional[SettingsDialog] = None
         self._pending_config: Optional[AppConfig] = None
@@ -79,8 +105,20 @@ class DesktopApplication(QObject):
             on_request_history=lambda: self.bridge.request_history(10),
             on_quit=self.application.quit,
             on_settings=self.show_settings,
+            on_switch_led_sink=self.switch_led_sink,
+            on_toggle_mute=self.set_microphone_muted,
+            on_reconnect_device=self.reconnect_device,
+            on_reconnect_server=self.reconnect_server,
             parent=self,
         )
+        self._led_watch = QTimer(self)
+        self._led_watch.setInterval(10_000)
+        self._led_watch.timeout.connect(self._review_led_availability)
+        if self._simulation_offer_possible():
+            self._led_watch.start()
+        # The mute line can move without this application touching it, and only
+        # the worker may read it.
+        self.led_feedback.watch_device_mute()
         self.hotkeys = self._create_hotkey_manager(config)
         self._started = False
         self._shutting_down = False
@@ -121,13 +159,18 @@ class DesktopApplication(QObject):
         self.bridge.snapshot_changed.connect(
             self.tray.update_snapshot, queued
         )
-        self.bridge.feedback_received.connect(self._on_feedback, queued)
+        self.bridge.feedback_decision_received.connect(
+            self._on_feedback_decision,
+            queued,
+        )
         self.bridge.text_received.connect(self._on_text_received, queued)
         self.bridge.command_completed.connect(
             self._on_command_completed, queued
         )
         self.bridge.history_received.connect(self._on_history_received, queued)
         self.bridge.fatal_error.connect(self._on_fatal_error, queued)
+        self.sound_feedback.failure.connect(self._on_sound_failure)
+        self.device_mute_changed.connect(self._on_device_mute_changed, queued)
 
     def start(self) -> bool:
         if self._started:
@@ -144,8 +187,156 @@ class DesktopApplication(QObject):
         self._started = True
         return True
 
-    def _on_feedback(self, event: TransientEvent) -> None:
-        self.overlay.show_feedback(presentation_for_feedback(event))
+    @Slot(object)
+    def _on_feedback_decision(self, decision: FeedbackDecision) -> None:
+        if not isinstance(decision, FeedbackDecision):
+            logger.warning("Ignoring invalid feedback decision from Core.")
+            return
+        if not decision.publish or decision.replay:
+            return
+        self.tray.update_feedback_decision(decision)
+        presentation = presentation_for_feedback_decision(
+            decision,
+            operating_mode=self.config.session.mode,
+        )
+        if presentation is not None:
+            self.overlay.show_feedback(presentation)
+        self.sound_feedback.play(decision.rule.sound)
+        self.led_feedback.submit(
+            decision.rule.led,
+            # An impulse marks a fact that just happened. Without one this is
+            # rebuilt state, which may restore what the ring shows but must not
+            # replay an announcement.
+            live=decision.impulse is not None,
+        )
+
+    @Slot(str)
+    def _on_sound_failure(self, failure_key: str) -> None:
+        category = failure_key.partition(":")[0] or "unknown"
+        self.bridge.report_local_feedback(
+            CanonicalEventType.CLIENT_SOUND_FAILED,
+            {"category": category},
+        )
+
+    def _on_led_failure(self, reason: str) -> None:
+        self.bridge.report_local_feedback(
+            CanonicalEventType.CLIENT_LED_UNAVAILABLE,
+            {"reason": reason},
+        )
+
+    # -- mute and manual reconnects -----------------------------------------
+
+    def set_microphone_muted(self, muted: bool) -> None:
+        """Mute the microphone here and on the device, and darken the ring.
+
+        Both halves, because they answer different questions. The device line
+        lights its own mute LED and mutes in hardware, which is what somebody
+        looking at the reSpeaker expects to see. The client-side mute is what
+        guarantees nothing captured leaves this machine -- and it still holds if
+        the reSpeaker is unplugged, which is exactly when a mute must not
+        quietly stop working.
+        """
+        self._muted = muted
+        self.bridge.set_microphone_muted(muted)
+        reached_device = False
+        try:
+            reached_device = self.led_feedback.set_device_mute(muted)
+        except Exception:
+            logger.exception("Setting the device mute line failed.")
+        if reached_device:
+            # Ours, so the watcher must not report it back as a change.
+            self.led_feedback.note_device_mute(muted)
+
+        self.tray.set_muted(muted, on_device=reached_device)
+        if muted and not reached_device:
+            self.tray.notify(
+                "Mikrofon stummgeschaltet",
+                "Der ReSpeaker war nicht erreichbar - die Mute-LED am Gerät "
+                "bleibt aus. Aufgenommen wird trotzdem nichts.",
+            )
+
+    @Slot(bool)
+    def _on_device_mute_changed(self, muted: bool) -> None:
+        """The device's mute line moved without us moving it.
+
+        X0D30 is the mute function, not the button: it reads the same however it
+        was set. So this is simply "the device is now muted" and the client
+        follows, rather than trying to work out who did it.
+        """
+        if muted == self._muted:
+            return
+        logger.info("Device mute changed to %s; following it.", muted)
+        self._muted = muted
+        self.bridge.set_microphone_muted(muted)
+        try:
+            self.led_feedback.controller.set_output(enabled=not muted)
+        except Exception:
+            logger.debug("could not follow the mute on the ring", exc_info=True)
+        self.tray.set_muted(muted, on_device=True)
+
+    def reconnect_device(self) -> None:
+        """Drop the USB connection and build it again, now."""
+        self.tray.notify("ReSpeaker", "Verbindung wird neu aufgebaut …")
+        self._replace_led_feedback(self.config, self.config.led)
+        if self._simulation_offer_possible():
+            self.tray.offer_led_simulation(False)
+
+    def reconnect_server(self) -> None:
+        self.tray.notify("Server", "Verbindung wird neu aufgebaut …")
+        self.bridge.reconnect_server()
+
+    # -- offering the simulator ---------------------------------------------
+
+    def _simulation_offer_possible(self) -> bool:
+        """Whether offering to switch would lead anywhere.
+
+        Three conditions, all of them cheap to check and all of them reasons the
+        offer would be a lie: the ring has to be the thing that is failing, the
+        offer has to be switched on, and the simulator has to be installed --
+        it is an optional package and a release build does not carry it.
+        """
+        if not self.config.led.enabled or self.config.led.sink != "respeaker":
+            return False
+        if self.config.led.simulation_offer_after_s <= 0:
+            return False
+        return importlib.util.find_spec("lefx.device.simulated_respeaker") is not None
+
+    def _review_led_availability(self) -> None:
+        if not self._simulation_offer_possible():
+            self.tray.offer_led_simulation(False)
+            return
+        waited = self.led_feedback.unavailable_seconds
+        self.tray.offer_led_simulation(
+            waited >= self.config.led.simulation_offer_after_s
+        )
+
+    def switch_led_sink(self, sink: str = "simulator") -> bool:
+        """Move the LED output to another sink without restarting anything else.
+
+        The controller is rebuilt rather than retargeted: a sink is chosen when
+        the service is constructed, and swapping one underneath a running render
+        loop would be a second way to do it for no gain. The old one is released
+        first, because two owners of one USB device is exactly the situation
+        this is trying to escape.
+        """
+        candidate = replace(self.config, led=replace(self.config.led, sink=sink))
+        old_led_config = self.config.led
+        self._replace_led_feedback(candidate, old_led_config)
+        if self.led_feedback.config.sink != sink:
+            self.tray.notify(
+                "Umschalten fehlgeschlagen",
+                f"Die LED-Ausgabe läuft weiter auf {old_led_config.sink}.",
+            )
+            return False
+        self.config = candidate
+        self.tray.offer_led_simulation(
+            False, "Auf LED-Simulation umschalten"
+        )
+        self.tray.notify(
+            "LED-Simulation aktiv",
+            "Das Ringfenster zeigt jetzt die Ausgabe. Mit lefx-simulator öffnen.",
+        )
+        return True
 
     @Slot(int, str, bool)
     def _on_text_received(
@@ -203,14 +394,6 @@ class DesktopApplication(QObject):
                 )
             )
 
-        if isinstance(result, CommandResult) and result.success:
-            if name in {"primary_dictation_action", "start_dictation"}:
-                self.sound_feedback.play("start")
-            elif name in {"stop_dictation"}:
-                self.sound_feedback.play("stop")
-            elif name == "cancel_dictation":
-                self.sound_feedback.play("cancel")
-
     def show_settings(self) -> None:
         if self.settings_dialog is None:
             dialog = SettingsDialog(self.config, self._apply_settings)
@@ -222,6 +405,8 @@ class DesktopApplication(QObject):
                 self.bridge.delete_history_entry
             )
             dialog.history_clear_requested.connect(self.bridge.clear_history)
+            dialog.reconnect_device_requested.connect(self.reconnect_device)
+            dialog.reconnect_server_requested.connect(self.reconnect_server)
             self.settings_dialog = dialog
         self.bridge.request_history(500)
         self.settings_dialog.show()
@@ -277,9 +462,16 @@ class DesktopApplication(QObject):
         if candidate is None:
             return
         if isinstance(result, CommandResult) and result.success:
+            old_led_config = self.config.led
+            old_mappings = self.config.feedback_mappings
             self.config = candidate
             self.overlay.apply_config(candidate.overlay)
             self.sound_feedback.apply_config(candidate.feedback)
+            if (
+                candidate.led != old_led_config
+                or candidate.feedback_mappings != old_mappings
+            ):
+                self._replace_led_feedback(candidate, old_led_config)
             self._pending_config = None
             self._pending_old_config = None
             self._pending_old_hotkeys = None
@@ -294,6 +486,39 @@ class DesktopApplication(QObject):
         self._rollback_pending_settings(message)
         if self.settings_dialog is not None:
             self.settings_dialog.complete_apply(False, None, message)
+
+    def _replace_led_feedback(self, candidate: AppConfig, old_led_config) -> None:
+        """Swap the LED output for the new settings, or keep what already works.
+
+        Only a configuration that survives the catalogue check may replace one
+        that already survived it. A candidate naming an effect nobody has is
+        discarded and the previous output is rebuilt from the previous settings,
+        so the ring goes on working on the last known good ones rather than
+        going dark because of a typo.
+        """
+        if not self.led_feedback.shutdown():
+            logger.error(
+                "LED output did not stop in time; it keeps running on the "
+                "previous settings."
+            )
+            return
+        try:
+            replacement = LedFeedback(
+                candidate.led, on_failure=self._on_led_failure
+            )
+            replacement.verify_targets(candidate.feedback_mappings.led_targets())
+        except Exception:
+            logger.exception(
+                "New LED configuration rejected; restoring the previous one."
+            )
+            try:
+                self.led_feedback = LedFeedback(
+                    old_led_config, on_failure=self._on_led_failure
+                )
+            except Exception:
+                logger.exception("The previous LED configuration is gone too.")
+            return
+        self.led_feedback = replacement
 
     def _rollback_pending_settings(self, message: str) -> None:
         del message
@@ -336,6 +561,8 @@ class DesktopApplication(QObject):
         self.overlay.hide()
         if self.settings_dialog is not None:
             self.settings_dialog.close()
+        if not self.led_feedback.shutdown():
+            logger.warning("LED worker did not stop within its configured timeout.")
         self.bridge.stop(timeout=10.0)
         self.instance_guard.release()
         self._started = False
@@ -380,6 +607,14 @@ def run_gui(
             return EXIT_TRAY_UNAVAILABLE
 
         desktop = DesktopApplication(application, config, guard)
+    except LedConfigurationError as error:
+        # Not a UI failure and not a hardware one: the configuration file asks
+        # for something that cannot be carried out. Said plainly and once,
+        # because the next start will fail in exactly the same way until the
+        # file is fixed.
+        logger.error("LED configuration is not usable:\n%s", error)
+        guard.release()
+        return EXIT_CONFIGURATION_INVALID
     except Exception:
         logger.exception("Qt UI initialization failed.")
         guard.release()
