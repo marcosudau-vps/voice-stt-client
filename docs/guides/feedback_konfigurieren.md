@@ -45,6 +45,21 @@ feedback_mappings:
 Alle drei Zeilen sind optional. `client.event_stream.live: {}` ist ein bewusst
 wirkungsloses Ereignis — bekannt, aber ohne Anzeige.
 
+> **`schema_version: 2` ist nicht die LEFX-Version.** In diesem Projekt laufen
+> mehrere Zahlen nebeneinander, die alle „Version" heißen und nichts miteinander
+> zu tun haben:
+>
+> | Zahl | Versioniert | Stand |
+> |---|---|---|
+> | `feedback_mappings.schema_version` | **diesen** Konfigurationsabschnitt | **2** |
+> | `led-controller-version-3` | das Effektsystem (Paketversion 3.0.x) | **V3** |
+> | `background_state.json` | LEFX' eigener Zustandsspeicher | 3 |
+> | `set.yaml` `version` | das Format eines Effektpakets | 1 |
+>
+> Hier gilt nur die erste. Sie stand auf 1, solange der Client zehn feste
+> LED-Wirkungen kannte, und steht auf 2, seit er LEFX-Verben spricht. Eine 3
+> gibt es für diesen Abschnitt nicht.
+
 Es gibt **30 Ereignisse**. Die vollständige Liste steht in `config.yaml`; sie
 teilt sich in `server.*` (was der Server meldet) und `client.*` (was die
 Anwendung selbst feststellt).

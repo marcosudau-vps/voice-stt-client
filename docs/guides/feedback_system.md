@@ -46,6 +46,13 @@ deterministisch und kennt kein einziges Gerät. Hier wohnt die schwierige Logik:
 zeigen" — und zwar als Konfiguration, nicht als Code. Jedes Ereignis darf bis zu
 drei Wirkungen haben: `led`, `sound`, `app`.
 
+Dieser Abschnitt trägt `schema_version: 2`. Das ist die Version **des
+Konfigurationsabschnitts** und hat nichts mit der Version des Effektsystems zu
+tun, das darunter läuft — dort steht V3 (`led-controller-version-3` 3.0.x).
+Beide Zahlen treffen in denselben Zeilen aufeinander und meinen Verschiedenes:
+Schema 1 war der Stand mit zehn festen LED-Wirkungen, Schema 2 spricht
+LEFX-Verben. Für diesen Abschnitt gibt es keine 3.
+
 **Adapter.** Drei Empfänger, die nichts voneinander wissen und einander nicht
 blockieren. Fällt einer aus, laufen die anderen weiter.
 
