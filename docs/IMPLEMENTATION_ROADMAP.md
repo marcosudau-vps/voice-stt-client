@@ -435,12 +435,13 @@ direkt LEFX-Verben und erreicht damit den vollen Katalog aus 36 Effekten und
   Handles stabil.
 - Gefrorener Build geprüft: Kataloge im Bundle, HTTP-Stack ausgeschlossen,
   Startprüfung besteht, +258 KB.
+- Ende zu Ende gegen den echten Server: vier Serverereignisse, Transkript
+  zurück, LED, Ton und Anwendungsanzeige ausgelöst.
 
 ### Offen
 
 - Physischer Kabelzug am ReSpeaker (nur von Hand prüfbar).
-- Ende-zu-Ende gegen den echten Server — dieser antwortete während der Abnahme
-  durchgehend mit HTTP 502.
+- Wake-Word-Modus Ende zu Ende. Der Nachweis lief im Hotkey-Modus.
 - Overlays und laufende Datenflüsse (Pegel, Countdown, DoA) sind bewusst ein
   eigenes Folgepaket.
 

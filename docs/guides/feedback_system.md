@@ -148,6 +148,20 @@ sollen:
 | Ereignisstrom | 41 (`test_event_*`) | — |
 | Zusammenspiel | 7 (`test_feedback_integration`) | — |
 | Stummschaltung | 4 (`test_audio_capture`) + 11 im LED-Weg | X0D30 gemessen, Angleichung an die Taste |
+| **Ende zu Ende** | — | gegen den echten Server: vier Serverereignisse, alle drei Kanäle |
+
+Der Ende-zu-Ende-Lauf ist der einzige ohne Doubles: echter Server, echtes
+Mikrofon, echter Ring. Er belegt die Kette, auf die es ankommt —
+
+```
+server.recording.started        set_state:listening                    start     indicator.recording
+server.recording.ended          set_state:thinking                     stop      indicator.finalizing
+server.transcription.started    set_state:thinking                     —         indicator.finalizing
+server.transcription.completed  emit_event:success_event → ready_state complete  indicator.success
+```
+
+— samt Transkript. `tests/manual_test_ap07_end_to_end.py`, im Hotkey-Modus,
+damit das Aktivierungswort nicht als zweite Unbekannte mitläuft.
 
 **Vollständigkeit wird erzwungen, nicht gehofft.** Für alle drei Kanäle gibt es
 Tests, die über den ganzen Wertevorrat laufen: jede der 30 Ereignisarten ist im
@@ -161,8 +175,8 @@ Tippfehler verhindert den Start (Exitcode 7) — ein fehlendes Gerät niemals.
 
 ### Was nicht abgesichert ist
 
-- **Ende-zu-Ende gegen den echten Server.** Der antwortete während der gesamten
-  Abnahme mit HTTP 502. Alles Serverseitige ist gegen Doubles geprüft.
+- **Der Wake-Word-Modus Ende zu Ende.** Der Nachweis lief im Hotkey-Modus. Der
+  Weg dahinter ist derselbe; die Wake-Word-Erkennung selbst ist es nicht.
 - **Physischer Kabelzug** am ReSpeaker. Die Codestrecke darüber ist über den
   Simulator geprüft, dessen Ringfenster sich echt trennen lässt.
 - **Ton und Indikator am laufenden System.** Beide sind gut in Einzeltests

@@ -18,6 +18,8 @@ from __future__ import annotations
 import argparse
 import asyncio
 import logging
+import math
+import struct
 import sys
 import time
 import urllib.error
@@ -72,6 +74,21 @@ async def run(config: AppConfig, seconds: float, led: LedFeedback | None) -> int
         transcripts.append(text) if final else None
     )
 
+    # Ohne das laesst sich "der Server meldet nichts" nicht von "es wurde nicht
+    # gesprochen" unterscheiden -- und das ist der Unterschied zwischen einem
+    # Befund und einem Missverstaendnis.
+    gesendet: list[float] = []
+    original_send = controller.session.send_audio
+
+    async def zaehlend(pcm, sample_rate, channels=1, frames=None):
+        count = len(pcm) // 2
+        if count:
+            werte = struct.unpack(f"<{count}h", pcm[: count * 2])
+            gesendet.append(math.sqrt(sum(v * v for v in werte) / count))
+        return await original_send(pcm, sample_rate, channels, frames)
+
+    controller.session.send_audio = zaehlend
+
     task = asyncio.create_task(controller.run())
     print("  warte auf Verbindung ...")
     for _ in range(int(30 / 0.5)):
@@ -113,7 +130,11 @@ async def run(config: AppConfig, seconds: float, led: LedFeedback | None) -> int
     }
     server_events = {row[1] for row in seen if row[1].startswith("server.")}
 
+    lauteste = max(gesendet) if gesendet else 0.0
     print()
+    print(f"Audio an den Server : {len(gesendet)} Pakete, lautestes {lauteste:.0f}")
+    if gesendet and lauteste < 300:
+        print("                      (sehr leise — wurde gesprochen?)")
     print(f"Entscheidungen      : {len(seen)}")
     print(f"Serverereignisse    : {sorted(server_events) or 'KEINE'}")
     print(f"Transkripte         : {transcripts or 'keine'}")
@@ -135,10 +156,22 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--seconds", type=float, default=12.0)
     parser.add_argument("--no-led", action="store_true", help="Ring nicht ansteuern")
+    parser.add_argument(
+        "--mode",
+        default="hotkey",
+        choices=("hotkey", "wake_word", "config"),
+        help="hotkey ist deterministisch; wake_word verlangt das Aktivierungswort",
+    )
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(name)s: %(message)s")
     config = AppConfig.load()
+    if args.mode != "config":
+        # Der Hotkey-Modus nimmt das Aktivierungswort aus der Gleichung: Das
+        # Diktat beginnt auf Befehl, und was danach passiert, ist dieselbe
+        # Kette. Wer den konfigurierten Modus pruefen will, nimmt --mode config.
+        config.session.mode = args.mode
+    print(f"Betriebsmodus fuer diesen Lauf: {config.session.mode}")
 
     up, detail = server_is_up(config.server.health_url)
     print(f"Server {config.server.health_url}: {detail}")
