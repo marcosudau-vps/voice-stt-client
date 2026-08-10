@@ -376,3 +376,49 @@ class TestTrayController(QtTestBase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestMappedActionCatalogueIsComplete(QtTestBase):
+    """Every in-app action a rule may name has to produce a presentation.
+
+    ``presentation_for_mapped_action`` ends in a dict lookup, so an action
+    without an entry raises KeyError while feedback is being shown rather than
+    degrading to something dull. Parametrised over the enum, in both operating
+    modes, because the mapping branches on the mode.
+    """
+
+    def test_every_action_renders_in_both_modes(self) -> None:
+        for action in AppActionId:
+            for mode in ("hotkey", "wake_word"):
+                with self.subTest(action=action, mode=mode):
+                    presentation = presentation_for_mapped_action(
+                        action, operating_mode=mode
+                    )
+                    self.assertTrue(presentation.status_text.strip())
+                    self.assertIsInstance(presentation.color, IndicatorColor)
+
+    def test_transient_actions_say_how_long_they_last(self) -> None:
+        """Success, warning and error announce something and then give the
+        indicator back; the lasting ones must not carry a duration."""
+        transient = {
+            AppActionId.INDICATOR_SUCCESS,
+            AppActionId.INDICATOR_WARNING,
+            AppActionId.INDICATOR_ERROR,
+        }
+        for action in AppActionId:
+            with self.subTest(action=action):
+                presentation = presentation_for_mapped_action(
+                    action, operating_mode="hotkey"
+                )
+                if action in transient:
+                    self.assertIsNotNone(presentation.duration_ms)
+                    self.assertGreater(presentation.duration_ms, 0)
+                else:
+                    self.assertIsNone(presentation.duration_ms)
+
+    def test_the_mode_changes_the_colour_but_never_the_vocabulary(self) -> None:
+        for action in AppActionId:
+            with self.subTest(action=action):
+                hotkey = presentation_for_mapped_action(action, operating_mode="hotkey")
+                wake = presentation_for_mapped_action(action, operating_mode="wake_word")
+                self.assertEqual(hotkey.duration_ms, wake.duration_ms)

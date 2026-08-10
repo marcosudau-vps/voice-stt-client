@@ -13,6 +13,7 @@ from PySide6.QtWidgets import QApplication
 
 from core.config import FeedbackConfig
 from core.feedback_mapping import SoundCueId, SoundEffect
+MappedSoundEffect = SoundEffect
 from ui.feedback import SoundFeedback
 
 
@@ -121,3 +122,33 @@ class SoundFeedbackTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestSoundCueCatalogueIsComplete(unittest.TestCase):
+    """Every cue a rule may name has to resolve to a configured asset slot.
+
+    ``_path_for_cue`` is a dict lookup, so a cue without an entry does not
+    degrade -- it raises KeyError in the middle of feedback. Parametrised over
+    the enum so that adding a cue and forgetting the slot fails here rather
+    than in front of somebody dictating.
+    """
+
+    def test_every_cue_has_a_configuration_slot(self) -> None:
+        feedback = SoundFeedback(FeedbackConfig(sounds_enabled=True))
+        self.addCleanup(feedback.deleteLater)
+        for cue in SoundCueId:
+            with self.subTest(cue=cue):
+                # No assertion on the value: a slot may legitimately be unset.
+                # What must hold is that asking does not blow up.
+                feedback._path_for_cue(cue)
+
+    def test_an_unset_slot_is_silence_rather_than_a_failure(self) -> None:
+        feedback = SoundFeedback(FeedbackConfig(sounds_enabled=True))
+        self.addCleanup(feedback.deleteLater)
+        reported: list[str] = []
+        feedback.failure.connect(reported.append)
+        for cue in SoundCueId:
+            if feedback._path_for_cue(cue):
+                continue
+            self.assertFalse(feedback.play(MappedSoundEffect(cue, 1.0)))
+        self.assertEqual(reported, [])
