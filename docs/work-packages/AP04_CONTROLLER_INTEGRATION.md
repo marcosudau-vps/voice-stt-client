@@ -146,7 +146,7 @@ cleanup()
 ### Aktuelle Defaults
 
 | Einstellung | Wert |
-|---|---:|
+| --- |---:|
 | `history.enabled` | `true` |
 | `memory.max_entries` | `5` |
 | `persistent.enabled` | `true` |
@@ -230,7 +230,7 @@ get_recent_entries(limit=None) -> tuple[HistoryEntry, ...]
 ### Resultatstatus
 
 | Status | Bedeutung |
-|---|---|
+| --- | --- |
 | `queued` | Queue hat den Auftrag angenommen |
 | `empty_history` | beide lesbaren Quellen enthalten keinen Eintrag |
 | `entry_not_found` | angeforderte ID ist bei fehlerfreiem Lesen nicht vorhanden |
@@ -469,7 +469,7 @@ Die externe E-07-Evaluierung blockiert die Controller-Integration nicht.
 ## 12. Fehler- und Ergebnis-Matrix
 
 | Situation | Automatischer Paste? | History/Attempt | Controller-Ergebnis |
-|---|---:|---|---|
+| --- | --- | --- | --- |
 | Realtime-Event | nein | kein Final-Entry | Darstellungsupdate |
 | gültiges neues Finalevent | ja, nach History-Aufnahme | Entry, danach Queue-Attempt | angenommen/queued |
 | identisches doppeltes Finalevent | nein | vorhandener Entry unverändert | dedupliziert |

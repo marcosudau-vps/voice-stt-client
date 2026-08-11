@@ -102,7 +102,7 @@ Build `ua-io16-sqr`:
 Daraus folgt die Aufteilung:
 
 | | Wer kann es | Wie |
-|---|---|---|
+| --- | --- | --- |
 | Gerät stummschalten (LED + Mikrofon) | Taste **und** Client | `GPO_WRITE_VALUE [30, 1]` |
 | Zustand erkennen | der Client | `X0D30` im Sekundentakt auf dem Worker-Thread |
 | Client stummschalten | der Client | Pakete im Verarbeitungsthread verwerfen |

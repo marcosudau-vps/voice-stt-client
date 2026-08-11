@@ -192,7 +192,7 @@ OK
 Modulaufteilung:
 
 | Modul | Tests |
-|---|---:|
+| --- |---:|
 | `tests/test_history.py` | 30 |
 | `tests/test_text_injector.py` | 41 |
 | `tests/test_reinsertion.py` | 26 |

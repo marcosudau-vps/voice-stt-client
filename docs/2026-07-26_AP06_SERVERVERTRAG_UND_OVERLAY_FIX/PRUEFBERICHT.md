@@ -73,7 +73,7 @@ Server-API-Version: **2.0.0**
 Der WebSocket-Aufbau unterstützt:
 
 | Queryparameter | Zweck |
-|---|---|
+| --- | --- |
 | `wakeWordEnabled=false` | Wake Word nur für diese Session deaktivieren |
 | `wakeWordEnabled=true` | Wake Word nur für diese Session aktivieren |
 | fehlend/`null`/`inherit` | Serverbaseline übernehmen |

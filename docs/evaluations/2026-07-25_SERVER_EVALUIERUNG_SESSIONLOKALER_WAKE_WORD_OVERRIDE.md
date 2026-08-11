@@ -52,7 +52,7 @@ Der Desktop-Client soll später zwei selten gewechselte Betriebsarten anbieten:
 Das gewünschte Verhalten lässt sich als zwei unabhängige Gates beschreiben:
 
 | Server-Gate | Client-Gate | Ergebnis |
-|---|---|---|
+| --- | --- | --- |
 | Wake Word an | Hotkey an | beide Trigger erforderlich; nicht gewünscht |
 | Wake Word aus | Hotkey aus | kein Trigger-Gate; nicht gewünscht |
 | Wake Word aus | Hotkey an | Hotkey-Modus |
@@ -328,7 +328,7 @@ Der Server-Agent soll lesend und nachvollziehbar:
 Der Prüfbericht soll eine der Stufen wählen:
 
 | Stufe | Bedeutung |
-|---|---|
+| --- | --- |
 | klein | begrenzte Änderung im Admission-/Recorderpfad und gezielte Tests |
 | mittel | mehrere Serverkomponenten oder Protokoll-/Hello-Anpassungen, aber keine Architekturablösung |
 | groß | neue Authentifizierungs-, Token-, Profil- oder Persistenzarchitektur erforderlich |
@@ -446,7 +446,7 @@ Die Kernhypothese dieses Evaluierungsauftrags ist damit bestätigt.
 ### 15.2 Aufwandseinstufung
 
 | Variante | Einstufung | Realistische Größenordnung |
-|---|---|---:|
+| --- | --- |---:|
 | nur Vererben oder Wake Gate sessionlokal deaktivieren | **klein** | funktionaler Patch etwa 4–8 Stunden; produktionsreif einschließlich Vertrag, Tests und Dokumentation etwa 1,5–3 Personentage |
 | drei Zustände mit zuverlässigem sessionlokalem Aktivieren | mittel | etwa 3–5 Personentage, sofern ein einzelnes serverseitiges Wake-Preset eingeführt wird |
 | freie Wake-Konfiguration pro Session | mittel bis groß | zusätzliche Validierung, Modellauflösung und Sicherheitsvertrag; nicht für den Minimalfall empfohlen |
@@ -483,7 +483,7 @@ P:\DockerProjekte\voice-stt-server
 Relevante Kennzeichnung:
 
 | Merkmal | Wert |
-|---|---|
+| --- | --- |
 | produktiver Einstiegspunkt | `VoiceSTT_server.server` |
 | eigentliche FastAPI-Implementierung | `api_fastapi_server.server` |
 | FastAPI-App-Version | `2.0.0` |
@@ -526,7 +526,7 @@ WS /ws/transcribe
 Konkrete Fundstellen in `api_fastapi_server/server.py`:
 
 | Fundstelle | Bedeutung |
-|---|---|
+| --- | --- |
 | Zeile 4693, `websocket_transcribe()` | Route `WS /ws/transcribe` |
 | Zeile 4695 | Admission findet derzeit vor `manager.connect()` und `hello` statt |
 | Zeile 3002, `admit_session()` | reserviert Slot und konstruiert Session |
@@ -703,7 +703,7 @@ Diese Variante wird empfohlen.
 Semantik:
 
 | Wert | Effekt |
-|---|---|
+| --- | --- |
 | Parameter fehlt | exakt heutiges Verhalten |
 | `inherit` | globale Settings unverändert kopieren |
 | `disabled` beziehungsweise `hotkey` | in der Sessionkopie Backend und Wörter leeren |
@@ -796,7 +796,7 @@ konkrete Moduswahl nicht mehr die bevorzugte Lösung.
 ## 20. Transportbewertung
 
 | Transport | Bewertung | Begründung |
-|---|---|---|
+| --- | --- | --- |
 | Queryparameter | **empfohlen** | vor Admission verfügbar, kein Handshakeumbau, Browser kompatibel, kein Secret |
 | eigener Request-Header | nicht empfohlen | Desktop möglich, Browser-WebSocket kann keine beliebigen Header setzen |
 | WebSocket-Subprotocol | technisch möglich, semantisch unpassend | Subprotocol sollte ein Protokoll und keine Recorderoption wählen |
@@ -889,7 +889,7 @@ Wake-Backend.
 ### Sicher betroffen
 
 | Datei | Änderung |
-|---|---|
+| --- | --- |
 | `api_fastapi_server/server.py` | Query validieren, Sessionkopie auflösen, Kopie in Admission/Sessionkonstruktor einspeisen, sessionbezogenes `hello`/direktes `ready` |
 | `tests/unit/test_fastapi_server_protocol.py` | Resolver-/Validierungsvertrag |
 | `tests/unit/test_fastapi_server_multi_user.py` | parallele Wake-/Direct-Sessions und WebSocketvertrag |
@@ -1282,7 +1282,7 @@ Implementierung darf erst beginnen, wenn sie im Ticket beziehungsweise
 Änderungsauftrag festgehalten sind.
 
 | Thema | Festlegung |
-|---|---|
+| --- | --- |
 | Endpunkt | `GET`-Upgrade auf `/ws/transcribe` |
 | Transport | WebSocket-Queryparameter |
 | Parameter | `wakeWordMode` |
@@ -1744,7 +1744,7 @@ reproduzierbar beweisen.
 ### 37.1 Unit-Tests für den Resolver
 
 | Fall | Global | Request | Erwartung |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | A | Wake aktiv | Parameter fehlt | Session aktiv |
 | B | Wake aktiv | `inherit` | Session aktiv |
 | C | Wake aktiv | `disabled` | Session deaktiviert |
@@ -2175,7 +2175,7 @@ Nach dem Beobachtungszeitraum:
 ## 43. Datei- und Arbeitspaketmatrix
 
 | Datei oder Bereich | Konkrete Aufgabe | Phase |
-|---|---|---|
+| --- | --- | --- |
 | `api_fastapi_server/server.py` | Moduskonstanten, Parser, Resolver und Sessionvertrag | P1 |
 | `api_fastapi_server/server.py` | Admission erhält aufgelöste Sessionsettings | P2 |
 | `api_fastapi_server/server.py` | Queryvalidierung, `1008`, `hello` und direktes `ready` | P2 |
@@ -2248,7 +2248,7 @@ Punkte erfüllt sind.
 ### 45.1 Aufwand
 
 | Block | Schätzung |
-|---|---:|
+| --- |---:|
 | Baseline und Vertragsabschluss | 0,25–0,5 PT |
 | Resolver, Admission und WebSocket | 0,75–1,25 PT |
 | Konsistenz, Ready-Pfad und Beobachtbarkeit | 0,5–0,75 PT |

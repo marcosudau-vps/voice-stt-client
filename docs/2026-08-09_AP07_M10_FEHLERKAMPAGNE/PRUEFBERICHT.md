@@ -96,7 +96,7 @@ Onefile-Start erhalten eine frühe, Windows-spezifische Plattforminitialisierung
 ## M10-Ablaufmatrix
 
 | Nr. | Szenario | Stand am 9. August 2026 |
-|---:|---|---|
+|---:| --- | --- |
 | 1 | Hotkey bis Final, Historie und Paste | Komponenten und frühere AP06-Bedienprüfung grün; erneuter AP07-Gesamtlauf mit sichtbarem Feedback offen |
 | 2 | Wake Word bis Follow-up | Komponenten grün; gesprochener Wake-Word-/AP07-Gesamtlauf offen |
 | 3 | Eventstreamdisconnect in Idle/Aufnahme/Finalisierung | automatisiert und in der isolierten lokalen WebSocket-Kampagne grün; sichtbare Beobachtung während gesprochenem Ablauf noch offen |

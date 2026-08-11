@@ -15,7 +15,7 @@ Zwei Projekte, zwei gewachsene Begriffswelten, mehrere Kollisionen. Diese Festle
 gilt für **Prosa und Dokumentation**; Code-Bezeichner werden **nicht** umbenannt.
 
 | Begriff | Bedeutung hier | Anmerkung |
-|---|---|---|
+| --- | --- | --- |
 | **Ereignis** | eingehender Fakt des Clients (`CanonicalEventType`, z. B. `server.transcription.completed`) | im Code weiterhin `Event*` — `CanonicalEventType`, `NormalizedFeedbackEvent`, `event_stream` |
 | **Regel** | Zuordnung Ereignis → Wirkung, im YAML-Block `feedback_mappings` | |
 | **State** | LEFX-Lebenszyklusform: dauerhafter Zustand in einem Slot | unübersetzt |
@@ -38,7 +38,7 @@ gilt für **Prosa und Dokumentation**; Code-Bezeichner werden **nicht** umbenann
 Diese Punkte sind entschieden und werden im Plan nicht mehr aufgeworfen.
 
 | # | Entscheidung | Folge |
-|---|---|---|
+| --- | --- | --- |
 | 1 | Beide Sets laden: `core` **und** `smartspeaker` | Voller Katalog zum Ausprobieren. Namenskollisionen zwischen den Sets sind möglich (`AmbiguousTargetError`) → Regeln dürfen `source::id` schreiben; die Startprüfung deckt es sofort auf. Ein eigens abgestimmtes Set folgt später |
 | 2 | Overlays sind **Folgepaket** | Hier nur State und Event. Die Datenflüsse (Pegel, Countdown, DoA, Verbindungsstatus) werden im Folgepaket **einmalig und endgültig** gelöst — als eigener größerer Block, siehe Abschnitt 9 |
 | 3 | `direct`-Backend **sofort raus** | LEFX beherrscht die USB-Verbindung des LED-Teils allein. Der Client greift dort nicht mehr ein. Das Audiogerät bleibt unberührt |
@@ -65,7 +65,7 @@ Zwei Fehlerarten, die strikt auseinandergehalten werden müssen — sonst starte
 Client nicht mehr, nur weil kein ReSpeaker eingesteckt ist:
 
 | Lage | Bewertung | Reaktion |
-|---|---|---|
+| --- | --- | --- |
 | Regel nennt ein Ziel, das im geladenen Katalog nicht existiert | **Konfigurationsfehler** | Start abbrechen, Fehler melden |
 | Regel nennt ein unbekanntes Verb, oder `config` ist kein Mapping | **Konfigurationsfehler** | Start abbrechen |
 | Ziel ist zwischen `core` und `smartspeaker` mehrdeutig | **Konfigurationsfehler** | Start abbrechen, `source::id` verlangen |
@@ -102,7 +102,7 @@ EventStream / STT-Fallback / lokale Fakten
 ```
 
 | Baustein | Datei | Zustand |
-|---|---|---|
+| --- | --- | --- |
 | Mapping-Schema | [core/feedback_mapping.py](core/feedback_mapping.py) | `schema_version: 1`, 10 feste `LedEffectId` → **wird ersetzt** |
 | Ausgabeschicht | [ui/led_feedback.py](ui/led_feedback.py) | Worker-Thread, Coalescing, Impulslogik, drei Adapter → **wird umgebaut** |
 | Konfiguration | [core/config.py:635](core/config.py:635) | `LedConfig` → **wird neu geschnitten** |
@@ -113,7 +113,7 @@ EventStream / STT-Fallback / lokale Fakten
 ### 3.2 LEFX (`led-controller-version-3` 3.0.2)
 
 | Baustein | Kernaussage |
-|---|---|
+| --- | --- |
 | `ControllerService` | Für Einbettung gebaut. Daemon-Thread `lefx-render`, alles über `RLock`, `start()/stop()` |
 | Verben | `set_state`, `clear_state`, `set_overlay`, `update_overlay`, `clear_overlay`, `emit_event`, `set_output`, `clear_all` |
 | Statusmeldungen | `add_listener` → `sink_changed{sink, available, detail}` |
@@ -127,7 +127,7 @@ EventStream / STT-Fallback / lokale Fakten
 
 ## 4. Zielarchitektur
 
-```
+```tree
 FeedbackDecision.rule.led  (Liste von LEFX-Aufrufen)
   └─ LedFeedback.submit(calls, live=...)            [umgebaut: Queue statt Slot]
        └─ Worker-Thread "RealtimeSTT-LED"
@@ -171,7 +171,7 @@ feedback_mappings:
 Ein `<aufruf>` ist ein Mapping mit **genau einem Verb** als Schlüssel:
 
 | Form | Zusatzschlüssel |
-|---|---|
+| --- | --- |
 | `{set_state: <ziel>}` | `config`, `slot` (`primary`\|`background`), `action` (`on`\|`off`) |
 | `{clear_state: <slot>}` | — |
 | `{emit_event: <ziel>}` | `config`, `duration_ms`, `priority` |
@@ -330,7 +330,7 @@ feedback_mappings:
 ### Gelöst durch die Entscheidungen
 
 | war | erledigt durch |
-|---|---|
+| --- | --- |
 | USB-Exklusivität, kein Parallelbetrieb zweier Adapter | Entscheidung 3 — es gibt nur noch einen |
 | Semantiklücke `LedEffect` ↔ LEFX-Katalog | Schema 2 |
 | Doppelte Wiederherstellung nach Puls | Entfällt: LEFX-Events stellen selbst wieder her |
@@ -404,7 +404,7 @@ eigenen, abhängigkeitsfreien Modul `lefx/interfaces/contract.py`.
 Messergebnis nach der Änderung:
 
 | | Module | Importzeit | HTTP-Stack |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | eingebettet (`ControllerService`) | **232** | **260 ms** | keiner |
 | Server (`create_app`) | 435 | 650 ms | wie bisher |
 
@@ -536,7 +536,7 @@ Produktivcode war nicht betroffen.
 **Abnahme:** ✅ Aus einer frischen PyPI-Installation von 3.0.3 verifiziert:
 
 | Prüfung | Ergebnis |
-|---|---|
+| --- | --- |
 | HTTP-Stack beim Einbetten | keiner |
 | USB-Timeout | 1000 ms (vorher 100 000) |
 | VID/PID-Durchgriff | vorhanden |
@@ -560,7 +560,7 @@ damit ist auch M4s Abnahmekriterium vorweggenommen.
 ### Stand der Umsetzung (2026-08-10)
 
 | Meilenstein | Stand |
-|---|---|
+| --- | --- |
 | M1 Upstream + Release 3.0.3 | ✅ auf PyPI |
 | M2 Abhaengigkeit im Client | ✅ `led-controller-version-3==3.0.3` |
 | M3 Schema 2 | ✅ inkl. Serialisierung zurueck in die YAML-Form |
@@ -613,7 +613,7 @@ Sink-Stoerung nicht mehr.
 Eintrittswahrscheinlichkeit ist ausgeraeumt und im Bundle nachgewiesen:
 
 | Pruefung | Ergebnis |
-|---|---|
+| --- | --- |
 | `lefx\sets\core_set\core-set.lefxset` | vorhanden, genau wo `package_file()` sucht |
 | `lefx\sets\smartspeaker_set\smartspeaker-set.lefxset` | vorhanden |
 | lefx-Module im PYZ | 46, inkl. der drei per Name importierten |
@@ -722,7 +722,7 @@ zeigt an → zurück auf Hardware ohne Neustart.
 ## 11. Testmatrix
 
 | Ebene | Was | Ohne Hardware |
-|---|---|---|
+| --- | --- | --- |
 | Unit | Schema 2: Verben, Liste, genau ein Verb, Ablehnung von `schema_version: 1` | ✅ |
 | Unit | `LedConfig` inkl. Sink-Auswahl | ✅ |
 | Unit | Queue: Event geht nie verloren, State wird zusammengefasst | ✅ |
@@ -741,7 +741,7 @@ zeigt an → zurück auf Hardware ohne Neustart.
 ## 12. Risiken
 
 | Risiko | Eintritt | Wirkung | Gegenmaßnahme |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Onefile findet Katalog nicht (B4) | **hoch**, wenn nur im venv getestet | Feature im Release tot | M9 ohne venv, Sink direkt instanziieren |
 | UI-Freeze durch USB (B1/B2) | mittel | Anwendung wirkt hängend | Nur Worker-Thread; Timeout upstream senken |
 | Upstream-Release verzögert sich | mittel | M2 blockiert | M0/M3/M4 laufen parallel, sie brauchen kein Release |

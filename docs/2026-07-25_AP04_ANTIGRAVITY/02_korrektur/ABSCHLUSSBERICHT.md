@@ -12,7 +12,7 @@
 ## 1. Zuordnung aller Mängel aus PRUEFBERICHT_01_KORREKTUR zu konkreten Korrekturen
 
 | Mangel im Prüfbericht | Befund & Ursache | Konkrete Code- & Test-Korrektur |
-|---|---|---|
+| --- | --- | --- |
 | **Abschnitt 2 (Run-Loop beendet sich nach Auto-Start)** | `_auto_start_when_ready()` kehrt nach erfolgreichem Auto-Start zurück; `FIRST_COMPLETED` beendete `run()`. | In `core/controller.py`: `run()` führt `monitored_tasks` Schleife. Normales Ende von `_auto_start_when_ready` wird aus der überwachten Liste entfernt; `session_task` treibt den Hauptloop. Test `test_auto_start_completion_does_not_terminate_run_loop` verifiziert das Weiterlaufen. |
 | **Abschnitt 3 (Konkurrierender Shutdown doppelt)** | Konkurrierende `shutdown()` Aufrufe führten Stopps parallel doppelt aus (`CONCURRENT_SHUTDOWN_COUNTS 2 2 2`). | In `core/controller.py`: Thread-/Loop-sichere Task-Koordination über `self._shutdown_task`. Überlappende Aufrufe teilen sich dieselbe Shutdown-Execution. Test `test_concurrent_shutdown_calls_stop_components_exactly_once` verifiziert Stopp-Zähler = 1. |
 | **Abschnitt 4 (Finalidentität vor History nicht atomar)** | Key wurde vor History nicht unter Lock reserviert, so dass bei History-Fehler/Blockierung ein Race-Retry möglich war. | In `core/controller.py`: Key `(sessionId, segmentId)` wird DIREKT unter `self._lock` reserviert, bevor `add_entry_with_status` aufgerufen wird. Test `test_atomic_reservation_race_prevents_duplicate_history_calls` sichert den Race-Fall ab (exakt 1 History-Call). |

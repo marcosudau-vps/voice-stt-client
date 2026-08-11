@@ -169,7 +169,7 @@ ist jedoch verbindlich.
 Mindestens unterscheidbar sein müssen:
 
 | Verfügbarkeit | Bedeutung |
-|---|---|
+| --- | --- |
 | `starting` | Controller wird initialisiert. |
 | `connecting` | Verbindung oder Handshake läuft. |
 | `ready` | Neuer Benutzerstart darf geprüft und ausgeführt werden. |
@@ -201,7 +201,7 @@ Der Snapshot enthält keine API-Schlüssel, Audioinhalte oder Transkripttexte.
 ### 8.2 Persistenter Diktatzustand
 
 | Diktatzustand | Bedeutung |
-|---|---|
+| --- | --- |
 | `idle` | Kein Start in Arbeit und kein aktives Diktat. |
 | `starting` | `start` wurde für die aktuelle Session gesendet; Serverbestätigung steht aus. |
 | `active` | Serverzustand hat den Start bestätigt; Audio darf gesendet werden. |
@@ -214,7 +214,7 @@ Unterbrechung bleibt nicht als startbarer Wunsch gespeichert.
 Zusätzlich zum Snapshot werden einzelne UI-neutrale Ereignisse unterstützt:
 
 | Ereignis | Wann genau |
-|---|---|
+| --- | --- |
 | `action_blocked` | Ein expliziter Start ist momentan nicht möglich. |
 | `dictation_start_failed` | Ein gesendeter Start wird abgelehnt, bleibt mehrdeutig oder läuft in den Timeout. |
 | `dictation_interrupted` | Ein Diktat in `starting` oder `active` verliert seine Session. |
@@ -413,7 +413,7 @@ aufeinanderfolgende Misses. Sie sind konfigurierbar.
 ## 12. Fehlerklassifikation und Reaktion
 
 | Ursache | Persistenter Status | Diktatreaktion | Transportreaktion | Benutzerfeedback |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | DNS-, Socket-, TLS- oder Netzwerkfehler | `network_unavailable` | laufenden Start/Diktat abbrechen | unbegrenzt mit Backoff reconnecten | nur bei betroffenem Start/Diktat |
 | Close-Code 1013 / Admission voll | `server_busy` | laufenden Start/Diktat abbrechen | längerer Backoff, dann erneut | nur bei betroffenem Start/Diktat |
 | `ready(ok=false)`, Engine nicht bereit | `server_unavailable` | kein Start zulassen | Verbindung gemäß Vertrag beenden/neu versuchen | nur blockierte explizite Aktion |
@@ -490,7 +490,7 @@ damit `app.py` weiterhin ohne UI nutzbar ist. Dafür gelten enge Grenzen:
 Folgende Werte müssen validiert, dokumentiert und testbar sein:
 
 | Schlüssel | Standard | Bedeutung |
-|---|---:|---|
+| --- |---:| --- |
 | `reconnect_min_delay` | 0.5 s | kleinste Reconnectverzögerung |
 | `reconnect_max_delay` | 30.0 s | harte Obergrenze einschließlich Jitter |
 | `reconnect_jitter` | 0.3 | relativer Zufallsanteil |

@@ -96,7 +96,7 @@ beseitigt.
 ### 3.1 Bewusst verworfene Alternativen
 
 | Alternative | Entscheidung und Grund |
-|---|---|
+| --- | --- |
 | Nur `/ws/transcribe` verwenden | Verworfen. Der Audio-/Realtimepfad trägt bereits hohe und zeitkritische Last; der geplante zuverlässige Eventstrom würde ungenutzt bleiben. |
 | `/ws/logs` nur für Historie/Diagnose verwenden | Verworfen. Die zweite Verbindung ist ausdrücklich als zuverlässige primäre Übermittlung serverseitiger Feedbackereignisse vorgesehen. |
 | Beide WebSockets im Normalbetrieb gleichzeitig Feedback auslösen lassen | Verworfen. Zwei parallele Wahrheiten erzeugen Doppelimpulse und schwer beweisbare Rennen. |
@@ -715,7 +715,7 @@ Protokolldokumentation übernommen. Semantisch muss mindestens Folgendes
 abgedeckt sein:
 
 | Server-/Clienttatsache | Dauerzustand | Liveimpuls | Replaywirkung |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Eventstream verbindet/replayt | technische Degradation sichtbar | keiner | Zustand aktualisieren |
 | Wakeword erkannt | Übergang zur Aufnahmebereitschaft | Wakeword-Bestätigung | kein Impuls |
 | Aufnahme begonnen | `RECORDING` | Startfeedback | Zustand rekonstruieren |

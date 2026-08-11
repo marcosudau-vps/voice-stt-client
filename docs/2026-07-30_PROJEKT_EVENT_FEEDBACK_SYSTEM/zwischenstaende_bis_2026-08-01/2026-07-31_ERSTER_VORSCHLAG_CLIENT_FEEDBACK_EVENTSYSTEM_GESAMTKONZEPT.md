@@ -53,7 +53,7 @@ Der Server besitzt bereits einen produktiven STT-WebSocket. Zusätzlich wird das
 Der geplante Serverstand sieht vier strukturierte Channels vor:
 
 | Channel | Aufgabe |
-|---|---|
+| --- | --- |
 | `system` | Technischer Serverbetrieb, Worker, Scheduler, Speicher- und Infrastrukturfehler |
 | `audit` | Administrative, sicherheitsrelevante und nachvollziehbare Zustandsänderungen |
 | `transcription` | Fachlicher Lebenszyklus von Wakeword, Aufnahme und Transkription |
@@ -667,7 +667,7 @@ current_session_id
 Die tatsächlichen Eventnamen müssen im Server-Branch verifiziert werden.
 
 | Serverevent | Interne Bedeutung | Sound | LED-State | LED-Event / Overlay |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | `wakeword.wait_started` | wartet auf Wakeword | keiner | `wakeword_wait` | – |
 | `wakeword.wait_ended` | Wake-Wartephase verlassen | keiner | neu berechnen | – |
 | `wakeword.detected` | Wakeword erkannt | Bestätigungston | `listening` oder eigener Übergang | kurzer Wakeword-Effekt |

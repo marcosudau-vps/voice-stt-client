@@ -27,7 +27,7 @@ Code und erfolgreich reproduzierbare Tests bleiben die maßgebliche Wahrheit dar
 ## 2. Dokumentenlandkarte
 
 | Datei oder Bereich | Verbindliche Aufgabe | Wird aktualisiert, wenn |
-|---|---|---|
+| --- | --- | --- |
 | `AGENTS.md` | Dauerhafte Regeln, Technologieentscheidungen, Quellenhierarchie, Sicherheits- und Arbeitsvorgaben | sich eine langfristig verbindliche Projektregel ändert |
 | `docs/ARBEITSWEISE_UND_DOKUMENTATIONSORDNUNG.md` | Rollen der Dokumente, Pflegeprozess, Benennung, Abschluss- und Übergaberegeln | sich die Dokumentations- oder Arbeitsweise ändert |
 | `docs/PROJEKTUEBERSICHT.md` | Kompakte technische Orientierung über Ziel, Entscheidungen, Iststand und Paketfolge; keine zweite Detailquelle | sich Ziel, Paketstatus oder ein für den Einstieg wesentlicher Fakt ändert |
@@ -311,7 +311,7 @@ Dabei gilt:
 ## 5. Aktualisierungsmatrix
 
 | Ereignis | Roadmap | Task | Übergabe | README | ADR |
-|---|---:|---:|---:|---:|---:|
+| --- | --- | --- | --- | --- | --- |
 | Arbeitspaket beginnt | nur bei geändertem Umfang | ja | nein | nein | falls Entscheidung nötig |
 | Implementierungsdetail ohne Außenwirkung | nein | bei relevantem Restpunkt | nein | nein | nein |
 | Testzahl ändert sich | Paketstand knapp | ja | ja, wenn Übergabestand relevant | nein | nein |

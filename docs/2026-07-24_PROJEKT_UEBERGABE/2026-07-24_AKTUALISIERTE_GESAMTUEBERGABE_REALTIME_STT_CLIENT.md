@@ -98,7 +98,7 @@ Der Zielzustand darf in Dokumenten nicht als bereits implementiertes Ist-Verhalt
 ## 4. Verbindliche Serveradressen
 
 | Zweck | Adresse |
-|---|---|
+| --- | --- |
 | WebSocket-Transkription | `wss://stt.voice.marcosudau.com/ws/transcribe` |
 | HTTP-Health | `https://stt.voice.marcosudau.com/health` |
 | Weboberfläche | `https://voice.marcosudau.com` |
@@ -542,7 +542,7 @@ OK
 Aufteilung:
 
 | Testdatei | Anzahl |
-|---|---:|
+| --- |---:|
 | `tests/test_history.py` | 29 |
 | `tests/test_text_injector.py` | 41 |
 | `tests/test_reinsertion.py` | 26 |
@@ -610,7 +610,7 @@ Korrekte Bezeichnung:
 ## 13. Aufgelöste Missverständnisse und bekannte Dokumentationsabweichungen
 
 | Thema | Falsche oder missverständliche Aussage | Korrekte Einordnung |
-|---|---|---|
+| --- | --- | --- |
 | Audiopfad | Float32, lokales Resampling, `audio_processor.py` | Direktes `int16`; kein lokales Resampling-Modul |
 | Sessiondatei | `core/stt_client.py` | Tatsächlich `core/stt_session.py` |
 | 96 Tests | Gesamtclient getestet | Nur AP1 bis AP3 |

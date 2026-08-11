@@ -90,7 +90,7 @@ Konfigurationsänderung.
 ### Tray- und Feedbackfarben
 
 | Zustand | Farbe |
-|---|---|
+| --- | --- |
 | Hotkeymodus wartet / nimmt auf | dunkelgrün / hellgrün |
 | Wake-Word-Modus wartet / nimmt auf | dunkelblau / hellblau |
 | wartet auf erste oder weitere Sprache | jeweilige dunkle Modusfarbe mit weißem Rand |

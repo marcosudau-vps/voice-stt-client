@@ -85,7 +85,7 @@ Mit dem folgenden Arbeitspaket wird nicht begonnen, bevor der aktuelle Schritt a
 Die aktuell korrekten Adressen lauten:
 
 | Zweck | Adresse |
-|---|---|
+| --- | --- |
 | WebSocket-Transkription | `wss://stt.voice.marcosudau.com/ws/transcribe` |
 | Health-Endpunkt | `https://stt.voice.marcosudau.com/health` |
 | Server-Weboberfläche | `https://voice.marcosudau.com` |
@@ -308,7 +308,7 @@ Geprüft wird:
 ## 10. Gesamter Teststand
 
 | Bereich | Tests |
-|---|---:|
+| --- |---:|
 | Historie | 29 |
 | Text-Injection-Queue | 41 |
 | Reinsertion | 26 |

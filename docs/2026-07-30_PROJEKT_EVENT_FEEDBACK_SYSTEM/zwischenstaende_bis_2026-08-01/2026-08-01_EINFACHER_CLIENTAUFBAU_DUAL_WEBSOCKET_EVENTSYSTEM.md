@@ -212,7 +212,7 @@ Replayevent
 Nicht jedes Feedback kommt vom Server.
 
 | Ereignis | Autoritative Quelle |
-|---|---|
+| --- | --- |
 | Hotkey wurde erkannt | Windows-Client |
 | Mikrofon konnte geöffnet werden | `AudioCapture` |
 | Mikrofon wurde verloren | `AudioCapture` |

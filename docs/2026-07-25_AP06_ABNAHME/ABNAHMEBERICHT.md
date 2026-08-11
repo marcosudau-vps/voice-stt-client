@@ -20,7 +20,7 @@ Admin- oder Wake-Word-Modusfunktionen ergänzt.
 ## 2. Umgesetzte Bedienung
 
 | Aktion | Bedienweg |
-|---|---|
+| --- | --- |
 | Diktierung starten/stoppen | `Ctrl+Shift+Space` oder Tray-Aktion |
 | Letzten Finaltext erneut einfügen | `Ctrl+Alt+Space` oder Tray-Aktion |
 | Älteren Finaltext erneut einfügen | dynamischer, ID-gebundener Tray-Verlauf |
@@ -145,7 +145,7 @@ OK
 Aufteilung:
 
 | Bereich | Tests |
-|---|---:|
+| --- |---:|
 | Historie | 30 |
 | Textinjektion | 41 |
 | Reinsertion | 26 |

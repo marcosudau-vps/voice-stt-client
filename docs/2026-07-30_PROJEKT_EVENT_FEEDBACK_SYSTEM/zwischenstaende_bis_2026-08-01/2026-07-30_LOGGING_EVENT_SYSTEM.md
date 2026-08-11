@@ -14,7 +14,7 @@ Mein Vorschlag wäre tatsächlich, einen dritten strukturierten Kanal für Trans
 ## 1. Vorgeschlagene Channels
 
 | Channel | Zweck | Beispiele | Typische Sichtbarkeit |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `system` | Technischer Serverbetrieb und Fehlerdiagnose | Workerstart, unerwartete Exception, Fallback, Shutdown | Administrator |
 | `audit` | Nachvollziehbare administrative und sicherheitsrelevante Vorgänge | Konfigurationsänderung, Modellwechsel, Session angenommen/abgelehnt | Administrator |
 | `transcription` | Fachlicher Lebenszyklus einzelner Transkriptionen | Aufnahme gestartet, Transkription abgeschlossen, Wakeword erkannt | Session-Client und Administrator |

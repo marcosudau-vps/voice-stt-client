@@ -56,7 +56,7 @@ wurden nach Abschluss wieder aus der Benutzerkonfiguration entfernt.
 ## Finale Verifikation
 
 | Prüfung | Ergebnis |
-|---|---|
+| --- | --- |
 | `tests.test_controller -v` | 46 Tests, `OK` |
 | `tests.test_app -v` | 9 Tests, `OK` |
 | History + Textinjektion + Reinsertion | 97 Tests, `OK` |

@@ -10,7 +10,7 @@
 ## 1. Mängelanalyse & Behebungsstrategie
 
 | Mangel ID | Befund aus PRUEFBERICHT_02_KORREKTUR | Geplante Massnahme |
-|---|---|---|
+| --- | --- | --- |
 | **M3-01** | Teilweise Task-Erzeugung in `run()` wird bei Fehler des 3. Tasks nicht aufgeräumt. | Schrittweise Aufnahme jeder erzeugten Task in `tasks: List[asyncio.Task]`. Bei Exception in Task-Erzeugung sofort alle erzeugten Tasks canceln und awaiten. |
 | **M3-02** | Fehler bei `start_queue()` lässt `_loop` gesetzt. | `self._loop = asyncio.get_running_loop()` und `start_queue()` in das geschützte `try/finally` in `run()` verlegen. `finally` setzt `self._loop = None` garantiert. |
 | **M3-03** | Shutdown-Task ist bei Cancellation eines Waiters ungeschützt (`_shutdown_task` wird gecancelt). | `await asyncio.shield(shutdown_task)` in `shutdown()` nutzen. Bricht ein Aufrufer ab, läuft das Cleanup im Hintergrund geschützt weiter. Spätere Aufrufer können dasselbe Cleanup abwarten. |

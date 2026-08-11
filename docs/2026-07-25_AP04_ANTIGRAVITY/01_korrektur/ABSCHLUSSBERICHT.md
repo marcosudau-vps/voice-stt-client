@@ -12,7 +12,7 @@
 ## 1. Zuordnung aller Mängel aus PRUEFBERICHT_00_INITIAL zu konkreten Korrekturen
 
 | Mangel im Prüfbericht | Befund & Ursache | Konkrete Code- & Test-Korrektur |
-|---|---|---|
+| --- | --- | --- |
 | **Abschnitt 2 (Abnahmeblocker: Tests hängen)** | `test_shutdown_raises_queue_stop_timeout` ersetzte `queue.stop()` durch No-op und leakt Worker. `tests.test_app` Run-Loop leakt Worker. | In `tests/test_controller.py`: `FakeInjectionQueue` mit `timeout_on_stop = True` eingesetzt. In `tests/test_app.py`: `FakeInjectionQueue` injiziert. Teardown-Checks auf verbleibende `TextInjectionQueueWorker` hinzugefügt. Alle Testprozesse enden sofort selbst. |
 | **Abschnitt 3 (History-Duplikat erneut enqueued)** | `process_raw_final_event()` behandelte Einträge aus `history.add_entry()` als neu, selbst wenn diese bereits in der History existierten. | `core/history.py` um `HistoryAddStatus` (`NEW`, `ALREADY_EXISTS`, `UNAVAILABLE`) und `add_entry_with_status()` erweitert. `core/controller.py` prüft diesen Status: Nur `NEW` wird automatisch enqueued. `ALREADY_EXISTS` meldet Duplikat/Konflikt ohne Enqueue. |
 | **Abschnitt 4 (Deadlock bei Duplikat-Callback)** | `_emit_final_result` wurde im Duplikatpfad innerhalb von `self._lock` aufgerufen. | `_emit_final_result` vollständig aus `self._lock` herausgelöst. Deterministischer Deadlock-Test `test_callback_querying_controller_status_does_not_deadlock` bestätigt deadlocksfreie Abfragen. |

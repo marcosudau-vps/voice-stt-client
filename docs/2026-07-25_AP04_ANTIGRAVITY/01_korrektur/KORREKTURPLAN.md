@@ -10,7 +10,7 @@
 ## 1. Übersicht der zu behebenden Mängel
 
 | ID | Befund aus PRUEFBERICHT_00_INITIAL | Geplante Massnahme |
-|---|---|---|
+| --- | --- | --- |
 | M-01 | Tests hängen (`test_shutdown_raises_queue_stop_timeout`, `tests.test_app` Run-Loop) wegen leistender Worker-Threads | Fakes/Mocks für Worker und Komponenten in Tests nutzen. Keine echten Worker unkontrolliert abklemmen. Teardown-Checks sicherstellen. |
 | M-02 | Pre-existing History-Einträge (z.B. aus SQLite DB) werden fälschlicherweise erneut enqueued | Extension in `TranscriptHistoryManager`: `add_entry_with_status()` liefert `HistoryAddResult(entry, status)`. Nur `NEW` wird automatisch enqueued. `ALREADY_EXISTS` meldet Duplikat/Konflikt ohne Enqueue. |
 | M-03 | Reentrant Deadlock beim Aufruf von `is_closing` / Controller-Status aus `on_final_result` Callbacks | Callbacks niemals unter gehaltenem `self._lock` ausführen. Callbacks vor Aufruf aus dem Lock extrahieren. |

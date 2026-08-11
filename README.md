@@ -128,7 +128,7 @@ Overlay und wird nie automatisch eingefügt.
 ## Server
 
 | Zweck | Adresse |
-|---|---|
+| --- | --- |
 | WebSocket | `wss://stt.voice.marcosudau.com/ws/transcribe` |
 | Health | `https://stt.voice.marcosudau.com/health` |
 | Weboberfläche, kein Client-WebSocket | `https://voice.marcosudau.com` |

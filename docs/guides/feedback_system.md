@@ -71,7 +71,7 @@ Damit steht der komplette Katalog zur Verfügung: **36 Effekte und 71 Presets**
 aus `core-set` und `smartspeaker-set`, in drei Lebenszyklusformen:
 
 | Form | Was sie ist | Verb |
-|---|---|---|
+| --- | --- | --- |
 | **State** | dauerhafter Zustand in einem Slot | `set_state`, `clear_state` |
 | **Event** | einmalige Meldung mit fester Dauer, höchste Priorität | `emit_event` |
 | **Overlay** | überlagernde Anzeige mit laufenden Eingangsdaten | *(Folgepaket)* |
@@ -140,7 +140,7 @@ sollen:
 **432 automatisierte Tests**, dazu vier manuelle Prüfungen am Gerät.
 
 | Kanal | Automatisiert | Am Gerät geprüft |
-|---|---|---|
+| --- | --- | --- |
 | LED | 30 (`test_led_feedback`) + 9 (`test_feedback_mapping`) | alle 13 Wirkungen, Trennung/Wiederverbindung, 24-min-Langlauf |
 | Sound | 6 (`test_feedback_ui`) | — |
 | In-App | 20 (`test_ui_widgets`) + 19 (`test_ui_application`) | — |
@@ -191,7 +191,7 @@ Tippfehler verhindert den Start (Exitcode 7) — ein fehlendes Gerät niemals.
 Jeder Kanal fällt für sich aus:
 
 | Was ausfällt | Was passiert |
-|---|---|
+| --- | --- |
 | ReSpeaker abgezogen | LEFX verbindet selbstständig neu; einmal `client.led.unavailable`; Ton und Indikator laufen weiter |
 | Sounddatei fehlt | einmalige Meldung, Diktat läuft weiter |
 | Effektname falsch | **Start verweigert** mit Nennung aller falschen Namen |
@@ -202,6 +202,21 @@ Jeder Kanal fällt für sich aus:
 
 ## Weiterführend
 
+Hier im Projekt:
+
 - [feedback_konfigurieren.md](feedback_konfigurieren.md) — praktische Rezepte
 - `docs/decisions/ADR-004_LED_AUSGABE_UEBER_LEFX_V3.md` — warum es so gebaut ist
 - `docs/work-packages/LEFX_V3_LED_CONTROLLER_INTEGRATION_PLANUNG.md` — der Weg dorthin
+
+Im LED-Controller, für alles unterhalb des Ports:
+
+- `konzepte/02-layer-und-komposition.md` — wie sich Slots, Kanäle und Ebenen zu
+  einem Bild zusammensetzen
+- `konzepte/03-lebenszyklusformen.md` — State, Controlled Overlay, Timed Overlay
+  und Event im Vergleich, und warum nur die Engine etwas beendet
+- `guides/core_effects.md`, `guides/smartspeaker_effects.md` — jeder Effekt mit
+  seinen Parametern und Presets
+
+Diese Grenze ist Absicht: Was ein Effekt kann, steht dort; was der Client damit
+anstellt, steht hier. Wer beides an einer Stelle beschreibt, hält es nicht
+aktuell.

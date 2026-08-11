@@ -10,7 +10,7 @@
 ## 1. Mängelanalyse & Behebungsstrategie
 
 | Mangel ID | Befund aus PRUEFBERICHT_01_KORREKTUR | Geplante Massnahme |
-|---|---|---|
+| --- | --- | --- |
 | **M2-01** | `STTController.run()` beendet sich ~200ms nach Autostart, weil `_auto_start_when_ready()` als `FIRST_COMPLETED` gilt. | In `run()`: Wenn `_auto_start_when_ready()` normal endet, wird es aus der überwachten Taskmenge entfernt. `run()` läuft weiter, solange `session_task` aktiv ist. |
 | **M2-02** | Konkurrierende `shutdown()`-Aufrufe führen Stopps doppelt aus (`CONCURRENT_SHUTDOWN_COUNTS 2 2 2`). | Thread-/Loop-sicheres Future/Event-Locking für `shutdown()`. Alle Aufrufer teilen sich dieselbe laufende Shutdown-Coroutine. Zähler bleiben exakt 1. |
 | **M2-03** | `(sessionId, segmentId)` wird nicht atomar vor dem History-Aufruf reserviert; Race-Condition bei fehlschlagendem/blockierendem ersten History-Aufruf. | `_processed_finals[key] = clean_text` wird DIREKT unter `self._lock` reserviert, bevor `add_entry_with_status` aufgerufen wird. |

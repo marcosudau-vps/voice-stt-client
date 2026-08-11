@@ -9,7 +9,7 @@ AP05 und die anschließende Selbstfertigstellung.
 ## Dateien
 
 | Datei | Inhalt |
-|---|---|
+| --- | --- |
 | `00_INITIAL_ABSCHLUSSBERICHT.md` | vom Benutzer übergebener Ergebnisstand des ersten Antigravity-Durchlaufs |
 | `GESAMTABNAHME_UND_SELBSTFERTIGSTELLUNG.md` | unabhängiger Befund, Korrekturen, neue Tests und Abnahmegrenzen |
 

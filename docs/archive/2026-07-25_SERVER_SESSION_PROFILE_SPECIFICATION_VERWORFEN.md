@@ -56,7 +56,7 @@ session:
 Zulässige Werte:
 
 | Wert | Bedeutung |
-|---|---|
+| --- | --- |
 | `direct_hotkey` | Aufnahme nach `start` ohne Wake-Word-Gate |
 | `wake_word` | kontinuierliche Audioübertragung, Freigabe durch Wake Word |
 
@@ -117,7 +117,7 @@ Ein Queryparameter ist hier nur ein Profilselektor. Er ist kein Secret und kein 
 Pflichtfelder in `sessionConfig`:
 
 | Feld | Typ | Bedeutung |
-|---|---|---|
+| --- | --- | --- |
 | `version` | Integer | Protokollversion, zunächst `1` |
 | `requestedProfile` | String oder `null` | Querywert; `null`, wenn keiner gesendet wurde |
 | `appliedProfile` | String | tatsächlich verwendete Profil-ID |
@@ -152,7 +152,7 @@ Danach:
 Weitere Fehlercodes:
 
 | Code | Fall |
-|---|---|
+| --- | --- |
 | `invalid_session_profile` | Syntax, Länge oder mehrfacher Parameter ungültig |
 | `unknown_session_profile` | syntaktisch gültige, aber unbekannte ID |
 | `session_profile_unavailable` | Profil vorhanden, aber wegen fehlendem Backend/Modell nicht verwendbar |
@@ -206,7 +206,7 @@ Die folgende Liste basiert auf den aktuellen `newSessionOnly`-Werten des Servers
 ### 6.1 Neu einzuführende Profilfelder
 
 | Feld | Typ | Regel |
-|---|---|---|
+| --- | --- | --- |
 | `activation_mode` | Enum | exakt `direct_hotkey` oder `wake_word` |
 | `wake_word_enabled` | Boolean | muss zu `activation_mode` passen |
 | `language` | String | serverseitige Allowlist; nur sessionlokal ausweisen, wenn die Engine dies tatsächlich pro Job/Recorder unterstützt |
@@ -216,7 +216,7 @@ Die folgende Liste basiert auf den aktuellen `newSessionOnly`-Werten des Servers
 ### 6.2 Audio und Recorder
 
 | Bestehender Serverwert | Validierung | Profilwirkung |
-|---|---|---|
+| --- | --- | --- |
 | `audio_queue_size` | positive Ganzzahl; serverseitige Obergrenze | Queue dieser Session |
 | `max_audio_queue_seconds_per_session` | positive Zahl; serverseitige Obergrenze | Latenz-/Backloggrenze dieser Session |
 | `pre_recording_buffer_duration` | Zahl `>= 0`; serverseitige Obergrenze | Prebuffer dieser Session |
@@ -226,7 +226,7 @@ Die folgende Liste basiert auf den aktuellen `newSessionOnly`-Werten des Servers
 ### 6.3 Segmentierung und VAD
 
 | Bestehender Serverwert | Validierung |
-|---|---|
+| --- | --- |
 | `min_length_of_recording` | endliche Zahl `>= 0` |
 | `min_gap_between_recordings` | endliche Zahl `>= 0` |
 | `post_speech_silence_duration` | endliche Zahl `>= 0` |
@@ -237,7 +237,7 @@ Die folgende Liste basiert auf den aktuellen `newSessionOnly`-Werten des Servers
 ### 6.4 Realtime-Verhalten
 
 | Bestehender Serverwert | Validierung |
-|---|---|
+| --- | --- |
 | `realtime_callback` | Boolean |
 | `realtime_processing_pause` | endliche Zahl `>= 0` |
 | `realtime_min_audio_seconds` | endliche Zahl `>= 0` |
@@ -250,7 +250,7 @@ Die folgende Liste basiert auf den aktuellen `newSessionOnly`-Werten des Servers
 ### 6.5 Prompts
 
 | Bestehender Serverwert | Validierung |
-|---|---|
+| --- | --- |
 | `initial_prompt` | String; serverseitiges Zeichen-/Bytelimit; nicht in Logs ausgeben |
 | `initial_prompt_realtime` | String; serverseitiges Zeichen-/Bytelimit; nicht in Logs ausgeben |
 
@@ -259,7 +259,7 @@ Prompts dürfen nur als sessionlokal beworben werden, wenn sie pro Recorder bezi
 ### 6.6 Wake Word
 
 | Bestehender Serverwert | Validierung und Sicherheitsregel |
-|---|---|
+| --- | --- |
 | `wakeword_backend` | Allowlist installierter Backends |
 | `wake_words` | normalisierte serverseitige Wort-/Modell-ID; im Wake-Modus nicht leer |
 | `wake_words_sensitivity` | endliche Zahl im Backendbereich, bevorzugt `0..1` |

@@ -170,7 +170,7 @@ Die bessere Lösung ist eine operative Zustandsachse mit mehreren Präsentations
 ## 6. Empfohlene Quellenhierarchie im laufenden Client
 
 | Sachverhalt | Primäre Quelle | Ergänzende Quelle | Begründung |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Hotkey erkannt | lokaler Win32-Hotkey | keine | Nur der Client kennt die tatsächliche lokale Annahme. |
 | Startbefehl angenommen/bestätigt | bestehender Controller über `/ws/transcribe` | strukturiertes Event nur Diagnose | Der Startversuch ist bereits generation- und sessiongebunden gehärtet. |
 | Wake Word erkannt | `/ws/transcribe` `timeline(wakeword_detected)` | `/ws/logs` `wakeword.detected` im Journal | Timeline wird zuerst publiziert und gehört zur aktuellen Session. |
@@ -392,7 +392,7 @@ Sounds benötigen sprechende fachliche Namen, nicht bloß `start`, `stop` und `c
 Empfohlene Policy:
 
 | Situation | Standard | Quelle |
-|---|---|---|
+| --- | --- | --- |
 | Lokale Aktion registriert | optionaler sehr kurzer Aktivierungsimpuls | Hotkey/UI |
 | Diktatstart serverbestätigt | vorhandener Startsound optional | bestehender Controller über `/ws/transcribe` |
 | Wake Word erkannt | kurzer Bestätigungston optional | `timeline(wakeword_detected)` |
@@ -453,7 +453,7 @@ Replay schreibt nicht:
 Für den aktuellen Sessionbetrieb wird das interaktive Mapping aus `/ws/transcribe` beibehalten beziehungsweise erweitert:
 
 | `/ws/transcribe` | Operative Bedeutung | Mögliche Wirkung |
-|---|---|---|
+| --- | --- | --- |
 | `timeline(wakeword_wait_started)` | Wake-Word-Wartephase | Basisdarstellung aktualisieren |
 | `timeline(wakeword_wait_ended)` | Wartephase verlassen | Basisdarstellung neu ableiten |
 | `timeline(wakeword_detected)` | Wake Word erkannt | optionaler Live-Impuls |
@@ -655,7 +655,7 @@ Keine dieser Entscheidungen sollte implizit durch eine Transportklasse oder ein 
 ## 16. Konkrete Bewertung der ursprünglichen Kernfragen
 
 | Frage | Ergebnis |
-|---|---|
+| --- | --- |
 | Ist der Envelope implementiert? | Ja, Schema-Version 1 mit den dokumentierten Pflicht- und optionalen Korrelationsfeldern. |
 | Ist der Cursor global? | Ja. Gefilterte Sessionstreams besitzen deshalb normale Sprünge. |
 | Wann wird der Cursor vergeben? | Vor dem unabhängigen Fan-out. Ein Sinkfehler verwendet ihn nicht erneut. |

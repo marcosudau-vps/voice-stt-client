@@ -51,7 +51,7 @@ flowchart TD
 Aktueller Fortschritt:
 
 | Meilenstein | Status | Nachweis |
-|---|---|---|
+| --- | --- | --- |
 | M0 | abgeschlossen | Server- und Clientbaseline grün |
 | M1 | abgeschlossen | SQLite-first-Serverimplementierung und Regression abgenommen |
 | M2 | abgeschlossen | produktiver Live-/SQLite-/Replay- und Zwei-Session-Nachweis |
@@ -70,7 +70,7 @@ Der detaillierte Abnahmenachweis liegt unter
 ### Paketkennungen
 
 | Kennung | Repository | Ergebnis |
-|---|---|---|
+| --- | --- | --- |
 | AP07-S1 | Server | SQLite-first EventHub und Storezustand |
 | AP07-S2 | Server | Protokollhärtung, Empty-Final und Produktivnachweis |
 | AP07-C0 | Client | synchronisierter Serververtrag und Baseline |

@@ -44,7 +44,7 @@ Der fertige Client soll:
 ### Serveradressen
 
 | Zweck | Verbindliche Adresse |
-|---|---|
+| --- | --- |
 | WebSocket-API | `wss://stt.voice.marcosudau.com/ws/transcribe` |
 | Health-Endpoint | `https://stt.voice.marcosudau.com/health` |
 | Weboberfläche, kein Client-WebSocket | `https://voice.marcosudau.com` |
@@ -56,7 +56,7 @@ Die Protokolldetails bestimmt ausschließlich `server-docs-for-client-developmen
 ## 3. Verbindliche Architekturentscheidungen
 
 | Bereich | Entscheidung |
-|---|---|
+| --- | --- |
 | Sprache | Python 3.12 |
 | UI | PySide6; Qt ausschließlich im Main Thread |
 | Asynchroner Core | eine asyncio-Event-Loop in einem separaten Thread |
@@ -477,7 +477,7 @@ Zusätzlich am 25. Juli 2026 manuell verifiziert:
 ## 7. Integrationsentscheidungen und getrennte Restpunkte
 
 | ID | Klärung |
-|---|---|
+| --- | --- |
 | E-01 | **Für AP4 festgelegt:** stabiler HistoryEntry vor Enqueue; selektive SQLite-Regel bleibt, keine neue Outbox. |
 | E-02 | **Für AP4 festgelegt:** normaler Finalpfad muss neu, Duplikat und History-Ausfall unterscheiden; ohne History kein automatischer Paste. Persistente Lesefehler außerhalb dieses Pfads bleiben dokumentiert best-effort. |
 | E-03 | **Für AP4 festgelegt:** autoritative Quelle ist das rohe `final`-Event; Deduplizierung über `(sessionId, segmentId)`, kein automatischer Retry durch Eventduplikate. |
@@ -522,7 +522,7 @@ präzisiert. E-06 bleibt ein getrennter Hygiene-Restpunkt für AP8.
 ## 9. Dokumentenlandkarte
 
 | Dokument | Aufgabe |
-|---|---|
+| --- | --- |
 | `AGENTS.md` | dauerhafte Projekt- und Agentenregeln |
 | `docs/ARBEITSWEISE_UND_DOKUMENTATIONSORDNUNG.md` | verbindliche Pflege- und Arbeitsregeln |
 | `docs/PROJEKTUEBERSICHT.md` | dieser kompakte technische Einstieg |

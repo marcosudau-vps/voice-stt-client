@@ -37,7 +37,7 @@ Dies ist das technisch komplexeste Problem und verdient eine gründliche Betrach
 ### Welche Methoden gibt es?
 
 | Methode | Wie es funktioniert | Vorteile | Nachteile |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **`SendInput` / `keybd_event`** | Simuliert echte Tastatureingaben auf OS-Ebene | Funktioniert in 95% aller Apps; kein Admin nötig; wird als „echte" Eingabe erkannt | Langsam bei langen Texten; Sonderzeichen/Unicode brauchen Sonderbehandlung; UIPI blockiert bei Admin-Fenstern |
 | **Clipboard + `Ctrl+V`** | Text in Zwischenablage → simuliertes Paste | Schnell auch für lange Texte; Unicode-sicher | Überschreibt Clipboard; einige Apps verarbeiten Paste anders; muss altes Clipboard sichern/wiederherstellen |
 | **UI Automation** | Windows UI Automation API, um direkt auf TextPattern/ValuePattern zuzugreifen | Sauber; respektiert Applikationsstruktur | Nicht alle Apps exponieren IValueProvider; langsam; inkonsistente Unterstützung |
@@ -126,7 +126,7 @@ Zwei Optionen für Realtime-Text:
 ### Warum pystray + tkinter statt PySide6?
 
 | Kriterium | PySide6 | pystray + tkinter |
-|---|---|---|
+| --- | --- | --- |
 | Installationsgröße | ~150 MB | pystray: ~50 KB, Pillow: ~5 MB, tkinter: stdlib |
 | Tray-Unterstützung | `QSystemTrayIcon` – solide | pystray – etabliert, genau dafür gebaut |
 | Overlay-Fenster | QWidget (frameless, transparent) | tkinter Toplevel (overrideredirect, transparent) |
@@ -231,7 +231,7 @@ Rein Python, keine UI-Dependencies. Testbar ohne Display.
 ## Dependency-Budget
 
 | Paket | Zweck | Größe |
-|---|---|---|
+| --- | --- | --- |
 | `websockets` | WebSocket-Client | ~300 KB |
 | `sounddevice` | Mikrofon-Zugriff (PortAudio) | ~2 MB |
 | `numpy` | Audio-Buffer/Resampling | ~15 MB (oft schon vorhanden) |

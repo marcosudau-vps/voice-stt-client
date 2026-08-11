@@ -12,7 +12,7 @@
 ## 1. Zuordnung aller Mängel aus PRUEFBERICHT_02_KORREKTUR zu Korrekturen & Tests
 
 | Mangel im Prüfbericht | Befund & Ursache | Konkrete Code- & Test-Korrektur |
-|---|---|---|
+| --- | --- | --- |
 | **1. Teilweise Task-Erzeugung** | `run()` wies Tasks erst nach Erzeugung aller 3 Tasks zu. Bei Exception im 3. Task wurden Task 1 & 2 geleakt. | In `core/controller.py`: `tasks = []`, jede erzeugte Task wird unmittelbar nach `create_task()` in `tasks` aufgenommen. Im `finally`-Block werden unvollständige Tasks gecancelt & awaited. Test: `test_partial_task_creation_failure_cleans_up_created_tasks_and_loop`. |
 | **2. Fehler bei Queue-Start** | `self._loop` & `start_queue()` lagen außerhalb des `try/finally`. Schlug `start_queue()` fehl, blieb `_loop` gesetzt. | In `core/controller.py`: `self._loop` und `start_queue()` in das geschützte `try/finally` verlegt. `finally` setzt `self._loop = None` garantiert. Test: `test_queue_start_failure_resets_loop_to_none`. |
 | **3. Ungeschützter Shutdown** | Cancellation eines Aufrufers propagierte in `_shutdown_task` und brach Cleanup mitten im Ablauf ab. | In `core/controller.py`: `await asyncio.shield(shutdown_task)` schützt `_do_shutdown()`. Bricht Waiter A ab, läuft Cleanup im Hintergrund ungestört weiter; Waiter B erhält das Ergebnis. Test: `test_shutdown_shield_cancellation_preserves_cleanup_for_other_waiters`. |

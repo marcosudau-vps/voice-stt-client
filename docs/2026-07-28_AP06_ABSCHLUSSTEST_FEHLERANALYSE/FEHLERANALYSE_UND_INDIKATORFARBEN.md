@@ -172,7 +172,7 @@ wie die Aussage „nur falsche Aussprache“.
 ## 4. Client-/Server-Abgrenzung
 
 | Beobachtung | Client | Server | Ergebnis |
-|---|---:|---:|---|
+| --- |---:|---:| --- |
 | Sessionwunsch `wakeWordEnabled=true` akzeptiert | belegt | belegt | Vertrag funktioniert |
 | Nach Laufzeitwechsel zunächst kein Audiostream | ursächlich | nicht beteiligt | Clientfehler F-01 |
 | Hotkey startet keine direkte Aufnahme | aktueller Bedienvertrag | Wake-Word-Schranke arbeitet weiter | kein Direct-Hotkey vorhanden |
@@ -199,7 +199,7 @@ verwischt wird.
 Das separat beauftragte Farbkonzept wurde implementiert:
 
 | Modus/Zustand | Darstellung |
-|---|---|
+| --- | --- |
 | Hotkey, wartet auf Hotkey | dunkelgrün |
 | Hotkey, wartet auf erste oder weitere Sprache | dunkelgrün mit weißem Rand |
 | Hotkey, Serversegment aktiv | hellgrün |

@@ -41,7 +41,7 @@ History-, Injection-, VAD- noch Reconnectlogik ein zweites Mal.
 ### 1.1 Kurzüberblick des konsolidierten Paketstands
 
 | Bereich | Stand |
-|---|---|
+| --- | --- |
 | Tray, Overlay, Core-Brücke, native Hotkeys, Single Instance | umgesetzt; aktueller Gesamtstand 264 Tests |
 | Overlay-Signalfehler | behoben und regressionsgetestet |
 | Session-Wake-Word-Contract | serverseitig produktiv und aus Clientsicht live verifiziert |
@@ -155,7 +155,7 @@ einer späteren ausdrücklich beauftragten Hardwareintegration vorbehalten.
 Der vorhandene Erststand besitzt folgende Defaults:
 
 | Aktion | Tastenkombination |
-|---|---|
+| --- | --- |
 | primäre Diktieraktion | `Ctrl+Shift+Space` |
 | letztes Transkript erneut einfügen | `Ctrl+Alt+Space` |
 
@@ -165,7 +165,7 @@ registriert. `pynput`, Qt-Shortcuts und Polling sind unzulässig.
 Die primäre Diktieraktion ist künftig zustands- und modusabhängig:
 
 | Modus/Zustand | Aktion |
-|---|---|
+| --- | --- |
 | Hotkeymodus, `IDLE` | neues Diktatfenster starten |
 | Hotkeymodus, Initial-/Follow-up-Wartephase | Wartefrist um den konfigurierten Zeitraum verlängern |
 | Hotkeymodus, aktives Serversegment | Verlängerung für die anschließende Follow-up-Phase vormerken; die serverseitige VAD-Grenze selbst bleibt unverändert |
@@ -241,7 +241,7 @@ Verbindliche Regeln:
 ### 5.3 Betriebsmodi
 
 | Merkmal | Hotkeymodus | Wake-Word-Modus |
-|---|---|---|
+| --- | --- | --- |
 | Sessionparameter | `wakeWordEnabled=false` | `wakeWordEnabled=true` |
 | Streaming | nur im Diktatfenster | nach Aktivierung kontinuierlich |
 | Auslöser eines Segments | serverseitige VAD nach Clientstart | Wake Word, danach serverseitige VAD |
@@ -323,7 +323,7 @@ Die UI verwendet ausschließlich `ControllerStatusSnapshot` und
 `TransientEvent`.
 
 | Zustand | Trayfarbe | Kurztext |
-|---|---|---|
+| --- | --- | --- |
 | Hotkeymodus `READY` + `IDLE` | dunkelgrün | Wartet auf Hotkey |
 | Hotkey-Diktat `STARTING` / Initialwarten | dunkelgrün mit weißem Rand | Wartet auf Sprache |
 | Hotkey-Follow-up | dunkelgrün mit weißem Rand | Wartet auf Fortsetzung |
@@ -517,7 +517,7 @@ ungeprüften Laufzeitbefehl zu machen.
 Der Dialog wird aus Tabs und Metadatengruppen aufgebaut:
 
 | Tab | AP06-Inhalt |
-|---|---|
+| --- | --- |
 | Verlauf | vollständigerer gespeicherter Verlauf, Reinsertion, einzelnes Löschen, alles Löschen mit Bestätigung |
 | Allgemein | Aktions-Hotkeys, Textinjektion, History-, Clipboard- und Logging-Einstellungen |
 | Verbindung & Betriebsmodus | Server-URL, Reconnectwerte, Hotkey/Wake Word, Wake-Word-ID und veröffentlichte Session-Tuningwerte, kontrollierter Reconnect |

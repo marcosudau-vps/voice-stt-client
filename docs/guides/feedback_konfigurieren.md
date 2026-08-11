@@ -50,7 +50,7 @@ wirkungsloses Ereignis — bekannt, aber ohne Anzeige.
 > zu tun haben:
 >
 > | Zahl | Versioniert | Stand |
-> |---|---|---|
+> | --- | --- | --- |
 > | `feedback_mappings.schema_version` | **diesen** Konfigurationsabschnitt | **2** |
 > | `led-controller-version-3` | das Effektsystem (Paketversion 3.0.x) | **V3** |
 > | `background_state.json` | LEFX' eigener Zustandsspeicher | 3 |
@@ -177,7 +177,7 @@ server.recording.started:
 ```
 
 | Aktion | Wirkung |
-|---|---|
+| --- | --- |
 | `indicator.idle` | Grundzustand, Text je nach Betriebsmodus |
 | `indicator.waiting_for_wake_word` | wartet auf das Aktivierungswort |
 | `indicator.waiting_for_speech` | wartet auf Sprache, weiße Umrandung |
