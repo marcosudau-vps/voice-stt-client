@@ -203,13 +203,25 @@ class TestSessionConfigAndMetadata(unittest.TestCase):
             self.assertFalse(config.overlay.enabled)
 
 
+WINDOW = 0.25
+"""Base length for the dictation windows in these tests.
+
+Short, so the tests stay quick -- but not so short that they race the clock.
+One assertion here checks that a window has *not* expired yet, and that is the
+fragile direction: overshooting a sleep is normal, and Windows schedules on
+roughly 15 ms granularity. At the original 40 ms window checked at 30 ms, ten
+milliseconds of scheduling noise was enough to fail it, which is why it failed
+only on a busy machine and never when run alone.
+"""
+
+
 class TestDictationWindow(unittest.IsolatedAsyncioTestCase):
     def make_controller(self) -> tuple[STTController, FakeSTTSession]:
         config = AppConfig()
         config.history.enabled = False
-        config.dictation_window.initial_speech_timeout = 0.04
-        config.dictation_window.followup_timeout = 0.02
-        config.dictation_window.extension_seconds = 0.04
+        config.dictation_window.initial_speech_timeout = WINDOW
+        config.dictation_window.followup_timeout = WINDOW / 2
+        config.dictation_window.extension_seconds = WINDOW
         session = FakeSTTSession()
         controller = STTController(
             config,
@@ -227,7 +239,7 @@ class TestDictationWindow(unittest.IsolatedAsyncioTestCase):
             controller.get_snapshot().dictation_window_phase,
             DictationWindowPhase.WAITING_FIRST_SPEECH,
         )
-        await asyncio.sleep(0.07)
+        await asyncio.sleep(WINDOW * 1.8)
         self.assertEqual(controller.dictation_state, DictationState.IDLE)
 
     async def test_timeline_and_extension_are_bound_to_current_window(self):
@@ -257,9 +269,9 @@ class TestDictationWindow(unittest.IsolatedAsyncioTestCase):
                 "_clientGeneration": session.generation,
             },
         )
-        await asyncio.sleep(0.03)
+        await asyncio.sleep(WINDOW * 0.6)
         self.assertEqual(controller.dictation_state, DictationState.ACTIVE)
-        await asyncio.sleep(0.05)
+        await asyncio.sleep(WINDOW * 1.2)
         self.assertEqual(controller.dictation_state, DictationState.IDLE)
 
     async def test_stale_timeline_event_does_not_cancel_initial_timer(self):

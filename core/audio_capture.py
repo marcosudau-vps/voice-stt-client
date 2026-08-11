@@ -160,24 +160,39 @@ class AudioCapture:
             except queue.Empty:
                 break
 
-        # Open the audio stream
-        self._stream = sd.InputStream(
-            device=device_id,
-            channels=channels,
-            samplerate=self._device_sample_rate,
-            blocksize=chunk_frames,
-            dtype=self._config.dtype,
-            callback=self._audio_callback,
-        )
-        self._stream.start()
+        # Everything that can fail lives in here, and anything that does leaves
+        # the object exactly as it was found. Without that, a device busy for a
+        # moment at startup is permanent: the flag stays set, no stream is ever
+        # opened, and every later attempt returns "already running" -- a
+        # microphone that never comes back for the rest of the session.
+        try:
+            self._stream = sd.InputStream(
+                device=device_id,
+                channels=channels,
+                samplerate=self._device_sample_rate,
+                blocksize=chunk_frames,
+                dtype=self._config.dtype,
+                callback=self._audio_callback,
+            )
+            self._stream.start()
 
-        # Start the processing thread
-        self._thread = threading.Thread(
-            target=self._process_loop,
-            name="audio-process",
-            daemon=True,
-        )
-        self._thread.start()
+            # Start the processing thread
+            self._thread = threading.Thread(
+                target=self._process_loop,
+                name="audio-process",
+                daemon=True,
+            )
+            self._thread.start()
+        except Exception:
+            self._running = False
+            stream, self._stream = self._stream, None
+            self._thread = None
+            if stream is not None:
+                try:
+                    stream.close()
+                except Exception:
+                    logger.debug("Could not close the half-open stream.", exc_info=True)
+            raise
 
         logger.info(
             "Audio capture started: device=%s, rate=%d, channels=%d, chunk=%dms (%d frames)",

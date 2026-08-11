@@ -63,5 +63,62 @@ class TestMicrophoneMute(unittest.TestCase):
         self.assertFalse(self.capture.muted)
 
 
+
+class TestAFailedStartLeavesNothingBehind(unittest.TestCase):
+    """A device busy for a moment must not be a microphone gone for the session.
+
+    ``start`` sets the running flag before it opens the stream, because the
+    processing thread reads it. If opening then fails and the flag stays set,
+    every later attempt returns early with "already running" -- and nothing
+    ever tries again.
+    """
+
+    def setUp(self) -> None:
+        self.capture = AudioCapture(AudioConfig())
+
+    def test_a_refused_device_leaves_the_capture_startable(self) -> None:
+        from unittest.mock import patch
+
+        import sounddevice as sd
+
+        with patch.object(sd, "InputStream", side_effect=sd.PortAudioError("busy")):
+            with self.assertRaises(sd.PortAudioError):
+                self.capture.start()
+
+        self.assertFalse(self.capture.is_running)
+        self.assertIsNone(self.capture._stream)
+        self.assertIsNone(self.capture._thread)
+
+    def test_the_next_attempt_is_not_refused_as_already_running(self) -> None:
+        from unittest.mock import MagicMock, patch
+
+        import sounddevice as sd
+
+        with patch.object(sd, "InputStream", side_effect=sd.PortAudioError("busy")):
+            with self.assertRaises(sd.PortAudioError):
+                self.capture.start()
+
+        opened = MagicMock()
+        with patch.object(sd, "InputStream", return_value=opened):
+            self.capture.start()
+        self.addCleanup(self.capture.stop)
+
+        self.assertTrue(self.capture.is_running)
+        opened.start.assert_called_once()
+
+    def test_a_stream_that_opens_but_will_not_start_is_closed_again(self) -> None:
+        from unittest.mock import MagicMock, patch
+
+        import sounddevice as sd
+
+        half_open = MagicMock()
+        half_open.start.side_effect = sd.PortAudioError("device vanished")
+        with patch.object(sd, "InputStream", return_value=half_open):
+            with self.assertRaises(sd.PortAudioError):
+                self.capture.start()
+
+        half_open.close.assert_called_once()
+        self.assertFalse(self.capture.is_running)
+
 if __name__ == "__main__":
     unittest.main()
