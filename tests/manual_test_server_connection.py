@@ -1,12 +1,19 @@
 """
-Quick connection test against the live RealtimeSTT server.
+Quick connection check against the live RealtimeSTT server.
 
-Tests:
+Checks:
 1. Health endpoint (HTTP)
-2. WebSocket handshake (hello → ready → ping/pong)
+2. WebSocket handshake (hello -> ready -> ping/pong)
+
+Manual, like the other manual_test_* scripts here: it needs a reachable
+server and reports rather than asserts. It carried a test_ name for a while
+and that was a trap -- unittest ignored it (there is no TestCase in here, so
+nothing was ever collected), while pytest picked both functions up, called
+the live server from a unit-test run, and failed on the async one for want
+of a plugin. The name now says what it is.
 
 Usage:
-    python tests/test_connection.py
+    python tests/manual_test_server_connection.py
 """
 
 import asyncio

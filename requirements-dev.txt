@@ -4,3 +4,8 @@ pyinstaller>=6.21,<7.0
 # pruefbar. Er gehoert nicht ins Release -- voice-stt-client.spec schliesst ihn
 # ausdruecklich aus, damit er nicht ueber diese Datei doch in den Build rutscht.
 led-controller-version-3-device-simulated-respeaker==3.0.3
+# Beide Testlaeufer funktionieren und ergeben dasselbe: die CI faehrt unittest,
+# viele Arbeitsplaetze und IDEs faehren pytest. Damit das so bleibt, muss ein
+# Skript, das kein Unittest ist, manual_test_* heissen -- unittest ignoriert es
+# ohnehin, pytest sammelt sonst jedes test_*.py ein.
+pytest>=8.0,<9.0
