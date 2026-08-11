@@ -47,3 +47,6 @@ docs/**/agy-cli.log
 
 # Local sound source collection. No sound is an active product default.
 assets/sound_effects/
+# ...and the manifest generated from it. A listing of ignored files has
+# nothing to say to anybody who does not have those files.
+audio_aliases.yaml

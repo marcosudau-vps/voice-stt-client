@@ -67,6 +67,16 @@ def run(
     return result.stdout or ""
 
 
+TOKEN_KEYS = ("VPS_GITHUB_TOKEN", "GITHUB_TOKEN_VPS")
+"""Names the credentials file may use for the marcosudau-vps token.
+
+Both spellings, because the file this script already defaults to writes the
+first one and the script only ever looked for the second -- so it fell through
+to `gh auth status`, found the wrong account, and refused. Which name a
+credentials file happens to use is not worth a failed release.
+"""
+
+
 def parse_env_token(path: Path) -> str | None:
     if not path.is_file():
         return None
@@ -75,7 +85,7 @@ def parse_env_token(path: Path) -> str | None:
         if not line or line.startswith("#") or "=" not in line:
             continue
         key, value = line.split("=", 1)
-        if key.strip() == "GITHUB_TOKEN_VPS":
+        if key.strip() in TOKEN_KEYS:
             token = value.strip().strip('"').strip("'")
             return token or None
     return None
