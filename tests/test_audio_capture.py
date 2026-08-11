@@ -10,6 +10,9 @@ from __future__ import annotations
 import threading
 import time
 import unittest
+from unittest.mock import MagicMock, patch
+
+import sounddevice as sd
 
 from core.audio_capture import AudioCapture
 from core.config import AudioConfig
@@ -75,12 +78,22 @@ class TestAFailedStartLeavesNothingBehind(unittest.TestCase):
 
     def setUp(self) -> None:
         self.capture = AudioCapture(AudioConfig())
+        # start() asks the device about itself before it opens anything, and a
+        # machine with no sound card cannot answer -- which is every CI runner.
+        # The subject here is what happens *after* that question, so the answer
+        # is supplied and the test needs no hardware.
+        patched = patch.object(
+            sd,
+            "query_devices",
+            return_value={"name": "test device", "default_samplerate": 16000},
+        )
+        patched.start()
+        self.addCleanup(patched.stop)
+        checked = patch.object(sd, "check_input_settings", return_value=None)
+        checked.start()
+        self.addCleanup(checked.stop)
 
     def test_a_refused_device_leaves_the_capture_startable(self) -> None:
-        from unittest.mock import patch
-
-        import sounddevice as sd
-
         with patch.object(sd, "InputStream", side_effect=sd.PortAudioError("busy")):
             with self.assertRaises(sd.PortAudioError):
                 self.capture.start()
@@ -90,10 +103,6 @@ class TestAFailedStartLeavesNothingBehind(unittest.TestCase):
         self.assertIsNone(self.capture._thread)
 
     def test_the_next_attempt_is_not_refused_as_already_running(self) -> None:
-        from unittest.mock import MagicMock, patch
-
-        import sounddevice as sd
-
         with patch.object(sd, "InputStream", side_effect=sd.PortAudioError("busy")):
             with self.assertRaises(sd.PortAudioError):
                 self.capture.start()
@@ -107,10 +116,6 @@ class TestAFailedStartLeavesNothingBehind(unittest.TestCase):
         opened.start.assert_called_once()
 
     def test_a_stream_that_opens_but_will_not_start_is_closed_again(self) -> None:
-        from unittest.mock import MagicMock, patch
-
-        import sounddevice as sd
-
         half_open = MagicMock()
         half_open.start.side_effect = sd.PortAudioError("device vanished")
         with patch.object(sd, "InputStream", return_value=half_open):
