@@ -185,6 +185,13 @@ SETTING_DEFINITIONS = (
         visible_when=("session.mode", "hotkey"),
     ),
     SettingDefinition(
+        "dictation_window.timeout_warning_seconds", "Timeout-Vorwarnung",
+        "Startet Tickton und LED-Countdown so viele Sekunden vor Ablauf.",
+        SettingType.FLOAT, "Verbindung & Betriebsmodus", "Hotkey-Diktatfenster", 110,
+        minimum=0.5, maximum=30.0, step=0.5, unit="s",
+        visible_when=("session.mode", "hotkey"),
+    ),
+    SettingDefinition(
         "audio.device", "Mikrofon", "Statische Eingabegeräteauswahl.",
         SettingType.INTEGER, "Geräte & Audio", "Mikrofon", 10,
         ApplyPolicy.AUDIO_RESTART, editor="audio_device",
@@ -272,6 +279,12 @@ SETTING_DEFINITIONS = (
     SettingDefinition(
         "feedback.error_sound", "Fehlersound", "Lokaler Pfad zu einem Soundasset.",
         SettingType.STRING, "Erscheinungsbild & Feedback", "Feedback", 150,
+        visible_when=("feedback.sounds_enabled", True),
+    ),
+    SettingDefinition(
+        "feedback.timeout_tick_sound", "Timeout-Ticken",
+        "Lokaler Pfad zum Tickton für die Diktatfenster-Vorwarnung.",
+        SettingType.STRING, "Erscheinungsbild & Feedback", "Feedback", 155,
         visible_when=("feedback.sounds_enabled", True),
     ),
     SettingDefinition(

@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+import sys
 import tempfile
 import unittest
+from unittest import mock
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
@@ -14,7 +16,7 @@ from PySide6.QtWidgets import QApplication
 from core.config import FeedbackConfig
 from core.feedback_mapping import SoundCueId, SoundEffect
 MappedSoundEffect = SoundEffect
-from ui.feedback import SoundFeedback
+from ui.feedback import SoundFeedback, application_resource_root, resolve_sound_asset
 
 
 class FakeSoundEffect(QObject):
@@ -23,7 +25,7 @@ class FakeSoundEffect(QObject):
     def __init__(self, parent: QObject | None = None) -> None:
         super().__init__(parent)
         self.volume = None
-        self.source = None
+        self.source_value = None
         self.play_count = 0
         self.stop_count = 0
 
@@ -34,7 +36,10 @@ class FakeSoundEffect(QObject):
         self.volume = volume
 
     def setSource(self, source) -> None:
-        self.source = source
+        self.source_value = source
+
+    def source(self):
+        return self.source_value
 
     def play(self) -> None:
         self.play_count += 1
@@ -81,7 +86,7 @@ class SoundFeedbackTests(unittest.TestCase):
             )
             self.assertEqual(backend.volume, 0.35)
             self.assertEqual(backend.play_count, 1)
-            self.assertTrue(backend.source.isLocalFile())
+            self.assertTrue(backend.source_value.isLocalFile())
 
     def test_missing_asset_failure_is_reported_only_once(self) -> None:
         backend = FakeSoundEffect()
@@ -118,6 +123,108 @@ class SoundFeedbackTests(unittest.TestCase):
             self.assertFalse(adapter.play(SoundEffect(SoundCueId.ERROR)))
             self.assertFalse(adapter.play(SoundEffect(SoundCueId.ERROR)))
             self.assertEqual(len(failures), 1)
+
+    def test_relative_asset_is_resolved_against_application_resource_root(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            asset = root / "assets" / "cue.wav"
+            asset.parent.mkdir(parents=True)
+            asset.touch()
+            backend = FakeSoundEffect()
+            adapter = SoundFeedback(
+                FeedbackConfig(sounds_enabled=True, start_sound="assets/cue.wav"),
+                effect_factory=lambda parent: backend,
+                resource_root=root,
+            )
+
+            self.assertTrue(adapter.play(SoundEffect(SoundCueId.START)))
+            self.assertEqual(
+                backend.source_value.toLocalFile(),
+                str(asset.resolve()).replace("\\", "/"),
+            )
+
+    def test_different_cues_use_independent_players(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "start.wav").touch()
+            (root / "stop.wav").touch()
+            players: list[FakeSoundEffect] = []
+
+            def factory(parent):
+                player = FakeSoundEffect(parent)
+                players.append(player)
+                return player
+
+            adapter = SoundFeedback(
+                FeedbackConfig(
+                    sounds_enabled=True,
+                    start_sound="start.wav",
+                    stop_sound="stop.wav",
+                ),
+                effect_factory=factory,
+                resource_root=root,
+            )
+
+            self.assertTrue(adapter.play(SoundEffect(SoundCueId.START)))
+            self.assertTrue(adapter.play(SoundEffect(SoundCueId.STOP)))
+            self.assertEqual(len(players), 2)
+            self.assertEqual([player.play_count for player in players], [1, 1])
+            self.assertEqual([player.stop_count for player in players], [0, 0])
+
+    def test_apply_config_releases_preloaded_players(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            asset = Path(directory) / "start.wav"
+            asset.touch()
+            backend = FakeSoundEffect()
+            adapter = SoundFeedback(
+                FeedbackConfig(sounds_enabled=True, start_sound=str(asset)),
+                effect_factory=lambda parent: backend,
+            )
+            self.assertTrue(adapter.play(SoundEffect(SoundCueId.START)))
+
+            adapter.apply_config(FeedbackConfig(sounds_enabled=False))
+
+            self.assertEqual(backend.stop_count, 1)
+            self.assertEqual(adapter._effects, {})
+
+    def test_timeout_tick_can_be_stopped_explicitly(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            asset = Path(directory) / "tick.wav"
+            asset.touch()
+            backend = FakeSoundEffect()
+            adapter = SoundFeedback(
+                FeedbackConfig(sounds_enabled=True, timeout_tick_sound=str(asset)),
+                effect_factory=lambda parent: backend,
+            )
+
+            self.assertTrue(
+                adapter.play(SoundEffect(SoundCueId.TIMEOUT_TICK, action="play"))
+            )
+            self.assertTrue(
+                adapter.play(SoundEffect(SoundCueId.TIMEOUT_TICK, action="stop"))
+            )
+            self.assertEqual(backend.stop_count, 1)
+
+    def test_resolver_preserves_absolute_paths(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            absolute = Path(directory) / "cue.wav"
+            self.assertEqual(
+                resolve_sound_asset(absolute.as_posix(), resource_root=Path("ignored")),
+                absolute,
+            )
+
+    def test_resolver_expands_a_user_relative_path(self) -> None:
+        expected = Path("~/cue.wav").expanduser()
+        self.assertEqual(
+            resolve_sound_asset("~/cue.wav", resource_root=Path("ignored")),
+            expected,
+        )
+
+    def test_frozen_application_uses_pyinstaller_resource_root(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            frozen_root = Path(directory)
+            with mock.patch.object(sys, "_MEIPASS", str(frozen_root), create=True):
+                self.assertEqual(application_resource_root(), frozen_root)
 
 
 if __name__ == "__main__":

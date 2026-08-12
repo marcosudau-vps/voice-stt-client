@@ -86,7 +86,8 @@ class FakeBridge(QObject):
         self.calls.append(("history", limit))
         return True
 
-    def report_local_feedback(self, event_type, details=None):
+    def report_local_feedback(self, event_type, details=None, *, wait_timeout=None):
+        del wait_timeout
         self.calls.append(("local_feedback", event_type, details))
         return True
 
@@ -217,6 +218,26 @@ class TestDesktopApplication(unittest.TestCase):
         self.assertEqual(len(backend.unregistered), 2)
         self.assertEqual(guard.released, 1)
         self.assertIn(("stop", 10.0), bridge.calls)
+        self.assertEqual(
+            bridge.calls.count(
+                (
+                    "local_feedback",
+                    CanonicalEventType.CLIENT_LIFECYCLE_STARTED,
+                    None,
+                )
+            ),
+            1,
+        )
+        self.assertEqual(
+            bridge.calls.count(
+                (
+                    "local_feedback",
+                    CanonicalEventType.CLIENT_LIFECYCLE_STOPPING,
+                    None,
+                )
+            ),
+            1,
+        )
 
     def test_hotkey_conflict_keeps_tray_core_operational(self):
         bridge = FakeBridge()
@@ -275,6 +296,31 @@ class TestDesktopApplication(unittest.TestCase):
         self.assertEqual(desktop.tray.status_action.text(), "Sprache wird aufgenommen")
         self.assertEqual(desktop.overlay.label.text(), "Aufnahme läuft")
         desktop.sound_feedback.play.assert_called_once_with(decision.rule.sound)
+        self.assertIn((decision.rule.led, True), led_feedback.calls)
+
+    def test_live_local_lifecycle_fact_keeps_led_event_and_state(self):
+        bridge = FakeBridge()
+        led_feedback = FakeLedFeedback()
+        desktop = self.make_desktop(bridge=bridge, led_feedback=led_feedback)
+        self.addCleanup(desktop.shutdown)
+        decision = FeedbackDecision(
+            state=FeedbackState.IDLE,
+            source=FeedbackSource.LOCAL_ONLY,
+            rule=FeedbackRule(
+                led=(
+                    LedCall(LedVerb.EMIT_EVENT, target="init_event"),
+                    LedCall(LedVerb.SET_STATE, target="ready_state"),
+                )
+            ),
+            event=NormalizedFeedbackEvent(
+                event_type=CanonicalEventType.CLIENT_LIFECYCLE_STARTED,
+                origin=EventOrigin.LOCAL,
+                source=FeedbackSource.LOCAL_ONLY,
+            ),
+        )
+
+        desktop._on_feedback_decision(decision)
+
         self.assertIn((decision.rule.led, True), led_feedback.calls)
 
     def test_replay_or_unpublished_decision_never_reaches_ui_adapters(self):
@@ -361,6 +407,14 @@ class TestDesktopApplication(unittest.TestCase):
         self.assertFalse(desktop.start())
         self.assertEqual(len(backend.unregistered), 2)
         self.assertFalse(desktop.tray.tray.isVisible())
+        self.assertNotIn(
+            (
+                "local_feedback",
+                CanonicalEventType.CLIENT_LIFECYCLE_STARTED,
+                None,
+            ),
+            bridge.calls,
+        )
 
     def test_argument_parser_preserves_explicit_headless_mode(self):
         parser = build_argument_parser()
@@ -487,3 +541,4 @@ class TestMuteAndReconnect(unittest.TestCase):
 
         self.assertIn("shutdown", led.calls)
         self.assertIsNot(desktop.led_feedback, led)
+        self.assertIsNotNone(desktop.led_feedback._on_device_mute_changed)

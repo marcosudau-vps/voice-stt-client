@@ -81,6 +81,10 @@ class CanonicalEventType(str, Enum):
     CLIENT_HOTKEY_ACCEPTED = "client.hotkey.accepted"
     CLIENT_ACTION_BLOCKED = "client.action.blocked"
     CLIENT_DICTATION_INTERRUPTED = "client.dictation.interrupted"
+    CLIENT_DICTATION_TIMEOUT_WARNING = "client.dictation.timeout_warning"
+    CLIENT_DICTATION_TIMEOUT_WARNING_CLEARED = (
+        "client.dictation.timeout_warning_cleared"
+    )
     CLIENT_TRANSPORT_DISCONNECTED = "client.transport.disconnected"
     CLIENT_EVENT_STREAM_CONNECTING = "client.event_stream.connecting"
     CLIENT_EVENT_STREAM_REPLAYING = "client.event_stream.replaying"

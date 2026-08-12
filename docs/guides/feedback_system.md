@@ -84,7 +84,7 @@ Zwei Regeln, die dabei nicht verhandelbar sind:
 - **Zustände dürfen zusammengefasst werden, Meldungen nie.** Zwei Zustände für
   denselben Slot enden ohnehin beim zweiten; zwei Meldungen sind zwei Aussagen.
 
-### Sound — sieben Cues
+### Sound — acht Cues
 
 Sieben benannte Anlässe (`wake_word`, `start`, `stop`, `complete`, `cancel`,
 `warning`, `error`), jeder mit einem konfigurierbaren Pfad zu einer Audiodatei
@@ -137,12 +137,13 @@ sollen:
 
 ## 4. Was abgesichert ist
 
-**432 automatisierte Tests**, dazu vier manuelle Prüfungen am Gerät.
+**451 automatisierte Tests**, dazu reale Prüfungen an Audioausgabe, Live-Server
+und ReSpeaker.
 
 | Kanal | Automatisiert | Am Gerät geprüft |
 | --- | --- | --- |
 | LED | 30 (`test_led_feedback`) + 9 (`test_feedback_mapping`) | alle 13 Wirkungen, Trennung/Wiederverbindung, 24-min-Langlauf |
-| Sound | 6 (`test_feedback_ui`) | — |
+| Sound | 12 (`test_feedback_ui`) | alle acht Cues über das echte Qt-Backend |
 | In-App | 20 (`test_ui_widgets`) + 19 (`test_ui_application`) | — |
 | Reducer | 19 (`test_feedback_reducer`) | — |
 | Ereignisstrom | 41 (`test_event_*`) | — |
@@ -165,7 +166,7 @@ damit das Aktivierungswort nicht als zweite Unbekannte mitläuft.
 
 **Vollständigkeit wird erzwungen, nicht gehofft.** Für alle drei Kanäle gibt es
 Tests, die über den ganzen Wertevorrat laufen: jede der 30 Ereignisarten ist im
-Katalog, jeder der 7 Cues löst auf, jede der 8 Indikatoraktionen ergibt in beiden
+Katalog, jeder der 8 Cues löst auf, jede der 8 Indikatoraktionen ergibt in beiden
 Betriebsmodi eine Darstellung. Ein neuer Enum-Wert ohne Eintrag bricht damit den
 Test, statt zur Laufzeit als `KeyError` aufzuschlagen.
 
@@ -183,6 +184,11 @@ Tippfehler verhindert den Start (Exitcode 7) — ein fehlendes Gerät niemals.
   abgedeckt, aber niemand hat sie über eine lange Sitzung beobachtet.
 - Ein **einzelner Testfehlschlag** trat einmal in rund zwanzig Vollläufen auf und
   ließ sich nie reproduzieren; die Diagnose ging verloren.
+
+Der Follow-up-Countdown ist zusätzlich real belegt: `countdown_ring` lief am
+ReSpeaker vollständig ab und wurde in einem zweiten Lauf vorzeitig ersetzt;
+der Tick-Cue spielte und stoppte über das echte Qt-Audiobackend. Ein längerer
+Beobachtungslauf auf mögliche VAD-Rückkopplung bleibt Teil der M10-Langlaufmatrix.
 
 ---
 

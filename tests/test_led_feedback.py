@@ -66,6 +66,9 @@ class FakeController:
     def clear_state(self, *, slot="primary") -> None:
         self._record("clear_state", slot)
 
+    def set_overlay(self, target, *, config=None, action="on") -> None:
+        self._record("set_overlay", target, action)
+
     def emit_event(self, target, *, config=None, duration_ms=None, priority=None) -> None:
         self._record("emit_event", target, duration_ms)
 
@@ -106,6 +109,22 @@ class TestLedFeedback(unittest.TestCase):
         feedback.submit((event("wakeword_detected"), state("waiting")), live=True)
         self.assertTrue(wait_until(lambda: len(controller.calls) == 2))
         self.assertEqual(controller.verbs, ["emit_event", "set_state"])
+
+    def test_a_timed_overlay_reaches_the_controller_worker(self) -> None:
+        controller = FakeController()
+        feedback = build(controller)
+        self.addCleanup(feedback.shutdown)
+
+        feedback.submit(
+            (LedCall(LedVerb.SET_OVERLAY, target="countdown_ring"),),
+            live=True,
+        )
+
+        self.assertTrue(wait_until(lambda: controller.calls))
+        self.assertEqual(
+            controller.calls,
+            [("set_overlay", "countdown_ring", "on")],
+        )
 
     def test_rebuilt_state_restores_but_never_re_announces(self) -> None:
         """A replay or a switch to live carries the rule that rebuilt the state.

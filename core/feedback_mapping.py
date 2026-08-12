@@ -33,6 +33,7 @@ SLOTS = ("primary", "background")
 """The two state slots LEFX composes, background beneath primary."""
 
 ACTIONS = ("on", "off", "toggle")
+SOUND_ACTIONS = ("play", "stop")
 
 MAX_DURATION_MS = 60000
 
@@ -41,15 +42,15 @@ class LedVerb(str, Enum):
     """What a rule does to the ring.
 
     The value of the verb key is the verb's primary argument: the effect or
-    preset for ``set_state`` and ``emit_event``, the slot for ``clear_state``,
-    the payload for ``set_output``. Overlay verbs join this list when the live
-    input plumbing they need exists; a rule can start and stop an overlay, but
-    an overlay that is fed nothing shows nothing, and that feeding is not a
-    mapping question.
+    preset for ``set_state``, ``set_overlay`` and ``emit_event``, the slot for
+    ``clear_state``, or the payload for ``set_output``. The overlay form here is
+    intentionally the self-running timed form; controlled live-input overlays
+    remain outside the event mapping.
     """
 
     SET_STATE = "set_state"
     CLEAR_STATE = "clear_state"
+    SET_OVERLAY = "set_overlay"
     EMIT_EVENT = "emit_event"
     SET_OUTPUT = "set_output"
 
@@ -57,6 +58,7 @@ class LedVerb(str, Enum):
 _MODIFIERS: dict[LedVerb, frozenset[str]] = {
     LedVerb.SET_STATE: frozenset({"config", "slot", "action"}),
     LedVerb.CLEAR_STATE: frozenset(),
+    LedVerb.SET_OVERLAY: frozenset({"config", "action"}),
     LedVerb.EMIT_EVENT: frozenset({"config", "duration_ms", "priority"}),
     LedVerb.SET_OUTPUT: frozenset(),
 }
@@ -71,6 +73,7 @@ class SoundCueId(str, Enum):
     CANCEL = "cancel"
     WARNING = "warning"
     ERROR = "error"
+    TIMEOUT_TICK = "timeout_tick"
 
 
 class AppActionId(str, Enum):
@@ -136,7 +139,7 @@ class LedCall:
         the event stream is the truth about now; an event re-emitted from a
         recording is an announcement of something that already happened.
         """
-        return self.verb is LedVerb.EMIT_EVENT
+        return self.verb in {LedVerb.SET_OVERLAY, LedVerb.EMIT_EVENT}
 
     def validate(self) -> None:
         if not isinstance(self.verb, LedVerb):
@@ -144,7 +147,11 @@ class LedCall:
         if not isinstance(self.config, Mapping):
             raise ValueError("led.config must be a mapping")
 
-        if self.verb in (LedVerb.SET_STATE, LedVerb.EMIT_EVENT):
+        if self.verb in (
+            LedVerb.SET_STATE,
+            LedVerb.SET_OVERLAY,
+            LedVerb.EMIT_EVENT,
+        ):
             if not isinstance(self.target, str) or not self.target.strip():
                 raise ValueError(f"{self.verb.value} needs an effect or preset name")
         elif self.target is not None:
@@ -154,6 +161,8 @@ class LedCall:
             raise ValueError(f"led.slot must be one of {list(SLOTS)}")
         if self.action is not None and self.action not in ACTIONS:
             raise ValueError(f"led.action must be one of {list(ACTIONS)}")
+        if self.verb is LedVerb.SET_OVERLAY and self.action not in {None, "on"}:
+            raise ValueError("set_overlay supports only action 'on'")
 
         if self.duration_ms is not None and (
             isinstance(self.duration_ms, bool)
@@ -185,10 +194,13 @@ class LedCall:
 class SoundEffect:
     cue: SoundCueId
     volume: float = 1.0
+    action: str = "play"
 
     def validate(self) -> None:
         if not isinstance(self.cue, SoundCueId):
             raise ValueError("sound.cue must be a known cue id")
+        if self.action not in SOUND_ACTIONS:
+            raise ValueError(f"sound.action must be one of {list(SOUND_ACTIONS)}")
         if (
             isinstance(self.volume, bool)
             or not isinstance(self.volume, (int, float))
@@ -244,6 +256,8 @@ class FeedbackRule:
                 "cue": self.sound.cue.value,
                 "volume": self.sound.volume,
             }
+            if self.sound.action != "play":
+                written["sound"]["action"] = self.sound.action
         if self.app is not None:
             written["app"] = {"action": self.app.action.value}
         return written
@@ -447,7 +461,7 @@ def _parse_rule(event_name: str, raw: Any) -> FeedbackRule:
     if sound_raw is not None:
         if not isinstance(sound_raw, Mapping):
             raise ValueError(f"{event_name}.sound must be a mapping")
-        sound_unknown = set(sound_raw) - {"cue", "volume"}
+        sound_unknown = set(sound_raw) - {"cue", "volume", "action"}
         if sound_unknown:
             raise ValueError(
                 f"unknown {event_name}.sound fields: {sorted(sound_unknown)}"
@@ -455,6 +469,7 @@ def _parse_rule(event_name: str, raw: Any) -> FeedbackRule:
         sound = SoundEffect(
             cue=_enum_value(SoundCueId, sound_raw.get("cue"), "sound.cue"),
             volume=sound_raw.get("volume", 1.0),
+            action=sound_raw.get("action", "play"),
         )
 
     app_raw = raw.get("app")

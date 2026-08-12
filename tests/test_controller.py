@@ -490,7 +490,7 @@ class TestSTTControllerRunLoopAndConcurrentShutdown(unittest.IsolatedAsyncioTest
         session.run = session_run
 
         cntr = STTController(config, session=session, audio=audio, history_manager=history_mgr, injection_queue=fake_q)
-        cntr._dictation_requested = True
+        cntr.request_initial_auto_start()
 
         run_task = asyncio.create_task(cntr.run())
 
@@ -611,7 +611,7 @@ class TestSTTControllerRunLoopAndConcurrentShutdown(unittest.IsolatedAsyncioTest
         session.run = blocking_session_run
 
         cntr = STTController(config, session=session, audio=audio, injection_queue=fake_q)
-        cntr._dictation_requested = True
+        cntr.request_initial_auto_start()
 
         run_task = asyncio.create_task(cntr.run())
         for _ in range(50):
@@ -660,6 +660,59 @@ class TestSTTControllerRunLoopAndConcurrentShutdown(unittest.IsolatedAsyncioTest
 
         self.assertIsNone(cntr._loop)
         self.assertEqual(fake_q.stop_calls, 1)
+
+    async def test_wake_word_run_loop_does_not_treat_background_start_as_initial_auto_start(self) -> None:
+        config = AppConfig()
+        config.history.persistent.enabled = False
+        config.session.mode = "wake_word"
+        session = FakeSTTSession()
+        session.state = ClientState(
+            transport=TransportState.CONNECTING,
+            ready_ok=False,
+            server_status=SessionState.UNKNOWN,
+            generation=session.generation,
+            session_id="fake-session",
+        )
+        audio = FakeAudioCapture()
+        fake_q = FakeInjectionQueue()
+
+        ready_event = asyncio.Event()
+
+        async def delayed_ready_session_run() -> None:
+            await asyncio.sleep(0.205)
+            session.state = ClientState(
+                transport=TransportState.READY,
+                ready_ok=True,
+                server_status=SessionState.IDLE,
+                generation=session.generation,
+                session_id="fake-session",
+            )
+            if session.on_transport_change:
+                session.on_transport_change(TransportState.READY)
+            ready_event.set()
+            await asyncio.Future()
+
+        session.run = delayed_ready_session_run
+
+        cntr = STTController(
+            config,
+            session=session,
+            audio=audio,
+            injection_queue=fake_q,
+        )
+
+        run_task = asyncio.create_task(cntr.run())
+        await asyncio.wait_for(ready_event.wait(), timeout=1.0)
+        await asyncio.sleep(0.25)
+
+        self.assertEqual(session.start_calls, 1)
+        self.assertEqual(cntr.dictation_state, DictationState.ACTIVE)
+        self.assertTrue(cntr.dictation_requested)
+        self.assertFalse(run_task.done())
+
+        run_task.cancel()
+        with contextlib.suppress(asyncio.CancelledError):
+            await run_task
 
     async def test_shutdown_shield_cancellation_preserves_cleanup_for_other_waiters(self) -> None:
         config = AppConfig()
@@ -1335,7 +1388,7 @@ class TestSTTControllerSemanticAPIAsync(unittest.IsolatedAsyncioTestCase):
             audio=audio,
             injection_queue=fake_q,
         )
-        cntr._dictation_requested = True
+        cntr.request_initial_auto_start()
 
         start_entered = asyncio.Event()
         release_start = asyncio.Event()
@@ -1383,6 +1436,32 @@ class TestSTTControllerSemanticAPIAsync(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(audio.stop_calls, 1)
         self.assertEqual(session.start_calls, 1)
         self.assertEqual(session.stop_calls, 1)
+
+    async def test_stop_before_ready_clears_explicit_initial_auto_start(self) -> None:
+        config = AppConfig()
+        session = FakeSTTSession()
+        session.state.transport = TransportState.DISCONNECTED
+        session.state.ready_ok = False
+        audio = FakeAudioCapture()
+        fake_q = FakeInjectionQueue()
+
+        cntr = STTController(config, session=session, audio=audio, injection_queue=fake_q)
+        cntr.request_initial_auto_start()
+
+        await cntr.stop_dictation()
+        self.assertFalse(cntr.dictation_requested)
+
+        session.state.transport = TransportState.READY
+        session.state.ready_ok = True
+
+        auto_task = asyncio.create_task(cntr._auto_start_when_ready())
+        await asyncio.sleep(0.15)
+        auto_task.cancel()
+        with contextlib.suppress(asyncio.CancelledError):
+            await auto_task
+
+        self.assertEqual(audio.start_calls, 0)
+        self.assertEqual(session.start_calls, 0)
 
     async def test_parallel_toggle_decision_is_atomic(self) -> None:
         config = AppConfig()

@@ -373,12 +373,14 @@ class DictationWindowConfig:
     initial_speech_timeout: float = 15.0
     followup_timeout: float = 3.0
     extension_seconds: float = 15.0
+    timeout_warning_seconds: float = 3.0
 
     def validate(self) -> None:
         for name, value in {
             "dictation_window.initial_speech_timeout": self.initial_speech_timeout,
             "dictation_window.followup_timeout": self.followup_timeout,
             "dictation_window.extension_seconds": self.extension_seconds,
+            "dictation_window.timeout_warning_seconds": self.timeout_warning_seconds,
         }.items():
             if (
                 isinstance(value, bool)
@@ -616,6 +618,7 @@ class FeedbackConfig:
     cancel_sound: Optional[str] = None
     warning_sound: Optional[str] = None
     error_sound: Optional[str] = None
+    timeout_tick_sound: Optional[str] = None
 
     def validate(self) -> None:
         if not isinstance(self.sounds_enabled, bool):
@@ -628,6 +631,7 @@ class FeedbackConfig:
             "feedback.cancel_sound": self.cancel_sound,
             "feedback.warning_sound": self.warning_sound,
             "feedback.error_sound": self.error_sound,
+            "feedback.timeout_tick_sound": self.timeout_tick_sound,
         }.items():
             if value is not None and not isinstance(value, str):
                 raise ValueError(f"{name} must be null or a string")

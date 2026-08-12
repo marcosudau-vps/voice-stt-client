@@ -46,6 +46,7 @@ dictation_window:
   initial_speech_timeout: 15.0
   followup_timeout: 3.0
   extension_seconds: 15.0
+  timeout_warning_seconds: 3.0
 audio:
   device: null
   sample_rate: 16000
@@ -81,14 +82,17 @@ overlay:
   show_realtime_text: true
 
 feedback:
-  sounds_enabled: false
-  wake_word_sound:
-  start_sound:
-  stop_sound:
-  complete_sound:
-  cancel_sound:
-  warning_sound:
-  error_sound:
+  # Voruebergehend bewusst auffaelliger Diagnosesatz. Relative Pfade werden
+  # gegen den Anwendungsroot aufgeloest und funktionieren auch im Onefile-Build.
+  sounds_enabled: true
+  wake_word_sound: assets/feedback_sounds/debug/wake_word.wav
+  start_sound: assets/feedback_sounds/debug/start.wav
+  stop_sound: assets/feedback_sounds/debug/stop.wav
+  complete_sound: assets/feedback_sounds/debug/complete.wav
+  cancel_sound: assets/feedback_sounds/debug/cancel.wav
+  warning_sound: assets/feedback_sounds/debug/warning.wav
+  error_sound: assets/feedback_sounds/debug/error.wav
+  timeout_tick_sound: assets/feedback_sounds/debug/timeout_tick.wav
 
 # ReSpeaker XVF3800 (USB VID 0x2886 / PID 0x001A). Fehlt das Gerät, bleibt der
 # Client vollständig funktionsfähig und verwendet intern den Nulladapter.
@@ -103,7 +107,8 @@ led:
   product_id: 26
   # 0..255. LEFX rechnet intern mit 0.0..1.0; die Skala bleibt erhalten, damit
   # ein bestehender Wert nicht ueber Nacht eine andere Helligkeit bedeutet.
-  brightness: 64
+  # Diagnosephase: absichtlich deutlich sichtbar; Alltagstuning folgt spaeter.
+  brightness: 192
   usb_timeout_ms: 1000
   shutdown_timeout: 1.5
   # Zusaetzliche Ordner mit .lefxset-Katalogen. Ergaenzt die mitgelieferten
@@ -167,7 +172,8 @@ feedback_mappings:
       sound: {cue: complete, volume: 1.0}
       app: {action: indicator.success}
     server.transcription.discarded:
-      led: {set_state: ready_state}
+      led: [{emit_event: reject_event}, {set_state: ready_state}]
+      sound: {cue: cancel, volume: 1.0}
       app: {action: indicator.idle}
     server.transcription.failed:
       led: [{emit_event: error_event, config: {duration_ms: 1200}}, {set_state: ready_state}]
@@ -184,7 +190,8 @@ feedback_mappings:
 
     # -- Client: Bedienung --------------------------------------------------
     client.hotkey.accepted:
-      led: {set_state: waiting}
+      led: [{emit_event: wakeword_detected}, {set_state: waiting}]
+      sound: {cue: wake_word, volume: 1.0}
       app: {action: indicator.waiting_for_speech}
     client.action.blocked:
       led: {emit_event: warn_event}
@@ -194,16 +201,32 @@ feedback_mappings:
       led: [{emit_event: warn_event, config: {duration_ms: 1000}}, {set_state: ready_state}]
       sound: {cue: warning, volume: 1.0}
       app: {action: indicator.warning}
+    client.dictation.timeout_warning:
+      led:
+        set_overlay: countdown_ring
+        config:
+          duration_ms: 3000
+          colors: ["#00C066", "#FFE000", "#FF0000"]
+          brightness: 1.0
+      sound: {cue: timeout_tick, volume: 0.85}
+    client.dictation.timeout_warning_cleared:
+      # Ein neues 1-ms-Overlay ersetzt den laufenden Timed-Countdown; Timed
+      # Overlays besitzen absichtlich keinen adressierbaren Clear-Kanal.
+      led:
+        set_overlay: countdown_ring
+        config: {duration_ms: 1, colors: ["#000000", "#000000"], brightness: 0.0}
+      sound: {cue: timeout_tick, action: stop}
 
     # -- Client: Verbindung -------------------------------------------------
     client.transport.disconnected:
       led: {set_state: reconnect_network_state}
+      sound: {cue: warning, volume: 1.0}
       app: {action: indicator.warning}
     client.event_stream.connecting: {}
     client.event_stream.replaying: {}
     client.event_stream.live: {}
-    client.event_stream.degraded:
-      app: {action: indicator.warning}
+    # Technischer Zusatzstatus im Tray/Tooltip, kein routinemaessiges Overlay.
+    client.event_stream.degraded: {}
 
     # -- Client: Mikrofon ---------------------------------------------------
     client.microphone.lost:
@@ -211,11 +234,14 @@ feedback_mappings:
       sound: {cue: warning, volume: 1.0}
       app: {action: indicator.warning}
     client.microphone.recovered:
-      led: {set_state: ready_state}
+      led: [{emit_event: success_event}, {set_state: ready_state}]
+      sound: {cue: complete, volume: 1.0}
 
     # -- Client: Texteinfuegung ---------------------------------------------
-    client.injection.accepted: {}
-    client.injection.succeeded: {}
+    client.injection.accepted:
+      led: {emit_event: init_event}
+    client.injection.succeeded:
+      led: {emit_event: success_event}
     client.injection.failed:
       led: {emit_event: error_event}
       sound: {cue: error, volume: 1.0}
@@ -224,8 +250,10 @@ feedback_mappings:
     # -- Client: Sprachausgabe ----------------------------------------------
     client.tts.started:
       led: {set_state: speaking}
+      sound: {cue: start, volume: 0.8}
     client.tts.stopped:
       led: {set_state: ready_state}
+      sound: {cue: stop, volume: 0.8}
     client.tts.failed:
       led: {emit_event: error_event}
       sound: {cue: error, volume: 1.0}
@@ -235,6 +263,7 @@ feedback_mappings:
     # Bewusst ohne led: wenn der Ring nicht erreichbar ist, kann er es nicht
     # selbst melden. Das laeuft ueber Tray und Overlay.
     client.led.unavailable:
+      sound: {cue: warning, volume: 1.0}
       app: {action: indicator.warning}
     client.sound.failed:
       app: {action: indicator.warning}
@@ -245,6 +274,7 @@ feedback_mappings:
     # -- Client: Lebenszyklus -----------------------------------------------
     client.lifecycle.started:
       led: [{emit_event: init_event}, {set_state: ready_state}]
+      sound: {cue: start, volume: 1.0}
     client.lifecycle.stopping:
       led: {clear_state: primary}
       app: {action: indicator.idle}

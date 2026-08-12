@@ -53,6 +53,22 @@ class TestFeedbackMapping(unittest.TestCase):
             ],
         )
 
+    def test_timeout_warning_uses_timed_overlay_and_stoppable_tick(self):
+        config = AppConfig.load(DEFAULT_CONFIG_PATH)
+        warning = config.feedback_mappings.rule_for(
+            CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING
+        )
+        cleared = config.feedback_mappings.rule_for(
+            CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING_CLEARED
+        )
+
+        self.assertEqual(warning.led[0].verb, LedVerb.SET_OVERLAY)
+        self.assertEqual(warning.led[0].target, "countdown_ring")
+        self.assertEqual(warning.sound.cue, SoundCueId.TIMEOUT_TICK)
+        self.assertEqual(warning.sound.action, "play")
+        self.assertEqual(cleared.sound.cue, SoundCueId.TIMEOUT_TICK)
+        self.assertEqual(cleared.sound.action, "stop")
+
     def test_every_named_target_is_reported_once_for_the_startup_check(self):
         config = AppConfig.load(DEFAULT_CONFIG_PATH)
         targets = config.feedback_mappings.led_targets()
@@ -136,6 +152,20 @@ class TestFeedbackMapping(unittest.TestCase):
                 }
             },
             {"events": {"client.hotkey.accepted": {"python": "do_something()"}}},
+            {
+                "events": {
+                    "client.hotkey.accepted": {
+                        "led": {"set_overlay": "countdown_ring", "action": "off"}
+                    }
+                }
+            },
+            {
+                "events": {
+                    "client.hotkey.accepted": {
+                        "sound": {"cue": "start", "action": "rewind"}
+                    }
+                }
+            },
         )
         for raw in invalid:
             with self.subTest(raw=raw):

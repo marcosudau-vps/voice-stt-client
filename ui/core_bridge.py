@@ -340,24 +340,44 @@ class CoreBridge(QObject):
         self,
         event_type: CanonicalEventType,
         details: Optional[dict[str, object]] = None,
+        *,
+        wait_timeout: Optional[float] = None,
     ) -> bool:
-        """Queue an adapter-local fact without creating a UI command result."""
+        """Queue a local fact, optionally waiting until the Core processed it."""
         loop, controller = self._get_target()
         if loop is None or controller is None or loop.is_closed():
             return False
+        completed = threading.Event() if wait_timeout is not None else None
+        succeeded = True
 
         def invoke() -> None:
+            nonlocal succeeded
             try:
                 controller.report_local_feedback(event_type, details)
             except Exception:
+                succeeded = False
                 logger.exception("Failed to report local feedback %s.", event_type)
+            finally:
+                if completed is not None:
+                    completed.set()
+
+        if threading.get_ident() == self.worker_thread_id:
+            invoke()
+            return succeeded
 
         try:
             loop.call_soon_threadsafe(invoke)
-            return True
         except RuntimeError:
             logger.info("Core loop closed while reporting local feedback.")
             return False
+        if completed is None:
+            return True
+        if not completed.wait(max(0.0, float(wait_timeout))):
+            logger.warning(
+                "Timed out reporting local feedback %s.", event_type.value
+            )
+            return False
+        return succeeded
 
     def stop(self, timeout: float = 10.0) -> bool:
         """Request Core shutdown once and wait a bounded amount of time."""

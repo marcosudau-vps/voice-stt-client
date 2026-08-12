@@ -21,6 +21,7 @@ from core.controller import (
     DictationWindowPhase,
     STTController,
 )
+from core.event_models import CanonicalEventType
 from core.history import TranscriptHistoryManager
 from core.settings_metadata import (
     ApplyPolicy,
@@ -222,6 +223,7 @@ class TestDictationWindow(unittest.IsolatedAsyncioTestCase):
         config.dictation_window.initial_speech_timeout = WINDOW
         config.dictation_window.followup_timeout = WINDOW / 2
         config.dictation_window.extension_seconds = WINDOW
+        config.dictation_window.timeout_warning_seconds = WINDOW / 4
         session = FakeSTTSession()
         controller = STTController(
             config,
@@ -289,6 +291,80 @@ class TestDictationWindow(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(
             controller.get_snapshot().dictation_window_phase,
             DictationWindowPhase.WAITING_FIRST_SPEECH,
+        )
+        await controller.stop_dictation()
+
+    async def test_hotkey_followup_warns_then_new_speech_clears_warning(self):
+        controller, session = self.make_controller()
+        decisions = []
+        controller.on_feedback_decision = decisions.append
+        await controller.start_dictation()
+        base = {
+            "type": "timeline",
+            "sessionId": session.state.session_id,
+            "_clientGeneration": session.generation,
+        }
+        controller.handle_server_event(
+            "timeline", {**base, "event": "recording_started"}
+        )
+        controller.handle_server_event(
+            "timeline", {**base, "event": "recording_ended"}
+        )
+
+        await asyncio.sleep(WINDOW * 0.35)
+        self.assertIn(
+            CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING,
+            [item.event.event_type for item in decisions],
+        )
+        controller.handle_server_event(
+            "timeline", {**base, "event": "recording_started"}
+        )
+        self.assertEqual(
+            [item.event.event_type for item in decisions][-1],
+            CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING_CLEARED,
+        )
+        await controller.stop_dictation()
+
+    async def test_wake_word_followup_uses_server_duration_and_clears_on_speech(self):
+        config = AppConfig()
+        config.history.enabled = False
+        config.session.mode = "wake_word"
+        config.dictation_window.timeout_warning_seconds = WINDOW / 4
+        session = FakeSTTSession()
+        controller = STTController(
+            config,
+            session=session,
+            audio=FakeAudioCapture(),
+            injection_queue=FakeInjectionQueue(),
+        )
+        decisions = []
+        controller.on_feedback_decision = decisions.append
+        await controller.start_dictation()
+        base = {
+            "type": "timeline",
+            "sessionId": session.state.session_id,
+            "_clientGeneration": session.generation,
+        }
+        controller.handle_server_event(
+            "timeline",
+            {
+                **base,
+                "event": "wakeword_followup_started",
+                "durationSeconds": WINDOW,
+            },
+        )
+
+        await asyncio.sleep(WINDOW * 0.8)
+        self.assertIn(
+            CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING,
+            [item.event.event_type for item in decisions],
+        )
+        controller.handle_server_event(
+            "timeline", {**base, "event": "recording_started"}
+        )
+        self.assertEqual(
+            [item.event.event_type for item in decisions][-1],
+            CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING_CLEARED,
         )
         await controller.stop_dictation()
 

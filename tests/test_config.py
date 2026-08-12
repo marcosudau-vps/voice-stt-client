@@ -19,6 +19,7 @@ from core.config import (
     ServerConfig,
     normalize_hotkey_spec,
 )
+from core.event_models import CanonicalEventType
 
 
 class TestConfigValidation(unittest.TestCase):
@@ -212,12 +213,43 @@ server:
             cancel_sound="cancel.wav",
             warning_sound="warning.wav",
             error_sound="error.wav",
+            timeout_tick_sound="timeout.wav",
         )
         config.validate()
 
         self.assertEqual(config.complete_sound, "complete.wav")
         with self.assertRaises(ValueError):
             FeedbackConfig(error_sound=42).validate()
+
+    def test_shipped_debug_feedback_assets_and_mapping_are_complete(self):
+        project_root = Path(__file__).resolve().parent.parent
+        config = AppConfig.load(project_root / "config.yaml")
+        self.assertTrue(config.feedback.sounds_enabled)
+        self.assertEqual(config.led.brightness, 192)
+        paths = (
+            config.feedback.wake_word_sound,
+            config.feedback.start_sound,
+            config.feedback.stop_sound,
+            config.feedback.complete_sound,
+            config.feedback.cancel_sound,
+            config.feedback.warning_sound,
+            config.feedback.error_sound,
+            config.feedback.timeout_tick_sound,
+        )
+        self.assertEqual(len(set(paths)), 8)
+        for path in paths:
+            with self.subTest(path=path):
+                self.assertIsNotNone(path)
+                self.assertTrue((project_root / path).is_file())
+
+        degraded = config.feedback_mappings.rule_for(
+            CanonicalEventType.CLIENT_EVENT_STREAM_DEGRADED
+        )
+        self.assertIsNone(degraded.app)
+        countdown = config.feedback_mappings.rule_for(
+            CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING
+        )
+        self.assertEqual(countdown.led[0].target, "countdown_ring")
 
     def test_led_config_validates_output_and_worker_limits(self):
         LedConfig().validate()

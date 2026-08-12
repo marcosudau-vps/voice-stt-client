@@ -16,7 +16,7 @@ from PySide6.QtWidgets import QApplication, QSystemTrayIcon
 from core.config import AppConfig
 from core.controller import CommandResult
 from core.feedback_reducer import FeedbackDecision
-from core.event_models import CanonicalEventType
+from core.event_models import CanonicalEventType, FeedbackSource
 from core.led_controller import LedConfigurationError
 from core.settings_metadata import ApplyPolicy
 from core.reinsertion import ReinsertionResult, ReinsertionStatus
@@ -38,6 +38,13 @@ from ui.settings_dialog import SettingsDialog
 from ui.tray import TrayController, create_status_icon
 
 logger = logging.getLogger("ui.application")
+
+_TECHNICAL_EVENT_STREAM_EVENTS = {
+    CanonicalEventType.CLIENT_EVENT_STREAM_CONNECTING,
+    CanonicalEventType.CLIENT_EVENT_STREAM_REPLAYING,
+    CanonicalEventType.CLIENT_EVENT_STREAM_LIVE,
+    CanonicalEventType.CLIENT_EVENT_STREAM_DEGRADED,
+}
 
 EXIT_OK = 0
 EXIT_ALREADY_RUNNING = 2
@@ -122,6 +129,8 @@ class DesktopApplication(QObject):
         self.hotkeys = self._create_hotkey_manager(config)
         self._started = False
         self._shutting_down = False
+        self._lifecycle_started_reported = False
+        self._lifecycle_stopping_reported = False
         self._wire_signals()
         self.application.aboutToQuit.connect(self.shutdown)
 
@@ -185,7 +194,32 @@ class DesktopApplication(QObject):
             self.tray.hide()
             return False
         self._started = True
+        self._report_lifecycle_started()
         return True
+
+    def _report_lifecycle_started(self) -> None:
+        if self._lifecycle_started_reported:
+            return
+        if self.bridge.report_local_feedback(
+            CanonicalEventType.CLIENT_LIFECYCLE_STARTED
+        ):
+            self._lifecycle_started_reported = True
+        else:
+            logger.warning("Could not publish client.lifecycle.started.")
+
+    def _report_lifecycle_stopping(self) -> None:
+        if self._lifecycle_stopping_reported or not self._started:
+            return
+        if self.bridge.report_local_feedback(
+            CanonicalEventType.CLIENT_LIFECYCLE_STOPPING,
+            wait_timeout=1.0,
+        ):
+            self._lifecycle_stopping_reported = True
+            # The Core signal is queued back to this Qt thread. Deliver it
+            # before the LED and sound adapters are torn down.
+            self.application.processEvents()
+        else:
+            logger.info("Core was already unavailable during lifecycle shutdown.")
 
     @Slot(object)
     def _on_feedback_decision(self, decision: FeedbackDecision) -> None:
@@ -194,6 +228,7 @@ class DesktopApplication(QObject):
             return
         if not decision.publish or decision.replay:
             return
+        self._log_feedback_decision(decision)
         self.tray.update_feedback_decision(decision)
         presentation = presentation_for_feedback_decision(
             decision,
@@ -207,7 +242,53 @@ class DesktopApplication(QObject):
             # An impulse marks a fact that just happened. Without one this is
             # rebuilt state, which may restore what the ring shows but must not
             # replay an announcement.
-            live=decision.impulse is not None,
+            live=self._allows_live_led_events(decision),
+        )
+
+    @staticmethod
+    def _allows_live_led_events(decision: FeedbackDecision) -> bool:
+        if decision.impulse is not None:
+            return True
+        event = decision.event
+        return bool(
+            event is not None
+            and event.source is FeedbackSource.LOCAL_ONLY
+            and event.event_type not in _TECHNICAL_EVENT_STREAM_EVENTS
+        )
+
+    @staticmethod
+    def _log_feedback_decision(decision: FeedbackDecision) -> None:
+        event = decision.event
+        event_type = event.event_type.value if event is not None else None
+        led_calls = [
+            {"verb": call.verb.value, "target": call.target, "slot": call.slot}
+            for call in decision.rule.led
+        ]
+        logger.info(
+            "Feedback decision",
+            extra={
+                "event_type": event_type,
+                "detail": {
+                    "source": decision.source.value,
+                    "state": decision.state.value,
+                    "revision": decision.revision,
+                    "duplicate": decision.duplicate,
+                    "replay": decision.replay,
+                    "eventId": event.event_id if event is not None else None,
+                    "correlationId": (
+                        event.correlation_id if event is not None else None
+                    ),
+                    "sound": (
+                        {
+                            "cue": decision.rule.sound.cue.value,
+                            "action": decision.rule.sound.action,
+                        }
+                        if decision.rule.sound is not None
+                        else None
+                    ),
+                    "led": led_calls,
+                },
+            },
         )
 
     @Slot(str)
@@ -504,7 +585,9 @@ class DesktopApplication(QObject):
             return
         try:
             replacement = LedFeedback(
-                candidate.led, on_failure=self._on_led_failure
+                candidate.led,
+                on_failure=self._on_led_failure,
+                on_device_mute_changed=self.device_mute_changed.emit,
             )
             replacement.verify_targets(candidate.feedback_mappings.led_targets())
         except Exception:
@@ -513,12 +596,16 @@ class DesktopApplication(QObject):
             )
             try:
                 self.led_feedback = LedFeedback(
-                    old_led_config, on_failure=self._on_led_failure
+                    old_led_config,
+                    on_failure=self._on_led_failure,
+                    on_device_mute_changed=self.device_mute_changed.emit,
                 )
+                self.led_feedback.watch_device_mute()
             except Exception:
                 logger.exception("The previous LED configuration is gone too.")
             return
         self.led_feedback = replacement
+        self.led_feedback.watch_device_mute()
 
     def _rollback_pending_settings(self, message: str) -> None:
         del message
@@ -554,6 +641,7 @@ class DesktopApplication(QObject):
         if self._shutting_down:
             return
         self._shutting_down = True
+        self._report_lifecycle_stopping()
         if self._pending_config is not None:
             self._rollback_pending_settings("Anwendung wird beendet")
         self.hotkeys.unregister()

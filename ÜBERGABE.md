@@ -1,13 +1,13 @@
 # ÜBERGABE – RealtimeSTT Windows Desktop Client
 
-> **Stand:** 9. August 2026  
-> **Projektpfad:** `P:\DockerProjekte\voice-stt-client`  
-> **Status:** AP07-M0 bis M9 abgenommen; M10-Fehlerkampagne in Arbeit
-> **Nächster Schritt:** verbleibende gesprochene M10-Bedien-, Disconnect- und Langlaufmatrix
+> **Stand:** 12. August 2026
+> **Projektpfad:** `P:\GithubRepos\marcosudau-vps\voice-stt-client`
+> **Status:** AP07-M0 bis M9 und akute M10-Debugfeedback-Korrektur abgenommen
+> **Nächster Schritt:** verbleibende gesprochene M10-Bedien-, Disconnect- und Langlaufmatrix sowie Alltagstuning
 > **Repository:** `https://github.com/marcosudau-vps/voice-stt-client` (`PUBLIC`)  
-> **Automatischer Stand:** Client 396 Tests zweimal und `compileall` grün; letzter
+> **Automatischer Stand:** Client 451 Tests und `compileall` grün; aktueller
 > Windows-PyInstaller-Build grün;
-> Server 379 Tests zweimal grün, 13 Skips; beide `compileall`-Prüfungen grün
+> Server 378 Tests, 13 Skips und 78 Subtests grün
 > **Live-Stand:** zusätzlich beide Sessionmodi, zwei Laufzeitmoduswechsel und
 > sessiongebundener `/ws/logs`-Replay/LIVE-Pfad ohne Audio oder Injection grün
 > **Separater Restpunkt:** gesprochenes `hey_jarvis` nach dem AP6-Fix einmal
@@ -225,7 +225,12 @@ Zusätzlich erfolgreich:
 - M10: echter sessiongebundener STT- plus `/ws/logs`-Handshake über Replay bis
   LIVE und sauberer gemeinsamer Shutdown,
 - M10: reale Adapterklassen mit nicht vorhandenem USB-Gerät und defektem
-  Soundasset; Fehler isoliert, gedrosselt und Worker sauber beendet,
+Soundasset; Fehler isoliert, gedrosselt und Worker sauber beendet,
+- Debugfeedback: Start-/Stopping-Lifecycle exakt einmal, Helligkeit 192/255,
+  acht ausgelieferte nichtsprachliche PCM-WAVs und unabhängige Cue-Player,
+- Timeoutfeedback: `easter_egg_tick` als dreisekündiger Tick-Cue plus LEFX-
+  `countdown_ring` für Hotkey- und Wake-Word-Follow-up; neue Sprache stoppt
+  beide Ausgaben,
 - M10: isolierte Store-/Retention-/WebSocket-Kampagne und persistenter
   Serverneustart über zwei echte Betriebssystemprozesse grün,
 - M10: Cursor-Schreibfehler/Replays ohne Doppelimpuls, extreme Backoffzähler,
@@ -273,6 +278,9 @@ Zusätzlich erfolgreich:
 - PyInstaller-Onefile-Build `dist/voice-stt-client.exe` für Version `0.1.0`:
   73.299.320 Byte; eingebettete Datei-/Produktversion und `--version`-Smoke
   erfolgreich.
+- aktueller Debugfeedback-Onefile-Build für Version `0.2.0`: 73.747.530 Byte,
+  SHA-256 `0b43f3da0ed61304087a32d952ce1c42011f42a717b22c7027ac3888f8f8b7ac`;
+  acht WAVs plus Attribution im Archiv nachgewiesen.
 
 Build und Release:
 

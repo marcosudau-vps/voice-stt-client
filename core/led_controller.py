@@ -102,6 +102,14 @@ class LedController(Protocol):
 
     def clear_state(self, *, slot: str = "primary") -> None: ...
 
+    def set_overlay(
+        self,
+        target: str,
+        *,
+        config: Optional[Mapping[str, Any]] = None,
+        action: str = "on",
+    ) -> None: ...
+
     def emit_event(
         self,
         target: str,
@@ -143,6 +151,9 @@ class NullLedController:
 
     def clear_state(self, **_: Any) -> None:
         return
+
+    def set_overlay(self, target: str, **_: Any) -> None:
+        del target
 
     def emit_event(self, target: str, **_: Any) -> None:
         del target
@@ -407,6 +418,20 @@ class InProcessLedController:
     def clear_state(self, *, slot: str = "primary") -> None:
         self._call(
             f"clear_state {slot!r}", lambda: self._service.clear_state(slot=slot)
+        )
+
+    def set_overlay(
+        self,
+        target: str,
+        *,
+        config: Optional[Mapping[str, Any]] = None,
+        action: str = "on",
+    ) -> None:
+        self._call(
+            f"set_overlay {target!r}",
+            lambda: self._service.set_overlay(
+                target, config=dict(config or {}), action=action
+            ),
         )
 
     def emit_event(

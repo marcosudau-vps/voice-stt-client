@@ -142,7 +142,7 @@ client.lifecycle.stopping:
 
 ---
 
-## Sound: sieben Anlässe
+## Sound: acht Anlässe
 
 Erst die Dateien hinterlegen, dann in Regeln benutzen:
 
@@ -156,6 +156,7 @@ feedback:
   cancel_sound: null           # nicht gesetzt = still
   warning_sound: C:\Sounds\warn.wav
   error_sound: C:\Sounds\error.wav
+  timeout_tick_sound: C:\Sounds\tick.wav
 ```
 
 ```yaml
@@ -166,6 +167,20 @@ server.transcription.completed:
 `volume` gilt pro Regel, nicht pro Datei — derselbe Ton darf bei einer
 Bestätigung leiser sein als bei einem Fehler. Ein nicht gesetzter Cue ist still,
 eine fehlende Datei wird einmal gemeldet und bricht nichts ab.
+
+Die ausgelieferte Diagnosekonfiguration verwendet relative Pfade unter
+`assets/feedback_sounds/debug/`. Sie werden in der Sourcekopie und im
+PyInstaller-Onefile-Build gegen den stabilen Anwendungsroot aufgelöst. Der Cue
+`timeout_tick` unterstützt zusätzlich `action: stop`, damit neue Sprache oder
+eine Verlängerung ein laufendes Ticken sofort beendet.
+
+```yaml
+client.dictation.timeout_warning:
+  led: {set_overlay: countdown_ring, config: {duration_ms: 3000}}
+  sound: {cue: timeout_tick, volume: 0.85}
+client.dictation.timeout_warning_cleared:
+  sound: {cue: timeout_tick, action: stop}
+```
 
 ---
 
@@ -200,7 +215,7 @@ led:
   enabled: true
   sink: respeaker         # respeaker | simulator | null
   fps: 30.0
-  brightness: 64          # 0..255
+  brightness: 192         # 0..255; auffällige Diagnoseeinstellung
   usb_timeout_ms: 1000
   shutdown_timeout: 1.5
   effect_paths: []

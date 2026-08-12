@@ -46,10 +46,14 @@ invalidiert alte Logsessions bei STT-Reconnect und beendet beide Transporte
 deterministisch. Normalisierung, reiner Feedback-Reducer, Replay ohne alte
 Impulse und duplikatsicherer STT-Fallback sind in M7 integriert. M8 überträgt
 die Reducerausgaben queued in den Qt-Main-Thread und steuert Tray, Overlay und
-alle sieben optionalen Sound-Cues ausschließlich über das YAML-Mapping. M9
+acht optionale, ausgelieferte und nichtsprachliche Sound-Cues ausschließlich
+über das YAML-Mapping. Ein Tick-Cue und der LEFX-`countdown_ring` warnen in den
+letzten drei Sekunden des Hotkey- wie Wake-Word-Follow-up-Fensters. M9
 ergänzt den koaleszierenden, ausfallisolierten USB-LED-Adapter für den
-ReSpeaker XVF3800 einschließlich Nulladapter und sicherem Shutdown. Der nächste
-Implementierungsschritt ist M10 (End-to-End-Härtung und Fehlerkampagne).
+ReSpeaker XVF3800 einschließlich Nulladapter und sicherem Shutdown. Die akute
+M10-Debugfeedback-Korrektur ist automatisiert, im Onefile-Build sowie mit
+echtem Sound und echtem ReSpeaker abgenommen; offen bleibt die breitere
+gesprochene Bedien-/Disconnect-/Langlaufmatrix.
 
 ## Voraussetzungen
 

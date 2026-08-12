@@ -1,7 +1,7 @@
 # IMPLEMENTATION_ROADMAP – RealtimeSTT Windows Desktop Client
 
 > **Status:** verbindlicher Gesamtfahrplan  
-> **Stand:** 9. August 2026  
+> **Stand:** 12. August 2026
 > **Aktives Paket:** AP7 Feedback- und Eventsystem; M10 in Arbeit
 > **Nächster Meilenstein:** M10-Bedien-/Langlaufmatrix abschließen, danach M11
 > **Separater Restpunkt:** erneuter gesprochener AP6-Wake-Word-Nachweis  
@@ -347,6 +347,15 @@ belegt. Die isolierte lokale Kampagne deckt Storeausfall, Retention und einen
 persistenten Neustart über zwei echte Betriebssystemprozesse ab. Offen bleiben
 die gesprochenen Bedienabläufe, ein sichtbarer STT-Disconnect, stilles Final
 und Langlauf. M11 bleibt bis zu deren Abschluss gesperrt.
+
+Ergänzung vom 12. August 2026: Die akute Debugfeedback-Korrektur veröffentlicht
+den Client-Lifecycle zuverlässig, liefert acht rein nichtsprachliche PCM-WAV-
+Cues aus, löst relative Assets auch im Onefile-Build stabil auf und setzt die
+Diagnosehelligkeit auf 192/255. Der Follow-up-Ablauf besitzt nun für Hotkey- und
+Wake-Word-Betrieb einen dreisekündigen Tickton plus den selbst rendernden LEFX-
+`countdown_ring`; neue Sprache, Verlängerung und Stop räumen die Warnung. 451
+Clienttests, `compileall`, Onefile-Build, echtes Qt-Audio und echter ReSpeaker-
+Countdown sind grün.
 
 Verbindliche Eckpunkte:
 

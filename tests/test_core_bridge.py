@@ -270,6 +270,23 @@ class TestCoreBridge(unittest.TestCase):
         self.assertEqual(set(command_threads.values()), {self.bridge.worker_thread_id})
         self.assertEqual(self.receiver.history[0][0].id, "entry")
 
+    def test_local_feedback_can_wait_until_worker_processed_it(self):
+        self.assertTrue(self.bridge.start())
+
+        self.assertTrue(
+            self.bridge.report_local_feedback(
+                CanonicalEventType.CLIENT_LIFECYCLE_STOPPING,
+                wait_timeout=1.0,
+            )
+        )
+
+        controller = FakeController.instances[0]
+        local_feedback = [
+            item for item in controller.thread_calls if item[0] == "local_feedback"
+        ]
+        self.assertEqual(len(local_feedback), 1)
+        self.assertEqual(local_feedback[0][1], self.bridge.worker_thread_id)
+
     def test_command_before_start_and_after_stop_is_rejected_not_queued(self):
         self.assertFalse(self.bridge.toggle_dictation())
         self.assertTrue(self.wait_until(lambda: len(self.receiver.commands) == 1))

@@ -382,6 +382,12 @@ class LedFeedback:
             )
         elif call.verb is LedVerb.CLEAR_STATE:
             self.controller.clear_state(slot=call.slot or "primary")
+        elif call.verb is LedVerb.SET_OVERLAY:
+            self.controller.set_overlay(
+                call.target,
+                config=call.config,
+                action=call.action or "on",
+            )
         elif call.verb is LedVerb.EMIT_EVENT:
             self.controller.emit_event(
                 call.target,

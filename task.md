@@ -1,9 +1,9 @@
 # Arbeitsstand und Aufgaben – RealtimeSTT Windows Desktop Client
 
 > **Status:** aktiver Tracker  
-> **Stand:** 9. August 2026  
-> **Aktives Paket:** AP7 Feedback- und Eventsystem `[M10 IN ARBEIT]`
-> **Nächster Schritt:** gesprochene M10-Bedien-, STT-Disconnect- und Langlaufmatrix
+> **Stand:** 12. August 2026
+> **Aktives Paket:** AP7 Feedback- und Eventsystem `[M10 DEBUG-FEEDBACK-KORREKTUR ABGENOMMEN]`
+> **Nächster Schritt:** gesprochene Bedien-/Disconnect-/Langlaufmatrix und alltagstaugliches Feedbacktuning
 > **Separater Restpunkt:** AP6-Wake-Word-Bediennachweis mit echtem Mikrofon  
 > **Repository/Release:** öffentliches GitHub-Repository und geprüfte Windows-CI-/Release-Strecke eingerichtet
 
@@ -188,6 +188,24 @@ Hinweis: Es existieren weder `core/audio_processor.py` noch `core/stt_client.py`
 
 ## Phase 7 – Feedback- und Eventsystem (AP7) `[M0–M9 ABGENOMMEN – M10 IN ARBEIT]`
 
+- [x] Debug-Feedback-Korrektur vom 12. August 2026 `[ABGENOMMEN]`
+  - [x] unveränderte Clientbaseline: 435 Tests in 22,513 Sekunden erfolgreich
+  - [x] `client.lifecycle.started`/`stopping` im produktiven GUI-Lifecycle
+    genau einmal veröffentlichen und LED-Startzustand real belegen
+  - [x] Mute-Beobachtung bei LED-Reconnect/Sinkwechsel erhalten
+  - [x] genau acht lizenzierte, rein nichtsprachliche, gebündelte PCM-WAV-Cues mit stabiler
+    Source-/PyInstaller-Pfadauflösung bereitstellen
+  - [x] Tickton plus selbst rendernden LED-Countdown in den letzten drei
+    Sekunden des Hotkey- und Wake-Word-Follow-up-Fensters ergänzen
+  - [x] vorübergehend auffälliges LED-/Sound-Mapping und höhere
+    Diagnosehelligkeit aktivieren
+  - [x] Eventstream-Degradation als technische Tray-Notiz ohne wiederholtes
+    Warnoverlay behandeln
+  - [x] datensparsame Feedback-Entscheidungsspur für Event-/Korrelationsanalyse
+  - [x] 151 fokussierte und 451 vollständige Clienttests, `compileall`,
+    Onefile-Build, acht reale Qt-Sounds sowie ReSpeaker-Countdown vollständig
+    und vorzeitig beendet abnehmen
+
 - [x] bisherige Diskussion in eine verbindliche Gesamtplanung konsolidiert
 - [x] historische Zwischenstände nach
   `docs/2026-07-30_PROJEKT_EVENT_FEEDBACK_SYSTEM/zwischenstaende_bis_2026-08-01/`
@@ -299,16 +317,15 @@ Hinweis: Es existieren weder `core/audio_processor.py` noch `core/stt_client.py`
 
 ## Test-Zusammenfassung
 
-Zuletzt am 9. August 2026 ausgeführt (Vor-AP6-Baseline war 197 Tests):
+Zuletzt am 12. August 2026 ausgeführt (Vor-AP6-Baseline war 197 Tests):
 
 ```powershell
 .\venv\Scripts\python.exe -m unittest discover -s tests -p "test_*.py"
 ```
 
-Ergebnis: **396 Clienttests erfolgreich** (zweimal stabil); `compileall` über `app.py`,
+Ergebnis: **451 Clienttests erfolgreich**; `compileall` über `app.py`,
 `core/`, `ui/`, `scripts/` und `tests/` ebenfalls erfolgreich. Die aktuelle
-Servergesamtsuite bestand zweimal mit **379 Tests bei 13 Skips**; Server-`compileall` und
-`git diff --check` waren grün. Der AP07-Livevertrag wurde mit zwei isolierten
+Servergesamtsuite bestand mit **378 Tests bei 13 Skips und 78 Subtests**. Der AP07-Livevertrag wurde mit zwei isolierten
 Sessions sowie einem echten Audiofixture-Ereignis geprüft. Details siehe
 `ÜBERGABE.md` und
 `docs/2026-07-30_PROJEKT_EVENT_FEEDBACK_SYSTEM/zwischenstaende_bis_2026-08-01/2026-08-09_AP07_M0_BIS_M3_ABNAHME_ABSCHLUSSBERICHT.md`.

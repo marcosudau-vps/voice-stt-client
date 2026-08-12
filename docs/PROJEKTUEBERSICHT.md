@@ -1,11 +1,11 @@
 # RealtimeSTT Windows-Client – kompakte Projektübersicht
 
 > **Status:** aktive technische Orientierung  
-> **Stand:** 9. August 2026  
+> **Stand:** 12. August 2026
 > **Zuständig für:** kompaktes Zielbild, aktueller Paketstand und Einstieg in die Projektdokumentation  
-> **Letzte Verifikation:** Client 396 Tests zweimal und 227 AP07-/Reconnect-
-> Tests mit `-W error`; Server 379 Tests zweimal bei 13 Skips; sichere
-> Live-Smokes, isolierte Serverkampagne und echter ReSpeaker-Pfad grün
+> **Letzte Verifikation:** Client 451 Tests und `compileall`; Server 378 Tests
+> bei 13 Skips und 78 Subtests; Onefile-Build, acht echte Qt-Sounds,
+> Live-Smoke und echter ReSpeaker einschließlich Timeout-Countdown grün
 
 ## 1. Zweck und Einordnung
 
@@ -361,7 +361,7 @@ strukturierten Serverevents und lokalen Clienttatsachen, einen reinen,
 deterministischen Reducer, impulsfreies Replay, begrenzte Deduplizierung und
 den kontrollierten STT-Fallback mit atomarer Rückkehr zum Eventstream. M8
 bindet diese Reducerausgaben queued
-an Qt, Tray und Overlay an, ersetzt alte befehlsbasierte Sounds durch sieben
+an Qt, Tray und Overlay an, ersetzt alte befehlsbasierte Sounds durch acht
 konfigurierbare YAML-Cues und führt Soundadapterfehler als kanonische lokale
 Tatsache zurück. M9 ergänzt den ReSpeaker-XVF3800-USB-Adapter mit begrenztem
 Worker, Impulsrückkehr, Fehlerdrosselung, Nulladapter und sicherem `off` beim
@@ -371,6 +371,12 @@ Retention-, WebSocket- und Prozessneustartkampagne bestanden. Gesprochene
 Bedien-, STT-Disconnect-, stille Final- und Langlaufprüfungen bleiben offen. Für
 die weitere Clientintegration gelten
 weiterhin:
+
+Die Debugfeedback-Korrektur vom 12. August ergänzt zuverlässig veröffentlichte
+Start-/Stopping-Ereignisse, acht ausgelieferte nichtsprachliche Cues und eine
+auffällige Diagnosepolicy. Ein Tick-Cue und `countdown_ring` zeigen die letzten
+drei Sekunden des Hotkey- beziehungsweise Wake-Word-Follow-up-Fensters; neue
+Sprache beendet beide Ausgaben.
 
 - SQLite-first-Servereventstrom als verpflichtende Vorstufe,
 - `/ws/logs` als primäre serverseitige Feedbackquelle,

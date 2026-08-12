@@ -6,6 +6,7 @@ from PyInstaller.utils.hooks import collect_data_files, collect_dynamic_libs
 
 
 ROOT = Path.cwd()
+FEEDBACK_SOUNDS = ROOT / "assets" / "feedback_sounds" / "debug"
 version_file = os.environ.get("VOICE_STT_VERSION_FILE")
 if not version_file:
     raise RuntimeError("VOICE_STT_VERSION_FILE must be provided by scripts/build.py")
@@ -27,6 +28,7 @@ a = Analysis(
     datas=[
         (str(ROOT / "config.yaml"), "."),
         (str(ROOT / "VERSION"), "."),
+        (str(FEEDBACK_SOUNDS), "assets/feedback_sounds/debug"),
         *lefx_catalogues,
     ],
     hiddenimports=[

@@ -10,6 +10,7 @@ from __future__ import annotations
 import asyncio
 import inspect
 import logging
+import math
 import sys
 import threading
 import time
@@ -289,6 +290,7 @@ class STTController:
         self._last_published_server_status = self.session.state.server_status
         self._start_attempt: Optional[_StartAttempt] = None
         self._start_attempt_token = 0
+        self._initial_auto_start_requested = False
         self._initial_auto_start_done = False
         self._server_error_counts: Dict[str, int] = {}
         self._window_phase = DictationWindowPhase.INACTIVE
@@ -296,6 +298,9 @@ class STTController:
         self._window_timer_token = 0
         self._window_deadline: Optional[float] = None
         self._pending_window_extension = 0.0
+        self._timeout_warning_task: Optional[asyncio.Task] = None
+        self._timeout_warning_token = 0
+        self._timeout_warning_active = False
         self._discard_finals = False
         self._wake_mode_desired = config.session.mode == "wake_word"
         self._wake_maintenance_suspended = False
@@ -364,6 +369,7 @@ class STTController:
                     "Initial auto-start must be requested before controller run."
                 )
             self._dictation_requested = True
+            self._initial_auto_start_requested = True
 
     @property
     def availability_state(self) -> AvailabilityState:
@@ -874,6 +880,7 @@ class STTController:
                 return CommandResult(success=False, status="closing", message="Controller is shutting down")
             attempt = self._start_attempt
             self._start_attempt = None
+            self._initial_auto_start_requested = False
             self._dictation_requested = False
             changed = self._dictation_state != DictationState.IDLE
             self._dictation_state = DictationState.IDLE
@@ -1255,8 +1262,80 @@ class STTController:
         self._window_deadline = None
         self._pending_window_extension = 0.0
         self._window_phase = DictationWindowPhase.INACTIVE
+        self._cancel_timeout_warning()
         if task is not None and not task.done() and task is not asyncio.current_task():
             task.cancel()
+
+    def _cancel_timeout_warning(self) -> None:
+        self._timeout_warning_token += 1
+        task = self._timeout_warning_task
+        self._timeout_warning_task = None
+        was_active = self._timeout_warning_active
+        self._timeout_warning_active = False
+        if task is not None and not task.done() and task is not asyncio.current_task():
+            task.cancel()
+        if was_active:
+            self.report_local_feedback(
+                CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING_CLEARED
+            )
+
+    def _schedule_timeout_warning(self, delay: float, *, phase: str) -> None:
+        self._cancel_timeout_warning()
+        loop = asyncio.get_running_loop()
+        self._timeout_warning_token += 1
+        token = self._timeout_warning_token
+        generation = getattr(self.session, "generation", 0)
+        session_id = self.session.state.session_id
+        warning_seconds = min(
+            delay,
+            self.config.dictation_window.timeout_warning_seconds,
+        )
+        self._timeout_warning_task = loop.create_task(
+            self._run_timeout_warning(
+                token,
+                generation,
+                session_id,
+                phase,
+                delay,
+                warning_seconds,
+            )
+        )
+
+    async def _run_timeout_warning(
+        self,
+        token: int,
+        generation: int,
+        session_id: Optional[str],
+        phase: str,
+        delay: float,
+        warning_seconds: float,
+    ) -> None:
+        try:
+            await asyncio.sleep(max(0.0, delay - warning_seconds))
+            with self._lock:
+                current = (
+                    token == self._timeout_warning_token
+                    and generation == getattr(self.session, "generation", 0)
+                    and session_id == self.session.state.session_id
+                    and self._dictation_requested
+                    and self._dictation_state == DictationState.ACTIVE
+                )
+                if current:
+                    self._timeout_warning_active = True
+            if not current:
+                return
+            self.report_local_feedback(
+                CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING,
+                {
+                    "phase": phase,
+                    "remainingSeconds": warning_seconds,
+                },
+            )
+            await asyncio.sleep(warning_seconds)
+            if token == self._timeout_warning_token:
+                self._cancel_timeout_warning()
+        except asyncio.CancelledError:
+            return
 
     def _arm_dictation_window(
         self, phase: DictationWindowPhase, delay: float
@@ -1276,6 +1355,10 @@ class STTController:
                 token, generation, session_id, phase, delay
             )
         )
+        if phase is DictationWindowPhase.FOLLOWUP_WAIT:
+            self._schedule_timeout_warning(delay, phase=phase.value)
+        else:
+            self._cancel_timeout_warning()
         with self._lock:
             self._status_revision += 1
         self._publish_snapshot()
@@ -1300,6 +1383,7 @@ class STTController:
                     and self._dictation_state == DictationState.ACTIVE
                 )
             if current:
+                self._cancel_timeout_warning()
                 await self.stop_dictation()
         except asyncio.CancelledError:
             return
@@ -1574,9 +1658,25 @@ class STTController:
         return self.process_raw_final_event(event_data)
 
     def _handle_timeline_event(self, event_data: dict) -> None:
-        if self.config.session.mode != "hotkey":
-            return
         if event_data.get("sessionId") != self.session.state.session_id:
+            return
+        name = event_data.get("event")
+        if self.config.session.mode == "wake_word":
+            if name == "wakeword_followup_started":
+                duration = event_data.get("durationSeconds")
+                if (
+                    isinstance(duration, (int, float))
+                    and not isinstance(duration, bool)
+                    and math.isfinite(duration)
+                    and duration > 0
+                ):
+                    self._schedule_timeout_warning(
+                        float(duration), phase="wake_word_followup"
+                    )
+            elif name in {"recording_started", "wakeword_followup_timeout"}:
+                self._cancel_timeout_warning()
+            return
+        if self.config.session.mode != "hotkey":
             return
         with self._lock:
             if (
@@ -1584,8 +1684,8 @@ class STTController:
                 or not self._dictation_requested
             ):
                 return
-        name = event_data.get("event")
         if name == "recording_started":
+            self._cancel_timeout_warning()
             task = self._window_timer_task
             self._window_timer_token += 1
             self._window_timer_task = None
@@ -2380,12 +2480,13 @@ class STTController:
                 async with self._get_transition_lock():
                     if self._initial_auto_start_done:
                         return
-                    if not self._dictation_requested:
+                    if not self._initial_auto_start_requested:
                         self._initial_auto_start_done = True
                         return
                     if not self.session.is_ready:
                         continue
                     logger.info("Initial headless auto-start – starting dictation.")
+                    self._initial_auto_start_requested = False
                     self._initial_auto_start_done = True
                     immediate, attempt = self._begin_start_locked()
                 if immediate is not None:
