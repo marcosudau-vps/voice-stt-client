@@ -21,6 +21,7 @@ import math
 import random
 import struct
 import time
+import uuid
 from dataclasses import dataclass, field
 from enum import Enum, auto
 from typing import Callable, Optional
@@ -135,6 +136,32 @@ class ClientState:
 EventCallback = Callable[[str, dict], None]  # (event_type, event_data)
 StateCallback = Callable[[ClientState], None]
 TextCallback = Callable[[int, str, bool], None]  # (segment_id, text, is_final)
+
+
+@dataclass(frozen=True)
+class TriggerAck:
+    """The server's answer to one trigger command.
+
+    ``accepted`` is the only thing that may release user-visible feedback for a
+    manual trigger; a key press on its own is a local intention, nothing more.
+    """
+
+    command_id: str
+    accepted: bool
+    reason: str
+    activation_id: Optional[str]
+    session_id: Optional[str]
+    action: str = ""
+    source: str = ""
+
+
+@dataclass
+class _PendingTrigger:
+    command_id: str
+    action: str
+    source: str
+    generation: int
+    future: "asyncio.Future[TriggerAck]"
 
 
 class _AdmissionRejectedError(RuntimeError):
@@ -496,6 +523,7 @@ class STTSession:
         self._recorder_error_count = 0
         self._configuration_blocked = False
         self._configuration_changed = asyncio.Event()
+        self._pending_triggers: "dict[str, _PendingTrigger]" = {}
         self._effective_session_config: Optional[dict] = None
         self._session_capabilities: Optional[dict] = None
 
@@ -540,6 +568,14 @@ class STTSession:
             if self._effective_session_config is not None
             else None
         )
+
+    @property
+    def supports_activation_triggers(self) -> bool:
+        """Check if server announced activationTriggers capability."""
+        if not self._session_capabilities:
+            return False
+        triggers = self._session_capabilities.get("activationTriggers")
+        return isinstance(triggers, dict) and bool(triggers.get("supported"))
 
     @property
     def session_capabilities(self) -> Optional[dict]:
@@ -711,6 +747,156 @@ class STTSession:
             await self._send_json({"type": "clear"})
             logger.info("Sent clear command.")
 
+    async def send_trigger(
+        self,
+        action: str,
+        source: str = "manual",
+        command_id: Optional[str] = None,
+    ) -> str:
+        """Send one trigger command and register it as pending.
+
+        The command is *not* a local decision: nothing may be treated as
+        accepted until the matching ``trigger_ack`` arrives. The returned
+        ``commandId`` is what correlates the two.
+        """
+        if not self._ws_is_open():
+            raise ConnectionError("Cannot send trigger: WebSocket is not open")
+        cid = command_id or f"cmd-{uuid.uuid4().hex[:12]}"
+        payload = {
+            "type": "trigger",
+            "action": action,
+            "source": source,
+            "commandId": cid,
+        }
+        loop = asyncio.get_running_loop()
+        pending = _PendingTrigger(
+            command_id=cid,
+            action=action,
+            source=source,
+            generation=self._generation,
+            future=loop.create_future(),
+        )
+        self._pending_triggers[cid] = pending
+        try:
+            await self._send_json(payload)
+        except Exception:
+            self._pending_triggers.pop(cid, None)
+            if not pending.future.done():
+                pending.future.cancel()
+            raise
+        logger.info(
+            "Sent trigger command: action=%s source=%s commandId=%s",
+            action, source, cid,
+        )
+        return cid
+
+    async def request_trigger(
+        self,
+        action: str,
+        source: str = "manual",
+        command_id: Optional[str] = None,
+        timeout: float = 5.0,
+    ) -> TriggerAck:
+        """Send a trigger and wait for its acknowledgement.
+
+        Returns a rejected ``TriggerAck`` instead of raising when the answer
+        does not arrive, so callers have one shape to handle.
+        """
+        cid = await self.send_trigger(action, source, command_id)
+        pending = self._pending_triggers.get(cid)
+        if pending is None:
+            # Already resolved while we were sending.
+            return TriggerAck(cid, False, "no_ack", None, None, action, source)
+        try:
+            return await asyncio.wait_for(
+                asyncio.shield(pending.future), timeout
+            )
+        except asyncio.TimeoutError:
+            self._pending_triggers.pop(cid, None)
+            logger.warning("No trigger_ack for commandId=%s within %.1fs", cid, timeout)
+            return TriggerAck(cid, False, "ack_timeout", None, None, action, source)
+        except asyncio.CancelledError:
+            self._pending_triggers.pop(cid, None)
+            raise
+
+    @property
+    def pending_trigger_ids(self) -> tuple:
+        """The command ids still waiting for an acknowledgement."""
+        return tuple(self._pending_triggers)
+
+    def _resolve_trigger_ack(self, event: dict) -> Optional["TriggerAck"]:
+        """Match one ``trigger_ack`` to its pending command.
+
+        Returns the ack only the *first* time a command is answered. A repeated
+        ack, an ack for an unknown command and an ack from an older connection
+        generation are all dropped here, so no consumer downstream can turn
+        them into a second feedback impulse.
+        """
+        command_id = event.get("commandId")
+        if not isinstance(command_id, str) or not command_id:
+            logger.debug("Ignoring trigger_ack without a commandId.")
+            return None
+        pending = self._pending_triggers.pop(command_id, None)
+        if pending is None:
+            logger.debug(
+                "Ignoring trigger_ack for unknown or already answered "
+                "commandId=%s", command_id,
+            )
+            return None
+        if pending.generation != self._generation:
+            logger.info(
+                "Dropping trigger_ack for commandId=%s from generation %d "
+                "(current %d).",
+                command_id, pending.generation, self._generation,
+            )
+            self._fail_pending_trigger(pending, "stale_generation")
+            return None
+
+        ack = TriggerAck(
+            command_id=command_id,
+            accepted=bool(event.get("accepted")),
+            reason=str(event.get("reason") or ""),
+            activation_id=event.get("activationId"),
+            session_id=event.get("sessionId"),
+            action=pending.action,
+            source=pending.source,
+        )
+        if not pending.future.done():
+            pending.future.set_result(ack)
+        return ack
+
+    def _fail_pending_trigger(self, pending: "_PendingTrigger", reason: str) -> None:
+        if pending.future.done():
+            return
+        pending.future.set_result(
+            TriggerAck(
+                command_id=pending.command_id,
+                accepted=False,
+                reason=reason,
+                activation_id=None,
+                session_id=None,
+                action=pending.action,
+                source=pending.source,
+            )
+        )
+
+    def _discard_pending_triggers(self, reason: str) -> None:
+        """A connection change invalidates every outstanding command.
+
+        A trigger belongs to one connection. Carrying it across a reconnect
+        would let an answer from the old session decide something in the new
+        one.
+        """
+        if not self._pending_triggers:
+            return
+        logger.info(
+            "Discarding %d pending trigger command(s): %s",
+            len(self._pending_triggers), reason,
+        )
+        for pending in list(self._pending_triggers.values()):
+            self._fail_pending_trigger(pending, reason)
+        self._pending_triggers.clear()
+
     async def send_audio(self, pcm_data: bytes, sample_rate: int, channels: int = 1, frames: Optional[int] = None) -> None:
         """Send a binary audio packet to the server."""
         if not self._streaming or not self._ws_is_open():
@@ -758,6 +944,8 @@ class STTSession:
 
     async def _connect_and_run(self) -> None:
         """Single connection attempt: connect, handshake, process messages."""
+        # Commands of the previous connection can never be answered any more.
+        self._discard_pending_triggers("connection_restarted")
         self._generation += 1
         self._state = ClientState(
             transport=self._state.transport,
@@ -860,6 +1048,7 @@ class STTSession:
             self._ping_pending = False
             self._ping_generation = None
             self._state.ping_started_at = None
+            self._discard_pending_triggers("connection_closed")
 
     async def _wait_for_hello(self) -> None:
         """Wait for the hello event after connection."""
@@ -1011,6 +1200,16 @@ class STTSession:
             # valid pong proves stability, but do not continue labelling the
             # newly admitted session as capacity-blocked.
             self._is_server_busy = False
+
+        if event_type == "trigger_ack":
+            ack = self._resolve_trigger_ack(event)
+            if ack is None:
+                # A repeat, an unknown command or an answer from an older
+                # generation. It must not reach any consumer, because a second
+                # ack may never produce a second feedback impulse.
+                return
+            self._fire_event_callback(event_type, event, valid_pong=True)
+            return
 
         # A pong is a health acknowledgement only for the one outstanding ping
         # of this connection generation. Unsolicited/stale pongs must not reset

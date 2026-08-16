@@ -158,7 +158,14 @@ class DesktopApplication(QObject):
                 ),
             ),
             on_overlay_toggle=self.overlay.toggle_visibility,
-            enabled=config.hotkey.enabled,
+            # Global hotkeys only make sense while the manual trigger is a
+            # source for this session. A wake-word-only installation must not
+            # claim system-wide key combinations, and must therefore also not
+            # be able to fail on a hotkey conflict it never needed.
+            enabled=(
+                config.hotkey.enabled
+                and config.session.effective_manual_trigger_enabled
+            ),
             backend=self._hotkey_backend,
             application=self.application,
         )
@@ -232,7 +239,7 @@ class DesktopApplication(QObject):
         self.tray.update_feedback_decision(decision)
         presentation = presentation_for_feedback_decision(
             decision,
-            operating_mode=self.config.session.mode,
+            operating_mode=self.config.session.presentation_mode,
         )
         if presentation is not None:
             self.overlay.show_feedback(presentation)

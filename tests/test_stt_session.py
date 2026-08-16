@@ -350,5 +350,166 @@ class TestSTTSessionAsync(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(self.session.reconnect_attempt, 1)
 
 
+    async def test_send_trigger_sends_json_payload(self) -> None:
+        fake_ws = FakeWebSocket()
+        self.session._ws = fake_ws
+
+        cid = await self.session.send_trigger(action="activate", source="manual", command_id="cmd-test-100")
+        self.assertEqual(cid, "cmd-test-100")
+        self.assertEqual(len(fake_ws.sent), 1)
+
+        payload = json.loads(fake_ws.sent[0])
+        self.assertEqual(payload["type"], "trigger")
+        self.assertEqual(payload["action"], "activate")
+        self.assertEqual(payload["source"], "manual")
+        self.assertEqual(payload["commandId"], "cmd-test-100")
+
+
+class TestTriggerAcknowledgement(unittest.IsolatedAsyncioTestCase):
+    """AP7 – a trigger counts as accepted only once its ack has arrived."""
+
+    async def asyncSetUp(self) -> None:
+        self.config = ServerConfig(
+            reconnect_min_delay=0.001,
+            reconnect_max_delay=0.02,
+            reconnect_jitter=0.0,
+        )
+        self.session = STTSession(self.config)
+        self.session._generation = 1
+        self.session._state = ClientState(
+            transport=TransportState.READY,
+            generation=1,
+            session_id="session-1",
+            ready_ok=True,
+            server_status=SessionState.IDLE,
+        )
+        self.session._ws = FakeWebSocket()
+        self.acks: list[dict] = []
+        self.session.on_event = lambda event_type, event: (
+            self.acks.append(event) if event_type == "trigger_ack" else None
+        )
+
+    def _ack(self, command_id, accepted=True, reason="activated", activation_id="a-1"):
+        return {
+            "type": "trigger_ack",
+            "commandId": command_id,
+            "accepted": accepted,
+            "reason": reason,
+            "activationId": activation_id,
+            "sessionId": "session-1",
+        }
+
+    async def test_a_sent_trigger_is_pending_until_it_is_acknowledged(self) -> None:
+        cid = await self.session.send_trigger("activate", "manual", "c-1")
+        self.assertEqual(self.session.pending_trigger_ids, (cid,))
+
+        self.session._apply_event(self._ack(cid))
+        self.assertEqual(self.session.pending_trigger_ids, ())
+        self.assertEqual(len(self.acks), 1)
+
+    async def test_request_trigger_returns_the_matching_ack(self) -> None:
+        async def answer() -> None:
+            await asyncio.sleep(0)
+            cid = self.session.pending_trigger_ids[0]
+            self.session._apply_event(self._ack(cid, activation_id="act-77"))
+
+        task = asyncio.create_task(answer())
+        ack = await self.session.request_trigger("activate", "manual", timeout=2.0)
+        await task
+
+        self.assertTrue(ack.accepted)
+        self.assertEqual(ack.reason, "activated")
+        self.assertEqual(ack.activation_id, "act-77")
+        self.assertEqual(ack.action, "activate")
+        self.assertEqual(ack.source, "manual")
+
+    async def test_a_rejected_trigger_is_reported_as_rejected(self) -> None:
+        async def answer() -> None:
+            await asyncio.sleep(0)
+            cid = self.session.pending_trigger_ids[0]
+            self.session._apply_event(
+                self._ack(cid, accepted=False, reason="stream_not_started",
+                          activation_id=None)
+            )
+
+        task = asyncio.create_task(answer())
+        ack = await self.session.request_trigger("activate", "manual", timeout=2.0)
+        await task
+
+        self.assertFalse(ack.accepted)
+        self.assertEqual(ack.reason, "stream_not_started")
+
+    async def test_a_duplicate_ack_is_dropped_and_reaches_no_consumer(self) -> None:
+        cid = await self.session.send_trigger("activate", "manual", "dup-1")
+        self.session._apply_event(self._ack(cid))
+        self.session._apply_event(self._ack(cid))
+        self.session._apply_event(self._ack(cid))
+
+        self.assertEqual(
+            len(self.acks), 1, "a repeated ack must not produce a second impulse"
+        )
+
+    async def test_an_ack_for_an_unknown_command_is_ignored(self) -> None:
+        self.session._apply_event(self._ack("never-sent"))
+        self.assertEqual(self.acks, [])
+
+    async def test_an_ack_without_a_command_id_is_ignored(self) -> None:
+        self.session._apply_event(
+            {"type": "trigger_ack", "accepted": True, "reason": "activated"}
+        )
+        self.assertEqual(self.acks, [])
+
+    async def test_an_ack_from_an_older_generation_is_dropped(self) -> None:
+        cid = await self.session.send_trigger("activate", "manual", "old-1")
+        # A reconnect happened between sending and answering.
+        self.session._generation = 2
+
+        self.session._apply_event(self._ack(cid))
+
+        self.assertEqual(
+            self.acks, [], "an answer from the old connection must not count"
+        )
+        self.assertEqual(self.session.pending_trigger_ids, ())
+
+    async def test_a_disconnect_resolves_pending_commands_as_rejected(self) -> None:
+        cid = await self.session.send_trigger("activate", "manual", "pend-1")
+        pending = self.session._pending_triggers[cid]
+
+        self.session._discard_pending_triggers("connection_closed")
+
+        self.assertEqual(self.session.pending_trigger_ids, ())
+        ack = await asyncio.wait_for(pending.future, timeout=1.0)
+        self.assertFalse(ack.accepted)
+        self.assertEqual(ack.reason, "connection_closed")
+
+    async def test_request_trigger_times_out_without_an_ack(self) -> None:
+        ack = await self.session.request_trigger("activate", "manual", timeout=0.05)
+        self.assertFalse(ack.accepted)
+        self.assertEqual(ack.reason, "ack_timeout")
+        self.assertEqual(self.session.pending_trigger_ids, ())
+
+    async def test_sending_a_trigger_on_a_closed_socket_raises(self) -> None:
+        self.session._ws = None
+        with self.assertRaises(ConnectionError):
+            await self.session.send_trigger("activate", "manual", "closed-1")
+        self.assertEqual(self.session.pending_trigger_ids, ())
+
+    async def test_capability_detection_reads_the_server_announcement(self) -> None:
+        self.assertFalse(self.session.supports_activation_triggers)
+
+        self.session._session_capabilities = {
+            "activationTriggers": {"supported": True}
+        }
+        self.assertTrue(self.session.supports_activation_triggers)
+
+        self.session._session_capabilities = {
+            "activationTriggers": {"supported": False}
+        }
+        self.assertFalse(self.session.supports_activation_triggers)
+
+        self.session._session_capabilities = {"wakeWord": {"supported": True}}
+        self.assertFalse(self.session.supports_activation_triggers)
+
+
 if __name__ == "__main__":
     unittest.main()

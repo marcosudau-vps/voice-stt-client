@@ -339,5 +339,148 @@ overlay:
             temp_path.unlink(missing_ok=True)
 
 
+class TestAP6ConfigMigration(unittest.TestCase):
+    """The migration rule of the specification, verbatim.
+
+    ```text
+    mode = hotkey     ->  manual = true,  wake_word = false
+    mode = wake_word  ->  manual = false, wake_word = true
+    ```
+
+    An implicit migration to ``true / true`` is explicitly forbidden.
+    """
+
+    def test_legacy_hotkey_mode_migrates_to_manual_only(self):
+        from core.config import SessionConfig, OperatingMode
+        cfg = SessionConfig(mode=OperatingMode.HOTKEY.value)
+        cfg.validate()
+        self.assertTrue(cfg.effective_manual_trigger_enabled)
+        self.assertFalse(cfg.effective_wake_word_trigger_enabled)
+        params = cfg.query_parameters()
+        self.assertEqual(params["manualTriggerEnabled"], "true")
+        self.assertEqual(params["wakeWordTriggerEnabled"], "false")
+
+    def test_legacy_wake_word_mode_migrates_to_wake_word_only(self):
+        from core.config import SessionConfig, OperatingMode
+        cfg = SessionConfig(mode=OperatingMode.WAKE_WORD.value)
+        cfg.validate()
+        self.assertFalse(
+            cfg.effective_manual_trigger_enabled,
+            "wake_word must not implicitly enable the manual trigger",
+        )
+        self.assertTrue(cfg.effective_wake_word_trigger_enabled)
+        params = cfg.query_parameters()
+        self.assertEqual(params["manualTriggerEnabled"], "false")
+        self.assertEqual(params["wakeWordTriggerEnabled"], "true")
+
+    def test_no_legacy_mode_ever_migrates_to_both_triggers(self):
+        from core.config import SessionConfig, OperatingMode
+        for mode in OperatingMode:
+            with self.subTest(mode=mode.value):
+                cfg = SessionConfig(mode=mode.value)
+                cfg.validate()
+                enabled = (
+                    cfg.effective_manual_trigger_enabled,
+                    cfg.effective_wake_word_trigger_enabled,
+                )
+                self.assertNotEqual(
+                    enabled, (True, True), "implicit true/true is forbidden"
+                )
+                self.assertIn(True, enabled, "a mode must map to one trigger")
+
+    def test_explicit_flags_override_the_legacy_mode(self):
+        from core.config import SessionConfig, OperatingMode
+        cfg = SessionConfig(
+            mode=OperatingMode.WAKE_WORD.value,
+            manual_trigger_enabled=True,
+            wake_word_trigger_enabled=True,
+        )
+        cfg.validate()
+        params = cfg.query_parameters()
+        self.assertEqual(params["manualTriggerEnabled"], "true")
+        self.assertEqual(params["wakeWordTriggerEnabled"], "true")
+        self.assertFalse(cfg.migrated_from_legacy_mode)
+
+    def test_a_single_explicit_flag_still_reads_the_other_from_the_mode(self):
+        from core.config import SessionConfig, OperatingMode
+        cfg = SessionConfig(
+            mode=OperatingMode.WAKE_WORD.value, manual_trigger_enabled=True
+        )
+        cfg.validate()
+        self.assertTrue(cfg.effective_manual_trigger_enabled)
+        self.assertTrue(cfg.effective_wake_word_trigger_enabled)
+
+    def test_a_missing_mode_field_keeps_the_hotkey_default(self):
+        from core.config import SessionConfig
+        cfg = SessionConfig()
+        cfg.validate()
+        self.assertTrue(cfg.effective_manual_trigger_enabled)
+        self.assertFalse(cfg.effective_wake_word_trigger_enabled)
+
+    def test_an_invalid_legacy_mode_value_is_rejected(self):
+        from core.config import SessionConfig
+        cfg = SessionConfig(mode="dictation")
+        with self.assertRaises(ValueError) as ctx:
+            cfg.validate()
+        self.assertIn("session.mode", str(ctx.exception))
+
+    def test_disabling_all_triggers_raises_validation_error(self):
+        from core.config import SessionConfig
+        cfg = SessionConfig(
+            manual_trigger_enabled=False, wake_word_trigger_enabled=False
+        )
+        with self.assertRaises(ValueError) as ctx:
+            cfg.validate()
+        self.assertIn("At least one trigger source", str(ctx.exception))
+
+    def test_disabling_all_triggers_is_rejected_for_every_legacy_mode(self):
+        from core.config import SessionConfig, OperatingMode
+        for mode in OperatingMode:
+            with self.subTest(mode=mode.value):
+                cfg = SessionConfig(
+                    mode=mode.value,
+                    manual_trigger_enabled=False,
+                    wake_word_trigger_enabled=False,
+                )
+                with self.assertRaises(ValueError):
+                    cfg.validate()
+
+    def test_a_non_boolean_trigger_flag_is_rejected(self):
+        from core.config import SessionConfig
+        for field in ("manual_trigger_enabled", "wake_word_trigger_enabled"):
+            with self.subTest(field=field):
+                cfg = SessionConfig(**{field: "yes"})
+                with self.assertRaises(ValueError) as ctx:
+                    cfg.validate()
+                self.assertIn(field, str(ctx.exception))
+
+    def test_wake_word_details_are_only_sent_when_the_wake_word_is_on(self):
+        from core.config import SessionConfig, OperatingMode
+        hotkey = SessionConfig(mode=OperatingMode.HOTKEY.value)
+        hotkey.validate()
+        params = hotkey.query_parameters()
+        self.assertEqual(params["wakeWordEnabled"], "false")
+        self.assertNotIn("wakeWords", params)
+
+        wake = SessionConfig(mode=OperatingMode.WAKE_WORD.value)
+        wake.validate()
+        params = wake.query_parameters()
+        self.assertEqual(params["wakeWordEnabled"], "true")
+        self.assertEqual(params["wakeWords"], "hey_jarvis")
+
+    def test_activation_timings_reach_the_query_when_configured(self):
+        from core.config import SessionConfig
+        cfg = SessionConfig(
+            initial_speech_timeout=12.0,
+            followup_timeout=2.5,
+            extension_seconds=4.0,
+        )
+        cfg.validate()
+        params = cfg.query_parameters()
+        self.assertEqual(params["initialSpeechTimeout"], "12.0")
+        self.assertEqual(params["followupTimeout"], "2.5")
+        self.assertEqual(params["extensionSeconds"], "4.0")
+
+
 if __name__ == "__main__":
     unittest.main()

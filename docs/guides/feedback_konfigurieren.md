@@ -202,9 +202,11 @@ server.recording.started:
 | `indicator.warning` | gelb, 1200 ms, danach zurück |
 | `indicator.error` | rot, 1400 ms, danach zurück |
 
-Die Farbe hängt zusätzlich am Betriebsmodus (`session.mode`): blau im
-Wake-Word-Modus, grün im Hotkey-Modus. Das ist Absicht — man soll auf einen Blick
-sehen, in welchem Modus der Client läuft.
+Die Farbe hängt zusätzlich an den **aktiven Triggerquellen**: blau, sobald der
+Wake-Word-Trigger aktiv ist, sonst grün. Maßgeblich sind
+`session.wake_word_trigger_enabled` und `session.manual_trigger_enabled`, nicht
+mehr das Legacy-Feld `session.mode`. Das ist Absicht — man soll auf einen Blick
+sehen, worauf der Client gerade wartet.
 
 ---
 

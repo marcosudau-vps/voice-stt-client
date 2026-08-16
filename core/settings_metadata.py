@@ -143,11 +143,24 @@ SETTING_DEFINITIONS = (
         ApplyPolicy.SESSION_RECONNECT,
     ),
     SettingDefinition(
-        "session.mode", "Betriebsmodus",
-        "Hotkey startet direkt; Wake Word wartet serverseitig auf das Aktivierungswort.",
-        SettingType.CHOICE, "Verbindung & Betriebsmodus", "Betriebsmodus", 30,
+        "session.mode", "Legacy-Betriebsmodus",
+        "Nur noch für die Migration alter Konfigurationen. Maßgeblich sind die "
+        "beiden Triggerschalter darunter.",
+        SettingType.CHOICE, "Verbindung & Betriebsmodus", "Legacy", 30,
         ApplyPolicy.SESSION_RECONNECT,
         options=(("Hotkey", "hotkey"), ("Wake Word", "wake_word")),
+    ),
+    SettingDefinition(
+        "session.manual_trigger_enabled", "Manueller Trigger",
+        "Aktiviert manuelle Steuerung per Hotkey/Tray.",
+        SettingType.BOOLEAN, "Verbindung & Betriebsmodus", "Triggerquellen", 32,
+        ApplyPolicy.SESSION_RECONNECT,
+    ),
+    SettingDefinition(
+        "session.wake_word_trigger_enabled", "Wake-Word-Trigger",
+        "Aktiviert serverseitige Wakeword-Erkennung.",
+        SettingType.BOOLEAN, "Verbindung & Betriebsmodus", "Triggerquellen", 35,
+        ApplyPolicy.SESSION_RECONNECT,
     ),
     SettingDefinition(
         "session.wake_words", "Wake Word", "Vom Server veröffentlichte Wake-Word-ID.",

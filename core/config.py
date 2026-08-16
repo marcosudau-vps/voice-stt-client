@@ -274,6 +274,8 @@ class SessionConfig:
     """Session-local recorder configuration exposed by the server."""
 
     mode: str = OperatingMode.HOTKEY.value
+    manual_trigger_enabled: Optional[bool] = None
+    wake_word_trigger_enabled: Optional[bool] = None
     wake_word_backend: Optional[str] = None
     wake_words: Optional[str] = "hey_jarvis"
     wake_word_inference_framework: Optional[str] = None
@@ -282,10 +284,56 @@ class SessionConfig:
     wake_word_timeout: Optional[float] = None
     wake_word_buffer_duration: Optional[float] = None
     wake_word_followup_window: Optional[float] = None
+    initial_speech_timeout: Optional[float] = None
+    followup_timeout: Optional[float] = None
+    extension_seconds: Optional[float] = None
+
+    @property
+    def effective_manual_trigger_enabled(self) -> bool:
+        """Whether the hotkey may open an activation.
+
+        An explicit flag always wins. Only when it is absent does the legacy
+        ``mode`` field decide, and then exactly as the migration rule
+        prescribes: ``hotkey`` means manual only, ``wake_word`` means wake word
+        only. Defaulting to ``True`` here would silently migrate a wake-word
+        installation to *both* triggers, which is forbidden.
+        """
+        if self.manual_trigger_enabled is not None:
+            return bool(self.manual_trigger_enabled)
+        return self.mode == OperatingMode.HOTKEY.value
+
+    @property
+    def effective_wake_word_trigger_enabled(self) -> bool:
+        """Whether a wake word may open an activation."""
+        if self.wake_word_trigger_enabled is not None:
+            return bool(self.wake_word_trigger_enabled)
+        return self.mode == OperatingMode.WAKE_WORD.value
 
     @property
     def wake_word_enabled(self) -> bool:
-        return self.mode == OperatingMode.WAKE_WORD.value
+        """Alias kept for the existing consumers of the wake-word flag."""
+        return self.effective_wake_word_trigger_enabled
+
+    @property
+    def migrated_from_legacy_mode(self) -> bool:
+        """True while the session still relies on the old ``mode`` field."""
+        return (
+            self.manual_trigger_enabled is None
+            and self.wake_word_trigger_enabled is None
+        )
+
+    @property
+    def presentation_mode(self) -> str:
+        """What the UI should show as the waiting state.
+
+        Derived from the **effective trigger flags**, never from the legacy
+        ``mode`` field: a session may well have the wake word enabled while
+        ``mode`` still says ``hotkey``, and the UI would otherwise announce
+        "waiting for hotkey" for a wake-word session.
+        """
+        if self.effective_wake_word_trigger_enabled:
+            return OperatingMode.WAKE_WORD.value
+        return OperatingMode.HOTKEY.value
 
     def validate(self) -> None:
         if self.mode not in {mode.value for mode in OperatingMode}:
@@ -307,6 +355,9 @@ class SessionConfig:
             "session.wake_word_timeout": self.wake_word_timeout,
             "session.wake_word_buffer_duration": self.wake_word_buffer_duration,
             "session.wake_word_followup_window": self.wake_word_followup_window,
+            "session.initial_speech_timeout": self.initial_speech_timeout,
+            "session.followup_timeout": self.followup_timeout,
+            "session.extension_seconds": self.extension_seconds,
         }
         for name, value in optional_numbers.items():
             if value is None:
@@ -325,21 +376,40 @@ class SessionConfig:
             raise ValueError(
                 "session.wake_word_sensitivity must be between 0 and 1"
             )
+        for name, value in (
+            ("session.manual_trigger_enabled", self.manual_trigger_enabled),
+            ("session.wake_word_trigger_enabled", self.wake_word_trigger_enabled),
+        ):
+            if value is not None and not isinstance(value, bool):
+                raise ValueError(f"{name} must be null or a boolean")
+
+        if not self.effective_manual_trigger_enabled and (
+            not self.effective_wake_word_trigger_enabled
+        ):
+            raise ValueError(
+                "At least one trigger source (manual_trigger_enabled or "
+                "wake_word_trigger_enabled) must be enabled"
+            )
 
     def query_parameters(self) -> dict[str, str]:
         """Return the exact public WebSocket query contract for this session."""
-        if not self.wake_word_enabled:
-            return {"wakeWordEnabled": "false"}
+        man_enabled = self.effective_manual_trigger_enabled
+        ww_enabled = self.effective_wake_word_trigger_enabled
         values: dict[str, Any] = {
-            "wakeWordEnabled": self.wake_word_enabled,
-            "wakeWordBackend": self.wake_word_backend,
-            "wakeWords": self.wake_words,
-            "wakeWordInferenceFramework": self.wake_word_inference_framework,
-            "wakeWordSensitivity": self.wake_word_sensitivity,
-            "wakeWordActivationDelay": self.wake_word_activation_delay,
-            "wakeWordTimeout": self.wake_word_timeout,
-            "wakeWordBufferDuration": self.wake_word_buffer_duration,
-            "wakeWordFollowupWindow": self.wake_word_followup_window,
+            "manualTriggerEnabled": man_enabled,
+            "wakeWordTriggerEnabled": ww_enabled,
+            "wakeWordEnabled": ww_enabled,
+            "wakeWordBackend": self.wake_word_backend if ww_enabled else None,
+            "wakeWords": self.wake_words if ww_enabled else None,
+            "wakeWordInferenceFramework": self.wake_word_inference_framework if ww_enabled else None,
+            "wakeWordSensitivity": self.wake_word_sensitivity if ww_enabled else None,
+            "wakeWordActivationDelay": self.wake_word_activation_delay if ww_enabled else None,
+            "wakeWordTimeout": self.wake_word_timeout if ww_enabled else None,
+            "wakeWordBufferDuration": self.wake_word_buffer_duration if ww_enabled else None,
+            "wakeWordFollowupWindow": self.wake_word_followup_window if ww_enabled else None,
+            "initialSpeechTimeout": self.initial_speech_timeout,
+            "followupTimeout": self.followup_timeout,
+            "extensionSeconds": self.extension_seconds,
         }
         result: dict[str, str] = {}
         for key, value in values.items():

@@ -354,7 +354,16 @@ class TestDictationWindow(unittest.IsolatedAsyncioTestCase):
             },
         )
 
-        await asyncio.sleep(WINDOW * 0.8)
+        # Wait for the warning instead of sleeping a fixed fraction of the
+        # window: the assertion is unchanged, but a loaded machine no longer
+        # turns a correct implementation red.
+        deadline = asyncio.get_running_loop().time() + WINDOW * 8
+        while asyncio.get_running_loop().time() < deadline:
+            if CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING in [
+                item.event.event_type for item in decisions
+            ]:
+                break
+            await asyncio.sleep(WINDOW / 20)
         self.assertIn(
             CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING,
             [item.event.event_type for item in decisions],

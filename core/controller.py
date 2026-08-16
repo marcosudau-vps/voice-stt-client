@@ -168,6 +168,18 @@ class CommandResult:
     message: Optional[str] = None
 
 
+class _TriggerRejectedError(RuntimeError):
+    """The server answered a manual trigger with ``accepted: false``.
+
+    A rejection is a valid answer, not a transport fault, so it must not
+    recycle the connection the way a failed command would.
+    """
+
+    def __init__(self, ack):
+        super().__init__(f"trigger rejected: {ack.reason}")
+        self.ack = ack
+
+
 @dataclass
 class _StartAttempt:
     """One session-bound start command and its asynchronous resolution."""
@@ -302,7 +314,10 @@ class STTController:
         self._timeout_warning_token = 0
         self._timeout_warning_active = False
         self._discard_finals = False
-        self._wake_mode_desired = config.session.mode == "wake_word"
+        self._wake_mode_desired = (
+            config.session.effective_wake_word_trigger_enabled
+        )
+        self._last_accepted_trigger = None
         self._wake_maintenance_suspended = False
 
         # In-memory deduplication index pro session: (session_id, segment_id) -> text
@@ -412,7 +427,7 @@ class STTController:
             is_running=is_run,
             is_closing=is_close,
             queue_size=self.queue.queue_size(),
-            operating_mode=self.config.session.mode,
+            operating_mode=self.config.session.presentation_mode,
             dictation_window_phase=self._window_phase,
             server_status=sess_state.server_status,
         )
@@ -610,7 +625,12 @@ class STTController:
             loop = asyncio.get_running_loop()
             self._start_attempt_token += 1
             future = loop.create_future()
-            send_task = loop.create_task(self.session.send_start())
+            # `start` is and stays a *stream* command. A manual trigger is an
+            # additional command on top of the running stream and must never
+            # replace it, otherwise the audio stream would never begin.
+            send_task = loop.create_task(
+                self._begin_stream_and_trigger(source="manual")
+            )
             attempt = _StartAttempt(
                 token=self._start_attempt_token,
                 generation=getattr(self.session, "generation", 0),
@@ -654,6 +674,55 @@ class STTController:
         self._publish_snapshot()
         return None, attempt
 
+    @property
+    def _server_owns_activation(self) -> bool:
+        """Whether this server announced the activation trigger contract."""
+        return bool(getattr(self.session, "supports_activation_triggers", False))
+
+    @property
+    def _client_owns_dictation_window(self) -> bool:
+        """Whether the client still has to time the dictation window itself.
+
+        Only against a server without the activation contract. As soon as the
+        server owns the activation, a second local window would be a competing
+        authority that could end a turn the server still holds open.
+        """
+        return (
+            self.config.session.effective_manual_trigger_enabled
+            and not self._server_owns_activation
+        )
+
+    async def _begin_stream_and_trigger(self, source: str = "manual") -> None:
+        """Start the audio stream, then ask the server to open an activation.
+
+        Against a server without the trigger capability this is exactly the old
+        behaviour: only `start` is sent and the server decides on its own.
+        """
+        if not self.session.state.streaming_requested:
+            await self.session.send_start()
+        if not self._server_owns_activation:
+            return
+        ack = await self.session.request_trigger(action="activate", source=source)
+        if not ack.accepted:
+            logger.info(
+                "Server rejected the manual trigger: reason=%s commandId=%s",
+                ack.reason, ack.command_id,
+            )
+            raise _TriggerRejectedError(ack)
+        self._last_accepted_trigger = ack
+
+    def _manual_accept_correlation(self, attempt: "_StartAttempt") -> str:
+        """The id that makes manual-accepted feedback idempotent.
+
+        With a server-owned activation the ``commandId`` is the natural key:
+        the same command can never be accepted twice, so a repeated ack cannot
+        turn into a second impulse.
+        """
+        ack = self._last_accepted_trigger
+        if ack is not None and self._server_owns_activation:
+            return f"trigger:{ack.command_id}"
+        return f"hotkey:{attempt.generation}:{attempt.token}"
+
     async def _await_start_attempt(self, attempt: _StartAttempt) -> CommandResult:
         timeout = self.config.server.start_confirmation_timeout
         loop = asyncio.get_running_loop()
@@ -690,6 +759,19 @@ class STTController:
                         resolution, _ = attempt.future.result()
                         return self._start_resolution_result(resolution)
                     return self._start_resolution_result("cancelled")
+                except _TriggerRejectedError as rejected:
+                    # The server said no. That is an answer, not a fault, so
+                    # the connection stays up and no accepted-feedback fires.
+                    return await self._fail_start_attempt(
+                        attempt,
+                        status="trigger_rejected",
+                        reason=f"trigger_rejected:{rejected.ack.reason}",
+                        message=(
+                            "Der Server hat den Trigger abgelehnt: "
+                            f"{rejected.ack.reason}"
+                        ),
+                        recycle_connection=False,
+                    )
                 except Exception as exc:
                     return await self._fail_start_attempt(
                         attempt,
@@ -704,6 +786,14 @@ class STTController:
                     if self._start_attempt is attempt:
                         attempt.command_sent = True
                         pending_state = attempt.pending_confirmation
+                        if pending_state is None and self._server_owns_activation:
+                            # An accepted trigger_ack *is* the confirmation for
+                            # an activation. There is no additional stream
+                            # status to wait for: the server only accepts a
+                            # trigger while the stream is running, and from the
+                            # second activation onwards no `start` is sent, so
+                            # no status transition would ever arrive.
+                            pending_state = SessionState.LISTENING
                 if pending_state is not None and not attempt.future.done():
                     attempt.future.set_result(("confirmed", pending_state))
 
@@ -747,7 +837,7 @@ class STTController:
 
                 self.session.set_streaming(True)
                 self._discard_finals = False
-                if self.config.session.mode == "hotkey":
+                if self._client_owns_dictation_window:
                     with self._lock:
                         initial_extension = self._pending_window_extension
                         self._pending_window_extension = 0.0
@@ -756,19 +846,24 @@ class STTController:
                         self.config.dictation_window.initial_speech_timeout
                         + initial_extension,
                     )
-                    self._publish_feedback_decision(
-                        self.feedback_engine.handle_local(
-                            CanonicalEventType.CLIENT_HOTKEY_ACCEPTED,
-                            generation=attempt.generation,
-                            session_id=attempt.session_id,
-                            correlation_id=(
-                                f"hotkey:{attempt.generation}:{attempt.token}"
-                            ),
-                            details={"action": "start_dictation"},
-                        )
-                    )
                 else:
                     self._publish_snapshot()
+
+                # Manual-accepted feedback fires exactly once per accepted
+                # trigger. Against a trigger-capable server we are only here
+                # because the server acknowledged with accepted=true, so this
+                # is the "after the ack" point the specification requires. The
+                # correlation id is the commandId, which makes a repeated ack
+                # collapse into the same decision instead of a second impulse.
+                self._publish_feedback_decision(
+                    self.feedback_engine.handle_local(
+                        CanonicalEventType.CLIENT_HOTKEY_ACCEPTED,
+                        generation=attempt.generation,
+                        session_id=attempt.session_id,
+                        correlation_id=self._manual_accept_correlation(attempt),
+                        details={"action": "start_dictation"},
+                    )
+                )
                 state_name = (
                     confirmed_state.value
                     if isinstance(confirmed_state, SessionState)
@@ -899,7 +994,15 @@ class STTController:
             self._clear_audio_queue()
             if self.session.is_ready:
                 try:
-                    await self.session.send_stop()
+                    if self._server_owns_activation:
+                        # Finish the activation, but leave the stream running:
+                        # `stop` is a stream command and the session keeps
+                        # streaming so the next trigger can take effect at once.
+                        await self.session.send_trigger(
+                            action="finish", source="manual"
+                        )
+                    else:
+                        await self.session.send_stop()
                 except Exception:
                     logger.info(
                         "Remote stop could not be sent; local dictation is already stopped.",
@@ -924,27 +1027,26 @@ class STTController:
         return await self._await_start_attempt(attempt)
 
     async def primary_dictation_action(self) -> CommandResult:
-        """Mode-aware primary action: start/pause or extend the active window."""
-        if self.config.session.mode == "wake_word":
+        """Arm/disarm the stream, or extend a running manual activation."""
+        if not self.config.session.effective_manual_trigger_enabled:
+            # Wake-word only: the primary action arms or disarms the stream,
+            # because there is no manual activation to extend.
             if self.dictation_requested:
                 self._wake_mode_desired = False
                 return await self.stop_dictation()
             self._wake_mode_desired = True
             return await self.start_dictation()
-        if (
-            self.config.session.mode == "hotkey"
-            and self.dictation_requested
-        ):
+        if self.dictation_requested:
             return self.extend_dictation_window()
         return await self.toggle_dictation()
 
     def extend_dictation_window(self) -> CommandResult:
         """Extend only the currently active hotkey dictation generation."""
-        if self.config.session.mode != "hotkey":
+        if not self.config.session.effective_manual_trigger_enabled:
             return CommandResult(
                 False,
-                "wrong_mode",
-                "Window extension is available only in hotkey mode",
+                "manual_trigger_disabled",
+                "Window extension requires the manual trigger",
             )
         with self._lock:
             if (
@@ -976,6 +1078,10 @@ class STTController:
             loop = asyncio.get_running_loop()
             remaining = max(0.0, (self._window_deadline or loop.time()) - loop.time())
             self._arm_dictation_window(phase, remaining + extension)
+            if self._server_owns_activation and self.session.is_ready:
+                loop.create_task(
+                    self.session.send_trigger(action="extend", source="manual")
+                )
             return CommandResult(True, "extended", "Dictation window extended")
         return CommandResult(False, "not_active", "Dictation window is inactive")
 
@@ -985,6 +1091,10 @@ class STTController:
         result = await self.stop_dictation()
         if self.session.is_ready:
             try:
+                if self._server_owns_activation:
+                    await self.session.send_trigger(
+                        action="cancel", source="manual"
+                    )
                 await self.session.send_clear()
             except Exception:
                 logger.info("Remote clear after cancel could not be sent.", exc_info=True)
@@ -1245,7 +1355,7 @@ class STTController:
             logger.error("Previous session configuration was not restored to READY.")
             return False
 
-        if config.session.mode == "wake_word" and wake_mode_desired:
+        if config.session.effective_wake_word_trigger_enabled and wake_mode_desired:
             armed = await self.start_dictation()
             if not armed.success:
                 logger.error(
@@ -1661,7 +1771,11 @@ class STTController:
         if event_data.get("sessionId") != self.session.state.session_id:
             return
         name = event_data.get("event")
-        if self.config.session.mode == "wake_word":
+
+        # The wake-word follow-up countdown is a *display* of a window the
+        # server owns: its duration comes from the server event. It is keyed on
+        # the trigger flag, not on the old operating mode.
+        if self.config.session.effective_wake_word_trigger_enabled:
             if name == "wakeword_followup_started":
                 duration = event_data.get("durationSeconds")
                 if (
@@ -1675,8 +1789,18 @@ class STTController:
                     )
             elif name in {"recording_started", "wakeword_followup_timeout"}:
                 self._cancel_timeout_warning()
+            if not self.config.session.effective_manual_trigger_enabled:
+                return
+
+        if self._server_owns_activation:
+            # The server is the activation authority. The client must not run a
+            # second window that could stop a dictation the server still holds
+            # open; it only mirrors what the server reports.
+            if name == "activation_closed":
+                self._cancel_timeout_warning()
             return
-        if self.config.session.mode != "hotkey":
+
+        if not self.config.session.effective_manual_trigger_enabled:
             return
         with self._lock:
             if (
@@ -2509,7 +2633,7 @@ class STTController:
             if (
                 self.is_closing
                 or self._wake_maintenance_suspended
-                or self.config.session.mode != "wake_word"
+                or not self.config.session.effective_wake_word_trigger_enabled
             ):
                 continue
             if (

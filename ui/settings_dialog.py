@@ -173,7 +173,12 @@ class SettingsDialog(QDialog):
             return editor
         if definition.setting_type == SettingType.BOOLEAN:
             editor = QCheckBox()
-            editor.setChecked(bool(value))
+            if definition.path == "session.manual_trigger_enabled":
+                editor.setChecked(bool(self._config.session.effective_manual_trigger_enabled))
+            elif definition.path == "session.wake_word_trigger_enabled":
+                editor.setChecked(bool(self._config.session.wake_word_enabled))
+            else:
+                editor.setChecked(bool(value))
             return editor
         if definition.setting_type == SettingType.CHOICE:
             editor = QComboBox()
@@ -264,7 +269,16 @@ class SettingsDialog(QDialog):
         try:
             for path, definition in self._definitions.items():
                 value = self._editor_value(definition)
-                if value != get_config_value(self._config, path):
+                current_val = (
+                    self._config.session.effective_manual_trigger_enabled
+                    if path == "session.manual_trigger_enabled"
+                    else (
+                        self._config.session.wake_word_enabled
+                        if path == "session.wake_word_trigger_enabled"
+                        else get_config_value(self._config, path)
+                    )
+                )
+                if value != current_val:
                     changes[path] = value
                     policies.add(definition.apply_policy)
             if not changes:

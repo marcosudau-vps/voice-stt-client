@@ -1,7 +1,17 @@
 # ADR-001 – Betriebsmodi für direkte Hotkey-Diktierung und Wake Word
 
-Status: zurückgezogener Entwurf; nicht bindend  
+Status: zurückgezogener Entwurf; nicht bindend — **abgelöst 2026-08-14**
+
 Datum: 2026-07-25
+
+> **Abgelöst.** Die hier offen gelassene Architekturfrage ist inzwischen
+> entschieden: Es gibt keine Betriebsmodi mehr, sondern eine Session mit
+> zwei unabhängig aktivierbaren Triggerquellen und einem
+> serverautoritativen Activation-Modell. Maßgeblich ist die einheitliche
+> Triggerarchitektur, dokumentiert in
+> [`server-docs-for-client-development/09-betriebsmodi-und-serverkonfiguration.md`](../../server-docs-for-client-development/09-betriebsmodi-und-serverkonfiguration.md)
+> sowie serverseitig in `docs/einheitliche-triggerarchitektur.md`.
+> Dieses Dokument bleibt als historischer Beleg erhalten.
 
 Dieser Entwurf hielt einen zwischenzeitlichen Lösungsansatz fest. Die darin
 vorgesehene per-Session-Umschaltung über Serverprofile würde nach Prüfung des

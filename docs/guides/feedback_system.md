@@ -12,7 +12,7 @@ Wer nur konfigurieren will, ist mit
 
 ## 1. Der Weg vom Ereignis zur Anzeige
 
-```
+```text
 Serverereignisse ──┐
 lokale Ereignisse ─┼─► Normalizer ──► Reducer ──► Regel ──┬─► LED   (LEFX V3)
 STT-Fallback ──────┘        │            │               ├─► Sound (Qt)
@@ -100,9 +100,10 @@ Acht Aktionen (`indicator.idle`, `.waiting_for_wake_word`, `.waiting_for_speech`
 `.recording`, `.finalizing`, `.success`, `.warning`, `.error`) steuern Trayfarbe,
 Statustext und das Overlay.
 
-Die Darstellung hängt zusätzlich vom **Betriebsmodus** ab: Im Wake-Word-Modus ist
-die Grundfarbe blau, im Hotkey-Modus grün. Der Text bleibt in beiden Modi gleich
-lang gültig — nur die Farbe unterscheidet sie.
+Die Darstellung hängt zusätzlich von den **aktiven Triggerquellen** ab: Ist der
+Wake-Word-Trigger aktiv, ist die Grundfarbe blau, sonst grün. Der Text bleibt in
+beiden Fällen gleich lang gültig — nur die Farbe unterscheidet sie. Es gibt
+keinen Betriebsmodus mehr; die Farbe wird aus den Triggerflags abgeleitet.
 
 Drei der acht sind **flüchtig** (`success`, `warning`, `error`): Sie melden
 etwas und geben den Indikator danach zurück. Die anderen fünf bleiben stehen.
@@ -154,7 +155,7 @@ und ReSpeaker.
 Der Ende-zu-Ende-Lauf ist der einzige ohne Doubles: echter Server, echtes
 Mikrofon, echter Ring. Er belegt die Kette, auf die es ankommt —
 
-```
+```text
 server.recording.started        set_state:listening                    start     indicator.recording
 server.recording.ended          set_state:thinking                     stop      indicator.finalizing
 server.transcription.started    set_state:thinking                     —         indicator.finalizing

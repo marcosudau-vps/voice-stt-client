@@ -27,10 +27,28 @@ event_stream:
   cursor_persistence_enabled: true
   cursor_path:
 
-# Session-lokaler Betriebsmodus. Der Server bestätigt die effektiven Werte
-# in hello.sessionConfig und ready.sessionConfig.
+# Session-lokale Triggerquellen. Manual und Wake Word sind zwei unabhängige
+# Schalter; mindestens einer muss aktiv sein. Der Server bestätigt die
+# effektiven Werte in hello.activationConfig und hello.sessionConfig.
+#
+#   manual_trigger_enabled: true   -> Hotkey darf eine Activation öffnen
+#   wake_word_trigger_enabled: true-> Wake Word darf eine Activation öffnen
+#   beide false                    -> ungültig, wird abgelehnt
+#
+# Bleiben beide Felder leer, entscheidet das Legacy-Feld `mode`:
+#   mode: hotkey    -> manual=true,  wake_word=false
+#   mode: wake_word -> manual=false, wake_word=true
+# Eine stillschweigende Migration auf true/true findet nicht statt.
 session:
+  # Legacy-Feld. Nur noch für die Migration alter Konfigurationen ausgewertet.
   mode: hotkey
+  manual_trigger_enabled:
+  wake_word_trigger_enabled:
+  # Zeitwerte der serverseitigen Activation. Leer lassen, um die Serverdefaults
+  # zu übernehmen (15 / 3 / 5 Sekunden).
+  initial_speech_timeout:
+  followup_timeout:
+  extension_seconds:
   wake_word_backend:
   wake_words: hey_jarvis
   wake_word_inference_framework:
@@ -40,8 +58,10 @@ session:
   wake_word_buffer_duration:
   wake_word_followup_window:
 
-# Ausschließlich im Hotkeymodus: Der Server-VAD liefert recording_started /
-# recording_ended; im Client läuft kein zweites VAD-Modell.
+# Lokale Darstellung des Diktatfensters. Gegen einen Server mit
+# Activation-Contract ist der Server die Autorität; diese Werte steuern dann nur
+# noch die Anzeige. Der Server-VAD liefert recording_started / recording_ended;
+# im Client läuft kein zweites VAD-Modell.
 dictation_window:
   initial_speech_timeout: 15.0
   followup_timeout: 3.0

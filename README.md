@@ -108,16 +108,18 @@ Details und Dry-Run stehen unter `docs/RELEASE.md`.
 
 Bedienung:
 
-- `Ctrl+Shift+Space`: im Hotkeymodus Diktierung starten; während des Diktats
-  das Zeitfenster verlängern. Im Wake-Word-Modus Betrieb aktivieren/pausieren.
+- `Ctrl+Shift+Space`: bei aktivem Manualtrigger Diktierung starten; während des
+  Diktats das Zeitfenster verlängern. Ist nur der Wake-Word-Trigger aktiv,
+  aktiviert beziehungsweise pausiert die Taste den Betrieb. Ohne aktiven
+  Manualtrigger registriert der Client den Hotkey gar nicht erst.
 - `Ctrl+Alt+Space`: letzten Finaltext erneut einfügen
 - Tray-Menü: Status, Diktatsteuerung, Reinsertion, Verlauf, Einstellungen und
   Beenden
 
 Trayfarben:
 
-- dunkelgrün / hellgrün: Hotkeymodus wartet / nimmt auf,
-- dunkelblau / hellblau: Wake-Word-Modus wartet / nimmt auf,
+- dunkelgrün / hellgrün: Manualtrigger wartet / nimmt auf,
+- dunkelblau / hellblau: Wake-Word-Trigger wartet / nimmt auf,
 - weißer Rand: scharfgeschaltet und wartet auf erste beziehungsweise weitere
   Sprache,
 - gelb: äußeres Netzwerk-, Server-, Audio- oder Mikrofonproblem,
@@ -144,11 +146,19 @@ Einstellungsdialog werden atomar unter
 `%LOCALAPPDATA%\RealtimeSTT Client\config.yaml` gespeichert. Zugangsdaten in
 `.env` dürfen weder dokumentiert noch committed werden.
 
-Der Hotkeymodus fordert `wakeWordEnabled=false`; der Wake-Word-Modus fordert
-`wakeWordEnabled=true` und verwendet standardmäßig die logische Modell-ID
-`hey_jarvis`. Maßgeblich ist stets die effektive Konfiguration in
-`hello.sessionConfig` und `ready.sessionConfig`. Ein abgelehntes Profil stoppt
-weitere Verbindungsversuche bis zu einer echten Konfigurationsänderung.
+Die Session wird über zwei unabhängige Triggerschalter aufgebaut:
+`manualTriggerEnabled` und `wakeWordTriggerEnabled`. Mindestens einer muss aktiv
+sein; `false/false` lehnt der Server ab. Ist der Wake-Word-Trigger aktiv, fordert
+der Client zusätzlich `wakeWordEnabled=true` und verwendet standardmäßig die
+logische Modell-ID `hey_jarvis`.
+
+Alte Konfigurationen werden migriert: `mode: hotkey` ergibt `manual=true /
+wake_word=false`, `mode: wake_word` ergibt `manual=false / wake_word=true`. Eine
+stillschweigende Migration auf `true/true` findet nicht statt.
+
+Maßgeblich ist stets die effektive Konfiguration in `hello.activationConfig`,
+`hello.sessionConfig` und `ready.*`. Ein abgelehntes Profil stoppt weitere
+Verbindungsversuche bis zu einer echten Konfigurationsänderung.
 
 ## Weiterführende Dokumentation
 
