@@ -1,0 +1,10 @@
+### M0 unveraendert
+7 passed in 1.08s
+
+### M1 Ack-Bestaetigung entfernt (2. Activation laeuft in den Timeout)
+FAILED tests/test_trigger_lifecycle.py::ContinuousStreamingInvariant::test_cancel_ends_the_activation_and_not_the_session
+FAILED tests/test_trigger_lifecycle.py::ContinuousStreamingInvariant::test_two_activations_share_one_continuous_stream
+2 failed, 5 passed in 31.28s
+
+### M2 wiederhergestellt
+7 passed in 1.01s

@@ -1,0 +1,97 @@
+............F....                                                        [100%]
+================================== FAILURES ===================================
+_ ActivationTimeoutEndToEndTests.test_the_server_closes_the_gate_on_its_own_after_the_timeout _
+
+self = <tests.unit.test_server_controlled_e2e.ControlledSessionHarness object at 0x000001443221CFB0>
+timeout = 5.0
+
+    def expect(self, timeout=5.0):
+        try:
+>           message = self._inbox.get(timeout=timeout)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_server_controlled_e2e.py:289: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <queue.Queue object at 0x000001443221E3C0>, block = True, timeout = 5.0
+
+    def get(self, block=True, timeout=None):
+        '''Remove and return an item from the queue.
+    
+        If optional args 'block' is true and 'timeout' is None (the default),
+        block if necessary until an item is available. If 'timeout' is
+        a non-negative number, it blocks at most 'timeout' seconds and raises
+        the Empty exception if no item was available within that time.
+        Otherwise ('block' is false), return an item if one is immediately
+        available, else raise the Empty exception ('timeout' is ignored
+        in that case).
+        '''
+        with self.not_empty:
+            if not block:
+                if not self._qsize():
+                    raise Empty
+            elif timeout is None:
+                while not self._qsize():
+                    self.not_empty.wait()
+            elif timeout < 0:
+                raise ValueError("'timeout' must be a non-negative number")
+            else:
+                endtime = time() + timeout
+                while not self._qsize():
+                    remaining = endtime - time()
+                    if remaining <= 0.0:
+>                       raise Empty
+E                       _queue.Empty
+
+C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\queue.py:179: Empty
+
+During handling of the above exception, another exception occurred:
+
+self = <tests.unit.test_server_controlled_e2e.ActivationTimeoutEndToEndTests testMethod=test_the_server_closes_the_gate_on_its_own_after_the_timeout>
+
+    def test_the_server_closes_the_gate_on_its_own_after_the_timeout(self):
+        with TestClient(self.app) as client:
+            with ControlledSessionHarness(
+                client,
+                "manualTriggerEnabled=true&wakeWordTriggerEnabled=false"
+                "&initialSpeechTimeout=0.3",
+            ) as session:
+                session.send({"type": "start"})
+                session.send({
+                    "type": "trigger",
+                    "action": "activate",
+                    "source": "manual",
+                    "commandId": "timeout-1",
+                })
+                ack = session.drain("trigger_ack")
+                self.assertTrue(ack["accepted"])
+                recorder = session.recorder()
+                self.assertTrue(recorder.controlled_activation_state()["active"])
+    
+>               closed = session.timeline("activation_closed")
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_server_controlled_e2e.py:614: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\unit\test_server_controlled_e2e.py:321: in timeline
+    message = self.drain("timeline", timeout=remaining)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\unit\test_server_controlled_e2e.py:307: in drain
+    message = self.expect(timeout=remaining)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <tests.unit.test_server_controlled_e2e.ControlledSessionHarness object at 0x000001443221CFB0>
+timeout = 5.0
+
+    def expect(self, timeout=5.0):
+        try:
+            message = self._inbox.get(timeout=timeout)
+        except queue.Empty:
+>           raise AssertionError(f"no server message within {timeout}s")
+E           AssertionError: no server message within 5.0s
+
+tests\unit\test_server_controlled_e2e.py:291: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationTimeoutEndToEndTests::test_the_server_closes_the_gate_on_its_own_after_the_timeout
+1 failed, 16 passed in 7.74s

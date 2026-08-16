@@ -1,0 +1,146 @@
+........................................................................ [  4%]
+........................................................................ [  9%]
+........................................................................ [ 14%]
+........................................................................ [ 18%]
+........................................................................ [ 23%]
+........................................................................ [ 28%]
+........................................................................ [ 32%]
+........................................................................ [ 37%]
+........................................................................ [ 42%]
+........................................................................ [ 47%]
+.........................................s.s.s.s.s..ss.s.s.s.s.s.s.s.s.s [ 51%]
+.s......................................................ssssss.......... [ 56%]
+........................................................................ [ 61%]
+..........................................FFFF.FF....................... [ 65%]
+........................................................................ [ 70%]
+........................................................................ [ 75%]
+........................................................................ [ 80%]
+........................................................................ [ 84%]
+........................................................................ [ 89%]
+........................................................................ [ 94%]
+........................................................................ [ 98%]
+.................                                                        [100%]
+================================== FAILURES ===================================
+______________ test_an_empty_selection_means_every_installed_set ______________
+
+    def test_an_empty_selection_means_every_installed_set():
+        """A fresh install with no config file should play what it installed."""
+        installed = set(discovery.available_effect_sets())
+>       assert set(discovery.installed_effect_sets([])) == installed
+E       AssertionError: assert set() == {'core-set', ...tspeaker-set'}
+E         
+E         Extra items in the right set:
+E         'smartspeaker-set'
+E         'core-set'
+E         Use -v to get more diff
+
+P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur-claude\led_controller_respeaker-v3\tests\interfaces\test_config.py:211: AssertionError
+------------------------------ Captured log call ------------------------------
+WARNING  lefx.interfaces.discovery:discovery.py:230 effect set 'core-set' is installed but P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur\led_controller_respeaker-v3\packages\led-controller-version-3\src\lefx\sets\core_set\core-set.lefxset is missing; it will not be loaded
+WARNING  lefx.interfaces.discovery:discovery.py:230 effect set 'smartspeaker-set' is installed but P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur\led_controller_respeaker-v3\packages\led-controller-version-3\src\lefx\sets\smartspeaker_set\smartspeaker-set.lefxset is missing; it will not be loaded
+____________ test_the_selection_narrows_and_takes_either_spelling _____________
+
+    def test_the_selection_narrows_and_takes_either_spelling():
+>       assert set(discovery.installed_effect_sets(["core"])) == {"core-set"}
+E       AssertionError: assert set() == {'core-set'}
+E         
+E         Extra items in the right set:
+E         'core-set'
+E         Use -v to get more diff
+
+P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur-claude\led_controller_respeaker-v3\tests\interfaces\test_config.py:216: AssertionError
+------------------------------ Captured log call ------------------------------
+WARNING  lefx.interfaces.discovery:discovery.py:230 effect set 'core-set' is installed but P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur\led_controller_respeaker-v3\packages\led-controller-version-3\src\lefx\sets\core_set\core-set.lefxset is missing; it will not be loaded
+_______________ test_the_selection_is_read_from_the_environment _______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000201FC6B1850>
+
+    def test_the_selection_is_read_from_the_environment(monkeypatch):
+        """The whole point of the setting: the user's own example, verbatim."""
+        monkeypatch.setenv("INCLUDED_LEFXSET", "[core, smartspeaker]")
+>       assert set(discovery.installed_effect_sets()) == {"core-set", "smartspeaker-set"}
+E       AssertionError: assert set() == {'core-set', ...tspeaker-set'}
+E         
+E         Extra items in the right set:
+E         'smartspeaker-set'
+E         'core-set'
+E         Use -v to get more diff
+
+P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur-claude\led_controller_respeaker-v3\tests\interfaces\test_config.py:224: AssertionError
+------------------------------ Captured log call ------------------------------
+WARNING  lefx.interfaces.discovery:discovery.py:230 effect set 'core-set' is installed but P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur\led_controller_respeaker-v3\packages\led-controller-version-3\src\lefx\sets\core_set\core-set.lefxset is missing; it will not be loaded
+WARNING  lefx.interfaces.discovery:discovery.py:230 effect set 'smartspeaker-set' is installed but P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur\led_controller_respeaker-v3\packages\led-controller-version-3\src\lefx\sets\smartspeaker_set\smartspeaker-set.lefxset is missing; it will not be loaded
+________ test_naming_a_set_that_is_not_installed_warns_and_carries_on _________
+
+caplog = <_pytest.logging.LogCaptureFixture object at 0x00000201FC6B2000>
+
+    def test_naming_a_set_that_is_not_installed_warns_and_carries_on(caplog):
+        with caplog.at_level("WARNING"):
+            found = discovery.installed_effect_sets(["core", "nonexistent"])
+>       assert set(found) == {"core-set"}
+E       AssertionError: assert set() == {'core-set'}
+E         
+E         Extra items in the right set:
+E         'core-set'
+E         Use -v to get more diff
+
+P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur-claude\led_controller_respeaker-v3\tests\interfaces\test_config.py:232: AssertionError
+------------------------------ Captured log call ------------------------------
+WARNING  lefx.interfaces.discovery:discovery.py:230 effect set 'core-set' is installed but P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur\led_controller_respeaker-v3\packages\led-controller-version-3\src\lefx\sets\core_set\core-set.lefxset is missing; it will not be loaded
+WARNING  lefx.interfaces.discovery:discovery.py:238 included_lefxset names 'nonexistent', which is not installed (installed: core-set, smartspeaker-set)
+_______________ test_the_search_paths_contain_every_enabled_set _______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000201FC6932C0>
+
+    def test_the_search_paths_contain_every_enabled_set(monkeypatch):
+        from lefx.interfaces import paths
+    
+        monkeypatch.setenv("INCLUDED_LEFXSET", "core")
+        found = paths.package_search_paths()
+>       assert discovery.installed_effect_sets()["core-set"].parent in found
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'core-set'
+
+P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur-claude\led_controller_respeaker-v3\tests\interfaces\test_config.py:249: KeyError
+------------------------------ Captured log call ------------------------------
+WARNING  lefx.interfaces.discovery:discovery.py:230 effect set 'core-set' is installed but P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur\led_controller_respeaker-v3\packages\led-controller-version-3\src\lefx\sets\core_set\core-set.lefxset is missing; it will not be loaded
+WARNING  lefx.interfaces.discovery:discovery.py:230 effect set 'core-set' is installed but P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur\led_controller_respeaker-v3\packages\led-controller-version-3\src\lefx\sets\core_set\core-set.lefxset is missing; it will not be loaded
+___ test_package_path_adds_to_the_installed_sets_rather_than_replacing_them ___
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000201FC6B3EF0>
+tmp_path = WindowsPath('P:/GithubRepos/marcosudau-vps-worktrees/einheitliche-triggerarchitektur-claude/led_controller_respeaker-v3/tests/.cache/tmp/test_package_path_adds_to_the_0')
+
+    def test_package_path_adds_to_the_installed_sets_rather_than_replacing_them(monkeypatch, tmp_path):
+        """The old behaviour turned the shipped catalogue off by accident."""
+        from lefx.interfaces import paths
+    
+        extra = tmp_path / "extra-effects"
+        extra.mkdir()
+        monkeypatch.setenv("PACKAGE_PATH", str(extra))
+        found = paths.package_search_paths()
+        assert extra in found
+>       assert discovery.installed_effect_sets()["core-set"].parent in found
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'core-set'
+
+P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur-claude\led_controller_respeaker-v3\tests\interfaces\test_config.py:262: KeyError
+------------------------------ Captured log call ------------------------------
+WARNING  lefx.interfaces.discovery:discovery.py:230 effect set 'core-set' is installed but P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur\led_controller_respeaker-v3\packages\led-controller-version-3\src\lefx\sets\core_set\core-set.lefxset is missing; it will not be loaded
+WARNING  lefx.interfaces.discovery:discovery.py:230 effect set 'smartspeaker-set' is installed but P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur\led_controller_respeaker-v3\packages\led-controller-version-3\src\lefx\sets\smartspeaker_set\smartspeaker-set.lefxset is missing; it will not be loaded
+WARNING  lefx.interfaces.discovery:discovery.py:230 effect set 'core-set' is installed but P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur\led_controller_respeaker-v3\packages\led-controller-version-3\src\lefx\sets\core_set\core-set.lefxset is missing; it will not be loaded
+WARNING  lefx.interfaces.discovery:discovery.py:230 effect set 'smartspeaker-set' is installed but P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur\led_controller_respeaker-v3\packages\led-controller-version-3\src\lefx\sets\smartspeaker_set\smartspeaker-set.lefxset is missing; it will not be loaded
+============================== warnings summary ===============================
+C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\config\__init__.py:1464
+  C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\site-packages\_pytest\config\__init__.py:1464: PytestConfigWarning: Unknown config option: cache_dir
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/interfaces/test_config.py::test_an_empty_selection_means_every_installed_set
+FAILED tests/interfaces/test_config.py::test_the_selection_narrows_and_takes_either_spelling
+FAILED tests/interfaces/test_config.py::test_the_selection_is_read_from_the_environment
+FAILED tests/interfaces/test_config.py::test_naming_a_set_that_is_not_installed_warns_and_carries_on
+FAILED tests/interfaces/test_config.py::test_the_search_paths_contain_every_enabled_set
+FAILED tests/interfaces/test_config.py::test_package_path_adds_to_the_installed_sets_rather_than_replacing_them
+6 failed, 1500 passed, 23 skipped, 1 warning in 62.50s (0:01:02)

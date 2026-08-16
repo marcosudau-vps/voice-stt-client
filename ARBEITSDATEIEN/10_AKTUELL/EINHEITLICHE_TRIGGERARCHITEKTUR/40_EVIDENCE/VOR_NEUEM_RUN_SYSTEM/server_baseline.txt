@@ -1,0 +1,9 @@
+....................sssss...s......................... [ 12%]
+........................................s................. [ 25%]
+{"schemaVersion":1,"eventId":"1aa9509cd5e548629a62d8aefb9f0d65","timestamp":"2026-08-14T01:12:53.669Z","channel":"audit","event":"config.updated","severity":"info","serverInstanceId":"6c3cfc703e7a443d8fe9be8cb60f544a","data":{"applied":{"max_sessions":{"value":3,"appliesTo":"active_sessions"},"wake_words":{"value":"jarvis","appliesTo":"new_sessions"}}},"meldung":"Konfiguration aktualisiert","cursor":304}
+..............................................s...................................................s.............................. [ 54%]
+........................................... [ 64%]
+........................................................................ [ 81%]
+..........................ss..........s............................... [ 97%]
+............s                                                            [100%]
+426 passed, 13 skipped, 78 subtests passed in 18.46s

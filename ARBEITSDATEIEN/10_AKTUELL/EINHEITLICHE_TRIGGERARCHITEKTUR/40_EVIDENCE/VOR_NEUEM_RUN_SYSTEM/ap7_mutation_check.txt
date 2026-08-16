@@ -1,0 +1,19 @@
+### M0 unveraendert
+48 passed, 3 subtests passed in 2.54s
+
+### M1 send_start durch Trigger ersetzt (Zustand des Vorgaengers)
+FAILED tests/test_trigger_lifecycle.py::ControllerKeepsTheStreamCommand::test_start_dictation_sends_start_and_the_trigger
+1 failed, 47 passed, 3 subtests passed in 12.85s
+
+### M2 Ack-Dedupe entfernt (doppeltes Ack wirkt zweimal)
+FAILED tests/test_stt_session.py::TestTriggerAcknowledgement::test_a_duplicate_ack_is_dropped_and_reaches_no_consumer
+FAILED tests/test_stt_session.py::TestTriggerAcknowledgement::test_a_sent_trigger_is_pending_until_it_is_acknowledged
+FAILED tests/test_stt_session.py::TestTriggerAcknowledgement::test_an_ack_from_an_older_generation_is_dropped
+3 failed, 45 passed, 3 subtests passed in 2.94s
+
+### M3 Generationspruefung des Acks entfernt
+FAILED tests/test_stt_session.py::TestTriggerAcknowledgement::test_an_ack_from_an_older_generation_is_dropped
+1 failed, 47 passed, 3 subtests passed in 2.91s
+
+### M4 wiederhergestellt
+48 passed, 3 subtests passed in 2.55s

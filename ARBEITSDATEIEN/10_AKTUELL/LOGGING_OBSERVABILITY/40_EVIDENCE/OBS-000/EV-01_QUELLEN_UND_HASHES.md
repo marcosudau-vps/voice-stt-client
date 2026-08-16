@@ -1,0 +1,71 @@
+---
+id: EV-OBS-000-01
+status: FINAL
+authority: evidence
+workstream: OBS
+run: RUN-OBS-000-01_2026-08-15_CLAUDE
+---
+
+# EV-01 – Quellen und Hashes
+
+**Zweck.** Nachweis, welche Dateien der Freeze ausgewertet hat und in welchem
+Zustand sie zum Zeitpunkt der Entscheidung vorlagen.
+
+Die vollständige Herkunftsbewertung steht in
+`10_ANALYSE/CLAUDE_VORARBEIT/SOURCE_MANIFEST.md`. Diese Datei enthält nur die
+reproduzierbaren Rohdaten.
+
+---
+
+## 1. Kommando
+
+```bash
+cd "P:/GithubRepos/marcosudau-vps-worktrees/einheitliche-triggerarchitektur-claude"
+sha256sum ARBEITSDATEIEN/AP_THEMA_LOGGING/10_ANALYSE/CLAUDE_VORARBEIT/*.md \
+          ARBEITSDATEIEN/AP_THEMA_LOGGING/00_GRUNDLAGEN/*.md \
+          ARBEITSDATEIEN/AP_THEMA_LOGGING/20_PLANUNG/*.md \
+          ARBEITSDATEIEN/AP_THEMA_LOGGING/05_DRAFTS_UNGEPRUEFT/ErsterEntwurf_Logging.md
+```
+
+Exitcode: `0`.
+
+## 2. Ausgelesene Prüfsummen (Stand zu Beginn des Runs)
+
+```text
+a9c25a07594bcd0b04aadcadaf3ca1fa56b239435eb16651e8aa6bd56ebe0c6f  10_ANALYSE/CLAUDE_VORARBEIT/00_README_UND_ABSCHLUSSBEWERTUNG.md
+e5556e1933ee551c2e1f8aa5f58c45578a0e31ccf31048fc28367608d8339564  10_ANALYSE/CLAUDE_VORARBEIT/LOGGING_ADVERSARIAL_REVIEW.md
+a0e03198b598eb041c36db175fafc852cc6b47754a83fc67a2b718c606560bd0  10_ANALYSE/CLAUDE_VORARBEIT/LOGGING_CANONICAL_SCHEMA_AND_STORAGE.md
+0c52db2a92a01c88ef472b33384f2ab1376a147dfe3ed77a708c837a6bd011d2  10_ANALYSE/CLAUDE_VORARBEIT/LOGGING_CODE_INTEGRATION_AUDIT.md
+7278ec0f166d9d2cdcb2dc8155bcf8442c60871c515ff50e0b8c58a0e2d6e437  10_ANALYSE/CLAUDE_VORARBEIT/LOGGING_CONCURRENCY_FAILURE_MODEL.md
+081494685b96e8295d2b0fdcc9a996b5364854e2200c660ad99e884d8106e4cc  10_ANALYSE/CLAUDE_VORARBEIT/LOGGING_OPEN_DECISIONS.md
+c83b3bc59ee21622d2725dfed0ad28b05f4cfdc5c2305629ade094b8ca0f5f7d  10_ANALYSE/CLAUDE_VORARBEIT/LOGGING_QUERY_UI_ADMIN_BOUNDARIES.md
+3d955eb60890f4f4fa33f1f90a17e83140521a178e26c5532147e8a93970e450  10_ANALYSE/CLAUDE_VORARBEIT/LOGGING_TEST_MATRIX.md
+17171a390f748f0b3d081248f1499d6aa05a21281bc7c5f726e98e1dc22addb1  10_ANALYSE/CLAUDE_VORARBEIT/LOGGING_V1_IMPLEMENTATION_PLAN.md
+4d240f6c12d3dd54c95314845c2d5da1947d5bfa127ac66bdc35528c02d9fcaa  10_ANALYSE/CLAUDE_VORARBEIT/README.md
+c168c4b230874fd26b16229cdfdfe7f61ec90dd9ad2f896223959c9d7051e6c2  00_GRUNDLAGEN/LETZTE_ARCHITEKTURKLAERUNGEN_VOR_PLAN_FREEZE.md
+60083b2d8be13758e018a61f3161bb7f1d0b35256fe7dc009b3fa3d03bf856bb  00_GRUNDLAGEN/LOGGING_V1_ABGRENZUNG_ENTWURF.md
+2afba23a800865b3301e135fc3bd17cc75c0aad5f7095069837497848a8b1fdd  00_GRUNDLAGEN/LOGGING_ZIELBILD_ARCHITEKTUR_GESAMTSPEZIFIKATION_ENTWURF.md
+60083b2d8be13758e018a61f3161bb7f1d0b35256fe7dc009b3fa3d03bf856bb  20_PLANUNG/LOGGING_V1_ABGRENZUNG_ENTWURF.md
+2afba23a800865b3301e135fc3bd17cc75c0aad5f7095069837497848a8b1fdd  20_PLANUNG/LOGGING_ZIELBILD_ARCHITEKTUR_GESAMTSPEZIFIKATION_ENTWURF.md
+429362e0cdc699042f5f59620e7304f418310d117f2ca54a1b2a7e39b225b1a7  05_DRAFTS_UNGEPRUEFT/ErsterEntwurf_Logging.md
+```
+
+## 3. Gegenprüfung gegen das Archiv
+
+```bash
+python -c "import zipfile,hashlib; ..."   # siehe SOURCE_MANIFEST §2
+```
+
+Ergebnis: Alle neun Dateien aus `90_ARCHIV/analyse_code_integration.zip` sind
+**byteidentisch** mit den Arbeitskopien unter `10_ANALYSE/CLAUDE_VORARBEIT/`.
+
+Alle Planungsdateien aus `90_ARCHIV/AP_THEMA_LOGGING_OBS000_READY.zip` und
+`90_ARCHIV/LOGGING_GESAMTPLAN.zip` sind **byteidentisch** mit den Fassungen
+unter `20_PLANUNG/LOGGING_GESAMTPLAN/` (Ausgangszustand vor diesem Run).
+
+## 4. Bewertung
+
+- Keine widersprüchliche Variante einer Datei gefunden.
+- Keine erwartete Pflichtdatei fehlt.
+- Kein Auswahl-/Priorisierungskonflikt zu entscheiden.
+- Der Freeze konnte auf einer eindeutigen Quellenlage aufsetzen.
