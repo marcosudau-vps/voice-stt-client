@@ -1,0 +1,26 @@
+### M0 unveraendert
+3 passed in 1.19s
+
+### M1 Merge entfernt: jeder Trigger oeffnet eine neue Activation
+FAILED tests/unit/test_server_controlled_e2e.py::CollisionMatrixEndToEndTests::test_case_1_manual_then_wake_word
+FAILED tests/unit/test_server_controlled_e2e.py::CollisionMatrixEndToEndTests::test_case_2_wake_word_then_manual
+FAILED tests/unit/test_server_controlled_e2e.py::CollisionMatrixEndToEndTests::test_case_3_near_simultaneous
+3 failed in 1.59s
+
+### M2 Lock entfernt (Race im simultanen Fall)
+3 passed in 1.24s
+
+### M3 wiederhergestellt
+3 passed in 1.25s
+
+### M4 Session-Lock im Wakeword-Pfad entfernt
+1 passed in 1.22s
+
+### M5 Session-Lock UND Controller-Lock entfernt
+                        f"Activations must be 1, got {evidence['activationId']}",
+E                   AssertionError: 2 != 1 : Activations must be 1, got ['5a53c0c00bba4d47a1ec31a5f0afaf4f', '7b9961b3b7db42b9be9555d16988ddb0']
+FAILED tests/unit/test_server_controlled_e2e.py::CollisionMatrixEndToEndTests::test_case_3_near_simultaneous
+1 failed in 1.61s
+
+### M6 wiederhergestellt
+1 passed in 1.24s

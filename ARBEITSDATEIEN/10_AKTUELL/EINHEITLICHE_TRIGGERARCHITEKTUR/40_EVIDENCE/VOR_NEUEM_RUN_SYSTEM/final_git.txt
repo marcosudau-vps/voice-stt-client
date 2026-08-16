@@ -1,0 +1,120 @@
+### Git-Evidence (Exitcodes werden geprueft) ###
+
+================ voice-stt-server ================
+--- git rev-parse HEAD (exit=0) ---
+13c162950b944dc715fdd81983a7465f8eb0fd79
+--- git log -1 --oneline (exit=0) ---
+13c1629 docs(archive): close build deployment action
+--- git status --short (exit=0) ---
+ M VoiceSTT/audio_recorder.py
+ M VoiceSTT/core/initialization.py
+ M VoiceSTT/core/recording.py
+ M api_fastapi_server/server.py
+ M app_browserclient/client.js
+ M app_browserclient/index.html
+ M docs/.archiv/README.md
+ M docs/README.md
+ M docs/client-development/02-websocket-protokoll.md
+ M docs/client-development/03-server-events-kurzreferenz.md
+ M docs/client-development/04-server-events-katalog-und-chronologie.md
+ M docs/client-development/09-betriebsmodi-und-serverkonfiguration.md
+ M docs/client-development/README.md
+ M docs/session-wakeword-erweiterung.md
+ M docs/stt-server-specification.md
+?? VoiceSTT/core/activation_control.py
+?? api_fastapi_server/activation.py
+?? docs/.archiv/einheitliche_triggerarchitektur/
+?? docs/einheitliche-triggerarchitektur.md
+?? tests/unit/test_browser_client_contract.py
+?? tests/unit/test_recorder_activation_control.py
+?? tests/unit/test_server_activation_controller.py
+?? tests/unit/test_server_controlled_e2e.py
+?? tests/unit/test_server_trigger_contract.py
+--- git diff --stat (exit=0) ---
+ VoiceSTT/audio_recorder.py                         |  54 ++
+ VoiceSTT/core/initialization.py                    |   2 +
+ VoiceSTT/core/recording.py                         |  12 +-
+ api_fastapi_server/server.py                       | 623 ++++++++++++++++++++-
+ app_browserclient/client.js                        | 212 ++++---
+ app_browserclient/index.html                       |   3 +-
+ docs/.archiv/README.md                             |   1 +
+ docs/README.md                                     |   4 +
+ docs/client-development/02-websocket-protokoll.md  | 177 +++++-
+ .../03-server-events-kurzreferenz.md               |  11 +-
+ .../04-server-events-katalog-und-chronologie.md    |   7 +-
+ .../09-betriebsmodi-und-serverkonfiguration.md     | 144 +++--
+ docs/client-development/README.md                  |  11 +-
+ docs/session-wakeword-erweiterung.md               |   7 +-
+ docs/stt-server-specification.md                   |   6 +-
+ 15 files changed, 1121 insertions(+), 153 deletions(-)
+--- git diff --check (exit=0) ---
+OK - keine Whitespace-Fehler
+--- INITIAL_HEAD == FINAL_HEAD --- OK (13c162950b944dc715fdd81983a7465f8eb0fd79)
+
+================ voice-stt-client ================
+--- git rev-parse HEAD (exit=0) ---
+178d32bdf17d4709307e7a2a944888d2cf294e42
+--- git log -1 --oneline (exit=0) ---
+178d32b fix(feedback): debug LED and sound feedback
+--- git status --short (exit=0) ---
+ M README.md
+ M config.yaml
+ M core/config.py
+ M core/controller.py
+ M core/settings_metadata.py
+ M core/stt_session.py
+ M docs/decisions/ADR-001_BETRIEBSMODI_HOTKEY_UND_WAKE_WORD.md
+ M docs/guides/feedback_konfigurieren.md
+ M docs/guides/feedback_system.md
+ M server-docs-for-client-development/02-websocket-protokoll.md
+ M server-docs-for-client-development/03-server-events-kurzreferenz.md
+ M server-docs-for-client-development/04-server-events-katalog-und-chronologie.md
+ M server-docs-for-client-development/09-betriebsmodi-und-serverkonfiguration.md
+ M server-docs-for-client-development/README.md
+ M server-docs-for-client-development/session-wakeword-erweiterung.md
+ M tests/test_ap06_followup.py
+ M tests/test_config.py
+ M tests/test_stt_session.py
+ M ui/application.py
+ M ui/settings_dialog.py
+?? tests/test_trigger_feedback_contract.py
+?? tests/test_trigger_lifecycle.py
+--- git diff --stat (exit=0) ---
+ README.md                                          |  28 ++-
+ config.yaml                                        |  28 ++-
+ core/config.py                                     |  94 ++++++++--
+ core/controller.py                                 | 182 ++++++++++++++++---
+ core/settings_metadata.py                          |  19 +-
+ core/stt_session.py                                | 199 +++++++++++++++++++++
+ .../ADR-001_BETRIEBSMODI_HOTKEY_UND_WAKE_WORD.md   |  12 +-
+ docs/guides/feedback_konfigurieren.md              |   8 +-
+ docs/guides/feedback_system.md                     |   7 +-
+ .../02-websocket-protokoll.md                      | 177 +++++++++++++++++-
+ .../03-server-events-kurzreferenz.md               |  11 +-
+ .../04-server-events-katalog-und-chronologie.md    |   7 +-
+ .../09-betriebsmodi-und-serverkonfiguration.md     | 144 +++++++++------
+ server-docs-for-client-development/README.md       |  11 +-
+ .../session-wakeword-erweiterung.md                |   7 +-
+ tests/test_ap06_followup.py                        |  11 +-
+ tests/test_config.py                               | 143 +++++++++++++++
+ tests/test_stt_session.py                          | 161 +++++++++++++++++
+ ui/application.py                                  |  11 +-
+ ui/settings_dialog.py                              |  18 +-
+ 20 files changed, 1140 insertions(+), 138 deletions(-)
+--- git diff --check (exit=0) ---
+OK - keine Whitespace-Fehler
+--- INITIAL_HEAD == FINAL_HEAD --- OK (178d32bdf17d4709307e7a2a944888d2cf294e42)
+
+================ led_controller_respeaker-v3 ================
+--- git rev-parse HEAD (exit=0) ---
+aa2f14bd13dd75bce2221fdcadd50b38a5c8c1b0
+--- git log -1 --oneline (exit=0) ---
+aa2f14b revert(tests): restore the full assertion on the offered outputs
+--- git status --short (exit=0) ---
+--- git diff --stat (exit=0) ---
+--- git diff --check (exit=0) ---
+OK - keine Whitespace-Fehler
+--- INITIAL_HEAD == FINAL_HEAD --- OK (aa2f14bd13dd75bce2221fdcadd50b38a5c8c1b0)
+
+================ Gesamtergebnis ================
+EVIDENCE-LAUF ERFOLGREICH - alle Pruefungen exit=0

@@ -1,0 +1,9 @@
+### M0 unveraendert
+10 passed, 23 subtests passed in 1.30s
+
+### M1 Ablehnung wird ignoriert (Feedback vor/ohne Ack)
+FAILED tests/test_trigger_feedback_contract.py::ManualAcceptedComesFromTheAck::test_a_rejected_trigger_produces_no_manual_impulse
+1 failed, 9 passed, 23 subtests passed in 1.59s
+
+### M2 wiederhergestellt
+10 passed, 23 subtests passed in 1.24s

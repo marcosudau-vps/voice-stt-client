@@ -1,0 +1,37 @@
+tests/unit/test_additional_transcription_engines.py | rc=0 | ....................sssss                                   [100%] 20 passed, 5 skipped, 13 subtests passed in 0.31s 
+tests/unit/test_audio_fixtures.py | rc=0 | 
+tests/unit/test_audio_recorder_boundaries.py | rc=0 | 
+tests/unit/test_audio_recorder_preroll_integration.py | rc=0 | 
+tests/unit/test_audio_recorder_public_api.py | rc=0 | .F....                                                                   [100%]
+tests/unit/test_cohere_transcribe_engine.py | rc=0 | ....                                                                     [100%] 4 passed in 0.26s 
+tests/unit/test_fastapi_server_multi_user.py | rc=0 | ..............................................                     [100%] 46 passed, 6 subtests passed in 2.65s 
+tests/unit/test_fastapi_server_multi_user_asr_integration.py | rc=0 | ....s                                                                    [100%] 4 passed, 1 skipped in 0.40s 
+tests/unit/test_fastapi_server_protocol.py | rc=0 | 
+tests/unit/test_faster_whisper_engine.py | rc=0 | .                                                                        [100%] 1 passed in 0.04s 
+tests/unit/test_granite_speech_engine.py | rc=0 | ....                                                                     [100%] 4 passed in 0.28s 
+tests/unit/test_install_kroko_cpu.py | rc=0 | =========================== short test summary info =========================== ERROR tests/unit/test_install_kroko_cpu.py::test_linux_kroko_build_forces_cpu_only_cmake_flags 1 error in 0.49s 
+tests/unit/test_kroko_onnx_engine.py | rc=0 | ..........................s                                          [100%] 26 passed, 1 skipped, 4 subtests passed in 0.33s 
+tests/unit/test_local_model_resolver.py | rc=0 | ERROR tests/unit/test_local_model_resolver.py::test_resolves_kroko_from_dedicated_root ERROR tests/unit/test_local_model_resolver.py::test_offline_kroko_never_falls_back_to_download 5 errors in 1.54s 
+tests/unit/test_moonshine_engine.py | rc=0 | ....                                                                     [100%] 4 passed in 0.25s 
+tests/unit/test_omnilingual_asr_engine.py | rc=0 | ............                                                        [100%] 12 passed, 5 subtests passed in 0.05s 
+tests/unit/test_openai_compatible_endpoint.py | rc=0 | ..
+tests/unit/test_openai_whisper_engine.py | rc=0 | ..........s                                                              [100%] 10 passed, 1 skipped in 0.25s 
+tests/unit/test_preroll.py | rc=0 | .........                                                             [100%] 9 passed, 3 subtests passed in 0.04s 
+tests/unit/test_project_config.py | rc=0 | .....                                                                    [100%] 5 passed in 0.14s 
+tests/unit/test_realtime_boundary_detector.py | rc=0 | ...                                                                      [100%] 3 passed in 0.28s 
+tests/unit/test_realtime_streaming_transcription.py | rc=0 | 
+tests/unit/test_realtime_text_stabilizer.py | rc=0 | 
+tests/unit/test_realtime_text_stabilizer_eval.py | rc=0 | ....................................        [100%] 36 passed, 29 subtests passed in 0.33s 
+tests/unit/test_recorder_activation_control.py | rc=0 | 
+tests/unit/test_recorder_runtime.py | rc=0 | 
+tests/unit/test_recorder_state_callbacks.py | rc=0 | 
+tests/unit/test_server_activation_controller.py | rc=0 | .......................................                         [100%] 39 passed, 9 subtests passed in 1.08s 
+tests/unit/test_server_controlled_e2e.py | rc=0 | ...................                                                      [100%] 19 passed in 2.51s 
+tests/unit/test_server_operations.py | rc=0 | 
+tests/unit/test_server_trigger_contract.py | rc=0 | 
+tests/unit/test_sherpa_onnx_engine.py | rc=0 | ...........ss                                                          [100%] 11 passed, 2 skipped, 2 subtests passed in 0.31s 
+tests/unit/test_silero_vad_backend.py | rc=0 | 
+tests/unit/test_slow_final_transcription_audio_gap.py | rc=0 | 
+tests/unit/test_text_formatting.py | rc=0 | 
+tests/unit/test_wakeword.py | rc=0 | ..........                                                               [100%] 10 passed in 0.31s 
+tests/unit/test_whisper_cpp_engine.py | rc=0 | ............s                                                            [100%] 12 passed, 1 skipped in 0.27s 

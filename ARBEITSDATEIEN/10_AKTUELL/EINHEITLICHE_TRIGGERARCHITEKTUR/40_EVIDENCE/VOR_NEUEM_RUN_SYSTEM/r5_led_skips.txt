@@ -1,0 +1,24 @@
+=========================== short test summary info ===========================
+SKIPPED [1] tests\device\test_device_contract.py:36: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:41: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:53: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:59: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:72: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [2] tests\device\test_device_contract.py:80: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:96: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:105: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:129: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:141: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:160: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:170: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:179: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:205: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:217: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_device_contract.py:226: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_hardware.py:65: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_hardware.py:77: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_hardware.py:84: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_hardware.py:94: a reSpeaker is connected but unreachable: [Errno 13] Access denied (insufficient permissions)
+SKIPPED [1] tests\device\test_hardware.py:114: needs someone at the cable; set LEFX_INTERACTIVE=1
+SKIPPED [1] tests\device\test_hardware.py:131: needs someone at the cable; set LEFX_INTERACTIVE=1
+1506 passed, 23 skipped, 1 warning in 54.76s

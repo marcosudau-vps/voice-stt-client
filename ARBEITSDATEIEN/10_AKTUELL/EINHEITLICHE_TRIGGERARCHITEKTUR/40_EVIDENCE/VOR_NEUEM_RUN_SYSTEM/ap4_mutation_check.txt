@@ -1,0 +1,67 @@
+### M0 unveraendert (muss GRUEN sein)
+17 passed in 2.47s
+
+### M1 Admission-Verdrahtung entfernt (exakt der Zustand des Vorgaengers)
+FAILED tests/unit/test_server_controlled_e2e.py::ControlledActivationEndToEndTests::test_both_triggers_disabled_is_rejected_at_admission
+FAILED tests/unit/test_server_controlled_e2e.py::ControlledActivationEndToEndTests::test_manual_trigger_opens_the_gate_and_speech_then_records
+FAILED tests/unit/test_server_controlled_e2e.py::ControlledActivationEndToEndTests::test_query_parameters_reach_the_session_and_announce_the_capability
+FAILED tests/unit/test_server_controlled_e2e.py::ControlledActivationEndToEndTests::test_speech_without_a_trigger_never_starts_a_recording
+FAILED tests/unit/test_server_controlled_e2e.py::ControlledActivationEndToEndTests::test_wake_word_is_ignored_when_the_wake_word_trigger_is_disabled
+FAILED tests/unit/test_server_controlled_e2e.py::ControlledActivationEndToEndTests::test_wake_word_reaches_the_recorder_only_through_the_controller
+FAILED tests/unit/test_server_controlled_e2e.py::TriggerCollisionEndToEndTests::test_manual_then_wake_word_stays_one_activation
+FAILED tests/unit/test_server_controlled_e2e.py::TriggerCollisionEndToEndTests::test_repeated_manual_triggers_stay_one_activation
+FAILED tests/unit/test_server_controlled_e2e.py::TriggerCollisionEndToEndTests::test_wake_word_then_manual_stays_one_activation
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationTimeoutEndToEndTests::test_a_timeout_does_not_end_an_activation_that_was_extended
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationTimeoutEndToEndTests::test_the_server_closes_the_gate_on_its_own_after_the_timeout
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationLifecycleEndToEndTests::test_a_reconnect_does_not_revive_the_previous_activation
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationLifecycleEndToEndTests::test_cancel_closes_the_gate
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationLifecycleEndToEndTests::test_finish_closes_the_gate
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationLifecycleEndToEndTests::test_stopping_the_stream_ends_the_activation
+15 failed, 2 passed in 1.74s
+
+### M2 Activation-Timer entfernt
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationTimeoutEndToEndTests::test_the_server_closes_the_gate_on_its_own_after_the_timeout
+1 failed, 16 passed in 22.59s
+
+### M3 Gate-Oeffnung entfernt
+FAILED tests/unit/test_server_controlled_e2e.py::ControlledActivationEndToEndTests::test_manual_trigger_opens_the_gate_and_speech_then_records
+FAILED tests/unit/test_server_controlled_e2e.py::ControlledActivationEndToEndTests::test_wake_word_reaches_the_recorder_only_through_the_controller
+FAILED tests/unit/test_server_controlled_e2e.py::TriggerCollisionEndToEndTests::test_manual_then_wake_word_stays_one_activation
+FAILED tests/unit/test_server_controlled_e2e.py::TriggerCollisionEndToEndTests::test_repeated_manual_triggers_stay_one_activation
+FAILED tests/unit/test_server_controlled_e2e.py::TriggerCollisionEndToEndTests::test_wake_word_then_manual_stays_one_activation
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationTimeoutEndToEndTests::test_a_timeout_does_not_end_an_activation_that_was_extended
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationTimeoutEndToEndTests::test_the_server_closes_the_gate_on_its_own_after_the_timeout
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationLifecycleEndToEndTests::test_stopping_the_stream_ends_the_activation
+8 failed, 9 passed in 47.75s
+
+### M4 Legacy-Wakeword-Followup im Controlled-Modus wieder aktiv
+17 passed in 2.56s
+
+### M5 wiederhergestellt (muss GRUEN sein)
+17 passed in 2.56s
+
+### M3 Gate-Oeffnung entfernt (Controller ohne Recorder)
+FAILED tests/unit/test_server_controlled_e2e.py::ControlledActivationEndToEndTests::test_manual_trigger_opens_the_gate_and_speech_then_records
+FAILED tests/unit/test_server_controlled_e2e.py::ControlledActivationEndToEndTests::test_wake_word_reaches_the_recorder_only_through_the_controller
+FAILED tests/unit/test_server_controlled_e2e.py::SingleFollowUpAuthorityTests::test_controlled_mode_never_starts_the_legacy_followup_window
+FAILED tests/unit/test_server_controlled_e2e.py::TriggerCollisionEndToEndTests::test_manual_then_wake_word_stays_one_activation
+FAILED tests/unit/test_server_controlled_e2e.py::TriggerCollisionEndToEndTests::test_repeated_manual_triggers_stay_one_activation
+FAILED tests/unit/test_server_controlled_e2e.py::TriggerCollisionEndToEndTests::test_wake_word_then_manual_stays_one_activation
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationTimeoutEndToEndTests::test_a_timeout_does_not_end_an_activation_that_was_extended
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationTimeoutEndToEndTests::test_the_server_closes_the_gate_on_its_own_after_the_timeout
+FAILED tests/unit/test_server_controlled_e2e.py::ActivationLifecycleEndToEndTests::test_stopping_the_stream_ends_the_activation
+9 failed, 10 passed in 62.95s (0:01:02)
+
+### M4 wiederhergestellt
+19 passed in 5.13s
+
+### M4b Legacy-Wakeword-Followup im Controlled-Modus wieder aktiv (nach Ergaenzung des Tests)
+FAILED tests/unit/test_server_controlled_e2e.py::SingleFollowUpAuthorityTests::test_controlled_mode_never_starts_the_legacy_followup_window
+1 failed, 36 passed in 3.47s
+
+### M4b MUTATION aktiv:
+FAILED tests/unit/test_server_controlled_e2e.py::SingleFollowUpAuthorityTests::test_controlled_mode_never_starts_the_legacy_followup_window
+1 failed, 36 passed in 3.42s
+
+### M6 wiederhergestellt:
+37 passed in 3.08s

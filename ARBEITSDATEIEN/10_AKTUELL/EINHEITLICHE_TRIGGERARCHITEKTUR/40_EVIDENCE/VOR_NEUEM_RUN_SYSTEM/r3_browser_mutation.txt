@@ -1,0 +1,13 @@
+### M0 korrigierter Browserclient
+10 passed, 7 subtests passed in 0.83s
+
+### M1 urspruenglicher Browserclient aus HEAD (muss ROT sein)
+FAILED tests/unit/test_browser_client_contract.py::BrowserClientSourceContractTests::test_it_connects_to_the_transcribe_route
+FAILED tests/unit/test_browser_client_contract.py::BrowserClientSourceContractTests::test_it_does_not_connect_to_the_bare_root_path
+FAILED tests/unit/test_browser_client_contract.py::BrowserClientSourceContractTests::test_it_no_longer_expects_the_retired_full_sentence_type
+FAILED tests/unit/test_browser_client_contract.py::BrowserClientSourceContractTests::test_it_sends_the_audio_metadata_the_server_validates
+FAILED tests/unit/test_browser_client_contract.py::BrowserClientSourceContractTests::test_it_starts_the_stream_before_sending_audio
+12 failed, 5 passed, 1 subtests passed in 1.25s
+
+### M2 wiederhergestellt
+10 passed, 7 subtests passed in 0.86s

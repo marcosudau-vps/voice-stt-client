@@ -1,0 +1,20 @@
+    return engine_cls(config)
+           ^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur-claude\voice-stt-server\VoiceSTT\transcription_engines\kroko_onnx_engine.py", line 698, in __init__
+    self.backend = backend or (backend_cls or KrokoOnnxBackend)(config)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur-claude\voice-stt-server\VoiceSTT\transcription_engines\kroko_onnx_engine.py", line 379, in __init__
+    recognizer_cls = recognizer_cls or _load_online_recognizer_class()
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur-claude\voice-stt-server\VoiceSTT\transcription_engines\kroko_onnx_engine.py", line 75, in _load_online_recognizer_class
+    raise TranscriptionEngineError(
+VoiceSTT.transcription_engines.base.TranscriptionEngineError: The 'kroko_onnx' transcription engine requires the optional 'kroko-onnx' package. Install it from https://github.com/kroko-ai/kroko-onnx. On Windows, use the cross-platform-builds branch to build or install the generated Windows wheel in the same Python environment.
+starting real uvicorn server on 127.0.0.1:51384
+server started
+server stopped
+OK  false/false rejected: code=activation_trigger_required close=1008
+OK  unparsable flag rejected: code=invalid_activation_flag close=1008
+OK  invalid timing rejected: code=invalid_activation_timing close=1008
+OK  wake-word-only without profile rejected: code=activation_wake_word_unavailable close=1008
+
+4 admission checks passed against a real server process
