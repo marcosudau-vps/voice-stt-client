@@ -58,7 +58,7 @@ class ReadableFormatter(logging.Formatter):
         super().__init__(fmt=self.FORMAT, datefmt=self.DATE_FMT)
 
 
-def setup_logging(config: LoggingConfig) -> None:
+def setup_logging(config: LoggingConfig, *, observability=None) -> None:
     """
     Configure the root logger and per-channel loggers.
 
@@ -117,3 +117,24 @@ def setup_logging(config: LoggingConfig) -> None:
         log_dir,
         config.json_format,
     )
+
+    # --- OBS-020: optional third handler, additive only. Without
+    # ``observability`` this function behaves exactly as before
+    # (WP-OBS-020 Sollzustand / LOGGING_CONTRACTS_FREEZE_V1.md §6).
+    if observability is not None:
+        from core.observability.adapters.python_logging import UnifiedLogHandler
+        from core.observability.normalizer import from_log_record
+
+        ingress = observability.ingress
+
+        def _normalize(record, _ingress=ingress):
+            return from_log_record(
+                record,
+                instance_id=_ingress.instance_id,
+                store_transcription_content=_ingress.store_transcription_content,
+                user_profile=_ingress.user_profile,
+            )
+
+        observability_handler = UnifiedLogHandler(ingress, _normalize)
+        observability_handler.setLevel(observability.level)
+        root_logger.addHandler(observability_handler)
