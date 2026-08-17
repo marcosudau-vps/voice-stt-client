@@ -783,6 +783,155 @@ class LedConfig:
             raise ValueError("led.effect_paths must be a list of directory paths")
 
 
+_OBSERVABILITY_LEVELS = ("DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL")
+
+
+def _resolved_normcase(value: Any) -> str:
+    """Fully resolved, case-normalised path text. ``realpath`` collapses
+    ``..``, ``.`` and symlinks/junctions, so the P-8 check below cannot be
+    bypassed by a path form that merely *looks* like it stays inside."""
+    return os.path.normcase(os.path.realpath(str(value)))
+
+
+def user_profile_roots() -> tuple[str, ...]:
+    """The roots a store or sink path must stay inside (CONTRACTS §4.3 P-8).
+
+    ``USERPROFILE`` is the Windows user profile; ``HOME``/``Path.home()``
+    is the same notion on other platforms and in test environments.
+    ``DEFAULT_LOCAL_APP_DIR`` is always allowed because it *is* the frozen
+    default location (CONTRACTS §5.1) — including the fallback form it takes
+    when ``LOCALAPPDATA`` is unset.
+    """
+    candidates: list[Any] = []
+    for env_name in ("USERPROFILE", "HOME"):
+        value = os.environ.get(env_name)
+        if value and value.strip():
+            candidates.append(value.strip())
+    try:
+        candidates.append(Path.home())
+    except Exception:  # noqa: BLE001 - a missing home directory must not crash validation
+        pass
+    candidates.append(DEFAULT_LOCAL_APP_DIR)
+
+    roots: list[str] = []
+    for candidate in candidates:
+        try:
+            resolved = _resolved_normcase(candidate)
+        except Exception:  # noqa: BLE001
+            continue
+        if resolved and resolved not in roots:
+            roots.append(resolved)
+    return tuple(roots)
+
+
+def is_inside_user_profile(path: Any) -> bool:
+    """``True`` when the **resolved** ``path`` lies inside one of the user
+    profile roots (CONTRACTS §4.3 P-8 / R-7)."""
+    try:
+        target = _resolved_normcase(path)
+    except Exception:  # noqa: BLE001
+        return False
+    for root in user_profile_roots():
+        if target == root:
+            return True
+        if target.startswith(root.rstrip(os.sep) + os.sep):
+            return True
+    return False
+
+
+def _validate_user_profile_path(value: Any, field_name: str) -> None:
+    """CONTRACTS §4.3 P-8: *"Es wird KEIN eigenes Verzeichnis mit
+    abweichenden Rechten angelegt und KEIN Pfad ausserhalb des
+    Benutzerprofils akzeptiert. Ein konfigurierter absoluter Pfad wird gegen
+    das Benutzerprofil geprueft."* Vorbild ist ``EventStreamConfig.validate``,
+    das bereits einen absoluten Pfad verlangt. The check runs against the
+    resolved path, so ``..``, an absolute path elsewhere, a drive-relative
+    or a UNC form are all rejected alike."""
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"{field_name} must be null or a non-empty string")
+    candidate = Path(value.strip()).expanduser()
+    if not candidate.is_absolute():
+        raise ValueError(
+            f"{field_name} must be an absolute path inside the user profile"
+        )
+    if not is_inside_user_profile(candidate):
+        raise ValueError(
+            f"{field_name} must resolve to a path inside the user profile "
+            f"(CONTRACTS §4.3 P-8): {candidate} is outside"
+        )
+
+
+@dataclass
+class LoggingObservabilityConfig:
+    """``logging.observability`` sub-section (OBS-030).
+
+    Frozen source: ``LOGGING_CONTRACTS_FREEZE_V1.md`` §10.1. Defaults match
+    the frozen schema exactly. ``db_path``/``file_sink_dir`` of ``None`` mean
+    "use the default path" (``ObservabilityManager`` resolves those).
+    """
+
+    enabled: bool = True
+    level: str = "INFO"
+    store_enabled: bool = True
+    db_path: Optional[str] = None
+    retention_days: int = 14
+    max_entries: int = 200_000
+    max_db_bytes: int = 268_435_456
+    queue_size: int = 8192
+    batch_size: int = 200
+    flush_interval_s: float = 0.5
+    file_sink_enabled: bool = False
+    file_sink_dir: Optional[str] = None
+    store_transcription_content: bool = False
+    store_raw_payload: bool = True
+
+    def validate(self) -> None:
+        if not isinstance(self.enabled, bool):
+            raise ValueError("logging.observability.enabled must be a boolean")
+        if not isinstance(self.level, str) or self.level.upper() not in _OBSERVABILITY_LEVELS:
+            raise ValueError(
+                "logging.observability.level must be one of "
+                f"{_OBSERVABILITY_LEVELS}"
+            )
+        if not isinstance(self.store_enabled, bool):
+            raise ValueError("logging.observability.store_enabled must be a boolean")
+        if self.db_path is not None and not isinstance(self.db_path, str):
+            raise ValueError("logging.observability.db_path must be null or a string")
+        if self.db_path is not None:
+            _validate_user_profile_path(self.db_path, "logging.observability.db_path")
+        for name, minimum in (
+            ("retention_days", 0),
+            ("max_entries", 0),
+            ("max_db_bytes", 0),
+        ):
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, int) or value < minimum:
+                raise ValueError(f"logging.observability.{name} must be an integer >= {minimum}")
+        if isinstance(self.queue_size, bool) or not isinstance(self.queue_size, int) or self.queue_size < 1:
+            raise ValueError("logging.observability.queue_size must be an integer >= 1")
+        if isinstance(self.batch_size, bool) or not isinstance(self.batch_size, int) or self.batch_size < 1:
+            raise ValueError("logging.observability.batch_size must be an integer >= 1")
+        if (
+            isinstance(self.flush_interval_s, bool)
+            or not isinstance(self.flush_interval_s, (int, float))
+            or not math.isfinite(self.flush_interval_s)
+            or self.flush_interval_s <= 0
+        ):
+            raise ValueError("logging.observability.flush_interval_s must be a positive number")
+        if not isinstance(self.file_sink_enabled, bool):
+            raise ValueError("logging.observability.file_sink_enabled must be a boolean")
+        if self.file_sink_dir is not None and not isinstance(self.file_sink_dir, str):
+            raise ValueError("logging.observability.file_sink_dir must be null or a string")
+        if self.file_sink_dir is not None:
+            _validate_user_profile_path(
+                self.file_sink_dir, "logging.observability.file_sink_dir"
+            )
+        if not isinstance(self.store_transcription_content, bool):
+            raise ValueError("logging.observability.store_transcription_content must be a boolean")
+        if not isinstance(self.store_raw_payload, bool):
+            raise ValueError("logging.observability.store_raw_payload must be a boolean")
+
+
 @dataclass
 class LoggingConfig:
     """Logging configuration."""
@@ -798,6 +947,11 @@ class LoggingConfig:
     json_format: bool = True
     # Per-channel log levels (channel_name -> level)
     channel_levels: dict[str, str] = field(default_factory=dict)
+    # NEW (OBS-030): observability sub-section (CONTRACTS §10.1). Resolved
+    # from nested YAML dicts in ``_from_dict`` the same way as ``history``
+    # (see the special-casing there). The user-facing settings UI that lets
+    # someone actually edit this section remains OBS-050 scope (Nachweis N-12).
+    observability: LoggingObservabilityConfig = field(default_factory=LoggingObservabilityConfig)
 
 
 @dataclass
@@ -834,6 +988,7 @@ class AppConfig:
         self.feedback.validate()
         self.led.validate()
         self.feedback_mappings.validate()
+        self.logging.observability.validate()
 
     @classmethod
     def load(
@@ -930,6 +1085,31 @@ class AppConfig:
         else:
             history_cfg = HistoryConfig()
 
+        # NEW (OBS-030): ``LoggingConfig.observability`` is itself a nested
+        # dataclass, which the generic ``_build`` above does not resolve
+        # (same limitation as ``history``, CONTRACTS §10.2). Without this,
+        # any config that round-trips through ``save()`` -> ``load()`` would
+        # get a plain ``dict`` in place of ``LoggingObservabilityConfig`` and
+        # crash on ``validate()`` -- not a hypothetical, several existing
+        # save/load-roundtrip tests hit exactly this the moment the field
+        # exists at all, so it is resolved correctly here even though the
+        # full user-facing settings integration remains OBS-050 scope.
+        logging_data = data.get("logging", {})
+        if isinstance(logging_data, dict):
+            observability_cfg = _build(
+                LoggingObservabilityConfig, logging_data.get("observability", {})
+            )
+            logging_fields = {
+                f.name for f in LoggingConfig.__dataclass_fields__.values()
+                if f.name != "observability"
+            }
+            filtered_logging = {
+                k: v for k, v in logging_data.items() if k in logging_fields
+            }
+            logging_cfg = LoggingConfig(observability=observability_cfg, **filtered_logging)
+        else:
+            logging_cfg = LoggingConfig()
+
         cfg = cls(
             server=_build(ServerConfig, data.get("server", {})),
             event_stream=_build(EventStreamConfig, data.get("event_stream", {})),
@@ -942,7 +1122,7 @@ class AppConfig:
             hotkey=_build(HotkeyConfig, data.get("hotkey", {})),
             overlay=_build(OverlayConfig, data.get("overlay", {})),
             history=history_cfg,
-            logging=_build(LoggingConfig, data.get("logging", {})),
+            logging=logging_cfg,
             clipboard=_build(ClipboardConfig, data.get("clipboard", {})),
             feedback=_build(FeedbackConfig, data.get("feedback", {})),
             led=_build(LedConfig, data.get("led", {})),
