@@ -30,6 +30,8 @@ from core.led_controller import (
     LedControllerError,
     NullLedController,
 )
+from core.observability.adapters.client_events import ClientEventEmitter
+from core.observability.ingress import NULL_INGRESS
 
 logger = logging.getLogger("ui.led_feedback")
 
@@ -73,9 +75,11 @@ class LedFeedback:
         controller_factory: Optional[Callable[[], LedController]] = None,
         on_failure: Optional[Callable[[str], None]] = None,
         on_device_mute_changed: Optional[Callable[[bool], None]] = None,
+        observability=NULL_INGRESS,
     ) -> None:
         config.validate()
         self.config = config
+        self._observe = ClientEventEmitter(observability, component="ui.led_feedback")
         self._on_failure = on_failure
         self._on_device_mute_changed = on_device_mute_changed
         self._known_device_mute: Optional[bool] = None
@@ -272,6 +276,14 @@ class LedFeedback:
             # means the device is gone. Keeping the newest is the useful half.
             del self._pending[:overflow]
             logger.warning("LED queue overflowed; dropped %s oldest calls", overflow)
+            # CONTRACTS §12.5: client.led.queue_overflow (P+S). The existing
+            # warning stays; this is the structured half, with the number that
+            # makes it a measurement rather than a note.
+            self._observe.system(
+                "client.led.queue_overflow",
+                level="WARNING",
+                details={"dropped": overflow, "max_pending": MAX_PENDING},
+            )
 
     # -- lifecycle ----------------------------------------------------------
 
@@ -369,6 +381,22 @@ class LedFeedback:
             # that something failed, and a configuration mistake looks exactly
             # like an unplugged cable.
             self._report_failure(f"{call.verb.value} {call.target or ''}: {exc}".strip())
+            # CONTRACTS §12.5: client.led.dispatch_failed (P+S). Unlike
+            # ``_report_failure``, which reports a *lasting* unavailability
+            # exactly once, this records every single failed call -- that
+            # difference is the diagnosis ("one bad effect name" against "the
+            # cable is out").
+            self._observe.system(
+                "client.led.dispatch_failed",
+                level="WARNING",
+                details={
+                    "verb": call.verb.value,
+                    "target": call.target,
+                    "slot": call.slot,
+                    "error_type": type(exc).__name__,
+                    "message": str(exc),
+                },
+            )
             return
         self._mark_available()
 

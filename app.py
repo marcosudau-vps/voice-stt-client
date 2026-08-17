@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import asyncio
 import argparse
+import inspect
 import logging
 import multiprocessing
 import signal
@@ -43,7 +44,9 @@ class RealtimeSTTClient(STTController):
         injection_queue: Optional[TextInjectionQueue] = None,
         reinsertion_service: Optional[TranscriptReinsertionService] = None,
         backend: Optional[WindowsInjectionBackend] = None,
+        observability=None,
     ):
+        kwargs = {} if observability is None else {"observability": observability}
         super().__init__(
             config,
             session=session,
@@ -52,6 +55,7 @@ class RealtimeSTTClient(STTController):
             injection_queue=injection_queue,
             reinsertion_service=reinsertion_service,
             backend=backend,
+            **kwargs,
         )
 
         # Wire up console callbacks
@@ -101,9 +105,9 @@ class RealtimeSTTClient(STTController):
         await super().run()
 
 
-def run_headless(config: AppConfig) -> int:
+def run_headless(config: AppConfig, observability=None) -> int:
     """Run the retained AP05 console client for diagnostics."""
-    client = RealtimeSTTClient(config)
+    client = RealtimeSTTClient(config, observability=observability)
 
     # Handle Ctrl+C gracefully
     def signal_handler(sig, frame):
@@ -121,6 +125,23 @@ def run_headless(config: AppConfig) -> int:
     except (KeyboardInterrupt, asyncio.CancelledError):
         pass
     return 0
+
+
+def _call_with_optional_observability(target, config: AppConfig, observability):
+    """Call ``target(config)``, adding ``observability=`` only if it takes it.
+
+    ``run_headless`` is replaced by test doubles with the pre-OBS-040
+    one-argument signature. The capability is therefore decided by INSPECTING
+    the signature — never by catching a ``TypeError`` around the call, which
+    would re-run a whole client session if the exception came from inside it.
+    """
+    try:
+        supported = "observability" in inspect.signature(target).parameters
+    except (TypeError, ValueError):
+        supported = False
+    if supported:
+        return target(config, observability=observability)
+    return target(config)
 
 
 def build_argument_parser() -> argparse.ArgumentParser:
@@ -161,11 +182,21 @@ def main(argv: Optional[list[str]] = None) -> int:
 
     try:
         if args.headless:
-            return run_headless(config)
+            return _call_with_optional_observability(
+                run_headless, config, observability.ingress
+            )
 
         from ui.application import run_gui
 
-        return run_gui(config, [sys.argv[0], *arguments])
+        # OBS-040: the ingress -- not the manager -- reaches the UI. The UI
+        # only ever OBSERVES; the manager's lifetime stays here (ARCH §6.2(b),
+        # FD-R4), and its handover to DesktopApplication remains an OBS-050
+        # matter (Statuszeile, "Diagnosehistorie loeschen").
+        return run_gui(
+            config,
+            [sys.argv[0], *arguments],
+            observability=observability.ingress,
+        )
     finally:
         # Runs AFTER bridge.stop(10.0), which happens inside run_gui's own
         # DesktopApplication.shutdown() before run_gui returns.

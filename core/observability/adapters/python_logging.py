@@ -66,8 +66,8 @@ class UnifiedLogHandler(logging.Handler):
         try:
             try:
                 canonical = self._normalize(record)
-            except Exception:  # noqa: BLE001 - the normalizer must never break the app
-                self.handleError(record)
+            except Exception as exc:  # noqa: BLE001 - the normalizer must never break the app
+                self._handle_exception(record, exc)
                 return
             if canonical is None:
                 if self._health is not None:
@@ -75,8 +75,8 @@ class UnifiedLogHandler(logging.Handler):
                 return
             try:
                 self._ingress.submit(canonical)
-            except Exception:  # noqa: BLE001
-                self.handleError(record)
+            except Exception as exc:  # noqa: BLE001
+                self._handle_exception(record, exc)
         finally:
             self._reentrant.active = False
 
@@ -87,6 +87,22 @@ class UnifiedLogHandler(logging.Handler):
         # ``malformed`` increases).
         if self._health is not None:
             self._health.record_malformed()
+
+    def _handle_exception(self, record: logging.LogRecord, exc: BaseException) -> None:
+        """``handleError`` plus the substitute record ``ARCH §8.3`` requires.
+
+        The stdlib signature of ``handleError`` carries no exception, so the
+        substitute record — which must name the exception **type** and nothing
+        from the original record — is produced here (gate observation N-1).
+        """
+        self.handleError(record)
+        reject = getattr(self._ingress, "emit_record_rejected", None)
+        if reject is None:
+            return
+        try:
+            reject("observability.adapters.python_logging", exc)
+        except Exception:  # noqa: BLE001 - the error path itself never raises
+            pass
 
     def flush(self) -> None:
         # G-7: no-op. ``logging.shutdown()`` runs via ``atexit`` and calls
