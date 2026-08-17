@@ -47,6 +47,10 @@ from .query.base import (
     QueryFilter,
     QueryPage,
 )
+from .storage.sqlite import SQLiteLogStore
+from .sinks.jsonl_file import JsonlSink
+from .worker import LoggingWorker
+from .manager import ObservabilityManager
 
 __all__ = [
     "CanonicalLogRecord",
@@ -80,4 +84,8 @@ __all__ = [
     "ProviderStatus",
     "QueryFilter",
     "QueryPage",
+    "SQLiteLogStore",
+    "JsonlSink",
+    "LoggingWorker",
+    "ObservabilityManager",
 ]

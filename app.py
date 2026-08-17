@@ -145,14 +145,31 @@ def main(argv: Optional[list[str]] = None) -> int:
     arguments = list(sys.argv[1:] if argv is None else argv)
     args = build_argument_parser().parse_args(arguments)
     config = AppConfig.load()
-    setup_logging(config.logging)
 
-    if args.headless:
-        return run_headless(config)
+    # OBS-030 (AR-5/AR-6, FD-R4/OD-22): the manager needs config.logging, so
+    # it cannot start before AppConfig.load(); its lifetime is owned here in
+    # main()'s try/finally, NOT by DesktopApplication.shutdown() -- four
+    # startup-abort paths never reach that, and the headless path never
+    # calls it at all.
+    from core.observability.manager import ObservabilityManager
 
-    from ui.application import run_gui
+    observability = ObservabilityManager(
+        config.logging.observability, log_dir=config.logging.log_dir
+    )
+    observability.start()
+    setup_logging(config.logging, observability=observability)
 
-    return run_gui(config, [sys.argv[0], *arguments])
+    try:
+        if args.headless:
+            return run_headless(config)
+
+        from ui.application import run_gui
+
+        return run_gui(config, [sys.argv[0], *arguments])
+    finally:
+        # Runs AFTER bridge.stop(10.0), which happens inside run_gui's own
+        # DesktopApplication.shutdown() before run_gui returns.
+        observability.stop(2.0)
 
 
 if __name__ == "__main__":

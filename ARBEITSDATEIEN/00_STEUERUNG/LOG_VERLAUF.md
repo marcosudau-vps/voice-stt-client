@@ -327,3 +327,472 @@
     - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/40_EVIDENCE/OBS-020/RUN-01_2026-08-17_CLAUDE/` (erneut geprüft)
     - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/LOGGING_V1_CHECKLISTE.md` (OBS-020 Gate Review abgehakt)
   - Nächster Schritt: OBS-030 – Worker, SQLite-Store, Retention & JSONL-Sink (Implementierung, frische Session).
+
+- 17.08.2026, OBS-030 Implementierung (`RUN-OBS-030-01_2026-08-17_CLAUDE`)
+  - Beschreibung:
+    OBS-030 – Worker, SQLite-Store, Retention & JSONL-Sink implementiert.
+    Neue Module: `core/observability/storage/sqlite.py` (`SQLiteLogStore`:
+    DDL/Migration/Indizes nach `CONTRACTS §5.2`, `write_batch` mit
+    Replay-Dedupe über den partiellen UNIQUE-Index und `(eingefügt,
+    dedupliziert)`-Rückgabe, `run_retention` blockweise/zeitbudgetiert,
+    `clear()`, `measure_db_bytes()`), `core/observability/sinks/jsonl_file.py`
+    (`JsonlSink`: `schemaVersion` zuerst, Tagesrotation, Größenlimit),
+    `core/observability/worker.py` (`LoggingWorker`: dedizierter Daemon-
+    Thread, Batching/Flush, raw-Redaction+64-KiB-Truncation **im Worker**
+    nach `ARCH §8.2`, Retry-einmal-dann-verwerfen plus Circuit-Breaker bei
+    5 aufeinanderfolgenden Fehlschlägen, `disk full` setzt `FAILED_STORE`
+    und pausiert Retention, Backpressure-Zustandsübergänge `DROPPING`↔`OK`
+    inkl. synthetischer `logging.records_dropped`/`logging.recovered`-
+    Records nach `ARCH §7.3`/`G-6`, `request_clear` für „Diagnosehistorie
+    löschen"), `core/observability/manager.py` (`ObservabilityManager` als
+    Kompositionswurzel inkl. `_NullStore`-Fallback für `store_enabled=False`).
+    Additiv erweitert: `core/observability/health.py`
+    (`reset_drop_counters`, `record_written`, `record_deduplicated`,
+    `record_dropped_shutdown` mit optionalem `count`), `core/observability/__init__.py`
+    (vier neue Re-Exports), `app.py::main()` (Manager wird nach
+    `AppConfig.load()` gebaut/gestartet, `setup_logging(...,
+    observability=...)`, `stop(2.0)` im `finally`, nach `run_gui`s internem
+    `bridge.stop(10.0)` — AR-5/AR-6). `core/config.py` erhielt zusätzlich
+    `LoggingObservabilityConfig` (Schema nach `CONTRACTS §10.1`) und die
+    zugehörige `_from_dict`-Sonderbehandlung analog `history` — als für
+    diesen Run zwingend erforderliche minimale Schnittstelle (die
+    `app.py`-Verdrahtung braucht eine echte Konfiguration), ausdrücklich als
+    solche dokumentiert; die volle Settings-**UI**-Integration (Nachweis
+    N-12) bleibt OBS-050.
+
+    Während der Ausführung zwei reale Befunde behoben, nicht nur geplant:
+    (1) `ON CONFLICT (producer_id, event_id) DO NOTHING` schlug gegen den
+    partiellen Index fehl, bis die `WHERE event_id IS NOT NULL`-Klausel auch
+    im `ON CONFLICT`-Ziel wiederholt wurde (SQLite-Pflicht bei partiellen
+    Unique-Indizes als Arbiter). (2) Ohne die `_from_dict`-Sonderbehandlung
+    für `logging.observability` brach `AppConfig.save()` → `AppConfig.load()`
+    für **bestehende** Tests (`test_history.py`, `test_text_injector.py`,
+    `test_feedback_mapping.py`, `test_ap06_followup.py::TestSettingsDialog`),
+    weil `save()` das neue Feld vollständig serialisiert und der generische
+    `_build`-Pfad die verschachtelte Dataclass nicht auflöst — behoben durch
+    dieselbe Sonderbehandlung wie bei `history`, siehe `RUN_LOG.md` für die
+    vollständige Herleitung.
+
+    82 neue Tests (`tests/test_obs030_*.py`, 7 Dateien): SQLite-Store
+    (DDL/Round-Trip/Dedupe/Migration/Retention/N-05-Fremdthread/
+    Nebenläufiger-Leser/Neustart, 24), Worker (Ende-zu-Ende
+    `logger.info -> SQLite`, Batching, HIGH-Sonderregel/N-04,
+    Worker-/Store-/Sink-Fehler, raw-Redaction+Truncation, Retention-Kadenz,
+    `request_clear`, Health-Zähler, Shutdown-Flush, Thread-Aufräumung, 20),
+    JSONL-Sink (7), Manager (Lifecycle/Ende-zu-Ende/deaktiviert/
+    Neustart-über-zwei-Instanzen, 8), Contracts/Isolation (11 + 10 Subtests),
+    Config (Defaults/Validierung/Save-Load-Roundtrip, 10),
+    App-Wiring (2). Vollständige Suite: 796/797 grün (pytest: 796 passed +
+    1 vorbestehender Fehlschlag; `unittest discover`: 797 Tests, derselbe eine
+    Fehlschlag) = 715 (Baseline nach OBS-020) + 82 neue. Kein bestehender Test
+    geändert. Der eine Fehlschlag (`test_ap06_followup.py`, `lefx.interfaces`
+    fehlt lokal) ist identisch zum vorbestehenden, dokumentierten
+    Umgebungsbefund und außerhalb des Diffs. Nach `stop()` bleibt in keinem
+    Test ein `RealtimeSTT-Observability`-Thread aktiv, geprüft unter `pytest`
+    **und** `unittest discover`. `git diff --check` leer;
+    `git diff --stat` zeigt ausschließlich `app.py`, `core/config.py`,
+    `core/observability/__init__.py`, `core/observability/health.py` als
+    geänderte bestehende Dateien — kein Cross-Workstream-Diff
+    (`core/controller.py`, `core/session_coordinator.py`,
+    `ui/application.py`, `ui/core_bridge.py` unverändert).
+
+    **Kein Gate-PASS in diesem Run** — laut Work Package erfordert das Gate
+    einen separaten Review.
+  - Wichtigste Artefakte:
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/runs/RUN-OBS-030-01_2026-08-17_CLAUDE/`
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/40_EVIDENCE/OBS-030/RUN-01_2026-08-17_CLAUDE/`
+  - Nächster Schritt: OBS-030 Gate Review (frische Session, unabhängig).
+
+- 17.08.2026, OBS-030 Gate Review, `Prompts/OBS-030_GATE_REVIEW.md`
+  - Workstream: OBS (Logging / Observability), Work Package: OBS-030 – Worker,
+    SQLite-Store, Retention & JSONL-Sink
+  - Ergebnis / Gate: **OBS-030 GATE FAIL**
+  - Beschreibung:
+    Unabhängiger Review in frischer Session gegen den tatsächlichen
+    Repository-Zustand, `git diff`/`git status`, eigenständige Testläufe und
+    zusätzlich eigene Laufzeitproben — nicht gegen `RESULT.md`/`RUN_LOG.md`.
+    Die Kernmechanik ist belastbar und wurde nachgemessen: Nebenläufigkeit
+    (8 Producer-Threads x 1500 Records plus gleichzeitig pollender Leser mit
+    `PRAGMA query_only = ON` → `enqueued = written = 12000 Zeilen`,
+    `integrity_check ok`, keine Drops, ~22 µs/`submit`, kein Thread-Leck),
+    Shutdown-Buchhaltung (1000 eingereiht = 20 geschrieben + 980
+    `dropped_shutdown`, genau eine ratenbegrenzte stderr-Zeile, kein Thread
+    übrig), Persistenz und Dedupe-Identität über Prozessläufe hinweg
+    (identisches `(producer_id, event_id)` im zweiten Manager-Lauf →
+    `deduplicated=1`, weiterhin eine Zeile), Retention blockweise/
+    zeitbudgetiert ohne `VACUUM`, Migration (`user_version = 99` → Nur-Lesen,
+    Fehlschlag → Rollback), Prioritäts-/Wasserstandsregel exakt nach Freeze
+    inkl. `not replayed`, kein Memory-Ringbuffer, Überlast sichtbar (genau ein
+    Record `logging.records_dropped` mit korrekten Zählern nach der Erholung).
+    `git diff --check` leer; geänderte Bestandsdateien ausschließlich `app.py`,
+    `core/config.py`, `core/observability/__init__.py`,
+    `core/observability/health.py`; kein Cross-Workstream-Diff; kein
+    bestehender Test geändert; `-k obs030` 82/82 grün im eigenen Lauf.
+
+    **Drei blockierende Befunde:**
+    (B-1) `LoggingWorker.run()` klammert `self._iteration()` nicht in
+    `try/except`. Eigene Probe: eine Ausnahme in der Schleife beendet den
+    Worker still, `LoggingHealthState.FAILED_WORKER` und
+    `record_worker_error` haben null Produktionsaufrufer, Health meldet
+    weiterhin `OK`, `Ingress.is_failed()` bleibt `False`, `submit()` liefert
+    weiter `True`, Records stranden in der Queue — und Pythons
+    `threading`-Excepthook schreibt einen vollständigen, unratenbegrenzten
+    Traceback nach stderr, entgegen `ARCH §8.1 G-2/G-4` und `§8.4`. Verstoß
+    gegen `ARCH §8.3` („Worker-Ausnahme in der Schleife") und gegen das
+    Gate-Kriterium „interne Worker-/DB-Fehler bleiben isoliert". Zusätzlich
+    liegt `dataclasses.replace(...)` in `_prepare_record` außerhalb des
+    eigenen `try`.
+    (B-2) `CONTRACT_COVERAGE.md` behauptet genau dieses Verhalten als
+    umgesetzt und setzt die Health-Spalte auf „—" statt `FAILED_WORKER` —
+    Verstoß gegen das Gate-Kriterium „Evidence-Konsistenz".
+    (B-3) `LoggingObservabilityConfig.validate()` prüft `db_path` und
+    `file_sink_dir` nur auf den Typ; der Manager übernimmt jeden absoluten
+    Pfad ungeprüft. Nachweis: ein Pfad unter `C:\ProgramData\...` wird
+    akzeptiert. `CONTRACTS §4.3 P-8` verlangt ausdrücklich „KEIN Pfad
+    ausserhalb des Benutzerprofils akzeptiert"; OBS-030 ist das erste Paket,
+    das diese Pfade tatsächlich auflöst und benutzt.
+
+    Weitere, nicht allein gate-entscheidende Befunde: ein defekter Store legt
+    den intakten JSONL-Sink mit still (`_write_sink` nur `if ok`, Probe: 0 von
+    20 Zeilen); `logging.retention_pressure` entsteht nur als stderr-Zeile,
+    nicht als Record (`§5.6`/`§12.4`); Records, die wegen ausgesetztem Store
+    verworfen werden, sind nirgends gezählt; kein „leerer Testschreibvorgang"
+    nach der 60-s-Pause; `LoggingHealthState.DISABLED` wird nie erzeugt;
+    `clear_history()` blockiert den Aufrufer bis zu 5 s (für OBS-050
+    vormerken). Vorbestehend und außerhalb des Diffs: neben dem bekannten
+    `lefx.interfaces`-Fehlschlag ist
+    `test_core_bridge.py::test_async_and_sync_commands_execute_in_worker_loop`
+    intermittierend rot (Wartebedingung deckt die `local_feedback`-Zustellung
+    nicht ab) — keine Regression dieses Pakets.
+
+    Kein Commit erstellt (Gate FAIL).
+  - Wichtigste Artefakte:
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/40_EVIDENCE/OBS-030/GATE-REVIEW-01_2026-08-17_CLAUDE/GATE_REVIEW.md`
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/LOGGING_V1_CHECKLISTE.md` (OBS-030 Gate Review **nicht** abgehakt)
+  - Nächster Schritt: Korrekturlauf `RUN-OBS-030-02` (B-1, B-2, B-3 sowie
+    Entscheidung zu W-1/W-2), danach erneutes unabhängiges OBS-030 Gate.
+    OBS-040 darf nicht beginnen.
+
+- 17.08.2026, OBS-030 Korrekturlauf, `Prompts/OBS-030_FIX_RUN.md`
+  - Workstream: OBS (Logging / Observability), Work Package: OBS-030 – Worker,
+    SQLite-Store, Retention & JSONL-Sink
+  - Run: `RUN-OBS-030-02_2026-08-17`
+  - Ergebnis / Gate: **OBS-030 CORRECTED – READY FOR RE-REVIEW**
+    (kein Gate-PASS; der Gate-Punkt bleibt offen und wurde nicht abgehakt)
+  - Beschreibung:
+    Gezielter Korrekturlauf zu `OBS-030 GATE FAIL`. Grundlage waren die
+    vollständig gelesenen Freeze-Dokumente, WP-OBS-030, der ursprüngliche
+    Implementierungsauftrag, der tatsächliche Produktcode und das vollständige
+    Gate-Review-Dokument einschließlich W-1 bis W-7 — nicht die
+    Zusammenfassungen.
+
+    **B-1 Worker-Fehlerisolation – behoben.** `LoggingWorker.run()` ist
+    vollständig geklammert: `_open_store()`, der erste Retentionslauf und
+    jeder `_iteration()`-Durchlauf liegen in eigenen `try/except
+    Exception`-Blöcken (`BaseException` bewusst nicht, `ARCH §7.3`). Neues
+    `_record_loop_failure` erhöht `worker_errors` über
+    `LoggingInternalHealth.record_worker_error` und damit über den
+    ratenbegrenzten, nicht propagierenden Notausgang (G-2/G-4); die Schleife
+    läuft weiter. Erst nach fünf aufeinanderfolgenden Fehlern
+    (`WORKER_FAILURE_THRESHOLD`) gibt sie endgültig auf — **kein
+    Neustartversuch** (`ARCH §8.3`). Das neue `_finish()` setzt dann
+    `FAILED_WORKER` **vor** dem Shutdown-Flush, sodass `Ingress.is_failed()`
+    greift und kein Producer mehr ein `True` für einen strandenden Record
+    bekommt; `submit()` verwirft **und zählt** (neuer Zähler
+    `dropped_failed`, siehe DECISION REQUIRED); Queue-Reste werden als
+    `dropped_shutdown` gezählt, notfalls über `qsize()`, wenn selbst `drain`
+    defekt ist. `dataclasses.replace(...)` in `_prepare_record` liegt jetzt
+    im `try`. Laufzeitprobe (Gegenstück zur Gate-Probe): Worker tot →
+    `state = failed_worker`, `worker_errors = 6`, `submit()` → `[False×5]`,
+    `dropped_failed = 5`, `dropped_shutdown = 1`, keine Traceback-Zeile auf
+    stderr, nur `[observability] …`.
+
+    **B-2 Evidence-Konsistenz – behoben.** Korrigierte
+    `CONTRACT_COVERAGE.md` unter `RUN-02_2026-08-17`. Die RUN-01-Evidence und
+    die Gate-FAIL-Historie wurden **nicht** gelöscht und **nicht**
+    umgeschrieben; stattdessen tragen RUN-01-`CONTRACT_COVERAGE.md`,
+    RUN-01-`TEST_RESULTS.md` und RUN-01-`RESULT.md` je einen angehängten,
+    ausdrücklich gekennzeichneten Korrekturvermerk.
+
+    **B-3 P-8 – behoben.** `LoggingObservabilityConfig.validate()` prüft
+    `db_path` und `file_sink_dir` gegen den **aufgelösten** Pfad
+    (`os.path.realpath` + `os.path.normcase`); `..`, absolute Pfade
+    außerhalb, relative, laufwerksrelative und UNC-Pfade werden abgelehnt.
+    Befund während der Ausführung: `app.py::main()` ruft **kein**
+    `AppConfig.validate()`, weshalb `ObservabilityManager._resolve_profile_path()`
+    die Prüfung zur Laufzeit wiederholt — ein abgelehnter Pfad wird nicht
+    akzeptiert, benutzt wird der eingefrorene Standardort plus eine
+    ratenbegrenzte stderr-Zeile. 23 Tests inkl. des im Gate genannten
+    `C:\ProgramData\...`-Falls.
+
+    **W-1 bis W-7 entschieden:** W-1 FIXED (Sink läuft unabhängig vom
+    Store-Ergebnis; Reihenfolge Store→Sink nach `§11.1` unverändert),
+    W-2 FIXED (`logging.retention_pressure` als kanonischer Record,
+    `performance`/`WARNING`/`is_internal`, flankengesteuert, `§12.4`/`§5.6`/
+    FD-D8), W-3 NOT A DEFECT (Zählersatz `ARCH §7.3` eingefroren, keine
+    Normzeile verlangt ein Zählen; Lücke ausdrücklich benannt), W-4 FIXED
+    (`SQLiteLogStore.probe_write()` als leerer Testschreibvorgang nach der
+    60-s-Pause), W-5 FIXED (`DISABLED` bei `enabled=False`), W-6 DEFERRED
+    nach OBS-050 (kein Qt-Aufrufer in OBS-030; Auflage O-03 notiert),
+    W-7 FIXED (PRAGMA-Reihenfolge nach `§5.2`, Retentionstakt nach
+    *geschriebenen* Records, `stop()` ohne Start zählt Queue-Reste).
+
+    **DECISION REQUIRED `DR-OBS-030-01`:** Der Zähler `dropped_failed`
+    erweitert `ARCH §7.3` und `CONTRACTS §11.2` additiv (letztes
+    Snapshot-Feld mit Default). Grund: `ARCH §8.3` verlangt „verwerfen **und
+    zählen**", der eingefrorene Zählersatz kennt dafür keinen Zähler, und
+    eine Abbildung auf `dropped_watermark`/`dropped_queue_full` hätte den
+    Record `logging.records_dropped` verfälscht. Offen ausgewiesen und in
+    `00_NORMATIV/LOGGING_DECISIONS_FREEZE_V1.md` (neuer Abschnitt 11)
+    nachgetragen — keine stille Planänderung.
+
+    **Tests:** 47 neue Tests in drei Dateien
+    (`test_obs030_worker_fault_injection.py` 6,
+    `test_obs030_path_boundaries.py` 23, `test_obs030_gate_corrections.py`
+    18). `-k obs030`: 129/129 grün unter `pytest` **und** `unittest`.
+    `-k "obs010 or obs020 or obs030"`: 331 grün. Volle Client-Suite:
+    843 passed / 1 Fehlschlag (`pytest`), `unittest discover` 844 Ran /
+    1 error. `git diff --check` leer. Der eine Fehlschlag ist der
+    vorbestehende, umgebungsbedingte `lefx.interfaces`-Fehler
+    (`core/led_controller.py` außerhalb des Diffs, erneut verifiziert). Der
+    vom Gate benannte intermittierende
+    `test_core_bridge`-Befund trat nicht auf (fünf isolierte Läufe grün),
+    bleibt vorbestehend und wurde bewusst nicht repariert.
+
+    **Scope:** Geändert wurden `core/observability/{worker,storage/sqlite,
+    manager,health,ingress}.py` und `core/config.py`.
+    `core/observability/ingress.py` ist die einzige Datei außerhalb des
+    RUN-01-Diffs; zwingender Grund ist dieselbe Zeile `ARCH §8.3`, die B-1
+    einfordert („verwerfen **und zählen**"). Genau ein Test aus RUN-01 wurde
+    geändert (`test_obs030_config.py`: das Pfadliteral `C:/tmp/obs-sink`
+    widersprach P-8 direkt); kein Test außerhalb von `tests/test_obs030_*.py`
+    wurde angefasst. Kein OBS-040, kein OBS-050, kein Refactoring ohne
+    Gate-Bezug, kein Cross-Workstream-Diff.
+
+    **Ablage-Auffälligkeit:** `30_AUSFUEHRUNG/LOGGING_V1_CHECKLISTE.md` war
+    im Arbeitsbaum gelöscht, während im nicht versionierten
+    `30_AUSFUEHRUNG/LOGGING_V1_PROMPT_PIPELINE_V2/` eine leere Zweitfassung
+    liegt. Der kanonische Pfad wurde mit dem bisherigen Inhalt als Textdatei
+    wiederhergestellt und fortgeschrieben (kein `git reset`, kein
+    `git clean`); die Zweitfassung blieb unangetastet. Ein bewusster Umzug
+    ist offen.
+
+    Kein Commit, kein Push, kein Merge, kein Rebase, kein Tag, kein PR.
+  - Wichtigste Artefakte:
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/runs/RUN-OBS-030-02_2026-08-17/`
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/40_EVIDENCE/OBS-030/RUN-02_2026-08-17/`
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/00_NORMATIV/LOGGING_DECISIONS_FREEZE_V1.md` (Abschnitt 11, `DR-OBS-030-01`, offen)
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/LOGGING_V1_CHECKLISTE.md` (OBS-030 Gate Review weiterhin **nicht** abgehakt)
+  - Nächster Schritt: erneutes unabhängiges OBS-030 Gate Review in frischer
+    Session. OBS-040 darf nicht beginnen.
+
+- 17.08.2026, OBS-030 Cleanup des Korrekturlaufs, `Prompts/OBS-030_FIX_RUN_II.md`
+  - Workstream: OBS (Logging / Observability), Work Package: OBS-030 – Worker,
+    SQLite-Store, Retention & JSONL-Sink
+  - Run: `RUN-OBS-030-02_2026-08-17` (derselbe Run, nachgelagerter Cleanup)
+  - Ergebnis / Gate: **OBS-030 CLEANUP COMPLETED – READY FOR INDEPENDENT
+    RE-REVIEW** (kein Gate-PASS; der Gate-Punkt bleibt offen und ist nicht
+    abgehakt)
+  - Beschreibung:
+    Eng begrenzte Rücknahme zweier Änderungen des Korrekturlaufs, die ich in
+    der Stellungnahme zu den drei Prüfproblemen selbst als nicht eindeutig
+    autorisiert bzw. als echte Contract-Erweiterung eingeordnet hatte. **Kein
+    neuer Implementierungslauf, keine neue Architekturarbeit.**
+
+    **Vorab nachgeholte Pflichtlektüre.** Der Korrekturlauf hatte
+    `ARBEITSDATEIEN/README.md`, `ARBEITSDATEIEN/AGENTS.md`,
+    `00_STEUERUNG/MASTERPLAN.md`, `00_STEUERUNG/ARBEITSPROZESS.md` und
+    `10_AKTUELL/LOGGING_OBSERVABILITY/AGENTS.md` ausgelassen; sie sind vor
+    diesem Cleanup vollständig gelesen worden (`START_HIER.md` existiert
+    nicht; an seiner Stelle das Themen-`README.md`). Zwei Stellen sind
+    unmittelbar einschlägig: die Scope-Regel des Themen-`AGENTS.md` („Neue
+    Funde nicht automatisch reparieren. Fund → dokumentieren → Blocker?")
+    und die Autoritätshierarchie mit `00_NORMATIV/` an der Spitze, zusammen
+    mit `LOGGING_DECISIONS_FREEZE_V1.md §10`, dessen `DECISION
+    REQUIRED`-Verfahren mit **`anhalten`** beginnt.
+
+    **Korrektur 1 – `dropped_failed` vollständig zurückgenommen.** Entfernt
+    aus `LoggingHealthSnapshot` (Feld), `LoggingInternalHealth`
+    (Initialisierung, `record_dropped_failed()`, `snapshot()`-Argument) und
+    aus `ObservabilityIngress.submit()`. `core/observability/ingress.py` ist
+    damit wieder byte-identisch zu `HEAD` und aus dem Diff heraus;
+    `core/observability/health.py` steht wieder auf dem vom Gate-Review
+    festgehaltenen RUN-01-Stand `+21/-2`. Im Fault-Injection-Test wurde die
+    Assertion auf `dropped_failed` durch die Prüfung ersetzt, dass
+    abgewiesene Records den Queue-Füllstand nicht verändern; das Probeskript
+    und die betroffenen Evidence-Aussagen sind entsprechend angepasst.
+    **Kein Ersatzzähler**, und **keine** Abbildung auf `dropped_watermark`,
+    `dropped_queue_full` oder `dropped_shutdown`.
+
+    **Korrektur 2 – `DR-OBS-030-01` aus der Freeze-Datei entfernt.** Der vom
+    Korrekturlauf angehängte Abschnitt 11 in
+    `00_NORMATIV/LOGGING_DECISIONS_FREEZE_V1.md` wurde vollständig entfernt;
+    die Datei ist byte-identisch zum Stand vor `RUN-OBS-030-02`
+    (`git diff`/`git status` für `00_NORMATIV/` leer). Umgesetzt als reine
+    Textkürzung — kein `git reset`, kein `git checkout`, kein `git clean`,
+    keine History-Aktion. Bestehende Entscheidungen der Abschnitte 1–10
+    unverändert. **Damit verändert dieser Run kein normatives Dokument.**
+
+    **Der Entscheidungsbedarf bleibt bestehen und wird nicht entschieden.**
+    `40_EVIDENCE/OBS-030/RUN-02_2026-08-17/DECISION_REQUIRED.md` ist neu
+    gefasst als offene Entscheidung mit Ausgangsproblem, der maßgeblichen
+    Formulierung aus `ARCH §8.3` („nur verwerfen und zählen"), dem Konflikt
+    mit dem eingefrorenen Zählersatz `ARCH §7.3` / `CONTRACTS §11.2`, beiden
+    auslegbaren Lesarten, dem ausdrücklichen Hinweis, dass `dropped_failed`
+    **nicht** Bestandteil des finalen Implementierungsstands ist, und dem
+    Status „Entscheidung durch unabhängige Prüf-/Entscheidungsinstanz
+    ausstehend".
+
+    **B-1 bleibt vollständig bestehen.** Laufzeitprobe nach dem Cleanup:
+    Worker tot → `state = failed_worker`, `worker_errors = 6`,
+    `is_failed() = True`, `submit()` → `[False×5]`, Queue-Füllstand durch die
+    abgewiesenen Submits unverändert, bereits eingereihter Record als
+    `dropped_shutdown = 1` gezählt, keine Traceback-Zeile auf stderr (nur
+    `[observability] …`), kein Observability-Thread übrig. Ebenso unverändert:
+    B-3/P-8, W-1 (Sink-Unabhängigkeit), W-2
+    (`logging.retention_pressure`), W-4 (`probe_write`), W-5 (`DISABLED`),
+    W-7a/b/c.
+
+    **Tests nach dem Cleanup:** Fault-Injection 6/6, `-k obs030` 129/129
+    (`pytest` **und** `unittest`), `obs010+020+030` 331, volle Client-Suite
+    843 passed / 1 vorbestehender `lefx.interfaces`-Fehlschlag außerhalb des
+    Diffs, `unittest discover` 844 Ran / 1 error, `test_core_bridge` 3×
+    grün, `git diff --check` leer. Die Testanzahl ist unverändert — es wurde
+    kein Test entfernt, nur eine Assertion ersetzt.
+
+    **Nicht angefasst:** die nachträglichen Korrekturvermerke in der
+    RUN-01-Evidence (laut Cleanup-Auftrag ausdrücklich Gegenstand des
+    unabhängigen Gate-Reviews), die historische Gate-FAIL-Evidence, die
+    fachlichen B-1-/B-3-/W-Korrekturen und der bestehende RUN-02-Eintrag
+    dieses Verlaufs (append-only).
+
+    Zusätzlich aus der nachgeholten Pflichtlektüre umgesetzt: `RUN_REPORT.md`
+    des Runs folgt jetzt der in `10_AKTUELL/LOGGING_OBSERVABILITY/AGENTS.md`
+    vorgeschriebenen Gliederung (Run-ID … Gate-Empfehlung, nächster Schritt);
+    der fachliche Inhalt ist derselbe.
+
+    Kein Commit, kein Push, kein Merge, kein Rebase, kein Tag, kein PR.
+  - Wichtigste Artefakte:
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/runs/RUN-OBS-030-02_2026-08-17/RUN_LOG.md` (Abschnitt 8: Cleanup)
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/40_EVIDENCE/OBS-030/RUN-02_2026-08-17/DECISION_REQUIRED.md` (offene Entscheidung)
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/00_NORMATIV/LOGGING_DECISIONS_FREEZE_V1.md` (**unverändert**, Nachtrag entfernt)
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/LOGGING_V1_CHECKLISTE.md` (OBS-030 Gate Review weiterhin **nicht** abgehakt)
+  - Nächster Schritt: erneutes unabhängiges OBS-030 Gate Review in frischer
+    Session; dort auch über die offene Auslegungsfrage zu `ARCH §8.3`
+    entscheiden. OBS-040 darf nicht beginnen.
+
+- 17.08.2026, OBS-030 Gate Review II, `Prompts/OBS-030_GATE_REVIEW_II.md`
+  - Workstream: OBS (Logging / Observability), Work Package: OBS-030 – Worker,
+    SQLite-Store, Retention & JSONL-Sink
+  - Ergebnis / Gate: **OBS-030 GATE PASS – OBS-040 MAY PROCEED**
+  - Beschreibung:
+    Zweiter unabhängiger Review in frischer Session über den gesamten
+    OBS-030-Endstand seit dem letzten freigegebenen Commit `b363346` — also
+    RUN-01, Gate-FAIL, Korrekturlauf `RUN-OBS-030-02` und Cleanup zusammen,
+    nicht nur den letzten Diff. Geprüft wurde ausschließlich der tatsächliche
+    Repositoryzustand: Code, `git diff`/`git status`, eigene Testläufe mit
+    beiden Runnern, eigene Fault-Injection- und Laufzeitproben sowie ein
+    Vergleichslauf gegen einen aus `b363346` frisch ausgepackten Baum. Die
+    Abschluss-, Korrektur- und Cleanup-Berichte dienten als Hinweis, nicht
+    als Nachweis.
+
+    **B-1 geschlossen.** Eigene Fault-Injection: eine injizierte Ausnahme im
+    Schleifenrumpf → Worker lebt, `worker_errors = 1`, Schleife verarbeitet
+    weiter; vier aufeinanderfolgende Fehler mit anschließendem Erfolg →
+    weiterhin `ok`; dauerhaft werfende Schleife → `failed_worker`,
+    `worker_errors = 6`, `submit()` liefert `[False×5]`, Queue-Reste als
+    `dropped_shutdown = 5` gezählt, `store.close()`/`sink.close()` gelaufen,
+    kein Observability-Thread übrig und **kein** `Traceback` auf stderr,
+    ausschließlich `[observability] …`-Zeilen. Ebenfalls geprüft:
+    `_prepare_record`-Austrittspfad, `qsize`-, `run_retention`- und
+    `store.open()`-Ausnahmen, `stop()` auf nie gestartetem Worker (7 von 7
+    Records gezählt).
+
+    **Schwelle `WORKER_FAILURE_THRESHOLD = 5` ausdrücklich geprüft und als
+    normativ gedeckt begründet** — nicht wegen vorhandener Tests: `ARCH §8.3`
+    regelt nur, *was* bei einem Schleifenabbruch geschieht, nicht *wann*;
+    dieselbe Zeile liefert die Prämisse („ein Worker, der zweimal stirbt,
+    stirbt beim dritten Mal auch"); die beobachtbare Semantik bleibt exakt
+    die eingefrorene (`FAILED_WORKER`, kein Neustart, `FAILED`-Zweig aus
+    `ARCH §5`); es entsteht kein Zähler, kein Zustand, kein Konfigfeld und
+    keine DDL-Änderung.
+
+    **B-2 geschlossen.** Alle prüfbaren Zahlen der RUN-02-Evidence wurden
+    eigenständig reproduziert. Die Gate-FAIL-Evidence ist vollständig
+    unverändert; kein Befund gelöscht oder verschleiert.
+
+    **B-3 geschlossen.** P-8 gegen den real aufgelösten Profilpfad
+    (`C:\Users\marco`) geprüft, für `db_path` **und** `file_sink_dir`, an der
+    Config-Grenze **und** im produktiven Managerpfad: gültiger Profilpfad,
+    absoluter Fremdpfad, `..`-Escape, Fremdprofil (inkl. Präfixfalle),
+    Windows-Laufwerkspfad, UNC, laufwerksrelativ, relativ, leer sowie
+    Separator-/Groß-Klein-/Doppelseparator-Normalisierung. Feindliche
+    Konfiguration landet im eingefrorenen Standardort; `C:\ProgramData\…`
+    wird nicht angelegt. P-9 belegt (`-wal`/`-shm` im selben Verzeichnis).
+
+    **W-1 bis W-7 unabhängig nachgeprüft.** W-1: die Entkopplung von Sink und
+    Store ist vertragstreu (`CONTRACTS §11.1` fixiert eine Reihenfolge, keine
+    Bedingung; `O-05`); gemessen 20/20 Sinkzeilen bei degradiertem Store,
+    Reihenfolge `['store', 'sink']`; die Abweisung bei `FAILED_STORE` ist
+    durch das eingefrorene Komponentenbild `ARCH §5` gedeckt. W-2:
+    `logging.retention_pressure` Feld für Feld aus der SQLite gelesen
+    (Channel `performance`, Level `WARNING`, `observability.worker`,
+    `is_internal`, flankengesteuert — bei 2600 Records genau ein Record).
+    W-3: Lücke bestätigt und benannt, **kein** neuer Zähler verlangt.
+    W-4: `probe_write()` kostet beim Resume 0 `write_batch`-Aufrufe.
+    W-5: `disabled` bei `enabled=False`, `ok` bei `store_enabled=False`.
+    W-6: zu Recht OBS-050. W-7a/b/c nachgemessen.
+
+    **Entscheidung zu `ARCH §8.3` „nur verwerfen und zählen": Variante 1.**
+    Die Frage ist aus dem bestehenden Freeze lösbar; ein neuer Zähler ist
+    nicht erforderlich. Tragende Normstellen: `ARCH §5` friert die
+    Ingressreihenfolge wörtlich ein und markiert das Zählen ausschließlich am
+    Queue-voll-Schritt, während der `FAILED`-Zweig ein reines `return False`
+    ist; `§8.3` definiert nirgends Zähler, sondern nennt sie beim Namen, wo
+    es sie meint (`worker_errors++` in derselben Zeile, `dropped_shutdown`,
+    `malformed++`) und kann daher gegen die als „eingefroren" überschriebene
+    Liste in `§7.3` keinen neuen erzeugen; `§8.5 GRENZE 3` benennt den
+    Totalverlust nach einem Workerausfall ausdrücklich als
+    Architektureigenschaft und „keinen Mangel" und verweist auf den
+    RotatingFileHandler als Rückfallebene. Was `§8.3` an Zählung nennt,
+    geschieht nachweislich. **Kein Contract-Widerspruch, kein
+    DECISION-REQUIRED-Bedarf für die Abnahme; der Reviewer hat keinen Zähler
+    implementiert und keine Freeze-Datei angefasst.** Eine spätere
+    autorisierte Entscheidung zugunsten der Gegenlesart bliebe möglich und
+    gehört sinnvoll mit W-3 zu OBS-060.
+
+    **Freeze-Integrität:** `git diff --stat HEAD -- 00_NORMATIV/` ist leer;
+    alle vier Dateien sind byte-identisch zu `b363346`. `DR-OBS-030-01` kommt
+    in `00_NORMATIV/` nirgends vor. `LoggingHealthSnapshot` hat wieder exakt
+    die 16 Felder aus `CONTRACTS §11.2`, `LoggingObservabilityConfig` exakt
+    die 14 Schlüssel aus `§10.1`, die DDL exakt `§5.2`; `ingress.py` ist
+    unverändert gegenüber `HEAD`; kein `dropped_failed` im Repository.
+
+    **Historische RUN-01-Evidence:** transparente, datierte und abgesetzte
+    Korrekturvermerke; die beanstandeten Originalaussagen stehen wörtlich
+    weiterhin da. Kein materielles Evidence-Problem.
+
+    **Teststand:** `-k obs030` 129 passed (`pytest`) und `Ran 129, OK`
+    (`unittest`), `obs010+020+030` 331 passed, volle Suite 843 passed /
+    1 failed, `unittest discover` 844 Ran / 1 error, `git diff --check` leer.
+    Der eine Fehlschlag wurde **gemessen** als vorbestehend nachgewiesen: im
+    frisch aus `b363346` ausgepackten Baum 714 passed / derselbe eine
+    `lefx.interfaces`-Fehlschlag; die Differenz 843 − 714 = 129 entspricht
+    exakt den neuen OBS-030-Tests. Die früher beobachtete Flakiness in
+    `test_core_bridge.py` trat in sechs isolierten Läufen und in keinem
+    Volllauf auf.
+
+    Nicht-blockierende Beobachtungen N-1 bis N-5 sind im Gate-Review
+    dokumentiert (u. a. N-1: `logging.record_rejected` aus `ARCH §8.3` /
+    `CONTRACTS §12.4` existiert nirgends im Code — Auslöser liegt im
+    OBS-010/020-Normalizerpfad, nicht im OBS-030-Scope; für OBS-040/060).
+
+    Genau ein lokaler Commit für den geprüften OBS-030-Endstand.
+    Kein Push, kein Merge, kein Rebase, kein Tag, kein PR.
+  - Wichtigste Artefakte:
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/40_EVIDENCE/OBS-030/GATE-REVIEW-02_2026-08-17_CLAUDE/GATE_REVIEW.md`
+    - dieselbe Ablage: `probe_gate2_b1_worker.py`, `probe_gate2_w_findings.py`, `probe_gate2_b3_paths.py`, `probe_gate2_e2e.py`, `probe_gate2_sink.py`
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/LOGGING_V1_CHECKLISTE.md` (OBS-030 Gate Review jetzt abgehakt)
+  - Nächster Schritt: OBS-040 – Server Live Adapter & Client Observation
+    Hooks (Implementierung, frische Session). Readiness geprüft: keine
+    Blocker. **OBS-040 MAY PROCEED.**

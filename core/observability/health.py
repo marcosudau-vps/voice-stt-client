@@ -208,13 +208,30 @@ class LoggingInternalHealth:
         with self._lock:
             self._dropped_queue_full += 1
 
-    def record_dropped_shutdown(self) -> None:
+    def reset_drop_counters(self) -> tuple[int, int]:
+        """Snapshot-and-reset ``dropped_watermark``/``dropped_queue_full``,
+        used by the worker's backpressure-recovery record (ARCH §7.3)."""
         with self._lock:
-            self._dropped_shutdown += 1
+            watermark, queue_full = self._dropped_watermark, self._dropped_queue_full
+            self._dropped_watermark = 0
+            self._dropped_queue_full = 0
+            return watermark, queue_full
+
+    def record_dropped_shutdown(self, count: int = 1) -> None:
+        with self._lock:
+            self._dropped_shutdown += count
 
     def record_malformed(self) -> None:
         with self._lock:
             self._malformed += 1
+
+    def record_written(self, count: int = 1) -> None:
+        with self._lock:
+            self._written += count
+
+    def record_deduplicated(self, count: int = 1) -> None:
+        with self._lock:
+            self._deduplicated += count
 
     def record_worker_error(self, code: str = "worker_error", detail: str = "") -> None:
         with self._lock:
