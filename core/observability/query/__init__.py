@@ -1,0 +1,1 @@
+"""Query layer for the observability worker stream (OBS-010)."""

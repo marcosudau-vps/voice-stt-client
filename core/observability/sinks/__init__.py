@@ -1,0 +1,1 @@
+"""Sinks for the observability worker stream (OBS-010)."""
