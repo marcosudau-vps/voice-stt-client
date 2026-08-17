@@ -39,6 +39,8 @@ from .health import (
 )
 from .ingress import Ingress, NULL_INGRESS, NullIngress, ObservabilityIngress
 from .adapters.python_logging import UnifiedLogHandler
+from .adapters.client_events import ClientEventEmitter
+from .adapters.server_live import ServerLiveAdapter
 from .query.base import (
     LogProvider,
     LogRecordView,
@@ -78,6 +80,8 @@ __all__ = [
     "NullIngress",
     "ObservabilityIngress",
     "UnifiedLogHandler",
+    "ClientEventEmitter",
+    "ServerLiveAdapter",
     "LogProvider",
     "LogRecordView",
     "ProviderState",

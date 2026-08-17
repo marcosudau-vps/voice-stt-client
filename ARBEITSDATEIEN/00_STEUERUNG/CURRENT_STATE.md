@@ -58,13 +58,108 @@
   Differenz exakt die 129 neuen Tests). Genau ein lokaler Commit fuer den
   geprueften OBS-030-Endstand erstellt; kein Push, kein Merge, kein Tag.
   Nicht-blockierende Beobachtungen N-1 bis N-5 im Gate-Review dokumentiert.
-- Naechster Schritt: **OBS-040 – Server Live Adapter & Client Observation
-  Hooks** (Implementierung, frische Session,
-  `Prompts/OBS-040_IMPLEMENTIERUNGSAUFTRAG.md`). Readiness im Gate-Review
-  geprueft: keine Blocker; der Fan-out-Hook in
-  `core/session_coordinator.py` ist genau der offene Gegenstand von OBS-040.
-  Mitzunehmen: N-1 (`logging.record_rejected` existiert nirgends im Code)
-  und N-4 (Uebergabe des Managers an `DesktopApplication`, fuer OBS-050).
+- OBS-040: **IMPLEMENTED – READY FOR REVIEW** (2026-08-17, Run
+  `RUN-OBS-040-01_2026-08-17`). Zwei neue, in `ARCH §5.1` eingefroren
+  vorgesehene Module: `core/observability/adapters/server_live.py`
+  (`ServerLiveAdapter`, faengt selbst nach `ARCH §7.3` Ebene 1 und meldet an
+  `LoggingInternalHealth`) und `core/observability/adapters/client_events.py`
+  (`ClientEventEmitter`, die eine nie werfende Grenze aller Hook-Aufrufstellen).
+  **Fan-out-Hook** in `core/session_coordinator.py` nach `CONTRACTS §7.1`
+  (`on_observation`, `_notify_observer` mit bewusst leerem `except Exception`,
+  je erste Anweisung in `_handle_event`/`_handle_control`); der Feedbackzweig
+  laeuft unveraendert ueber `on_event` weiter. **Zweiter Beobachtungspunkt**
+  (FD-R3): eine Zeile im `except`-Zweig von `EventStreamTransport.run()` →
+  `client.eventstream.protocol_error`, ohne Rohframe. **42 Recordtypen aus
+  `CONTRACTS §12`** in elf Produktdateien, umgesetzt in der `§12.6`-Reihenfolge
+  nach aufsteigendem Risiko, mit Korrelationsketten fuer Trigger, Kommandos,
+  Settings-Apply und Injection. **Gate-Befund N-1 geschlossen**:
+  `logging.record_rejected` existiert jetzt (Komponente + Ausnahmetyp, **ohne**
+  Originaldaten, Health bleibt `OK`, `malformed++`). **Hot Path** nach
+  `ARCH §8.6`: nur `int`-Zaehler (Quelltextnachweis ueber alle neun genannten
+  Funktionen), das 5-Sekunden-Aggregat `client.audio.stream_stats` erzeugt der
+  **Worker**, der die Zaehler ueber eine read-only-Registry am Ingress liest —
+  der einzige Weg, der `§8.6` und die Importrichtung `§5.2` gleichzeitig haelt.
+  **Der wichtigste Nachweis (N-07) ist erbracht**: ein werfender Beobachter
+  veraendert weder den Rueckgabewert von `_handle_event` noch den Cursorstand,
+  gemessen mit dem **echten** `EventProtocolProcessor` und dem **echten**
+  `EventCursorStore` auf einer temporaeren Datei (kein Double).
+  Neun Entscheidungen, alle aus dem bestehenden Freeze auflösbar, **kein
+  `DECISION REQUIRED`**, **kein neuer Zaehler** in `LoggingHealthSnapshot` (der
+  Zaehlersatz `ARCH §7.3` ist jetzt durch einen Contract-Test fixiert) und
+  **kein normatives Dokument veraendert**. Teststand: 115 neue Tests,
+  `-k obs040` 115/115 gruen unter `pytest` **und** `unittest`,
+  OBS-010+020+030+040 446 gruen, volle Suite 958 passed / 1 vorbestehender,
+  umgebungsbedingter Fehlschlag (`lefx.interfaces`, ausserhalb des Diffs);
+  Differenz zur Baseline exakt die 115 neuen Tests. **Kein bestehender Test
+  geaendert.** `git diff --check` leer, 16 Dateien +1324/−57, kein
+  Cross-Workstream-Diff. Ende-zu-Ende-Diagnoseskript mit echtem Manager und
+  echtem SQLite-Store: P-1 bis P-7 alle PASS (u. a. 1000 Audiopakete → **keine**
+  Zeile, Worker-Aggregat → eine Zeile; in **keiner** Zeile das Session-Log-Token,
+  obwohl der `log.hello`-Payload es enthielt). **Kein Gate-PASS in diesem
+  Run** — laut Work Package erfordert das Gate einen separaten Review. Details:
+  `30_AUSFUEHRUNG/runs/RUN-OBS-040-01_2026-08-17/` und
+  `40_EVIDENCE/OBS-040/RUN-01_2026-08-17/`.
+- OBS-040: **GATE PASS – OBS-050 MAY PROCEED** (2026-08-17, unabhaengiger
+  Review in frischer Session,
+  `40_EVIDENCE/OBS-040/GATE-REVIEW-01_2026-08-17_CLAUDE/GATE_REVIEW.md`).
+  Geprueft wurde ausschliesslich der tatsaechliche Repositoryzustand:
+  Produktcode, `git diff`/`git status`, eigene Testlaeufe mit beiden Runnern,
+  ein Vergleichslauf gegen einen frisch aus `cb0b81f` ausgepackten Baum und
+  zwei eigene Laufzeitproben — nicht die Abschlussberichte. **N-07 wurde eine
+  Ebene tiefer nachgemessen** als im Implementierungslauf, naemlich am echten
+  `EventStreamTransport._dispatch`, also an der Stelle, die `confirm_event`/
+  `reject_event` besitzt: ein werfender Beobachter laesst Rueckgabewert,
+  Bestaetigung und Resume-Cursor unveraendert (5/5, keine Ausnahme), der
+  Feedbackzweig laeuft weiter, und `asyncio.CancelledError` kommt durch.
+  Eigenstaendig belegt: unabhaengiges Fan-out (der Beobachter sieht auch das
+  vom Runtimepfad verworfene Event, das Duplikat und die Controlframes),
+  Serverabbildung Feld fuer Feld nach `CONTRACTS §3.2` inkl. `generation` aus
+  dem `SessionContext`, `raw` als Identitaetsreferenz (`ARCH §8.2`),
+  Replayidentitaet und Dedupe im echten SQLite-Store („die erste Fassung
+  gewinnt"), **kein** Session-Log-Token in der Historie trotz zweier Tokens im
+  `log.hello`-Payload, 1000 Hot-Path-Inkremente → 0 Records bei genau einem
+  Worker-Aggregat, und ein Ingress, dessen saemtliche Methoden werfen, stoert
+  den echten Dispatch nicht. Die sechs Auslegungen A-1 bis A-6 und die drei
+  Signaturinspektionen tragen; der `session_coordinator.py`-Diff aendert zwei
+  weitere bestehende Zeilen als kleinstmoegliche, in `DIFF_SUMMARY.md`
+  Abschnitt 4 begruendete Abweichung. Kein OBS-050/OBS-100+-Vorgriff, kein
+  neues Konfigfeld, `00_NORMATIV/` byte-identisch zu `cb0b81f`,
+  `git diff --check` leer, kein bestehender Test geaendert. Teststand: 115
+  neue Tests, `-k obs040` 115/115 unter `pytest` **und** `unittest`, volle
+  Suite 958 passed / 1 vorbestehender, umgebungsbedingter Fehlschlag
+  (`lefx.interfaces`), dessen Vorbestand gegen den sauberen `cb0b81f`-Baum
+  nachgewiesen ist (843 passed / 1 identischer Fehlschlag; Differenz exakt die
+  115 neuen Tests). **Befund F-1:** die Fortschrittscheckliste enthielt den
+  Gate-Haken und einen Gate-PASS-Absatz samt der falschen Behauptung eines
+  bereits erstellten Commits schon **vor** diesem Review; `git log` widerlegt
+  das (HEAD `cb0b81f`), Gate-Evidence und Steuerungseintraege fehlten. Der
+  Eintrag stammt nicht aus `RUN-OBS-040-01` und ist im Gate korrigiert worden.
+  Sieben nicht-blockierende Beobachtungen N-1 bis N-7 im Gate-Review
+  dokumentiert. **Der lokale OBS-040-Checkpoint-Commit ist nach ausdruecklicher
+  Freigabe erstellt** — genau einer, auf `feat/einheitliche-triggerarchitektur`,
+  mit dem gate-geprueften Produktstand, den OBS-040-Tests, den RUN- und
+  Evidence-Unterlagen und dem Gate-Review samt Probeskripten. Die bewusst
+  unversionierten Prompt- und Pipeline-Dateien unter `30_AUSFUEHRUNG/` sind
+  **nicht** aufgenommen worden. **Kein Push, kein Merge, kein Rebase, kein Tag,
+  kein PR.**
+- Naechster Schritt: **OBS-050 – Local Query, Log View & Settings**
+  (Implementierung, frische Session,
+  `Prompts/OBS-050_IMPLEMENTIERUNGSAUFTRAG.md`). Readiness im OBS-040-Gate
+  geprueft: **keine Blocker**. Vorhanden sind `query/base.py` mit den
+  eingefrorenen Vertraegen, `PRAGMA query_only = ON`, `SQLiteLogStore.clear()`
+  /`ObservabilityManager.clear_history()` und `LoggingObservabilityConfig`
+  inkl. `_from_dict`-Sonderbehandlung; offen und OBS-050-Scope sind
+  `query/local.py`, `query/service.py`, `ui/logs/**`, die Settings-Eintraege
+  nach `CONTRACTS §10.3` und `apply_config` nach `§10.4`. Zwei Hinweise:
+  `apply_runtime_config` hat jetzt die Signatur
+  `(candidate, *, correlation_id=None)`, und die Signaturinspektionen in
+  `ui/application.py::_request_runtime_apply` und
+  `app._call_with_optional_observability` sind bei Signaturaenderungen
+  mitzupruefen.
+  Mitzunehmen fuer spaeter: N-4 (Uebergabe des **Managers** an
+  `DesktopApplication`) und `apply_config` aus `CONTRACTS §10.4` fuer OBS-050;
+  N-2, N-3 und die W-3-Luecke sowie N-1 bis N-7 des OBS-040-Gates fuer
+  OBS-060.
 
 ## Einheitliche Triggerarchitektur
 
@@ -268,4 +363,28 @@
   kanonischer Pfad wiederhergestellt) sowie die nachträglichen
   Korrekturvermerke in der RUN-01-Evidence, die laut Cleanup-Auftrag
   unverändert bleiben und dem Gate vorliegen.
+- OBS-040 Implementierung abgeschlossen (2026-08-17, Run
+  `RUN-OBS-040-01_2026-08-17`): siehe den OBS-040-Eintrag im Abschnitt
+  „Logging / Observability" oben. Neu sind
+  `core/observability/adapters/server_live.py` und
+  `core/observability/adapters/client_events.py`; additiv erweitert wurden
+  `core/observability/ingress.py` (`emit_record_rejected` als Schliessung von
+  Befund N-1, Aggregatquellen-Registry nach `ARCH §8.6`),
+  `core/observability/worker.py` (`_emit_aggregates_if_due` erzeugt
+  `client.audio.stream_stats`), `core/observability/adapters/python_logging.py`
+  (`_handle_exception`), `core/observability/__init__.py` (zwei Re-Exports),
+  `core/session_coordinator.py` (Fan-out-Hook, `client.eventstream.state_changed`,
+  Default-Transport-Factory nach dem Muster aus `CONTRACTS §6`),
+  `core/event_stream.py` (zweiter Beobachtungspunkt), `core/stt_session.py`,
+  `core/controller.py`, `core/audio_capture.py`, `core/text_injector.py`,
+  `ui/application.py`, `ui/core_bridge.py`, `ui/hotkeys.py`,
+  `ui/led_feedback.py`, `ui/settings_dialog.py` und `app.py` (Verdrahtung: der
+  **Ingress** erreicht die UI, der **Manager** bleibt nach `ARCH §6.2(b)` in
+  `app.py::main()`). `core/config.py`, `core/logging_setup.py`,
+  `core/event_protocol.py`, `core/event_models.py`, `core/event_normalizer.py`,
+  `core/feedback_reducer.py`, `core/history.py` und `core/led_controller.py`
+  sind unveraendert. 115 neue Tests in sechs Dateien, kein bestehender Test
+  geaendert. Evidence:
+  `40_EVIDENCE/OBS-040/RUN-01_2026-08-17/`. **Kein Gate-PASS in diesem Run.**
+
 **Stand:** 2026-08-17

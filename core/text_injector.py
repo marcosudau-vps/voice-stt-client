@@ -23,8 +23,22 @@ from typing import List, Optional, Tuple
 
 from core.config import AppConfig
 from core.history import TranscriptHistoryManager, HistoryEntry
+from core.observability.adapters.client_events import ClientEventEmitter
+from core.observability.ingress import NULL_INGRESS
 
 logger = logging.getLogger("text")
+
+QUEUE_STATE_INTERVAL_S = 5.0
+"""Minimum spacing between two ``client.queue.state`` records.
+
+CONTRACTS §12.4 asks for this record "periodisch" and "aggregiert". It is
+emitted from the injection worker after a job and at every state change, rate
+limited to this interval, rather than from a timer: the worker blocks in
+``queue.get()`` with no timeout, and giving it one purely so logging could tick
+would change the control flow of a product path for a diagnostic aggregate.
+Between two jobs the queue depth does not change, so a timer would add records
+without adding information.
+"""
 
 # -------------------------------------------------------------------
 # SendInput Ctypes Structures (Win32)
@@ -388,11 +402,14 @@ class TextInjectionQueue:
         self,
         config: AppConfig,
         history_manager: TranscriptHistoryManager,
-        backend: WindowsInjectionBackend
+        backend: WindowsInjectionBackend,
+        *,
+        observability=NULL_INGRESS,
     ) -> None:
         self.config = config
         self.history_manager = history_manager
         self.backend = backend
+        self._observe = ClientEventEmitter(observability, component="text")
 
         self._queue: queue.Queue[Optional[InjectionJob]] = queue.Queue()
         self._worker_thread: Optional[threading.Thread] = None
@@ -400,6 +417,13 @@ class TextInjectionQueue:
         self._lock = threading.Lock()
         self._init_done_event = threading.Event()
         self._init_error: Optional[Exception] = None
+
+        # CONTRACTS §12.4 aggregate counters. Plain ints, only ever written on
+        # the worker thread; ``enqueue`` runs on the core loop and touches none
+        # of them.
+        self._jobs_processed = 0
+        self._jobs_failed = 0
+        self._last_queue_state_at = 0.0
 
     def start(self) -> None:
         """Starts the background worker thread if it is not already running."""
@@ -494,6 +518,31 @@ class TextInjectionQueue:
         with self._queue.mutex:
             return sum(1 for item in self._queue.queue if item is not None)
 
+    def _observe_queue_state(self, phase: str, *, force: bool = False) -> None:
+        """CONTRACTS §12.4: client.queue.state, channel ``performance``.
+
+        Aggregated numbers only, never a job or a text. ``force`` is used for
+        the state changes (worker running / worker stopped), which must be
+        recorded whether or not the interval has elapsed.
+        """
+        now = time.monotonic()
+        if not force and now - self._last_queue_state_at < QUEUE_STATE_INTERVAL_S:
+            return
+        self._last_queue_state_at = now
+        with self._lock:
+            state = self._state
+        self._observe.performance(
+            "client.queue.state",
+            level="DEBUG",
+            details={
+                "phase": phase,
+                "state": state.value,
+                "queue_size": self.queue_size(),
+                "jobs_processed": self._jobs_processed,
+                "jobs_failed": self._jobs_failed,
+            },
+        )
+
     def _worker_loop(self) -> None:
         logger.info("Worker loop started.")
         init_ok = False
@@ -516,6 +565,7 @@ class TextInjectionQueue:
 
         if init_ok:
             self._init_done_event.set()
+            self._observe_queue_state("worker_running", force=True)
         else:
             try:
                 self.backend.destroy_owner_window()
@@ -570,6 +620,13 @@ class TextInjectionQueue:
                         diagnostics.get("sent_events")
                     )
 
+                    self._jobs_processed += 1
+                    if status == "failed":
+                        # "skipped" is a decision, not a fault (empty text, no
+                        # foreground window); only "failed" counts as failed.
+                        self._jobs_failed += 1
+                    self._observe_queue_state("after_job")
+
                 except Exception as e:
                     logger.exception("Fatal unexpected exception in worker loop item: %s", e)
                 finally:
@@ -582,6 +639,7 @@ class TextInjectionQueue:
             with self._lock:
                 self._state = QueueState.STOPPED
             logger.info("Worker loop finished and state set to STOPPED.")
+            self._observe_queue_state("worker_stopped", force=True)
 
     def _process_job(self, job: InjectionJob) -> Tuple[str, Optional[str], dict]:
         diagnostics = {

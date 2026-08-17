@@ -9,16 +9,35 @@ no-op and its module constant ``NULL_INGRESS``.
 ``submit`` is the non-blocking, non-throwing boundary every producer thread
 crosses (ARCH §5, §6.3): order is Health ``FAILED``? -> enabled/level? ->
 watermark rule (ARCH §7.1/§7.2) -> ``put_nowait``.
+
+OBS-040 adds two things, both additive and both required by the frozen
+contracts:
+
+* ``emit_record_rejected`` — the substitute record ``logging.record_rejected``
+  that ``ARCH §8.3`` (row *"Normalizer-Ausnahme"*) and ``CONTRACTS §12.4``
+  demand and that no OBS-010..030 path produced (gate observation N-1).
+* the aggregate-source registry — ``ARCH §8.6`` requires that the hot path
+  only increment plain ``int`` attributes on the producer and that *"der
+  Aggregatrecord entsteht im WORKER, der die Zaehler LIEST"*. The worker lives
+  in the observability domain and may not import ``core.audio_capture``
+  (§5.2), so the producers register a **read-only** callable here and the
+  worker reads through it. No counter is added to ``LoggingHealthSnapshot``
+  (§7.3 is frozen); these are the producer's own counters, not logging's.
 """
 
 from __future__ import annotations
 
 import queue
-from typing import Any, List, Mapping, Optional, Protocol
+import threading
+from datetime import datetime, timezone
+from typing import Any, Callable, Dict, List, Mapping, Optional, Protocol, Tuple
+from uuid import uuid4
 
 from .health import LoggingInternalHealth
 from .models import CanonicalLogRecord, RecordPriority, level_rank
 from .normalizer import from_client_event, from_server_result
+
+AggregateSource = Callable[[], Optional[Mapping[str, Any]]]
 
 
 class Ingress(Protocol):
@@ -47,6 +66,13 @@ DEFAULT_QUEUE_SIZE = 8192
 WATERMARK_RATIO = 0.75
 
 
+def _utc_now_iso() -> str:
+    """ISO-8601 UTC with a ``Z`` suffix and millisecond precision — the same
+    encoding the normalizer uses for ``received_at`` (CONTRACTS §1.1)."""
+    now = datetime.now(timezone.utc)
+    return now.strftime("%Y-%m-%dT%H:%M:%S") + f".{now.microsecond // 1000:03d}Z"
+
+
 class ObservabilityIngress:
     """Thread-safe ingress boundary in front of **one** bounded ``queue.Queue``
     (ARCH §7.1). ``submit`` never blocks and never raises."""
@@ -73,6 +99,11 @@ class ObservabilityIngress:
         self._store_transcription_content = store_transcription_content
         self._user_profile = user_profile
         self.health = health if health is not None else LoggingInternalHealth()
+        # ARCH §8.6: registered by producers, read by the worker. Guarded by
+        # its own lock because registration happens on the Qt/core threads
+        # while the read happens on the worker thread.
+        self._aggregate_lock = threading.Lock()
+        self._aggregate_sources: Dict[str, Tuple[Optional[str], AggregateSource]] = {}
 
     # -- read-only config, used by the future normalizer callable
     # (core/logging_setup.py) so nothing besides ``ingress``/``level`` needs
@@ -126,7 +157,12 @@ class ObservabilityIngress:
         return True
 
     def observe_server_result(self, context: Any, result: Any) -> None:
-        """The fan-out entry point of the future ``ServerLiveAdapter`` (OBS-040)."""
+        """The fan-out entry point of the ``ServerLiveAdapter`` (OBS-040).
+
+        ``raw`` is taken over as the already frozen reference the protocol
+        processor produced — not copied, not serialised, not redacted here
+        (ARCH §8.2); the worker does all three.
+        """
         if not self._enabled:
             return
         try:
@@ -138,8 +174,9 @@ class ObservabilityIngress:
                 store_transcription_content=self._store_transcription_content,
                 user_profile=self._user_profile,
             )
-        except Exception:  # noqa: BLE001 - the ingress boundary never raises
+        except Exception as exc:  # noqa: BLE001 - the ingress boundary never raises
             self.health.record_malformed()
+            self.emit_record_rejected("observability.normalizer.server", exc)
             return
         if record is None:
             return
@@ -184,15 +221,105 @@ class ObservabilityIngress:
                 correlation_id=correlation_id,
                 transcription_id=transcription_id,
             )
-        except Exception:  # noqa: BLE001 - the ingress boundary never raises
+        except Exception as exc:  # noqa: BLE001 - the ingress boundary never raises
             self.health.record_malformed()
+            self.emit_record_rejected("observability.normalizer.client", exc)
             return
         if record is None:
             return
         self.submit(record)
 
+    # -- ARCH §8.3 / CONTRACTS §12.4: logging.record_rejected -------------
+
+    def emit_record_rejected(self, component: str, exc: BaseException) -> None:
+        """One substitute record for a record that could not be normalised.
+
+        ``ARCH §8.3``, row *"Normalizer-Ausnahme"*: *"Record verworfen; **ein**
+        Ersatzrecord ``logging.record_rejected`` mit Komponente und
+        Ausnahmetyp, **ohne** Originaldaten"*, Health stays ``OK`` and
+        ``malformed`` has already been raised by the caller.
+
+        ``is_internal=True`` makes it ``HIGH`` (CONTRACTS §1.5), so the record
+        that explains a gap survives exactly the overload in which the gap
+        appears. Carries no original payload, no message and no correlation
+        field — there is nothing trustworthy left to carry, and copying from a
+        structure that just broke the normalizer is how an unredacted value
+        would escape. Never raises.
+        """
+        try:
+            record = CanonicalLogRecord(
+                record_id=uuid4().hex,
+                received_at=_utc_now_iso(),
+                producer_kind="client",
+                producer_id="voice-stt-client",
+                instance_id=self._instance_id,
+                scope="instance",
+                channel="performance",
+                level="WARNING",
+                replayed=False,
+                type="logging.record_rejected",
+                component="observability.ingress",
+                details={
+                    "component": str(component),
+                    "exception": type(exc).__name__,
+                },
+                is_internal=True,
+            )
+        except Exception:  # noqa: BLE001 - the error path itself never raises
+            return
+        try:
+            self.submit(record)
+        except Exception:  # noqa: BLE001
+            pass
+
+    # -- ARCH §8.6: hot-path counters are read here, by the worker --------
+
+    def register_aggregate_source(
+        self,
+        type: str,
+        source: Optional[AggregateSource],
+        *,
+        component: Optional[str] = None,
+    ) -> None:
+        """Register (or, with ``source=None``, remove) one counter reader.
+
+        ``source`` is called **on the worker thread** at most every
+        ``LoggingWorker.AGGREGATE_INTERVAL_S`` seconds and must only read plain
+        ``int`` attributes and return either ``None`` (nothing to report right
+        now, e.g. no active stream) or a mapping of counters. It must not
+        block and must not touch the ingress. Registration is keyed by record
+        ``type``, so a re-registration replaces its predecessor instead of
+        accumulating readers across controller lifetimes.
+        """
+        with self._aggregate_lock:
+            if source is None:
+                self._aggregate_sources.pop(type, None)
+            else:
+                self._aggregate_sources[type] = (component, source)
+
+    def unregister_aggregate_source(self, type: str) -> None:
+        self.register_aggregate_source(type, None)
+
+    def collect_aggregates(self) -> List[Tuple[str, Optional[str], Mapping[str, Any]]]:
+        """Only for the worker. Returns ``(type, component, counters)`` for
+        every source that had something to report. A raising source is skipped
+        and counted as ``malformed`` — a broken counter reader must never take
+        the worker loop down (O-05)."""
+        with self._aggregate_lock:
+            registered = list(self._aggregate_sources.items())
+        collected: List[Tuple[str, Optional[str], Mapping[str, Any]]] = []
+        for type_, (component, source) in registered:
+            try:
+                values = source()
+            except Exception:  # noqa: BLE001 - O-05 failure isolation
+                self.health.record_malformed()
+                continue
+            if isinstance(values, Mapping) and values:
+                collected.append((type_, component, values))
+        return collected
+
     def drain(self, max_items: int, timeout: float) -> List[CanonicalLogRecord]:
-        """Only for the future worker (OBS-030)."""
+        """Only for the worker (OBS-030)."""
         items: List[CanonicalLogRecord] = []
         if max_items <= 0:
             return items
@@ -240,6 +367,21 @@ class NullIngress(ObservabilityIngress):
         return None
 
     def drain(self, max_items: int, timeout: float) -> List[CanonicalLogRecord]:
+        return []
+
+    def emit_record_rejected(self, component: str, exc: BaseException) -> None:
+        return None
+
+    def register_aggregate_source(
+        self,
+        type: str,
+        source: Optional[AggregateSource],
+        *,
+        component: Optional[str] = None,
+    ) -> None:
+        return None
+
+    def collect_aggregates(self) -> List[Tuple[str, Optional[str], Mapping[str, Any]]]:
         return []
 
 

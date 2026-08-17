@@ -6,6 +6,7 @@ import asyncio
 from concurrent.futures import Future
 import logging
 import threading
+import uuid
 from typing import Callable, Optional
 
 from PySide6.QtCore import QObject, Signal
@@ -13,6 +14,8 @@ from PySide6.QtCore import QObject, Signal
 from core.config import AppConfig
 from core.controller import CommandResult, STTController
 from core.event_models import CanonicalEventType
+from core.observability.adapters.client_events import ClientEventEmitter
+from core.observability.ingress import NULL_INGRESS
 from core.reinsertion import ReinsertionResult, ReinsertionStatus
 
 logger = logging.getLogger("ui.core_bridge")
@@ -39,10 +42,20 @@ class CoreBridge(QObject):
         config: AppConfig,
         controller_factory: Optional[ControllerFactory] = None,
         parent: Optional[QObject] = None,
+        observability=NULL_INGRESS,
     ) -> None:
         super().__init__(parent)
         self.config = config
-        self._controller_factory = controller_factory or STTController
+        self._observability = observability
+        self._observe = ClientEventEmitter(observability, component="ui.core_bridge")
+        # CONTRACTS §6: the default factory carries the ingress into the
+        # controller, so ``ControllerFactory`` stays ``Callable[[AppConfig],
+        # STTController]`` and an externally supplied factory keeps being
+        # called with exactly one argument. Such a factory's controller then
+        # holds NULL_INGRESS -- which is the documented, intended outcome.
+        self._controller_factory = controller_factory or (
+            lambda cfg: STTController(cfg, observability=observability)
+        )
         self._lock = threading.Lock()
         self._thread: Optional[threading.Thread] = None
         self._loop: Optional[asyncio.AbstractEventLoop] = None
@@ -110,6 +123,12 @@ class CoreBridge(QObject):
                 self._accepting_commands = not self._stop_requested
                 worker_id = self._worker_thread_id
             self._startup_event.set()
+            # CONTRACTS §12.1: client.core.thread_started (P+S). The existing
+            # logger lines stay untouched; this adds the structured half.
+            self._observe.system(
+                "client.core.thread_started",
+                details={"thread_id": worker_id},
+            )
             self.core_started.emit(worker_id)
             self.snapshot_changed.emit(controller.get_snapshot())
 
@@ -145,6 +164,17 @@ class CoreBridge(QObject):
                 self._controller = None
                 self._worker_thread_id = None
             self._stopped_event.set()
+            # Before the signals: this is the last statement of the Core
+            # thread, and the record must exist even if a Qt slot on the other
+            # side of ``core_stopped`` throws.
+            self._observe.system(
+                "client.core.thread_stopped",
+                level="WARNING" if error_message else "INFO",
+                details={
+                    "requested": bool(self._stop_requested),
+                    "failed": bool(error_message),
+                },
+            )
             if error_message and not self._stop_requested:
                 self.fatal_error.emit(error_message)
             self.core_stopped.emit()
@@ -157,44 +187,108 @@ class CoreBridge(QObject):
                 return None, None
             return self._loop, self._controller
 
-    def _reject_command(self, name: str) -> bool:
-        self.command_completed.emit(
-            name,
-            CommandResult(
-                success=False,
-                status="core_unavailable",
-                message="Core is not accepting commands",
-            ),
+    # -- CONTRACTS §12.2: client.command.requested / .completed -----------
+    #
+    # One ``command_id`` per user command plus the derived ``correlation_id``
+    # ``"command:<command_id>"`` (§1.1: a correlation id is always
+    # "<namensraum>:<wert>"). Both records carry the same pair, which is what
+    # makes "requested but never completed" a query rather than a guess.
+
+    @staticmethod
+    def _new_command_ids() -> tuple[str, str]:
+        command_id = f"cmd-{uuid.uuid4().hex[:12]}"
+        return command_id, f"command:{command_id}"
+
+    def _observe_command_requested(
+        self, name: str, command_id: str, correlation_id: str
+    ) -> None:
+        self._observe.audit(
+            "client.command.requested",
+            details={"command": name},
+            command_id=command_id,
+            correlation_id=correlation_id,
         )
+
+    def _observe_command_completed(
+        self,
+        name: str,
+        command_id: Optional[str],
+        correlation_id: Optional[str],
+        result: object,
+    ) -> None:
+        if command_id is None or correlation_id is None:
+            return
+        status = getattr(result, "status", None)
+        status_text = getattr(status, "value", status)
+        success = getattr(result, "success", None)
+        if success is None:
+            # ReinsertionResult has no ``success``; its status enum carries it.
+            success = status_text == "queued"
+        self._observe.audit(
+            "client.command.completed",
+            level="INFO" if success else "WARNING",
+            details={
+                "command": name,
+                "status": str(status_text) if status_text is not None else None,
+                "success": bool(success),
+            },
+            command_id=command_id,
+            correlation_id=correlation_id,
+        )
+
+    def _reject_command(
+        self,
+        name: str,
+        command_id: Optional[str] = None,
+        correlation_id: Optional[str] = None,
+    ) -> bool:
+        result = CommandResult(
+            success=False,
+            status="core_unavailable",
+            message="Core is not accepting commands",
+        )
+        self._observe_command_completed(name, command_id, correlation_id, result)
+        self.command_completed.emit(name, result)
         return False
 
     def _submit_coroutine(self, name: str, method_name: str) -> bool:
+        command_id, correlation_id = self._new_command_ids()
+        self._observe_command_requested(name, command_id, correlation_id)
         loop, controller = self._get_target()
         if loop is None or controller is None or loop.is_closed():
-            return self._reject_command(name)
+            return self._reject_command(name, command_id, correlation_id)
 
         def invoke() -> None:
             try:
                 method = getattr(controller, method_name)
                 task = loop.create_task(method())
                 task.add_done_callback(
-                    lambda finished: self._finish_async_command(name, finished)
+                    lambda finished: self._finish_async_command(
+                        name, finished, command_id, correlation_id
+                    )
                 )
             except Exception as exc:
                 logger.exception("Failed to schedule Core command %s.", name)
-                self.command_completed.emit(
-                    name,
-                    CommandResult(False, "schedule_failed", str(exc)),
+                result = CommandResult(False, "schedule_failed", str(exc))
+                self._observe_command_completed(
+                    name, command_id, correlation_id, result
                 )
+                self.command_completed.emit(name, result)
 
         try:
             loop.call_soon_threadsafe(invoke)
             return True
         except RuntimeError:
             logger.info("Core loop closed while scheduling %s.", name)
-            return self._reject_command(name)
+            return self._reject_command(name, command_id, correlation_id)
 
-    def _finish_async_command(self, name: str, task: asyncio.Task) -> None:
+    def _finish_async_command(
+        self,
+        name: str,
+        task: asyncio.Task,
+        command_id: Optional[str] = None,
+        correlation_id: Optional[str] = None,
+    ) -> None:
         try:
             result = task.result()
         except asyncio.CancelledError:
@@ -202,6 +296,7 @@ class CoreBridge(QObject):
         except Exception as exc:
             logger.exception("Core command %s failed.", name)
             result = CommandResult(False, "error", str(exc))
+        self._observe_command_completed(name, command_id, correlation_id, result)
         self.command_completed.emit(name, result)
 
     def toggle_dictation(self) -> bool:
@@ -221,16 +316,40 @@ class CoreBridge(QObject):
     def cancel_dictation(self) -> bool:
         return self._submit_coroutine("cancel_dictation", "cancel_dictation")
 
-    def apply_runtime_config(self, candidate: AppConfig) -> bool:
+    def apply_runtime_config(
+        self,
+        candidate: AppConfig,
+        *,
+        settings_correlation_id: Optional[str] = None,
+    ) -> bool:
+        """``settings_correlation_id`` is the UI's per-attempt id from
+        ``client.settings.apply_started``; it travels to the controller purely
+        so ``client.settings.runtime_apply`` can carry the same value
+        (CONTRACTS §12.2). It changes nothing about the apply."""
+        command_id, correlation_id = self._new_command_ids()
+        self._observe_command_requested(
+            "apply_runtime_config", command_id, correlation_id
+        )
         loop, controller = self._get_target()
         if loop is None or controller is None or loop.is_closed():
-            return self._reject_command("apply_runtime_config")
+            return self._reject_command(
+                "apply_runtime_config", command_id, correlation_id
+            )
 
         def invoke() -> None:
-            task = loop.create_task(controller.apply_runtime_config(candidate))
+            # The keyword is only passed when there is something to correlate,
+            # so a controller double with the pre-OBS-040 one-argument
+            # signature keeps working unchanged.
+            task = loop.create_task(
+                controller.apply_runtime_config(
+                    candidate, correlation_id=settings_correlation_id
+                )
+                if settings_correlation_id is not None
+                else controller.apply_runtime_config(candidate)
+            )
             task.add_done_callback(
                 lambda finished: self._finish_async_command(
-                    "apply_runtime_config", finished
+                    "apply_runtime_config", finished, command_id, correlation_id
                 )
             )
 
@@ -238,7 +357,9 @@ class CoreBridge(QObject):
             loop.call_soon_threadsafe(invoke)
             return True
         except RuntimeError:
-            return self._reject_command("apply_runtime_config")
+            return self._reject_command(
+                "apply_runtime_config", command_id, correlation_id
+            )
 
     def _submit_sync(
         self,
@@ -247,12 +368,20 @@ class CoreBridge(QObject):
         *,
         history_result: bool = False,
     ) -> bool:
+        # A history read is a query, not an intentional user action, so it is
+        # not an audit command (CONTRACTS §2.2: audit is "vom Nutzer oder vom
+        # Client absichtlich ausgeloeste Handlungen").
+        command_id: Optional[str] = None
+        correlation_id: Optional[str] = None
+        if not history_result:
+            command_id, correlation_id = self._new_command_ids()
+            self._observe_command_requested(name, command_id, correlation_id)
         loop, controller = self._get_target()
         if loop is None or controller is None or loop.is_closed():
             if history_result:
                 self.history_received.emit(())
                 return False
-            return self._reject_command(name)
+            return self._reject_command(name, command_id, correlation_id)
 
         def invoke() -> None:
             try:
@@ -270,6 +399,9 @@ class CoreBridge(QObject):
             if history_result:
                 self.history_received.emit(result)
             else:
+                self._observe_command_completed(
+                    name, command_id, correlation_id, result
+                )
                 self.command_completed.emit(name, result)
 
         try:
@@ -280,7 +412,7 @@ class CoreBridge(QObject):
             if history_result:
                 self.history_received.emit(())
                 return False
-            return self._reject_command(name)
+            return self._reject_command(name, command_id, correlation_id)
 
     def set_microphone_muted(self, muted: bool) -> bool:
         return self._submit_sync(
@@ -289,15 +421,17 @@ class CoreBridge(QObject):
         )
 
     def reconnect_server(self) -> bool:
+        command_id, correlation_id = self._new_command_ids()
+        self._observe_command_requested("reconnect_server", command_id, correlation_id)
         loop, controller = self._get_target()
         if loop is None or controller is None or loop.is_closed():
-            return self._reject_command("reconnect_server")
+            return self._reject_command("reconnect_server", command_id, correlation_id)
 
         def invoke() -> None:
             task = loop.create_task(controller.reconnect_server())
             task.add_done_callback(
                 lambda finished: self._finish_async_command(
-                    "reconnect_server", finished
+                    "reconnect_server", finished, command_id, correlation_id
                 )
             )
 
@@ -305,7 +439,7 @@ class CoreBridge(QObject):
             loop.call_soon_threadsafe(invoke)
             return True
         except RuntimeError:
-            return self._reject_command("reconnect_server")
+            return self._reject_command("reconnect_server", command_id, correlation_id)
 
     def reinsert_last(self) -> bool:
         return self._submit_sync(

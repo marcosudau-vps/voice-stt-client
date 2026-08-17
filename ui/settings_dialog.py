@@ -32,6 +32,8 @@ from PySide6.QtWidgets import (
 from core.audio_capture import AudioCapture
 from core.config import AppConfig
 from core.history import HistoryEntry
+from core.observability.adapters.client_events import ClientEventEmitter
+from core.observability.ingress import NULL_INGRESS
 from core.settings_metadata import (
     ApplyPolicy,
     SETTING_DEFINITIONS,
@@ -67,12 +69,17 @@ class SettingsDialog(QDialog):
         config: AppConfig,
         on_apply: ApplyCallback,
         parent: Optional[QWidget] = None,
+        *,
+        observability=NULL_INGRESS,
     ) -> None:
         super().__init__(parent)
         self.setWindowTitle("RealtimeSTT – Einstellungen")
         self.resize(820, 620)
         self._config = config
         self._on_apply = on_apply
+        self._observe = ClientEventEmitter(
+            observability, component="ui.settings_dialog"
+        )
         self._editors: dict[str, QWidget] = {}
         self._labels: dict[str, QWidget] = {}
         self._definitions: dict[str, SettingDefinition] = {
@@ -287,6 +294,20 @@ class SettingsDialog(QDialog):
             candidate = build_candidate(self._config, changes)
         except (TypeError, ValueError, KeyError) as exc:
             self.status_label.setText(f"Ungültige Einstellung: {exc}")
+            # CONTRACTS §12.1: client.config.validation_failed (P+S). Only the
+            # setting PATHS are recorded, never the rejected values -- a value
+            # here is user input and the paths alone answer "which setting did
+            # the dialog refuse".
+            self._observe.system(
+                "client.config.validation_failed",
+                level="WARNING",
+                details={
+                    "source": "settings_dialog",
+                    "paths": sorted(changes),
+                    "error_type": type(exc).__name__,
+                    "message": str(exc),
+                },
+            )
             return
 
         if ApplyPolicy.SESSION_RECONNECT in policies:

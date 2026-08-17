@@ -26,10 +26,14 @@ from typing import Any, Mapping, Optional, Sequence
 from uuid import uuid4
 
 from .health import LoggingHealthState, LoggingInternalHealth, emergency
-from .models import CanonicalLogRecord
+from .models import CanonicalLogRecord, level_rank
 from .redaction import redact_mapping
 
 MAX_RAW_BYTES = 64 * 1024
+# ARCH §8.6: "Der Aggregatrecord entsteht im WORKER, der die Zaehler LIEST:
+# client.audio.stream_stats, Channel 'performance', Level DEBUG, alle 5 s
+# waehrend aktiven Streamings".
+AGGREGATE_INTERVAL_S = 5.0
 RETENTION_INTERVAL_S = 60.0
 RETENTION_RECORD_INTERVAL = 2000
 RETENTION_TIME_BUDGET_S = 0.2
@@ -111,6 +115,7 @@ class LoggingWorker(threading.Thread):
         self._consecutive_loop_failures = 0
         self._worker_failed = False
         self._retention_pressure_active = False
+        self._last_aggregate_at = 0.0
 
         self._clear_lock = threading.Lock()
         self._clear_pending = False
@@ -233,6 +238,7 @@ class LoggingWorker(threading.Thread):
             self._process_batch(records)
         if self._clear_pending:
             self._handle_clear_request()
+        self._emit_aggregates_if_due()
         self._run_retention_if_due(force=False)
         self._check_backpressure_state()
 
@@ -454,6 +460,78 @@ class LoggingWorker(threading.Thread):
             return int(self._ingress.qsize())
         except Exception:  # noqa: BLE001
             return 0
+
+    # -- hot-path aggregates (ARCH §8.6, CONTRACTS §12.4) ------------------
+
+    def _emit_aggregates_if_due(self) -> None:
+        """Read the registered producer counters and write one aggregate record
+        per source, at most every ``AGGREGATE_INTERVAL_S`` seconds.
+
+        This is the whole reason the hot path may stay at *"ausschliesslich
+        einfache int-Attribute erhoehen"* (ARCH §8.6): at 40 ms chunks a record
+        per chunk would be ~90.000 records per hour of dictation. A source that
+        returns ``None``/empty reports nothing, which is how *"waehrend aktiven
+        Streamings"* is expressed — an idle producer produces no record instead
+        of a stream of zeroes.
+
+        Written directly to store and sink, bypassing handler and queue (G-6),
+        because the worker is the producer here. The ingress **level** still
+        applies (ARCH §8.7: *"Ingress-Level gilt fuer strukturierte
+        Clientevents"*), so the frozen ``DEBUG`` level of these records is
+        filtered exactly as it would be on the normal path — a default
+        ``level: INFO`` installation does not silently collect DEBUG stats.
+        Never raises: an exception here would be a worker loop failure over a
+        diagnostic aggregate.
+        """
+        now = time.monotonic()
+        if now - self._last_aggregate_at < AGGREGATE_INTERVAL_S:
+            return
+        self._last_aggregate_at = now
+        collect = getattr(self._ingress, "collect_aggregates", None)
+        if collect is None:
+            return
+        try:
+            collected = collect()
+        except Exception:  # noqa: BLE001 - O-05 failure isolation
+            return
+        if not collected:
+            return
+        if level_rank("DEBUG") < level_rank(getattr(self._ingress, "level", "INFO")):
+            return
+        for type_, component, values in collected:
+            try:
+                record = self._build_aggregate_record(type_, component, values)
+            except Exception:  # noqa: BLE001
+                self._health.record_malformed()
+                continue
+            self._write_direct(record)
+
+    def _build_aggregate_record(
+        self, type_: str, component: Optional[str], values: Mapping[str, Any]
+    ) -> CanonicalLogRecord:
+        """Channel ``performance``, level ``DEBUG`` (ARCH §8.6).
+
+        ``is_internal`` stays ``False``: the record describes the *client*, not
+        the logging subsystem, and §1.5 reserves the internal flag (and with it
+        unconditional ``HIGH`` priority) for logging's own records. Priority is
+        therefore derived normally — ``type`` is set, so an unreplayed
+        aggregate is ``HIGH`` anyway.
+        """
+        instance_id = getattr(self._ingress, "instance_id", None) or "unknown"
+        return CanonicalLogRecord(
+            record_id=uuid4().hex,
+            received_at=_now_iso(),
+            producer_kind="client",
+            producer_id="voice-stt-client",
+            instance_id=instance_id,
+            scope="instance",
+            channel="performance",
+            level="DEBUG",
+            replayed=False,
+            type=type_,
+            component=component,
+            details=dict(values),
+        )
 
     # -- retention (CONTRACTS §5.6) ---------------------------------------
 

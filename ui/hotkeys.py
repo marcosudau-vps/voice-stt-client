@@ -12,6 +12,8 @@ from typing import Callable, Optional, Protocol
 from PySide6.QtCore import QAbstractNativeEventFilter, QCoreApplication
 
 from core.config import normalize_hotkey_spec
+from core.observability.adapters.client_events import ClientEventEmitter
+from core.observability.ingress import NULL_INGRESS
 
 logger = logging.getLogger("ui.hotkeys")
 
@@ -27,6 +29,17 @@ HOTKEY_ID_REINSERT_LAST = 0x5102
 HOTKEY_ID_FINISH = 0x5103
 HOTKEY_ID_CANCEL = 0x5104
 HOTKEY_ID_OVERLAY_TOGGLE = 0x5105
+
+# CONTRACTS §12.2: client.hotkey.pressed carries WHICH action was triggered,
+# not the key. The key combination is a user setting and belongs in the
+# configuration record, not in one audit line per press.
+HOTKEY_ACTION_NAMES = {
+    HOTKEY_ID_TOGGLE: "toggle",
+    HOTKEY_ID_REINSERT_LAST: "reinsert_last",
+    HOTKEY_ID_FINISH: "finish",
+    HOTKEY_ID_CANCEL: "cancel",
+    HOTKEY_ID_OVERLAY_TOGGLE: "overlay_toggle",
+}
 
 _MODIFIER_BITS = {
     "Ctrl": MOD_CONTROL,
@@ -151,8 +164,10 @@ class GlobalHotkeyManager(QAbstractNativeEventFilter):
         enabled: bool = True,
         backend: Optional[HotkeyBackend] = None,
         application: Optional[QCoreApplication] = None,
+        observability=NULL_INGRESS,
     ) -> None:
         super().__init__()
+        self._observe = ClientEventEmitter(observability, component="ui.hotkeys")
         self.enabled = enabled
         self.toggle_spec = parse_hotkey(toggle_key)
         self.reinsert_last_spec = parse_hotkey(reinsert_last_key)
@@ -233,6 +248,13 @@ class GlobalHotkeyManager(QAbstractNativeEventFilter):
         callback = self._callbacks.get(hotkey_id)
         if callback is None or hotkey_id not in self._registered_ids:
             return False
+        # CONTRACTS §12.2: "ui/hotkeys.py -- heute voellig ungeloggt". Emitted
+        # BEFORE the callback, so a press stays visible even if the command it
+        # triggers fails; the callback's own outcome is a separate record.
+        self._observe.audit(
+            "client.hotkey.pressed",
+            details={"action": HOTKEY_ACTION_NAMES.get(hotkey_id, "unknown")},
+        )
         try:
             callback()
         except Exception:
