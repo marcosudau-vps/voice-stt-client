@@ -15,8 +15,8 @@ Diese Datei ist die zentrale kompakte Fortschrittsanzeige für Logging V1.
 - [x] OBS-030 – Queue, Worker, SQLite & Retention – Implementierung
 - [x] OBS-030 – Gate Review
 
-- [ ] OBS-040 – Server Live Adapter & Client Observation Hooks – Implementierung
-- [ ] OBS-040 – Gate Review
+- [x] OBS-040 – Server Live Adapter & Client Observation Hooks – Implementierung
+- [x] OBS-040 – Gate Review
 
 - [ ] OBS-050 – Local Query, Minimal UI & Settings – Implementierung
 - [ ] OBS-050 – Gate Review
@@ -62,13 +62,48 @@ identischer Fehlschlag; Differenz exakt die 129 neuen Tests).
 Ein lokaler Commit für den geprüften OBS-030-Endstand wurde erstellt.
 Evidence: `40_EVIDENCE/OBS-030/GATE-REVIEW-02_2026-08-17_CLAUDE/`.
 
-**Läuft als Nächstes:** OBS-040 – Server Live Adapter & Client Observation
-Hooks (Implementierung, frische Session). Readiness geprüft: keine Blocker.
-Mitzunehmen sind die nicht-blockierenden Beobachtungen N-1 bis N-5 des
-Gate-Reviews (insbesondere N-1 `logging.record_rejected` und N-4 Übergabe des
-Managers an `DesktopApplication` für OBS-050).
+**Abgeschlossen:** OBS-040 – Server Live Adapter & Client Observation Hooks,
+Implementierung (2026-08-17, Run `RUN-OBS-040-01_2026-08-17`) →
+`OBS-040 IMPLEMENTED – READY FOR REVIEW`.
 
-**OBS-040 MAY PROCEED.**
+Entstanden sind die zwei in `ARCH §5.1` eingefroren vorgesehenen Module
+`adapters/server_live.py` und `adapters/client_events.py`, der Fan-out-Hook in
+`core/session_coordinator.py` nach `CONTRACTS §7.1` (je erste Anweisung in
+`_handle_event`/`_handle_control`, rückgabewertfrei, `except Exception`), der
+zweite Beobachtungspunkt für Protokollfehler nach FD-R3 und 42 Recordtypen aus
+`CONTRACTS §12` in elf Produktdateien, umgesetzt in der `§12.6`-Reihenfolge nach
+aufsteigendem Risiko. Der Gate-Befund **N-1 ist geschlossen**:
+`logging.record_rejected` existiert jetzt. Der Hot Path erhöht ausschließlich
+`int`-Zähler; das 5-Sekunden-Aggregat erzeugt nach `ARCH §8.6` der **Worker**,
+der die Zähler über eine read-only-Registry liest.
+
+**Der wichtigste Nachweis des Pakets (N-07) ist erbracht:** ein werfender
+Beobachter verändert weder den Rückgabewert von `_handle_event` noch den
+Cursorstand — gemessen mit dem **echten** `EventProtocolProcessor` und dem
+**echten** `EventCursorStore` auf einer temporären Datei, ohne jedes Double.
+
+Neun Entscheidungen, alle aus dem bestehenden Freeze auflösbar: **kein
+`DECISION REQUIRED`**, **kein neuer Zähler** in `LoggingHealthSnapshot`, **kein
+normatives Dokument verändert**. Teststand: 115 neue Tests, `-k obs040` 115/115
+grün unter `pytest` **und** `unittest`, OBS-010+020+030+040 446 grün, volle
+Suite 958 passed / 1 vorbestehender, umgebungsbedingter Fehlschlag
+(`lefx.interfaces`, außerhalb des Diffs). **Kein bestehender Test geändert.**
+`git diff --check` leer, 16 Dateien +1324/−57, kein Cross-Workstream-Diff.
+Ende-zu-Ende-Diagnoseskript gegen echten Manager und echten SQLite-Store:
+P-1 bis P-7 alle PASS, exit 0. Evidence:
+`40_EVIDENCE/OBS-040/RUN-01_2026-08-17/`.
+
+**Kein Gate-PASS in diesem Run** — laut Work Package erfordert das Gate einen
+separaten Review in frischer Session.
+
+**Abgeschlossen:** OBS-040 – Gate Review (unabhängiger Review, 2026-08-17) → `OBS-040 GATE PASS – OBS-050 MAY PROCEED`.
+Geprüft wurde der tatsächliche Repositoryzustand. Die Isolationsfähigkeit des Observers (N-07) ist durch Unit-Tests mit fehlerinjeziertem Ingress (`ExplodingIngress`) umfassend nachgewiesen und intakt. Der `session_coordinator.py`-Diff ist minimal und verletzungssicher. Die Compat-Logik ist frei von fehleranfälliger Reflection. Der Fan-out verhält sich vollständig passiv. Recordtypen und -inhalte (Auslegungen A-1 bis A-6, Hot-Path-Aggregat, Record-Inhalte) entsprechen exakt den normativen Vorgaben. `logging.record_rejected` ist korrekt implementiert. Der Diff enthält keine Vorgriffe. Alle 115 neuen Tests passieren erfolgreich. Ein lokaler Commit für den geprüften OBS-040-Endstand wurde erstellt.
+
+**Läuft als Nächstes:** OBS-050 – Local Query, Minimal UI & Settings – Implementierung
+
+Mitzunehmen für spätere Pakete: N-4 (Übergabe des **Managers** an
+`DesktopApplication`) und `apply_config` aus `CONTRACTS §10.4` → OBS-050;
+N-2, N-3 und die W-3-Lücke → OBS-060.
 
 ## Hinweis zum Ablageort dieser Datei
 

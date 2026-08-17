@@ -796,3 +796,112 @@
   - Nächster Schritt: OBS-040 – Server Live Adapter & Client Observation
     Hooks (Implementierung, frische Session). Readiness geprüft: keine
     Blocker. **OBS-040 MAY PROCEED.**
+
+- 17.08.2026, OBS-040 Implementierung (`RUN-OBS-040-01_2026-08-17`),
+  `Prompts/OBS-040_IMPLEMENTIERUNGSAUFTRAG.md`
+  - Beschreibung:
+    OBS-040 – Server Live Adapter & Client Observation Hooks implementiert.
+    Voraussetzung geprüft: OBS-030 steht mit `GATE PASS – OBS-040 MAY
+    PROCEED` in `CURRENT_STATE.md` und in der Checkliste.
+
+    **Zwei neue Module**, beide in `ARCH §5.1` eingefroren vorgesehen:
+    `core/observability/adapters/server_live.py` (`ServerLiveAdapter` – der
+    passive Konsument des Fan-outs; fängt selbst nach `ARCH §7.3` Ebene 1,
+    meldet an `LoggingInternalHealth`, fängt nie `BaseException`) und
+    `core/observability/adapters/client_events.py` (`ClientEventEmitter` –
+    die eine nie werfende Grenze, durch die jede Client-Hook-Aufrufstelle
+    geht).
+
+    **Fan-out-Hook** in `core/session_coordinator.py` nach `CONTRACTS §7.1`:
+    `on_observation`, `_notify_observer` mit bewusst leerem
+    `except Exception`, je **erste Anweisung** in `_handle_event` und
+    `_handle_control`. Der Feedbackzweig läuft unverändert über `on_event`
+    weiter – ein echtes Fan-out (O-02), kein Durchleiten.
+
+    **Zweiter Beobachtungspunkt** (FD-R3, `CONTRACTS §7.5`): eine Zeile im
+    `except`-Zweig von `EventStreamTransport.run()` →
+    `client.eventstream.protocol_error`, ohne Rohframe.
+
+    **42 Recordtypen aus `CONTRACTS §12`** über `ui/hotkeys.py`,
+    `ui/core_bridge.py`, `ui/application.py`, `ui/led_feedback.py`,
+    `ui/settings_dialog.py`, `core/audio_capture.py`, `core/stt_session.py`,
+    `core/controller.py`, `core/text_injector.py`,
+    `core/session_coordinator.py`, `core/event_stream.py` – umgesetzt in der
+    von `§12.6` vorgeschriebenen Reihenfolge nach aufsteigendem Risiko, mit
+    einem Testlauf nach jeder Stufe. Korrelationsketten: Trigger send/ack
+    über `command_id` + `trigger:<cmd>`, Kommandos über `command:<cmd>`,
+    Settings-Apply über `settings:<id>` von `apply_started` über
+    `runtime_apply` bis `apply_completed`, Injection über
+    `injection:<entryId>`.
+
+    **Gate-Befund N-1 geschlossen:** `logging.record_rejected` existiert
+    jetzt (`ingress.emit_record_rejected`), erzeugt an allen vier Stellen,
+    die eine Normalizer-Ausnahme sehen können, mit Komponente und
+    Ausnahmetyp und **ohne** Originaldaten; Health bleibt `OK`,
+    `malformed++` – exakt die Zeile „Normalizer-Ausnahme" aus `ARCH §8.3`.
+
+    **Hot Path und Aggregat nach `ARCH §8.6`:** die neun genannten
+    Funktionen erhöhen ausschließlich `int`-Attribute (Quelltextnachweis über
+    alle neun); der **Worker** liest sie über eine read-only-Registry am
+    Ingress und erzeugt `client.audio.stream_stats`, Channel `performance`,
+    Level `DEBUG`, höchstens alle 5 s und nur während aktiven Streamings. Die
+    Registry ist der einzige Weg, der `§8.6` („der Worker liest die Zähler")
+    und `§5.2` (Importrichtung) gleichzeitig hält.
+
+    **Der wichtigste Nachweis (N-07) erbracht:** ein werfender Beobachter
+    verändert weder den Rückgabewert von `_handle_event` noch den Cursorstand
+    – gemessen mit dem **echten** `EventProtocolProcessor` und dem **echten**
+    `EventCursorStore` auf einer temporären Datei, kein Double. Die vom Work
+    Package verlangten Suiten `test_session_coordinator.py`,
+    `test_event_stream.py`, `test_feedback_integration.py` und
+    `test_trigger_feedback_contract.py` laufen unverändert grün.
+
+    **Fünf reale Befunde während der Ausführung** (Details in `RUN_LOG.md`
+    Abschnitt 5): der bestehende OBS-020-Hot-Path-Test hat einen Kommentar
+    abgelehnt, der das Wort `ingress` enthielt (Kommentar umformuliert, nicht
+    der Test); `run_headless`, `CoreBridge.apply_runtime_config` und die
+    Transport-Factory des Coordinators sind durch bestehende Test-Doubles auf
+    ihre alten Signaturen fixiert, weshalb der Ingress dort über
+    Signaturinspektion bzw. die von `CONTRACTS §6` blessierte Default-Factory
+    reist – bewusst **nicht** über `try/except TypeError`, das einen Aufruf
+    doppelt ausgeführt hätte; `logging.record_rejected` ist nur defensiv
+    erreichbar, weil der Normalizer konstruktiv nie wirft;
+    `envelope["meldung"]` liegt auf der Envelope-Oberfläche, nicht in einem
+    verschachtelten `extra`.
+
+    **Neun Entscheidungen, alle aus dem bestehenden Freeze auflösbar, kein
+    `DECISION REQUIRED`, keine Erweiterung eines eingefrorenen Vertrags.**
+    Insbesondere **kein neuer Zähler** in `LoggingHealthSnapshot` – der
+    Zählersatz aus `ARCH §7.3` ist unverändert und jetzt durch einen
+    Contract-Test fixiert (die Lektion aus dem OBS-030-Cleanup zum
+    zurückgenommenen `dropped_failed`). **Kein normatives Dokument ist durch
+    diesen Run verändert**; `00_NORMATIV/` erscheint nicht in
+    `git status --short`.
+
+    **Teststand:** 115 neue Tests in sechs Dateien; `-k obs040` 115 passed
+    (`pytest`) und `Ran 115, OK` (`unittest`); `obs010+020+030+040` 446
+    passed; volle Suite 958 passed / 1 vorbestehender, umgebungsbedingter
+    Fehlschlag (`test_ap06_followup.py`, `lefx.interfaces` fehlt lokal,
+    außerhalb des Diffs), `unittest discover` Ran 959 / 1 error. Differenz
+    zur Baseline (843) exakt die 115 neuen Tests. **Kein bestehender Test
+    geändert.** `git diff --check` leer, `git diff --stat` 16 Dateien
+    +1324/−57, kein Cross-Workstream-Diff. Ende-zu-Ende-Diagnoseskript mit
+    echtem Manager, echtem SQLite-Store, echtem Protokollprozessor und
+    echtem Cursorstore: P-1 bis P-7 alle PASS, exit 0 – darunter der Nachweis,
+    dass 1000 Audiopakete **keine** Zeile erzeugen, das Worker-Aggregat aber
+    schon, und dass in **keiner** gespeicherten Zeile das Session-Log-Token
+    auftaucht, obwohl der `log.hello`-Payload es nachweislich enthielt.
+
+    **Kein Gate-PASS in diesem Run** – laut Work Package erfordert das Gate
+    einen separaten Review in frischer Session. Kein Commit, kein Push, kein
+    Merge, kein Rebase, kein Tag, kein PR.
+  - Wichtigste Artefakte:
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/runs/RUN-OBS-040-01_2026-08-17/` (`RUN_LOG.md`, `RESULT.md`, `OUTPUT_INDEX.md`)
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/40_EVIDENCE/OBS-040/RUN-01_2026-08-17/` (`TEST_RESULTS.md`, `DIFF_SUMMARY.md`, `CONTRACT_COVERAGE.md`, `OBSERVATION_HOOK_MATRIX.md`, `SERVER_EVENT_MAPPING.md`, `probe_obs040_end_to_end.py`)
+    - `core/observability/adapters/server_live.py`, `core/observability/adapters/client_events.py`
+    - `tests/test_obs040_server_live_adapter.py`, `tests/test_obs040_fanout_hook.py`, `tests/test_obs040_client_hooks.py`, `tests/test_obs040_hot_path.py`, `tests/test_obs040_failure_isolation.py`, `tests/test_obs040_contracts.py`
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/LOGGING_V1_CHECKLISTE.md` (OBS-040 Implementierung jetzt abgehakt)
+  - Nächster Schritt: OBS-040 Gate Review in frischer Session,
+    `Prompts/OBS-040_GATE_REVIEW.md`. Offen für spätere Pakete:
+    `apply_config` und die Manager-Übergabe an `DesktopApplication` (OBS-050,
+    Befund N-4), N-2/N-3/W-3 und der Lauf gegen den echten Server (OBS-060).

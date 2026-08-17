@@ -21,6 +21,9 @@ from typing import Callable, Optional
 import numpy as np
 import sounddevice as sd
 
+from core.observability.adapters.client_events import ClientEventEmitter
+from core.observability.ingress import NULL_INGRESS
+
 logger = logging.getLogger("audio")
 
 
@@ -37,11 +40,21 @@ class AudioCapture:
         capture.stop()
     """
 
-    def __init__(self, audio_config):
+    def __init__(self, audio_config, *, observability=NULL_INGRESS):
         self._config = audio_config
+        self._observe = ClientEventEmitter(observability, component="audio")
         self._stream: Optional[sd.InputStream] = None
         self._running = False
         self._muted = False
+
+        # ARCH §8.6 hot-path counters. Plain ``int`` attributes, incremented
+        # WITHOUT a lock: a lost increment is inconsequential, a lock in the
+        # PortAudio callback is not. Read by the LoggingWorker every 5 s
+        # (``client.audio.stream_stats``), never by the hot path itself.
+        self.chunks_captured = 0
+        self.chunks_dropped_capture_queue = 0
+        self.overflow_count = 0
+        self.underflow_count = 0
 
         # Actual device sample rate (may differ from preferred)
         self._device_sample_rate: int = audio_config.sample_rate
@@ -202,6 +215,19 @@ class AudioCapture:
             self._config.chunk_duration_ms,
             chunk_frames,
         )
+        # CONTRACTS §12.2: client.audio.stream_started (P+S). ARCH §8.6 allows
+        # exactly this -- a record on a STATE CHANGE, never per chunk. Not on
+        # the hot path: ``start()`` runs once per dictation.
+        self._observe.audit(
+            "client.audio.stream_started",
+            details={
+                "sample_rate": self._device_sample_rate,
+                "channels": channels,
+                "chunk_duration_ms": self._config.chunk_duration_ms,
+                "chunk_frames": chunk_frames,
+                "requested_sample_rate": preferred_rate,
+            },
+        )
 
     def stop(self) -> None:
         """Stop capturing audio."""
@@ -229,6 +255,32 @@ class AudioCapture:
             self._thread = None
 
         logger.info("Audio capture stopped.")
+        # CONTRACTS §12.2: client.audio.stream_stopped (P+S), with the final
+        # counter state so a session's totals survive even if the last 5-second
+        # aggregate never ran.
+        self._observe.audit(
+            "client.audio.stream_stopped",
+            details=self.capture_counters(),
+        )
+
+    # -- ARCH §8.6: the read side of the hot-path counters ------------------
+
+    def capture_counters(self) -> dict:
+        """Snapshot of the capture-side counters. Called from the worker thread
+        (through the registered aggregate source) and from ``stop()``.
+
+        No lock: these are plain ``int`` reads of values written without a lock
+        in the callback. A torn read cannot occur for a Python ``int``
+        attribute, and a slightly stale value in a diagnostic aggregate is the
+        deliberate trade §8.6 makes.
+        """
+        return {
+            "chunks_captured": self.chunks_captured,
+            "chunks_dropped_capture_queue": self.chunks_dropped_capture_queue,
+            "overflow_count": self.overflow_count,
+            "underflow_count": self.underflow_count,
+            "capture_queue_depth": self._audio_queue.qsize(),
+        }
 
     # -------------------------------------------------------------------
     # Internal: sounddevice callback (runs in audio thread)
@@ -245,10 +297,16 @@ class AudioCapture:
         Called by sounddevice for each audio chunk.
         Runs in the PortAudio callback thread – must be fast and non-blocking.
         """
+        # ARCH §8.6: this function is on the hot-path list. Only int increments
+        # here -- no observation call, no format, no json, no attribute access
+        # on the observation boundary at all. Verified by a source-scanning
+        # test, which is also why this comment avoids the forbidden words.
         if status:
             if status.input_overflow:
+                self.overflow_count += 1
                 logger.debug("Audio input overflow.")
             if status.input_underflow:
+                self.underflow_count += 1
                 logger.debug("Audio input underflow.")
 
         # Convert to bytes (already int16 due to dtype="int16")
@@ -257,7 +315,10 @@ class AudioCapture:
         try:
             self._audio_queue.put_nowait(pcm_bytes)
         except queue.Full:
+            self.chunks_dropped_capture_queue += 1
             logger.debug("Audio queue full, dropping chunk.")
+        else:
+            self.chunks_captured += 1
 
     # -------------------------------------------------------------------
     # Internal: processing thread

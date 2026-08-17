@@ -22,6 +22,8 @@ from core.event_protocol import (
     EventResultKind,
     EventStreamAccess,
 )
+from core.observability.adapters.client_events import ClientEventEmitter
+from core.observability.ingress import NULL_INGRESS
 
 
 logger = logging.getLogger("event_stream")
@@ -52,6 +54,7 @@ class EventStreamTransport:
         on_control: Optional[EventCallback] = None,
         on_state_change: Optional[StateCallback] = None,
         connect_factory=ws_connect,
+        observability=NULL_INGRESS,
     ) -> None:
         config.validate()
         if processor.access != access:
@@ -65,6 +68,7 @@ class EventStreamTransport:
         self._on_control = on_control
         self._on_state_change = on_state_change
         self._connect_factory = connect_factory
+        self._observe = ClientEventEmitter(observability, component="eventstream")
         self._state = EventConnectionState.STOPPED
         self._ws: Optional[ClientConnection] = None
         self._running = False
@@ -126,6 +130,7 @@ class EventStreamTransport:
                         break
                     self._last_error = str(exc)
                     logger.warning("Event stream attempt failed: %s", exc)
+                    self._observe_protocol_error(exc)
                 if not self._running or self._blocked_for_access:
                     continue
                 self._backoff_attempt += 1
@@ -147,6 +152,24 @@ class EventStreamTransport:
             self._processor.stop()
             self._running = False
             self._set_state(EventConnectionState.STOPPED)
+
+    def _observe_protocol_error(self, exc: BaseException) -> None:
+        """The second observation point (FD-R3 / CONTRACTS §7.5, ARCH §8.5
+        GRENZE 1).
+
+        The coordinator hook sees every successfully **validated** result, not
+        every frame — a server that violates the protocol never reaches the
+        dispatch. This is the one place where that case becomes structured
+        instead of an unstructured WARNING text. Deliberately **without** the
+        raw frame: it no longer exists here (FD-R3). No additional control
+        flow: one call next to the existing ``logger.warning``.
+        """
+        self._observe.system(
+            "client.eventstream.protocol_error",
+            level="WARNING",
+            details={"error_type": type(exc).__name__, "message": str(exc)},
+            session_id=self._access.session_id,
+        )
 
     async def stop(self) -> None:
         """Idempotently interrupt connect, receive and backoff waits."""

@@ -43,9 +43,16 @@ from core.event_protocol import EventProtocolResult
 from core.event_models import CanonicalEventType
 from core.event_normalizer import EventNormalizationError
 from core.feedback_reducer import FeedbackDecision, FeedbackEngine
+from core.observability.adapters.client_events import ClientEventEmitter
+from core.observability.adapters.server_live import ServerLiveAdapter
+from core.observability.ingress import NULL_INGRESS
 from core.session_coordinator import DualSessionCoordinator, SessionContext
 
 logger = logging.getLogger("controller")
+
+# ARCH §8.6 / CONTRACTS §12.4: the record type under which the LoggingWorker
+# publishes the merged capture-and-send counters every five seconds.
+AUDIO_STATS_TYPE = "client.audio.stream_stats"
 
 
 class FinalProcessingStatus(str, Enum):
@@ -223,8 +230,14 @@ class STTController:
         backend: Optional[WindowsInjectionBackend] = None,
         session_coordinator: Optional[DualSessionCoordinator] = None,
         feedback_engine: Optional[FeedbackEngine] = None,
+        observability=NULL_INGRESS,
     ):
         self.config = config
+        # CONTRACTS §6: constructor injection, no module singleton. A freely
+        # instantiated controller (as in most tests) therefore observes
+        # nothing at all, which is what keeps test runs uncoupled.
+        self.observability = observability
+        self._observe = ClientEventEmitter(observability, component="controller")
 
         # Shared component initialization
         self.history = history_manager or TranscriptHistoryManager(config.history)
@@ -235,7 +248,9 @@ class STTController:
             win_backend = backend
             if win_backend is None and sys.platform == "win32":
                 win_backend = CtypesWindowsInjectionBackend()
-            self.queue = TextInjectionQueue(config, self.history, win_backend)
+            self.queue = TextInjectionQueue(
+                config, self.history, win_backend, observability=observability
+            )
 
         queue_history = getattr(self.queue, "history_manager", None)
         if queue_history is not None and queue_history is not self.history:
@@ -264,11 +279,13 @@ class STTController:
             config.server,
             config.session,
             require_session_contract=True,
+            observability=observability,
         )
-        self.audio = audio or AudioCapture(config.audio)
+        self.audio = audio or AudioCapture(config.audio, observability=observability)
         self.session_coordinator = session_coordinator or DualSessionCoordinator(
             config.server,
             config.event_stream,
+            observability=observability,
         )
         self.feedback_engine = feedback_engine or FeedbackEngine(
             config.feedback_mappings
@@ -325,6 +342,11 @@ class STTController:
             OrderedDict()
         )
 
+        # ARCH §8.6 hot-path counters of the send path. Plain ``int``, no lock,
+        # written by ``_enqueue_audio_packet`` and read by the LoggingWorker.
+        self.chunks_dropped_send_queue = 0
+        self.max_send_queue_depth = 0
+
         # Callbacks exposed for UI or orchestrator
         self.on_text: Optional[Callable[[int, str, bool], None]] = None
         self.on_transport_change: Optional[Callable[[TransportState], None]] = None
@@ -352,6 +374,64 @@ class STTController:
         self.session_coordinator.on_context_change = (
             self._handle_session_context_change
         )
+        # CONTRACTS §6/§7.1: the fan-out. ``on_event`` (feedback) and
+        # ``on_observation`` (logging) are two INDEPENDENT branches of the same
+        # dispatch; logging neither owns nor steers the feedback branch (O-02).
+        self.server_live_adapter = ServerLiveAdapter(observability)
+        self.session_coordinator.on_observation = self.server_live_adapter
+        # ARCH §8.6: register the read-only counter source the worker polls.
+        self._register_audio_stats_source()
+
+    # -------------------------------------------------------------------
+    # ARCH §8.6 / CONTRACTS §12.4: the 5-second audio aggregate
+    # -------------------------------------------------------------------
+
+    def _register_audio_stats_source(self) -> None:
+        register = getattr(self.observability, "register_aggregate_source", None)
+        if register is None:
+            return
+        try:
+            register(AUDIO_STATS_TYPE, self._collect_audio_stats, component="audio")
+        except Exception:  # noqa: BLE001 - O-05: logging setup never breaks the core
+            pass
+
+    def _unregister_audio_stats_source(self) -> None:
+        register = getattr(self.observability, "register_aggregate_source", None)
+        if register is None:
+            return
+        try:
+            register(AUDIO_STATS_TYPE, None)
+        except Exception:  # noqa: BLE001
+            pass
+
+    def _collect_audio_stats(self) -> Optional[Dict[str, Any]]:
+        """Read the hot-path counters. **Runs on the LoggingWorker thread.**
+
+        Returns ``None`` while nothing is streaming — ARCH §8.6 asks for the
+        aggregate *"alle 5 s waehrend aktiven Streamings"*, and a stopped stream
+        must not produce a record per interval for the rest of the process's
+        life. Reads only plain ``int`` attributes and takes no controller lock:
+        a lock held by the Qt or PortAudio path must never be waited on by the
+        logging worker (O-03/O-05).
+        """
+        if not getattr(self.session, "is_streaming", False):
+            return None
+        stats: Dict[str, Any] = {
+            "chunks_dropped_send_queue": self.chunks_dropped_send_queue,
+            "max_send_queue_depth": self.max_send_queue_depth,
+            "send_queue_depth": self._audio_send_queue.qsize(),
+        }
+        capture = getattr(self.audio, "capture_counters", None)
+        if capture is not None:
+            values = capture()
+            if isinstance(values, dict):
+                stats.update(values)
+        send = getattr(self.session, "send_counters", None)
+        if send is not None:
+            values = send()
+            if isinstance(values, dict):
+                stats.update(values)
+        return stats
 
     def _get_transition_lock(self) -> asyncio.Lock:
         if self._transition_lock is None:
@@ -469,6 +549,14 @@ class STTController:
             except Exception:
                 logger.exception("Error in on_snapshot_change callback.")
 
+    # CONTRACTS §12.2: three of the audit hooks share this one site, because
+    # this is where the client decides that an intended action did not happen.
+    _TRANSIENT_OBSERVATION_TYPES = {
+        TransientEventType.ACTION_BLOCKED: "client.action.blocked",
+        TransientEventType.DICTATION_START_FAILED: "client.dictation.failed",
+        TransientEventType.DICTATION_INTERRUPTED: "client.dictation.interrupted",
+    }
+
     def _emit_feedback_event(self, event_type: TransientEventType, reason: str, description: str, action: Optional[str] = None) -> None:
         event = TransientEvent(
             event_type=event_type,
@@ -477,6 +565,17 @@ class STTController:
             timestamp=time.time(),
             action=action,
         )
+        observation_type = self._TRANSIENT_OBSERVATION_TYPES.get(event_type)
+        if observation_type is not None:
+            self._observe.audit(
+                observation_type,
+                level="WARNING",
+                message=description,
+                details={"reason": reason, "action": action},
+                session_id=self.session.state.session_id,
+                generation=getattr(self.session, "generation", 0),
+                correlation_id=f"client:{event_type.value}:{event.timestamp}",
+            )
         if self.on_feedback_event:
             try:
                 self.on_feedback_event(event)
@@ -643,6 +742,21 @@ class STTController:
             self._dictation_requested = True
             self._dictation_generation = attempt.generation
             self._status_revision += 1
+
+        # CONTRACTS §12.2: client.dictation.start_attempt (S). Outside the
+        # lock, and after the attempt exists -- the correlation id is derived
+        # from generation and token, which is the same identity the accepted
+        # feedback uses (``_manual_accept_correlation``).
+        self._observe.audit(
+            "client.dictation.start_attempt",
+            details={
+                "token": attempt.token,
+                "server_owns_activation": self._server_owns_activation,
+            },
+            session_id=attempt.session_id,
+            generation=attempt.generation,
+            correlation_id=f"hotkey:{attempt.generation}:{attempt.token}",
+        )
 
         try:
             self.audio.start()
@@ -868,6 +982,17 @@ class STTController:
                     confirmed_state.value
                     if isinstance(confirmed_state, SessionState)
                     else "listening"
+                )
+                # CONTRACTS §12.2: client.dictation.confirmed (S). The same
+                # correlation id as the accepted feedback decision, so a
+                # confirmed dictation, its trigger ack and its feedback impulse
+                # are one query rather than three.
+                self._observe.audit(
+                    "client.dictation.confirmed",
+                    details={"state": state_name, "token": attempt.token},
+                    session_id=attempt.session_id,
+                    generation=attempt.generation,
+                    correlation_id=self._manual_accept_correlation(attempt),
                 )
                 return CommandResult(
                     success=True,
@@ -1138,9 +1263,37 @@ class STTController:
             return CommandResult(False, "reconnect_failed", str(exc))
         return CommandResult(True, "reconnecting", "Verbindung wird neu aufgebaut")
 
-    async def apply_runtime_config(self, candidate: AppConfig) -> CommandResult:
-        """Validate and atomically activate one complete candidate config."""
-        candidate.validate()
+    async def apply_runtime_config(
+        self,
+        candidate: AppConfig,
+        *,
+        correlation_id: Optional[str] = None,
+    ) -> CommandResult:
+        """Validate and atomically activate one complete candidate config.
+
+        ``correlation_id`` is purely observational (CONTRACTS §12.2: the
+        runtime apply carries *"dieselbe correlation_id"* as the UI's
+        ``client.settings.apply_started``/``.apply_completed``). It never
+        influences the apply itself, and ``None`` simply means "not called
+        from a settings dialog" — O-01 holds.
+        """
+        try:
+            candidate.validate()
+        except Exception as exc:
+            # CONTRACTS §12.1: client.config.validation_failed (P+S), the core
+            # half of the pair the settings dialog also reports. Only the
+            # exception text, never a config value.
+            self._observe.system(
+                "client.config.validation_failed",
+                level="WARNING",
+                details={
+                    "source": "apply_runtime_config",
+                    "error_type": type(exc).__name__,
+                    "message": str(exc),
+                },
+                correlation_id=correlation_id,
+            )
+            raise
         old_config = self.config
         old_wake_mode_desired = self._wake_mode_desired
         session_changed = (
@@ -1183,7 +1336,9 @@ class STTController:
 
             old_audio = self.audio
             if audio_changed:
-                replacement = AudioCapture(candidate.audio)
+                replacement = AudioCapture(
+                    candidate.audio, observability=self.observability
+                )
                 replacement.on_audio_packet = self._on_audio_packet_from_thread
                 self.audio = replacement
 
@@ -1198,6 +1353,22 @@ class STTController:
             )
             self.feedback_engine.reconfigure_mapping(
                 candidate.feedback_mappings
+            )
+            # CONTRACTS §12.2: client.settings.runtime_apply (S). §10.4's hard
+            # rule is that a pure observability change sets none of
+            # session_changed/audio_changed/mode_changed; those three flags are
+            # therefore exactly what this record carries -- it makes the rule
+            # checkable from the stored history instead of only from a test.
+            self._observe.audit(
+                "client.settings.runtime_apply",
+                details={
+                    "session_changed": bool(session_changed),
+                    "audio_changed": bool(audio_changed),
+                    "mode_changed": bool(mode_changed),
+                },
+                session_id=self.session.state.session_id,
+                generation=getattr(self.session, "generation", 0),
+                correlation_id=correlation_id,
             )
 
             if not session_changed:
@@ -1652,6 +1823,12 @@ class STTController:
         except Exception as e:
             logger.error("Error cleaning up transcript history: %s", e)
 
+        # The worker outlives this controller (its lifetime belongs to
+        # app.py::main), so the counter source has to go with the controller.
+        # Otherwise a second controller would leave the first one's counters
+        # registered and the aggregate would report a dead object.
+        self._unregister_audio_stats_source()
+
         with self._lock:
             self._started = False
             self._shutdown_completed = True
@@ -1886,6 +2063,8 @@ class STTController:
             count = self._server_error_counts[where]
             dictation_state = self._dictation_state
 
+        self._observe_error_classified(where, message, count, dictation_state)
+
         if where == "admission":
             self._update_availability(
                 AvailabilityState.SERVER_BUSY,
@@ -1971,6 +2150,37 @@ class STTController:
             where,
             count,
             message,
+        )
+
+    def _observe_error_classified(
+        self, where: str, message: str, count: int, dictation_state: DictationState
+    ) -> None:
+        """CONTRACTS §12.5: client.server.error_classified (P+S).
+
+        What no existing log line records is the pair ``(where, count)``: the
+        same ``where`` leads to a different availability state and a different
+        dictation consequence depending on how often it has already been seen
+        (``audio_packet`` and ``audio`` only act from the third occurrence).
+        With the count and the dictation state at classification time, the
+        branch this error took is reconstructable from the history — and unlike
+        the existing ``logger.warning``, which only fires for the *unclassified*
+        tail, this record exists for **every** classified error.
+
+        Emitted once, at the single point all branches pass through, rather than
+        once per branch: one fact, one record, and no chance of the eight
+        branches drifting apart.
+        """
+        self._observe.system(
+            "client.server.error_classified",
+            level="ERROR",
+            message=message,
+            details={
+                "where": where,
+                "count": count,
+                "dictation_state": dictation_state.value,
+            },
+            session_id=self.session.state.session_id,
+            generation=getattr(self.session, "generation", 0),
         )
 
     def _reject_start_from_server_error(
@@ -2217,6 +2427,65 @@ class STTController:
         self._emit_final_result(res)
         return res
 
+    def _observe_final_result(self, result: FinalProcessingResult) -> None:
+        """CONTRACTS §12.3: the three transcription-channel hooks.
+
+        ``client.injection.enqueued`` / ``.rejected`` and
+        ``client.final.deduplicated``. The last one is marked
+        **redaktionspflichtig** in §12.3 because the existing code logs both
+        full texts on WARNING when they contradict each other. Here **no text
+        is passed at all** — only its character count. That is stricter than
+        R-10 requires (which keeps ``[redacted:<n> chars]``) and needs no
+        dependency on ``store_transcription_content`` being off: the fact worth
+        keeping is *that* a conflict happened and *how far apart* the two
+        versions were, not what was said.
+        """
+        status = result.status
+        if status is FinalProcessingStatus.QUEUED:
+            type_ = "client.injection.enqueued"
+            level = "INFO"
+        elif status is FinalProcessingStatus.DEDUPLICATED:
+            type_ = "client.final.deduplicated"
+            level = "WARNING" if result.is_conflict else "INFO"
+        elif status in {
+            FinalProcessingStatus.FAILED,
+            FinalProcessingStatus.QUEUE_UNAVAILABLE,
+            FinalProcessingStatus.HISTORY_UNAVAILABLE,
+            FinalProcessingStatus.INVALID_FINAL,
+        }:
+            type_ = "client.injection.rejected"
+            level = "WARNING"
+        else:  # pragma: no cover - the enum is closed
+            return
+        details: Dict[str, Any] = {
+            "status": status.value,
+            "reason": result.reason,
+            "entry_id": result.entry_id,
+            "text_length": len(result.text) if isinstance(result.text, str) else None,
+        }
+        if status is FinalProcessingStatus.DEDUPLICATED:
+            details["conflict"] = bool(result.is_conflict)
+        if result.error:
+            details["error"] = result.error
+        identity = result.entry_id or (
+            f"{result.session_id}:{result.segment_id}:{status.value}"
+        )
+        self._observe.transcription(
+            type_,
+            level=level,
+            details=details,
+            session_id=result.session_id,
+            generation=getattr(self.session, "generation", 0),
+            segment_id=(
+                result.segment_id
+                if isinstance(result.segment_id, int)
+                and not isinstance(result.segment_id, bool)
+                and result.segment_id >= 0
+                else None
+            ),
+            correlation_id=f"injection:{identity}",
+        )
+
     def _remember_final_identity_locked(
         self, key: Tuple[str, int], text: str
     ) -> None:
@@ -2228,6 +2497,7 @@ class STTController:
 
     def _emit_final_result(self, result: FinalProcessingResult) -> None:
         """Emits final result callback OUTSIDE of internal locks."""
+        self._observe_final_result(result)
         if self.on_final_result:
             try:
                 self.on_final_result(result)
@@ -2559,7 +2829,12 @@ class STTController:
         try:
             self._audio_send_queue.put_nowait((pcm, sr, ch, fr, gen))
         except asyncio.QueueFull:
-            pass
+            # ARCH §8.6: hot path -- int increment only, no log line.
+            self.chunks_dropped_send_queue += 1
+            return
+        depth = self._audio_send_queue.qsize()
+        if depth > self.max_send_queue_depth:
+            self.max_send_queue_depth = depth
 
     def _clear_audio_queue(self) -> None:
         """Empties pending audio packets."""
@@ -2660,6 +2935,23 @@ class STTController:
 
         try:
             self.start_queue()
+
+            # CONTRACTS §12.1: client.controller.run_started (S). After
+            # ``start_queue()``, because a controller whose injection queue
+            # refused to start never ran -- the failure surfaces as the
+            # exception this line is deliberately placed behind.
+            self._observe.system(
+                "client.controller.run_started",
+                details={
+                    "operating_mode": self.config.session.presentation_mode,
+                    "wake_word_enabled": (
+                        self.config.session.effective_wake_word_trigger_enabled
+                    ),
+                    "manual_trigger_enabled": (
+                        self.config.session.effective_manual_trigger_enabled
+                    ),
+                },
+            )
 
             session_task = asyncio.create_task(self.session.run())
             tasks.append(session_task)

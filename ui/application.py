@@ -3,10 +3,13 @@
 from __future__ import annotations
 
 import importlib.util
+import inspect
 import logging
+import os
 import signal
 import sys
 import threading
+import uuid
 from dataclasses import replace
 from typing import Optional, Sequence
 
@@ -18,6 +21,9 @@ from core.controller import CommandResult
 from core.feedback_reducer import FeedbackDecision
 from core.event_models import CanonicalEventType, FeedbackSource
 from core.led_controller import LedConfigurationError
+from core.version import __version__
+from core.observability.adapters.client_events import ClientEventEmitter
+from core.observability.ingress import NULL_INGRESS
 from core.settings_metadata import ApplyPolicy
 from core.reinsertion import ReinsertionResult, ReinsertionStatus
 from ui.core_bridge import CoreBridge
@@ -75,6 +81,7 @@ class DesktopApplication(QObject):
         bridge: Optional[CoreBridge] = None,
         hotkey_backend: Optional[HotkeyBackend] = None,
         led_feedback: Optional[LedFeedback] = None,
+        observability=NULL_INGRESS,
     ) -> None:
         super().__init__()
         if threading.current_thread() is not threading.main_thread():
@@ -83,13 +90,21 @@ class DesktopApplication(QObject):
         self.application = application
         self.config = config
         self.instance_guard = instance_guard
-        self.bridge = bridge or CoreBridge(config)
+        # ARCH §6.2(b): DesktopApplication is *handed* the observability
+        # entry point and never stops it -- the manager's lifetime belongs to
+        # app.py::main()'s try/finally (FD-R4/OD-22). What is passed here is
+        # the ingress, not the manager: OBS-040 only produces observations.
+        # The manager handover itself is an OBS-050 readiness point (N-4).
+        self._observability = observability
+        self._observe = ClientEventEmitter(observability, component="ui.application")
+        self.bridge = bridge or CoreBridge(config, observability=observability)
         self.overlay = TranscriptOverlay(config.overlay)
         self.sound_feedback = SoundFeedback(config.feedback, self)
         self.led_feedback = led_feedback or LedFeedback(
             config.led,
             on_failure=self._on_led_failure,
             on_device_mute_changed=self.device_mute_changed.emit,
+            observability=observability,
         )
         self._muted = False
         # Every effect a rule names has to exist before anything is meant to
@@ -131,6 +146,9 @@ class DesktopApplication(QObject):
         self._shutting_down = False
         self._lifecycle_started_reported = False
         self._lifecycle_stopping_reported = False
+        # CONTRACTS §12.2: apply_started/.completed and the controller's
+        # runtime_apply share ONE correlation_id per apply attempt.
+        self._settings_apply_correlation: Optional[str] = None
         self._wire_signals()
         self.application.aboutToQuit.connect(self.shutdown)
 
@@ -168,6 +186,7 @@ class DesktopApplication(QObject):
             ),
             backend=self._hotkey_backend,
             application=self.application,
+            observability=self._observability,
         )
 
     def _wire_signals(self) -> None:
@@ -201,6 +220,17 @@ class DesktopApplication(QObject):
             self.tray.hide()
             return False
         self._started = True
+        # CONTRACTS §12.1: client.app.started. FD-C3 puts ``process_id`` in the
+        # details of exactly this record rather than in a column of every row.
+        self._observe.system(
+            "client.app.started",
+            details={
+                "process_id": os.getpid(),
+                "version": __version__,
+                "hotkeys_registered": bool(hotkeys_ok),
+                "operating_mode": self.config.session.presentation_mode,
+            },
+        )
         self._report_lifecycle_started()
         return True
 
@@ -263,14 +293,41 @@ class DesktopApplication(QObject):
             and event.event_type not in _TECHNICAL_EVENT_STREAM_EVENTS
         )
 
-    @staticmethod
-    def _log_feedback_decision(decision: FeedbackDecision) -> None:
+    def _log_feedback_decision(self, decision: FeedbackDecision) -> None:
         event = decision.event
         event_type = event.event_type.value if event is not None else None
         led_calls = [
             {"verb": call.verb.value, "target": call.target, "slot": call.slot}
             for call in decision.rule.led
         ]
+        # CONTRACTS §12.5: client.feedback.decision (P+S). *"bereits
+        # strukturiert -- das Vorbild; bleibt unveraendert und wird nur
+        # zusaetzlich erfasst."* The ``logger.info`` below is therefore
+        # untouched; the structured record repeats the same facts through the
+        # canonical model, where ``correlation_id`` and ``session_id`` become
+        # real columns instead of nested ``detail`` keys.
+        self._observe.system(
+            "client.feedback.decision",
+            details={
+                "event_type": event_type,
+                "source": decision.source.value,
+                "state": decision.state.value,
+                "revision": decision.revision,
+                "duplicate": decision.duplicate,
+                "replay": decision.replay,
+                "led": led_calls,
+                "sound": (
+                    decision.rule.sound.cue.value
+                    if decision.rule.sound is not None
+                    else None
+                ),
+                # The feedback event's own id is a SERVER eventId only for
+                # server-sourced facts; §1.1 fixes ``event_id`` to "Server-
+                # eventId, Clientrecords immer None", so it travels in details.
+                "eventId": event.event_id if event is not None else None,
+            },
+            correlation_id=event.correlation_id if event is not None else None,
+        )
         logger.info(
             "Feedback decision",
             extra={
@@ -301,6 +358,13 @@ class DesktopApplication(QObject):
     @Slot(str)
     def _on_sound_failure(self, failure_key: str) -> None:
         category = failure_key.partition(":")[0] or "unknown"
+        # CONTRACTS §12.5: client.sound.failed (P+S). Only the category, never
+        # the full key -- it can carry a file path (R-9).
+        self._observe.system(
+            "client.sound.failed",
+            level="WARNING",
+            details={"category": category},
+        )
         self.bridge.report_local_feedback(
             CanonicalEventType.CLIENT_SOUND_FAILED,
             {"category": category},
@@ -484,7 +548,11 @@ class DesktopApplication(QObject):
 
     def show_settings(self) -> None:
         if self.settings_dialog is None:
-            dialog = SettingsDialog(self.config, self._apply_settings)
+            dialog = SettingsDialog(
+                self.config,
+                self._apply_settings,
+                observability=self._observability,
+            )
             dialog.history_refresh_requested.connect(
                 lambda: self.bridge.request_history(500)
             )
@@ -513,6 +581,17 @@ class DesktopApplication(QObject):
     ) -> bool:
         if self._pending_config is not None:
             return False
+        # CONTRACTS §12.2: one correlation_id for apply_started/.completed and
+        # for the controller's client.settings.runtime_apply. Created here,
+        # because this is where the attempt begins; the controller receives it
+        # through the candidate-independent apply chain (§10.4).
+        correlation_id = f"settings:{uuid.uuid4().hex[:12]}"
+        self._settings_apply_correlation = correlation_id
+        self._observe.audit(
+            "client.settings.apply_started",
+            details={"policies": sorted(policy.value for policy in policies)},
+            correlation_id=correlation_id,
+        )
         old_config = self.config
         old_hotkeys = self.hotkeys
         new_hotkeys = old_hotkeys
@@ -525,6 +604,7 @@ class DesktopApplication(QObject):
             except Exception:
                 logger.exception("New hotkey set rejected; restoring old bindings.")
                 old_hotkeys.register()
+                self._complete_settings_observation(False, "hotkey_registration_failed")
                 return False
         try:
             candidate.save_user()
@@ -533,6 +613,7 @@ class DesktopApplication(QObject):
             if new_hotkeys is not old_hotkeys:
                 new_hotkeys.unregister()
                 old_hotkeys.register()
+            self._complete_settings_observation(False, "persist_failed")
             return False
 
         self._pending_config = candidate
@@ -540,10 +621,54 @@ class DesktopApplication(QObject):
         self._pending_old_hotkeys = old_hotkeys
         if new_hotkeys is not old_hotkeys:
             self.hotkeys = new_hotkeys
-        if not self.bridge.apply_runtime_config(candidate):
+        if not self._request_runtime_apply(candidate, correlation_id):
             self._rollback_pending_settings("Core akzeptiert keine Befehle")
+            self._complete_settings_observation(False, "core_unavailable")
             return False
         return True
+
+    def _request_runtime_apply(
+        self, candidate: AppConfig, correlation_id: str
+    ) -> bool:
+        """Hand the candidate to the Core, carrying the apply correlation id.
+
+        A ``CoreBridge`` double from before OBS-040 has the one-argument
+        signature; the keyword is therefore optional and its absence costs
+        nothing but the shared correlation id on ``runtime_apply``. The
+        capability is decided by INSPECTING the signature, never by catching a
+        ``TypeError`` around the call — a ``TypeError`` raised inside the apply
+        would otherwise be retried, and an apply must never run twice.
+        """
+        apply = self.bridge.apply_runtime_config
+        try:
+            supported = (
+                "settings_correlation_id" in inspect.signature(apply).parameters
+            )
+        except (TypeError, ValueError):
+            supported = False
+        if supported:
+            return bool(
+                apply(candidate, settings_correlation_id=correlation_id)
+            )
+        return bool(apply(candidate))
+
+    def _complete_settings_observation(self, success: bool, status: str) -> None:
+        """CONTRACTS §12.2: client.settings.completed, exactly once per attempt.
+
+        Consuming the stored correlation id makes the record idempotent: every
+        exit of ``_apply_settings``/``_complete_settings_apply`` may call this,
+        and only the first one for a given attempt produces a record.
+        """
+        correlation_id = self._settings_apply_correlation
+        if correlation_id is None:
+            return
+        self._settings_apply_correlation = None
+        self._observe.audit(
+            "client.settings.apply_completed",
+            level="INFO" if success else "WARNING",
+            details={"success": bool(success), "status": status},
+            correlation_id=correlation_id,
+        )
 
     def _complete_settings_apply(self, result: object) -> None:
         candidate = self._pending_config
@@ -563,6 +688,9 @@ class DesktopApplication(QObject):
             self._pending_config = None
             self._pending_old_config = None
             self._pending_old_hotkeys = None
+            self._complete_settings_observation(
+                True, getattr(result, "status", "applied")
+            )
             if self.settings_dialog is not None:
                 self.settings_dialog.complete_apply(True, candidate, "")
             return
@@ -572,6 +700,9 @@ class DesktopApplication(QObject):
             else "Unbekannter Laufzeitfehler"
         )
         self._rollback_pending_settings(message)
+        self._complete_settings_observation(
+            False, str(getattr(result, "status", "unknown_error"))
+        )
         if self.settings_dialog is not None:
             self.settings_dialog.complete_apply(False, None, message)
 
@@ -595,6 +726,7 @@ class DesktopApplication(QObject):
                 candidate.led,
                 on_failure=self._on_led_failure,
                 on_device_mute_changed=self.device_mute_changed.emit,
+                observability=self._observability,
             )
             replacement.verify_targets(candidate.feedback_mappings.led_targets())
         except Exception:
@@ -606,6 +738,7 @@ class DesktopApplication(QObject):
                     old_led_config,
                     on_failure=self._on_led_failure,
                     on_device_mute_changed=self.device_mute_changed.emit,
+                    observability=self._observability,
                 )
                 self.led_feedback.watch_device_mute()
             except Exception:
@@ -648,9 +781,19 @@ class DesktopApplication(QObject):
         if self._shutting_down:
             return
         self._shutting_down = True
+        # CONTRACTS §12.1: client.app.stopping. First statement of the
+        # teardown, so it exists before anything that could fail while
+        # stopping. ``manager.stop()`` is NOT called here (ARCH §6.2(b)); the
+        # record is still flushed, because app.py stops the manager only after
+        # run_gui has returned.
+        self._observe.system(
+            "client.app.stopping",
+            details={"started": bool(self._started)},
+        )
         self._report_lifecycle_stopping()
         if self._pending_config is not None:
             self._rollback_pending_settings("Anwendung wird beendet")
+            self._complete_settings_observation(False, "shutdown")
         self.hotkeys.unregister()
         self.tray.hide()
         self.overlay.hide()
@@ -668,6 +811,7 @@ def run_gui(
     argv: Optional[Sequence[str]] = None,
     *,
     instance_guard: Optional[SingleInstanceGuard] = None,
+    observability=NULL_INGRESS,
 ) -> int:
     """Run the regular tray application and return a process exit code."""
     guard = instance_guard or SingleInstanceGuard()
@@ -701,7 +845,9 @@ def run_gui(
             guard.release()
             return EXIT_TRAY_UNAVAILABLE
 
-        desktop = DesktopApplication(application, config, guard)
+        desktop = DesktopApplication(
+            application, config, guard, observability=observability
+        )
     except LedConfigurationError as error:
         # Not a UI failure and not a hardware one: the configuration file asks
         # for something that cannot be carried out. Said plainly and once,

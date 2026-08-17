@@ -30,6 +30,8 @@ from websockets.asyncio.client import ClientConnection, connect as ws_connect
 from websockets.exceptions import ConnectionClosed
 
 from core.config import SessionConfig
+from core.observability.adapters.client_events import ClientEventEmitter
+from core.observability.ingress import NULL_INGRESS
 
 logger = logging.getLogger("connection")
 
@@ -500,8 +502,10 @@ class STTSession:
         session_config: Optional[SessionConfig] = None,
         *,
         require_session_contract: bool = False,
+        observability=NULL_INGRESS,
     ):
         self._config = server_config
+        self._observe = ClientEventEmitter(observability, component="connection")
         self._session_config = session_config or SessionConfig()
         self._session_config.validate()
         self._require_session_contract = require_session_contract
@@ -526,6 +530,12 @@ class STTSession:
         self._pending_triggers: "dict[str, _PendingTrigger]" = {}
         self._effective_session_config: Optional[dict] = None
         self._session_capabilities: Optional[dict] = None
+
+        # ARCH §8.6 hot-path counters, written by ``send_audio`` without a lock
+        # and read by the LoggingWorker every 5 s. Not exposed as a record per
+        # packet -- at 40 ms chunks that would be ~90.000 records per hour.
+        self.packets_sent = 0
+        self.bytes_sent = 0
 
         # Task references for cleanup
         self._ping_task: Optional[asyncio.Task] = None
@@ -614,6 +624,16 @@ class STTSession:
         self._streaming = streaming
         self._state.streaming_requested = streaming
 
+    # -- ARCH §8.6: the read side of the send-path counters -----------------
+
+    def send_counters(self) -> dict:
+        """Snapshot of the send-side hot-path counters. See
+        ``AudioCapture.capture_counters`` for why there is no lock."""
+        return {
+            "packets_sent": self.packets_sent,
+            "bytes_sent": self.bytes_sent,
+        }
+
     # -------------------------------------------------------------------
     # Lifecycle
     # -------------------------------------------------------------------
@@ -653,6 +673,18 @@ class STTSession:
             delay = self._backoff_delay()
             self._next_retry_delay = delay
             logger.info("Reconnecting in %.1fs (attempt %d, gen %d)...", delay, self._backoff_attempt, self._generation)
+            # CONTRACTS §12.1: client.reconnect.scheduled (P+S). The computed
+            # delay is the number that makes a backoff complaint checkable.
+            self._observe.system(
+                "client.reconnect.scheduled",
+                details={
+                    "delay_s": round(delay, 3),
+                    "attempt": self._backoff_attempt,
+                    "reason": self._last_failure_reason,
+                    "server_busy": bool(self._is_server_busy),
+                },
+                generation=self._generation,
+            )
             self._update_transport(TransportState.DISCONNECTED)
             try:
                 self._backoff_sleep_task = asyncio.create_task(asyncio.sleep(delay))
@@ -732,6 +764,13 @@ class STTSession:
         await self._send_json({"type": "start"})
         self._state.streaming_requested = True
         logger.info("Sent start command.")
+        # CONTRACTS §12.2: client.stream.start_sent (P+S). After the send, so
+        # a record only exists for a command that actually left the client.
+        self._observe.audit(
+            "client.stream.start_sent",
+            session_id=self._state.session_id,
+            generation=self._generation,
+        )
 
     async def send_stop(self) -> None:
         """Send the stop command. Final events may still arrive after this."""
@@ -788,6 +827,17 @@ class STTSession:
             "Sent trigger command: action=%s source=%s commandId=%s",
             action, source, cid,
         )
+        # CONTRACTS §12.2: client.trigger.sent (P+S). ``command_id`` is the
+        # frozen correlation key between send and ack (§1.1), so it goes into
+        # its own column AND into correlation_id as "trigger:<cmd>".
+        self._observe.audit(
+            "client.trigger.sent",
+            details={"action": action, "source": source},
+            session_id=self._state.session_id,
+            generation=self._generation,
+            command_id=cid,
+            correlation_id=f"trigger:{cid}",
+        )
         return cid
 
     async def request_trigger(
@@ -835,6 +885,7 @@ class STTSession:
         command_id = event.get("commandId")
         if not isinstance(command_id, str) or not command_id:
             logger.debug("Ignoring trigger_ack without a commandId.")
+            self._observe_ack_dropped(None, "missing_command_id")
             return None
         pending = self._pending_triggers.pop(command_id, None)
         if pending is None:
@@ -842,6 +893,7 @@ class STTSession:
                 "Ignoring trigger_ack for unknown or already answered "
                 "commandId=%s", command_id,
             )
+            self._observe_ack_dropped(command_id, "unknown_or_answered")
             return None
         if pending.generation != self._generation:
             logger.info(
@@ -850,6 +902,7 @@ class STTSession:
                 command_id, pending.generation, self._generation,
             )
             self._fail_pending_trigger(pending, "stale_generation")
+            self._observe_ack_dropped(command_id, "stale_generation")
             return None
 
         ack = TriggerAck(
@@ -863,7 +916,44 @@ class STTSession:
         )
         if not pending.future.done():
             pending.future.set_result(ack)
+        # CONTRACTS §12.2: client.trigger.ack_received (S). The FIRST and only
+        # answer for this command -- everything filtered out above is an
+        # ack_dropped record instead, which is exactly the distinction the
+        # trigger architecture migration needs.
+        self._observe.audit(
+            "client.trigger.ack_received",
+            details={
+                "accepted": ack.accepted,
+                "reason": ack.reason,
+                "action": ack.action,
+                "source": ack.source,
+            },
+            session_id=self._state.session_id,
+            generation=self._generation,
+            command_id=command_id,
+            activation_id=(
+                ack.activation_id if isinstance(ack.activation_id, str) else None
+            ),
+            correlation_id=f"trigger:{command_id}",
+        )
         return ack
+
+    def _observe_ack_dropped(self, command_id: Optional[str], reason: str) -> None:
+        """CONTRACTS §12.2: client.trigger.ack_dropped (P+S).
+
+        A dropped ack is the interesting half: it means an answer arrived that
+        no consumer may turn into a second feedback impulse. ``correlation_id``
+        is only set when there is a command to correlate with.
+        """
+        self._observe.audit(
+            "client.trigger.ack_dropped",
+            level="WARNING",
+            details={"reason": reason},
+            session_id=self._state.session_id,
+            generation=self._generation,
+            command_id=command_id,
+            correlation_id=f"trigger:{command_id}" if command_id else None,
+        )
 
     def _fail_pending_trigger(self, pending: "_PendingTrigger", reason: str) -> None:
         if pending.future.done():
@@ -907,6 +997,10 @@ class STTSession:
         except ConnectionClosed:
             logger.warning("Connection closed while sending audio.")
             self._streaming = False
+            return
+        # ARCH §8.6: hot path -- int increments only.
+        self.packets_sent += 1
+        self.bytes_sent += len(packet)
 
     async def send_ping(self) -> bool:
         """Send one application-level ping if none is already outstanding."""
@@ -1079,6 +1173,26 @@ class STTSession:
             self._state.session_id,
             self._generation,
         )
+        # CONTRACTS §12.1: client.session.admitted (P+S). Deliberately NOT the
+        # hello payload: R-6 forbids ever storing hello raw, and the whitelisted
+        # hello facts arrive through the event-stream control frame instead.
+        # What is added here is the effective handshake contract -- the fields
+        # a misconfiguration actually shows up in.
+        effective = self._effective_session_config or {}
+        self._observe.system(
+            "client.session.admitted",
+            details={
+                "warnings": list(effective.get("warnings") or []),
+                "fallbacks": list(effective.get("fallbacks") or []),
+                "ignored_fields": list(effective.get("ignoredFields") or []),
+                "effective_wake_word_enabled": effective.get(
+                    "effectiveWakeWordEnabled"
+                ),
+                "supports_activation_triggers": self.supports_activation_triggers,
+            },
+            session_id=self._state.session_id,
+            generation=self._generation,
+        )
 
     async def _wait_for_ready(self) -> None:
         """Wait for the ready event. May arrive directly or as broadcast."""
@@ -1099,6 +1213,12 @@ class STTSession:
             if event.get("type") == "ready":
                 if event.get("ok"):
                     logger.info("Server ready (gen %d).", self._generation)
+                    # CONTRACTS §12.1: client.session.ready (S).
+                    self._observe.system(
+                        "client.session.ready",
+                        session_id=self._state.session_id,
+                        generation=self._generation,
+                    )
                     return
                 else:
                     logger.error("Server reported ready with ok=false")
@@ -1337,6 +1457,26 @@ class STTSession:
             except Exception:
                 logger.exception("Error in transport change callback.")
         logger.info("Transport state: %s", new_state.name)
+        # CONTRACTS §12.1: client.websocket.connecting / .connected (P+S).
+        # Emitted from the single funnel both ``_update_transport`` (the
+        # location §12.1 names) and the reducer path in ``_apply_event`` go
+        # through -- hooking ``_update_transport`` alone would silently miss
+        # every reducer-driven transition, ADMITTED among them.
+        # ``.disconnected`` is NOT emitted here: it belongs to
+        # ``_record_failure``, which sees every failed connection including
+        # two in a row, where the transport state does not change again.
+        if new_state is TransportState.CONNECTING:
+            self._observe.system(
+                "client.websocket.connecting",
+                details={"attempt": self._backoff_attempt},
+                generation=self._generation,
+            )
+        elif new_state is TransportState.ADMITTED:
+            self._observe.system(
+                "client.websocket.connected",
+                session_id=self._state.session_id,
+                generation=self._generation,
+            )
 
     # -------------------------------------------------------------------
     # Internal: ping loop
@@ -1416,6 +1556,20 @@ class STTSession:
         self._last_failure_reason = reason
         if server_busy:
             self._is_server_busy = True
+        # CONTRACTS §12.1: client.websocket.disconnected (P+S). One record per
+        # failed connection, with the classified reason -- the reason is the
+        # whole diagnostic value, and it exists nowhere else in structured form.
+        self._observe.system(
+            "client.websocket.disconnected",
+            level="WARNING",
+            details={
+                "reason": reason,
+                "attempt": self._backoff_attempt,
+                "server_busy": bool(self._is_server_busy),
+            },
+            session_id=self._state.session_id,
+            generation=self._generation,
+        )
 
     @staticmethod
     def _connection_close_code(exc: BaseException) -> Optional[int]:

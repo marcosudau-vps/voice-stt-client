@@ -21,6 +21,8 @@ from core.event_protocol import (
     EventStreamAccess,
 )
 from core.event_stream import EventStreamTransport
+from core.observability.adapters.client_events import ClientEventEmitter
+from core.observability.ingress import NULL_INGRESS
 
 
 logger = logging.getLogger(__name__)
@@ -29,6 +31,7 @@ DownstreamResult = Union[bool, Awaitable[bool]]
 DownstreamCallback = Callable[["SessionContext", EventProtocolResult], DownstreamResult]
 ContextCallback = Callable[["SessionContext"], None]
 TransportFactory = Callable[..., EventStreamTransport]
+ObservationCallback = Callable[["SessionContext", EventProtocolResult], None]
 
 
 @dataclass(frozen=True)
@@ -73,9 +76,10 @@ class DualSessionCoordinator:
         event_config: EventStreamConfig,
         *,
         cursor_store: Optional[EventCursorStore] = None,
-        transport_factory: TransportFactory = EventStreamTransport,
+        transport_factory: Optional[TransportFactory] = None,
         on_event: Optional[DownstreamCallback] = None,
         on_context_change: Optional[ContextCallback] = None,
+        observability: Any = NULL_INGRESS,
     ) -> None:
         server_config.validate()
         event_config.validate()
@@ -92,9 +96,24 @@ class DualSessionCoordinator:
             self._cursor_store = EventCursorStore(path)
         else:
             self._cursor_store = None
-        self._transport_factory = transport_factory
+        # CONTRACTS §6, "Injektionsweg ueber die Default-Factory": an
+        # externally supplied factory keeps the exact call shape it has today
+        # (three positionals plus the three callbacks), while the default
+        # factory closes over the observability ingress so the real transport
+        # can carry the second observation point (§7.5). Without this, adding
+        # a keyword to the factory call would break an existing test's own
+        # factory — and "kein bestehender Test wird geaendert" (ARCH §12).
+        self._transport_factory: TransportFactory = transport_factory or (
+            lambda config, access, processor, **kwargs: EventStreamTransport(
+                config, access, processor, observability=observability, **kwargs
+            )
+        )
         self.on_event = on_event
         self.on_context_change = on_context_change
+        # ARCH §7.1: the fan-out hook. Set by the STTController to the
+        # ServerLiveAdapter; ``None`` means nothing observes.
+        self.on_observation: Optional[ObservationCallback] = None
+        self._observe = ClientEventEmitter(observability, component="eventstream")
         self._context = SessionContext()
         self._transport: Optional[EventStreamTransport] = None
         self._transport_task: Optional[asyncio.Task] = None
@@ -305,11 +324,33 @@ class DualSessionCoordinator:
             channels=("audit", "performance", "transcription"),
         )
 
+    def _notify_observer(self, result: EventProtocolResult) -> None:
+        """ARCH §7.1/§7.3: the fan-out. Return-value free, and the **last**
+        line of defence against a throwing observer.
+
+        The ``except`` body is deliberately empty. ``EventStreamTransport
+        ._dispatch`` catches a propagating exception with ``except
+        BaseException``, calls ``self._processor.reject_event(result)`` and
+        re-raises — a throwing observer would therefore *actively discard* the
+        event and recycle the connection. The visible, counted handling lives
+        one level up in ``ServerLiveAdapter.observe`` (§7.3); putting a second
+        report here would give the failure domain a second, unrelated voice.
+        ``BaseException`` is not caught: ``asyncio.CancelledError`` must pass.
+        """
+        observer = self.on_observation
+        if observer is None:
+            return
+        try:
+            observer(self._context, result)
+        except Exception:  # noqa: BLE001 - handling lives in the logging domain
+            pass
+
     async def _handle_event(
         self,
         binding: int,
         result: EventProtocolResult,
     ) -> bool:
+        self._notify_observer(result)
         context = self._context
         if (
             binding != self._binding
@@ -342,6 +383,7 @@ class DualSessionCoordinator:
         binding: int,
         result: EventProtocolResult,
     ) -> None:
+        self._notify_observer(result)
         if binding != self._binding or self._shutdown:
             return
         if result.issue is not None:
@@ -360,7 +402,22 @@ class DualSessionCoordinator:
     ) -> None:
         if binding != self._binding or self._shutdown:
             return
+        previous = self._context.event_state
         self._set_context(replace(self._context, event_state=state))
+        # CONTRACTS §12.1: client.eventstream.state_changed, channel system.
+        # After ``_set_context``, so the reported context is the one that is
+        # now in force, and never before the runtime transition.
+        if previous is not state:
+            self._observe.system(
+                "client.eventstream.state_changed",
+                details={
+                    "previous": previous.value,
+                    "state": state.value,
+                    "unavailable_code": self._context.unavailable_code,
+                },
+                session_id=self._context.session_id,
+                generation=self._context.generation,
+            )
 
     def _transport_finished(
         self,
