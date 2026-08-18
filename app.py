@@ -188,14 +188,17 @@ def main(argv: Optional[list[str]] = None) -> int:
 
         from ui.application import run_gui
 
-        # OBS-040: the ingress -- not the manager -- reaches the UI. The UI
-        # only ever OBSERVES; the manager's lifetime stays here (ARCH §6.2(b),
-        # FD-R4), and its handover to DesktopApplication remains an OBS-050
-        # matter (Statuszeile, "Diagnosehistorie loeschen").
+        # OBS-040: the ingress is what every producer in the UI gets.
+        # OBS-050 additionally hands over the MANAGER (readiness point N-4) --
+        # the log view needs the read-only query service, the health snapshot
+        # and "Diagnosehistorie loeschen". The manager's LIFETIME still stays
+        # here (ARCH §6.2(b), FD-R4): the UI is handed the object and never
+        # stops it.
         return run_gui(
             config,
             [sys.argv[0], *arguments],
             observability=observability.ingress,
+            observability_manager=observability,
         )
     finally:
         # Runs AFTER bridge.stop(10.0), which happens inside run_gui's own

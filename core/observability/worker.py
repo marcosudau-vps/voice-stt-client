@@ -117,6 +117,14 @@ class LoggingWorker(threading.Thread):
         self._retention_pressure_active = False
         self._last_aggregate_at = 0.0
 
+        # CONTRACTS §10.3 (OBS-050): retention_days, max_entries and the file
+        # sink are IMMEDIATE settings, but they live on this thread. A caller
+        # from the Qt thread therefore only *deposits* them; the worker picks
+        # them up at the top of its own loop, so a sink is never opened or
+        # closed underneath a write in progress.
+        self._settings_lock = threading.Lock()
+        self._pending_settings: dict[str, Any] = {}
+
         self._clear_lock = threading.Lock()
         self._clear_pending = False
         self._clear_done = threading.Event()
@@ -233,6 +241,7 @@ class LoggingWorker(threading.Thread):
     # -- main loop -----------------------------------------------------------
 
     def _iteration(self) -> None:
+        self._apply_pending_settings()
         records = self._ingress.drain(self._batch_size, self._flush_interval_s)
         if records:
             self._process_batch(records)
@@ -604,6 +613,56 @@ class LoggingWorker(threading.Thread):
                 level="WARNING",
             )
         )
+
+    # -- runtime settings (CONTRACTS §10.3, IMMEDIATE) ---------------------
+
+    def request_settings(self, **settings: Any) -> None:
+        """Deposit worker-owned settings for the worker to pick up itself.
+
+        Accepted keys: ``retention_days``, ``max_entries`` and ``sink`` (a
+        sink instance, or ``None`` to switch the file sink off). Only keys
+        that are actually passed are changed, so "switch the sink off" and
+        "leave the sink alone" stay distinguishable. Thread-safe, never
+        raises, returns nothing — the caller is an apply chain that must not
+        be influenced by the logging domain (§10.4, O-01).
+        """
+        try:
+            with self._settings_lock:
+                self._pending_settings.update(settings)
+        except Exception:  # noqa: BLE001 - O-05 boundary
+            pass
+
+    def _apply_pending_settings(self) -> None:
+        """Runs on the worker thread only. A sink replaced here is closed
+        here, by the thread that owns it (ARCH §6.4: sinks write in the
+        worker, never in a thread of their own)."""
+        with self._settings_lock:
+            if not self._pending_settings:
+                return
+            pending = self._pending_settings
+            self._pending_settings = {}
+        if "retention_days" in pending:
+            self._retention_days = pending["retention_days"]
+        if "max_entries" in pending:
+            self._max_entries = pending["max_entries"]
+        if "max_db_bytes" in pending:
+            self._max_db_bytes = pending["max_db_bytes"]
+        if "store_transcription_content" in pending:
+            self._store_transcription_content = bool(
+                pending["store_transcription_content"]
+            )
+        if "sink" in pending:
+            new_sink = pending["sink"]
+            old_sink = self._sink
+            if new_sink is not old_sink:
+                self._sink = new_sink
+                if old_sink is not None:
+                    try:
+                        old_sink.close()
+                    except Exception:  # noqa: BLE001 - closing must never
+                        # take the loop down; the file handle is released by
+                        # the interpreter at the latest.
+                        pass
 
     # -- "Diagnosehistorie loeschen" (FD-S4) -------------------------------
 

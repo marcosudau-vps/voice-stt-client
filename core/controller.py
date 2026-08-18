@@ -1347,6 +1347,13 @@ class STTController:
                 self.audio,
                 candidate_wake_mode_desired,
             )
+            # CONTRACTS §10.4: exactly here, directly after
+            # _install_runtime_config. The observability settings are the only
+            # ones whose change must set NONE of session_changed/audio_changed/
+            # mode_changed -- they are computed above from server/session/audio
+            # alone, so a pure logging change triggers neither a reconnect nor
+            # an audio restart.
+            self._apply_observability_config(candidate.logging.observability)
             await self.session_coordinator.update_config(
                 candidate.server,
                 candidate.event_stream,
@@ -1452,6 +1459,27 @@ class STTController:
         finally:
             if session_changed:
                 self._wake_maintenance_suspended = False
+
+    def _apply_observability_config(self, observability_config: Any) -> None:
+        """CONTRACTS §10.4: *"apply_config ist NICHT werfend und liefert
+        nichts zurueck; ein Fehler dort darf das Apply-Ergebnis nicht
+        beeinflussen."*
+
+        The concrete ingress honours that itself. The guard exists because
+        ``self.observability`` is typed as an ``Ingress`` and may be any
+        implementation of it — a test double or a future adapter — and O-01
+        forbids the logging domain from deciding whether an apply succeeded.
+        Same reasoning as the single ``try/except`` in ``ClientEventEmitter``;
+        ``BaseException`` stays uncaught so ``asyncio.CancelledError`` keeps
+        travelling (ARCH §7.3).
+        """
+        apply_config = getattr(self.observability, "apply_config", None)
+        if apply_config is None:
+            return
+        try:
+            apply_config(observability_config)
+        except Exception:  # noqa: BLE001 - the logging domain stops here
+            pass
 
     def _install_runtime_config(
         self,

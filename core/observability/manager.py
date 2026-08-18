@@ -22,6 +22,8 @@ from core.config import DEFAULT_LOCAL_APP_DIR, is_inside_user_profile
 
 from .health import LoggingHealthState, LoggingInternalHealth, emergency
 from .ingress import NULL_INGRESS, ObservabilityIngress
+from .query.local import LocalLogProvider
+from .query.service import LogQueryService
 from .sinks.jsonl_file import JsonlSink
 from .storage.sqlite import OpenResult, SQLiteLogStore
 from .worker import LoggingWorker
@@ -74,6 +76,14 @@ class ObservabilityManager:
         self._health = LoggingInternalHealth()
         self._enabled = bool(getattr(config, "enabled", True))
         self._worker: Optional[LoggingWorker] = None
+        self._log_dir = log_dir
+        # OBS-050: the resolved store path is what the read-only query
+        # provider opens. ``None`` means "no local store in this
+        # installation" (``store_enabled: false``) and the provider then
+        # reports UNAVAILABLE instead of inventing a path.
+        self._db_path: Optional[Path] = None
+        self._query_service: Optional[LogQueryService] = None
+        self._log_handler: Any = None
 
         if not self._enabled:
             # ARCH §8.3 freezes ``DISABLED`` as part of the state set; the
@@ -101,21 +111,12 @@ class ObservabilityManager:
         if getattr(config, "store_enabled", True):
             db_path = getattr(config, "db_path", None)
             resolved_db = self._resolve_profile_path(db_path, DEFAULT_DB_PATH, "db_path")
+            self._db_path = resolved_db
             store = SQLiteLogStore(resolved_db)
         else:
             store = _NullStore()
 
-        sink = None
-        if getattr(config, "file_sink_enabled", False):
-            sink_dir = getattr(config, "file_sink_dir", None)
-            if log_dir:
-                default_sink_dir = Path(log_dir) / DEFAULT_SINK_SUBDIR
-            else:
-                default_sink_dir = DEFAULT_LOCAL_APP_DIR / "logs" / DEFAULT_SINK_SUBDIR
-            resolved_sink_dir = self._resolve_profile_path(
-                sink_dir, default_sink_dir, "file_sink_dir"
-            )
-            sink = JsonlSink(resolved_sink_dir)
+        sink = self._build_sink(config)
 
         self._worker = LoggingWorker(
             self._ingress,
@@ -130,6 +131,28 @@ class ObservabilityManager:
             queue_size=getattr(config, "queue_size", 8192),
             store_transcription_content=getattr(config, "store_transcription_content", False),
         )
+        # CONTRACTS §10.4: the apply chain reaches the ingress; the settings
+        # the ingress does not own arrive here through this listener.
+        self._ingress.register_config_listener(self._on_config_applied)
+
+    def _build_sink(self, config: Any) -> Optional[JsonlSink]:
+        """The optional JSONL sink for one configuration, or ``None``.
+
+        Used both at construction and on a runtime apply, so the path
+        resolution — including the P-8 user-profile check — happens in exactly
+        one place.
+        """
+        if not getattr(config, "file_sink_enabled", False):
+            return None
+        sink_dir = getattr(config, "file_sink_dir", None)
+        if self._log_dir:
+            default_sink_dir = Path(self._log_dir) / DEFAULT_SINK_SUBDIR
+        else:
+            default_sink_dir = DEFAULT_LOCAL_APP_DIR / "logs" / DEFAULT_SINK_SUBDIR
+        resolved_sink_dir = self._resolve_profile_path(
+            sink_dir, default_sink_dir, "file_sink_dir"
+        )
+        return JsonlSink(resolved_sink_dir)
 
     @staticmethod
     def _resolve_profile_path(configured: Any, default_path: Any, field_name: str) -> Path:
@@ -171,6 +194,98 @@ class ObservabilityManager:
     @property
     def instance_id(self) -> str:
         return self._instance_id
+
+    @property
+    def db_path(self) -> Optional[Path]:
+        """The resolved store path, or ``None`` when this installation has no
+        local store (``store_enabled: false``)."""
+        return self._db_path
+
+    @property
+    def query_service(self) -> LogQueryService:
+        """The read-only query registry the log view uses (OBS-050).
+
+        Built lazily and exactly once, with the local provider registered
+        first so ``providers()`` has a stable default. The service is
+        deliberately independent of the worker: ARCH §11.2 wants the log view
+        to stay usable when the worker is dead and then *"schlicht keine neuen
+        Zeilen"* to appear — which is the truth, and which a query layer wired
+        through the worker could not show.
+        """
+        if self._query_service is None:
+            service = LogQueryService()
+            service.register(LocalLogProvider(self._db_path))
+            self._query_service = service
+        return self._query_service
+
+    def register_log_handler(self, handler: Any) -> None:
+        """Called by ``core/logging_setup.py`` with the ``UnifiedLogHandler``.
+
+        ARCH §8.7 freezes *one* configuration value for two filters: the
+        handler level (Python logs) and the ingress level (structured
+        events). §10.3 marks that value ``IMMEDIATE``. Without this reference
+        a runtime level change would move only the ingress half and leave the
+        Python-log half on the old level — a setting that visibly does only
+        half of what it says.
+        """
+        self._log_handler = handler
+
+    def health_snapshot(self) -> Any:
+        """One snapshot for the log view's status line (CONTRACTS §11.2:
+        *"Die Statuszeile des LogWindow POLLT den Snapshot (QTimer, 1 s)"*).
+        Never raises — a status line must not be able to break the UI."""
+        try:
+            queue_depth = int(getattr(self._ingress, "qsize", lambda: 0)())
+        except Exception:  # noqa: BLE001
+            queue_depth = 0
+        return self._health.snapshot(queue_depth=queue_depth)
+
+    def _on_config_applied(self, config: Any) -> None:
+        """The manager half of ``apply_config`` (CONTRACTS §10.4).
+
+        Applies the ``IMMEDIATE`` settings the ingress does not own and
+        nothing else. ``store_enabled``/``db_path`` are ``APP_RESTART`` and
+        are deliberately ignored here. Never raises: §10.4 requires that a
+        failure in this path cannot influence the apply result.
+        """
+        try:
+            if self._log_handler is not None:
+                level = getattr(config, "level", None)
+                if isinstance(level, str) and level:
+                    self._log_handler.setLevel(level.upper())
+            worker = self._worker
+            if worker is not None:
+                worker.request_settings(
+                    retention_days=getattr(config, "retention_days", 14),
+                    max_entries=getattr(config, "max_entries", 200_000),
+                    max_db_bytes=getattr(config, "max_db_bytes", None),
+                    store_transcription_content=bool(
+                        getattr(config, "store_transcription_content", False)
+                    ),
+                    sink=self._build_sink(config),
+                )
+            self._follow_enabled_state(config)
+        except Exception:  # noqa: BLE001 - O-01/O-05: never influence the apply
+            pass
+
+    def _follow_enabled_state(self, config: Any) -> None:
+        """``enabled`` is the only setting that changes what Health *means*.
+
+        Switching observability off must be visible as ``DISABLED`` rather
+        than as an ``OK`` that records nothing (the same reasoning as in
+        ``__init__``). Switching it back on only clears ``DISABLED`` — an
+        existing ``FAILED_STORE`` or ``FAILED_WORKER`` is a fact about the
+        store and the worker and is never overwritten from here.
+        """
+        enabled = getattr(config, "enabled", None)
+        if not isinstance(enabled, bool):
+            return
+        if not enabled:
+            self._health.set_state(
+                LoggingHealthState.DISABLED, "logging.observability.enabled = false"
+            )
+        elif self._health.state is LoggingHealthState.DISABLED:
+            self._health.set_state(LoggingHealthState.OK)
 
     def start(self) -> None:
         if self._worker is not None:

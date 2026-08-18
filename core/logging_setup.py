@@ -138,3 +138,10 @@ def setup_logging(config: LoggingConfig, *, observability=None) -> None:
         observability_handler = UnifiedLogHandler(ingress, _normalize)
         observability_handler.setLevel(observability.level)
         root_logger.addHandler(observability_handler)
+        # OBS-050: ARCH §8.7 freezes ONE configuration value for both filters,
+        # and CONTRACTS §10.3 makes it IMMEDIATE. The composition root keeps a
+        # reference so a runtime level change moves the handler half too;
+        # ``getattr`` because a pre-OBS-050 double may not have the method.
+        register_handler = getattr(observability, "register_log_handler", None)
+        if register_handler is not None:
+            register_handler(observability_handler)

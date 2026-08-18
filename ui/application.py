@@ -82,6 +82,7 @@ class DesktopApplication(QObject):
         hotkey_backend: Optional[HotkeyBackend] = None,
         led_feedback: Optional[LedFeedback] = None,
         observability=NULL_INGRESS,
+        observability_manager=None,
     ) -> None:
         super().__init__()
         if threading.current_thread() is not threading.main_thread():
@@ -92,10 +93,18 @@ class DesktopApplication(QObject):
         self.instance_guard = instance_guard
         # ARCH §6.2(b): DesktopApplication is *handed* the observability
         # entry point and never stops it -- the manager's lifetime belongs to
-        # app.py::main()'s try/finally (FD-R4/OD-22). What is passed here is
-        # the ingress, not the manager: OBS-040 only produces observations.
-        # The manager handover itself is an OBS-050 readiness point (N-4).
+        # app.py::main()'s try/finally (FD-R4/OD-22).
+        #
+        # OBS-050 closes readiness point N-4 and hands over the MANAGER as
+        # well, as a SECOND parameter: the ingress stays what every producer
+        # gets, while the manager is what the log view and the "Diagnose-
+        # historie loeschen" button need (query service, health snapshot,
+        # clear_history). ``None`` is a valid value -- pre-OBS-050 callers and
+        # every existing test double pass none -- and then the log view is
+        # simply unavailable instead of half-wired.
         self._observability = observability
+        self._observability_manager = observability_manager
+        self.log_window = None
         self._observe = ClientEventEmitter(observability, component="ui.application")
         self.bridge = bridge or CoreBridge(config, observability=observability)
         self.overlay = TranscriptOverlay(config.overlay)
@@ -131,6 +140,9 @@ class DesktopApplication(QObject):
             on_toggle_mute=self.set_microphone_muted,
             on_reconnect_device=self.reconnect_device,
             on_reconnect_server=self.reconnect_server,
+            on_show_logs=(
+                self.show_logs if observability_manager is not None else None
+            ),
             parent=self,
         )
         self._led_watch = QTimer(self)
@@ -563,11 +575,77 @@ class DesktopApplication(QObject):
             dialog.history_clear_requested.connect(self.bridge.clear_history)
             dialog.reconnect_device_requested.connect(self.reconnect_device)
             dialog.reconnect_server_requested.connect(self.reconnect_server)
+            dialog.logging_view_requested.connect(self.show_logs)
+            dialog.logging_clear_requested.connect(self.clear_diagnostics_history)
             self.settings_dialog = dialog
         self.bridge.request_history(500)
         self.settings_dialog.show()
         self.settings_dialog.raise_()
         self.settings_dialog.activateWindow()
+
+    # -- log view and diagnostics history (OBS-050) ------------------------
+
+    def show_logs(self) -> None:
+        """Open the non-modal log view (CONTRACTS §9.1).
+
+        Created on first use and then kept, like the settings dialog: it holds
+        its filter, its geometry and its query thread. Everything it needs is
+        read-only — a query service and a health snapshot — so it can never
+        become a second writer into the store (O-14).
+        """
+        manager = self._observability_manager
+        if manager is None:
+            logger.info("No observability manager; the log view is unavailable.")
+            if self.settings_dialog is not None:
+                self.settings_dialog.set_logging_status(
+                    "Keine Diagnosequelle verfügbar."
+                )
+            return
+        if self.log_window is None:
+            from ui.logs.log_window import LogWindow
+
+            self.log_window = LogWindow(
+                manager.query_service,
+                health_provider=manager.health_snapshot,
+            )
+        self.log_window.show()
+        self.log_window.raise_()
+        self.log_window.activateWindow()
+
+    def clear_diagnostics_history(self) -> None:
+        """FD-S4 / CONTRACTS §5.8: ``LogStore.clear()`` **through the
+        manager**, never through the query layer — providers never write
+        (O-14), and a delete method on the query interface would be
+        inadmissible for a remote provider.
+
+        The call is bounded: it hands the request to the worker thread, which
+        owns the write connection (§5.4), and waits for the worker's answer up
+        to its timeout. It is a deliberate, user-triggered action outside any
+        hot path, and the button is the only place in the client that blocks
+        on the logging domain at all.
+        """
+        manager = self._observability_manager
+        if manager is None:
+            if self.settings_dialog is not None:
+                self.settings_dialog.set_logging_status(
+                    "Keine Diagnosequelle verfügbar."
+                )
+            return
+        # No structured record is emitted for this action. §12 is "die
+        # verbindliche Liste" of V1 observation hooks and does not contain a
+        # deletion event; inventing a type here would extend a frozen contract
+        # without a DECISION REQUIRED. It would also be a record written into
+        # the very store that is being emptied.
+        try:
+            deleted = manager.clear_history()
+            message = f"{deleted} Diagnoseeinträge gelöscht."
+        except Exception as exc:
+            logger.exception("Clearing the diagnostics history failed.")
+            message = f"Löschen fehlgeschlagen: {exc}"
+        if self.settings_dialog is not None:
+            self.settings_dialog.set_logging_status(message)
+        if self.log_window is not None and self.log_window.isVisible():
+            self.log_window.page.reload()
 
     def _on_history_received(self, entries: object) -> None:
         self.tray.set_history_entries(entries)
@@ -799,6 +877,11 @@ class DesktopApplication(QObject):
         self.overlay.hide()
         if self.settings_dialog is not None:
             self.settings_dialog.close()
+        if self.log_window is not None:
+            # Releases the query thread and stores the geometry. The manager
+            # itself is NOT stopped here (ARCH §6.2(b)).
+            self.log_window.shutdown()
+            self.log_window.hide()
         if not self.led_feedback.shutdown():
             logger.warning("LED worker did not stop within its configured timeout.")
         self.bridge.stop(timeout=10.0)
@@ -812,6 +895,7 @@ def run_gui(
     *,
     instance_guard: Optional[SingleInstanceGuard] = None,
     observability=NULL_INGRESS,
+    observability_manager=None,
 ) -> int:
     """Run the regular tray application and return a process exit code."""
     guard = instance_guard or SingleInstanceGuard()
@@ -846,7 +930,11 @@ def run_gui(
             return EXIT_TRAY_UNAVAILABLE
 
         desktop = DesktopApplication(
-            application, config, guard, observability=observability
+            application,
+            config,
+            guard,
+            observability=observability,
+            observability_manager=observability_manager,
         )
     except LedConfigurationError as error:
         # Not a UI failure and not a hardware one: the configuration file asks

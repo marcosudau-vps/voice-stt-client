@@ -1,4 +1,14 @@
-"""Typed five-tab settings and transcript-history dialog."""
+"""Typed six-tab settings and transcript-history dialog.
+
+The sixth tab, "Logging & Diagnose", is frozen in
+``LOGGING_CONTRACTS_FREEZE_V1.md`` §9.1 as the place for the logging
+configuration — and §9.1 equally freezes that the *log view* is **not** a tab
+here but its own non-modal window. This tab therefore carries the settings
+plus two buttons: "Diagnosehistorie löschen" (FD-S4, at the store) and "Logs
+anzeigen" (opens that window). Both are actions, not settings, so they sit
+outside the form and do not wait for "Übernehmen" — the same pattern the
+device and server reconnect buttons already use.
+"""
 
 from __future__ import annotations
 
@@ -34,14 +44,18 @@ from core.config import AppConfig
 from core.history import HistoryEntry
 from core.observability.adapters.client_events import ClientEventEmitter
 from core.observability.ingress import NULL_INGRESS
+from core.logging_settings_metadata import ALL_SETTING_DEFINITIONS
 from core.settings_metadata import (
     ApplyPolicy,
-    SETTING_DEFINITIONS,
     SettingDefinition,
     SettingType,
     build_candidate,
     get_config_value,
 )
+
+# The dialog edits every declared setting, including the sixth tab's, which
+# lives in its own metadata module (see the module docstring there).
+SETTING_DEFINITIONS = ALL_SETTING_DEFINITIONS
 
 ApplyCallback = Callable[[AppConfig, frozenset[ApplyPolicy]], bool]
 
@@ -55,6 +69,8 @@ class SettingsDialog(QDialog):
     history_clear_requested = Signal()
     reconnect_device_requested = Signal()
     reconnect_server_requested = Signal()
+    logging_clear_requested = Signal()
+    logging_view_requested = Signal()
 
     TAB_NAMES = (
         "Verlauf",
@@ -62,6 +78,7 @@ class SettingsDialog(QDialog):
         "Verbindung & Betriebsmodus",
         "Geräte & Audio",
         "Erscheinungsbild & Feedback",
+        "Logging & Diagnose",
     )
 
     def __init__(
@@ -162,8 +179,50 @@ class SettingsDialog(QDialog):
                 self.reconnect_server_requested.emit
             )
             layout.addWidget(self.reconnect_server_button)
+
+        if category == "Logging & Diagnose":
+            self.show_logs_button = QPushButton("Logs anzeigen")
+            self.show_logs_button.setToolTip(
+                "Öffnet die Logansicht in einem eigenen Fenster. Die Ansicht "
+                "liest nur; das Logging läuft unabhängig davon weiter."
+            )
+            self.show_logs_button.clicked.connect(self.logging_view_requested.emit)
+            layout.addWidget(self.show_logs_button)
+
+            self.clear_logs_button = QPushButton("Diagnosehistorie löschen")
+            self.clear_logs_button.setToolTip(
+                "Löscht alle lokal gespeicherten Diagnoseeinträge "
+                "unwiderruflich. Die Transkripthistorie bleibt unberührt."
+            )
+            self.clear_logs_button.clicked.connect(self._clear_diagnostics)
+            layout.addWidget(self.clear_logs_button)
+
+            self.logging_status = QLabel("")
+            self.logging_status.setWordWrap(True)
+            layout.addWidget(self.logging_status)
         layout.addStretch(1)
         return page
+
+    def _clear_diagnostics(self) -> None:
+        """FD-S4: the deletion is irreversible, so it is confirmed — the same
+        warning shape the transcript history's "Alles löschen" already uses."""
+        answer = QMessageBox.warning(
+            self,
+            "Diagnosehistorie löschen",
+            "Alle lokal gespeicherten Diagnoseeinträge löschen? Dies kann "
+            "nicht rückgängig gemacht werden.",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.Cancel,
+            QMessageBox.StandardButton.Cancel,
+        )
+        if answer == QMessageBox.StandardButton.Yes:
+            self.logging_clear_requested.emit()
+
+    def set_logging_status(self, text: str) -> None:
+        """Result line of the two logging actions. Separate from
+        ``status_label``, which belongs to the settings apply chain."""
+        label = getattr(self, "logging_status", None)
+        if label is not None:
+            label.setText(text)
 
     def _create_editor(self, definition: SettingDefinition) -> QWidget:
         value = get_config_value(self._config, definition.path)
@@ -263,9 +322,14 @@ class SettingsDialog(QDialog):
             return editor.value()
         if isinstance(editor, QLineEdit):
             text = editor.text().strip()
-            if definition.editor == "optional_hotkey" or get_config_value(
-                self._config, definition.path
-            ) is None:
+            if (
+                definition.editor in ("optional_hotkey", "optional_path")
+                or get_config_value(self._config, definition.path) is None
+            ):
+                # ``optional_path`` is checked by name rather than by the
+                # current value: once a path HAS been set, clearing the field
+                # has to mean "back to the default" again, not the empty
+                # string — which config validation rejects (P-8).
                 return text or None
             return text
         raise TypeError(f"Unsupported editor for {definition.path}")
