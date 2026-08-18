@@ -21,6 +21,10 @@ release/
 
 # Runtime data
 logs/
+# ...but ui/logs/ is source code, not runtime data: it is the log VIEW
+# (OBS-050, frozen module path in LOGGING_ARCHITEKTUR_FREEZE_V1.md §5.1).
+# Without this line the whole package would be silently unversionable.
+!ui/logs/
 *.log
 *.db
 *.db-*

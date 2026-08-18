@@ -34,7 +34,7 @@ from typing import Any, Callable, Dict, List, Mapping, Optional, Protocol, Tuple
 from uuid import uuid4
 
 from .health import LoggingInternalHealth
-from .models import CanonicalLogRecord, RecordPriority, level_rank
+from .models import CanonicalLogRecord, Level, RecordPriority, level_rank
 from .normalizer import from_client_event, from_server_result
 
 AggregateSource = Callable[[], Optional[Mapping[str, Any]]]
@@ -64,6 +64,9 @@ class Ingress(Protocol):
 
 DEFAULT_QUEUE_SIZE = 8192
 WATERMARK_RATIO = 0.75
+# The closed level set (CONTRACTS §2.1). A runtime apply with an unknown
+# level keeps the current one instead of silently falling back to INFO.
+_LEVEL_NAMES = frozenset(level.value for level in Level)
 
 
 def _utc_now_iso() -> str:
@@ -104,6 +107,13 @@ class ObservabilityIngress:
         # while the read happens on the worker thread.
         self._aggregate_lock = threading.Lock()
         self._aggregate_sources: Dict[str, Tuple[Optional[str], AggregateSource]] = {}
+        # CONTRACTS §10.4 (OBS-050): the runtime apply chain reaches the
+        # ingress, but the ingress owns only four of the nine settings. The
+        # rest belong to the worker and the sink, which the ingress must not
+        # import (ARCH §5.2, import direction ``ingress <- worker``). So the
+        # composition root registers a listener here and applies its own half
+        # itself; the ingress never learns what a worker is.
+        self._config_listeners: List[Callable[[Any], None]] = []
 
     # -- read-only config, used by the future normalizer callable
     # (core/logging_setup.py) so nothing besides ``ingress``/``level`` needs
@@ -272,6 +282,58 @@ class ObservabilityIngress:
         except Exception:  # noqa: BLE001
             pass
 
+    # -- CONTRACTS §10.3/§10.4: runtime settings --------------------------
+
+    def register_config_listener(self, listener: Callable[[Any], None]) -> None:
+        """Register one callable that receives the same
+        ``LoggingObservabilityConfig`` ``apply_config`` receives.
+
+        Used by ``ObservabilityManager`` for the settings the ingress does not
+        own (retention, entry limit, file sink, handler level). Registration is
+        idempotent per callable so a re-registration cannot install the same
+        listener twice.
+        """
+        if listener is None or listener in self._config_listeners:
+            return
+        self._config_listeners.append(listener)
+
+    def apply_config(self, config: Any) -> None:
+        """CONTRACTS §10.4: called from ``STTController.apply_runtime_config``.
+
+        *"apply_config ist NICHT werfend und liefert nichts zurueck; ein
+        Fehler dort darf das Apply-Ergebnis nicht beeinflussen."* The four
+        settings applied here are the ones this object owns — ``enabled``,
+        ``level`` (ARCH §8.7: the ingress half of the single level value),
+        ``store_raw_payload`` and ``store_transcription_content``. Everything
+        else is forwarded to the registered listeners.
+
+        ``store_enabled`` and ``db_path`` are deliberately **not** applied:
+        §10.3 marks them ``APP_RESTART`` because a running worker holds an
+        open SQLite connection, and swapping it at runtime would need flush,
+        close, reopen and migration — *"ein Fehlerpfad, den V1 nicht
+        braucht"*.
+        """
+        try:
+            enabled = getattr(config, "enabled", None)
+            if isinstance(enabled, bool):
+                self._enabled = enabled
+            level = getattr(config, "level", None)
+            if isinstance(level, str) and level.upper() in _LEVEL_NAMES:
+                self._level = level.upper()
+            store_raw = getattr(config, "store_raw_payload", None)
+            if isinstance(store_raw, bool):
+                self._store_raw_payload = store_raw
+            store_transcripts = getattr(config, "store_transcription_content", None)
+            if isinstance(store_transcripts, bool):
+                self._store_transcription_content = store_transcripts
+        except Exception:  # noqa: BLE001 - O-01: never influence the apply result
+            pass
+        for listener in list(self._config_listeners):
+            try:
+                listener(config)
+            except Exception:  # noqa: BLE001 - O-05 boundary
+                pass
+
     # -- ARCH §8.6: hot-path counters are read here, by the worker --------
 
     def register_aggregate_source(
@@ -370,6 +432,15 @@ class NullIngress(ObservabilityIngress):
         return []
 
     def emit_record_rejected(self, component: str, exc: BaseException) -> None:
+        return None
+
+    def apply_config(self, config: Any) -> None:
+        """A no-op ingress stays a no-op: re-enabling it through a settings
+        apply would turn the "observability is off" wiring into a live one
+        without a manager, a worker or a store behind it."""
+        return None
+
+    def register_config_listener(self, listener: Callable[[Any], None]) -> None:
         return None
 
     def register_aggregate_source(

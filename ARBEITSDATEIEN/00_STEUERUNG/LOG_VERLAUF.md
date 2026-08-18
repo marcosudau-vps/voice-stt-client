@@ -1019,3 +1019,313 @@
   - **OBS-050 ist freigegeben** (`OBS-050 MAY PROCEED`); die Implementierung
     beginnt in einer frischen Session.
   - **Kein Push, kein Merge, kein Rebase, kein Tag, kein PR.**
+
+- 17.08.2026, OBS-050 Implementierung (Run `RUN-OBS-050-01_2026-08-17`)
+  - Ergebnis: **`OBS-050 IMPLEMENTED – READY FOR REVIEW`**. Kein Gate-PASS in
+    diesem Run — das Work Package verlangt einen separaten, unabhaengigen
+    Review in frischer Session.
+  - **Query-Layer.** `core/observability/query/local.py`
+    (`LocalLogProvider`) und `core/observability/query/service.py`
+    (`LogQueryService`) schliessen die letzte Luecke der in `ARCH §5.1`
+    eingefrorenen Modulstruktur. Eigene kurzlebige Leseverbindungen mit
+    `PRAGMA query_only = ON` (nie `mode=ro`, W-13), Keyset-Pagination ueber
+    `logs.id` nach `CONTRACTS §5.7`, `raw_json` grundsaetzlich nicht in der
+    Listenabfrage, jeder Filterwert als Platzhalter. Drei getestete
+    Eigenschaften tragen O-14: der Leser **legt die Datenbankdatei nie an**,
+    er **wirft nie** (jeder Fehler ist ein Anzeigezustand) und er **laesst
+    keine Verbindung offen**.
+  - **Logansicht.** `ui/logs/**` mit den sechs eingefrorenen Modulen. Live und
+    Historie sind **derselbe** Abfragepfad mit anderen Parametern: Historie
+    `newest_first=True` mit `next_cursor`, Live alle 250 ms
+    `newest_first=False` ab dem zuletzt gesehenen Cursor, `LIMIT 500`.
+    **Kein Ringbuffer, kein Signal je Record** (FD-S1). Eigener
+    `ThreadPoolExecutor(max_workers=1)`, ausdruecklich nicht ueber
+    `CoreBridge`.
+  - **Einstellungen.** Die neun Eintraege aus `CONTRACTS §10.3` im sechsten Tab
+    „Logging & Diagnose", dazu „Diagnosehistorie loeschen" (am **Store**, ueber
+    den Manager — nicht am Query-Provider, O-14) und „Logs anzeigen". Die
+    Ownership-Domaenen sind getrennt: der Ingress wendet die vier Felder an,
+    die er besitzt, die Kompositionswurzel den Handler-Level (`ARCH §8.7`: ein
+    Konfigwert, zwei Filter), der Worker Retention, Anzahlgrenze und
+    Datei-Sink auf **seinem eigenen** Thread. `store_enabled`/`db_path`
+    bleiben `APP_RESTART` und werden zur Laufzeit nicht angewandt.
+  - **Apply-Kette.** Eine Zeile in `core/controller.py::apply_runtime_config`
+    an der von `§10.4` genannten Stelle. Die harte Regel ist **gemessen**: eine
+    reine Observability-Aenderung erreicht eine Fake-Session, deren
+    `reconfigure` durchfaellt, nicht — kein Reconnect, kein Audio-Neustart.
+  - **Drei reale Befunde, alle behoben.** F-1: `.gitignore` verbarg mit der
+    Regel `logs/` das gesamte neue Paket `ui/logs/` — der in `ARCH §5.1`
+    eingefrorene Pfad der Logansicht; ohne Korrektur waere das Ergebnis dieses
+    Work Packages nicht versionierbar gewesen und ein spaeterer Commit haette
+    lautlos eine unvollstaendige Fassung enthalten (behoben mit einer
+    begruendeten Negation `!ui/logs/`; die Regel fuer Laufzeitdaten bleibt
+    wirksam). F-2: eine Abfrage, die schneller antwortet als `request_page`
+    zurueckkehrt, veroeffentlicht synchron im aufrufenden Thread — die Seite
+    verwarf dadurch ihre eigene frische Antwort als „veraltet" (behoben durch
+    Reservierung der Anfrage-ID vor dem Absetzen). F-3: ein sofort
+    zurueckkehrendes `shutdown()` liess eine laufende Abfrage in ein bereits
+    zerstoertes `QObject` veroeffentlichen — in PySide6 eine
+    Zugriffsverletzung (behoben durch `shutdown(wait=True)`).
+  - **F-4 / bewusste Ablage.** Die neun Settings-Eintraege liegen in
+    `core/logging_settings_metadata.py` statt in `core/settings_metadata.py`,
+    weil `CONTRACTS §12.7` letzteres „bewusst rein" haelt und ein bestehender
+    OBS-040-Contract-Test das prueft. `ARCH §12` verlangt in genau diesem Fall
+    anzuhalten und die Architektur zu pruefen statt den Test zu aendern; das
+    Ergebnis der Pruefung ist diese Trennung. `core/settings_metadata.py` ist
+    byte-identisch geblieben. Das in `ARCH §5.1` ausgeschlossene Modul
+    `ui/settings/logging_settings.py` entsteht **nicht**.
+  - **Zehn Entscheidungen, alle aus dem bestehenden Freeze aufloesbar**: kein
+    `DECISION REQUIRED`, **kein neuer Zaehler**, **kein neuer Recordtyp**
+    (`§12` ist die verbindliche Liste — auch das Loeschen der Historie erzeugt
+    bewusst keinen), kein neues Konfigurationsfeld, **kein normatives Dokument
+    veraendert**.
+  - **Teststand:** 170 neue Tests in fuenf Dateien, gruen unter `pytest`
+    **und** `unittest`; volle Suite 1128 passed / 1 vorbestehender,
+    umgebungsbedingter Fehlschlag (`lefx.interfaces`), dessen Vorbestand gegen
+    einen frisch aus `91a7b7f` ausgepackten Baum nachgewiesen ist (dort 958
+    passed / 1 identischer Fehlschlag; Differenz exakt die 170 neuen Tests).
+    **Kein bestehender Test geaendert.** `git diff --check` leer, kein
+    Cross-Workstream-Diff. Ende-zu-Ende-Diagnoseskript mit echtem Manager,
+    echtem Store, echtem Query-Layer und echtem Qt-Fenster: **12/12 PASS,
+    exit 0** — darunter 750 Zeilen paginiert waehrend der Worker
+    weiterschreibt (keine Luecke, kein Duplikat), `raw` nur ueber `fetch_raw`,
+    „Diagnosehistorie loeschen" mit 765 entfernten Zeilen bei nachweislich
+    schreibmethodenfreiem Query-Layer, und drei Records, die **ohne geoeffnetes
+    Fenster** geschrieben und von einem spaeter geoeffneten Fenster gezeigt
+    werden.
+  - Wichtigste Artefakte:
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/runs/RUN-OBS-050-01_2026-08-17/`
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/40_EVIDENCE/OBS-050/RUN-01_2026-08-17/`
+      (`TEST_RESULTS.md`, `DIFF_SUMMARY.md`, `CONTRACT_COVERAGE.md`,
+      `QUERY_CASES.md`, `UI_ACCEPTANCE.md`, `probe_obs050_end_to_end.py`)
+  - **Kein Commit, kein Push, kein Merge, kein Rebase, kein Tag, kein PR.**
+  - Naechster Schritt: **OBS-050 Gate Review** (unabhaengig, frische Session,
+    `Prompts/OBS-050_GATE_REVIEW.md`).
+
+- 18.08.2026, `Prompts/OBS-050_GATE_REVIEW.md` — **OBS-050 Gate Review
+  (unabhaengig, frische Session)**
+  - Ergebnis: **`OBS-050 GATE FAIL`**. Evidence:
+    `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/40_EVIDENCE/OBS-050/GATE-REVIEW-01_2026-08-18_CLAUDE/`
+    (`GATE_REVIEW.md`, `gate_probe_obs050_ordering.py`,
+    `gate_probe_obs050_live_happy_path.py`).
+  - Geprueft wurde ausschliesslich der tatsaechliche Repositoryzustand:
+    Produktcode, `git diff`/`git status`/`git diff --check`, eigene
+    Testlaeufe mit beiden Runnern, ein Vergleichslauf gegen einen frisch aus
+    `91a7b7f` ausgepackten Baum, das Diagnoseskript des Runs (unabhaengig
+    wiederholt, 12/12 PASS, exit 0) und **zwei eigene Laufzeitproben gegen den
+    echten Stack** — echter `SQLiteLogStore`, echter `LocalLogProvider`,
+    echter `LogQueryService`, echtes Qt-`LogPage` (offscreen). Nicht die
+    Abschlussberichte.
+  - **Belastbar und in Ordnung:** der Query-Layer (kurzlebige
+    Leseverbindungen mit `PRAGMA query_only = ON` statt `mode=ro`, Keyset ueber
+    `logs.id`, `raw_json` nicht in der Listenabfrage, ausschliesslich
+    Platzhalterbindung samt LIKE-Escaping, die Datei wird vom Leser nie
+    angelegt, keine Verbindung bleibt offen, `query()` wirft nie, `status()`
+    gecacht ohne I/O), die `LogQueryService`-Registry inkl. Failure-Isolation,
+    die neun Settings-Eintraege nach `CONTRACTS §10.3` mit getrennten
+    Ownership-Domaenen, die eine Zeile in `apply_runtime_config` nach `§10.4`,
+    „Diagnosehistorie loeschen" am **Store** ueber den Manager (`FD-S4`,
+    O-14), die Managerlebensdauer (`ARCH §6.2(b)`), die Importrichtung und
+    „Logging laeuft ohne UI". `00_NORMATIV/`, `20_PLANUNG/` und
+    `core/settings_metadata.py` byte-identisch zu `91a7b7f`, kein bestehender
+    Test geaendert, volle Suite 1128 passed / 1 vorbestehender,
+    umgebungsbedingter Fehlschlag; Baseline aus `91a7b7f` unabhaengig
+    nachgemessen: 958 passed / 1 identischer Fehlschlag, Differenz exakt die
+    170 neuen Tests.
+  - **Blockierend ist ausschliesslich das Gate-Kriterium
+    „Filter/Cursor/Sortierung verhalten sich deterministisch"** — nicht im
+    Provider, sondern in der Ansicht `ui/logs/log_page.py`:
+    - **B-1:** „Weitere laden" und das automatische Nachladen am Listenende
+      haengen die umgekehrte, **aeltere** Folgeseite unten an; die Zeitspalte
+      springt in der Mitte rueckwaerts. Reproduziert: erste Seite `r7…r11`,
+      danach `r7…r11, r2…r6`.
+    - **B-2:** startet der Live-Modus auf einer **leeren** Ergebnismenge
+      (frische Installation, ein Filter auf den noch nichts passt, jeder
+      Filterwechsel im Live-Modus), wird die erste aufsteigende Tail-Antwort
+      im absteigenden Zweig verarbeitet: verkehrte Reihenfolge, und
+      `_live_cursor` wird aus der **aeltesten** statt der juengsten Zeile
+      gesetzt, sodass der naechste Tail dieselben Zeilen als Duplikate
+      anhaengt. Reproduziert: `r4,r3,r2,r1,r0,r1,r2,r3,r4`. Der Normalfall —
+      Live auf nicht leerer Ergebnismenge — ist korrekt und gegengeprueft.
+  - Dazu W-1 (keine Tests fuer die Reihenfolge ueber zwei Seiten und fuer
+    „Live auf leerem Store"; deshalb sind B-1/B-2 unentdeckt geblieben), W-2
+    (`UI_ACCEPTANCE.md` A-11 „chronologisch dargestellt" gilt nur fuer die
+    erste Seite) und sieben nicht blockierende Beobachtungen N-1 bis N-7.
+  - Korrekturumfang: **eine** Produktdatei (`ui/logs/log_page.py`) plus zwei
+    Tests in `tests/test_obs050_ui.py`. An Query-Layer, Settings, Apply-Kette,
+    Manager und Worker ist nichts zu aendern.
+  - **Kein Commit erstellt** (Commit nur bei `PASS`); HEAD unveraendert
+    `91a7b7f`. **Kein Push, kein Merge, kein Rebase, kein Tag, kein PR.**
+  - Naechster Schritt: **OBS-050 Korrekturlauf** fuer B-1 und B-2
+    (einschliesslich W-1 und W-2), danach ein **erneuter unabhaengiger
+    Gate-Review in frischer Session**. **OBS-060 darf nicht beginnen.**
+
+- 18.08.2026, OBS-050 Gate Review (unabhaengig, frische Session)
+  - Ergebnis: **`OBS-050 GATE FAIL`**. Geprueft wurde der tatsaechliche
+    Repositoryzustand — Produktcode, `git diff`/`git status`/`git diff --check`,
+    eigenstaendige Testlaeufe mit beiden Runnern, ein Vergleichslauf gegen einen
+    frisch aus `91a7b7f` ausgepackten Baum, das Diagnoseskript des Runs und
+    **zwei eigene Laufzeitproben gegen den echten Stack** — nicht die
+    Abschlussberichte.
+  - **In Ordnung**: Query-Layer (kurzlebige Leseverbindungen mit
+    `PRAGMA query_only = ON`, Keyset ueber `logs.id`, `raw_json` nicht in der
+    Liste, ausschliesslich Platzhalterbindung, LIKE-Escaping, die Datei wird vom
+    Leser nie angelegt, keine Verbindung bleibt offen, `query()` wirft nie),
+    Settings, Apply-Kette, Ownership-Trennung, Loeschfunktion am Store,
+    Managerlebensdauer, Importrichtung, „Logging laeuft ohne UI", kein
+    Ringbuffer, keine vorgezogenen Remote-/Admin-Funktionen.
+  - **Blockierend**: das Gate-Kriterium „Filter/Cursor/Sortierung verhalten sich
+    deterministisch" ist in der **Ansicht** nicht erfuellt. **B-1** —
+    `_on_page_ready` drehte jede Historieseite um und hing die aeltere
+    Folgeseite unten an; die sichtbare Zeitachse sprang an jeder Seitengrenze
+    zurueck (`r7 … r11, r2 … r6`). **B-2** — die Art einer Antwort wurde aus
+    `_live_cursor` statt aus der Anfrage bestimmt; nach einem leeren
+    Ausgangsergebnis fiel die erste aufsteigende Tail-Antwort in den
+    absteigenden Zweig, wurde umgedreht angezeigt und der Cursor aus der
+    **aeltesten** Zeile gesetzt, worauf der naechste Tail dieselben Records
+    erneut lieferte (`r4,r3,r2,r1,r0,r1,r2,r3,r4`). Dazu W-1 (Testluecke),
+    W-2 (Evidenzformulierung) und sieben nicht blockierende Beobachtungen
+    N-1 bis N-7.
+  - Kein Commit erstellt; HEAD blieb `91a7b7f`.
+  - Wichtigste Artefakte:
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/40_EVIDENCE/OBS-050/GATE-REVIEW-01_2026-08-18_CLAUDE/GATE_REVIEW.md`
+    - `.../GATE-REVIEW-01_2026-08-18_CLAUDE/gate_probe_obs050_ordering.py`
+    - `.../GATE-REVIEW-01_2026-08-18_CLAUDE/gate_probe_obs050_live_happy_path.py`
+  - Naechster Schritt: OBS-050 Korrekturlauf fuer B-1 und B-2 (einschliesslich
+    W-1 und W-2), danach ein erneuter unabhaengiger Gate-Review.
+
+- 18.08.2026, OBS-050 Korrekturlauf (Run `RUN-OBS-050-02_2026-08-18`)
+  - Ergebnis: **`OBS-050 CORRECTED – READY FOR RE-REVIEW`**. **Das Gate bleibt
+    offen** — ein Korrekturlauf vergibt sein eigenes Gate nicht.
+  - **Eigene Reproduktion vor jeder Aenderung.** Die unveraenderte Gate-Probe
+    lief gegen den echten Stack und bestaetigte beide Befunde exakt
+    (`FAILURES: 2`, exit 1); anschliessend wurden beide Ursachen am Code
+    verifiziert.
+  - **B-1 behoben** ueber die vom Gate ausdruecklich angebotene **Variante 1**:
+    die Umkehrung je Historieseite entfaellt. Die Ansicht zeigt jede Seite so,
+    wie der Provider sie geliefert hat (`newest_first=True`, neueste oben), und
+    die aeltere Folgeseite gehoert damit folgerichtig nach unten. `_on_scrolled`
+    bleibt unveraendert am unteren Rand — das eingefrorene „automatisches
+    Nachladen am Listenende" (`CONTRACTS §9.3`) trifft so buchstaeblich die
+    Stelle, an der die naechste Seite hingehoert. Die Keyset-/Cursor-Semantik
+    des Providers ist unberuehrt. Variante 2 („Folgeseite oben einfuegen")
+    haette den Nachladepunkt an den oberen Rand verlegt und entweder eine
+    zweite Produktdatei oder einen Modell-Reset je Seite gebraucht, der Auswahl
+    und Detailansicht verwirft.
+  - **B-2 behoben**, indem die Semantik einer Antwort aus der **Anfrage** folgt:
+    vier benannte Anfragearten, ein einziger Abfragetrichter `LogPage._issue`,
+    der Anfrage-ID **und** Art in demselben Schritt festhaelt, eine Verzweigung,
+    die die Art beim Verarbeiten **verbraucht** (eine wiederholte Zustellung
+    bleibt folgenlos), und ein `_live_cursor`, der in beiden Live-Faellen aus
+    der **juengsten** gelieferten Zeile stammt. Der fehlerhafte Zweig ist nicht
+    repariert, sondern entfernt: die Fallunterscheidung kann gar nicht mehr aus
+    dem Cursorstand entstehen. Keine neue Abfragearchitektur — dieselbe
+    Provider-Schnittstelle, derselbe 250-ms-`QTimer`, derselbe
+    `ThreadPoolExecutor(max_workers=1)`, kein Ringbuffer.
+  - **Umfang**: produktseitig **ausschliesslich** `ui/logs/log_page.py`
+    (456 → 526 Zeilen). Tests in `tests/test_obs050_ui.py` und — mechanisch
+    bedingt, weil er den Quelltext von `_tail` liest —
+    `tests/test_obs050_contracts.py`. Query-Layer, Settings, Apply-Kette,
+    Manager, Worker, Tabellenmodell, Filterleiste, Detailansicht und Fenster
+    sind unveraendert; `git diff --stat` zeigt fuer die versionierten
+    Bestandsdateien exakt denselben Stand wie am Ende von RUN-01.
+  - **W-1 geschlossen** mit neun Regressionstests, die die tatsaechliche
+    UI-Verarbeitung ueber den echten `LogQueryController` samt Executor-Thread
+    pruefen: Reihenfolge ueber drei Seiten, automatisches Nachladen am
+    Listenende, Live-Start auf leerem Ergebnis, mehrere aufeinanderfolgende
+    Tails, Filter ohne Treffer, Filterwechsel im laufenden Live-Modus,
+    befuellter Normalfall und die Antwortzuordnung. Zwei RUN-01-Erwartungen,
+    die das fehlerhafte Verhalten festgeschrieben hatten, sind richtiggestellt.
+    **W-2** ist in `40_EVIDENCE/OBS-050/RUN-02_2026-08-18/UI_ACCEPTANCE.md`
+    behandelt (A-11 bis A-13 neu formuliert, A-34 bis A-42 ergaenzt);
+    RUN-01- und Gate-FAIL-Evidence bleiben unveraendert erhalten.
+  - **Teststand**: 170 → **179 OBS-050-Tests**, gruen unter `pytest` **und**
+    `unittest`; OBS-010…050 625 gruen; volle Suite 1137 passed / 1
+    vorbestehender, umgebungsbedingter Fehlschlag (`lefx.interfaces`), dessen
+    Lage **ausserhalb des Diffs** fuer diesen Lauf erneut nachgemessen ist
+    (weder `tests/test_ap06_followup.py` noch `core/led_controller.py` liegen im
+    Diff; derselbe Test schlaegt im frisch ausgepackten `91a7b7f`-Baum identisch
+    fehl). Laufzeitproben: `probe_obs050_ordering_fix.py` 8/8 und
+    `probe_obs050_end_to_end.py` 12/12, beide exit 0. Die unveraenderte
+    Gate-Probe meldet fuer B-2 jetzt `ascending: True, duplicates: False`; fuer
+    Fall A meldet sie erwartungsgemaess `False`, weil sie hart auf
+    *aufsteigende* Monotonie prueft, die Tabelle nach Variante 1 aber
+    durchgehend absteigend ist — der richtungsbewusste Ersatznachweis und die
+    Einordnung stehen in `FIX_SUMMARY.md` Abschnitt 1.3.
+  - `git diff --check` leer, HEAD unveraendert `91a7b7f`.
+  - Wichtigste Artefakte:
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/runs/RUN-OBS-050-02_2026-08-18/`
+    - `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/40_EVIDENCE/OBS-050/RUN-02_2026-08-18/`
+      (`FIX_SUMMARY.md`, `TEST_RESULTS.md`, `UI_ACCEPTANCE.md`,
+      `probe_obs050_ordering_fix.py`)
+  - **Kein Commit, kein Push, kein Merge, kein Rebase, kein Tag, kein PR.** Die
+    acht bewusst unversionierten Prompt- und Pipeline-Eintraege unter
+    `30_AUSFUEHRUNG/` sind unangetastet.
+  - Naechster Schritt: **erneuter unabhaengiger OBS-050 Gate Review** in
+    frischer Session. **OBS-060 nicht beginnen.**
+
+- 18.08.2026, `Prompts/OBS-050_GATE_REVIEW.md` (Re-Review-Auftrag) —
+  **OBS-050 Gate Review II (gezielter Re-Review des Korrekturlaufs)**
+  - Ergebnis: **`OBS-050 GATE PASS – OBS-060 MAY PROCEED`**. Evidence:
+    `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/40_EVIDENCE/OBS-050/GATE-REVIEW-02_2026-08-18_CLAUDE/`
+    (`GATE_REVIEW.md`, `gate2_probe_obs050_b1_b2.py`).
+  - **Kein vollstaendiger neuer Gate-Review.** Die im ersten Gate bestandenen
+    Bereiche wurden nicht erneut auditiert, weil sie nachweislich unveraendert
+    sind: der versionierte Anteil ist **stat-identisch** zum ersten Gate (zehn
+    Dateien, +475/−25), und nach Aenderungszeitpunkt sind allein
+    `ui/logs/log_page.py`, `tests/test_obs050_ui.py` und
+    `tests/test_obs050_contracts.py` beruehrt. RUN-01-Evidence und die
+    Gate-FAIL-Evidence sind unangetastet; W-2 ist in einer eigenen
+    RUN-02-Datei richtiggestellt statt durch Ueberschreiben.
+  - **B-1 geschlossen.** Die gewaehlte **absteigende** Historiedarstellung ist
+    normativ gedeckt (`CONTRACTS §5.7` friert `ORDER BY id DESC` und
+    `AND id < :after_id` ein, `§8` `newest_first=True` als Default, `§9.3`
+    verlangt das Nachladen am **Listenende** — mit absteigender Anzeige genau
+    der aeltere Rand). Eine aufsteigende Historieanzeige wird nirgends
+    gefordert; die gegenteilige Erwartung der ersten Gate-Probe ist damit
+    aufgehoben, **ohne neue Contract-Entscheidung**. Eigene Laufzeitprobe ueber
+    **fuenf** Seiten: streng absteigend, kein Richtungsbruch, keine Duplikate,
+    keine Auslassungen, letzte Seite ohne Folgecursor; automatisches Nachladen
+    ueber das echte Scrollbar-Ereignis mit demselben Ergebnis. Provider- und
+    Keyset-Cursor unveraendert. Richtung jetzt: **Historie absteigend (neueste
+    oben), Live aufsteigend (neueste unten)** — jeweils die Richtung der
+    eingefrorenen Abfrage, in der Statuszeile benannt.
+  - **B-2 geschlossen.** Jede Abfrage laeuft durch den einen Trichter
+    `LogPage._issue(kind, …)`, der Anfrage-ID **und** Anfrageart in demselben
+    Schritt festhaelt; `_on_page_ready` verzweigt darueber und verbraucht sie.
+    Die Ableitung aus `_live_cursor` existiert nicht mehr, der Cursor stammt in
+    beiden Live-Faellen aus der **juengsten** Zeile. Nachgemessen: Leerstart
+    bleibt leer, erster Tail aufsteigend und duplikatfrei, Cursor auf dem
+    neuesten Record, Folgetails setzen dahinter fort, Filter ohne Treffer und
+    Filterwechsel im Live-Modus korrekt, befuellter Normalfall unveraendert,
+    und ein absichtlich vergifteter `_live_cursor` aendert die Deutung einer
+    Antwort nicht mehr (15/15 PASS, exit 0).
+  - **Tests:** neun neue, die vollstaendige Anzeigesequenzen ueber den echten
+    `LogQueryController` pruefen und **W-1** genau dort schliessen, wo B-1
+    durchgerutscht war; das Double `FakeService` ist unveraendert. Die
+    Aenderung in `tests/test_obs050_contracts.py` bildet nur den neuen
+    `_issue`-Trichter ab und **schwaecht keine Contract-Anforderung ab** —
+    dieselbe Zusicherung an beiden Enden geprueft, plus eine strukturelle
+    Verschaerfung.
+  - **Regression:** `-k obs050` **179/179** unter `pytest` **und** `unittest`;
+    volle Suite 1137 passed / 1 vorbestehender, umgebungsbedingter Fehlschlag
+    (`lefx.interfaces`, ausserhalb des Diffs). Ein in einem von drei
+    Vollaeufen zusaetzlich auftretender Fehlschlag
+    (`test_ui_widgets.py::TestTranscriptOverlay::test_realtime_replaces_text_and_final_fades`)
+    ist als **lastabhaengig flatterhaft, nicht als Regression** eingeordnet:
+    zwei weitere Vollaeufe gruen, die Datei allein zweimal gruen, Testdatei und
+    `ui/overlay.py` vom 2026-08-14 und damit ausserhalb von RUN-01 und RUN-02.
+    `git diff --check` leer.
+  - Die nicht blockierenden Beobachtungen N-1 bis N-7 des ersten Gates bleiben
+    fuer OBS-060 vorgemerkt.
+  - **Genau ein lokaler Commit** fuer den gate-geprueften OBS-050-Endstand
+    erstellt: `feat(observability): complete OBS-050 local log view` auf
+    `feat/einheitliche-triggerarchitektur`, mit Produktstand, den 179
+    OBS-050-Tests, den RUN-01-/RUN-02-Unterlagen, der OBS-050-Evidence und
+    beiden Gate-Reviews samt Probeskripten. Die **acht** bewusst
+    unversionierten Prompt- und Pipeline-Eintraege unter `30_AUSFUEHRUNG/`
+    sind **nicht** aufgenommen. **Kein Push, kein Merge, kein Rebase, kein
+    Tag, kein PR.**
+  - Naechster Schritt: **OBS-060 – V1 Hardening, Evidence & Baseline –
+    Implementierung** (`Prompts/OBS-060_IMPLEMENTIERUNGSAUFTRAG.md`, frische
+    Session). In diesem Lauf nicht begonnen.

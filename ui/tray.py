@@ -56,6 +56,7 @@ class TrayController(QObject):
         on_toggle_mute: Optional[Callable[[bool], None]] = None,
         on_reconnect_device: Optional[Callable[[], None]] = None,
         on_reconnect_server: Optional[Callable[[], None]] = None,
+        on_show_logs: Optional[Callable[[], None]] = None,
         parent: Optional[QObject] = None,
     ) -> None:
         super().__init__(parent)
@@ -101,6 +102,16 @@ class TrayController(QObject):
         self.reconnect_menu.addAction(self.reconnect_server_action)
 
         self.menu.addSeparator()
+        # CONTRACTS §9.1: the log view is reachable "ueber das Tray-Menue und
+        # ueber einen Knopf im Logging-Tab". Disabled rather than hidden when
+        # there is no query service, so its absence is visible instead of
+        # looking like a missing feature.
+        self.logs_action = QAction("Logs anzeigen …", self.menu)
+        self.logs_action.setEnabled(on_show_logs is not None)
+        if on_show_logs is not None:
+            self.logs_action.triggered.connect(on_show_logs)
+        self.menu.addAction(self.logs_action)
+
         self.settings_action = QAction("Einstellungen …", self.menu)
         self.settings_action.setEnabled(on_settings is not None)
         if on_settings is not None:
