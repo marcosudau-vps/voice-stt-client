@@ -1488,3 +1488,20 @@
 - Naechster zulaessiger Schritt: Entscheidungen und Korrekturlauf,
   vollstaendige M-1…M-11-Abnahme am Installationssystem, danach neuer
   unabhaengiger OBS-060 Final Gate Review. Triggerarchitektur bleibt gesperrt.
+
+## 2026-08-20 – Kontrollierter Abschluss der vorgezogenen Logging-/Observability-Phase vor Trigger-Migration
+
+- **Ausgangslage und Kontext:** Die Logging-/Observability-V1-Phase wurde vor den ausstehenden großen Arbeiten an der einheitlichen Triggerarchitektur vorgezogen und umfasst:
+  - OBS-010 bis OBS-050 mit bestandenen Gates und lokalen Checkpoint-Commits (`b363346`, `cb0b81f`, `91a7b7f`, `7fc6ca6`),
+  - OBS-060-Hardening und Evidence (`8eea774`),
+  - nachfolgende Diagnose-UI-Nachbesserungen (`d9369c5`),
+  - praktische Sicht- und Bedienprüfungen der neuen Logging-Oberfläche,
+  - reale Nutzung des Clients mit aktiver Logging-Infrastruktur.
+- **Ergebnis der praktischen Prüfung:** Die praktische Sicht- und Bedienprüfung verlief erfolgreich. Im realen Betrieb des Clients zeigten sich keine grundlegenden Probleme der neuen Logging-Architektur. Logging-Ansicht, Filterung, Live-/History-Darstellung und Logging-Infrastruktur funktionieren plausibel und stabil.
+- **Projektentscheidung:**
+  - Die vorgezogene Logging-/Observability-Phase wird an dieser Stelle kontrolliert abgeschlossen.
+  - Der erreichte Logging-Stand ist als belastbarer Arbeitsstand für die Fortsetzung des Gesamtprojekts akzeptiert.
+  - Es existieren noch kleinere Rest-, Rand- bzw. vollständige formale Produktionsabnahmepunkte (u. a. M-1…M-11 am Installationssystem).
+  - Diese werden bewusst **nicht** mehr isoliert vorgezogen. Da wesentliche Kernbereiche des Clients im unmittelbar folgenden Umbau der einheitlichen Triggerarchitektur ohnehin erneut angefasst werden, werden die verbleibenden Punkte nach bzw. im Zuge der Triggerarchitektur-Migration erneut betrachtet und gegen den dann maßgeblichen Gesamtzustand validiert.
+  - Es wird ausdrücklich **kein formal vollständiges `G-OBS-V1 PASS`** behauptet, da die normativ geforderten formalen Restbedingungen noch nicht vollständig erfüllt sind. Das Nichtvergeben des Siegels ist eine bewusste Projektentscheidung und kein übersehener Fehler.
+- **Nächster Hauptarbeitsbereich:** Wiederaufnahme und Durchführung der Arbeiten zur einheitlichen Triggerarchitektur (`feat/einheitliche-triggerarchitektur`).

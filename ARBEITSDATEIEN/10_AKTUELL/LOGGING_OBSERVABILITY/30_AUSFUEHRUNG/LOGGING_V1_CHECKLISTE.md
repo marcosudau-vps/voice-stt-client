@@ -468,11 +468,13 @@ gegen die `IMMEDIATE`-Apply-Policy sowie offene Architektur-/Contract-
 Entscheidungen, insbesondere O-1 und O-7. Evidence:
 `40_EVIDENCE/OBS-060/GATE-REVIEW-01_2026-08-18_CODEX/GATE_REVIEW.md`.
 
-Naechster zulaessiger Schritt: Entscheidungen einholen, die benannten
-Korrekturen und Evidence-Konsistenzpunkte in einem getrennten Lauf bearbeiten,
-M-1…M-11 am Installationssystem vollstaendig protokollieren und erst danach
-einen neuen unabhaengigen Final Gate Review starten. Die Triggerarchitektur-
-Migration darf noch nicht beginnen.
+**2026-08-20 – Kontrollierter Abschluss der vorgezogenen Logging-/Observability-Phase vor Trigger-Migration:**
+- Nach OBS-060 Hardening & Evidence (`8eea774`) wurde die Diagnose-UI in einem gesonderten Pass nachgebessert und poliert (`d9369c5`).
+- Praktische Sicht- und Bedienprüfungen sowie der reale Client-Betrieb mit laufender Logging-Infrastruktur verliefen erfolgreich und plausibel.
+- **Projektentscheidung:** Die vorgezogene Logging-/Observability-Phase wird an dieser Stelle kontrolliert abgeschlossen und als belastbarer Arbeitsstand für die Fortsetzung des Gesamtprojekts akzeptiert.
+- Verbleibende kleinere Rand-, Rest- und formale Produktionsabnahmepunkte (u. a. M-1…M-11 am Installationssystem) werden bewusst nicht mehr isoliert vorgezogen, da im unmittelbar folgenden Umbau der einheitlichen Triggerarchitektur wesentliche Kernbereiche des Clients ohnehin erneut angefasst werden. Die Validierung dieser Restpunkte erfolgt im Zuge bzw. nach der Triggerarchitektur-Migration gegen den dann maßgeblichen Gesamtzustand.
+- Es wird ausdrücklich kein formal vollständiges `G-OBS-V1 PASS` behauptet (Gate-Haken und Abschlusskriterium bleiben ungesetzt).
+- **Nächster Schritt:** Start der Arbeiten zur einheitlichen Triggerarchitektur (`feat/einheitliche-triggerarchitektur`).
 
 ## Hinweis zum Ablageort dieser Datei
 
