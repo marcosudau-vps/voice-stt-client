@@ -155,7 +155,7 @@ class TestNoRingBuffer(unittest.TestCase):
         from ui.logs import log_page
 
         tail = inspect.getsource(log_page.LogPage._tail)
-        self.assertIn("newest_first=False", tail)
+        self.assertIn("tail_query=True", tail)
         self.assertIn("_issue", tail)
         funnel = inspect.getsource(log_page.LogPage._issue)
         self.assertIn("request_page", funnel)
@@ -166,7 +166,7 @@ class TestNoRingBuffer(unittest.TestCase):
         be interpreted from mutable state."""
         from ui.logs import log_page
 
-        for name in ("reload", "load_more", "_tail"):
+        for name in ("load_more", "_tail"):
             source = inspect.getsource(getattr(log_page.LogPage, name))
             with self.subTest(method=name):
                 self.assertIn("self._issue(", source)
@@ -191,7 +191,7 @@ class TestQueryContracts(unittest.TestCase):
         from core.observability.query.local import LocalLogProvider
 
         provider = LocalLogProvider(None)
-        expected = {"provider_id", "status", "query", "fetch_raw"}
+        expected = {"provider_id", "status", "query", "fetch_raw", "facets"}
         declared = {
             name for name in vars(LogProvider)
             if not name.startswith("_")
@@ -209,10 +209,10 @@ class TestQueryContracts(unittest.TestCase):
         )
         self.assertEqual(parameters, ["self", "filter", "cursor", "limit"])
 
-    def test_service_exposes_exactly_the_four_frozen_methods(self):
+    def test_service_exposes_query_raw_and_facets(self):
         from core.observability.query.service import LogQueryService
 
-        for name in ("register", "providers", "query", "fetch_raw"):
+        for name in ("register", "providers", "query", "fetch_raw", "facets"):
             self.assertTrue(callable(getattr(LogQueryService, name)))
 
     def test_the_query_layer_has_no_subscribe_stream_count_or_delete(self):

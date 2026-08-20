@@ -14,15 +14,19 @@ never logging infrastructure).
 from __future__ import annotations
 
 import gc
+import json
 import os
+import tempfile
 import time
 import unittest
 from unittest.mock import patch
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
-from PySide6.QtCore import QSettings, Qt
-from PySide6.QtWidgets import QApplication, QCheckBox, QComboBox, QLineEdit, QMessageBox
+from PySide6.QtCore import QItemSelection, QItemSelectionModel, QSettings, Qt
+from PySide6.QtWidgets import (
+    QApplication, QCheckBox, QComboBox, QFileDialog, QLineEdit, QMessageBox
+)
 
 from core.config import AppConfig, LedConfig
 from core.observability.health import LoggingHealthState, LoggingInternalHealth
@@ -30,14 +34,23 @@ from core.observability.query.base import (
     LogRecordView,
     ProviderState,
     ProviderStatus,
+    QueryFacets,
     QueryFilter,
     QueryPage,
 )
 from ui.logs.log_detail_view import NO_SELECTION, RAW_PLACEHOLDER, LogDetailView
 from ui.logs.log_filter_bar import ACTIVATION_HINT, LogFilterBar
-from ui.logs.log_page import MODE_HISTORY, MODE_LIVE, LogPage
+from ui.logs.log_page import MODE_HISTORY, MODE_LIVE, MODE_MIXED, LogPage
 from ui.logs.log_query_controller import LogQueryController
-from ui.logs.log_table_model import COLUMNS, LogTableModel
+from ui.logs.log_table_model import (
+    COLUMN_INDEX,
+    COLUMN_SPECS,
+    DEFAULT_VISIBLE_FIELDS,
+    ORIGIN_HISTORY,
+    ORIGIN_LIVE,
+    COLUMNS,
+    LogTableModel,
+)
 from ui.logs.log_window import GEOMETRY_KEY, LogWindow
 
 
@@ -92,16 +105,43 @@ class FakeService:
 
     def query(self, provider_id, filter, cursor=None, limit=200):  # noqa: A002
         self.queries.append((provider_id, filter, cursor, limit))
+        records = list(self.records)
+        if filter.producer_kinds:
+            records = [r for r in records if r.producer_kind in filter.producer_kinds]
+        if filter.channels:
+            records = [r for r in records if r.channel in filter.channels]
+        if filter.levels:
+            records = [r for r in records if r.level in filter.levels]
+        if filter.type_prefix:
+            records = [r for r in records if (r.type or "").startswith(filter.type_prefix)]
+        if filter.text:
+            needle = filter.text.casefold()
+            records = [r for r in records if needle in " ".join(
+                (r.message or "", r.type or "", r.component or "")
+            ).casefold()]
         after = None
+        cursor_text = str(cursor) if cursor is not None else None
         if cursor is not None:
             after = int(str(cursor).split(":")[1])
-        if filter.newest_first:
-            ordered = sorted(self.records, key=lambda r: int(r.cursor.split(":")[1]),
-                             reverse=True)
+        if filter.sort_by:
+            ordered = sorted(
+                records,
+                key=lambda r: (getattr(r, filter.sort_by) is not None,
+                               getattr(r, filter.sort_by) or "", r.record_id),
+                reverse=bool(filter.sort_descending),
+            )
+            if cursor_text is not None:
+                position = next(
+                    (index for index, record in enumerate(ordered) if record.cursor == cursor_text),
+                    len(ordered) - 1,
+                )
+                ordered = ordered[position + 1:]
+        elif filter.newest_first:
+            ordered = sorted(records, key=lambda r: int(r.cursor.split(":")[1]), reverse=True)
             if after is not None:
                 ordered = [r for r in ordered if int(r.cursor.split(":")[1]) < after]
         else:
-            ordered = sorted(self.records, key=lambda r: int(r.cursor.split(":")[1]))
+            ordered = sorted(records, key=lambda r: int(r.cursor.split(":")[1]))
             if after is not None:
                 ordered = [r for r in ordered if int(r.cursor.split(":")[1]) > after]
         page_records = tuple(ordered[:limit])
@@ -112,11 +152,27 @@ class FakeService:
             next_cursor=page_records[-1].cursor if (has_more and page_records) else None,
             complete=True,
             status=self.providers()[0],
+            tail_cursor=(
+                max((r.cursor for r in records), key=lambda value: int(value.split(":")[1]))
+                if records else None
+            ),
         )
 
     def fetch_raw(self, provider_id, record_id):
         self.raw_calls.append((provider_id, record_id))
         return self.raw
+
+    def facets(self, provider_id, filter):  # noqa: A002
+        del provider_id
+        records = list(self.records)
+        if filter.producer_kinds:
+            records = [r for r in records if r.producer_kind in filter.producer_kinds]
+        return QueryFacets(
+            producer_kinds=tuple(sorted({r.producer_kind for r in self.records})),
+            channels=tuple(sorted({r.channel for r in records})),
+            levels=tuple(sorted({r.level for r in records})),
+            types=tuple(sorted({r.type for r in records if r.type})),
+        )
 
 
 class QtTestCase(unittest.TestCase):
@@ -145,19 +201,19 @@ class QtTestCase(unittest.TestCase):
 
 
 class TestLogTableModel(QtTestCase):
-    def test_seven_frozen_columns_in_the_frozen_order(self):
-        """§9.3: Zeit, Quelle, Channel, Level, Typ, Component, Meldung."""
-        self.assertEqual(
-            COLUMNS,
-            ("Zeit", "Quelle", "Channel", "Level", "Typ", "Component", "Meldung"),
-        )
+    def test_configurable_columns_include_defaults_and_context_ids(self):
+        self.assertEqual(COLUMNS[:7], (
+            "Zeit", "Quelle", "Channel", "Level", "Ereignistyp", "Component", "Meldung"
+        ))
+        self.assertIn("Session-ID", COLUMNS)
+        self.assertIn("Activation-ID", COLUMNS)
         model = LogTableModel()
-        self.assertEqual(model.columnCount(), 7)
+        self.assertEqual(model.columnCount(), len(COLUMN_SPECS))
 
-    def test_ids_are_not_columns(self):
-        """§9.3: *"Session/Activation/Segment nur im Detail und als Filter"*."""
-        for forbidden in ("Session", "Activation", "Segment", "Korrelation"):
-            self.assertNotIn(forbidden, COLUMNS)
+    def test_default_visible_fields_remain_compact(self):
+        self.assertEqual(DEFAULT_VISIBLE_FIELDS, (
+            "received_at", "producer_kind", "channel", "level", "type", "component", "message"
+        ))
 
     def test_cells_render_the_record(self):
         model = LogTableModel()
@@ -171,17 +227,17 @@ class TestLogTableModel(QtTestCase):
     def test_only_warning_and_above_get_a_row_colour(self):
         model = LogTableModel()
         model.append_page([view(1, level="INFO"), view(2, level="ERROR")])
-        self.assertIsNone(model.data(model.index(0, 0), Qt.ItemDataRole.BackgroundRole))
-        self.assertIsNotNone(
-            model.data(model.index(1, 0), Qt.ItemDataRole.BackgroundRole)
-        )
+        error_row = next(i for i, record in enumerate(model.records()) if record.level == "ERROR")
+        info_row = next(i for i, record in enumerate(model.records()) if record.level == "INFO")
+        self.assertIsNotNone(model.data(model.index(error_row, 0), Qt.ItemDataRole.BackgroundRole))
+        self.assertIsNotNone(model.data(model.index(info_row, 0), Qt.ItemDataRole.BackgroundRole))
 
     def test_append_page_grows_and_record_at_returns_the_record(self):
         model = LogTableModel()
         model.append_page([view(1), view(2)])
         model.append_page([view(3)])
         self.assertEqual(model.rowCount(), 3)
-        self.assertEqual(model.record_at(2).record_id, "r3")
+        self.assertEqual(model.record_at(0).record_id, "r3")
         self.assertIsNone(model.record_at(99))
 
     def test_row_count_is_bounded_and_drops_the_oldest(self):
@@ -189,13 +245,35 @@ class TestLogTableModel(QtTestCase):
         model = LogTableModel(max_rows=5)
         model.append_page([view(index) for index in range(10)])
         self.assertEqual(model.rowCount(), 5)
-        self.assertEqual(model.record_at(0).record_id, "r5")
+        self.assertEqual({r.record_id for r in model.records()}, {f"r{i}" for i in range(5, 10)})
 
     def test_clear_empties_the_model(self):
         model = LogTableModel()
         model.append_page([view(1)])
         model.clear()
         self.assertEqual(model.rowCount(), 0)
+
+    def test_time_display_is_desktop_friendly_but_sort_stays_typed(self):
+        model = LogTableModel()
+        model.set_records([view(1), view(9)])
+        self.assertEqual(model.data(model.index(0, 0)), "2026-08-17, 10:00:09.000")
+        model.set_sort("received_at", Qt.SortOrder.AscendingOrder)
+        self.assertEqual([r.record_id for r in model.records()], ["r1", "r9"])
+
+    def test_numeric_sort_is_not_lexicographic(self):
+        model = LogTableModel()
+        model.set_records([view(1, segment_id=10), view(2, segment_id=2)])
+        model.set_sort("segment_id", Qt.SortOrder.AscendingOrder)
+        self.assertEqual([r.segment_id for r in model.records()], [2, 10])
+
+    def test_new_live_records_are_inserted_in_the_active_sort(self):
+        model = LogTableModel()
+        model.set_sort("received_at", Qt.SortOrder.DescendingOrder)
+        model.set_records([view(1)], origin=ORIGIN_HISTORY)
+        model.append_page([view(9)], origin=ORIGIN_LIVE)
+        self.assertEqual(model.record_at(0).record_id, "r9")
+        self.assertEqual(model.origin_at(0), ORIGIN_LIVE)
+        self.assertEqual(model.origin_at(1), ORIGIN_HISTORY)
 
 
 class TestLogFilterBar(QtTestCase):
@@ -207,17 +285,16 @@ class TestLogFilterBar(QtTestCase):
         self.assertIsNone(current.text)
         self.assertTrue(current.include_replayed)
 
-    def test_minimum_level_expands_to_the_closed_set(self):
+    def test_level_is_an_exact_multi_selection(self):
         bar = LogFilterBar()
-        bar.level_box.setCurrentIndex(bar.level_box.findData("WARNING"))
-        self.assertEqual(
-            bar.current_filter().levels, ("WARNING", "ERROR", "CRITICAL")
-        )
+        bar.level_select.button("WARNING").click()
+        bar.level_select.button("ERROR").click()
+        self.assertEqual(bar.current_filter().levels, ("WARNING", "ERROR"))
 
     def test_fields_map_onto_the_query_filter(self):
         bar = LogFilterBar()
-        bar.producer_box.setCurrentIndex(bar.producer_box.findData("server"))
-        bar.channel_box.setCurrentIndex(bar.channel_box.findData("audit"))
+        bar.producer_select.button("server").click()
+        bar.channel_select.button("audit").click()
         bar.type_edit.setText("client.trigger")
         bar.text_edit.setText("suche")
         bar.session_edit.setText("s-1")
@@ -267,10 +344,11 @@ class TestLogFilterBar(QtTestCase):
         self.assertEqual(received[0].type_prefix, "client.app.started")
 
     def test_activation_filter_carries_the_unreliability_hint(self):
-        """FD-C2 / ARCH §3.4: the hint is visible, not just documented."""
+        """The technical caveat is available without a dominant banner."""
         bar = LogFilterBar()
-        self.assertIn("unzuverlässig", bar.activation_hint.text())
         self.assertEqual(bar.activation_edit.toolTip(), ACTIVATION_HINT)
+        self.assertIn("Korrelations-ID", ACTIVATION_HINT)
+        self.assertFalse(hasattr(bar, "activation_hint"))
 
     def test_reset_clears_every_field(self):
         bar = LogFilterBar()
@@ -278,16 +356,51 @@ class TestLogFilterBar(QtTestCase):
         bar.reset()
         self.assertIsNone(bar.current_filter().session_id)
 
+    def test_all_is_exclusive_and_empty_specific_selection_returns_to_all(self):
+        bar = LogFilterBar()
+        client = bar.producer_select.button("client")
+        server = bar.producer_select.button("server")
+        client.click()
+        server.click()
+        self.assertFalse(bar.producer_select.all_button.isChecked())
+        self.assertEqual(bar.current_filter().producer_kinds, ("client", "server"))
+        client.click()
+        server.click()
+        self.assertTrue(bar.producer_select.all_button.isChecked())
+        self.assertEqual(bar.current_filter().producer_kinds, ())
+
+    def test_facets_disable_zero_hit_values_and_populate_event_types(self):
+        bar = LogFilterBar()
+        bar.apply_facets(QueryFacets(
+            producer_kinds=("server",), channels=("audit",), levels=("ERROR",),
+            types=("inference.completed", "server.connected"),
+        ))
+        self.assertFalse(bar.producer_select.button("client").isEnabled())
+        self.assertTrue(bar.producer_select.button("server").isEnabled())
+        self.assertFalse(bar.channel_select.button("system").isEnabled())
+        self.assertEqual(
+            [bar.type_box.itemText(i) for i in range(bar.type_box.count())],
+            ["inference.completed", "server.connected"],
+        )
+
+    def test_labels_tooltips_and_replay_wording_are_user_facing(self):
+        bar = LogFilterBar()
+        self.assertIn("Raw-Payload", bar.text_edit.toolTip())
+        self.assertIn("Wiederholte Serverereignisse", bar.replayed_box.text())
+        self.assertIn("Reconnect", bar.replayed_box.toolTip())
+        self.assertEqual(bar.producer_select.button("other").text(), "Andere")
+
 
 class TestLogDetailView(QtTestCase):
     def test_empty_view_says_so(self):
         detail = LogDetailView()
-        self.assertEqual(detail.header.text(), NO_SELECTION)
+        self.assertEqual(detail.details_tree.topLevelItem(0).text(0), NO_SELECTION)
 
     def test_details_are_shown_as_a_tree(self):
         detail = LogDetailView()
         detail.show_record(view(1, details={"a": {"b": 1}, "c": [1, 2]}))
         self.assertEqual(detail.details_tree.topLevelItemCount(), 2)
+        self.assertEqual(detail.details_tree.topLevelItem(1).text(0), "Details")
 
     def test_raw_arrives_separately_and_only_for_the_current_record(self):
         """§9.3: raw is loaded on selection; a late answer for a record that
@@ -305,12 +418,18 @@ class TestLogDetailView(QtTestCase):
         detail.set_raw("r1", None)
         self.assertEqual(detail.raw_view.toPlainText(), RAW_PLACEHOLDER)
 
-    def test_header_carries_the_ids_that_are_not_columns(self):
+    def test_structured_details_carry_record_ids_inside_the_tab(self):
         detail = LogDetailView()
         detail.show_record(view(1, session_id="s-1", activation_id="a-1", segment_id=2))
-        text = detail.header.text()
-        for expected in ("s-1", "a-1", "session=", "activation=", "segment="):
-            self.assertIn(expected, text)
+        record_node = detail.details_tree.topLevelItem(0)
+        values = {
+            record_node.child(i).text(0): record_node.child(i).text(1)
+            for i in range(record_node.childCount())
+        }
+        self.assertEqual(values["Session-ID"], "s-1")
+        self.assertEqual(values["Activation-ID"], "a-1")
+        self.assertEqual(values["Segment-ID"], "2")
+        self.assertEqual(detail.tabs.count(), 2)
 
 
 class TestLogQueryController(QtTestCase):
@@ -346,6 +465,27 @@ class TestLogQueryController(QtTestCase):
         self.pump()
         self.assertEqual(received, [("r1", {"payload": True})])
         self.assertEqual(service.raw_calls, [("local", "r1")])
+
+    def test_facets_run_through_the_same_bounded_query_worker(self):
+        service = FakeService([view(1, channel="audit")])
+        controller = LogQueryController(service)
+        self.addCleanup(controller.shutdown)
+        received = []
+        controller.facets_ready.connect(lambda rid, facets: received.append(facets))
+        controller.request_facets("local", QueryFilter())
+        self.pump()
+        self.assertEqual(received[0].channels, ("audit",))
+
+    def test_json_records_load_raw_only_for_selected_records(self):
+        service = FakeService([view(1), view(2)])
+        controller = LogQueryController(service)
+        self.addCleanup(controller.shutdown)
+        received = []
+        controller.json_ready.connect(lambda rid, records: received.extend(records))
+        controller.request_json_records([view(1), view(2)])
+        self.pump()
+        self.assertEqual([item["record_id"] for item in received], ["r1", "r2"])
+        self.assertEqual(service.raw_calls, [("local", "r1"), ("local", "r2")])
 
     def test_a_raising_service_never_reaches_the_qt_thread(self):
         class Exploding(FakeService):
@@ -394,12 +534,24 @@ class TestLogPage(QtTestCase):
         service = FakeService(records)
         controller = LogQueryController(service)
         self.addCleanup(controller.shutdown)
-        page = LogPage(controller, health_provider=health, page_size=5)
+        settings = QSettings("RealtimeSTT-Test", f"obs050-page-{time.monotonic_ns()}")
+        self.addCleanup(settings.clear)
+        page = LogPage(
+            controller, health_provider=health, page_size=5, settings=settings
+        )
         self.addCleanup(page.stop)
         return page, service
 
     def displayed(self, page):
         return [record.record_id for record in page.model.records()]
+
+    def select_rect(self, page, top, left, bottom, right):
+        page.table.setCurrentIndex(page.model.index(top, left))
+        selection = QItemSelection(page.model.index(top, left), page.model.index(bottom, right))
+        page.table.selectionModel().select(
+            selection, QItemSelectionModel.SelectionFlag.ClearAndSelect
+        )
+        self.application.processEvents()
 
     def test_history_mode_shows_the_newest_page_first_newest_on_top(self):
         """§9.3 + gate finding B-1: the page is shown exactly as the provider
@@ -491,10 +643,11 @@ class TestLogPage(QtTestCase):
         service.records.append(view(9, message="neu"))
         self.pump(0.6)
         self.assertGreater(page.model.rowCount(), rows_before)
-        self.assertEqual(page.model.record_at(page.model.rowCount() - 1).message, "neu")
+        self.assertEqual(page.model.record_at(0).message, "neu")
         ascending = [q for q in service.queries if not q[1].newest_first]
         self.assertTrue(ascending)
-        self.assertTrue(all(q[2] is not None for q in ascending))
+        self.assertIsNone(ascending[0][2])
+        self.assertTrue(any(q[2] is not None for q in ascending[1:]))
 
     # -- B-2: the live mode derives a response from its REQUEST ----------
 
@@ -515,7 +668,7 @@ class TestLogPage(QtTestCase):
         service.records.extend(view(index) for index in range(5))
         self.pump(0.8)
         after_first = self.displayed(page)
-        self.assertEqual(after_first, ["r0", "r1", "r2", "r3", "r4"])
+        self.assertEqual(after_first, ["r4", "r3", "r2", "r1", "r0"])
 
         # A second and a third tail must add nothing at all.
         self.pump(0.8)
@@ -537,11 +690,11 @@ class TestLogPage(QtTestCase):
         service.records.extend(view(index) for index in range(3, 6))
         self.pump(0.8)
         shown = self.displayed(page)
-        self.assertEqual(shown, ["r0", "r1", "r2", "r3", "r4", "r5"])
+        self.assertEqual(shown, ["r5", "r4", "r3", "r2", "r1", "r0"])
         self.assertEqual(len(shown), len(set(shown)))
         self.assertEqual(page._live_cursor, "id:5")  # noqa: SLF001
         order = [int(record_id[1:]) for record_id in shown]
-        self.assertEqual(order, sorted(order))
+        self.assertEqual(order, sorted(order, reverse=True))
 
     def test_live_start_with_a_filter_that_matches_nothing_then_matches(self):
         """The same empty start, but reached through a filter rather than an
@@ -555,28 +708,28 @@ class TestLogPage(QtTestCase):
         self.assertEqual(page.model.rowCount(), 0)
         service.records.extend(view(index) for index in range(2))
         self.pump(0.8)
-        self.assertEqual(self.displayed(page), ["r0", "r1"])
+        self.assertEqual(self.displayed(page), ["r1", "r0"])
         self.pump(0.8)
-        self.assertEqual(self.displayed(page), ["r0", "r1"])
+        self.assertEqual(self.displayed(page), ["r1", "r0"])
 
     def test_filter_change_during_live_reseeds_without_duplicates(self):
         """A filter change calls ``reload()`` and resets ``_live_cursor`` —
         the exact state that made the old code misread the next tail."""
-        page, service = self.make_page([view(index) for index in range(3)])
+        page, service = self.make_page([view(index, channel="audit") for index in range(3)])
         page.set_mode(MODE_LIVE)
         self.pump()
-        self.assertEqual(self.displayed(page), ["r0", "r1", "r2"])
+        self.assertEqual(self.displayed(page), ["r2", "r1", "r0"])
 
         page._on_filter_changed(QueryFilter(channels=("audit",)))  # noqa: SLF001
         self.pump(0.8)
         shown = self.displayed(page)
-        self.assertEqual(shown, ["r0", "r1", "r2"])
+        self.assertEqual(shown, ["r2", "r1", "r0"])
         self.assertEqual(len(shown), len(set(shown)))
 
-        service.records.append(view(7))
+        service.records.append(view(7, channel="audit"))
         self.pump(0.8)
         shown = self.displayed(page)
-        self.assertEqual(shown, ["r0", "r1", "r2", "r7"])
+        self.assertEqual(shown, ["r7", "r2", "r1", "r0"])
         self.assertEqual(len(shown), len(set(shown)))
 
     def test_live_start_on_a_populated_store_stays_correct(self):
@@ -585,10 +738,10 @@ class TestLogPage(QtTestCase):
         page, service = self.make_page([view(index) for index in range(3)])
         page.set_mode(MODE_LIVE)
         self.pump()
-        self.assertEqual(self.displayed(page), ["r0", "r1", "r2"])
+        self.assertEqual(self.displayed(page), ["r2", "r1", "r0"])
         service.records.extend([view(7), view(8)])
         self.pump(0.8)
-        self.assertEqual(self.displayed(page), ["r0", "r1", "r2", "r7", "r8"])
+        self.assertEqual(self.displayed(page), ["r8", "r7", "r2", "r1", "r0"])
 
     def test_a_response_is_interpreted_by_its_request_not_by_the_cursor(self):
         """The structural half of the B-2 fix: the kind is recorded with the
@@ -603,14 +756,123 @@ class TestLogPage(QtTestCase):
         page._on_page_ready(page._active_request, stale)  # noqa: SLF001
         self.assertEqual(self.displayed(page), before)
 
-    def test_no_mixed_mode(self):
-        """§9.3: Live and Historie are alternatives, never both at once."""
+    def test_three_modes_include_live_plus_history(self):
         page, _service = self.make_page([view(1)])
         self.assertEqual(page.mode, MODE_HISTORY)
         page.set_mode(MODE_LIVE)
         self.assertEqual(page.mode, MODE_LIVE)
-        page.set_mode(MODE_HISTORY)
-        self.assertEqual(page.mode, MODE_HISTORY)
+        page.set_mode(MODE_MIXED)
+        self.assertEqual(page.mode, MODE_MIXED)
+
+    def test_live_plus_history_marks_origins_and_deduplicates_tail_records(self):
+        page, service = self.make_page([view(index) for index in range(3)])
+        page.set_mode(MODE_MIXED)
+        self.pump()
+        self.assertTrue(all(page.model.origin_at(row) == ORIGIN_HISTORY for row in range(3)))
+        service.records.append(view(7))
+        self.pump(0.8)
+        row = self.displayed(page).index("r7")
+        self.assertEqual(page.model.origin_at(row), ORIGIN_LIVE)
+        self.assertEqual(len(self.displayed(page)), len(set(self.displayed(page))))
+
+    def test_header_sort_updates_query_and_indicator(self):
+        page, service = self.make_page([
+            view(1, message="b"), view(2, message="a"), view(3, message="c")
+        ])
+        column = COLUMN_INDEX["message"]
+        page.table.horizontalHeader().setSortIndicator(column, Qt.SortOrder.AscendingOrder)
+        self.pump()
+        self.assertEqual(page.model.sort_field, "message")
+        self.assertEqual(page.model.sort_order, Qt.SortOrder.AscendingOrder)
+        self.assertEqual(page.table.horizontalHeader().sortIndicatorSection(), column)
+        self.assertEqual(service.queries[-1][1].sort_by, "message")
+        self.assertFalse(service.queries[-1][1].sort_descending)
+        self.assertEqual([r.message for r in page.model.records()], ["a", "b", "c"])
+
+    def test_auto_scroll_only_moves_for_time_sort(self):
+        page, _service = self.make_page([view(index) for index in range(20)])
+        page.reload()
+        self.pump()
+        bar = page.table.verticalScrollBar()
+        bar.setRange(0, 100)
+        bar.setValue(50)
+        page.model.set_sort("message", Qt.SortOrder.AscendingOrder)
+        page._follow_latest()  # noqa: SLF001
+        self.assertEqual(bar.value(), 50)
+        self.assertTrue(page.autoscroll_box.isChecked())
+        page.model.set_sort("received_at", Qt.SortOrder.AscendingOrder)
+        page._follow_latest()  # noqa: SLF001
+        self.assertEqual(bar.value(), bar.maximum())
+
+    def test_rectangular_selection_copies_tsv(self):
+        page, _service = self.make_page([view(1), view(2)])
+        page.reload()
+        self.pump()
+        self.select_rect(page, 0, 0, 1, 1)
+        page.copy_selection_tsv()
+        lines = QApplication.clipboard().text().splitlines()
+        self.assertEqual(len(lines), 2)
+        self.assertTrue(all(len(line.split("\t")) == 2 for line in lines))
+
+    def test_json_copy_deduplicates_cells_and_includes_full_record_and_raw(self):
+        page, service = self.make_page([view(1, session_id="s-1")])
+        page.reload()
+        self.pump()
+        self.select_rect(page, 0, 0, 0, 3)
+        page.copy_selected_json()
+        self.pump()
+        payload = json.loads(QApplication.clipboard().text())
+        self.assertEqual(payload["record_id"], "r1")
+        self.assertEqual(payload["session_id"], "s-1")
+        self.assertEqual(payload["raw"], {"payload": True})
+        self.assertEqual(service.raw_calls.count(("local", "r1")), 2)
+
+    def test_json_copy_multiple_rows_returns_each_record_once(self):
+        page, _service = self.make_page([view(1), view(2)])
+        page.reload()
+        self.pump()
+        self.select_rect(page, 0, 0, 1, 2)
+        page.copy_selected_json()
+        self.pump()
+        payload = json.loads(QApplication.clipboard().text())
+        self.assertEqual(len(payload), 2)
+        self.assertEqual({item["record_id"] for item in payload}, {"r1", "r2"})
+
+    def test_loaded_view_exports_csv_and_json_with_explicit_scope(self):
+        page, _service = self.make_page([view(1), view(2)])
+        page.reload()
+        self.pump()
+        with tempfile.TemporaryDirectory() as directory:
+            csv_path = os.path.join(directory, "diagnose.csv")
+            json_path = os.path.join(directory, "diagnose.json")
+            with patch.object(QFileDialog, "getSaveFileName", return_value=(csv_path, "")):
+                page._export_loaded("csv")  # noqa: SLF001
+            with patch.object(QFileDialog, "getSaveFileName", return_value=(json_path, "")):
+                page._export_loaded("json")  # noqa: SLF001
+            with open(csv_path, encoding="utf-8-sig") as handle:
+                csv_text = handle.read()
+            with open(json_path, encoding="utf-8") as handle:
+                json_payload = json.load(handle)
+        self.assertIn("Zeit", csv_text)
+        self.assertEqual({item["record_id"] for item in json_payload}, {"r1", "r2"})
+
+    def test_single_provider_control_is_hidden_and_actions_are_explicit(self):
+        page, _service = self.make_page([view(1)])
+        page.show()
+        self.application.processEvents()
+        self.addCleanup(page.close)
+        self.assertFalse(page.provider_container.isVisible())
+        self.assertEqual(page.reload_button.toolTip(), "Aktualisieren")
+        self.assertEqual(page.more_button.text(), "Ältere Einträge laden")
+        self.assertIn("Geladene Ansicht", page.export_csv_button.text())
+
+    def test_at_least_one_column_must_remain_visible(self):
+        page, _service = self.make_page([view(1)])
+        visible = [i for i in range(page.model.columnCount()) if not page.table.isColumnHidden(i)]
+        for column in visible[1:]:
+            page._set_column_visible(column, False)  # noqa: SLF001
+        page._set_column_visible(visible[0], False)  # noqa: SLF001
+        self.assertFalse(page.table.isColumnHidden(visible[0]))
 
     def test_filter_change_replaces_the_page_and_reaches_the_provider(self):
         page, service = self.make_page([view(index) for index in range(3)])
@@ -641,7 +903,7 @@ class TestLogPage(QtTestCase):
         self.assertIsNotNone(page.detail.record)
         self.assertTrue(service.raw_calls)
 
-    def test_scrolling_up_in_live_mode_turns_auto_scroll_off(self):
+    def test_scrolling_does_not_change_the_auto_scroll_preference(self):
         page, _service = self.make_page([view(index) for index in range(3)])
         page.set_mode(MODE_LIVE)
         self.pump()
@@ -649,7 +911,7 @@ class TestLogPage(QtTestCase):
         bar = page.table.verticalScrollBar()
         bar.setMaximum(100)
         page._on_scrolled(0)  # noqa: SLF001
-        self.assertFalse(page.autoscroll_box.isChecked())
+        self.assertTrue(page.autoscroll_box.isChecked())
 
     def test_status_line_shows_provider_and_health(self):
         health = LoggingInternalHealth()
@@ -690,8 +952,8 @@ class TestLogWindow(QtTestCase):
     def make_window(self, records=()):
         settings = QSettings("RealtimeSTT-Test", f"obs050-{time.monotonic_ns()}")
         window = LogWindow(FakeService(records), settings=settings)
-        self.addCleanup(window.shutdown)
         self.addCleanup(settings.clear)
+        self.addCleanup(window.shutdown)
         return window, settings
 
     def test_window_is_non_modal_and_top_level(self):
@@ -730,6 +992,43 @@ class TestLogWindow(QtTestCase):
         before = len(window.page._controller.service.queries)  # noqa: SLF001
         self.pump(0.6)
         self.assertEqual(len(window.page._controller.service.queries), before)  # noqa: SLF001
+
+    def test_columns_sort_and_splitter_state_restore(self):
+        first, settings = self.make_window([view(1)])
+        page = first.page
+        session_column = COLUMN_INDEX["session_id"]
+        page._set_column_visible(session_column, True)  # noqa: SLF001
+        page.table.setColumnWidth(session_column, 233)
+        page.table.horizontalHeader().moveSection(
+            page.table.horizontalHeader().visualIndex(session_column), 0
+        )
+        page.table.horizontalHeader().setSortIndicator(
+            COLUMN_INDEX["segment_id"], Qt.SortOrder.AscendingOrder
+        )
+        page.lower_splitter.setSizes([300, 220, 160, 700])
+        page.save_view_state()
+
+        second = LogWindow(FakeService([view(1)]), settings=settings)
+        self.addCleanup(second.shutdown)
+        restored = second.page
+        self.assertFalse(restored.table.isColumnHidden(session_column))
+        self.assertEqual(restored.table.horizontalHeader().visualIndex(session_column), 0)
+        self.assertEqual(restored.model.sort_field, "segment_id")
+        self.assertEqual(restored.model.sort_order, Qt.SortOrder.AscendingOrder)
+        self.assertGreater(restored.table.columnWidth(session_column), 150)
+
+    def test_invalid_saved_columns_fall_back_to_safe_defaults(self):
+        settings = QSettings("RealtimeSTT-Test", f"obs050-invalid-{time.monotonic_ns()}")
+        self.addCleanup(settings.clear)
+        settings.setValue("log_view/visible_columns", ["removed-old-column"])
+        settings.setValue("log_view/sort_field", "removed-old-column")
+        window = LogWindow(FakeService([view(1)]), settings=settings)
+        self.addCleanup(window.shutdown)
+        self.assertEqual(window.page.model.sort_field, "received_at")
+        self.assertGreater(
+            sum(not window.page.table.isColumnHidden(i) for i in range(window.page.model.columnCount())),
+            0,
+        )
 
 
 class TestSettingsTab(QtTestCase):

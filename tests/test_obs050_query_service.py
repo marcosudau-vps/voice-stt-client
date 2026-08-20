@@ -15,6 +15,7 @@ from pathlib import Path
 from core.observability.query.base import (
     ProviderState,
     ProviderStatus,
+    QueryFacets,
     QueryFilter,
     QueryPage,
 )
@@ -43,6 +44,9 @@ class FakeProvider:
     def fetch_raw(self, record_id):
         return {"record_id": record_id}
 
+    def facets(self, filter):  # noqa: A002
+        return QueryFacets(channels=("system",))
+
 
 class BrokenProvider(FakeProvider):
     """A provider that breaks its own contract in every method."""
@@ -55,6 +59,9 @@ class BrokenProvider(FakeProvider):
 
     def fetch_raw(self, record_id):
         raise RuntimeError("fetch_raw exploded")
+
+    def facets(self, filter):  # noqa: A002
+        raise RuntimeError("facets exploded")
 
 
 class TestRegistry(unittest.TestCase):
@@ -95,6 +102,11 @@ class TestRegistry(unittest.TestCase):
         service.query("local", query_filter, "id:5", 42)
         self.assertEqual(provider.calls, [(query_filter, "id:5", 42)])
 
+    def test_facets_reach_the_registered_provider(self):
+        service = LogQueryService()
+        service.register(FakeProvider("local"))
+        self.assertEqual(service.facets("local", QueryFilter()).channels, ("system",))
+
 
 class TestFailureIsolation(unittest.TestCase):
     def test_unknown_provider_is_an_unavailable_page_not_an_exception(self):
@@ -115,6 +127,7 @@ class TestFailureIsolation(unittest.TestCase):
         self.assertIs(page.status.state, ProviderState.ERROR)
         self.assertIn("RuntimeError", page.status.detail)
         self.assertIsNone(service.fetch_raw("broken", "record"))
+        self.assertEqual(service.facets("broken", QueryFilter()), QueryFacets())
         statuses = service.providers()
         self.assertIs(statuses[0].state, ProviderState.ERROR)
 

@@ -14,6 +14,7 @@ import re
 import sqlite3
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 from uuid import uuid4
 
@@ -196,6 +197,22 @@ class TestFilters(ProviderTestCase):
         self.assertEqual(dict(page.records[0].details), {"a": 1})
         self.assertIsNone(page.records[0].raw)
 
+    def test_facets_exclude_their_own_dimension_and_follow_other_filters(self):
+        provider = self.provider()
+        facets = provider.facets(QueryFilter(producer_kinds=("server",)))
+        self.assertEqual(facets.channels, ("performance",))
+        self.assertEqual(facets.levels, ("DEBUG",))
+        self.assertIn("client", facets.producer_kinds)
+        self.assertIn("server", facets.producer_kinds)
+        self.assertEqual(facets.types, ("client.audio.stream_stats",))
+
+    def test_facets_never_load_raw_payloads(self):
+        provider = self.provider()
+        with mock.patch.object(provider, "fetch_raw") as fetch_raw:
+            facets = provider.facets(QueryFilter())
+        self.assertTrue(facets.types)
+        fetch_raw.assert_not_called()
+
 
 class TestPaginationAndOrdering(ProviderTestCase):
     def setUp(self) -> None:
@@ -230,6 +247,38 @@ class TestPaginationAndOrdering(ProviderTestCase):
         self.assertEqual(len(set(seen)), 25)
         self.assertEqual(seen[0], "m024")
         self.assertEqual(seen[-1], "m000")
+
+    def test_typed_numeric_sort_is_server_side_and_keyset_paginated(self):
+        self.write([
+            make_record(message="numeric-10", segment_id=10),
+            make_record(message="numeric-2", segment_id=2),
+            make_record(message="numeric-1", segment_id=1),
+        ])
+        provider = self.provider()
+        filter_value = QueryFilter(sort_by="segment_id", sort_descending=False)
+        first = provider.query(filter_value, limit=2)
+        second = provider.query(filter_value, cursor=first.next_cursor, limit=50)
+        numeric = [
+            record.segment_id for record in (*first.records, *second.records)
+            if record.message and record.message.startswith("numeric-")
+        ]
+        self.assertEqual(numeric, [1, 2, 10])
+
+    def test_text_sort_is_not_numeric(self):
+        self.write([
+            make_record(message="10"), make_record(message="2"), make_record(message="1")
+        ])
+        page = self.provider().query(
+            QueryFilter(sort_by="message", sort_descending=False), limit=100
+        )
+        values = [record.message for record in page.records if record.message in {"1", "2", "10"}]
+        self.assertEqual(values, ["1", "10", "2"])
+
+    def test_sorted_page_carries_storage_high_watermark_for_mixed_mode(self):
+        page = self.provider().query(
+            QueryFilter(sort_by="message", sort_descending=False), limit=3
+        )
+        self.assertEqual(decode_cursor(page.tail_cursor), 25)
 
     def test_next_cursor_is_none_on_the_last_page(self):
         page = self.provider().query(QueryFilter(), limit=100)

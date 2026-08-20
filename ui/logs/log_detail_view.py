@@ -7,10 +7,9 @@ unterhalb der Tabelle; ``details`` als Baum, ``raw`` als eingerücktes JSON,
 **bei Auswahl nachgeladen**"* and §5.7 (``raw_json`` is never part of the
 list query — it arrives through ``fetch_raw`` for the selected record only).
 
-The header shows the fields §9.3 keeps out of the seven columns
-(session/generation/activation/segment/transcription/command/event/
-correlation/cursor/replayed), because they are filter and correlation keys,
-not something to scan a table for.
+All standard record fields and structured details live inside the Details
+tab. Raw is loaded separately for the current record and never left over
+from a previous selection.
 """
 
 from __future__ import annotations
@@ -18,9 +17,7 @@ from __future__ import annotations
 import json
 from typing import Any, Mapping, Optional
 
-from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
-    QLabel,
     QPlainTextEdit,
     QTabWidget,
     QTreeWidget,
@@ -33,6 +30,20 @@ RAW_PLACEHOLDER = "Kein raw-Payload gespeichert."
 RAW_LOADING = "raw wird geladen …"
 NO_SELECTION = "Kein Record ausgewählt."
 
+_RECORD_FIELDS = (
+    ("received_at", "Zeit"), ("source_timestamp", "Quellzeit"),
+    ("level", "Level"), ("channel", "Channel"),
+    ("producer_kind", "Quelle"), ("producer_id", "Producer-ID"),
+    ("type", "Ereignistyp"), ("component", "Component"),
+    ("message", "Meldung"), ("record_id", "Record-ID"),
+    ("session_id", "Session-ID"), ("generation", "Generation"),
+    ("activation_id", "Activation-ID"), ("segment_id", "Segment-ID"),
+    ("transcription_id", "Transcription-ID"), ("command_id", "Command-ID"),
+    ("event_id", "Event-ID"), ("correlation_id", "Korrelations-ID"),
+    ("instance_id", "Instance-ID"), ("scope", "Scope"),
+    ("server_cursor", "Server-Cursor"), ("replayed", "Wiederholt"),
+)
+
 
 class LogDetailView(QWidget):
     """Shows one ``LogRecordView`` plus its lazily loaded ``raw`` payload."""
@@ -42,28 +53,20 @@ class LogDetailView(QWidget):
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
 
-        self.header = QLabel(NO_SELECTION)
-        self.header.setWordWrap(True)
-        # Copyable: a record_id or correlation_id in the header is exactly
-        # what someone pastes into the filter bar next.
-        self.header.setTextInteractionFlags(
-            Qt.TextInteractionFlag.TextSelectableByMouse
-        )
-        layout.addWidget(self.header)
-
         self.tabs = QTabWidget(self)
         self.details_tree = QTreeWidget(self)
         self.details_tree.setColumnCount(2)
         self.details_tree.setHeaderLabels(("Feld", "Wert"))
-        self.tabs.addTab(self.details_tree, "details")
+        self.tabs.addTab(self.details_tree, "Details")
 
         self.raw_view = QPlainTextEdit(self)
         self.raw_view.setReadOnly(True)
         self.raw_view.setPlainText(NO_SELECTION)
-        self.tabs.addTab(self.raw_view, "raw")
+        self.tabs.addTab(self.raw_view, "Raw")
         layout.addWidget(self.tabs)
 
         self._record: Optional[Any] = None
+        self.clear()
 
     @property
     def record(self) -> Optional[Any]:
@@ -71,8 +74,8 @@ class LogDetailView(QWidget):
 
     def clear(self) -> None:
         self._record = None
-        self.header.setText(NO_SELECTION)
         self.details_tree.clear()
+        self.details_tree.addTopLevelItem(QTreeWidgetItem([NO_SELECTION, ""]))
         self.raw_view.setPlainText(NO_SELECTION)
 
     def show_record(self, record: Any) -> None:
@@ -82,11 +85,18 @@ class LogDetailView(QWidget):
         if record is None:
             self.clear()
             return
-        self.header.setText(self._header_text(record))
         self.details_tree.clear()
+        record_node = QTreeWidgetItem(["Record", ""])
+        self.details_tree.addTopLevelItem(record_node)
+        for name, label in _RECORD_FIELDS:
+            record_node.addChild(
+                QTreeWidgetItem([label, _scalar(getattr(record, name, None))])
+            )
         details = getattr(record, "details", None) or {}
-        _fill_tree(self.details_tree.invisibleRootItem(), details)
-        self.details_tree.expandToDepth(1)
+        details_node = QTreeWidgetItem(["Details", ""])
+        self.details_tree.addTopLevelItem(details_node)
+        _fill_tree(details_node, details)
+        self.details_tree.expandToDepth(2)
         self.raw_view.setPlainText(RAW_LOADING)
 
     def set_raw(self, record_id: str, raw: Optional[Mapping[str, Any]]) -> None:
@@ -100,28 +110,6 @@ class LogDetailView(QWidget):
             self.raw_view.setPlainText(RAW_PLACEHOLDER)
             return
         self.raw_view.setPlainText(_pretty_json(raw))
-
-    @staticmethod
-    def _header_text(record: Any) -> str:
-        def value(name: str) -> str:
-            item = getattr(record, name, None)
-            return "—" if item is None or item == "" else str(item)
-
-        return (
-            f"{value('received_at')} · {value('level')} · {value('channel')} · "
-            f"{value('producer_kind')}/{value('producer_id')}\n"
-            f"type={value('type')} component={value('component')} "
-            f"record_id={value('record_id')}\n"
-            f"session={value('session_id')} generation={value('generation')} "
-            f"activation={value('activation_id')} segment={value('segment_id')}\n"
-            f"transcription={value('transcription_id')} command={value('command_id')} "
-            f"event={value('event_id')} correlation={value('correlation_id')}\n"
-            f"instance={value('instance_id')} scope={value('scope')} "
-            f"server_cursor={value('server_cursor')} replayed={value('replayed')}\n"
-            f"source_timestamp={value('source_timestamp')}\n"
-            f"{value('message')}"
-        )
-
 
 def _pretty_json(value: Any) -> str:
     try:
