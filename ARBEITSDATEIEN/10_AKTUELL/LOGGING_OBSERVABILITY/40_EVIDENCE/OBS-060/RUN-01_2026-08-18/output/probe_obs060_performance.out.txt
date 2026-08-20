@@ -1,0 +1,55 @@
+=== B-1  ARCH 6.3: worker stopped, 20 000 records ===
+[PASS] B-1.1 submit() never raised across 20 000 submissions - None
+[PASS] B-1.2 all 20 000 submissions were attempted - count=20000
+       total wall time for 20 000 submits                   249.9 ms
+       mean submit                                          3.16 us
+       median submit                                        3.2 us
+       p99 submit                                           6.2 us
+       slowest single submit                                0.141 ms
+[PASS] B-1.3 every single submit stayed under the 5.0 ms budget - slowest=0.141 ms
+       enqueued                                             8192 
+       dropped_watermark                                    0 
+       dropped_queue_full                                   11808 
+[PASS] B-1.4 memory stayed bounded: the queue never exceeded its size - qsize=8192
+[PASS] B-1.5 nothing was lost uncounted - 8192+0+11808
+
+=== B-2  batch throughput through the real worker ===
+       records submitted                                    20000 
+       records persisted                                    20000 
+       submit phase                                         238.1 ms
+       submit throughput                                    84011 records/s
+       end-to-end (submit + persist)                        484.4 ms
+       end-to-end throughput                                41284 records/s
+[PASS] B-2.1 the worker persisted everything it accepted - persisted=20000
+[PASS] B-2.2 end-to-end throughput is at least 2 000 records/s - 41284 records/s
+
+=== B-3  audio hot-path overhead ===
+       hot-path calls                                       100000 
+       total hot-path time                                  8.2 ms
+       per packet                                           82.0 ns
+[PASS] B-3.1 a hot-path call costs well under 1 microsecond - 82.0 ns
+[PASS] B-3.2 100 000 hot-path calls produced no record per packet - rows=1
+       records written while streaming                      1 
+
+=== B-4  query latency over 50 000 rows ===
+       rows in the store                                    50000 
+       first page, no filter (limit 200)                    3.45 ms
+       page 2 via keyset cursor                             3.32 ms
+       filtered by session_id                               4.45 ms
+       filtered by channel                                  6.03 ms
+       free-text filter                                     3.42 ms
+       fetch_raw for one record                             13.88 ms
+[PASS] B-4.1 every query answers in well under a second (the UI runs them off the Qt thread anyway) - slowest=13.88 ms
+[PASS] B-4.2 the keyset second page is not slower than the first - 3.32 ms
+
+=== B-5  retention over 30 000 rows ===
+       rows before retention                                30000 
+       deleted by age in one pass                           30000 
+       rows after one pass                                  0 
+       retention pass duration                              106.9 ms
+[PASS] B-5.1 retention respects its 0.2 s time budget (plus one block) - 0.107 s
+[PASS] B-5.2 retention deleted in blocks and made progress - 30000 -> 0
+[PASS] B-5.3 retention never runs VACUUM (the file is not rewritten) - asserted structurally by tests/test_obs030_sqlite_store.py
+
+======================================================================
+ALL PERFORMANCE CHECKS PASSED

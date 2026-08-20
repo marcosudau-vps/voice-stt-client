@@ -1,0 +1,27 @@
+[observability] retention_failed: store.run_retention exploded
+[observability] store_write_failed: store.write_batch exploded
+[observability] shutdown_flush_incomplete: 6 records dropped at shutdown
+--- R-1  reference run WITHOUT observability ---
+{"command_results": [["listening", "Dictation started"], ["stopped", "Dictation stopped"]], "cursor_file": {"cursor": 7, "endpoint": "wss://stt.voice.marcosudau.com/ws/logs", "protocol_version": 2, "schema_version": 1, "server_instance_id": "server-1"}, "event_stream_accepted": [[5, "evt-5"], [6, "evt-6"], [7, "evt-7"]], "feedback": [["local_only", null], ["local_only", null], ["stt_fallback", null]], "finals": [["queued", null]], "frames": [5, [640, 640, 640, 640, 640], [0, 5]], "injections": ["das ist ein diktierter satz"], "resume_cursor": 7, "snapshots": [["starting", "starting", "initializing", 1, "inactive", "idle"], ["starting", "starting", "initializing", 2, "inactive", "listening"], ["starting", "active", "initializing", 4, "waiting_first_speech", "listening"], ["starting", "idle", "initializing", 5, "inactive", "listening"], ["shutting_down", "idle", "shutting_down", 6, "inactive", "listening"], ["stopped", "idle", "stopped", 7, "inactive", "listening"]], "texts": [], "transports": []}
+
+--- R-2  with working observability ---
+--- R-3  ingress throws on EVERY call ---
+--- R-4  store throws on EVERY write_batch ---
+--- R-5  queue full from the start ---
+--- R-6  worker never starts ---
+--- R-7  on_observation throws on every call ---
+
+======================================================================
+[PASS] R-2 working observability: protocol identical to R-1
+[PASS] R-3 throwing ingress: protocol identical to R-1
+[PASS] R-4 throwing store: protocol identical to R-1
+[PASS] R-5 full queue: protocol identical to R-1
+[PASS] R-6 worker never starts: protocol identical to R-1
+[PASS] R-7 throwing on_observation: protocol identical to R-1
+[PASS] R-7 the throwing observer was really called - calls=3
+[PASS] R-7 the cursor file holds the same end state as R-1 - {'schema_version': 1, 'endpoint': 'wss://stt.voice.marcosudau.com/ws/logs', 'server_instance_id': 'server-1', 'protocol_version': 2, 'cursor': 7} vs {'schema_version': 1, 'endpoint': 'wss://stt.voice.marcosudau.com/ws/logs', 'server_instance_id': 'server-1', 'protocol_version': 2, 'cursor': 7}
+[PASS] R-7 the resume cursor is the same as in R-1 - 7 vs 7
+[PASS] R-2 the working observability actually recorded the cycle - rows=6
+
+======================================================================
+ALL PROTOCOLS IDENTICAL - runtime isolation holds

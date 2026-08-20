@@ -197,7 +197,12 @@ class LocalLogProvider:
         """Blocking, called on a worker thread, **never raises** (§8.1: *"Ein
         Providerfehler ist ein Anzeigezustand, kein Programmfehler"*)."""
         effective_limit = self._effective_limit(limit)
-        truncated_limit = effective_limit != self._requested_limit(limit)
+        # ``complete=False`` means *"the provider cut something off"* (§8).
+        # Only the ``MAX_LIMIT`` clamp does that. A caller asking for ``0`` or
+        # a negative limit gets the default page size, which cuts nothing —
+        # reporting that page as incomplete told the status line about a
+        # truncation that never happened (OBS-050 gate observation N-4).
+        truncated_limit = self._requested_limit(limit) > MAX_LIMIT
 
         if self._db_path is None:
             return self._empty_page(

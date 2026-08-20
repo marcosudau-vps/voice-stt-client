@@ -148,6 +148,14 @@ class LoggingWorker(threading.Thread):
             self._run_retention_if_due(force=True)
         except Exception as exc:  # noqa: BLE001
             self._record_loop_failure("worker_retention_failed", exc)
+        # ARCH §8.3 counts CONSECUTIVE failures **of the loop**. The two
+        # guards above are startup steps, not loop iterations; their failures
+        # are reported (``worker_errors++``) but must not consume part of the
+        # budget the loop gets afterwards. Without this reset a failed open
+        # plus a failed first retention left the loop only three real
+        # exceptions instead of five — an unintended coupling, not a decision
+        # (OBS-030 gate observation N-2).
+        self._consecutive_loop_failures = 0
         try:
             while not self._stop_event.is_set():
                 try:
@@ -242,6 +250,7 @@ class LoggingWorker(threading.Thread):
 
     def _iteration(self) -> None:
         self._apply_pending_settings()
+        self._resume_store_if_due()
         records = self._ingress.drain(self._batch_size, self._flush_interval_s)
         if records:
             self._process_batch(records)
@@ -365,6 +374,35 @@ class LoggingWorker(threading.Thread):
 
         self._on_store_write_failure(last_exc)
         return (0, 0, False)
+
+    def _resume_store_if_due(self) -> None:
+        """ARCH §8.3, row *"Store wirft beim Schreiben"*: after the 60 s
+        suspension the store is re-checked *"mit einem leeren
+        Testschreibvorgang"*, and CONTRACTS §11.2 calls that recovery
+        *"Automatisch und still"*.
+
+        Driven from the loop, not from an arriving batch. The check inside
+        ``_write_with_policy`` only runs when a batch reaches it — but the
+        suspension is set together with ``FAILED_STORE``, and from that moment
+        ``Ingress.submit`` rejects every record (``health.is_failed()``). No
+        record is queued, so no batch is drained, so the probe would never
+        run: the store stayed suspended for the rest of the process and the
+        recovery §8.3 prescribes was unreachable (OBS-060 finding B-1).
+
+        A failed probe costs a probe, not a batch (the W-4 property), and
+        extends the suspension by another interval. A successful one goes
+        through the normal success path, so ``logging.recovered`` is written
+        by exactly the code that writes it after a recovered batch — no
+        second recovery path, no new counter and no new health state.
+        """
+        if self._structural_degraded or self._store_paused_until is None:
+            return
+        if time.monotonic() < self._store_paused_until:
+            return
+        if self._probe_store():
+            self._on_store_write_success()
+        else:
+            self._store_paused_until = time.monotonic() + STORE_PAUSE_S
 
     def _probe_store(self) -> bool:
         """The empty test write of ARCH §8.3. A store double without

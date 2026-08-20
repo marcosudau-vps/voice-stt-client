@@ -21,7 +21,7 @@ Diese Datei ist die zentrale kompakte Fortschrittsanzeige für Logging V1.
 - [x] OBS-050 – Local Query, Minimal UI & Settings – Implementierung
 - [x] OBS-050 – Gate Review
 
-- [ ] OBS-060 – V1 Hardening, Evidence & Baseline – Implementierung
+- [x] OBS-060 – V1 Hardening, Evidence & Baseline – Implementierung
 - [ ] OBS-060 – Logging V1 Final Gate
 
 ## Abschlusskriterium
@@ -382,6 +382,97 @@ PR.**
 **Läuft als Nächstes:** OBS-060 – V1 Hardening, Evidence & Baseline –
 Implementierung (`Prompts/OBS-060_IMPLEMENTIERUNGSAUFTRAG.md`). In diesem Lauf
 nicht begonnen.
+
+**Abgeschlossen:** OBS-060 – V1 Hardening, Evidence & Baseline, Implementierung
+(2026-08-18, Run `RUN-OBS-060-01_2026-08-18`) →
+`OBS-060 IMPLEMENTED – READY FOR V1 GATE`.
+
+OBS-060 fügt keine Funktionalität hinzu, sondern härtet Logging V1 und belegt
+es. Dabei sind **drei echte Befunde** aufgefallen, alle im V1-Scope, alle
+geschlossen:
+
+**B-1 – die Store-Erholung nach `ARCH §8.3` war unerreichbar.** Die 60-s-
+Aussetzung wird zusammen mit `FAILED_STORE` gesetzt, und ab da lehnt der Ingress
+jeden Record ab (`health.is_failed()`). Ohne Record kein Batch, ohne Batch kein
+`_write_with_policy` — und dort saß die einzige Prüfung der Pause. Der von §8.3
+verlangte leere Testschreibvorgang fand nie statt; die von `CONTRACTS §11.2` als
+„automatisch" zugesagte Erholung war im laufenden Prozess unmöglich. Reproduziert
+(`probe_write calls: 0` bei längst wieder gesundem Store), behoben durch einen
+Schritt am Anfang der Worker-Schleife. **Kein neuer Zähler, kein neuer
+Health-Zustand, kein zweiter Erholungspfad.**
+
+**B-2 – ein `None` des Client-Normalizers wurde nicht gezählt.** `CONTRACTS §3`
+legt die Zählpflicht wörtlich dem Aufrufer auf; `from_client_event` liefert
+`None` ausschließlich aus seinem `except`-Zweig. Der Fall war vollständig
+unsichtbar. Eine Zeile behebt es; der Serverpfad bleibt bewusst ausgenommen,
+weil `None` dort auch „bildet auf keinen Record ab" heißt.
+
+**B-3 – die Mutation M-6 hatte keinen Wächter.** Die Begründung der
+Mutationstabelle trifft sachlich nicht zu: In SQLite sind `NULL`-Werte in einem
+UNIQUE-Index stets verschieden, Clientzeilen ohne `event_id` werden also auch
+mit vollem Index nicht dedupliziert (gemessen, beide Indexformen). Der Wächter
+prüft jetzt das, was die Norm wirklich festlegt — `FD-C7` nennt den Index
+**partiell**, `CONTRACTS §5.2` friert die DDL ein.
+
+**Der Runtime-Isolationsnachweis liegt in der verbindlichen Form vor:** ein
+Protokollvergleich über einen vollständigen Diktatzyklus mit echtem
+`STTController`, echter `FeedbackEngine`, echtem `DualSessionCoordinator` und
+echtem `EventProtocolProcessor`; Doubles nur für WebSocket und Ausgabegeräte.
+Aufgezeichnet werden Frames samt Längen, `CommandResult`-, `FeedbackDecision`-
+und Snapshotfolge, `FinalProcessingResult`, Injektionen, Textrückrufe,
+Transportwechsel, angenommene Eventstream-Events, Resume-Cursor und Cursordatei.
+**R-2 bis R-7 liefern das Referenzprotokoll Byte für Byte** — einschließlich des
+Laufs mit einem Ingress, dessen sämtliche Methoden werfen, und des Laufs mit
+einem dreimal werfenden `on_observation`, für den zusätzlich der Endstand der
+Cursordatei stimmt. Einzige Normalisierung: `updated_at`, der Wanduhrzeitpunkt
+des Schreibvorgangs. R-2 belegt, dass dabei wirklich beobachtet wurde (sechs
+Records).
+
+**Alle acht Mutationschecks machen einen Test rot**; vorher sind alle
+betroffenen Auswahlen grün (143 passed), nachher ist jede berührte Datei per
+SHA-256 als byte-identisch wiederhergestellt belegt. Bei M-3 endet der Lauf nicht
+mehr — ein Timeout zählt hier zu Recht als rot.
+
+**Sechs übernommene Gate-Beobachtungen geschlossen:** OBS-030 N-2 und N-3,
+OBS-040 N-4 (Kommentar), OBS-050 N-1, N-2 und N-4.
+
+Teststand: **27 neue Tests**, grün unter `pytest` **und** `unittest`; V1-Kette
+OBS-010…060 652 grün; volle Suite **1164 passed / 1 vorbestehender,
+umgebungsbedingter Fehlschlag** (`lefx.interfaces`) gegenüber 1137 / 1 in der
+Baseline — Differenz exakt die 27 neuen Tests. **Kein bestehender Test
+geändert**, `git diff --check` leer, `00_NORMATIV/` byte-identisch zu `7fc6ca6`,
+kein Cross-Workstream-Diff. Produktseitig sechs Dateien, +131/−13.
+
+**Ausdrücklich offen und nicht beschönigt:** die **manuelle Abnahme M-1…M-11 am
+realen Produktionspfad**. Neun der elf Punkte sind gegen den echten Stack
+automatisiert belegt und M-11 (Dateirechte, `icacls`) ist protokolliert, aber
+der Durchlauf auf einem Installationssystem mit laufendem Server — mit Datum,
+Serveradresse und Clientversion — steht aus. `WP-OBS-060` erklärt ihn zur
+Pflicht. Dreizehn offene Punkte sind in `V1_OPEN_POINTS.md` einzeln begründet;
+sieben brauchen eine Entscheidung der unabhängigen Instanz, keiner berührt ein
+V1-Gate-Kriterium.
+
+Evidence: `40_EVIDENCE/OBS-060/RUN-01_2026-08-18/`, Run:
+`30_AUSFUEHRUNG/runs/RUN-OBS-060-01_2026-08-18/`.
+
+**Kein Gate-PASS in diesem Lauf**, **kein Commit, kein Push** — ein
+Implementierungslauf vergibt sein eigenes Gate nicht.
+
+## Aktuell – nächster zulässiger Schritt
+
+**OBS-060 Final Gate Review: `G-OBS-V1 FAIL`** (2026-08-18, unabhaengig).
+Der Gate-Haken und das Abschlusskriterium bleiben ungesetzt; kein Commit.
+Blockierend sind das fehlende vollstaendige manuelle M-1…M-11-Protokoll am
+realen Produktionspfad, der reproduzierte Initial-Disabled→Enabled-Verstoss
+gegen die `IMMEDIATE`-Apply-Policy sowie offene Architektur-/Contract-
+Entscheidungen, insbesondere O-1 und O-7. Evidence:
+`40_EVIDENCE/OBS-060/GATE-REVIEW-01_2026-08-18_CODEX/GATE_REVIEW.md`.
+
+Naechster zulaessiger Schritt: Entscheidungen einholen, die benannten
+Korrekturen und Evidence-Konsistenzpunkte in einem getrennten Lauf bearbeiten,
+M-1…M-11 am Installationssystem vollstaendig protokollieren und erst danach
+einen neuen unabhaengigen Final Gate Review starten. Die Triggerarchitektur-
+Migration darf noch nicht beginnen.
 
 ## Hinweis zum Ablageort dieser Datei
 

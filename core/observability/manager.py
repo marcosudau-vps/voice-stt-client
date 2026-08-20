@@ -84,6 +84,11 @@ class ObservabilityManager:
         self._db_path: Optional[Path] = None
         self._query_service: Optional[LogQueryService] = None
         self._log_handler: Any = None
+        # Which sink the worker currently holds, and the configuration it was
+        # built from; see ``_on_config_applied``. Initialised before the
+        # disabled early return so both attributes always exist.
+        self._sink_applied: Optional[JsonlSink] = None
+        self._sink_signature_applied: tuple = self._sink_signature(config)
 
         if not self._enabled:
             # ARCH §8.3 freezes ``DISABLED`` as part of the state set; the
@@ -117,6 +122,7 @@ class ObservabilityManager:
             store = _NullStore()
 
         sink = self._build_sink(config)
+        self._sink_applied = sink
 
         self._worker = LoggingWorker(
             self._ingress,
@@ -134,6 +140,19 @@ class ObservabilityManager:
         # CONTRACTS §10.4: the apply chain reaches the ingress; the settings
         # the ingress does not own arrive here through this listener.
         self._ingress.register_config_listener(self._on_config_applied)
+
+    @staticmethod
+    def _sink_signature(config: Any) -> tuple:
+        """The two configuration values that decide *which* sink this is.
+
+        Compared as raw config values, not as resolved paths: resolving runs
+        the P-8 check, which may emit a stderr line, and asking "did the user
+        change the sink?" must not have that side effect.
+        """
+        return (
+            bool(getattr(config, "file_sink_enabled", False)),
+            str(getattr(config, "file_sink_dir", None)),
+        )
 
     def _build_sink(self, config: Any) -> Optional[JsonlSink]:
         """The optional JSONL sink for one configuration, or ``None``.
@@ -247,25 +266,49 @@ class ObservabilityManager:
         nothing else. ``store_enabled``/``db_path`` are ``APP_RESTART`` and
         are deliberately ignored here. Never raises: §10.4 requires that a
         failure in this path cannot influence the apply result.
+
+        The three steps have **their own** guards rather than one around all
+        of them. With a single guard, a throwing ``_build_sink`` (the P-8 path
+        check) skipped ``_follow_enabled_state``, so an ``enabled`` change
+        submitted in the same apply fell out silently — a setting that does
+        nothing and says nothing (OBS-050 gate observations N-1/N-2).
         """
         try:
             if self._log_handler is not None:
                 level = getattr(config, "level", None)
                 if isinstance(level, str) and level:
                     self._log_handler.setLevel(level.upper())
+        except Exception:  # noqa: BLE001 - O-01/O-05: never influence the apply
+            pass
+        try:
             worker = self._worker
             if worker is not None:
-                worker.request_settings(
-                    retention_days=getattr(config, "retention_days", 14),
-                    max_entries=getattr(config, "max_entries", 200_000),
-                    max_db_bytes=getattr(config, "max_db_bytes", None),
-                    store_transcription_content=bool(
+                settings: dict[str, Any] = {
+                    "retention_days": getattr(config, "retention_days", 14),
+                    "max_entries": getattr(config, "max_entries", 200_000),
+                    "max_db_bytes": getattr(config, "max_db_bytes", None),
+                    "store_transcription_content": bool(
                         getattr(config, "store_transcription_content", False)
                     ),
-                    sink=self._build_sink(config),
-                )
+                }
+                # ``sink`` is always handed over, but a NEW sink is only built
+                # when the sink configuration actually changed. Rebuilding on
+                # every apply closed the open file and opened a new one even
+                # when nothing about the sink had changed — correct, but a
+                # rotation nobody asked for (N-1). The worker compares by
+                # IDENTITY (``new_sink is not old_sink``), so handing back the
+                # same instance is exactly "leave the sink alone".
+                signature = self._sink_signature(config)
+                if signature != self._sink_signature_applied:
+                    self._sink_applied = self._build_sink(config)
+                    self._sink_signature_applied = signature
+                settings["sink"] = self._sink_applied
+                worker.request_settings(**settings)
+        except Exception:  # noqa: BLE001 - O-01/O-05
+            pass
+        try:
             self._follow_enabled_state(config)
-        except Exception:  # noqa: BLE001 - O-01/O-05: never influence the apply
+        except Exception:  # noqa: BLE001 - O-01/O-05
             pass
 
     def _follow_enabled_state(self, config: Any) -> None:

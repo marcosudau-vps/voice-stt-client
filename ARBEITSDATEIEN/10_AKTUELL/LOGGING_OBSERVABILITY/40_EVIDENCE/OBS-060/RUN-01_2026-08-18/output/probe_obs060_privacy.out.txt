@@ -1,0 +1,56 @@
+=== S-1  secrets never reach the disk ===
+[PASS] S-1.0 the records really were written - rows=3
+[PASS] S-1 no 'access_token' value anywhere on disk
+[PASS] S-1 no 'authorization' value anywhere on disk
+[PASS] S-1 no 'api_key' value anywhere on disk
+[PASS] S-1 no 'password' value anywhere on disk
+[PASS] S-1 no 'cookie' value anywhere on disk
+[PASS] S-1 no 'admin_key' value anywhere on disk
+[PASS] S-1.7 the redaction marker IS present (the values were seen and replaced)
+[PASS] S-1.8 no query string survived a URL (R-8)
+
+=== S-2  transcript policy (FD-D1) ===
+[PASS] S-2.1 with store_transcription_content=false the spoken sentence is nowhere on disk
+[PASS] S-2.2 the character count survives instead (R-10)
+[PASS] S-2.3 the record itself exists - the content is redacted, not the record - rows=1
+[PASS] S-2.4 with store_transcription_content=true the content IS stored (the switch really is the switch)
+
+=== S-3  no audio payloads ===
+[PASS] S-3.1 no PCM-like byte run reached the disk
+[PASS] S-3.2 1000 audio packets produced at most the 5 s aggregate, not a record per packet - rows=1
+
+=== S-4  user profile paths (R-9) ===
+[PASS] S-4.1 the user profile root does not appear on disk (R-9) - home=C:\Users\marco
+[PASS] S-4.2 it was replaced by ~
+[PASS] S-4.3 and with it the user name - user=marco (only meaningful inside the profile path)
+
+=== S-5  64 KiB raw cap (FD-C12) ===
+[PASS] S-5.1 the oversized record was stored
+[PASS] S-5.2 the raw payload was replaced by the truncation marker (FD-C12, 64 KiB) - {'_truncated': True, '_bytes': 81964}
+[PASS] S-5.3 and the secret inside it went with it
+[PASS] S-5.4 the 80 KiB payload is nowhere on disk
+
+=== S-6  file permissions (M-11, P-8/P-9) ===
+[PASS] S-6.0 both artefacts exist
+
+       --- M-11: effective permissions (icacls) ---
+       store: C:\Users\marco\AppData\Local\Temp\tmpettsih7c\s6\observability.sqlite3
+         C:\Users\marco\AppData\Local\Temp\tmpettsih7c\s6\observability.sqlite3 NT-AUTORITŽT\SYSTEM:(I)(F)
+                                                                                VORDEFINIERT\Administratoren:(I)(F)
+                                                                                EIGENTšMERRECHTE:(I)(F)
+         1 Dateien erfolgreich verarbeitet, bei 0 Dateien ist ein Verarbeitungsfehler aufgetreten.
+       sink dir: C:\Users\marco\AppData\Local\Temp\tmpettsih7c\s6\sink
+         C:\Users\marco\AppData\Local\Temp\tmpettsih7c\s6\sink NT-AUTORITŽT\SYSTEM:(I)(OI)(CI)(F)
+                                                               VORDEFINIERT\Administratoren:(I)(OI)(CI)(F)
+                                                               EIGENTšMERRECHTE:(I)(OI)(CI)(F)
+         1 Dateien erfolgreich verarbeitet, bei 0 Dateien ist ein Verarbeitungsfehler aufgetreten.
+       sink file: C:\Users\marco\AppData\Local\Temp\tmpettsih7c\s6\sink\observability-2026-08-18.jsonl
+         C:\Users\marco\AppData\Local\Temp\tmpettsih7c\s6\sink\observability-2026-08-18.jsonl NT-AUTORITŽT\SYSTEM:(I)(F)
+                                                                                              VORDEFINIERT\Administratoren:(I)(F)
+                                                                                              EIGENTšMERRECHTE:(I)(F)
+         1 Dateien erfolgreich verarbeitet, bei 0 Dateien ist ein Verarbeitungsfehler aufgetreten.
+
+[PASS] S-6.1 the store lies inside the user profile (P-8) - C:\Users\marco\AppData\Local\Temp\tmpettsih7c\s6\observability.sqlite3
+
+======================================================================
+ALL PRIVACY CHECKS PASSED

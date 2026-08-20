@@ -1,0 +1,22 @@
+=== baseline: every selection green before mutating ===
+[PASS] baseline: all mutation-check selections pass unmutated - 143 passed, 55 subtests passed in 10.12s
+
+[PASS] M-1  ON CONFLICT DO NOTHING -> plain INSERT -> turns a test red - exit=1  2 failed, 27 passed in 0.69s
+[PASS] M-2  remove the except Exception in the observer wrapper -> turns a test red - exit=1  2 failed, 16 passed, 8 subtests passed in 3.01s
+[PASS] M-3  put_nowait -> blocking put -> turns a test red - exit=124  TIMEOUT after 240s (the run never finished)
+[PASS] M-4  remove the watermark rule -> turns a test red - exit=1  3 failed, 21 passed, 6 subtests passed in 2.42s
+[PASS] M-5  remove the redaction call in the normalizer -> turns a test red - exit=1  6 failed, 22 passed, 34 subtests passed in 2.71s
+[PASS] M-6  remove WHERE event_id IS NOT NULL from the unique index -> turns a test red - exit=1  1 failed, 25 passed in 0.66s
+[PASS] M-7  set the handler level to DEBUG -> turns a test red - exit=1  1 failed, 4 passed in 0.15s
+[PASS] M-8  remove PRAGMA query_only = ON -> turns a test red - exit=1  2 failed, 45 passed, 7 subtests passed in 1.33s
+
+=== restore verification ===
+[PASS] restored byte-identical: core\observability\storage\sqlite.py
+[PASS] restored byte-identical: core\session_coordinator.py
+[PASS] restored byte-identical: core\observability\ingress.py
+[PASS] restored byte-identical: core\observability\normalizer.py
+[PASS] restored byte-identical: core\logging_setup.py
+[PASS] restored byte-identical: core\observability\query\local.py
+
+======================================================================
+ALL EIGHT MUTATIONS TURN A TEST RED

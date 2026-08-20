@@ -1,0 +1,38 @@
+=== P-1  full chain: ingress -> queue -> worker -> sqlite -> query ===
+[PASS] P-1.1 all 50 client events reach SQLite through the real worker - rows=50
+[PASS] P-1.2 the query layer reads them back through the service - records=50
+[PASS] P-1.3 the page carries no raw payload (CONTRACTS 5.7)
+[PASS] P-1.4 correlation chain survives the round trip
+[PASS] P-1.5 the JSONL sink received the same records - lines=50
+[PASS] P-1.6 schemaVersion is the first JSONL key (CONTRACTS 11.1)
+
+=== P-2  identity, replay and dedupe ===
+[PASS] P-2.1 first server record inserts - 1/0
+[PASS] P-2.2 the replayed duplicate is deduplicated, not inserted - 0/1
+[PASS] P-2.3 the FIRST version wins (ON CONFLICT DO NOTHING) - [(0,)]
+[PASS] P-2.4 client records without event_id are never deduplicated - inserted=2
+
+=== P-3  restart / recovery ===
+[PASS] P-3.1 the history of the first run survives the restart - rows=40
+[PASS] P-3.2 no re-migration on the second open (user_version stays 1) - user_version=1
+[PASS] P-3.3 the second run really appended
+
+=== P-4  shutdown flush ===
+[PASS] P-4.1 stop() returns True (worker joined)
+[PASS] P-4.2 the shutdown flush persisted the queued records - rows=300
+[PASS] P-4.3 nothing was lost uncounted (enqueued == written + dropped_shutdown) - enqueued=300 written=300 dropped_shutdown=0
+
+=== P-5  UI layer over the real controller ===
+[PASS] P-5.1 the controller delivered a page from the real provider - pages=1
+[PASS] P-5.2 the page offers a next cursor (keyset pagination)
+[PASS] P-5.3 the list page never carries raw
+[PASS] P-5.4 the detail view loads raw separately by record_id - raws=[{'value': 3}]
+
+=== P-6  composition root ===
+[PASS] P-6.1 the manager chain persists a record - rows=1
+[PASS] P-6.2 the manager query service reads the same store
+[PASS] P-6.3 db_path is the resolved path the provider opens - C:\Users\marco\AppData\Local\Temp\tmplbmcoage\p6\observability.sqlite3
+[PASS] P-6.4 health is OK and counters are consistent - LoggingHealthState.OK written=1
+
+======================================================================
+ALL CHECKS PASSED

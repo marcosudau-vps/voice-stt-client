@@ -1,0 +1,24 @@
+=== P-1  every V1 module is statically reachable from app.py ===
+[PASS] P-1.1 all 24 runtime V1 modules are in the import graph of app.py (no hiddenimports entry needed) - missing=[]
+       modules in the graph: 60
+[PASS] P-1.2 the two Protocol-only modules are correctly NOT in the runtime graph (nothing imports them; they are contract text) - unexpectedly reachable=[]
+
+=== P-2  every V1 module actually imports ===
+[PASS] P-2.1 every non-Qt V1 module imports in a clean interpreter - []
+
+=== P-3  every V1 module is versionable (.gitignore) ===
+[PASS] P-3.1 no V1 module is hidden by .gitignore (OBS-050 finding F-1) - []
+[PASS] P-3.2 ui/logs/__pycache__ is still ignored (the negation is narrow) - exit=0
+
+=== P-4  the packaging configuration is untouched by OBS-060 ===
+[PASS] P-4 voice-stt-client.spec unchanged by this run
+[PASS] P-4 scripts/pyinstaller_runtime_platform.py unchanged by this run
+
+       Note: the frozen build already neutralises the Windows WMI
+       platform probe in scripts/pyinstaller_runtime_platform.py.
+       That is the same probe that makes an unpatched test
+       environment hang - see V1_TEST_RESULTS.md, section on the
+       test environment.
+
+======================================================================
+ALL PACKAGING CHECKS PASSED
