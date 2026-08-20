@@ -236,6 +236,16 @@ class ObservabilityIngress:
             self.emit_record_rejected("observability.normalizer.client", exc)
             return
         if record is None:
+            # CONTRACTS §3: *"Der Normalizer wirft nie. Im Zweifel liefert er
+            # ``None``, und der AUFRUFER zaehlt ``malformed``."* On this path
+            # ``None`` has exactly one meaning: ``from_client_event`` caught
+            # its own exception and gave up — its only ``return None`` sits in
+            # its ``except`` branch. Without this line that case was completely
+            # invisible: no counter, no health signal, nothing (OBS-060
+            # finding B-2). The server path is deliberately NOT treated this
+            # way; there ``None`` also means *"this result kind maps to no
+            # record"*, which is a decision and not a doubt.
+            self.health.record_malformed()
             return
         self.submit(record)
 

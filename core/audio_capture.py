@@ -256,8 +256,14 @@ class AudioCapture:
 
         logger.info("Audio capture stopped.")
         # CONTRACTS §12.2: client.audio.stream_stopped (P+S), with the final
-        # counter state so a session's totals survive even if the last 5-second
+        # counter state so the totals survive even if the last 5-second
         # aggregate never ran.
+        # These counters are never reset (ARCH §8.6 asks the hot path to do
+        # nothing but increment plain ints, and a reset is a second writer).
+        # They are therefore the running totals of this ``AudioCapture``
+        # INSTANCE, not of one dictation: across several dictations the values
+        # only carry meaning as a difference between two records (OBS-040 gate
+        # observation N-4).
         self._observe.audit(
             "client.audio.stream_stopped",
             details=self.capture_counters(),

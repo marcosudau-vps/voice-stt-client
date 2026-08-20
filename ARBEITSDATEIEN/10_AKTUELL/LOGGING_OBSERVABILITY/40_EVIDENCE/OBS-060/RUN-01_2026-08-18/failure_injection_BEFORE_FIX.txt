@@ -1,0 +1,82 @@
+[observability] store_write_failed: attempt to write a readonly database
+[observability] store_open_failed: open failed: unable to open database file
+[observability] sink_write_failed: sink is on a disconnected network drive
+[observability] worker_loop_failed: injected drain failure
+[observability] worker_loop_failed: injected drain failure
+[observability] worker_drain_failed: injected drain failure
+[observability] store_write_failed: injected write failure
+=== F-1  SQLite read-only ===
+[PASS] F-1.1 a permanently unwritable store ends in FAILED_STORE - LoggingHealthState.FAILED_STORE
+[PASS] F-1.2 the failure is counted, not silent - store_errors=5
+[PASS] F-1.3 the producers were never blocked or hit by the exception - enqueued=30
+[PASS] F-1.4 the worker thread is still alive (single failures do not kill it)
+[PASS] F-1.5 after FAILED the ingress refuses instead of promising storage
+
+=== F-2  SQLite locked ===
+[PASS] F-2.0 the store opened normally
+[PASS] F-2.1 a locked database surfaces as an exception the worker owns - OperationalError
+[PASS] F-2.2 the very next write after the lock is released succeeds - inserted=1
+
+=== F-3  DB path invalid ===
+[PASS] F-3.1 an unopenable path is a health state, not a crash - LoggingHealthState.FAILED_STORE
+[PASS] F-3.2 the worker survived the failed open
+[PASS] F-3.3 producing an event after the failure still does not raise
+
+=== F-4  file sink invalid ===
+[PASS] F-4.1 a broken sink does not stop the store - rows=30
+[PASS] F-4.2 the sink error is counted - sink_errors=1
+[PASS] F-4.3 the sink is disabled after ONE failure, not retried per batch - sink calls=1
+[PASS] F-4.4 health shows DEGRADED_SINK, never a store failure - LoggingHealthState.DEGRADED_SINK
+
+=== F-5  queue full / watermark ===
+[PASS] F-5.1 LOW records are dropped at the watermark, not at the brim - accepted_low=15 dropped_watermark=25
+[PASS] F-5.2 the watermark stops LOW at 75 percent (15 of 20) - accepted_low=15
+[PASS] F-5.3 a HIGH record still passes the watermark
+[PASS] F-5.4 at the brim HIGH is dropped as queue_full and counted - dropped_queue_full=1
+[PASS] F-5.5 submit never raised across the whole overload
+[PASS] F-5.6 counters add up (enqueued + both drop counters == submissions) - enqueued=20 qsize=20
+
+=== F-6  worker exception ===
+[PASS] F-6.1 three consecutive loop failures are survived - rows=1
+[PASS] F-6.2 they are counted as worker_errors - worker_errors=3
+[PASS] F-6.3 health is not FAILED_WORKER below the threshold - LoggingHealthState.OK
+[PASS] F-6.4 permanent loop failure ends in FAILED_WORKER, no restart - LoggingHealthState.FAILED_WORKER
+[PASS] F-6.5 the loop really gave up (thread finished)
+[PASS] F-6.6 after FAILED_WORKER the ingress only discards and counts
+
+=== F-7  malformed event ===
+[PASS] F-7.1 an unrenderable detail value never escapes the ingress - None
+[PASS] F-7.2 a non-mapping details object never escapes either - None
+[FAIL] F-7.3 the rejection is counted as malformed - malformed=0
+[FAIL] F-7.4 a substitute record logging.record_rejected exists (ARCH 8.3) - count=0
+[PASS] F-7.7 health stays OK for a malformed record (ARCH 8.3) - LoggingHealthState.OK
+
+=== F-8  UI query failure ===
+[PASS] F-8.1 a throwing provider becomes an ERROR page, not an exception - ProviderState.ERROR
+[PASS] F-8.2 the error page carries no records
+[PASS] F-8.3 a throwing status() becomes an ERROR status
+[PASS] F-8.4 fetch_raw returns None instead of raising
+[PASS] F-8.5 an unknown provider id is UNAVAILABLE, not an exception
+[PASS] F-8.6 a corrupt store file is a provider state, never a raise - ProviderState.ERROR
+[PASS] F-8.7 an invalid cursor is an ERROR page, not a silent restart
+
+=== F-9  throwing aggregate source ===
+[PASS] F-9.1 a throwing counter reader is skipped, not propagated - []
+[PASS] F-9.2 it is counted as malformed
+[PASS] F-9.3 the worker keeps writing normal records
+
+=== F-10 store recovery ===
+[PASS] F-10.1 five consecutive write failures pause the store - LoggingHealthState.FAILED_STORE
+[FAIL] F-10.2 after the pause the store is probed and recovers - LoggingHealthState.FAILED_STORE
+[FAIL] F-10.3 the recovery used a probe, not a batch - probe_calls=0
+[FAIL] F-10.4 records flow again after recovery - rows=0
+[FAIL] F-10.5 a structured logging.recovered record documents the recovery - logging.recovered rows=0
+
+======================================================================
+FAILURES: 6
+  - F-7.3 the rejection is counted as malformed
+  - F-7.4 a substitute record logging.record_rejected exists (ARCH 8.3)
+  - F-10.2 after the pause the store is probed and recovers
+  - F-10.3 the recovery used a probe, not a batch
+  - F-10.4 records flow again after recovery
+  - F-10.5 a structured logging.recovered record documents the recovery

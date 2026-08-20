@@ -377,6 +377,147 @@
 - Naechster Schritt: **OBS-060 – V1 Hardening, Evidence & Baseline –
   Implementierung** (`Prompts/OBS-060_IMPLEMENTIERUNGSAUFTRAG.md`, frische
   Session). In diesem Lauf nicht begonnen.
+- OBS-060: **IMPLEMENTED – READY FOR V1 GATE** (2026-08-18, Run
+  `RUN-OBS-060-01_2026-08-18`). OBS-060 fuegt keine Funktionalitaet hinzu,
+  sondern haertet Logging V1 und belegt es. Dabei sind **drei echte Befunde**
+  aufgefallen, alle im V1-Scope, alle geschlossen und mit Regressionstests
+  versehen.
+  **B-1 – die Store-Erholung nach `ARCH §8.3` war unerreichbar.** Die
+  60-Sekunden-Aussetzung wird zusammen mit `FAILED_STORE` gesetzt, und ab
+  diesem Moment lehnt der Ingress **jeden** Record ab (`health.is_failed()`).
+  Ohne Record kein Batch, ohne Batch kein `_write_with_policy` — und genau dort
+  sass die einzige Pruefung der Pause. Der von `§8.3` verlangte leere
+  Testschreibvorgang fand nie statt, und die von `CONTRACTS §11.2` als
+  „automatisch und still" zugesagte Erholung war im laufenden Prozess unmoeglich:
+  `FAILED_STORE` war faktisch endgueltig. Reproduziert
+  (`probe_obs060_b1_reproduction.py`: nach drei Sekunden mit laengst wieder
+  gesundem Store `probe_write calls: 0`, `state: FAILED_STORE`, neues Event wird
+  nicht einmal eingereiht). Behoben durch `_resume_store_if_due()` am Anfang der
+  Worker-Schleife, das die abgelaufene Aussetzung selbst prueft. **Kein neuer
+  Zaehler, kein neuer Health-Zustand, kein neues Konfigfeld, kein zweiter
+  Erholungspfad** — `logging.recovered` schreibt weiterhin derselbe Code wie nach
+  einem geglueckten Batch.
+  **B-2 – ein `None` des Client-Normalizers wurde nicht gezaehlt.**
+  `CONTRACTS §3` sagt woertlich: „Der Normalizer wirft nie. Im Zweifel liefert er
+  `None`, und der **Aufrufer** zaehlt `malformed`." `from_client_event` besitzt
+  genau ein `return None`, und es steht in seinem `except`-Zweig — der Fall war
+  also immer eine verschluckte Ausnahme und vollstaendig unsichtbar: kein Zaehler,
+  kein Health-Signal. Eine Zeile behebt es. Der **Serverpfad** bleibt bewusst
+  ausgenommen, weil `None` dort auch „bildet auf keinen Record ab" heisst; ein
+  eigener Test haelt das fest.
+  **B-3 – die Mutation M-6 hatte keinen Waechter.** Die Begruendung der
+  Mutationstabelle trifft sachlich nicht zu: in SQLite sind `NULL`-Werte in einem
+  UNIQUE-Index stets verschieden, Clientzeilen ohne `event_id` werden also auch
+  mit vollem Index nicht dedupliziert (gemessen mit beiden Indexformen, SQLite
+  3.49.1). Statt einen kuenstlich roten Test zu bauen, prueft der neue Waechter
+  das, was die Norm wirklich festlegt: `FD-C7` nennt den Index **partiell**,
+  `CONTRACTS §5.2` friert die DDL ein. Die Frage, ob die Begruendungsspalte im
+  Plan richtigzustellen ist, bleibt als **O-2** offen.
+  **Der Runtime-Isolationsnachweis liegt in der verbindlichen Form vor** — als
+  Protokollvergleich, nicht als Satz Einzelbehauptungen. Ein vollstaendiger
+  Diktatzyklus ueber den **echten** `STTController`, die **echte**
+  `FeedbackEngine`, den **echten** `DualSessionCoordinator`, den **echten**
+  `EventProtocolProcessor` und den **echten** `EventStreamTransport._dispatch`;
+  Doubles nur fuer WebSocket und Ausgabegeraete. Aufgezeichnet werden gesendete
+  Frames samt Laengen, `chunks_dropped_send_queue`/`max_send_queue_depth`, die
+  `CommandResult`-Folge, die `FeedbackDecision`-Folge, die vollstaendige
+  Snapshotfolge, das `FinalProcessingResult`, Injektionen, Textrueckrufe,
+  Transportwechsel, die angenommenen Eventstream-Events, der Resume-Cursor und
+  die Cursordatei. **R-2 bis R-7 liefern das Referenzprotokoll R-1 Byte fuer
+  Byte** — auch der Lauf mit einem Ingress, dessen saemtliche Methoden werfen,
+  und der mit einem bei jedem der drei Aufrufe werfenden `on_observation`, fuer
+  den zusaetzlich der Endstand der Cursordatei stimmt. Einzige Normalisierung ist
+  `updated_at`, der Wanduhrzeitpunkt des Schreibvorgangs; sie ist benannt. **R-2
+  belegt, dass der Vergleich etwas wert ist:** die funktionierende Observability
+  hat den Zyklus mit sechs Records tatsaechlich aufgezeichnet.
+  **Alle acht Mutationschecks machen einen Test rot.** Vorlauf und
+  Wiederherstellung sind Teil des Nachweises: vor der ersten Mutation laufen alle
+  betroffenen Auswahlen gruen (143 passed), nach jedem Schritt ist jede beruehrte
+  Datei per SHA-256 als **byte-identisch wiederhergestellt** belegt. Bei M-3
+  (`put_nowait` → blockierendes `put`) endet der Lauf nicht mehr; ein Timeout
+  zaehlt hier zu Recht als rot, denn ein blockierter Producer-Thread schlaegt
+  nicht fehl, er haengt.
+  **Sechs uebernommene Gate-Beobachtungen geschlossen:** OBS-030 N-2
+  (Schleifenbudget) und N-3 (`try/finally` um den gesamten Ablauf in `app.py`),
+  OBS-040 N-4 (Kommentar zu den kumulativen Hot-Path-Zaehlern), OBS-050 N-1
+  (kein Sink-Neubau ohne Grund), N-2 (drei eigene Guards statt eines) und N-4
+  (`complete` nur bei echter Kuerzung).
+  Teststand: **27 neue Tests** in `tests/test_obs060_v1_hardening.py`, gruen
+  unter `pytest` **und** `unittest`; V1-Kette OBS-010…060 **652 gruen**; volle
+  Suite **1164 passed / 1 vorbestehender, umgebungsbedingter Fehlschlag**
+  (`lefx.interfaces`, ausserhalb des Diffs) gegenueber **1137 passed / 1** in der
+  selbst gemessenen Baseline auf `7fc6ca6` — Differenz **exakt** die 27 neuen
+  Tests. **Kein bestehender Test geaendert.** `git diff --check` leer,
+  `00_NORMATIV/` byte-identisch zu `7fc6ca6`, kein Cross-Workstream-Diff.
+  Produktseitig **sechs Dateien, +131/−13** (`worker.py`, `manager.py`,
+  `ingress.py`, `query/local.py`, `app.py`, `audio_capture.py` — letztere nur
+  Kommentar).
+  **Eine Zwischenregression wurde bewusst anders geloest:** der erste Zuschnitt
+  der N-1-Korrektur machte den bestehenden, gate-geprueften Test
+  `test_worker_receives_retention_entry_limit_and_sink` rot. Statt den Test
+  anzupassen wurde die Korrektur geaendert — der Manager reicht dieselbe
+  Sinkinstanz weiter, der Worker vergleicht nach Identitaet, also findet keine
+  Rotation statt und der Test bleibt gueltig.
+  **Ausdruecklich offen und nicht beschoenigt:** die **manuelle Abnahme
+  M-1…M-11 am realen Produktionspfad**. Neun der elf Punkte sind gegen den
+  echten Stack automatisiert belegt und M-11 (Dateirechte, `icacls`) ist
+  protokolliert — aber der Durchlauf auf einem Installationssystem mit laufendem
+  Server, mit Datum, Serveradresse und Clientversion, steht aus. `WP-OBS-060`
+  erklaert ihn zur Pflicht und sagt, dass V1 ohne ihn als „teilweise" gilt.
+  Dreizehn offene Punkte sind in `V1_OPEN_POINTS.md` einzeln begruendet; sieben
+  brauchen eine Entscheidung der unabhaengigen Instanz (u. a. **O-1**: ein
+  Ersatzrecord `logging.record_rejected` fuer eine vom Normalizer selbst
+  verschluckte Ausnahme braeuchte den Ausnahmetyp und damit eine
+  Signaturaenderung an einer in `CONTRACTS §3` eingefrorenen Funktion — der
+  Kernbefund B-2 ist ohne diese Erweiterung vollstaendig behoben, also ist sie
+  kein Blocker und wurde nicht mitgeliefert). **Keiner der offenen Punkte
+  beruehrt ein V1-Gate-Kriterium oder gefaehrdet die Triggerarchitektur-Phase.**
+  **Kein `DECISION REQUIRED` in einem normativen Dokument**, kein neuer Zaehler,
+  kein neuer Recordtyp, kein neues Konfigfeld, keine geaenderte Signatur.
+  **Ein Umgebungsbefund von Reproduzierbarkeitsrelevanz:** auf dieser Maschine
+  blockiert `platform._wmi_query` (Python 3.12, Windows) unbegrenzt;
+  `sounddevice` ruft es beim Import, also haengt jeder Testlauf, der
+  `core.controller` importiert (per `faulthandler`-Stackdump belegt). Das ist
+  keine Eigenschaft des Produkts — `voice-stt-client.spec` neutralisiert dieselbe
+  Sonde fuer den gefrorenen Build bereits selbst
+  (`scripts/pyinstaller_runtime_platform.py`). Fuer die Testlaeufe wurde ein
+  `sitecustomize.py` **ausserhalb** des Projektbaums benutzt; **keine
+  Projektdatei ist dafuer veraendert worden**. Details in `V1_TEST_RESULTS.md`
+  Abschnitt 5, offener organisatorischer Punkt als **O-13**.
+  **Kein Gate-PASS in diesem Lauf**, **kein Commit, kein Push, kein Merge, kein
+  Rebase, kein Tag, kein PR** — ein Implementierungslauf vergibt sein eigenes
+  Gate nicht. Details:
+  `30_AUSFUEHRUNG/runs/RUN-OBS-060-01_2026-08-18/` und
+  `40_EVIDENCE/OBS-060/RUN-01_2026-08-18/`.
+- Naechster Schritt: **OBS-060 – Logging V1 Final Gate Review**, unabhaengig, in
+  frischer Session (`Prompts/OBS-060_V1_GATE_REVIEW.md`). Geprueft wird die
+  vollstaendige V1-Kette OBS-010 bis OBS-060 gegen die achtzehn
+  Final-Gate-Kriterien; die Abbildung Kriterium → Nachweis liegt in
+  `V1_REQUIREMENTS_TRACEABILITY.md` Abschnitt 1 bereit. Der lokale
+  Abschlusscommit darf erst danach und **nur bei `PASS`** entstehen.
+- OBS-060: **`G-OBS-V1 FAIL`** (2026-08-18, unabhaengiger Final Gate Review,
+  `40_EVIDENCE/OBS-060/GATE-REVIEW-01_2026-08-18_CODEX/GATE_REVIEW.md`).
+  Der reale Repositoryzustand, der vollstaendige Diff, die 13 offenen Punkte,
+  die sieben entscheidungsbeduerftigen Punkte, Tests und Probes wurden
+  unabhaengig geprueft. V1-Auswahl 652/652, volle Suite 1165/1165 unter
+  `pytest` und 1165/1165 unter `unittest`; E2E, Runtime-Isolation, Privacy,
+  Packaging und alle acht Mutationschecks tragen. Trotzdem ist ein PASS
+  ausgeschlossen: Das nach `WP-OBS-060` zwingende, datierte manuelle
+  M-1…M-11-Protokoll am realen Produktionspfad fehlt und darf nicht durch
+  automatisierte Pendants ersetzt werden. Zusaetzlich reproduziert: Ein mit
+  `enabled=False` gestarteter Manager besteht nur aus `NULL_INGRESS` ohne
+  Worker/Store und bleibt nach `apply_config(enabled=True)` deaktiviert —
+  Verstoss gegen die eingefrorene `IMMEDIATE`-Policy aus `CONTRACTS §10.3`.
+  O-1 (`logging.record_rejected` fuer intern verschluckte
+  Normalizer-Ausnahmen) und O-7 (Zusatzfelder im eingefroren beschriebenen
+  Audio-Aggregat) bleiben **DECISION REQUIRED**; keine Contract-/Freeze-
+  Entscheidung wurde im Gate eigenmaechtig getroffen. Die Traceability
+  behauptet bei Failure Isolation Erfuellung trotz F-7.4 `OPEN`, und
+  Performance-B-4.2 ist staerker beschriftet als tatsaechlich geprueft.
+  **Kein Commit, kein Push.** Naechster Schritt: Entscheidungen und
+  Korrekturlauf, vollstaendige manuelle Produktionsabnahme, danach neuer
+  unabhaengiger Final Gate Review. Die Triggerarchitektur-Migration bleibt
+  gesperrt.
 
 ## Einheitliche Triggerarchitektur
 

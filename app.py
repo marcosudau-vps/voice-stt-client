@@ -177,10 +177,17 @@ def main(argv: Optional[list[str]] = None) -> int:
     observability = ObservabilityManager(
         config.logging.observability, log_dir=config.logging.log_dir
     )
-    observability.start()
-    setup_logging(config.logging, observability=observability)
 
+    # ARCH §6.2 asks for the try/finally "um den GESAMTEN Ablauf". Only the
+    # CONSTRUCTOR stays outside it: before it returns there is no manager to
+    # stop, so a failure there has nothing to clean up. Everything from
+    # ``start()`` onwards is inside, because a failure in ``setup_logging``
+    # used to skip ``observability.stop(2.0)`` and leave the started worker
+    # unflushed (OBS-030 gate observation N-3).
     try:
+        observability.start()
+        setup_logging(config.logging, observability=observability)
+
         if args.headless:
             return _call_with_optional_observability(
                 run_headless, config, observability.ingress
