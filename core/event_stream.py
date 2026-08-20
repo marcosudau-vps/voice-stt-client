@@ -26,7 +26,7 @@ from core.observability.adapters.client_events import ClientEventEmitter
 from core.observability.ingress import NULL_INGRESS
 
 
-logger = logging.getLogger("event_stream")
+logger = logging.getLogger("eventstream")
 
 CallbackResult = Union[None, bool, Awaitable[Union[None, bool]]]
 EventCallback = Callable[[EventProtocolResult], CallbackResult]

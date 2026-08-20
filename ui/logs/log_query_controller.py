@@ -29,7 +29,8 @@ must not be painted into the new one.
 from __future__ import annotations
 
 from concurrent.futures import Future, ThreadPoolExecutor
-from typing import Any, Optional
+from dataclasses import fields, is_dataclass
+from typing import Any, Mapping, Optional
 
 from PySide6.QtCore import QObject, Signal
 
@@ -47,6 +48,12 @@ class LogQueryController(QObject):
 
     raw_ready = Signal(int, str, object)
     """``(request_id, record_id, Mapping | None)``."""
+
+    facets_ready = Signal(int, object)
+    """``(request_id, QueryFacets)``."""
+
+    json_ready = Signal(int, object)
+    """``(request_id, list[dict])`` with raw loaded only for selected rows."""
 
     def __init__(self, service: Any, parent: Optional[QObject] = None) -> None:
         super().__init__(parent)
@@ -124,6 +131,49 @@ class LogQueryController(QObject):
         )
         return query_id
 
+    def request_facets(
+        self,
+        provider_id: str,
+        filter: QueryFilter,  # noqa: A002
+        *,
+        request_id: Optional[int] = None,
+    ) -> int:
+        if self._closed or not hasattr(self._service, "facets"):
+            return 0
+        query_id = self.next_request_id() if request_id is None else int(request_id)
+        self._submit(
+            lambda: self._service.facets(provider_id, filter),
+            lambda facets: self.facets_ready.emit(query_id, facets),
+        )
+        return query_id
+
+    def request_json_records(
+        self,
+        records: object,
+        *,
+        request_id: Optional[int] = None,
+    ) -> int:
+        """Load raw only for the selected records and build canonical JSON."""
+        if self._closed:
+            return 0
+        selected = tuple(records or ())
+        if not selected:
+            return 0
+        query_id = self.next_request_id() if request_id is None else int(request_id)
+
+        def build() -> list[dict[str, Any]]:
+            result = []
+            for record in selected:
+                value = _record_mapping(record)
+                provider_id = str(value.get("provider_id", ""))
+                record_id = str(value.get("record_id", ""))
+                value["raw"] = self._service.fetch_raw(provider_id, record_id)
+                result.append(value)
+            return result
+
+        self._submit(build, lambda value: self.json_ready.emit(query_id, value))
+        return query_id
+
     def _submit(self, work, publish) -> None:
         def run() -> Any:
             return work()
@@ -175,3 +225,31 @@ class LogQueryController(QObject):
 
 
 __all__ = ["LogQueryController", "DEFAULT_PAGE_SIZE", "LIVE_PAGE_SIZE"]
+
+
+def _record_mapping(record: Any) -> dict[str, Any]:
+    if is_dataclass(record):
+        return {
+            item.name: _plain(getattr(record, item.name))
+            for item in fields(record)
+            if item.name != "cursor"
+        }
+    if isinstance(record, Mapping):
+        return {str(key): _plain(value) for key, value in record.items()}
+    return {
+        key: _plain(value)
+        for key, value in vars(record).items()
+        if not key.startswith("_") and key != "cursor"
+    }
+
+
+def _plain(value: Any) -> Any:
+    if isinstance(value, Mapping):
+        return {str(key): _plain(item) for key, item in value.items()}
+    if isinstance(value, (tuple, list)):
+        return [_plain(item) for item in value]
+    if isinstance(value, (set, frozenset)):
+        return sorted(_plain(item) for item in value)
+    if isinstance(value, (str, int, float, bool)) or value is None:
+        return value
+    return str(value)

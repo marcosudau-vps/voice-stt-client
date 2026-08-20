@@ -6,7 +6,7 @@ Frozen source: ``LOGGING_CONTRACTS_FREEZE_V1.md`` §8 (the four methods) and
 LogQueryService ist eine REGISTRY, keine fest verdrahtete Liste. Ohne sie
 muesste spaeter jeder Aufrufer um einen Parameter erweitert werden."*
 
-The service adds exactly two things to a plain dict of providers, and both
+The service adds two boundary guarantees to a plain dict of providers, and both
 are properties of a boundary rather than features:
 
 * **It never raises either.** A provider is contractually non-throwing, but
@@ -32,6 +32,7 @@ from .base import (
     ProviderState,
     ProviderStatus,
     QueryFilter,
+    QueryFacets,
     QueryPage,
 )
 
@@ -112,6 +113,20 @@ class LogQueryService:
             return provider.fetch_raw(record_id)
         except Exception:  # noqa: BLE001 - O-05 boundary
             return None
+
+    def facets(self, provider_id: str, filter: QueryFilter) -> QueryFacets:  # noqa: A002
+        """Return faceted filter values without leaking provider failures."""
+        provider = self._provider(provider_id)
+        if provider is None:
+            return QueryFacets()
+        method = getattr(provider, "facets", None)
+        if method is None:
+            return QueryFacets()
+        try:
+            result = method(filter)
+        except Exception:  # noqa: BLE001 - O-05 boundary
+            return QueryFacets()
+        return result if isinstance(result, QueryFacets) else QueryFacets()
 
     def _provider(self, provider_id: str) -> Optional[LogProvider]:
         with self._lock:

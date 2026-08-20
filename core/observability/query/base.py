@@ -59,6 +59,27 @@ class QueryFilter:
 
     include_replayed: bool = True
     newest_first: bool = True
+    # ``None`` preserves the original storage-sequence ordering.  The log UI
+    # sets one of the whitelisted record fields so a paginated history is
+    # sorted by SQLite rather than merely reordering the currently loaded
+    # page.  ``newest_first`` remains the direction of the storage-sequence
+    # tail used by live mode.
+    sort_by: Optional[str] = None
+    sort_descending: Optional[bool] = None
+
+
+@dataclass(frozen=True)
+class QueryFacets:
+    """Values which still have at least one hit under the other filters.
+
+    Counts are intentionally not exposed: the UI only needs availability,
+    while keeping the query small and free from an expensive global count.
+    """
+
+    producer_kinds: Tuple[str, ...] = ()
+    channels: Tuple[str, ...] = ()
+    levels: Tuple[str, ...] = ()
+    types: Tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -100,10 +121,14 @@ class QueryPage:
     next_cursor: Optional[str]  # None = keine weitere Seite
     complete: bool  # False, wenn der Provider abgeschnitten hat
     status: ProviderStatus
+    # High-water mark of the filtered storage sequence.  Mixed mode uses it
+    # to start tailing after the history snapshot without depending on the
+    # active (possibly non-time) table sort.
+    tail_cursor: Optional[str] = None
 
 
 class LogProvider(Protocol):
-    """Vier Methoden. Mehr braucht V1 nicht."""
+    """Read-only provider boundary used by the diagnostics UI."""
 
     @property
     def provider_id(self) -> str: ...
@@ -124,3 +149,5 @@ class LogProvider(Protocol):
         ...
 
     def fetch_raw(self, record_id: str) -> Optional[Mapping[str, Any]]: ...
+
+    def facets(self, filter: QueryFilter) -> QueryFacets: ...

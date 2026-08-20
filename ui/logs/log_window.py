@@ -49,12 +49,17 @@ class LogWindow(QWidget):
         self.setWindowFlag(Qt.WindowType.Window, True)
         self.resize(*DEFAULT_SIZE)
 
+        self._settings = settings if settings is not None else QSettings()
         self.controller = LogQueryController(service, self)
-        self.page = LogPage(self.controller, health_provider=health_provider, parent=self)
+        self.page = LogPage(
+            self.controller,
+            health_provider=health_provider,
+            parent=self,
+            settings=self._settings,
+        )
         layout = QVBoxLayout(self)
         layout.addWidget(self.page)
 
-        self._settings = settings if settings is not None else QSettings()
         self._restore_geometry()
 
     # -- geometry ----------------------------------------------------------
@@ -85,6 +90,7 @@ class LogWindow(QWidget):
         self.page.start()
 
     def hideEvent(self, event) -> None:  # noqa: N802
+        self.page.save_view_state()
         self.page.stop()
         super().hideEvent(event)
 
@@ -92,6 +98,7 @@ class LogWindow(QWidget):
         """§9.3: ``hide()`` statt ``close()``. The window keeps its state and
         its geometry, and reopening it is free."""
         self._save_geometry()
+        self.page.save_view_state()
         self.page.stop()
         event.ignore()
         self.hide()
@@ -100,6 +107,7 @@ class LogWindow(QWidget):
         """Application teardown: stop the timers, release the query thread and
         remember the geometry. Safe to call more than once."""
         self._save_geometry()
+        self.page.save_view_state()
         self.page.stop()
         self.controller.shutdown()
 
