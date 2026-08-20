@@ -518,11 +518,17 @@
   Korrekturlauf, vollstaendige manuelle Produktionsabnahme, danach neuer
   unabhaengiger Final Gate Review. Die Triggerarchitektur-Migration bleibt
   gesperrt.
+- OBS-V1 Polish & Zwischenabschluss (2026-08-20):
+  - Diagnose-UI Nachbesserungspass implementiert (`d9369c5`), Filterung, Spaltenlayout, Detailansicht und Live-/History-Paging poliert und getestet.
+  - Praktische Sicht- und Bedienprüfungen sowie realer Client-Betrieb mit laufender Logging-Infrastruktur erfolgreich verlaufen.
+  - Kontrollierter Projektabschluss der vorgezogenen Logging-/Observability-Phase: Der erreichte Logging-Stand ist als belastbare Arbeitsbasis für die Fortsetzung des Gesamtprojekts akzeptiert.
+  - Verbleibende kleinere Rand-, Rest- und formale Produktionsabnahmepunkte (inkl. M-1…M-11) werden bewusst nicht isoliert vorgezogen, sondern im Zuge/nach der unmittelbar folgenden Triggerarchitektur-Migration gegen den dann maßgeblichen Gesamtzustand validiert.
+  - Es wird ausdrücklich kein formal vollständiges `G-OBS-V1 PASS` behauptet.
 
 ## Einheitliche Triggerarchitektur
 
 - Zielbild und Voranalysen vorhanden.
-- Umsetzung wartet auf die vorgeschaltete Observability Foundation.
+- Umsetzung ist nach kontrolliertem Zwischenabschluss der Logging-/Observability-Phase als nächster Hauptarbeitsbereich freigegeben.
 
 ## Aktueller organisatorischer Schritt
 
@@ -745,4 +751,4 @@
   geaendert. Evidence:
   `40_EVIDENCE/OBS-040/RUN-01_2026-08-17/`. **Kein Gate-PASS in diesem Run.**
 
-**Stand:** 2026-08-18
+**Stand:** 2026-08-20
