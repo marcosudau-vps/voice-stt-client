@@ -210,3 +210,20 @@ Keine großflächige Neuplanung und kein Austausch festgelegter Technologien ohn
 * API-Keys dürfen weder in Logs noch in Testausgaben erscheinen.
 * Die SQLite-Historie liegt im lokalen Anwendungsdatenverzeichnis und nicht im Repository.
 * Laufzeitdaten, Logs und lokale Datenbanken dürfen nicht versehentlich als Projektdateien behandelt werden.
+
+<!-- BEGIN ARBEITSSTRUKTUR -->
+## Arbeitsstruktur und Arbeitsdateien
+
+- Lies zu Beginn einer neuen Session zuerst ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md.
+- Öffne danach den dort genannten aktiven Arbeitsblock und lies dessen README.md und STATUS.md.
+- Wenn geplant wird, beachte zusätzlich PLANUNG/README.md.
+- Wenn ein Arbeitspaket umgesetzt wird, lies dessen README.md und PLAN.md vollständig.
+- IDEEN/ ist ausdrücklich **kein Projektwissen**. Inhalte daraus dürfen nicht für Recherche, Analyse, Planung, Entscheidungen oder Implementierung verwendet werden, sofern der konkrete Auftrag nicht ausdrücklich auf eine bestimmte Datei dort verweist.
+- 20_ZURUECKGESTELLT/ enthält derzeit nicht aktive, aber nicht abgeschlossene Arbeitsblöcke.
+- 90_HISTORIE/ ist historischer Bestand und grundsätzlich nicht als aktueller Projektstand zu verwenden.
+- Große Rohquellen dürfen dauerhaft RAW / UNINDEXED bleiben. Sie werden nur bei konkretem fachlichem Bedarf gezielt untersucht.
+- Arbeitsblöcke sollen nach Möglichkeit mit den deterministischen Skripten unter .agents/skills/arbeitsstruktur/scripts/ erstellt, geprüft, zurückgestellt, wiederaufgenommen und abgeschlossen werden.
+- Arbeitspakete müssen prüfbare Ziele und Akzeptanzkriterien besitzen. Sobald ein Implementierungs-Arbeitspaket vollständig erfüllt und erfolgreich validiert ist, erstellt der ausführende Agent standardmäßig einen eigenen Commit für genau dieses Arbeitspaket, sofern der Auftrag Commit-Erstellung nicht ausdrücklich ausschließt und die Änderungen sicher von fremden/unabhängigen Working-Tree-Änderungen isoliert werden können.
+- Bei einem solchen Commit dürfen nur zum Arbeitspaket gehörende Änderungen gestaged werden. Kein git add -A oder vergleichbares blindes Staging bei fremden Änderungen.
+- Wenn neue Erkenntnisse eine Umplanung erfordern, darf und soll die Planung angepasst werden. Grund, Auswirkung und neue gültige Richtung müssen nachvollziehbar dokumentiert werden.
+<!-- END ARBEITSSTRUKTUR -->

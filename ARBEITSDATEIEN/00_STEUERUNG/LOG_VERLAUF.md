@@ -1614,3 +1614,13 @@
   in
   `ARBEITSDATEIEN/90_HISTORIE/2026-08-21_LOGGING_OBSERVABILITY_TEIL_A_PRE_TRIGGER/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/runs/RUN-WS-NORM-002_2026-08-23/`.
 - **Schlussurteil:** siehe `FINALIZATION_REPORT.md`.
+
+- 23.08.2026 23:47, DOC-ARCH-002 COPY-ONLY Vorbereitung (Run `AP-ORG-001_ARBEITSSTRUKTUR_COPY_PREP/01_COPY_PREP`)
+  - Beschreibung: `arbeitsstruktur_toolkit_v2` nach Checksum-Prüfung (SHA-256
+    verifiziert) unter `.agents/skills/arbeitsstruktur/` installiert.
+    `Initialize-Arbeitsstruktur.ps1` ausgeführt (nur ergänzend: `AGENTS.md`
+    und `CLAUDE.md` um markierten Abschnitt erweitert, `ARBEITSDATEIEN/20_ZURUECKGESTELLT/README.md`
+    neu angelegt; bestehende Dateien nicht überschrieben).
+    `Test-Arbeitsstruktur.ps1` bestätigt PASS (0 Fehler, 0 Warnungen).
+  - **Nicht Teil dieses Runs:** kein Commit, kein Push, keine
+    Main→Trigger-Integration; das folgt in einem separaten Prüfauftrag.
