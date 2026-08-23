@@ -250,6 +250,26 @@ Der Push löste erwartungsgemäß einen weiteren CI-Lauf aus.
 Damit ist bestätigt: Das Schlussurteil basiert auf dem tatsächlich letzten PR-HEAD
 (`4c6e59a`), nicht auf einem älteren Zwischenstand.
 
+### Nachtrag: Bestätigungslauf für den tatsächlichen finalen PR-HEAD
+
+Das Vervollständigen dieses Reports (Abschnitte 6–8) erforderte einen weiteren, rein
+dokumentarischen Commit (`fb01863`, keine Code-/Workflow-Änderung). Dieser Commit ist damit der
+tatsächlich letzte PR-HEAD. Da ein erneuter Report-Commit sonst erneut einen CI-Lauf auslösen und
+eine unendliche Kette weiterer Report-Commits erzwingen würde, wurde dieser Lauf abgewartet und
+nur bestätigend ausgewertet, ohne den Report ein weiteres Mal inhaltlich zu erweitern:
+
+| Feld | Wert |
+|---|---|
+| Run-ID | `32641003724` |
+| Job-ID | `97197970523` |
+| Status | failure |
+| Run complete test suite | `FAILED (errors=3)`, identisch zu Abschnitt 4.3/4.5 |
+
+Ergebnis deckungsgleich mit dem für `4c6e59a` dokumentierten Lauf (gleiche 3 Fehler, gleiche
+Ursache). Die technische Bewertung in Abschnitt 4–8 bleibt damit für den tatsächlichen PR-HEAD
+`fb01863` gültig, da zwischen `4c6e59a` und `fb01863` keine Code- oder Workflow-Änderung liegt,
+sondern ausschließlich dieser Report ergänzt wurde.
+
 ---
 
 ## 7. Zusammenfassung der CI-Klassifikation
