@@ -1,0 +1,36 @@
+{
+  "title": "Logging & Observability V1 – Produkt- und Entwicklerdokumentation",
+  "date": "2026-08-21",
+  "intended_repository_path": "docs/observability/",
+  "scope": "Teil A / V1 vor der Triggerarchitektur-Migration",
+  "markdown_file_count": 21,
+  "files": [
+    "00_INDEX.md",
+    "01_UEBERBLICK_UND_ZIELBILD.md",
+    "02_ARCHITEKTUR_UND_DATENFLUSS.md",
+    "03_CANONICAL_LOG_RECORD.md",
+    "04_QUELLEN_PRODUCER_CHANNELS.md",
+    "05_EVENT_KATALOG_CLIENT.md",
+    "06_SERVER_EVENTS_UND_LOGSTREAM.md",
+    "07_KORRELATION_IDS_UND_METADATEN.md",
+    "08_LOGGING_FUER_ENTWICKLER.md",
+    "09_INSTRUMENTIERUNGS_COOKBOOK.md",
+    "10_PYSIDE_UI_UND_SETTINGS.md",
+    "11_QUERY_FILTER_HISTORY_LIVE.md",
+    "12_PERSISTENZ_SINKS_AUSGABEFORMATE.md",
+    "13_HEALTH_BACKPRESSURE_FAILURE_ISOLATION.md",
+    "14_KONFIGURATION_REFERENZ.md",
+    "15_BETRIEB_TROUBLESHOOTING.md",
+    "16_TESTS_VALIDIERUNG_GARANTIEN.md",
+    "17_ARCHITEKTURENTSCHEIDUNGEN.md",
+    "18_PROJEKTARTEFAKTE_REFERENZEN.md",
+    "19_AUSBLICK_TEIL_B.md",
+    "README.md"
+  ],
+  "status_note": "Belastbarer V1-Zwischenabschluss; kein künstlich behauptetes formales G-OBS-V1 PASS.",
+  "validation": {
+    "simple_explanation_section_on_all_numbered_topic_docs": true,
+    "index_links_resolve": true,
+    "problems": []
+  }
+}
