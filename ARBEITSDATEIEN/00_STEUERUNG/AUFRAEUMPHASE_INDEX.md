@@ -99,14 +99,36 @@ anders angegeben. Nach dem Merge von PR `#1` leben alle Pfade unter
 
 ---
 
-## Workspace-Endzustand nach WS-NORM-001
+## WS-NORM-002 – Finale Governance-Endbereinigung und Main-Workspace-Normalisierung
+
+- **Zweck:** Verbleibende organisatorische Lücken aus `WS-NORM-001`
+  vollständig schließen: `WORKSPACE_KONVENTION.md` anlegen, `CURRENT_STATE.md`
+  und `MASTERPLAN.md` konsistent machen, WS-NORM-001-`OUTPUT_INDEX.md`
+  nachtragen, lokale `WORKSPACE_MAP.md`/`ACTIVE_SESSION_ROOT.txt` anlegen,
+  WS-NORM-001-`RUN_REPORT.md` faktisch korrigieren (physischer Stub
+  inzwischen per `Test-Path` verifiziert entfernt) und den Standalone-Main-Clone
+  final auf verifiziertem `main`-Stand bestätigen. Keine Trigger-Facharbeit,
+  keine Main→Trigger-Integration, Trigger-Worktree vollständig read-only.
+- **Prompt (versioniert gesichert):**
+  `ARBEITSDATEIEN/90_HISTORIE/2026-08-21_LOGGING_OBSERVABILITY_TEIL_A_PRE_TRIGGER/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/prompts/WS-NORM-002_FINAL_GOVERNANCE_AND_MAIN_WORKSPACE_CLEANUP.md`
+  und
+  `ARBEITSDATEIEN/90_HISTORIE/2026-08-21_LOGGING_OBSERVABILITY_TEIL_A_PRE_TRIGGER/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/prompts/WS-NORM-002_BEGLEITNACHRICHT.txt`
+- **Run-Report:**
+  `ARBEITSDATEIEN/90_HISTORIE/2026-08-21_LOGGING_OBSERVABILITY_TEIL_A_PRE_TRIGGER/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/runs/RUN-WS-NORM-002_2026-08-23/FINALIZATION_REPORT.md`
+  und `OUTPUT_INDEX.md` im selben Verzeichnis.
+- **Branch:** `main` (Standalone-Clone `P:\...\main`, Commit direkt auf `main`)
+- **Ergebnis:** siehe Schlussurteil in `FINALIZATION_REPORT.md`.
+
+---
+
+## Workspace-Endzustand nach WS-NORM-002
 
 | Pfad | Rolle |
 |---|---|
-| `P:\GithubRepos\marcosudau-vps\voice-stt-client\main` | Branch `main` / Baseline |
-| `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur` | aktiver Entwicklungs-Workspace (`feat/einheitliche-triggerarchitektur`) |
-| `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\logging-observability-pre-trigger` | entfernt (temporärer Logging-Worktree) |
+| `P:\GithubRepos\marcosudau-vps\voice-stt-client\main` | Branch `main` / Baseline (Checkout tatsächlich `main`, verifiziert) |
+| `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur` | aktiver Entwicklungs-Workspace (`feat/einheitliche-triggerarchitektur`), read-only in diesem Run |
+| `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\logging-observability-pre-trigger` | git-seitig entfernt; physischer Verzeichnis-Stub per `Test-Path` verifiziert ebenfalls nicht mehr vorhanden |
 
-Dauerhafter Standard-Startordner für normale Agenten-Sessions ab diesem Run:
+Dauerhafter Standard-Startordner für normale Agenten-Sessions:
 
 `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur`

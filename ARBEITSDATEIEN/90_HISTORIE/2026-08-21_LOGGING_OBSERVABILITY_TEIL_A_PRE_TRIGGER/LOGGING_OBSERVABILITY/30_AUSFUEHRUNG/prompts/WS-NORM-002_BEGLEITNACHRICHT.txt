@@ -1,0 +1,29 @@
+Bitte führe WS-NORM-002 vollständig aus.
+
+Session-Startordner für diesen Maintenance-Run:
+
+P:\GithubRepos\marcosudau-vps\voice-stt-client\SESSION_PROMPTS
+
+Die Prompt-Datei liegt im selben Ordner:
+
+P:\GithubRepos\marcosudau-vps\voice-stt-client\SESSION_PROMPTS\WS-NORM-002_FINAL_GOVERNANCE_AND_MAIN_WORKSPACE_CLEANUP.md
+
+Wichtig: Die Session startet absichtlich außerhalb aller Git-Worktrees. Verwende für alle Git-Operationen die im Auftrag genannten absoluten Pfade bzw. `git -C <pfad>`.
+
+Noch KEINE Main→Trigger-Integration und keine Trigger-Facharbeit.
+
+Der Trigger-Worktree bleibt vollständig read-only:
+
+P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur
+
+Die eigentlichen Korrekturen erfolgen im Standalone-Main-Clone:
+
+P:\GithubRepos\marcosudau-vps\voice-stt-client\main
+
+Keinen neuen dauerhaften Worktree erzeugen. WIP-LED/Sound-Branch erhalten. Keine Produktcodeänderungen.
+
+Am Ende FINALIZATION_REPORT.md erzeugen und nur bei vollständig grünem finalem Main-CI mit
+
+GOVERNANCE CLEAN – READY FOR TRIGGER MAIN-INTEGRATION
+
+abschließen.

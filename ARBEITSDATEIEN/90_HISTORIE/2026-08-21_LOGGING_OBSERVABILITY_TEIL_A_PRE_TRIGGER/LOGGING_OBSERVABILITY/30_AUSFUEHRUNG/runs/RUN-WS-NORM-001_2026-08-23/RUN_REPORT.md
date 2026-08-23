@@ -144,3 +144,32 @@ Mit einer kosmetischen Einschränkung: der leere Verzeichnis-Stub
 Löschung durch den Benutzer (siehe Blocker oben). Kein Prompt-, Report-
 oder Evidence-Verlust; main enthält den vollständigen, git-verifizierten
 Endstand.
+
+## Nachtrag (WS-NORM-002, 2026-08-23)
+
+Sachliche Korrektur der obigen Angaben, ohne die historische Beschreibung
+des `WS-NORM-001`-Ablaufs selbst zu verändern:
+
+- **Physischer Verzeichnis-Stub:** Der oben als Blocker beschriebene, zum
+  damaligen Zeitpunkt nicht löschbare leere Verzeichnis-Stub
+  `workspaces\logging-observability-pre-trigger` wurde zwischenzeitlich
+  entfernt. `Test-Path` auf diesen Pfad ergibt zu Beginn von `WS-NORM-002`
+  (2026-08-23) `False`. Der Blocker ist damit erledigt; keine manuelle
+  Aktion mehr erforderlich.
+- **`main`-Ref-Stand:** Der oben in der Tabelle „Workspace-Endzustand"
+  genannte Stand `c00e8e2` war der Stand unmittelbar nach `WS-NORM-001`.
+  Zwischenzeitlich kam Commit `8428dade9a418960956bcc41b8f53c9b552db509`
+  hinzu (Korrektur dieses Reports und von `LOG_VERLAUF.md` bezüglich des
+  Stub-Blockers). Dies war der zu Beginn von `WS-NORM-002` bekannte
+  GitHub-`main`-Stand und wurde dort erneut verifiziert.
+- **Main-Clone-Checkout:** Der Standalone-Main-Clone
+  (`P:\GithubRepos\marcosudau-vps\voice-stt-client\main`) war zum Ende von
+  `WS-NORM-001` bewusst unverändert auf
+  `wip/led-sound-debugfeedback-sicherung` belassen worden (siehe oben). Zu
+  Beginn von `WS-NORM-002` wurde festgestellt, dass der Clone
+  zwischenzeitlich (außerhalb dieser beiden dokumentierten Runs) bereits
+  auf Branch `main` umgeschaltet und sauber (`git status --short` leer)
+  war; `WS-NORM-002` musste diesen Wechsel daher nicht mehr durchführen,
+  hat ihn aber verifiziert. Der WIP-Branch
+  `wip/led-sound-debugfeedback-sicherung` bleibt als Branch-Ref erhalten
+  und wurde nicht gelöscht.

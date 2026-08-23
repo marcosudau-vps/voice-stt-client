@@ -1559,3 +1559,58 @@
   und zentraler Index in `ARBEITSDATEIEN/00_STEUERUNG/AUFRAEUMPHASE_INDEX.md`.
 - **Schlussurteil:** `WORKSPACE NORMALIZED – READY FOR TRIGGER MAIN-INTEGRATION`
   (mit kosmetischem Restpunkt: leerer Verzeichnis-Stub manuell zu löschen).
+
+## 2026-08-23 18:26:43 +02:00 – WS-NORM-002: Governance- und Workspace-Endbereinigung
+
+- **Run:** `WS-NORM-002` (kurzer Maintenance-Run zum vollständigen Abschluss
+  der noch offenen organisatorischen Punkte aus `WS-NORM-001`). Session
+  absichtlich außerhalb aller Git-Worktrees gestartet
+  (`P:\GithubRepos\marcosudau-vps\voice-stt-client\SESSION_PROMPTS`); alle
+  Git-Operationen über absolute Pfade bzw. `git -C <pfad>`.
+- **Ausgangsbefund nach WS-NORM-001:** Der RUN_REPORT.md von `WS-NORM-001`
+  ging noch davon aus, dass der Standalone-Main-Clone
+  (`P:\GithubRepos\marcosudau-vps\voice-stt-client\main`) auf
+  `wip/led-sound-debugfeedback-sicherung` ausgecheckt sei und der leere
+  Verzeichnis-Stub `workspaces\logging-observability-pre-trigger` noch
+  physisch existiere. Zu Beginn von `WS-NORM-002` wurde tatsächlich
+  festgestellt: Der Main-Clone war bereits sauber auf Branch `main`
+  ausgecheckt (`git status --short` leer) und exakt auf dem bekannten
+  GitHub-`main`-Stand `8428dade9a418960956bcc41b8f53c9b552db509`; der
+  Verzeichnis-Stub war laut `Test-Path` bereits physisch entfernt. Es waren
+  daher keine Fast-Forward- oder Checkout-Operationen mehr nötig, nur
+  Verifikation.
+- **GitHub-`main` verifiziert:** `main`-SHA `8428dad...db509`, identisch mit
+  `origin/main`; PR `#1` bestätigt `MERGED`
+  (`mergeCommit 136679a2b441172aee7ef43b28635348af45b91b`); GitHub-CI für den
+  aktuellen `main`-HEAD grün (Run `32649017902`, `success`).
+- **Governance-Dateien vervollständigt:** `WORKSPACE_KONVENTION.md` neu
+  angelegt; `CURRENT_STATE.md` und `MASTERPLAN.md` minimal um
+  Workspace-Status bzw. Abschluss der Branch-Separation/Merge-Phase ergänzt;
+  `AUFRAEUMPHASE_INDEX.md` um den `WS-NORM-002`-Eintrag und den korrigierten
+  Workspace-Endzustand ergänzt.
+- **OUTPUT_INDEX ergänzt:** Fehlender
+  `RUN-WS-NORM-001_2026-08-23/OUTPUT_INDEX.md` neu erstellt (Zuordnung aller
+  tatsächlich vorhandenen Artefakte, nichts erfunden); `RUN_REPORT.md`
+  desselben Runs um einen sachlichen Nachtrag ergänzt (Stub-Entfernung
+  `Test-Path`-verifiziert, korrekter `main`-SHA-Verlauf, Main-Clone-Checkout
+  bestätigt).
+- **Lokale Workspace-Hinweise (außerhalb Git):**
+  `P:\GithubRepos\marcosudau-vps\voice-stt-client\WORKSPACE_MAP.md` und
+  `...\ACTIVE_SESSION_ROOT.txt` neu angelegt (existierten zuvor nicht).
+- **Status des leeren Logging-Stubs:** `workspaces\logging-observability-pre-trigger`
+  ist git-seitig entfernt und laut `Test-Path` (2026-08-23) auch physisch
+  nicht mehr vorhanden. Kein kosmetischer Restpunkt mehr offen.
+- **Trigger-Worktree:** `workspaces\einheitliche-triggerarchitektur`
+  (`feat/einheitliche-triggerarchitektur`) in diesem Run ausschließlich
+  lesend verifiziert (`branch --show-current`, `rev-parse HEAD`,
+  `status --short`); keine Schreiboperation, kein Commit, kein Merge.
+- **Endgültiger Default Session Root:**
+  `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur`.
+- **Nicht Teil dieses Runs:** Main→Trigger-Integration und jegliche
+  Trigger-Facharbeit; keine Produktcodeänderungen.
+- **Nächster Schritt:** `Main-Baseline kontrolliert in
+  feat/einheitliche-triggerarchitektur integrieren`.
+- **Details:** vollständiger `FINALIZATION_REPORT.md` und `OUTPUT_INDEX.md`
+  in
+  `ARBEITSDATEIEN/90_HISTORIE/2026-08-21_LOGGING_OBSERVABILITY_TEIL_A_PRE_TRIGGER/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/runs/RUN-WS-NORM-002_2026-08-23/`.
+- **Schlussurteil:** siehe `FINALIZATION_REPORT.md`.

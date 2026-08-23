@@ -55,4 +55,13 @@ organisatorisch abgeschlossen und archiviert:
   (`OBS-CLOSE-001`) trifft keine fachlichen Triggerentscheidungen und
   verändert keine Triggerplanung.
 
-**Stand:** 2026-08-23 (OBS-CLOSE-001, Logging Teil A archiviert)
+## Workspace-Status (WS-NORM-002)
+
+- Aktiver Workspace: `workspaces\einheitliche-triggerarchitektur`
+  (Branch `feat/einheitliche-triggerarchitektur`), Standard-Agent-Session-Root.
+- Kein aktiver Logging-Worktree mehr; `workspaces\logging-observability-pre-trigger`
+  ist git-seitig entfernt und physisch nicht mehr vorhanden.
+- Nächster technischer Schritt: `Main-Baseline kontrolliert in
+  feat/einheitliche-triggerarchitektur integrieren`.
+
+**Stand:** 2026-08-23 (WS-NORM-002, Governance- und Workspace-Endbereinigung)
