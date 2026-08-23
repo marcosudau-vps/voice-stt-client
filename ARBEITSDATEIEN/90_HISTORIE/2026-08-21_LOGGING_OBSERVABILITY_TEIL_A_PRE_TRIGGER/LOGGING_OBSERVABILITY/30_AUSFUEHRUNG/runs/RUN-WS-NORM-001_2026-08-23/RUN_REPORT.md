@@ -72,8 +72,23 @@ Protokoll aus dem Chat-Auftrag rekonstruiert.
     `main`).
 12. Commit auf `main` gepusht (`github`-Remote), erneuten CI-Lauf auf
     `main` abgewartet.
-13. Worktree `workspaces\logging-observability-pre-trigger` entfernt
-    (`git worktree remove`), nachdem alles auf `main` verifiziert war.
+13. Worktree `workspaces\logging-observability-pre-trigger` per
+    `git worktree remove` administrativ entfernt (aus `git worktree list`
+    verschwunden, Arbeitsbaum-Dateien restlos gelöscht), nachdem alles auf
+    `main` verifiziert war.
+14. Physische Entfernung des dadurch leeren, verwaisten
+    Verzeichnis-Stubs `workspaces\logging-observability-pre-trigger`
+    versucht: `git worktree remove` (Windows `Permission denied`, da das
+    Verzeichnis zu diesem Zeitpunkt noch das aktuelle Arbeitsverzeichnis
+    dieser Session war), danach nach Verlagerung der Session nach
+    `workspaces\einheitliche-triggerarchitektur` erneut versucht mit
+    `Remove-Item -Recurse -Force` (PowerShell) und `rd /s /q` (`cmd.exe`).
+    Beide scheiterten mit „wird von einem anderen Prozess verwendet"
+    bzw. „Device or resource busy", obwohl das Verzeichnis zu diesem
+    Zeitpunkt bereits leer war und keine andere Claude-Code-Session dieser
+    Maschine dort verortet ist (`ListAgents` → keine erreichbaren Agents).
+    Ursache nicht identifizierbar (vermutlich Antivirus/Indexer/IDE-Handle
+    außerhalb dieser Session). **Siehe Blocker unten.**
 
 ## Nicht getan (bewusst außerhalb des Scopes)
 
@@ -93,16 +108,39 @@ Protokoll aus dem Chat-Auftrag rekonstruiert.
 
 ## Workspace-Endzustand
 
-| Pfad | Rolle | Branch |
+| Pfad | Rolle | Branch / Zustand |
 |---|---|---|
-| `P:\GithubRepos\marcosudau-vps\voice-stt-client\main` | Branch `main` / Baseline | unverändert `wip/led-sound-debugfeedback-sicherung` ausgecheckt, `main`-Ref aktuell |
+| `P:\GithubRepos\marcosudau-vps\voice-stt-client\main` | Branch `main` / Baseline | unverändert `wip/led-sound-debugfeedback-sicherung` ausgecheckt, `main`-Ref aktuell auf `c00e8e2` |
 | `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur` | aktiver Entwicklungs-Workspace | `feat/einheitliche-triggerarchitektur`, unverändert |
-| `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\logging-observability-pre-trigger` | entfernt | — |
+| `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\logging-observability-pre-trigger` | git-seitig vollständig entfernt (kein Worktree, keine Dateien mehr); leerer Verzeichnis-Stub physisch noch vorhanden | — |
 
 Dauerhafter Standard-Startordner für normale Agenten-Sessions ab sofort:
 
 `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur`
 
+## Blocker
+
+Der leere Verzeichnis-Stub
+`workspaces\logging-observability-pre-trigger` konnte in diesem Run nicht
+physisch vom Dateisystem entfernt werden. Git kennt ihn nicht mehr als
+Worktree, er enthält keine Dateien mehr und somit auch keinen Prompt-,
+Report- oder Evidence-Verlust — die inhaltliche Anforderung aus Punkt 1
+des Auftrags ist erfüllt. Windows meldet beim Löschversuch durchgehend
+„wird von einem anderen Prozess verwendet", auch nach Verlagerung der
+Session in ein anderes Arbeitsverzeichnis und über drei unabhängige
+Werkzeuge (`git worktree remove`, PowerShell `Remove-Item`, `cmd rd`).
+Empfehlung: den leeren Ordner manuell löschen (z. B. nach Schließen aller
+Explorer-/IDE-Fenster oder Terminals, die auf diesen Pfad zeigen, oder nach
+einem Neustart), oder erneut versuchen, sobald der haltende Prozess
+identifiziert ist. Dies ist rein kosmetisch und blockiert keine
+inhaltliche Nachfolgearbeit.
+
 ## Schlussurteil
 
 `WORKSPACE NORMALIZED – READY FOR TRIGGER MAIN-INTEGRATION`
+
+Mit einer kosmetischen Einschränkung: der leere Verzeichnis-Stub
+`workspaces\logging-observability-pre-trigger` erfordert eine manuelle
+Löschung durch den Benutzer (siehe Blocker oben). Kein Prompt-, Report-
+oder Evidence-Verlust; main enthält den vollständigen, git-verifizierten
+Endstand.

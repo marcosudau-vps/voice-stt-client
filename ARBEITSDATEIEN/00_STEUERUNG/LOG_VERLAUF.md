@@ -1541,15 +1541,21 @@
     = aktiver Entwicklungs-Workspace, in diesem Run vollständig read-only
     belassen.
   - `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\logging-observability-pre-trigger`
-    = temporärer Worktree, nach diesem Merge per `git worktree remove`
-    entfernt.
+    = per `git worktree remove` git-seitig vollständig entfernt (kein
+    Worktree mehr, keine Dateien mehr, kein Prompt-/Report-/Evidence-
+    Verlust). Der dadurch leere Verzeichnis-Stub selbst konnte in diesem
+    Run wegen eines von außen gehaltenen Dateisystem-Locks (Ursache nicht
+    identifizierbar, keine andere Claude-Code-Session betroffen) nicht
+    physisch gelöscht werden und erfordert eine manuelle Löschung durch
+    den Benutzer; siehe Blocker-Abschnitt im `RUN_REPORT.md`.
 - **Dauerhafter Standard-Startordner** für normale Agenten-Sessions ab
   sofort:
   `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur`.
 - **Nicht Teil dieses Runs:** Merge von `main`/Logging-Stand nach
   `feat/einheitliche-triggerarchitektur` (separater, nachfolgender Schritt
   "Trigger Main-Integration"); keine fachliche Änderung an Produktcode.
-- **Details:** vollständiger `RUN_REPORT.md` in
+- **Details:** vollständiger `RUN_REPORT.md` (inkl. Blocker-Abschnitt) in
   `ARBEITSDATEIEN/90_HISTORIE/2026-08-21_LOGGING_OBSERVABILITY_TEIL_A_PRE_TRIGGER/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/runs/RUN-WS-NORM-001_2026-08-23/RUN_REPORT.md`
   und zentraler Index in `ARBEITSDATEIEN/00_STEUERUNG/AUFRAEUMPHASE_INDEX.md`.
-- **Schlussurteil:** `WORKSPACE NORMALIZED – READY FOR TRIGGER MAIN-INTEGRATION`.
+- **Schlussurteil:** `WORKSPACE NORMALIZED – READY FOR TRIGGER MAIN-INTEGRATION`
+  (mit kosmetischem Restpunkt: leerer Verzeichnis-Stub manuell zu löschen).
