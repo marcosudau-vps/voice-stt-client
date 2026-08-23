@@ -178,10 +178,17 @@ class TestFrozenCounterSetIsUnchanged(unittest.TestCase):
 
     def test_normative_documents_are_untouched_by_this_run(self):
         """A frozen document is never changed by an implementation run; a real
-        need would be a ``DECISION REQUIRED``, not an edit."""
+        need would be a ``DECISION REQUIRED``, not an edit.
+
+        Logging Teil A was deliberately archived out of ``10_AKTUELL`` into
+        ``90_HISTORIE/2026-08-21_LOGGING_OBSERVABILITY_TEIL_A_PRE_TRIGGER``;
+        this points at the canonical archive path so the invariant keeps
+        being checked against the real files."""
         normative = (
             ROOT
-            / "ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/00_NORMATIV"
+            / "ARBEITSDATEIEN/90_HISTORIE"
+            / "2026-08-21_LOGGING_OBSERVABILITY_TEIL_A_PRE_TRIGGER"
+            / "LOGGING_OBSERVABILITY/00_NORMATIV"
         )
         for name in (
             "LOGGING_ARCHITEKTUR_FREEZE_V1.md",
