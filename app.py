@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import asyncio
 import argparse
+import inspect
 import logging
 import multiprocessing
 import signal
@@ -43,7 +44,9 @@ class RealtimeSTTClient(STTController):
         injection_queue: Optional[TextInjectionQueue] = None,
         reinsertion_service: Optional[TranscriptReinsertionService] = None,
         backend: Optional[WindowsInjectionBackend] = None,
+        observability=None,
     ):
+        kwargs = {} if observability is None else {"observability": observability}
         super().__init__(
             config,
             session=session,
@@ -52,6 +55,7 @@ class RealtimeSTTClient(STTController):
             injection_queue=injection_queue,
             reinsertion_service=reinsertion_service,
             backend=backend,
+            **kwargs,
         )
 
         # Wire up console callbacks
@@ -101,9 +105,9 @@ class RealtimeSTTClient(STTController):
         await super().run()
 
 
-def run_headless(config: AppConfig) -> int:
+def run_headless(config: AppConfig, observability=None) -> int:
     """Run the retained AP05 console client for diagnostics."""
-    client = RealtimeSTTClient(config)
+    client = RealtimeSTTClient(config, observability=observability)
 
     # Handle Ctrl+C gracefully
     def signal_handler(sig, frame):
@@ -121,6 +125,23 @@ def run_headless(config: AppConfig) -> int:
     except (KeyboardInterrupt, asyncio.CancelledError):
         pass
     return 0
+
+
+def _call_with_optional_observability(target, config: AppConfig, observability):
+    """Call ``target(config)``, adding ``observability=`` only if it takes it.
+
+    ``run_headless`` is replaced by test doubles with the pre-OBS-040
+    one-argument signature. The capability is therefore decided by INSPECTING
+    the signature — never by catching a ``TypeError`` around the call, which
+    would re-run a whole client session if the exception came from inside it.
+    """
+    try:
+        supported = "observability" in inspect.signature(target).parameters
+    except (TypeError, ValueError):
+        supported = False
+    if supported:
+        return target(config, observability=observability)
+    return target(config)
 
 
 def build_argument_parser() -> argparse.ArgumentParser:
@@ -145,14 +166,51 @@ def main(argv: Optional[list[str]] = None) -> int:
     arguments = list(sys.argv[1:] if argv is None else argv)
     args = build_argument_parser().parse_args(arguments)
     config = AppConfig.load()
-    setup_logging(config.logging)
 
-    if args.headless:
-        return run_headless(config)
+    # OBS-030 (AR-5/AR-6, FD-R4/OD-22): the manager needs config.logging, so
+    # it cannot start before AppConfig.load(); its lifetime is owned here in
+    # main()'s try/finally, NOT by DesktopApplication.shutdown() -- four
+    # startup-abort paths never reach that, and the headless path never
+    # calls it at all.
+    from core.observability.manager import ObservabilityManager
 
-    from ui.application import run_gui
+    observability = ObservabilityManager(
+        config.logging.observability, log_dir=config.logging.log_dir
+    )
 
-    return run_gui(config, [sys.argv[0], *arguments])
+    # ARCH §6.2 asks for the try/finally "um den GESAMTEN Ablauf". Only the
+    # CONSTRUCTOR stays outside it: before it returns there is no manager to
+    # stop, so a failure there has nothing to clean up. Everything from
+    # ``start()`` onwards is inside, because a failure in ``setup_logging``
+    # used to skip ``observability.stop(2.0)`` and leave the started worker
+    # unflushed (OBS-030 gate observation N-3).
+    try:
+        observability.start()
+        setup_logging(config.logging, observability=observability)
+
+        if args.headless:
+            return _call_with_optional_observability(
+                run_headless, config, observability.ingress
+            )
+
+        from ui.application import run_gui
+
+        # OBS-040: the ingress is what every producer in the UI gets.
+        # OBS-050 additionally hands over the MANAGER (readiness point N-4) --
+        # the log view needs the read-only query service, the health snapshot
+        # and "Diagnosehistorie loeschen". The manager's LIFETIME still stays
+        # here (ARCH §6.2(b), FD-R4): the UI is handed the object and never
+        # stops it.
+        return run_gui(
+            config,
+            [sys.argv[0], *arguments],
+            observability=observability.ingress,
+            observability_manager=observability,
+        )
+    finally:
+        # Runs AFTER bridge.stop(10.0), which happens inside run_gui's own
+        # DesktopApplication.shutdown() before run_gui returns.
+        observability.stop(2.0)
 
 
 if __name__ == "__main__":

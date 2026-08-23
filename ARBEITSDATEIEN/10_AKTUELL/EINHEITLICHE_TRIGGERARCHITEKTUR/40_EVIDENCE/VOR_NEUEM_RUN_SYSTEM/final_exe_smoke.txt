@@ -1,0 +1,11 @@
+=== Datei ===
+-rwxr-xr-x 1 marco 197609 78885525 Aug 14 12:42 dist/voice-stt-client.exe
+
+=== SHA-256 (unabhaengig nachgerechnet) ===
+Pfad     : P:\GithubRepos\marcosudau-vps-worktrees\einheitliche-triggerarchitektur-claude\voice-stt-client\dist\voice-stt-client.exe
+Groesse  : 78885525 Bytes
+SHA-256  : 1ab993751e07f731f15629027bbf499927e1e23149b70d38450fe4d567811796
+
+=== Smoke-Test ===
+voice-stt-client.exe 0.2.0
+exit=0

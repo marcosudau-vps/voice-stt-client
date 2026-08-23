@@ -1,0 +1,4 @@
+.................{"schemaVersion":1,"eventId":"85ee1ca8e4c64f1d9758b4303285b146","timestamp":"2026-08-14T02:39:35.345Z","channel":"audit","event":"config.updated","severity":"info","serverInstanceId":"4c8ed60b440343eda1b204ce61a3f1fe","data":{"applied":{"max_sessions":{"value":3,"appliesTo":"active_sessions"},"wake_words":{"value":"jarvis","appliesTo":"new_sessions"}}},"meldung":"Konfiguration aktualisiert","cursor":1799}
+......................................... [ 70%]
+.......................s                                              [100%]
+81 passed, 1 skipped, 17 subtests passed in 7.93s

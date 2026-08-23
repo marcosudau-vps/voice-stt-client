@@ -1,0 +1,52 @@
+.............F...................................................................................................................................... [ 30%]
+............................................................................ [ 45%]
+................................................................ [ 58%]
+...................................................................... [ 72%]
+........................................................................ [ 87%]
+....................................................... [ 98%]
+.......                                  [100%]
+================================== FAILURES ===================================
+_ TestDictationWindow.test_wake_word_followup_uses_server_duration_and_clears_on_speech _
+
+self = <test_ap06_followup.TestDictationWindow testMethod=test_wake_word_followup_uses_server_duration_and_clears_on_speech>
+
+    async def test_wake_word_followup_uses_server_duration_and_clears_on_speech(self):
+        config = AppConfig()
+        config.history.enabled = False
+        config.session.mode = "wake_word"
+        config.dictation_window.timeout_warning_seconds = WINDOW / 4
+        session = FakeSTTSession()
+        controller = STTController(
+            config,
+            session=session,
+            audio=FakeAudioCapture(),
+            injection_queue=FakeInjectionQueue(),
+        )
+        decisions = []
+        controller.on_feedback_decision = decisions.append
+        await controller.start_dictation()
+        base = {
+            "type": "timeline",
+            "sessionId": session.state.session_id,
+            "_clientGeneration": session.generation,
+        }
+        controller.handle_server_event(
+            "timeline",
+            {
+                **base,
+                "event": "wakeword_followup_started",
+                "durationSeconds": WINDOW,
+            },
+        )
+    
+        await asyncio.sleep(WINDOW * 0.8)
+>       self.assertIn(
+            CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING,
+            [item.event.event_type for item in decisions],
+        )
+E       AssertionError: <CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING: 'client.dictation.timeout_warning'> not found in []
+
+tests\test_ap06_followup.py:358: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_ap06_followup.py::TestDictationWindow::test_wake_word_followup_uses_server_duration_and_clears_on_speech
+1 failed, 491 passed, 195 subtests passed in 32.02s

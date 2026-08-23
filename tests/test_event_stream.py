@@ -28,7 +28,11 @@ from core.event_protocol import (
     EventProtocolProcessor,
     EventStreamAccess,
 )
-from core.event_stream import EventProcessingRejected, EventStreamTransport
+from core.event_stream import (
+    EventProcessingRejected,
+    EventStreamTransport,
+    logger as event_stream_logger,
+)
 from tests.test_event_protocol import event_message, hello, subscribed
 
 
@@ -82,6 +86,9 @@ def frames(*, include_live=True):
 
 
 class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
+    def test_python_logger_uses_canonical_component_name(self):
+        self.assertEqual(event_stream_logger.name, "eventstream")
+
     def make_transport(self, socket, handler, *, store=None, control=None, states=None):
         stream_access = access()
         processor = EventProtocolProcessor(stream_access, cursor_store=store)

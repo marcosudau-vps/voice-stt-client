@@ -1,0 +1,16 @@
+### Git-Endstand 2026-08-14 07:21 ###
+=== voice-stt-server ===
+HEAD:   13c162950b944dc715fdd81983a7465f8eb0fd79
+log-1:  13c1629 docs(archive): close build deployment action
+dirty:  14 Eintraege
+diff --check: sauber
+=== voice-stt-client ===
+HEAD:   178d32bdf17d4709307e7a2a944888d2cf294e42
+log-1:  178d32b fix(feedback): debug LED and sound feedback
+dirty:  11 Eintraege
+diff --check: sauber
+=== led_controller_respeaker-v3 ===
+HEAD:   aa2f14bd13dd75bce2221fdcadd50b38a5c8c1b0
+log-1:  aa2f14b revert(tests): restore the full assertion on the offered outputs
+dirty:  0 Eintraege
+diff --check: sauber
