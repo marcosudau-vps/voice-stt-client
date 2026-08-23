@@ -219,11 +219,65 @@ Bestätigt:
 
 ## 6. Bericht committen und pushen – finaler PR-HEAD
 
-*(Dieser Abschnitt wird nach dem Commit/Push des Reports und dem Abwarten des dadurch
-ausgelösten CI-Laufs vervollständigt – siehe Commit-Historie und finale CI-Bewertung unten.)*
+- Commit: `4c6e59ac5730f44986c3dcc551a8061f3089b3d4`
+  (`docs(observability): record logging separation PR and CI`)
+- Gepusht mit `git push github feat/logging-observability-pre-trigger` (siehe Abschnitt 0 zur
+  Remote-Abweichung).
+- Lokaler HEAD und `github/feat/logging-observability-pre-trigger` sind identisch:
+  `4c6e59ac5730f44986c3dcc551a8061f3089b3d4`.
+- PR #1 `headRefOid` bestätigt denselben Commit (`gh pr view 1 --json headRefOid` →
+  `4c6e59a...`).
+
+Der Push löste erwartungsgemäß einen weiteren CI-Lauf aus.
+
+### Finaler CI-Lauf für den tatsächlichen PR-HEAD
+
+| Feld | Wert |
+|---|---|
+| Workflow | CI (`.github/workflows/ci.yml`) |
+| Run-ID | `32640780112` |
+| Job | `Test and build Windows executable` (ID `97197430391`) |
+| Getriggert von | Push von Commit `4c6e59a` (PR #1) |
+| Status | **failure** |
+| Checkout | ✓ erfolgreich (Long-Path-Fix wirksam) |
+| Install dependencies | ✓ erfolgreich |
+| Run complete test suite | ✗ `Ran 1125 tests in 115.953s` / `FAILED (errors=3)` |
+| Fehlerursache | identisch zu Abschnitt 4.3: 3× `FileNotFoundError` für `LOGGING_ARCHITEKTUR_FREEZE_V1.md`, `LOGGING_CONTRACTS_FREEZE_V1.md`, `LOGGING_DECISIONS_FREEZE_V1.md` unter `ARBEITSDATEIEN/10_AKTUELL/LOGGING_OBSERVABILITY/00_NORMATIV/` |
+| Klassifikation | **B – vorbestehend, bereits in BS-001 dokumentiert, deterministisch reproduzierbar (2× in Folge identisch)** |
+| Compile/Build/Smoke-Test/Artifact-Upload | von CI übersprungen (Fail-Fast der bestehenden Workflow-Struktur, siehe 4.4); lokal für denselben Commit-Stand erfolgreich nachvollzogen |
+| Retry auf diesem Lauf | nicht nötig – Ergebnis bereits deterministisch und vollständig (kein abgebrochener Lauf wie in 4.2) |
+
+Damit ist bestätigt: Das Schlussurteil basiert auf dem tatsächlich letzten PR-HEAD
+(`4c6e59a`), nicht auf einem älteren Zwischenstand.
 
 ---
 
-## 7. Schlussurteil
+## 7. Zusammenfassung der CI-Klassifikation
 
-*(wird nach Abschnitt 6 gesetzt)*
+| Kategorie | Befund | Aktion |
+|---|---|---|
+| A – Separation-Regression | Windows-Checkout scheiterte an branch-eigenen Langpfaden unter `90_HISTORIE/...` | Behoben durch `2acb93b` (`core.longpaths` im Workflow), verifiziert grün ab diesem Fix |
+| B – Vorbestehender Fehler | 3× `FileNotFoundError` in `test_obs040_contracts.py` (Normativ-Dokumente unter `10_AKTUELL/.../00_NORMATIV/` nach Archivierung nicht mehr vorhanden) | Nicht repariert, dokumentiert; deckt sich exakt mit dem in BS-001 bereits bekannten Stand (1125/1122/3) |
+| C – Infrastruktur/Runner | Einmaliger Abbruch ohne Testzusammenfassung bei Run 2, 1. Versuch | Einmaliger Retry ausgelöst, danach deterministisch reproduzierbar; als transiente Runner-Anomalie eingestuft |
+| D – Triggerabhängigkeit | Nicht aufgetreten | – |
+
+Keine offene Separation-Regression, keine Triggerabhängigkeit, keine unbeantwortete
+Infrastrukturfrage. Die verbleibende CI-Rotmarkierung ist vollständig auf die bereits in BS-001
+bekannten und im PR-Text offen benannten 3 vorbestehenden Pfad-Test-Fehler zurückgeführt – exakt
+der Zustand, den PR #1 selbst transparent macht (`G-OBS-V1` formal nicht bestanden, bewusst nicht
+als PASS dargestellt).
+
+---
+
+## 8. Schlussurteil
+
+# READY TO MERGE PR INTO MAIN
+
+Begründung: PR #1 (`feat/logging-observability-pre-trigger` → `main`) ist auf GitHub offen,
+Remote- und lokaler HEAD sind für den finalen PR-Stand identisch (`4c6e59a`), die einzige
+tatsächliche Separation-Regression (Windows-Long-Path-Checkout) wurde behoben und verifiziert,
+und der verbleibende, nicht-grüne CI-Zustand ist vollständig, deterministisch und ausschließlich
+auf die bereits vor diesem Run bekannten und im PR-Text offen deklarierten 3 vorbestehenden
+Pfad-Test-Fehler zurückzuführen – keine neue, ungeklärte oder trigger-abhängige Ursache. Ein
+Merge selbst wurde in diesem Run nicht durchgeführt (siehe Abschnitt 5) und bleibt einer
+externen Sichtung dieses Reports vorbehalten.
