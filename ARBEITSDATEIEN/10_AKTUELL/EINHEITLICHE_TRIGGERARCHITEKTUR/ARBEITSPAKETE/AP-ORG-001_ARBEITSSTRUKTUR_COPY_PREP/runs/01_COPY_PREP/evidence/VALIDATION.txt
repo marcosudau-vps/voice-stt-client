@@ -1,0 +1,92 @@
+VALIDATION – DOC-ARCH-002 COPY-ONLY-Vorbereitung
+=================================================
+
+1) Toolkit-Checksum
+--------------------
+Erwartet (arbeitsstruktur_toolkit_v2.sha256.txt):
+0c9621239a3347eaf724416a22dfac9721155efb9c8f3a3f01fd6083a7799f5e
+
+Tatsächlich (Get-FileHash SHA256 auf arbeitsstruktur_toolkit_v2.zip):
+0C9621239A3347EAF724416A22DFAC9721155EFB9C8F3A3F01FD6083A7799F5E
+
+Ergebnis: MATCH.
+
+2) PowerShell-Syntaxprüfung aller extrahierten Skripte
+--------------------------------------------------------
+[System.Management.Automation.Language.Parser]::ParseFile gegen alle 9
+Skripte unter .agents/skills/arbeitsstruktur/scripts/ ausgeführt.
+
+Ergebnis: alle 9 Skripte OK, keine Syntaxfehler.
+
+3) Main: Initialize-Arbeitsstruktur.ps1 + Test-Arbeitsstruktur.ps1
+---------------------------------------------------------------------
+Initialize-Arbeitsstruktur.ps1 -RepositoryRoot main: erfolgreich, nur
+ergänzend (AGENTS.md/CLAUDE.md markierter Abschnitt, ARBEITSDATEIEN/
+20_ZURUECKGESTELLT/README.md neu). Keine bestehende Datei überschrieben
+(NoOverwrite-Semantik in Arbeitsstruktur.Common.ps1 verifiziert).
+
+Test-Arbeitsstruktur.ps1 -RepositoryRoot main:
+Repository: P:\GithubRepos\marcosudau-vps\voice-stt-client\main
+Fehler: 0
+Warnungen: 0
+Valid: True
+
+Ergebnis: PASS.
+
+4) Trigger: COPY-Verifikation (Source SHA-256 = Target SHA-256)
+---------------------------------------------------------------
+82 Dateien kopiert (siehe COPY_MAPPING.md / COPY_RESULTS.csv).
+Für jede kopierte Datei wurde SHA-256 von Quelle und Ziel unmittelbar nach
+dem Copy-Vorgang verglichen.
+
+Ergebnis: 82/82 MATCH, 0 Abweichungen.
+
+5) Schutz-Nachweis: Altstruktur unverändert
+--------------------------------------------
+PRE_TRIGGER_TREE_SHA256.txt (vor dem Run): 677 Dateien.
+POST_SOURCE_TREE_SHA256.txt (nach dem Run): 767 Dateien.
+Differenz: 90 neue Dateien (82 COPY-Ziele + 8 neue CREATE_NEW-Standarddateien).
+
+Jede Zeile aus PRE_TRIGGER_TREE_SHA256.txt (Pfad + Hash) wurde als exakt
+identische Zeile im POST-Manifest gesucht.
+
+Ergebnis: 677/677 PRE-Zeilen unverändert im POST-Manifest vorhanden.
+0 fehlende/abweichende Zeilen. Kein Quellpfad wurde verändert, verschoben
+oder überschrieben.
+
+Bekannte, bereits vor diesem Run lokal modifizierte/untracked Dateien
+(README.md und 01_ENTSCHEIDUNGEN_VOR_IMPLEMENTIERUNG.md, sowie die
+untracked namespace_system_model/, BRANCH_MAINTENANCE/, GATE_0/) blieben
+laut `git status --porcelain=v2` (PRE_STATUS.txt vs. POST_STATUS.txt)
+byte-identisch zum Vorzustand dieses Runs (gleiche Blob-Hashes).
+
+6) Neue Zielstruktur: Pflichtdateien
+--------------------------------------
+README.md ................ OK (unverändert, bestehend)
+STATUS.md ................ OK (neu)
+VERLAUF.md ................ OK (neu)
+PLANUNG/README.md ........ OK (neu, Toolkit-V2-Standard)
+IDEEN/README.md .......... OK (neu, Toolkit-V2-Standard/Agentensperre)
+ARBEITSPAKETE/README.md .. OK (neu, Toolkit-V2-Standard)
+QUELLEN/README.md ........ OK (neu)
+COPY_MAPPING.md ........... OK (neu)
+
+7) Test-Arbeitsblock.ps1 (optional, erwarteter Pre-Cleanup-Kontext)
+----------------------------------------------------------------------
+Ausführung: Test-Arbeitsblock.ps1 -RepositoryRoot workspaces\
+einheitliche-triggerarchitektur -Name EINHEITLICHE_TRIGGERARCHITEKTUR
+
+Ergebnis: Skript bricht mit einem internen PowerShell-Fehler ab
+("The property 'Count' cannot be found on this object.") in der
+Kandidaten-Ermittlung des Skripts selbst (Zeile ~19-22 von
+Test-Arbeitsblock.ps1: `@(...) | Where-Object {...}` liefert bei genau
+einem Treffer ein einzelnes Objekt statt eines Arrays; unter
+`Set-StrictMode -Version Latest` schlägt der nachfolgende `.Count`-Zugriff
+fehl). Dies ist ein Defekt im Toolkit-Skript selbst und keine Aussage über
+den Zustand der Altstruktur oder der neuen Kopie. Da das Skript in diesem
+Run ausdrücklich optional war, wurde ersatzweise die manuelle
+Pflichtdateien-Prüfung unter Punkt 6 durchgeführt.
+
+Gesamtergebnis
+--------------
+COPY-ONLY PREPARATION COMPLETE – READY FOR MANUAL CLEANUP REVIEW
