@@ -247,7 +247,6 @@ class TestSessionHooks(unittest.IsolatedAsyncioTestCase):
                 "fallbacks": [],
                 "ignored_fields": ["foo"],
                 "effective_wake_word_enabled": False,
-                "supports_activation_triggers": False,
             },
             session_id="session-2",
             generation=1,

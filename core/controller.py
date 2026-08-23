@@ -726,12 +726,11 @@ class STTController:
         # CONTRACTS §12.2: client.dictation.start_attempt (S). Outside the
         # lock, and after the attempt exists -- the correlation id is derived
         # from generation and token, which is the same identity the accepted
-        # feedback uses (``_manual_accept_correlation``).
+        # feedback uses (``hotkey:{generation}:{token}``).
         self._observe.audit(
             "client.dictation.start_attempt",
             details={
                 "token": attempt.token,
-                "server_owns_activation": self._server_owns_activation,
             },
             session_id=attempt.session_id,
             generation=attempt.generation,
@@ -890,14 +889,14 @@ class STTController:
                 )
                 # CONTRACTS §12.2: client.dictation.confirmed (S). The same
                 # correlation id as the accepted feedback decision, so a
-                # confirmed dictation, its trigger ack and its feedback impulse
-                # are one query rather than three.
+                # confirmed dictation and its feedback impulse are one query
+                # rather than two.
                 self._observe.audit(
                     "client.dictation.confirmed",
                     details={"state": state_name, "token": attempt.token},
                     session_id=attempt.session_id,
                     generation=attempt.generation,
-                    correlation_id=self._manual_accept_correlation(attempt),
+                    correlation_id=f"hotkey:{attempt.generation}:{attempt.token}",
                 )
                 return CommandResult(
                     success=True,

@@ -948,7 +948,6 @@ class STTSession:
                 "effective_wake_word_enabled": effective.get(
                     "effectiveWakeWordEnabled"
                 ),
-                "supports_activation_triggers": self.supports_activation_triggers,
             },
             session_id=self._state.session_id,
             generation=self._generation,
