@@ -1518,3 +1518,38 @@
 - **Details:** vollständiger `RUN_REPORT.md` und `OUTPUT_INDEX.md` in
   `LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/runs/RUN-OBS-CLOSE-001_2026-08-23/`
   innerhalb des oben genannten Archivpfads.
+
+## 2026-08-23, 17:18 Uhr (UTC+02:00) – WS-NORM-001: Logging-Merge nach main und Workspace-Normalisierung abgeschlossen
+
+- **Run:** `WS-NORM-001` (Abschluss der gesamten Logging-/Branch-Separations-/
+  CI-/Workspace-Aufräumphase: `OBS-CLOSE-001`, `OBS-CLOSE-002`, `BS-001`,
+  `BS-002`, `BS-003`, `WS-NORM-001`).
+- **Ergebnis:** PR `#1 – feat(observability): establish pre-trigger logging
+  baseline` wurde per Merge-Commit `136679a2b441172aee7ef43b28635348af45b91b`
+  nach `main` gemergt (vormaliger PR-HEAD `11e3421`, GitHub-CI davor grün
+  unter Run `32647574177`). GitHub-CI auf `main` für den Merge-Commit
+  selbst ebenfalls grün unter Run `32647846124`. `main` enthielt vor diesem
+  Merge keine `ARBEITSDATEIEN`; die vollständige Logging-/Observability-
+  Arbeitsakte (inkl. `90_HISTORIE/2026-08-21_LOGGING_OBSERVABILITY_TEIL_A_PRE_TRIGGER/`)
+  liegt damit ausschließlich über Git-Historie, nicht über manuelles Kopieren,
+  dauerhaft auf `main`.
+- **Workspace-Endzustand:**
+  - `P:\GithubRepos\marcosudau-vps\voice-stt-client\main` = Branch `main` /
+    Baseline (Checkout dort unverändert bei `wip/led-sound-debugfeedback-sicherung`
+    belassen; nur der lokale `main`-Branch-Ref wurde per Fetch aktualisiert).
+  - `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur`
+    = aktiver Entwicklungs-Workspace, in diesem Run vollständig read-only
+    belassen.
+  - `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\logging-observability-pre-trigger`
+    = temporärer Worktree, nach diesem Merge per `git worktree remove`
+    entfernt.
+- **Dauerhafter Standard-Startordner** für normale Agenten-Sessions ab
+  sofort:
+  `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur`.
+- **Nicht Teil dieses Runs:** Merge von `main`/Logging-Stand nach
+  `feat/einheitliche-triggerarchitektur` (separater, nachfolgender Schritt
+  "Trigger Main-Integration"); keine fachliche Änderung an Produktcode.
+- **Details:** vollständiger `RUN_REPORT.md` in
+  `ARBEITSDATEIEN/90_HISTORIE/2026-08-21_LOGGING_OBSERVABILITY_TEIL_A_PRE_TRIGGER/LOGGING_OBSERVABILITY/30_AUSFUEHRUNG/runs/RUN-WS-NORM-001_2026-08-23/RUN_REPORT.md`
+  und zentraler Index in `ARBEITSDATEIEN/00_STEUERUNG/AUFRAEUMPHASE_INDEX.md`.
+- **Schlussurteil:** `WORKSPACE NORMALIZED – READY FOR TRIGGER MAIN-INTEGRATION`.
