@@ -63,7 +63,7 @@
   Produktarbeit (`README.md`, `01_ENTSCHEIDUNGEN_VOR_IMPLEMENTIERUNG.md`)
   mitzustagen.
 
-## 2026-08-24 02:03 +02:00 – Main→Trigger-Integration und Merge-Konfliktauflösung
+## 2026-08-24 02:03:12 +02:00 – Main→Trigger-Integration und Merge-Konfliktauflösung
 
 - `origin/main` (`1b432c9`) kontrolliert in `feat/einheitliche-triggerarchitektur`
   (auf `6b073de`) integriert.
