@@ -10,9 +10,15 @@ Aktuelle Reihenfolge:
    - Kanonische Produktdokumentation: `docs/observability/`
    - Abgeschlossen mit Run `OBS-CLOSE-001` (2026-08-23)
 2. Einheitliche Triggerarchitektur
-   - Status: `ACTIVE`
+   - Status: `ACTIVE` — nächster aktiver Entwicklungsabschnitt des Gesamtprojekts.
+   - Branch-Separation / Merge (PR #1) / Aufräumphase von Logging Teil A nach
+     `main` ist abgeschlossen (`OBS-CLOSE-001/002`, `BS-001..003`,
+     `WS-NORM-001`, `WS-NORM-002`); Logging Teil A ist damit Bestandteil der
+     Main-Baseline.
    - Aktueller Stand: siehe `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/`
      (Phase 0 / GATE-0-Planung bzw. der zum jeweiligen Zeitpunkt tatsächlich belegte Stand)
+   - Keine Trigger-Fachentscheidungen wurden durch `WS-NORM-001`/`WS-NORM-002`
+     verändert; diese Runs sind rein organisatorisch.
 3. Logging / Observability Teil B – Post-Migration
    - Status: `DEFERRED / BLOCKED BY TRIGGER ARCHITECTURE`
    - **Darf nicht vergessen werden.** Startet erst nach stabiler Umsetzung der

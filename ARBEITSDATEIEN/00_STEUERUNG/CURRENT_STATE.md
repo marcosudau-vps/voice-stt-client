@@ -51,8 +51,29 @@ organisatorisch abgeschlossen und archiviert:
   Triggerarchitektur wieder alleiniger aktiver Hauptworkstream unter
   `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/`.
 - Aktueller fachlicher Planungsstand: siehe dortiges `README.md`,
-  `20_PLANUNG/` und `30_AUSFUEHRUNG/prompts/GATE_0/`. Dieser Organisationsrun
+  `PLANUNG/` und `ARBEITSPAKETE/AP-TRG-000_GATE_0/`. Dieser Organisationsrun
   (`OBS-CLOSE-001`) trifft keine fachlichen Triggerentscheidungen und
   verändert keine Triggerplanung.
 
-**Stand:** 2026-08-23 (OBS-CLOSE-001, Logging Teil A archiviert)
+## Workspace-Status (WS-NORM-002)
+
+- Aktiver Workspace: `workspaces\einheitliche-triggerarchitektur`
+  (Branch `feat/einheitliche-triggerarchitektur`), Standard-Agent-Session-Root.
+- Kein aktiver Logging-Worktree mehr; `workspaces\logging-observability-pre-trigger`
+  ist git-seitig entfernt und physisch nicht mehr vorhanden.
+
+## Arbeitsstruktur- und Main-Integration (DOC-ARCH-002)
+
+- Repositoryweite deterministische Arbeitsstruktur (`.agents/skills/arbeitsstruktur/`,
+  `AGENTS.md`/`CLAUDE.md`-Verweise) in `main` eingeführt und auf `origin/main`
+  gepusht.
+- Trigger-Arbeitsblock auf die neue Struktur (`PLANUNG/`, `IDEEN/`,
+  `ARBEITSPAKETE/`, `QUELLEN/`) umgestellt; eindeutig ersetzte Altpfade
+  entfernt (Details: `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/COPY_MAPPING.md`).
+- `main` kontrolliert in `feat/einheitliche-triggerarchitektur` übernommen;
+  Konflikte in Governance-Dokumenten und in `core/controller.py`,
+  `core/stt_session.py`, `ui/application.py` sowie den OBS-040-Tests fachlich
+  zusammengeführt (beide Entwicklungsstände erhalten, keine Seite verworfen).
+- Dieser Organisationsrun trifft keine fachlichen Triggerentscheidungen.
+
+**Stand:** 2026-08-24 (DOC-ARCH-002 Abschlusslauf, Main→Trigger-Integration)

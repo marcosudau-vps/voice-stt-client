@@ -7,7 +7,7 @@ title: Einheitliche Triggerarchitektur
 state: AKTIV
 phase: PLANUNG
 created_at: 2026-08-24 01:08:47 +02:00
-updated_at: 2026-08-24 01:08:47 +02:00
+updated_at: 2026-08-24 02:03:12 +02:00
 branch: feat/einheitliche-triggerarchitektur
 baseline_head: dd0af5ed22e7401895f08c8c13e4e37c7e78ddb7
 -->
@@ -66,5 +66,11 @@ Abschluss der zugehörigen Produktarbeit bereinigt.
 2. Bei Abschluss der Arbeit an `01_ENTSCHEIDUNGEN_VOR_IMPLEMENTIERUNG.md`:
    Datei an ihrem kanonischen Pfad committen und den alten Pfad entfernen.
 
-**Main→Trigger-Integration:** in diesem Abschlusslauf durchgeführt (siehe
-`VERLAUF.md` für Commit-Details).
+**Main→Trigger-Integration:** in diesem Abschlusslauf durchgeführt. `main`
+(`1b432c9`) wurde in diesen Branch integriert; Konflikte in 9 Dateien
+(Governance-Dokumente, `core/controller.py`, `core/stt_session.py`,
+`ui/application.py`, 3 OBS-040-Tests) wurden fachlich zusammengeführt —
+keine Seite wurde pauschal bevorzugt, alle Trigger-spezifischen Tests und
+Verhaltensweisen sowie alle main-seitigen Fixes blieben erhalten. Die
+vollständige Client-Test-Suite (1191 Tests) läuft grün. Details siehe
+`VERLAUF.md`.

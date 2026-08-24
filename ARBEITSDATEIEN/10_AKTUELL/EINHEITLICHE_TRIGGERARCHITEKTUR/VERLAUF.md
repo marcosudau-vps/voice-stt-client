@@ -57,10 +57,73 @@
   der GATE-0-Quellprompts als „Run ohne PROMPT.md/REPORT.md" durch den
   generischen AP-Runs-Scan; inhaltlich korrekt, da kein echter Run).
 - `Test-Arbeitsstruktur.ps1` auf main: PASS (0 Fehler, 0 Warnungen).
-- Nächste Schritte in diesem laufenden Run (zum Zeitpunkt dieses
-  Eintrags noch nicht ausgeführt, werden nachgetragen sobald erledigt):
-  Main-Arbeitsstruktur committen und pushen; main kontrolliert in
-  `feat/einheitliche-triggerarchitektur` übernehmen; DOC-ARCH-002-
-  Organisationsänderungen im Trigger-Branch committen und pushen (ohne
-  die uncommittete Trigger-Produktarbeit mitzustagen); Abschlussbericht
-  `SESSION_PROMPTS/DOC-ARCH-002_ABSCHLUSSBERICHT.md` erstellen.
+- Main (`1b432c9`) committet und auf `origin/main` gepusht.
+- DOC-ARCH-002-Organisationsänderungen im Trigger-Branch committet
+  (`6b073de`), ohne die zu diesem Zeitpunkt uncommittete Trigger-
+  Produktarbeit (`README.md`, `01_ENTSCHEIDUNGEN_VOR_IMPLEMENTIERUNG.md`)
+  mitzustagen.
+
+## 2026-08-24 02:03 +02:00 – Main→Trigger-Integration und Merge-Konfliktauflösung
+
+- `origin/main` (`1b432c9`) kontrolliert in `feat/einheitliche-triggerarchitektur`
+  (auf `6b073de`) integriert.
+- Konflikte in 9 Dateien fachlich aufgelöst (keine Seite pauschal
+  bevorzugt, echte semantische Integration je Fall):
+  - `core/stt_session.py`: main + Trigger-Feld `supports_activation_triggers`
+    im `client.session.admitted`-Payload übernommen (Trigger-Seite war
+    strikter Superset).
+  - `core/controller.py` (3 Stellen): main + `server_owns_activation`-Feld,
+    `_manual_accept_correlation()` (fällt für Nicht-Trigger-Fälle exakt auf
+    mains `hotkey:{generation}:{token}` zurück) und die neuen
+    `presentation_mode`/`effective_wake_word_trigger_enabled`/
+    `effective_manual_trigger_enabled`-Properties aus `core/config.py`
+    (dort bereits konfliktfrei automerged; `wake_word_enabled` bleibt als
+    abwärtskompatible Property erhalten) übernommen.
+  - `ui/application.py`: dieselbe `presentation_mode`-Property übernommen.
+  - `tests/test_obs040_client_hooks.py`,
+    `tests/test_obs040_failure_isolation.py`: mains Stand als Basis, die
+    3 zusätzlichen Trigger-Tests (`test_trigger_send_and_ack_share_one_command_id`,
+    `test_a_repeated_ack_is_recorded_as_dropped_not_as_received`,
+    `test_an_ack_without_a_command_id_is_dropped_and_correlation_stays_empty`,
+    `test_a_broken_ingress_does_not_stop_a_trigger`) unverändert wieder
+    eingefügt, keine Assertion abgeschwächt.
+  - `tests/test_obs040_contracts.py`: mains aktualisierter Archivpfad
+    (`90_HISTORIE/2026-08-21_...`) übernommen, die 3
+    `client.trigger.*`-Contract-Einträge der Trigger-Seite ergänzt.
+  - `ARBEITSDATEIEN/00_STEUERUNG/MASTERPLAN.md`, `LOG_VERLAUF.md`: main war
+    in beiden Fällen ein reiner Superset (identisch + zusätzliche, aktuelle
+    Fakten); vollständig von main übernommen, keine Trigger-Information
+    verloren.
+  - `ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md`: main-Superset
+    übernommen, zusätzlich veraltete Pfadverweise
+    (`20_PLANUNG/`, `30_AUSFUEHRUNG/prompts/GATE_0/`) auf die neuen
+    kanonischen Pfade (`PLANUNG/`, `ARBEITSPAKETE/AP-TRG-000_GATE_0/`)
+    korrigiert und ein Abschnitt zur DOC-ARCH-002-Integration ergänzt.
+- **Unerwarteter Nebeneffekt entdeckt und bereinigt:** `main` besaß
+  unabhängig von diesem Run eine eigene, teilweise Kopie der alten
+  Trigger-Arbeitsblock-Struktur unter demselben Pfad
+  (`ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/00_NORMATIV/`,
+  `10_ANALYSE/`, Teile von `20_PLANUNG/planung_migration/`,
+  `30_AUSFUEHRUNG/prompts/LEGACY_NUMMERIERT/`, `40_EVIDENCE/`). Da diese
+  Dateien am gemeinsamen Merge-Vorfahren nicht existierten, hat git sie
+  beim Merge als „add/add"/Rename-Kollateral wieder eingeführt, obwohl sie
+  im COPY-PREP- bzw. vorherigen Abschlusslauf-Schritt bereits bereinigt
+  worden waren. Für alle 73 betroffenen Dateien wurde vor dem Entfernen
+  verifiziert, dass ihr Inhalt (nach Normalisierung von CRLF/LF) exakt mit
+  der bereits vorhandenen kanonischen Kopie unter `PLANUNG/`/`QUELLEN/`
+  übereinstimmt (27 Dateien unterschieden sich nur in der
+  Zeilenendung, 0 echte inhaltliche Abweichungen). Danach erneut entfernt;
+  keine Information ging verloren.
+- Validierung nach Konfliktauflösung:
+  - Keine Merge-Konfliktmarker mehr vorhanden (repositoryweit geprüft).
+  - `git diff --check`: keine echten Fehler (nur bestehende
+    Trailing-Whitespace-/CRLF-/EOF-Hinweise in unveränderten oder
+    Toolkit-Dateien).
+  - Gezielte Tests (`tests/test_obs040_client_hooks.py`,
+    `tests/test_obs040_contracts.py`, `tests/test_obs040_failure_isolation.py`):
+    61/61 PASS.
+  - Vollständige Client-Test-Suite (`python -m unittest discover -s tests
+    -p "test_*.py"`, identisch zu `.github/workflows/ci.yml`): **1191/1191
+    PASS**, keine abgeschwächten Assertions.
+  - `python -m compileall app.py core ui scripts tests`: PASS.
+- **Kein Merge des unfertigen Trigger-Branches zurück nach `main`.**
