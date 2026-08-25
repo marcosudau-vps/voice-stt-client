@@ -1819,3 +1819,14 @@
 - Freigegebener Server-SHA:
   `3262079c62c58677cfd6506cd09d020b5b27ef44`.
 - AP-SRV-020 ist READY; AP-CLI-010 bleibt bis AP-SRV-040 blockiert.
+
+## 2026-08-25 04:42:48 +02:00 – DOC-RESUME-001: Kontextunabhängigen Wiedereinstieg gehärtet
+
+- Veraltete Einstiegsaussagen in Arbeitsblock-README, `task.md`,
+  `ÜBERGABE.md` und kompakter Projektübersicht gegen den tatsächlichen
+  AP-/Dependency-Stand korrigiert.
+- Neue kanonische Übergabe `NACHVERFOLGUNG/WIEDEREINSTIEG.md` dokumentiert
+  beide Repositories, Branches, freigegebene Produkt-SHAs, Lesereihenfolge,
+  AP-SRV-020-Grenzen, Testbefehle und Gateprozess ohne Chatkontext.
+- Struktur-/Statusquellen bleiben getrennt; kein Produktcode und kein
+  IDEEN-/Namespace-Inhalt geändert oder ausgewertet.

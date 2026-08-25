@@ -7,7 +7,7 @@ title: Einheitliche Triggerarchitektur
 state: AKTIV
 phase: IMPLEMENTIERUNG
 created_at: 2026-08-24 01:08:47 +02:00
-updated_at: 2026-08-25 04:31:35 +02:00
+updated_at: 2026-08-25 04:42:48 +02:00
 branch: feat/einheitliche-triggerarchitektur
 baseline_head: dd0af5ed22e7401895f08c8c13e4e37c7e78ddb7
 -->
@@ -123,6 +123,13 @@ Beide Baselinepakete besitzen eine repositorylokale Akte mit Originalprompt,
 Agentenbericht, Korrekturhistorie, Root-Abnahme und Testnachweisen. Der genaue
 Gate- und Dependency-Stand steht in
 `NACHVERFOLGUNG/AUSFUEHRUNGSSTATUS.md`.
+
+Ein Wiedereinstiegsaudit vor AP-SRV-020 hat veraltete Einstiegsangaben im
+Arbeitsblock-README, in `task.md`, `ÜBERGABE.md` und der kompakten
+Projektübersicht korrigiert. Die neue kanonische Datei
+`NACHVERFOLGUNG/WIEDEREINSTIEG.md` hält Repositories, Branches, freigegebene
+Produkt-SHAs, Lesereihenfolge, nächsten AP, harte Paketgrenzen, Testbefehle
+und Gateprozess ohne Abhängigkeit vom Chatkontext fest.
 
 ## Aktive Arbeit
 

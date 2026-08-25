@@ -1,11 +1,16 @@
 # RealtimeSTT Windows-Client – kompakte Projektübersicht
 
 > **Status:** aktive technische Orientierung  
-> **Stand:** 12. August 2026
+> **Stand:** 25. August 2026; historische Produktübersicht mit aktuellem Trigger-Gate unten
 > **Zuständig für:** kompaktes Zielbild, aktueller Paketstand und Einstieg in die Projektdokumentation  
-> **Letzte Verifikation:** Client 451 Tests und `compileall`; Server 378 Tests
+> **Historische Pre-Trigger-Verifikation:** Client 451 Tests und `compileall`; Server 378 Tests
 > bei 13 Skips und 78 Subtests; Onefile-Build, acht echte Qt-Sounds,
 > Live-Smoke und echter ReSpeaker einschließlich Timeout-Countdown grün
+
+> **Aktueller Trigger-Gate-Stand:** AP-SRV-000, AP-CLI-000 und AP-SRV-010
+> sind abgenommen. AP-SRV-020 ist das nächste freigegebene Paket;
+> AP-CLI-010 wartet auf AP-SRV-040. Der verbindliche operative Einstieg ist
+> `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/NACHVERFOLGUNG/WIEDEREINSTIEG.md`.
 
 ## 1. Zweck und Einordnung
 
@@ -19,7 +24,7 @@ Diese Datei ist der kurze technische Einstieg für neue Bearbeiter. Sie übernim
 
 Sie ist keine zweite Roadmap und keine zweite Übergabe. Bei Detailfragen gilt die Quellenhierarchie in `AGENTS.md` und `.agents/skills/arbeitsstruktur/SKILL.md`.
 
-**Baseline-Zusatz 25. August 2026 (AP-CLI-000):** Der Client wird auf
+**Ausführungszusatz 25. August 2026:** Der Client wird auf
 `feat/einheitliche-triggerarchitektur` schrittweise auf die einheitliche
 Trigger-/Wire-v2-Architektur umgebaut; maßgeblich ist ab sofort
 `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/` (Einstieg über
@@ -29,6 +34,9 @@ Ist-Stand unten (Stand 12. August 2026, AP1–AP8) auf Start-HEAD
 reproduzierbar verifiziert und überholte Trigger-Solltests dem neuen
 Contract zugeordnet; Details im Baseline-Bericht unter
 `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/ARBEITSPAKETE/AP-CLI-000/runs/01_BASELINE/REPORT.md`.
+Serverseitig sind zusätzlich AP-SRV-000 und AP-SRV-010 abgenommen; der
+freigegebene Server-SHA lautet
+`3262079c62c58677cfd6506cd09d020b5b27ef44`, und AP-SRV-020 ist READY.
 Der übrige Inhalt dieser Datei beschreibt weiterhin den Pre-Trigger-Stand.
 
 Die historische Datei

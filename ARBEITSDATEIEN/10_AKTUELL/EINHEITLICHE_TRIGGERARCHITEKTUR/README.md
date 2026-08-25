@@ -3,29 +3,33 @@
 Aktive Arbeitsakte für die gemeinsame Triggerarchitektur von Server, Client
 und ReSpeaker-Feedback.
 
-**Aktuelle Phase:** Plan- und Contract-Freeze abgeschlossen; bereit für die
-getrennten Server-/Client-Baselinepakete. Es wird derzeit noch kein
-Implementierungs-Arbeitspaket ausgeführt.
+**Aktuelle Phase:** Implementierung. `AP-SRV-000`, `AP-CLI-000` und
+`AP-SRV-010` sind abgenommen und gepusht; `AP-SRV-020` ist als nächstes
+Paket freigegeben. Die Clientreihe wartet bis zum PASS von `AP-SRV-040`.
 
 ## Einstieg
 
-1. `PLANUNG/ENTSCHEIDUNGEN_UND_OFFENE_PUNKTE.md` – fachliches
+1. `NACHVERFOLGUNG/WIEDEREINSTIEG.md` – kontextunabhängige operative
+   Übergabe mit Repositories, Branches, SHAs, Lesereihenfolge und nächstem AP.
+2. `STATUS.md` und `NACHVERFOLGUNG/AUSFUEHRUNGSSTATUS.md` – aktueller Gate-
+   und Dependency-Stand.
+3. `PLANUNG/ENTSCHEIDUNGEN_UND_OFFENE_PUNKTE.md` – fachliches
    Entscheidungsregister, überholte Annahmen und noch offene technische
    Verträge.
-2. `PLANUNG/ZIELBILD.md` – auf den aktuellen fachlichen Stand konsolidiertes
+4. `PLANUNG/ZIELBILD.md` – auf den aktuellen fachlichen Stand konsolidiertes
    Zielbild.
-3. `NACHVERFOLGUNG/README.md` – kompakter Überblick über Stand, Verlauf,
+5. `NACHVERFOLGUNG/README.md` – kompakter Überblick über Stand, Verlauf,
    Funde und spätere Nachweise.
-4. `PLANUNG/ANALYSEN/` – belegte Ist-Analysen. Sie sind Evidence, aber keine
+6. `PLANUNG/ANALYSEN/` – belegte Ist-Analysen. Sie sind Evidence, aber keine
    automatische fachliche Entscheidung.
-5. `PLANUNG/TECHNISCHER_CONTRACT_FREEZE.md` – verbindlicher technischer
+7. `PLANUNG/TECHNISCHER_CONTRACT_FREEZE.md` – verbindlicher technischer
    Vertrag.
-6. `PLANUNG/IMPLEMENTIERUNGSPLAN.md` – finaler Plan mit getrennten
+8. `PLANUNG/IMPLEMENTIERUNGSPLAN.md` – finaler Plan mit getrennten
    `AP-SRV-*`- und `AP-CLI-*`-Paketen.
-7. `PLANUNG/PROTOKOLL_V2_WIRE_SCHEMA.md` – exakte Nachrichtenformen,
+9. `PLANUNG/PROTOKOLL_V2_WIRE_SCHEMA.md` – exakte Nachrichtenformen,
    Result-Codes und Transportgrenzen; gemeinsame Beispiele unter
    `PLANUNG/VERTRAGSVEKTOREN/`.
-8. `PLANUNG/AUSFUEHRUNGS_WORKFLOW.md` – Ausführungswellen, Modellzuordnung,
+10. `PLANUNG/AUSFUEHRUNGS_WORKFLOW.md` – Ausführungswellen, Modellzuordnung,
    Dokumentationspflicht und Endabnahme.
 
 ## Weitere Bereiche

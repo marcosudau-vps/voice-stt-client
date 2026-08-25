@@ -376,3 +376,16 @@
   `3262079c62c58677cfd6506cd09d020b5b27ef44`.
 - `AP-SRV-020` ist damit freigegeben; die Client-Lane bleibt bis AP-SRV-040
   dependency-bedingt frei.
+
+## 2026-08-25 04:42:48 +02:00 – DOC-RESUME-001 Kontextunabhängigen Wiedereinstieg gehärtet
+
+- Einstiegspfade gegen den tatsächlichen Gate-, Commit- und Dependency-Stand
+  auditiert. `STATUS.md`, `CURRENT_STATE.md` und
+  `AUSFUEHRUNGSSTATUS.md` waren korrekt.
+- Veraltete Angaben im Arbeitsblock-README, `task.md`, `ÜBERGABE.md` und
+  `docs/PROJEKTUEBERSICHT.md` korrigiert; sie verwiesen noch auf Baseline,
+  AP-CLI-010 beziehungsweise den früheren M10-Stand.
+- `NACHVERFOLGUNG/WIEDEREINSTIEG.md` als kompakte kanonische Übergabe mit
+  beiden Workspaces, Branches, Produkt-SHAs, Pflichtlektüre, AP-SRV-020-Scope,
+  Folgepaketgrenzen, Testbefehlen und Commit-/Abnahmeprozess angelegt.
+- Kein Produktcode geändert und kein Namespace-/IDEEN-Inhalt verwendet.

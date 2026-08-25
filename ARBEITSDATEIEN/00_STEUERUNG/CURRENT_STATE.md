@@ -121,6 +121,8 @@ organisatorisch abgeschlossen und archiviert:
 - Zentrale aktuelle Arbeitsdatei:
   `PLANUNG/ENTSCHEIDUNGEN_UND_OFFENE_PUNKTE.md`.
 - Status und Funde: `NACHVERFOLGUNG/` sowie `STATUS.md` und `VERLAUF.md`.
+- Kontextunabhängige operative Übergabe für neue Agents:
+  `NACHVERFOLGUNG/WIEDEREINSTIEG.md`.
 - Ausführungswelle 1 ist abgenommen und gepusht: AP-SRV-000 auf
   `71a35e074eb90d75f8f91f5ed7cb46accd4b6498`, AP-CLI-000 auf
   `042fcd203c873d6f84a270413c47bc5da1fbf1ed`. Die genaue Gate-Historie steht
