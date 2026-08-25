@@ -1624,3 +1624,163 @@
     `Test-Arbeitsstruktur.ps1` bestätigt PASS (0 Fehler, 0 Warnungen).
   - **Nicht Teil dieses Runs:** kein Commit, kein Push, keine
     Main→Trigger-Integration; das folgt in einem separaten Prüfauftrag.
+
+## 2026-08-24 10:26:57 +02:00 – PLAN-ORG-001: Triggerplanung vereinfacht und Entscheidungsstand konsolidiert
+
+- Aktiven Arbeitsblock auf einen flachen `PLANUNG/`-Bereich und einen
+  separaten `NACHVERFOLGUNG/`-Bereich vereinfacht; doppelte Altpfade nach
+  vorherigem Inhalts-/Hashabgleich entfernt.
+- Zentrale Planungsarbeitsdatei
+  `PLANUNG/ENTSCHEIDUNGEN_UND_OFFENE_PUNKTE.md` angelegt und die aktuelle
+  fachliche Runde zu Wake-Word-Katalog, Sessionauswahl, Detection-Bündelung,
+  Pause/Reconnect, ReSpeaker-Mute, Pre-Roll sowie konfigurierbaren
+  Activation-Control-Hotkeys dokumentiert.
+- Nicht kumulatives `refresh` als aktuelle Sollrichtung festgehalten und
+  widersprechende ältere `Active = Finish`-/Extend-Aussagen als überholt
+  gekennzeichnet.
+- Noch keine Implementierungs-APs aktualisiert oder ausgeführt; kein
+  Produktcode geändert, kein Commit erstellt.
+
+## 2026-08-24 11:14:03 +02:00 – PLAN-CONS-001: Bereits besprochene Triggerentscheidungen in aktive Unterlagen übernommen
+
+- Bekannte Widersprüche zwischen zentraler Entscheidungsdatei, Zielbild und
+  älteren Analyse-/Migrationsfolgerungen bereinigt.
+- Konfigurierbare Hotkey-Active-Aktionen, nicht kumulatives `refresh`,
+  reconnect-feste Wake-Word-Pause innerhalb der Client-Laufzeit, ungepauster
+  App-Neustart und erlaubter Laufzeitzustand mit null effektiven Triggern in
+  den aktiven Solltext übernommen.
+- Wake-Word-Buildkatalog, globales Disable, Sessionauswahl, Aliase,
+  gemeinsame Empfindlichkeit und Detection-ID konsolidiert.
+- Historische Ist-Codebefunde in den Analysen erhalten; widersprechende
+  Sollfolgerungen ausdrücklich als ersetzt markiert. Keine AP-Zuordnung,
+  keine Produktcodeänderung und kein Commit.
+
+## 2026-08-24 11:32:38 +02:00 – PLAN-CONS-002: Weitere Bedien- und Lifecycle-Entscheidungen übernommen
+
+- Mehrere serielle Sprachsegmente innerhalb einer Activation als bestehendes
+  und beizubehaltendes Soll bestätigt; `refresh` ausschließlich für
+  `followup_wait` festgelegt.
+- Dritten optional belegbaren Wake-Pause-Hotkey sowie Finish-/Cancel-
+  Außenwirkung einschließlich verpflichtender Lifecycle-Rückmeldung und
+  terminalem Ausgang je angenommenem Segment dokumentiert.
+- Wake-Word-Katalog von der Laufzeitinitialisierung getrennt: verfügbarer
+  Build-Katalog bleibt vollständig auswählbar, je Session werden nur die
+  ausgewählten Modelle geladen.
+- Einzel-Score-Verhalten des aktuellen OpenWakeWord-Adapters und ungefähr
+  32-ms-Audiotakt belegt; fehlender Detection-Guard nach dem ersten Treffer
+  als Mehrfachsignalpfad bestätigt. Fachlicher Latch bis zum Unlock
+  festgelegt; eine zusätzliche Fehlalarm-Bestätigung bleibt an reale
+  Score-/Audio-Messungen gebunden.
+- Aktive Planungs-, Zielbild-, Analyse-, Status- und Traceability-Unterlagen
+  widerspruchsarm aktualisiert. Kein Namespace-Inhalt gelesen, kein
+  Produktcode geändert und kein Commit erstellt.
+
+## 2026-08-24 12:19:15 +02:00 – PLAN-CONS-003: Finish-/Cancel- und Wake-Word-Admission fachlich eingefroren
+
+- Finish-/Cancel-Wirkung je Activation-Phase und Exactly-once-/Retry-Regel
+  bestätigt; wirksame Transition erzeugt genau ein Lifecycle-Ereignis,
+  Command-Replays kein Duplikat.
+- Cancel verwirft bzw. unterdrückt nur noch nicht veröffentlichte Resultate;
+  bereits ausgegebener oder eingefügter Text wird nicht zurückgenommen.
+- Atomare Wake-Word-Admission bestätigt: eine problematische ID lehnt die
+  gesamte Auswahl maschinenlesbar ab; Teilerfolg und stiller Fallback sind
+  unzulässig.
+- Entscheidungen in Zielbild, zentraler Entscheidungsdatei,
+  Implementierungsreihenfolge, Traceability, Status und technischer Analyse
+  konsolidiert. Kein Namespace-Inhalt gelesen, kein Produktcode geändert und
+  kein Commit erstellt.
+
+## 2026-08-24 23:17:21 +02:00 – PLAN-CONS-004: Reconnect-, Settings- und Dauerschutzentscheidungen übernommen
+
+- Serververlust verwirft die aktive Activation und startet nach Reconnect eine
+  neue Idle-Session; ReSpeaker-/Geräteverlust cancelt die Activation, lässt
+  die Serversession für lokale Wiederverbindung aber bestehen.
+- Persistierte Basis verlangt mindestens einen Trigger; null effektive
+  Trigger dürfen nur während derselben Client-Laufzeit Reconnects, neue
+  Sessions und Geräteverlust überstehen.
+- Serverautorisierte Settings-Control-Plane mit Session-/Server-Scope,
+  Adminschutz, Effective Values und Apply-Policies als Teil der
+  Triggerarchitektur festgelegt. Triggerdomäne und erweiterbare
+  Servereinstellungsseite werden jetzt umgesetzt, fachfremde Vollmigration
+  später.
+- Wake-Word-Ausschluss bei lückenlosem unmittelbar folgendem Sprachfluss sowie
+  großzügiger Daueraufnahme-Watchdog mit Hotkey-Reset, Vorwarnung und Ende der
+  gesamten Activation dokumentiert. Abschlusswirkung des Schutzablaufs bleibt
+  offen.
+- Browserclient aus dem Scope genommen; versionierte Desktop-/Server-/
+  Protokoll-Kompatibilitätsmatrix als Repositoryartefakt vorgesehen.
+- Kein Namespace-Inhalt gelesen, kein Produktcode geändert und kein Commit
+  erstellt.
+
+## 2026-08-25 00:17:14 +02:00 – PLAN-CONS-005: Zweite fachliche Härtungsrunde abgeschlossen
+
+- Daueraufnahme-Watchdog mit zehn Minuten Default, 30 Sekunden Vorwarnung und
+  regulärer Verarbeitung des bis dahin erfassten Audios vollständig
+  entschieden; Schutzabläufe dürfen Anwenderarbeit nicht still verwerfen.
+- Manual-/Wake-Suppression getrennt und clientlaufzeitweit bestätigt; keine
+  zusätzliche Pause-all-Aktion.
+- Client-/Server-Grenze festgezogen: Hotkeys, Hardware-/Gerätelogik, Mute und
+  Feedbackkonfiguration clientseitig; Server verarbeitet semantische Commands,
+  generische Audioverfügbarkeit und erzeugt Domain-Events.
+- Activation-Settings-Snapshot und bewusste Reconnect-Auswahl bei laufender
+  Activation bestätigt.
+- Windows Credential Manager als dauerhafter Admin-Key-Speicher festgelegt;
+  UI kann Credentials anlegen, ersetzen und löschen, `QSettings` bleibt frei
+  vom Secret und ein Klartext-Fallback ist verboten.
+- Klarer Desktop-Protokoll-Cut mit Versions-/Commit-Kompatibilitätsmatrix und
+  verständlicher Handshake-Ablehnung bestätigt; Browserclient bleibt
+  nachgelagert.
+- Aktive Planungs-, Zielbild-, Traceability-, Status- und Analyseunterlagen
+  konsolidiert. Kein Namespace-Inhalt gelesen, kein Produktcode geändert und
+  kein Commit erstellt.
+
+## 2026-08-25 01:20:27 +02:00 – PLAN-FREEZE-001: Technischer Contract und finaler Implementierungsplan
+
+- Vordergrund-Lock und Hintergrund-Finalisierung getrennt: Lockfreigabe nach
+  sicherem Eingabeschluss, Finalresultate älterer Activations werden über
+  stabiles Ledger und Reihenfolge nachgereicht.
+- Fünf Vordergrundphasen einschließlich `closing_input` sowie Hintergrund-
+  `draining` festgelegt.
+- Watchdogwerte 600/180/30 Sekunden samt nicht kumulativer, nicht
+  verkürzender Refreshformel eingefroren.
+- Protokoll-v2-, ID-, Event-, Snapshot-, Resync-, Settings-, Wake-Word- und
+  Recoveryvertrag als normative Planungsgrundlage erstellt.
+- Finalen Implementierungsplan repositoryrein zerlegt: `AP-SRV-*` nur Server,
+  `AP-CLI-*` nur Desktop-Client, `AP-INT-*` ohne Produktcodeänderung.
+- Traceability vollständig auf die getrennten AP-Reihen abgebildet und
+  überholten Reihenfolgeentwurf entfernt.
+- Kein Namespace-Inhalt gelesen, kein Produktcode geändert und kein Commit
+  erstellt.
+
+## 2026-08-25 02:03:42 +02:00 – PLAN-EXEC-001: Parallelausführung und Agentenaufträge vorbereitet
+
+- Normatives Protokoll-v2-Wire-Schema und gemeinsame maschinenlesbare
+  Positiv-/Negativvektoren für Server-, Client- und Integrationsgate ergänzt.
+- Mehrdeutigkeit der Triggerquelle geschlossen: Der Desktop-Client sendet
+  `activate` ausschließlich als `manual`; Wake-Word-Admission entsteht
+  serverintern und wird nur als bestätigter Serverzustand gespiegelt.
+- Ausführungsworkflow für maximal einen GPT-5.6-Sol-Sub-Agenten und einen
+  parallelen Claude-Code-CLI-Lauf mit Wellen, Dependency-Gates,
+  Modellempfehlungen und Root-Endabnahme erstellt.
+- Dokumentationspflicht in jedes Implementierungs-AP aufgenommen und
+  agentengerechte Auftragsschablone mit Ownership, Tests, Dokumentzielen,
+  Commit- und Rückgabeformat angelegt.
+- Kein Namespace-Inhalt gelesen, kein Produktcode geändert, kein Agentenlauf
+  gestartet und kein Commit erstellt.
+
+## 2026-08-25 02:51:08 +02:00 – PLAN-EXEC-002: Traceability und Commit-/Push-Gates vollständig vorbereitet
+
+- Aktive Triggerunterlagen vollständig gegeneinander auditiert und
+  Traceability auf 129 eindeutige Summary-/Einzelanforderungen erweitert.
+- Live-/Early-Final-Parallelität normativ eingefroren; Wake-Auswahl,
+  Activation-Admission/-Sequence, Command-Korrelation und
+  Pending-Snapshot-Sortierung eindeutig gemacht.
+- Hotkey-Kollision sowie Wake-Cooldown-/Pre-Roll-Kalibrierwerte sichtbar als
+  spätere technische Entscheidungen erhalten.
+- Vorhandenen lokalen Server-Feature-Branch samt unverändertem geerbtem
+  Baseline-Diff bestätigt und GitHub-Remote des Serverrepositorys ergänzt.
+- Repositorylokale AP-Akten und genau ein finaler AP-Commit festgelegt:
+  Agent commit lokal, Korrektur per Amend, Root-Endabnahme im selben Commit,
+  Push erst nach PASS.
+- Kein Namespace-Inhalt gelesen, kein Produktcode verändert und noch kein
+  Implementierungsagent gestartet.

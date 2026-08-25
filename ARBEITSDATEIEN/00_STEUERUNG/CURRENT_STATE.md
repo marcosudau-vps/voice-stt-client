@@ -15,7 +15,8 @@ Logging / Observability Teil B
 Start nach Trigger mit OBS-100 (bis OBS-180)
 
 Next:
-Fortsetzung Triggerarchitektur / GATE-0-Planung
+Triggerarchitektur: Planungsstand sichern, konkrete Aufträge für AP-SRV-000
+und AP-CLI-000 erzeugen, dann parallele Ausführungswelle 1 starten
 
 ---
 
@@ -46,14 +47,83 @@ organisatorisch abgeschlossen und archiviert:
 
 ## Einheitliche Triggerarchitektur
 
-- Zielbild und Voranalysen vorhanden.
+- Zielbild und Voranalysen vorhanden. Bereits besprochene Wake-Word-, Pause-
+  und Hotkeyentscheidungen wurden am 2026-08-24 in die widersprechenden
+  Zielbild- und Analysepassagen konsolidiert; weiterhin offene Verträge sind
+  klar als offen abgegrenzt.
+- Ergänzend festgelegt: mehrere serielle Sprachsegmente je Activation,
+  `refresh` nur in `followup_wait`, dritter optional belegbarer
+  Wake-Pause-Hotkey, Finish-/Cancel-Außenwirkung samt Lifecycle-Ereignis und
+  selected-only Laden der Wake-Word-Modelle beim Sessionstart. Detection wird
+  nach dem ersten akzeptierten Treffer bis zum Unlock gelatcht; nur eine
+  zusätzliche Fehlalarm-Bestätigung wird nach Score-/Audio-Messung gehärtet.
+- Finish-/Cancel-Phasenmatrix und Retry-Semantik sind fachlich eingefroren:
+  genau ein Lifecycle-Ereignis pro neu angenommener Transition, kein Duplikat
+  bei Command-Replay; Cancel unterdrückt nur unveröffentlichte Resultate und
+  nimmt bereits ausgegebenen Text nicht zurück. Ungültige Wake-Word-Auswahl
+  wird vollständig ohne Teilerfolg oder Fallback abgelehnt.
+- Serververbindungsverlust verwirft die laufende Activation; Geräteverlust
+  cancelt sie, lässt die Serversession aber bestehen. Ein triggerloser Zustand
+  darf nur clientlaufzeitweit bestehen und wird beim App-Neustart verworfen.
+- Settings-Control-Plane wird in den Umbau aufgenommen: Serverautorität,
+  Session-/Server-Scope, Apply-Policies, triggerrelevante Einstellungen und
+  admin-geschützte Servereinstellungsseite. Fachfremde Vollmigration bleibt
+  für den späteren Settings-Arbeitsblock.
+- Daueraufnahme-Schutz: zehn Minuten Default, kein VAD-Reset, Hotkey-Refresh
+  als Anwesenheitssignal, Vorwarnung 30 Sekunden vorher und Ende der gesamten
+  Activation. Das bereits erfasste Audio wird regulär verarbeitet; investierte
+  Sprache wird nicht wegen eines Schutzablaufs stillschweigend verworfen.
+- Manual und Wake Word sind getrennt clientlaufzeitweit suppressierbar; eine
+  zusätzliche Pause-all-Funktion wird nicht eingeführt. Physische Hotkeys,
+  Geräte- und Feedbackkonfiguration bleiben im Client. Der Server kennt nur
+  semantische Commands und einen generischen Audioverfügbarkeitsstatus.
+- Eine laufende Activation behält ihren unveränderlichen Settings-Snapshot.
+  Reconnectpflichtige Änderungen währenddessen werden nicht automatisch
+  abgebrochen, sondern über die drei bestätigten UI-Wege gesteuert.
+- Der Admin-Key wird bei dauerhafter Speicherung im Windows Credential Manager
+  gehalten und bleibt über die UI löschbar. Desktop-Client und Server erhalten
+  einen klaren Protokoll-Cut samt Versions-/Commit-Kompatibilitätsmatrix;
+  Browser und Legacy-Pfade blockieren den Umbau nicht.
+- Der Trigger-Lock endet nach sicherem Schließen des Follow-up-/Eingabefensters
+  und wartet nicht auf Final-Inferenz. Ältere Activations dürfen im Hintergrund
+  drainen; ihre Resultate bleiben über stabile IDs und Segmentreihenfolge
+  korrekt zugeordnet. `finalizing` ist keine blockierende Vordergrundphase.
+- Segment-Watchdog: 600 Sekunden initial, nach Refresh mindestens 180 Sekunden
+  ab Interaktion, ohne Verkürzung längerer Restzeit und ohne Kumulierung;
+  Warnung 30 Sekunden vorher.
+- Technischer Contract und finaler Implementierungsplan sind eingefroren.
+  `AP-SRV-*` ändert ausschließlich Servercode, `AP-CLI-*` ausschließlich
+  Clientcode; `AP-INT-*` validiert nur und ändert keinen Produktcode.
+- Exaktes v2-Wire-Schema und gemeinsame maschinenlesbare Vertragsvektoren
+  ergänzen den Contract-Freeze. Clientseitiges `activate` darf nur
+  `source=manual` tragen; Wake-Word-Admission entsteht ausschließlich intern
+  auf dem Server.
+- Parallelausführung ist vorbereitet: maximal ein GPT-5.6-Sol-Sub-Agent und
+  ein Claude-Code-CLI-Lauf mit Sonnet oder gezielt Opus. Wellen, Gates,
+  Modellempfehlungen, Dokumentationsownership und Root-Endabnahme stehen in
+  `PLANUNG/AUSFUEHRUNGS_WORKFLOW.md`; konkrete Prompts entstehen paketweise
+  aus `ARBEITSPAKETE/AUFTRAGSVORLAGE.md`.
+- Traceability ist nach Vollständigkeitsaudit auf 129 eindeutige Summary- und
+  Einzelanforderungen granularisiert. Wire-Lücken zu Wake-Auswahl,
+  serverinterner Activation-Admission, Command-Korrelation und stabiler
+  Pending-Sortierung sind geschlossen; Hotkey-Konfliktregel sowie konkrete
+  Wake-Cooldown-/Pre-Roll-Kalibrierwerte bleiben sichtbar vor ihren späteren
+  APs offen.
+- Server-Feature-Branch und Worktree existieren bereits. Die vorhandenen
+  uncommitteten Serveränderungen werden als geerbter Baseline-Diff in
+  AP-SRV-000 übernommen; die GitHub-Remote ist eingerichtet.
+- Jedes AP erhält eine repositorylokale Akte. Agenten committen lokal, die
+  Koordination prüft/amended die Endabnahme und pusht genau einen finalen
+  Commit erst nach PASS.
 - Nach dem kontrollierten Abschluss von Logging/Observability Teil A ist die
   Triggerarchitektur wieder alleiniger aktiver Hauptworkstream unter
   `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/`.
-- Aktueller fachlicher Planungsstand: siehe dortiges `README.md`,
-  `PLANUNG/` und `ARBEITSPAKETE/AP-TRG-000_GATE_0/`. Dieser Organisationsrun
-  (`OBS-CLOSE-001`) trifft keine fachlichen Triggerentscheidungen und
-  verändert keine Triggerplanung.
+- Zentrale aktuelle Arbeitsdatei:
+  `PLANUNG/ENTSCHEIDUNGEN_UND_OFFENE_PUNKTE.md`.
+- Status und Funde: `NACHVERFOLGUNG/` sowie `STATUS.md` und `VERLAUF.md`.
+- Noch kein Implementierungs-Arbeitspaket aktiv. Als Nächstes werden getrennt
+  AP-SRV-000 und AP-CLI-000 ausgeführt; die erste Produktänderung beginnt mit
+  AP-SRV-010.
 
 ## Workspace-Status (WS-NORM-002)
 
@@ -67,13 +137,15 @@ organisatorisch abgeschlossen und archiviert:
 - Repositoryweite deterministische Arbeitsstruktur (`.agents/skills/arbeitsstruktur/`,
   `AGENTS.md`/`CLAUDE.md`-Verweise) in `main` eingeführt und auf `origin/main`
   gepusht.
-- Trigger-Arbeitsblock auf die neue Struktur (`PLANUNG/`, `IDEEN/`,
-  `ARBEITSPAKETE/`, `QUELLEN/`) umgestellt; eindeutig ersetzte Altpfade
-  entfernt (Details: `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/COPY_MAPPING.md`).
+- Trigger-Arbeitsblock zunächst auf die deterministische Grundstruktur
+  umgestellt und anschließend für die laufende Arbeit auf die klaren
+  Einstiege `PLANUNG/` und `NACHVERFOLGUNG/` vereinfacht; doppelte Altpfade
+  wurden nach Inhaltsabgleich entfernt.
 - `main` kontrolliert in `feat/einheitliche-triggerarchitektur` übernommen;
   Konflikte in Governance-Dokumenten und in `core/controller.py`,
   `core/stt_session.py`, `ui/application.py` sowie den OBS-040-Tests fachlich
   zusammengeführt (beide Entwicklungsstände erhalten, keine Seite verworfen).
 - Dieser Organisationsrun trifft keine fachlichen Triggerentscheidungen.
 
-**Stand:** 2026-08-24 (DOC-ARCH-002 Abschlusslauf, Main→Trigger-Integration)
+**Stand:** 2026-08-25 (PLAN-EXEC-002, Traceability-Vollaudit,
+Server-GitHub-Branchpfad und Commit-/Push-/AP-Archivgate vorbereitet)

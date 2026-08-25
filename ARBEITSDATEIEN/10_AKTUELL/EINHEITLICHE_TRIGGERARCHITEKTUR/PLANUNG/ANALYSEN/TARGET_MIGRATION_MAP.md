@@ -1,5 +1,15 @@
 # TARGET_MIGRATION_MAP
 
+> **Status 2026-08-24: IST-EVIDENCE MIT TEILWEISE ÜBERHOLTEN
+> SOLL-FOLGERUNGEN.** Codebefunde und Migrationsrisiken bleiben als Evidence
+> erhalten. Aussagen zu fester Hotkey-Finish-Semantik, fehlendem neuem
+> Command und bindender Reihenfolge sind
+> durch `../ENTSCHEIDUNGEN_UND_OFFENE_PUNKTE.md`,
+> `../TECHNISCHER_CONTRACT_FREEZE.md` und `../IMPLEMENTIERUNGSPLAN.md`
+> ersetzt.
+> Ein dritter, separat konfigurierbarer Wake-Pause-Hotkey ist inzwischen
+> fachlich entschieden; nur konkrete Taste und Konfliktregeln sind offen.
+
 **Phase B.** Erst nach Abschluss der Code-Only-Aufnahme erstellt. Sollquelle:
 `.claude/ZIELBILD_EINHEITLICHE_TRIGGERARCHITEKTUR.md`.
 Ist-Belege stammen aus den Phase-A-Artefakten dieses Ordners.
@@ -19,9 +29,12 @@ widerlegt und das ändert die Migration:
 > `availableFormats` und `default` (`server.py:4943-4971`), gespeist aus
 > `VoiceSTT/core/openwakeword_catalog.py:210-236`.
 
-Die vom Zielbild §14.3 **bevorzugte** Mehrfachauswahl aus einem realen Katalog
-ist damit **ohne Protokolländerung baubar**. Sie war fälschlich als eigenes
-Serverarbeitspaket eingestuft. Es fehlt allein die Auswertung im Client:
+Die vorhandene Capability ist eine belastbare Basis für die Mehrfachauswahl.
+Die aktuelle Planung verlangt zusätzlich Build-Katalog, globales Disable,
+kanonische IDs/Aliase und resolved Sessionwerte. Ob der bestehende Vertrag
+dafür erweitert werden muss, ist beim Contract-Freeze zu prüfen; „reines
+Clientpaket ohne Protokolländerung“ gilt nicht mehr als entschieden. Heute
+fehlt weiterhin die Auswertung im Client:
 `core/stt_session.py:573-578` liest aus `sessionCapabilities` nur
 `activationTriggers`.
 
@@ -50,8 +63,8 @@ Legende: ✔ = trifft zu.
 | **Client** `DictationState` / `_dictation_requested` | §11: kein zweiter Lifecycle | | ✔ | | Struktur (Snapshot, Revision, Publish) ist brauchbar. Die **Quelle** muss vom lokalen Kommandoergebnis auf den gespiegelten Activation-Zustand umgestellt werden. |
 | `DictationWindowPhase` + `_arm_dictation_window` + `_dictation_window_timeout` | §11: keine lokale Diktat-State-Machine | | | ✔ | Gegen den Produktivserver bereits abgeschaltet, aber weiterhin UI-Quelle. Ersatz ist der Spiegel aus §2. |
 | `_client_owns_dictation_window` | – | | | ✔ | Nur sinnvoll, solange Server ohne Contract unterstützt werden. Entfällt mit dem Spiegel; alternativ als klar benannter Adapter isolieren. |
-| `extend_dictation_window()` als Zweitbedeutung des Hotkeys (`:1040`) | §6.2: Hotkey bedeutet `finish` | | ✔ | | Funktion darf bleiben (§10 lässt `extend` zu), aber **nicht** als Zweitbedeutung des Diktat-Hotkeys. |
-| `primary_dictation_action` Wake-Word-Zweig (`:1031-1038`) | §9: Pause ist eine eigene Bedienfunktion | | | ✔ | „Wake Word pausieren/aktivieren" auf dem normalen Hotkey ist in §9 ausdrücklich verboten. |
+| `extend_dictation_window()` als feste Zweitbedeutung des Hotkeys (`:1040`) | §6.2: Active-Aktion ist konfigurierbar; `refresh` ist nicht kumulativ | | ✔ | | In ein Action-Modell überführen; kein `_pending_extension` und keine addierten Sekunden. |
+| `primary_dictation_action` Wake-Word-Zweig (`:1031-1038`) | §9: Pause ist ein separater Laufzeitzustand | | ✔ | | Alte Kopplung an Manual-Enablement und Stream-Start/-Stop entfernen; dritter optional belegbarer Hotkey und Tray-Aktion steuern den separaten Pausenzustand. |
 | `_maintain_wake_word_mode()` (`:2629-2650`) | §3: ein kontinuierlicher Stream | | | ✔ | Armierungsschleife ist ein Arm-/Disarm-Modell. Mit dem kontinuierlichen Stream entfällt sie ersatzlos. |
 | `_wake_mode_desired` | – | | | ✔ | Entfällt mit dem Maintainer; zusätzlich aus `mode` abgeleitet und damit doppelt unzulässig. |
 | `_begin_stream_and_trigger(source="manual")` (`:695-712`) | §1: Unterschied endet am Triggereingang | | ✔ | | `start` gehört an den Sessionaufbau, nicht an den Trigger. Der Trigger wird zu einem reinen `trigger`-Kommando. |
@@ -74,11 +87,11 @@ Legende: ✔ = trifft zu.
 | `SettingsDialog._build_settings_tab` (`:110-128`) | §14.3 | | ✔ | | Gruppen erst nach Sichtbarkeitsprüfung anlegen; `visible_definitions()` (`settings_metadata.py:327-340`) existiert bereits und wird nicht benutzt. |
 | Checkbox-Anzeige des **effektiven** Werts (`settings_dialog.py:174-182`, `:270-283`) | §14.2 | | ✔ | | Ein Haken muss den gespeicherten Wert zeigen, sonst überschreibt `mode` ihn unbemerkt. |
 | Gruppe „Hotkey-Diktatfenster" (`settings_metadata.py:179-206`) | §14.5 | | ✔ | | Umbenennen und an `session.*_timeout` binden, die tatsächlich an den Server gehen. |
-| `DictationWindowConfig` | §14.5 | | ✔ | | Mit `session.initial_speech_timeout` / `followup_timeout` / `extension_seconds` zusammenführen. |
+| `DictationWindowConfig` | §14.5 | | ✔ | | Mit den serverseitig maßgeblichen Inaktivitätstimings zusammenführen; `refresh` setzt die relevante Deadline neu und besitzt keinen additiven `extension_seconds`-Topf. |
 | `session.wake_words` als einzelner String | §14.3: Mehrfachauswahl bevorzugt | | ✔ | | Serverprotokoll kann bereits Listen (`_split_wake_word_ids`, `server.py:684`) und liefert den Katalog. |
-| `hello.sessionCapabilities.wakeWord.availableWakeWords` | §14.3 | ✔ | | | Vorhanden, muss nur konsumiert werden. |
-| Fehlender Wake-Word-Pause-Hotkey | §9 | | | | **neu zu bauen**: `HotkeyConfig.wake_word_pause_key`, sechste Hotkey-ID, eigene Settings-Definition. |
-| Hotkeyregistrierung nur bei Manual-Trigger (`ui/application.py:165-168`) | §9 | | ✔ | | Der Pause-Hotkey muss auch in einer Wake-Word-only-Installation registriert werden. |
+| `hello.sessionCapabilities.wakeWord.availableWakeWords` | §14.3 | ✔ | ✔ | | Vorhandene Basis konsumieren und gegen Build-Katalog, globales Disable, Aliase und resolved Sessionwerte prüfen/erweitern. |
+| Fehlende Wake-Word-Pause-Aktion | §9 | | ✔ | | Session-Control und dritten separat konfigurierbaren, optional ungebundenen Hotkey ergänzen; Tray darf zusätzlich bestehen. |
+| Hotkeyregistrierung nur bei Manual-Trigger (`ui/application.py:165-168`) | §9 | | ✔ | | Activation-Control und Wake-Pause dürfen in Wake-Word-only nicht pauschal mit dem Manual-Trigger verschwinden. |
 | `_emit_feedback_event` Abbildung `DICTATION_START_FAILED → CLIENT_ACTION_BLOCKED` (`:485-489`) | §16: kein Warnloop | | ✔ | | Zwei verschiedene Sachverhalte auf einen Impuls; zusammen mit dem Maintainer die Ursache der Dauerwarnung. |
 | `AvailabilityState` / Verfügbarkeitsmodell | §16 | ✔ | | | Bleibt; nach Apply/Reconnect aus dem neuen Serverzustand neu aufbauen. |
 | `presentation_for_feedback`, `MICROPHONE_UNAVAILABLE`, `get_status`, `_update_dictation_state`, `HotkeyConfig.mode` | – | | | ✔ | Toter Code (Nachweis in `LEGACY_AND_DEAD_CODE_MAP.md` §16.1). Kein Zielbildbezug, aber Ballast auf dem Umbaupfad. |
@@ -145,8 +158,12 @@ server.py           RealtimeSession + VoiceActivityDetector (toter zweiter Weg)
 | `hello.activationConfig` | ergänzen um den aktuellen Lock-/Phasenstand für den Wiederaufbau nach Reconnect |
 | Client `STTController` | neuer `ActivationMirror` als einzige Quelle; `primary_dictation_action` verzweigt darauf |
 | Client `EventNormalizer` | `_SERVER_EVENTS` um vier `activation.*`-Einträge; Kanalprüfung beachten (`activation.*` wird heute auf dem Kanal `transcription` emittiert, `server.py:4212-4224`) |
-| `HotkeyConfig` | neues Feld `wake_word_pause_key` |
-| `ui/hotkeys.py` | sechste Hotkey-ID |
+| `HotkeyConfig` | primären und zweiten Hotkey um konfigurierbare Active-Aktionen und einen dritten optional belegbaren Wake-Pause-Hotkey ergänzen |
+| `ui/hotkeys.py` | Action-/Binding-Modell statt fest angenommener sechster Wake-Pause-Hotkey-ID; physische Tasten ausschließlich clientseitig in semantische Commands übersetzen |
+| Client-Audiogerätestatus | ReSpeaker-, Mute- und Reconnectdetails lokal halten; dem Server nur generisches `audio_available` melden, damit eine Activation ohne Sessionende geschlossen werden kann |
+| Settings-Metadaten/API | Scope, Auth, Apply-Policy, Wertebereich, Default und effektiven Wert serverautoritativ veröffentlichen; laufende Activation behält Start-Snapshot |
+| Admin-Credential | Secret im Windows Credential Manager; UI-gesteuertes Anlegen/Ersetzen/Löschen; `QSettings` nur für nicht geheime Metadaten |
+| Feedbackkonfiguration | vollständig clientseitig; Server liefert nur zuverlässige Domain-Events |
 | `presentation_for_snapshot` / `presentation_for_mapped_action` | ohne `operating_mode` |
 | `SessionConfig` | `wake_words` als Liste; `mode` verlässt das Laufzeitmodell |
 
@@ -166,11 +183,15 @@ server.py           RealtimeSession + VoiceActivityDetector (toter zweiter Weg)
 Server -> Client   activation.finalized     Rueckkehr nach Idle, loest den Lock
 Server -> Client   activation.suppressed    unterdrueckter Trigger, rein diagnostisch
 Server -> Client   activation.started/.closed  vorhanden, muessen konsumiert werden
-Client  -> Server  (kein neues Command noetig)
+Client  -> Server  Sessionkommando fuer Wake-Word-Pause/-Resume samt Ack
+Client  -> Server  generische Activation-Control-Commands statt Hotkeysemantik
+Client  -> Server  audio_available fuer Activation-Abbruch ohne Sessionende
 ```
 
-Der `finish`-Weg existiert bereits als Command; ihm fehlt nur der Auslöser
-(Zweitbedeutung des Hotkeys).
+Die Activation-Control-Aktionen `refresh`, `finish` und `cancel` können auf
+dem vorhandenen Trigger-/Commandpfad aufbauen. Wake-Word-Pause ist dagegen
+ein separater Session-Laufzeitzustand und benötigt einen verbindlichen,
+idempotenten Contract oder einen gleichwertigen expliziten Mechanismus.
 
 ### 2.7 Welche Tests müssen bewusst ersetzt werden, weil sie das falsche Soll festschreiben?
 
@@ -184,7 +205,7 @@ Der `finish`-Weg existiert bereits als Command; ihm fehlt nur der Auslöser
 | `test_a_trigger_during_finalizing_opens_a_new_activation` | dito `:368` | Lock endet vor der Finalisierung | Negativtest zu I-8 |
 | `test_07_simultaneous_triggers_yield_single_activation` | dito `:98` | eine Activation, aber ohne unterdrückten Verlierer | I-7 mit genau einem `activation_locked` |
 | `test_two_activations_share_one_continuous_stream` | `voice-stt-client/tests/test_trigger_lifecycle.py:404` | `audio.start_calls == 2`, Beenden per `stop_dictation` | ein Mikrofonstart je Session; Beenden durch Serverereignis |
-| `test_extending_the_window_creates_no_second_stream` | dito `:466` | Hotkey verlängert während Activation | Hotkey bedeutet `finish` |
+| `test_extending_the_window_creates_no_second_stream` | dito `:466` | alte kumulative Extend-Semantik | konfiguriertes `refresh` setzt die Deadline nicht kumulativ neu und öffnet keinen Stream |
 | `test_a_manual_trigger_inside_a_wake_word_turn_adds_no_second_sequence` | `voice-stt-client/tests/test_trigger_feedback_contract.py:284` | „der Server merged ihn" (Kommentar `:293`) | unterdrückter Trigger, kein Merge |
 | `test_one_activation_yields_one_recording_sequence` | dito `:353` | `sources=["manual","wake_word"]` | `sources` bleibt einelementig |
 | `FakeSTTSession` (Basisdouble) | `voice-stt-client/tests/test_controller.py:158` | fehlendes `supports_activation_triggers`, unvollständiges `set_streaming` | produktionstreues Double plus Kontrakttest |
@@ -193,7 +214,8 @@ Der `finish`-Weg existiert bereits als Command; ihm fehlt nur der Auslöser
 
 ## 3. Reihenfolge der Umsetzung
 
-Bindend, weil jede spätere Stufe die frühere voraussetzt:
+Historischer Richtungsvorschlag; die aktuelle repositorygetrennte Reihenfolge
+steht in `../IMPLEMENTIERUNGSPLAN.md`:
 
 ```text
 1. Server: Lock in activate(), Sperre ueber finalizing, finalized() aufrufen,
@@ -202,14 +224,20 @@ Bindend, weil jede spätere Stufe die frühere voraussetzt:
    und die lokale Fenstermaschine entfernen; Waechtertimer.
 3. Client: kontinuierlicher Stream, Audio an die Session binden,
    _maintain_wake_word_mode entfernen.
-4. Client: Hotkeysemantik (Idle -> activate, laufend -> finish) und
-   sekundaerer Wake-Word-Pause-Hotkey.
+4. Client: primärer und zweiter Hotkey mit konfigurierbaren Active-Aktionen;
+   dritter optional belegbarer Hotkey für Wake-Word-Pause; refresh in
+   followup_wait als nicht kumulativer Deadline-Reset und in segment_active
+   nur als Reset des Daueraufnahme-Sicherheitswatchdogs; Wake-Word-Pause als
+   separater reconnect-fester Laufzeitzustand.
 5. Client: session.mode entmachten (nur noch Ladezeit-Migration).
 6. Client: UI – ein Darstellungszweig, Gruppen mit Sichtbarkeit,
    Wake-Word-Mehrfachauswahl aus dem vorhandenen Katalog.
 7. Beide: Warnschleifen ausschliessen, Testdoubles angleichen,
    falsche Sollannahmen in Tests ersetzen.
-8. Reale Abnahme gegen I-1 bis I-11 mit Audio und Hardware.
+8. Settings-Control-Plane, Activation-Snapshots, Credential Manager und
+   clientseitiges Feedback integrieren.
+9. Klaren Desktop-Protokoll-Cut samt Versions-/Commitmatrix absichern.
+10. Reale Abnahme gegen die Zielbild-Invarianten mit Audio und Hardware.
 ```
 
 ---

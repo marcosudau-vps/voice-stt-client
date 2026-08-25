@@ -227,7 +227,9 @@ die Kontrollfrage beantwortet hat.
 | Herkunft jedes sichtbaren UI-Zustands | dito §14 |
 | Dead Code und halb entfernte Architektur | `LEGACY_AND_DEAD_CODE_MAP.md` §16 |
 | Testdouble-Abweichungen an Architekturgrenzen | dito §17 |
-| Soll/Ist-Zuordnung und Migrationsreihenfolge | `TARGET_MIGRATION_MAP.md` |
+| Soll/Ist-Zuordnung als historische Analyse | `TARGET_MIGRATION_MAP.md` |
+| Verbindlicher Implementierungsplan | `../IMPLEMENTIERUNGSPLAN.md` |
+| Verbindlicher technischer Vertrag | `../TECHNISCHER_CONTRACT_FREEZE.md` |
 
 ### 2.2 Teilweise untersucht
 

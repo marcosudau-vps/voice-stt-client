@@ -1,5 +1,10 @@
 # LETZTE ARCHITEKTURKLÄRUNGEN VOR PLAN v1 FREEZE
 
+> **Status 2026-08-24: IST-ANALYSE, ENTSCHEIDUNGSSTATUS TEILWEISE
+> AKTUALISIERT.** Die Codebefunde bleiben Evidence. Neuere fachliche
+> Entscheidungen stehen in `../ENTSCHEIDUNGEN_UND_OFFENE_PUNKTE.md` und
+> ersetzen widersprechende Empfehlungen oder damalige offene Punkte.
+
 **Auftrag:** `.claude/2026-08-14_Prompt_LetzteGezielteArchitekturklärungVorPlanFreeze.md`
 **Primäre Ist-Quelle:** ausgeführter Produktivcode. Tests nur ergänzend.
 **Arbeitsregeln eingehalten:** keine Produktcode-, Test-, Config- oder
@@ -189,24 +194,22 @@ noch nicht veröffentlicht wurde. Der Zähler ist die belastbare Variante.
 |---|---|---|---|---|
 | reguläres VAD-Ende (`recording.py:373-395`) | ja | ja, seriell | **ja** | wenn alle Terminals der Activation veröffentlicht sind |
 | explizites `finish` (`activation.py:262-273`) | evtl. ja | evtl. ja | **ja** – der Zielbildtext §6.2 verlangt reguläre Finalisierung, keinen harten Abbruch | wie oben |
-| `cancel` (`activation.py:275-287`) | evtl. ja | evtl. ja | **nein** – `_close_window_locked(..., finalize=False)` geht direkt nach `inactive` und der Client verwirft Finals ohnehin über `_discard_finals` (`core/controller.py:1090`, `:1756-1766`) | sofort; laufende Transkription wird verworfen, nicht abgewartet |
+| `cancel` (`activation.py:275-287`) | evtl. ja | evtl. ja | **kein Nutzresultat abwarten** – Ziel: unveröffentlichte Resultate serverseitig unterdrücken/verwerfen; bereits veröffentlichter oder eingefügter Text bleibt bestehen | nach korrektem Cancel-Ereignis und verwerfendem Terminal für jedes angenommene Segment; intern nicht sicher abbrechbare Inferenz darf fertiglaufen, aber nichts mehr veröffentlichen |
 | Initial-Speech-Timeout (`expire`, keine Segmente) | **nein** (`segment_count == 0`) | nein | nein | sofort; `_close_window_locked` geht bereits über `_clear_locked` direkt nach `inactive` (`activation.py:353-358`) — **hier ist heute schon alles richtig** |
 | Follow-up-Timeout (mit Segmenten) | ja | evtl. ja | **ja** | wie regulär |
 | Fehler der Transkription (`_text_worker` Exception, `server.py:3320-3343`) | ja | nein mehr | – | Fehler ist ein Terminal: `transcription.failed` muss den Zähler ebenso senken wie ein Final |
-| verworfener Job (`on_job_dropped`, `server.py:2863-2869`; `_trim_recorded_audio_queue`, `server.py:4321-4353`) | ja | nein | – | **ENTSCHEIDUNG ERFORDERLICH**: Ein aus der Queue geworfenes Segment erzeugt **kein** Terminal-Event. Ohne Gegenmaßnahme würde der Zähler nie null. |
+| verworfener Job (`on_job_dropped`, `server.py:2863-2869`; `_trim_recorded_audio_queue`, `server.py:4321-4353`) | ja | nein | – | **FACHLICH ENTSCHIEDEN**: Das verworfene Segment benötigt einen eigenen verwerfenden terminalen Ausgang; heutiges Fehlen bleibt Implementierungsdefekt. |
 | Worker-/Schedulerfehler (`submit_result.accepted == False` → `RuntimeError`, `server.py:5409`) | ja | nein | – | Die Exception erreicht `_text_worker` und erzeugt `transcription.failed` (`server.py:3320-3343`) — also ein Terminal. Zu prüfen bleibt, ob dabei das Terminal aus der Deque entfernt wird: **heute nicht**, `popleft` steht erst nach dem `try` (`server.py:3345-3350`). Das ist ein eigener Defekt (siehe §9). |
 
-### `ENTSCHEIDUNG ERFORDERLICH`
+### `FACHLICH ENTSCHIEDEN / UMSETZUNG AUSSTEHEND`
 
-1. **Verworfene Segmente.** `_trim_recorded_audio_queue` wirft Aufnahmen
-   stillschweigend weg (nur eine `warning`-Nachricht, die der Client gar nicht
-   auswertet). Soll ein verworfenes Segment ein eigenes Terminal-Event
-   (`transcription.dropped`) erzeugen, oder soll der Zähler stattdessen an der
-   Queue hängen? Ohne Entscheidung ist die Finalisierung bei Rückstau nicht
-   abschließbar.
-2. **`cancel` mit laufender Transkription.** Soll das laufende Final noch
-   veröffentlicht werden (heute: ja, der Server publiziert; der Client
-   verwirft es lokal) oder serverseitig unterdrückt werden?
+1. **Verworfene Segmente.** `_trim_recorded_audio_queue` wirft Aufnahmen heute
+   stillschweigend weg. Ziel: Jedes angenommene, später verworfene Segment
+   erhält ein eigenes verwerfendes Terminal; der Finalisierungszähler hängt
+   nicht an einer impliziten Queue-Tiefe.
+2. **`cancel` mit laufender Transkription.** Ab Annahme des Cancel wird jedes
+   noch unveröffentlichte Final serverseitig unterdrückt. Bereits zuvor
+   veröffentlichter oder eingefügter Text wird nicht zurückgenommen.
 
 ## 1.5 Ergebnis Frage 1
 
@@ -533,7 +536,8 @@ Konzeptioneller Entwurf, bewusst ohne Implementierung:
 
 ```text
 Client
-  → sekundaerer Wake-Word-Pause-Hotkey
+  → Wake-Word-Pause-Aktion über dritten separat konfigurierbaren Hotkey
+    (darf ungebunden bleiben; Tray optional zusätzlich)
   → neues Kommando auf /ws/transcribe, z. B.
         {"type":"session_control","action":"wake_word_pause"|"wake_word_resume",
          "commandId":"..."}
@@ -553,7 +557,7 @@ Prüfung gegen die geforderten Eigenschaften:
 | keine neue Activation | ✔ | Ein Ablehnungspfad, der bereits existiert |
 | laufende Activation unbeeinflusst | ✔ | `_source_enabled` wird nur in `activate`, `extend`, `finish`, `cancel` geprüft; ein laufendes Recording läuft über das Gate weiter |
 | Manual Trigger unbeeinflusst | ✔ | separates Feld `manual_trigger_enabled` |
-| reconnect-sicher | ✔ mit Einschränkung | Ein Reconnect erzeugt eine neue Session mit dem Wert aus der Query. Der Client müsste den Pausenzustand als Query-Parameter mitsenden oder direkt nach `ready` erneut setzen. **Das ist die einzige nichttriviale Stelle.** |
+| reconnect-sicher | ✔ mit Einschränkung | Ein Reconnect erzeugt eine neue Session. Der gewünschte Pausenzustand muss bei Admission bzw. vor Freigabe der Wake-Word-Erkennung übernommen werden; ein nachträgliches Setzen mit aktivem Zwischenfenster genügt nicht. |
 | Status auslesbar | ✔ | Über den in §2.5 empfohlenen Activationstand in `status` bzw. `hello.activationConfig` |
 | idempotent | ✔ | Setzen eines Bools; zusätzlich greift der vorhandene `commandId`-Cache (`server.py:3025-3041`), wenn das Kommando dieselbe Idempotenzmechanik nutzt |
 
@@ -563,20 +567,22 @@ damit `_waiting_state_locked` (`server.py:3913-3922`) und die publizierten
 `status`-Nachrichten. Bei pausiertem Wake Word würde also weiterhin
 `wakeword_detected` als Status und `timeline wakeword_detected` gesendet. Für
 eine saubere Pause muss dieser Seiteneffekt an dieselbe Bedingung gebunden
-werden. Die Erkennung selbst darf weiterlaufen (Zielbild §7 erlaubt
-diagnostische Protokollierung).
+werden. Während der Pause darf es kein akzeptiertes Detection-Ereignis, kein
+Wake-Word-Statussignal und keinen Activation-Versuch geben. Ob ein Backend
+intern weiter Scores berechnet oder zur Ressourcenschonung ausgesetzt wird,
+ist eine Implementierungsentscheidung ohne fachliche Außenwirkung.
 
 ## 3.4 Sonderfälle
 
 | Fall | Verhalten mit dem vorgeschlagenen Mechanismus | Bemerkung |
 |---|---|---|
-| Pause-Hotkey im Idle | `wake_word_trigger_enabled = False`; nur Manual kann noch aktivieren | wenn Manual ebenfalls aus: siehe unten |
-| Pause-Hotkey während Recording | laufende Activation läuft unverändert weiter; nur künftige Wake Words sind gesperrt | `_source_enabled` wirkt nicht auf das Gate |
-| Pause-Hotkey während Finalizing | wie Idle | – |
-| Reconnect bei pausiertem Wake Word | **`ENTSCHEIDUNG ERFORDERLICH`**: Pause als flüchtiger Sessionzustand (nach Reconnect wieder aktiv) oder als persistente Nutzereinstellung (Client sendet den Zustand in der Query mit)? | Empfehlung: persistent im Client, mitgesendet, weil ein automatischer Reconnect sonst unbemerkt die Erkennung wieder einschaltet |
+| Pause-Aktion im Idle | `wake_word_trigger_enabled = False`; nur Manual kann noch aktivieren | wenn Manual ebenfalls aus: bewusster Zustand ohne effektiven Trigger |
+| Pause-Aktion während Recording | laufende Activation läuft unverändert weiter; nur künftige Wake Words sind gesperrt | `_source_enabled` wirkt nicht auf das Gate |
+| Pause-Aktion während Finalizing | wie Idle | – |
+| Reconnect bei pausiertem Wake Word | **ENTSCHIEDEN:** Pause übersteht automatische Reconnects während derselben Client-Laufzeit | gewünschter Pausenzustand muss ohne unbeabsichtigtes Aktivierungsfenster in die neue Session übernommen werden |
 | Settings Apply | erzwingt Reconnect; identisch zum Reconnect-Fall | – |
-| `wake_word_trigger_enabled=false` konfiguriert | Pause-Hotkey wäre wirkungslos; er sollte dann nicht registriert werden | analog zu §5 |
-| Pause bei `manual=false` und `wake_word=true` | Ergäbe eine Session **ohne jede** Triggerquelle. Der Server verbietet diese Kombination bei der Admission (`server.py:1061-1066`), zur Laufzeit gäbe es keine Prüfung. | **`ENTSCHEIDUNG ERFORDERLICH`**: Pause in dieser Konfiguration ablehnen, oder als bewusste „Alles aus"-Pause erlauben? |
+| `wake_word_trigger_enabled=false` konfiguriert | Pause-Aktion ist fachlich wirkungslos | genaue UI-/Binding-Darstellung noch offen |
+| Pause bei `manual=false` und `wake_word=true` | Ergibt eine Session **ohne effektive Activation-Triggerquelle** | **ENTSCHIEDEN:** als bewusster Laufzeit-Pausenzustand erlaubt |
 
 ## 3.5 Ergebnis Frage 3
 
@@ -605,8 +611,8 @@ Betroffene Komponenten:
              _on_wakeword_detected (:4078-4090) wegen _wakeword_voice_window,
              activation_snapshot fuer die Rueckmeldung (:2967-2971)
     server:  api_fastapi_server/activation.py  Setter plus Snapshotfeld
-    client:  core/config.py       HotkeyConfig.wake_word_pause_key
-    client:  ui/hotkeys.py        sechste Hotkey-ID
+    client:  core/config.py       konfigurierbares Action-/Binding-Modell
+    client:  ui/hotkeys.py        dritter optional belegbarer Pause-Hotkey
     client:  ui/application.py    Registrierung und Callback
     client:  core/stt_session.py  Senden und Ack-Korrelation
     client:  core/controller.py   Zustand und Weitergabe an die UI
@@ -616,11 +622,15 @@ Benötigte Contract-Erweiterung:
                                  commandId)
     2. Ack       session_control_ack(commandId, accepted, wakeWordTriggerEnabled)
     3. Sichtbarkeit des Zustands in hello.activationConfig und in status
-    4. Optional: Query-Parameter, damit ein Reconnect die Pause beibehaelt
+    4. Reconnect-/Admission-Uebergabe, damit die Pause ohne aktives
+       Zwischenfenster beibehalten wird
 ```
 
-**Klassifikation: `DECISION REQUIRED`** – Mechanismus und Ort sind geklärt;
-offen sind die zwei markierten Semantikentscheidungen aus §3.4.
+**Klassifikation: `SEMANTIK UND BEDIENSTRUKTUR ENTSCHIEDEN / CONTRACT
+OFFEN`** – Reconnect-Persistenz innerhalb der Client-Laufzeit, der erlaubte
+Null-Trigger-Laufzeitzustand und der dritte optional belegbare Pause-Hotkey
+sind entschieden. Exakte Nachricht, Ownerabbildung, konkrete Taste und
+Konfliktregeln werden beim Contract-Freeze festgelegt.
 
 ---
 
@@ -712,9 +722,15 @@ Warum dort:
 
 Wie:
   recording_started() setzt heute deadline = None (activation.py:240).
-  Stattdessen eine grosszuegige max_segment_seconds, die deutlich ueber jeder
-  realistischen Aeuszerung liegt. Laeuft sie ab, gilt derselbe Weg wie beim
-  Follow-up-Timeout: _close_window_locked("segment_timeout").
+  Stattdessen eine grosszuegige max_segment_seconds mit zehn Minuten Default,
+  die deutlich ueber jeder normalen Aeuszerung liegt. VAD darf sie nicht
+  resetten; ein explizites Hotkey-Refresh gilt als menschliches
+  Anwesenheitssignal und startet nur diese Frist neu. 30 Sekunden vor Ablauf
+  ist ein Warnereignis vorgesehen. Bei Ablauf wird die gesamte Activation
+  geschlossen und nicht in followup_wait zurueckgefuehrt. Das bis dahin
+  erfasste Segment wird wie bei Finish regulär verarbeitet. Damit schützt der
+  Watchdog vor Daueraufnahme, ohne bereits investierte Sprechzeit des
+  Anwenders ohne dessen Entscheidung zu verwerfen.
 
 Ergaenzend, aber nachrangig:
   * flush_buffered_audio sollte den tatsaechlichen Erfolg zurueckgeben statt
@@ -723,8 +739,8 @@ Ergaenzend, aber nachrangig:
     (server.py:3320-3343).
 ```
 
-**Klassifikation: `RESOLVED`** – Befund und Ort der Absicherung sind eindeutig;
-die konkrete Obergrenze ist ein Zahlenwert, keine Architekturentscheidung.
+**Klassifikation: `RESOLVED`** – Ort, Default, Warnzeit und Abschlusswirkung
+sind fachlich entschieden; Wertebereiche bleiben Teil des Settings-Contracts.
 
 ---
 
@@ -887,17 +903,20 @@ bleibt bewusst offen.
 
 | # | Entscheidung | Kontext | Auswirkung, wenn offen |
 |---|---|---|---|
-| **E1** | Erzeugt ein bei Rückstau verworfenes Segment ein eigenes Terminal-Event, oder hängt der Finalisierungszähler stattdessen an der Aufnahmequeue? | §1.4 | Ohne Antwort kann die Finalisierung bei Rückstau nicht abschließen; der Hard-Timeout wäre die einzige Rettung |
-| **E2** | Soll bei `cancel` ein bereits laufendes Final serverseitig unterdrückt werden, oder bleibt es beim heutigen Verhalten (Server publiziert, Client verwirft lokal)? | §1.4 | Betrifft Bandbreite und die Frage, ob der Client `_discard_finals` behalten muss |
-| **E3** | Ist die Wake-Word-Pause ein flüchtiger Sessionzustand oder eine persistente Nutzereinstellung, die der Client bei jedem Reconnect mitsendet? | §3.4 | Bestimmt, ob ein automatischer Reconnect die Erkennung unbemerkt wieder einschaltet |
-| **E4** | Darf die Pause zu einer Session ohne jede aktive Triggerquelle führen (`manual=false` und Wake Word pausiert)? | §3.4 | Der Server verbietet die Kombination heute bei der Admission, nicht zur Laufzeit |
 | **E5** | Konkreter Zahlenwert für die neue `max_segment_seconds`-Obergrenze in `segment_active` | §4.4 | Nur ein Wert, aber er muss über jeder realistischen Äußerung liegen |
 | **E6** | Wird der Activationstand in jede `status`-Nachricht aufgenommen (empfohlen) oder über ein eigenes Snapshotkommando abgefragt? | §2.5 | Bestimmt, wie schnell ein verlorenes Event heilt |
 
-**Nicht mehr offen** und deshalb hier bewusst nicht aufgeführt: der
+**Nicht mehr offen:** E3 – Pause übersteht automatische Reconnects derselben
+Client-Laufzeit, aber keinen App-Neustart; E4 – null effektive Trigger durch
+bewusste Wake-Pause sind erlaubt; E1 – jedes angenommene Segment erhält auch
+bei Queue-Verwurf oder Cancel ein Terminal; E2 – Cancel unterdrückt bzw.
+verwirft alle noch nicht veröffentlichten Nutzresultate, nimmt bereits
+veröffentlichten oder eingefügten Text aber nicht zurück. Ebenfalls nicht mehr
+offen sind der
 Finalisierungsort (§1.5), der Control-Plane-Kanal (§2.5), der Ort des
-Pausenschalters (§3.5), der Besitzer der `segment_active`-Absicherung (§4.4)
-und die Hotkeystruktur (§5.3).
+Pausenschalters (§3.5), der dritte optional belegbare Pause-Hotkey und der
+Besitzer der `segment_active`-Absicherung (§4.4). Konkrete Taste und
+Konfliktregeln bleiben offen.
 
 ---
 
@@ -909,10 +928,10 @@ enthalten kann, weil die Information erst jetzt vorliegt.
 | # | Planänderung | Grund |
 |---|---|---|
 | **P1** | Das Arbeitspaket „Server: Finalisierung" braucht **drei** Teilschritte statt einem: Activationbindung je Segment, Terminalzähler, `finalized()`-Aufruf. Die Bindung ist Voraussetzung. | §1.2, §1.5 |
-| **P2** | Neuer, eigenständiger Punkt: **`_source_enabled` darf nicht mehr an `finish` hängen** (`activation.py:262-267`). Ohne ihn ist die Zielbild-Semantik „Hotkey beendet auch eine Wake-Word-Activation" in der Wake-Word-only-Konfiguration serverseitig blockiert. | §5.3 |
+| **P2** | Activation-Control-Aktionen dürfen nicht allein wegen der deaktivierten Manual-Triggerquelle abgewiesen werden. Sonst kann ein Hotkey eine durch Wake Word gestartete Activation nicht steuern. | §5.3 |
 | **P3** | Neuer Punkt: **zeitliche Obergrenze für `segment_active`** im `ActivationController`. ForceFinalize ist ein Mengenschutz und deckt Stillstand nicht ab. | §4.4 |
 | **P4** | Zwei bestehende Defekte im Transkriptionspfad aufnehmen, die mit der Finalisierungszählung wirksam werden: der Fehlerzweig in `_text_worker` räumt das Terminal nicht ab (`server.py:3320-3350`), und `flush_buffered_audio` meldet Erfolg, obwohl `stop_recording` still abbrach (`recording_buffers.py:108-110` gegen `lifecycle.py:99-104`). | §1.5 R2/R3, §4.2 |
-| **P5** | Die Wake-Word-Mehrfachauswahl ist **kein Serverarbeitspaket**. Der Katalog liegt in `hello.sessionCapabilities.wakeWord.availableWakeWords` (`server.py:4958-4966`) und wird vom Client nur nicht gelesen. Reines Clientpaket. | bereits in `TARGET_MIGRATION_MAP.md` §0, hier bestätigt |
+| **P5** | Der bestehende Serverkatalog ist eine Basis, aber die aktuelle Planung verlangt zusätzlich Build-Inhalt, globales Disable, kanonische IDs/Aliase und resolved Sessionauswahl. Client- und möglicher Server-/Contract-Anteil sind beim Plan-Freeze neu zu bestimmen. | bestehende Capability plus aktuelle Entscheidung WW-01/WW-02 |
 | **P6** | Der Client-`ActivationMirror` wird auf **`/ws/transcribe`** gebaut, nicht auf den Eventstream. `/ws/logs` bleibt Observability. Das ändert die Verdrahtung im entsprechenden Arbeitspaket. | §2.5 |
 | **P7** | Neues, kleines Contract-Paket: **Sessionkommando für die Wake-Word-Pause** samt Ack und Sichtbarkeit im Zustand. Es hängt nicht am Finalisierungspaket und kann parallel geplant werden. | §3.5 |
 
@@ -926,14 +945,14 @@ Klärung falsch würde:
 | # | Blocker | blockiert | Auflösung |
 |---|---|---|---|
 | **B1** | `activationId` ist beim Transkriptionsabschluss nicht verfügbar | jede Form von `finalized()` | Bindung an `recording_started` einziehen (§1.2) — technisch geklärt, kein Entscheidungsbedarf |
-| **B2** | Verworfene Segmente erzeugen kein Terminal | Terminalzähler | **E1** entscheiden |
+| **B2** | Verworfene Segmente erzeugen heute kein Terminal | Terminalzähler | eigenes verwerfendes Terminal gemäß entschiedener E1-Semantik implementieren |
 | **B3** | Serverseitiges `finish` scheitert bei `manual_trigger_enabled=false` | Zielbild §6.2 in der Wake-Word-only-Konfiguration | **P2** umsetzen |
 | **B4** | Der Fehlerzweig in `_text_worker` verschiebt die Terminalzuordnung | Terminalzähler und Segmentzuordnung allgemein | **P4** umsetzen, vor der Zählung |
-| **B5** | Wake-Word-Pause über Reconnect | Frage 3 vollständig | **E3** entscheiden |
+| **B5** | Wake-Word-Pause über Reconnect | Contract und Implementierung | Semantik entschieden; atomare Reconnect-/Admission-Übergabe festlegen |
 
-**Keine Blocker**, obwohl offen: **E2**, **E4**, **E5**, **E6** — sie ändern
-Details, nicht die Struktur, und können während der Umsetzung entschieden
-werden.
+**Keine Blocker**, obwohl offen: **E5** und **E6** — sie ändern Details, nicht
+die Struktur, und können während der Umsetzung entschieden werden. E2 ist
+fachlich entschieden; nur Wire-Namen/-felder sind technische Contractarbeit.
 
 ---
 
@@ -941,9 +960,9 @@ werden.
 
 | Frage | Klassifikation | offene Information |
 |---|---|---|
-| **1 – Finalisierungszeitpunkt** | `DECISION REQUIRED` | E1 (verworfene Segmente), E2 (Cancel-Semantik). Der technische Weg, der Ort und die Verdrahtung sind vollständig geklärt. |
+| **1 – Finalisierungszeitpunkt** | `FACHLICH RESOLVED / WIRE-CONTRACT OFFEN` | Finish wartet reguläre Terminals ab; Cancel unterdrückt/verwirft unveröffentlichte Resultate und nimmt bereits ausgegebenen Text nicht zurück; jedes angenommene Segment erhält einen terminalen Ausgang. Phase und Retry-/Exactly-once-Semantik sind eingefroren, nur Wire-Namen/-felder bleiben technische Contractarbeit. |
 | **2 – Runtime Control Plane / State Sync** | `RESOLVED` | – |
-| **3 – Wake-Word-Pause** | `DECISION REQUIRED` | E3 (Persistenz über Reconnect), E4 (Pause ohne verbleibende Triggerquelle). Mechanismus und Ort sind geklärt. |
+| **3 – Wake-Word-Pause** | `SEMANTIK UND BEDIENSTRUKTUR ENTSCHIEDEN / CONTRACT OFFEN` | Reconnect-Persistenz, null effektive Trigger und dritter optional belegbarer Hotkey sind entschieden; Nachricht/Ownerabbildung, konkrete Taste und Konfliktregeln bleiben offen. |
 | **4 – `segment_active`-Absicherung** | `RESOLVED` | Antwort: **TEILWEISE abgesichert**; die Absicherung gehört in den `ActivationController`. Nur der Zahlenwert (E5) ist offen. |
 | **5 – Hotkey-Registrierung Wake-Word-only** | `RESOLVED` | – ; enthält den Zusatzbefund, dass die Serverseite (`_source_enabled` an `finish`) mit geändert werden muss. |
 | **6 – Logging-Beobachtungspunkte** | `RESOLVED` | – ; alle Punkte sind `OBSERVATION ONLY`. |

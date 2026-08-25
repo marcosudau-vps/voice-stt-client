@@ -3,6 +3,42 @@
 <!-- PLANUNGSLEITFADEN -->
 <!-- ARBEITSPAKET-STANDARD -->
 
+## Aktueller Planungsbereich
+
+Die Planung ist bewusst flach gehalten:
+
+- `ENTSCHEIDUNGEN_UND_OFFENE_PUNKTE.md` ist das fachliche Entscheidungsregister
+  und führt die noch technisch zu konkretisierenden Verträge.
+- `ZIELBILD.md` enthält die auf den abgeschlossenen fachlichen Klärungsstand
+  konsolidierte Soll-Spezifikation.
+- `TECHNISCHER_CONTRACT_FREEZE.md` ist der verbindliche Phasen-, Wire-, ID-,
+  Settings- und Recoveryvertrag.
+- `PROTOKOLL_V2_WIRE_SCHEMA.md` und `VERTRAGSVEKTOREN/` härten die
+  repositoryübergreifende Schnittstelle auf konkrete Nachrichtenfelder,
+  Result-Codes und gemeinsame Testbeispiele.
+- `ANALYSEN/` enthält Ist-Evidence und technische Voranalysen. Nicht belegte
+  Annahmen daraus sind keine Entscheidungen.
+- `IMPLEMENTIERUNGSPLAN.md` ist der verbindliche Plan mit strikt getrennten
+  Server- und Client-Arbeitspaketen.
+- `AUSFUEHRUNGS_WORKFLOW.md` beschreibt Parallelisierungswellen,
+  Modellempfehlungen, Dokumentationspflichten und Endabnahme.
+- Status, Funde und Nachweise liegen getrennt unter `../NACHVERFOLGUNG/`.
+
+Für die laufende Planung gilt folgende Rangfolge:
+
+1. direkt besprochene und in `ENTSCHEIDUNGEN_UND_OFFENE_PUNKTE.md`
+   festgehaltene Entscheidungen;
+2. nach der Konsolidierung das freigegebene `ZIELBILD.md`;
+3. Code und Tests als Beleg des tatsächlichen Ist-Zustands;
+4. Analysen und alte Planentwürfe als unterstützende, überprüfbare Quellen.
+
+Arbeitspaket-Zuordnungen sind in Plan und Traceability festgelegt. Server-
+Pakete (`AP-SRV-*`) und Client-Pakete (`AP-CLI-*`) dürfen keine Dateien des
+jeweils anderen Produktrepositorys besitzen; Integrationspakete ändern keinen
+Produktcode.
+
+---
+
 Diese Datei beschreibt die Standardlogik der Planung für diesen Arbeitsblock. Sie ist Orientierung und Qualitätsmaßstab, aber kein starrer Freigabeprozess. Neue Erkenntnisse dürfen jederzeit dazu führen, frühere Planungsschritte erneut zu bearbeiten.
 
 ## Empfohlener Planungsablauf
@@ -57,6 +93,8 @@ Ein Implementierungs-Arbeitspaket soll mindestens enthalten:
 8. **Prüfbare Akzeptanzkriterien**
 9. **Konkrete Validierung**
 10. **Abschluss-/Commit-Regel**
+11. **Dokumentationsauftrag** für kanonische Produkt-, Fortschritts- und
+    Übergabedokumente
 
 ### Anforderungen an Ziele und Akzeptanzkriterien
 
