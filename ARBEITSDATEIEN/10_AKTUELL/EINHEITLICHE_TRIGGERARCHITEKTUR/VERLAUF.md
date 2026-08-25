@@ -361,3 +361,18 @@
   anspruchsvoller als der vorherige Claude-Baselinelauf und würde das
   verbleibende Fünf-Stunden-Budget unnötig riskieren.
 - Client-Lane bleibt mangels erfüllter Dependency bis AP-SRV-040 frei.
+
+## 2026-08-25 04:31:35 +02:00 – EXEC-SRV-010-001 State Machine abgenommen und gepusht
+
+- GPT-Agent implementierte das kanonische Fünf-Phasen-Domainmodell,
+  First-Trigger-wins, stabile Activation-ID/-Sequenz, unveränderlichen
+  Settings-Snapshot und die Gate-/Recorder-Close-Barriere.
+- Erstabnahme wegen nicht vollständig expliziter Alt→Neu-Testabdeckung
+  zurückgegeben. Derselbe Agent ergänzte im selben Commit die weiterhin
+  gültigen Invarianten und ordnete alle 41 alten Controller-Testmethoden zu.
+- Root unabhängig validiert: fokussiert `101 passed, 15 subtests passed`;
+  Vollsuite `490 passed, 13 skipped`; vollständiger Range-Check PASS.
+- Genau ein freigegebener AP-Commit auf den Server-Feature-Branch gepusht:
+  `3262079c62c58677cfd6506cd09d020b5b27ef44`.
+- `AP-SRV-020` ist damit freigegeben; die Client-Lane bleibt bis AP-SRV-040
+  dependency-bedingt frei.

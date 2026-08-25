@@ -7,14 +7,14 @@ title: Einheitliche Triggerarchitektur
 state: AKTIV
 phase: IMPLEMENTIERUNG
 created_at: 2026-08-24 01:08:47 +02:00
-updated_at: 2026-08-25 03:55:20 +02:00
+updated_at: 2026-08-25 04:31:35 +02:00
 branch: feat/einheitliche-triggerarchitektur
 baseline_head: dd0af5ed22e7401895f08c8c13e4e37c7e78ddb7
 -->
 
 **Status:** AKTIV
 
-**Phase:** IMPLEMENTIERUNG / WELLE 1 ABGENOMMEN
+**Phase:** IMPLEMENTIERUNG / AP-SRV-010 ABGENOMMEN
 
 **Branch:** `feat/einheitliche-triggerarchitektur`
 
@@ -126,9 +126,9 @@ Gate- und Dependency-Stand steht in
 
 ## Aktive Arbeit
 
-Welle 1 (`AP-SRV-000` und `AP-CLI-000`) ist mit `PASS` abgeschlossen.
-`AP-SRV-010` läuft auf der GPT-Lane gegen den gepushten Server-Start-SHA
-`71a35e074eb90d75f8f91f5ed7cb46accd4b6498`. Für ein Client-Produktpaket ist
+Welle 1 (`AP-SRV-000` und `AP-CLI-000`) sowie `AP-SRV-010` sind mit `PASS`
+abgeschlossen. Der abgenommene und gepushte State-Machine-Commit ist
+`3262079c62c58677cfd6506cd09d020b5b27ef44`. Für ein Client-Produktpaket ist
 bis zur Abnahme von `AP-SRV-040` noch keine Abhängigkeit erfüllt; die
 Client-Lane bleibt deshalb bewusst frei.
 
@@ -152,11 +152,10 @@ Score-/Audiodaten innerhalb des eingefrorenen Contracts kalibriert.
 
 ## Nächster Schritt
 
-`AP-SRV-010` durch den GPT-Agenten fertigstellen lassen, anschließend Diff,
-Dokumentation, fokussierte Tests, Race-Wiederholungen und vollständige
-Serversuite unabhängig abnehmen. Bei Befunden geht derselbe lokale Commit an
-denselben Agenten zurück; erst nach PASS wird gepusht. Danach folgen
-`AP-SRV-020`, `AP-SRV-030` und `AP-SRV-040` seriell.
+Den Auftrag für `AP-SRV-020` gegen den abgenommenen Server-Start-SHA
+`3262079c62c58677cfd6506cd09d020b5b27ef44` vorbereiten. Danach folgen
+`AP-SRV-030` und `AP-SRV-040` weiterhin seriell; erst AP-SRV-040 öffnet das
+nächste Server-/Client-Parallelfenster.
 
 ## Abgrenzung
 

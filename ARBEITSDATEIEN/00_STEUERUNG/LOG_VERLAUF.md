@@ -1809,3 +1809,13 @@
 - Claude wegen des gegenüber dem letzten Baselinelauf höheren
   Architekturaufwands und des verbleibenden Zeitbudgets nicht eingesetzt.
 - Client-Lane bleibt bis AP-SRV-040 dependency-bedingt frei.
+
+## 2026-08-25 04:31:35 +02:00 – EXEC-SRV-010-001: State Machine abgenommen und gepusht
+
+- AP-SRV-010 nach einer dokumentierten Korrekturrunde und vollständiger
+  Alt→Neu-Zuordnung aller 41 Controller-Baselinetests abgenommen.
+- Root-Nachweise: fokussiert `101 passed, 15 subtests passed`, Vollsuite
+  `490 passed, 13 skipped`, Range-Diff-Check PASS, genau ein AP-Commit.
+- Freigegebener Server-SHA:
+  `3262079c62c58677cfd6506cd09d020b5b27ef44`.
+- AP-SRV-020 ist READY; AP-CLI-010 bleibt bis AP-SRV-040 blockiert.
