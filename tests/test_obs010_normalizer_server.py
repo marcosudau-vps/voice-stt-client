@@ -21,7 +21,7 @@ from core.session_coordinator import SessionContext
 
 from core.observability.normalizer import from_server_result
 
-from test_event_protocol import (
+from tests.test_event_protocol import (
     access,
     envelope,
     event_message,

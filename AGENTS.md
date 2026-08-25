@@ -42,15 +42,11 @@ Für WebSocket-Protokoll, Session-Lebenszyklus, Events, Zustandsübergänge, Rec
 
 ### Zielarchitektur und gewünschtes Verhalten
 
-Für die weitere Client-Architektur, Transkript-Historie, Textinjektion, Clipboard-Verhalten, Threading, UI-Anbindung und Selbstheilung ist folgende Datei maßgeblich:
-
-`docs/IMPLEMENTATION_ROADMAP.md`
+Für die weitere Client-Architektur, Transkript-Historie, Textinjektion, Clipboard-Verhalten, Threading, UI-Anbindung und Selbstheilung ist der `PLANUNG/`-Bereich des jeweils aktiven Arbeitsblocks unter `ARBEITSDATEIEN/10_AKTUELL/` maßgeblich; der aktive Arbeitsblock steht in `ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md`. Die frühere Datei `docs/IMPLEMENTATION_ROADMAP.md` wurde am 17. August 2026 im Zuge der ARBEITSDATEIEN-Migration (Commit `f3908cf`) nach `ARBEITSDATEIEN/90_HISTORIE/VOR_NEUEM_ARBEITSSYSTEM/` verschoben und ist nicht mehr aktuell.
 
 ### Arbeits- und Dokumentationsordnung
 
-Für die Rollen der Projektdokumente, Aktualisierungszeitpunkte, Benennung, Archivierung, Entscheidungsnachweise und den dokumentarischen Abschluss eines Arbeitspakets ist folgende Datei verbindlich:
-
-`docs/ARBEITSWEISE_UND_DOKUMENTATIONSORDNUNG.md`
+Für die Rollen der Projektdokumente, Aktualisierungszeitpunkte, Benennung, Archivierung, Entscheidungsnachweise und den dokumentarischen Abschluss eines Arbeitspakets ist `.agents/skills/arbeitsstruktur/SKILL.md` verbindlich. Die frühere Datei `docs/ARBEITSWEISE_UND_DOKUMENTATIONSORDNUNG.md` wurde ebenfalls am 17. August 2026 nach `ARBEITSDATEIEN/90_HISTORIE/VOR_NEUEM_ARBEITSSYSTEM/` verschoben und ist nicht mehr aktuell.
 
 ### Schnelle Projektorientierung
 
@@ -88,9 +84,9 @@ frischesten im Kontext.
 In dieser Reihenfolge:
 
 1. `AGENTS.md`
-2. `docs/ARBEITSWEISE_UND_DOKUMENTATIONSORDNUNG.md`
+2. `.agents/skills/arbeitsstruktur/SKILL.md`
 3. `docs/PROJEKTUEBERSICHT.md`
-4. `docs/IMPLEMENTATION_ROADMAP.md`
+4. `PLANUNG/` des aktiven Arbeitsblocks (Einstieg über `ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md`)
 5. `ÜBERGABE.md`
 6. `task.md`
 
@@ -187,9 +183,9 @@ Vor Abschluss:
 3. bestehende Regressionstests ausführen,
 4. Fehler iterativ beheben,
 5. `task.md` aktualisieren,
-6. `docs/IMPLEMENTATION_ROADMAP.md` bei Paket-, Architektur- oder Abnahmekriterienänderungen aktualisieren,
+6. `PLANUNG/` des aktiven Arbeitsblocks bei Paket-, Architektur- oder Abnahmekriterienänderungen aktualisieren,
 7. `ÜBERGABE.md` bei einer relevanten Änderung des Übergabestands aktualisieren,
-8. weitere Dokumentationspflichten aus `docs/ARBEITSWEISE_UND_DOKUMENTATIONSORDNUNG.md` erfüllen.
+8. weitere Dokumentationspflichten aus `.agents/skills/arbeitsstruktur/SKILL.md` erfüllen.
 
 Nach Abschluss des beauftragten Arbeitspakets stoppen. Nicht automatisch mit dem nächsten Arbeitspaket beginnen.
 

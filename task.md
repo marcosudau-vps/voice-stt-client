@@ -1,11 +1,61 @@
 # Arbeitsstand und Aufgaben – RealtimeSTT Windows Desktop Client
 
 > **Status:** aktiver Tracker  
-> **Stand:** 12. August 2026
-> **Aktives Paket:** AP7 Feedback- und Eventsystem `[M10 DEBUG-FEEDBACK-KORREKTUR ABGENOMMEN]`
-> **Nächster Schritt:** gesprochene Bedien-/Disconnect-/Langlaufmatrix und alltagstaugliches Feedbacktuning
-> **Separater Restpunkt:** AP6-Wake-Word-Bediennachweis mit echtem Mikrofon  
+> **Stand:** 12. August 2026 (AP1–AP8-Historie unten); Baseline-Zusatz 25. August 2026
+> **Aktives Paket:** AP-CLI-000 Clientbaseline und Charakterisierung (Einheitliche Triggerarchitektur) `[BASELINE VERIFIZIERT]`
+> **Nächster Schritt:** AP-CLI-010 (v2-Transport/ActivationMirror), siehe `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/`
+> **Separater Restpunkt:** AP6-Wake-Word-Bediennachweis mit echtem Mikrofon (unverändert, siehe AP7 unten)
 > **Repository/Release:** öffentliches GitHub-Repository und geprüfte Windows-CI-/Release-Strecke eingerichtet
+
+## AP-CLI-000 – Clientbaseline und Charakterisierung (Einheitliche Triggerarchitektur) `[BASELINE VERIFIZIERT]`
+
+Der bisherige AP1–AP8-Tracker unten bleibt als Ist-Stand-Historie erhalten und
+beschreibt den Client vor der Migration auf die einheitliche
+Triggerarchitektur. Für den aktiven Umbau ist ab sofort
+`ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/` maßgeblich
+(Einstieg über `ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md`).
+
+- Start-HEAD `db102fdc6dd70e4de798a363608d1e7412533dd7` auf
+  `feat/einheitliche-triggerarchitektur` reproduzierbar getestet: **1192
+  Tests** grün
+  (`P:\GithubRepos\marcosudau-vps\voice-stt-client\main\venv\Scripts\python.exe -m pytest`,
+  geteilte Projektumgebung; dieser Worktree besitzt keine eigene lokale
+  venv), zweimal ohne Flake wiederholt.
+- Baselinekorrektur (kein Soll-Verhaltenswechsel): `tests/test_obs010_normalizer_server.py`
+  importierte `test_event_protocol` ohne Paketpräfix; das funktioniert nur
+  unter `unittest discover -s tests`, nicht unter der vom Auftrag
+  vorgeschriebenen `pytest`-Baseline, weil `tests/__init__.py` `tests` zu
+  einem Package macht und `pytest` dadurch das Repository-Root statt
+  `tests/` auf den Importpfad legt. Ohne diese Ein-Zeilen-Korrektur bricht
+  `python -m pytest` die gesamte Sammlung mit einem Kollisionsfehler ab.
+  Import auf `from tests.test_event_protocol import (...)` korrigiert.
+- Neuer Charakterisierungstest
+  `tests/test_ap_cli_000_baseline_characterization.py` belegt reproduzierbar
+  einen in `PLANUNG/ANALYSEN/LEGACY_AND_DEAD_CODE_MAP.md` (§17.2, Fund 7)
+  bereits beschriebenen, aber bis dahin nicht dauerhaft reproduzierbaren
+  Befund: Mit einem `set_streaming`, das wie `core/stt_session.py:622-625`
+  auch `state.streaming_requested` setzt, sendet die zweite Activation nach
+  einem `finish` erneut `start`, obwohl der Inline-Kommentar in
+  `core/controller.py:1123-1125` „der Stream bleibt bestehen" behauptet. Die
+  vorhandenen Doubles (`FakeSTTSession`, `StreamCountingSession`) verdecken
+  das, weil sie `set_streaming` nicht produktionsgetreu abbilden. Kein
+  Produktcode wurde geändert; die Klärung, welche Seite (Kommentar oder
+  Flag) korrekt ist, bleibt AP-CLI-010.
+- Governanceabweichung nachgewiesen und korrigiert: `AGENTS.md` verwies auf
+  `docs/ARBEITSWEISE_UND_DOKUMENTATIONSORDNUNG.md` und
+  `docs/IMPLEMENTATION_ROADMAP.md`; beide Dateien wurden am 17. August 2026
+  (Commit `f3908cf`) nach
+  `ARBEITSDATEIEN/90_HISTORIE/VOR_NEUEM_ARBEITSSYSTEM/` verschoben. Verweise
+  in `AGENTS.md`, `README.md`, `ÜBERGABE.md` und `docs/PROJEKTUEBERSICHT.md`
+  zeigen jetzt auf die aktuellen Nachfolger (`.agents/skills/arbeitsstruktur/SKILL.md`
+  beziehungsweise `PLANUNG/` des aktiven Arbeitsblocks).
+- Vollständiges Inventar überholter Trigger-Solltests, ihrer
+  Contract-/Folge-AP-Zuordnung sowie kritischer Ist-Helfer:
+  `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/ARBEITSPAKETE/AP-CLI-000/runs/01_BASELINE/REPORT.md`.
+- Keine sonstige Produktverhaltensänderung; keine v2-Transport- oder
+  ActivationMirror-Vorwegnahme.
+
+## Historischer AP1–AP8-Tracker (Stand 12. August 2026, vor der Triggermigration)
 
 ## Phase 1 – Headless Audio-/WebSocket-Core `[VORHANDEN; LIVE UND AUTOMATISIERT TEILVERIFIZIERT]`
 

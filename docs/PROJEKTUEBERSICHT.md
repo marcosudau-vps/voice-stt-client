@@ -17,7 +17,19 @@ Diese Datei ist der kurze technische Einstieg für neue Bearbeiter. Sie übernim
   und ReSpeaker-Ausgabe M4–M9 abgenommen; M10-Fehlerkampagne in Arbeit,**
 - **manuell oder im Live-Betrieb noch offen.**
 
-Sie ist keine zweite Roadmap und keine zweite Übergabe. Bei Detailfragen gilt die Quellenhierarchie in `AGENTS.md` und `docs/ARBEITSWEISE_UND_DOKUMENTATIONSORDNUNG.md`.
+Sie ist keine zweite Roadmap und keine zweite Übergabe. Bei Detailfragen gilt die Quellenhierarchie in `AGENTS.md` und `.agents/skills/arbeitsstruktur/SKILL.md`.
+
+**Baseline-Zusatz 25. August 2026 (AP-CLI-000):** Der Client wird auf
+`feat/einheitliche-triggerarchitektur` schrittweise auf die einheitliche
+Trigger-/Wire-v2-Architektur umgebaut; maßgeblich ist ab sofort
+`ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/` (Einstieg über
+`ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md`). AP-CLI-000 hat den
+Ist-Stand unten (Stand 12. August 2026, AP1–AP8) auf Start-HEAD
+`db102fdc6dd70e4de798a363608d1e7412533dd7` mit 1192 grünen Tests
+reproduzierbar verifiziert und überholte Trigger-Solltests dem neuen
+Contract zugeordnet; Details im Baseline-Bericht unter
+`ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/ARBEITSPAKETE/AP-CLI-000/runs/01_BASELINE/REPORT.md`.
+Der übrige Inhalt dieser Datei beschreibt weiterhin den Pre-Trigger-Stand.
 
 Die historische Datei
 
@@ -530,9 +542,9 @@ präzisiert. E-06 bleibt ein getrennter Hygiene-Restpunkt für AP8.
 | Dokument | Aufgabe |
 | --- | --- |
 | `AGENTS.md` | dauerhafte Projekt- und Agentenregeln |
-| `docs/ARBEITSWEISE_UND_DOKUMENTATIONSORDNUNG.md` | verbindliche Pflege- und Arbeitsregeln |
+| `.agents/skills/arbeitsstruktur/SKILL.md` | verbindliche Pflege- und Arbeitsregeln (ersetzt das frühere `docs/ARBEITSWEISE_UND_DOKUMENTATIONSORDNUNG.md`) |
 | `docs/PROJEKTUEBERSICHT.md` | dieser kompakte technische Einstieg |
-| `docs/IMPLEMENTATION_ROADMAP.md` | führender Gesamtfahrplan und Zielarchitektur |
+| `PLANUNG/` des aktiven Arbeitsblocks unter `ARBEITSDATEIEN/10_AKTUELL/` | führender Gesamtfahrplan und Zielarchitektur (ersetzt das frühere `docs/IMPLEMENTATION_ROADMAP.md`; Einstieg über `ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md`) |
 | `task.md` | aktueller Paket-, Restpunkt- und Teststatus |
 | `ÜBERGABE.md` | operativer Einstieg in den zuletzt verifizierten Stand |
 | `docs/work-packages/AP04_CONTROLLER_INTEGRATION.md` | abgenommener AP4-Paketvertrag und Integrationsnachweis |
@@ -558,9 +570,9 @@ präzisiert. E-06 bleibt ein getrennter Hygiene-Restpunkt für AP8.
 ### Empfohlene Lesereihenfolge für das nächste Arbeitspaket
 
 1. `AGENTS.md`
-2. `docs/ARBEITSWEISE_UND_DOKUMENTATIONSORDNUNG.md`
+2. `.agents/skills/arbeitsstruktur/SKILL.md`
 3. diese Projektübersicht
-4. `docs/IMPLEMENTATION_ROADMAP.md`
+4. `PLANUNG/` des aktiven Arbeitsblocks (Einstieg über `ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md`)
 5. `ÜBERGABE.md`
 6. `task.md`
 7. `docs/work-packages/AP07_FEEDBACK_EVENTSYSTEM_GESAMTPLANUNG.md`,

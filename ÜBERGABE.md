@@ -1,6 +1,6 @@
 # ÜBERGABE – RealtimeSTT Windows Desktop Client
 
-> **Stand:** 12. August 2026
+> **Stand:** 12. August 2026 (dieses Dokument); Baseline-Zusatz 25. August 2026
 > **Projektpfad:** `P:\GithubRepos\marcosudau-vps\voice-stt-client`
 > **Status:** AP07-M0 bis M9 und akute M10-Debugfeedback-Korrektur abgenommen
 > **Nächster Schritt:** verbleibende gesprochene M10-Bedien-, Disconnect- und Langlaufmatrix sowie Alltagstuning
@@ -12,6 +12,28 @@
 > sessiongebundener `/ws/logs`-Replay/LIVE-Pfad ohne Audio oder Injection grün
 > **Separater Restpunkt:** gesprochenes `hey_jarvis` nach dem AP6-Fix einmal
 > mit echtem Mikrofon bestätigen
+
+## 0. Baseline für die einheitliche Triggerarchitektur (AP-CLI-000, 25. August 2026)
+
+Der Client wird auf `feat/einheitliche-triggerarchitektur` schrittweise auf
+die einheitliche Trigger-/Wire-v2-Architektur umgebaut
+(`ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/`, Einstieg über
+`ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md`). AP-CLI-000 hat den
+Ist-Stand auf Start-HEAD `db102fdc6dd70e4de798a363608d1e7412533dd7`
+reproduzierbar verifiziert: **1192 Tests grün** über
+`P:\GithubRepos\marcosudau-vps\voice-stt-client\main\venv\Scripts\python.exe -m pytest`
+(geteilte Projektumgebung; dieser Worktree besitzt keine eigene lokale
+venv), zweimal ohne Flake wiederholt. Eine Ein-Zeilen-Importkorrektur
+in `tests/test_obs010_normalizer_server.py` war nötig, damit `pytest`
+überhaupt sammeln kann (siehe `task.md`); kein Produktverhalten wurde
+geändert. Das vollständige Inventar der überholten Trigger-Solltests
+(`tests/test_trigger_lifecycle.py`, `tests/test_trigger_feedback_contract.py`,
+Teile von `tests/test_ap06_followup.py`) und ihre Zuordnung zu
+`AP-SRV-010`/`AP-CLI-010`/`AP-CLI-020`/`AP-CLI-040`/`AP-CLI-050` steht im
+Baseline-Bericht
+`ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/ARBEITSPAKETE/AP-CLI-000/runs/01_BASELINE/REPORT.md`.
+Die restlichen Abschnitte dieses Dokuments beschreiben weiterhin den
+Pre-Trigger-Stand vom 12. August 2026.
 
 ## 1. Projektziel und aktueller Stand
 
@@ -346,7 +368,7 @@ manueller Hardware-/Server-Nachweis offen. Vollständiger Fixnachweis:
 
 ## 7. Maßgebliche Dokumente
 
-- `docs/IMPLEMENTATION_ROADMAP.md`
+- `PLANUNG/` des aktiven Arbeitsblocks unter `ARBEITSDATEIEN/10_AKTUELL/` (Einstieg über `ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md`; ersetzt das frühere `docs/IMPLEMENTATION_ROADMAP.md`)
 - `docs/PROJEKTUEBERSICHT.md`
 - `task.md`
 - `docs/work-packages/AP06_UI_SHELL.md`

@@ -163,7 +163,7 @@ Verbindungsversuche bis zu einer echten Konfigurationsänderung.
 ## Weiterführende Dokumentation
 
 - `docs/PROJEKTUEBERSICHT.md` – kompakter technischer Gesamtüberblick
-- `docs/IMPLEMENTATION_ROADMAP.md` – verbindlicher Fahrplan
+- `PLANUNG/` des aktiven Arbeitsblocks unter `ARBEITSDATEIEN/10_AKTUELL/` – verbindlicher Fahrplan (Einstieg über `ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md`; ersetzt das frühere `docs/IMPLEMENTATION_ROADMAP.md`)
 - `task.md` – aktueller Fortschritt
 - `ÜBERGABE.md` – operativer Einstieg
 - `docs/work-packages/AP06_UI_SHELL.md` – technischer UI-/Threadingvertrag und laufende AP6-Nachschärfung
