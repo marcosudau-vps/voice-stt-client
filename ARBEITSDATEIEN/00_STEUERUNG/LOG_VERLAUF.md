@@ -1798,3 +1798,14 @@
 - Beide APs besitzen eine vollständige Akte und genau einen abgenommenen
   Commit. `AP-SRV-010` ist als nächstes Paket freigegeben; `AP-CLI-010` bleibt
   bis zum PASS von `AP-SRV-040` blockiert.
+
+## 2026-08-25 03:55:20 +02:00 – EXEC-SRV-010-START: State-Machine-Paket gestartet
+
+- AP-SRV-010 auf der GPT-Lane gegen
+  `71a35e074eb90d75f8f91f5ed7cb46accd4b6498` gestartet.
+- Datierten Serverplan und vollständige AP-Akte vor Umsetzung angelegt;
+  Originalprompt-SHA-256:
+  `3A7A3AA0D84AC59C6509B334275F8AC66816D307491B4D2A84E4280F7AFEC073`.
+- Claude wegen des gegenüber dem letzten Baselinelauf höheren
+  Architekturaufwands und des verbleibenden Zeitbudgets nicht eingesetzt.
+- Client-Lane bleibt bis AP-SRV-040 dependency-bedingt frei.

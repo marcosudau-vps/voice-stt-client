@@ -1,6 +1,6 @@
 # Ausführungsstatus – Einheitliche Triggerarchitektur
 
-**Stand:** 2026-08-25 03:28:14 +02:00
+**Stand:** 2026-08-25 03:55:20 +02:00
 
 Diese Datei führt ausschließlich Ausführungsgates und immutable Commit-SHAs.
 Fachliche Anforderungen und Planungsstatus bleiben in `TRACEABILITY.md`.
@@ -16,7 +16,7 @@ Fachliche Anforderungen und Planungsstatus bleiben in `TRACEABILITY.md`.
 
 | AP | Status | Erfüllte Dependencies | Noch erforderlich |
 |---|---|---|---|
-| AP-SRV-010 | READY | AP-SRV-000 | – |
+| AP-SRV-010 | IN PROGRESS – GPT / `01_IMPLEMENTATION` | AP-SRV-000 | Root-Abnahme und Push; Start-SHA `71a35e074eb90d75f8f91f5ed7cb46accd4b6498`, Prompt-SHA-256 `3A7A3AA0D84AC59C6509B334275F8AC66816D307491B4D2A84E4280F7AFEC073` |
 | AP-SRV-020 | BLOCKED | – | AP-SRV-010 |
 | AP-SRV-030 | BLOCKED | – | AP-SRV-010 und AP-SRV-020 |
 | AP-SRV-040 | BLOCKED | – | AP-SRV-010 bis AP-SRV-030 |

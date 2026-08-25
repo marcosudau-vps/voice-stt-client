@@ -347,3 +347,17 @@
 - Der GitHub-Account für weitere Operationen ist `marcosudau-vps`.
 - `AP-SRV-010` ist freigegeben. Die Client-Lane bleibt bis zum PASS von
   `AP-SRV-040` dependency-bedingt ohne ausführbares Produktpaket.
+
+## 2026-08-25 03:55:20 +02:00 – EXEC-SRV-010-START State-Machine-Paket gestartet
+
+- `AP-SRV-010` auf der GPT-Lane gegen den abgenommenen und gepushten
+  Server-Start-SHA `71a35e074eb90d75f8f91f5ed7cb46accd4b6498` gestartet.
+- Repositorylokale Akte mit datiertem Plan, Originalprompt, Report,
+  Root-Abnahme und Evidence-Index vor Implementierungsbeginn angelegt.
+- Originalprompt über SHA-256
+  `3A7A3AA0D84AC59C6509B334275F8AC66816D307491B4D2A84E4280F7AFEC073`
+  fixiert.
+- Claude bewusst nicht eingesetzt: Das State-Machine-Paket ist materiell
+  anspruchsvoller als der vorherige Claude-Baselinelauf und würde das
+  verbleibende Fünf-Stunden-Budget unnötig riskieren.
+- Client-Lane bleibt mangels erfüllter Dependency bis AP-SRV-040 frei.
