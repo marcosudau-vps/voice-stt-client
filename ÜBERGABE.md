@@ -2,8 +2,8 @@
 
 > **Stand:** 25. August 2026, operative Triggerübergabe; historische Clientdetails unten
 > **Projektpfad:** `P:\GithubRepos\marcosudau-vps\voice-stt-client`
-> **Status:** Triggerarchitektur in Umsetzung; AP-SRV-000, AP-CLI-000 und AP-SRV-010 abgenommen
-> **Nächster Schritt:** AP-SRV-020; AP-CLI-010 bleibt bis AP-SRV-040 blockiert
+> **Status:** Triggerarchitektur in Umsetzung; AP-SRV-000, AP-CLI-000, AP-SRV-010 und AP-SRV-020 abgenommen
+> **Nächster Schritt:** AP-SRV-030; AP-CLI-010 bleibt bis AP-SRV-040 blockiert
 > **Kanonischer Wiedereinstieg:** `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/NACHVERFOLGUNG/WIEDEREINSTIEG.md`
 > **Repository:** `https://github.com/marcosudau-vps/voice-stt-client` (`PUBLIC`)  
 > **Historischer Pre-Trigger-Nachweis:** Client 451 Tests und `compileall` grün; aktueller
@@ -17,9 +17,11 @@
 ## Aktuelle operative Übergabe – Triggerarchitektur
 
 Der aktuelle Server-Feature-Stand ist
-`3262079c62c58677cfd6506cd09d020b5b27ef44` im Repository
+`8535ee79bb2d898d9897e91b57d6a735c479edf0` im Repository
 `P:\GithubRepos\marcosudau-vps\voice-stt-server\workspaces\einheitliche-triggerarchitektur`.
-Er enthält die abgenommene Fünf-Phasen-State-Machine aus AP-SRV-010. Der
+Er enthält die abgenommene Fünf-Phasen-State-Machine aus AP-SRV-010 sowie das
+immutable, threadsichere Segmentledger und den geordneten Background-Drain aus
+AP-SRV-020. Der
 Desktop-Client besitzt mit AP-CLI-000 weiterhin nur die abgenommene Baseline
 `042fcd203c873d6f84a270413c47bc5da1fbf1ed`; seine erste Produktmigration
 beginnt erst nach dem Server-Wirepaket AP-SRV-040.

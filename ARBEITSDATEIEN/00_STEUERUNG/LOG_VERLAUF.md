@@ -1841,3 +1841,15 @@
 - Scope auf Ledger, unveränderliche Finaljobkontexte, Exactly-once-Terminals,
   geordnete Publikation und vollständige Faultterminalisierung begrenzt;
   Folgepakete und Clientcode werden nicht vorweggenommen.
+
+## 2026-08-25 05:38:46 +02:00 – EXEC-SRV-020-001: Segmentledger abgenommen und gepusht
+
+- AP-SRV-020 nach einer dokumentierten Root-Korrekturrunde gegen zwei
+  reproduzierte Nebenläufigkeitsbefunde abgenommen.
+- Korrigiert sind die sessionsweite sichtbare Dispatchreihenfolge und das
+  atomare Cancel-all ohne Freigabe vorbereiteten späteren Texts.
+- Root-Nachweise: fokussiert `108 passed, 9 subtests passed`, Vollsuite
+  `507 passed, 13 skipped`, Range-Diff-Check PASS, genau ein AP-Commit.
+- Freigegebener Server-SHA:
+  `8535ee79bb2d898d9897e91b57d6a735c479edf0`.
+- AP-SRV-030 ist READY; AP-CLI-010 bleibt bis AP-SRV-040 blockiert.

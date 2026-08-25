@@ -1,6 +1,6 @@
 # Wiedereinstieg – Einheitliche Triggerarchitektur
 
-**Stand:** 25. August 2026, nach Root-PASS von `AP-SRV-010`
+**Stand:** 25. August 2026, nach Root-PASS von `AP-SRV-020`
 
 Diese Datei ist die kompakte operative Übergabe für einen neuen Agenten ohne
 Chatkontext. Bei einem Widerspruch gelten in dieser Reihenfolge der aktuelle
@@ -12,7 +12,7 @@ Namespace-Unterordner sind keine freigegebenen Quellen.
 
 | Rolle | Workspace | Branch | letzter freigegebener Produkt-AP-SHA |
 |---|---|---|---|
-| Server | `P:\GithubRepos\marcosudau-vps\voice-stt-server\workspaces\einheitliche-triggerarchitektur` | `feat/einheitliche-triggerarchitektur` | `3262079c62c58677cfd6506cd09d020b5b27ef44` (`AP-SRV-010`) |
+| Server | `P:\GithubRepos\marcosudau-vps\voice-stt-server\workspaces\einheitliche-triggerarchitektur` | `feat/einheitliche-triggerarchitektur` | `8535ee79bb2d898d9897e91b57d6a735c479edf0` (`AP-SRV-020`) |
 | Desktop-Client und Koordination | `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur` | `feat/einheitliche-triggerarchitektur` | `042fcd203c873d6f84a270413c47bc5da1fbf1ed` (`AP-CLI-000`) |
 
 Beide Branches verfolgen
@@ -43,7 +43,9 @@ Nicht aus alten Chatnachrichten, `IDEEN/`, Namespace-Dateien,
 - `AP-CLI-000` PASS:
   `042fcd203c873d6f84a270413c47bc5da1fbf1ed`;
 - `AP-SRV-010` PASS:
-  `3262079c62c58677cfd6506cd09d020b5b27ef44`.
+  `3262079c62c58677cfd6506cd09d020b5b27ef44`;
+- `AP-SRV-020` PASS:
+  `8535ee79bb2d898d9897e91b57d6a735c479edf0`.
 
 AP-SRV-010 liefert genau einen serverseitigen Vordergrundslot mit
 `idle`, `waiting_first_speech`, `segment_active`, `followup_wait` und
@@ -52,30 +54,35 @@ gelatchte Quelle, unveränderlichen Settings-Snapshot sowie eine
 generationengebundene Gate-/Recorder-Barriere. `finalizing` blockiert den
 Vordergrund nicht mehr.
 
+AP-SRV-020 ergänzt unveränderliche Segment-/Finaljobkontexte,
+Exactly-once-Segmentterminale, sessionweiten Reorder-Drain, vollständige
+Faultterminalisierung und Activationterminale nach Input-Close plus
+vollständigem Drain. Eine Root-Korrekturrunde schloss zwei deterministisch
+reproduzierte Nebenläufigkeitsfehler: Ausgabe-Inversion zwischen parallelen
+Ledgerupdates und Textfreigabe während eines sessionweiten Cancel-all.
+
 Die vollständigen AP-Nachweise liegen serverseitig unter
 `docs/.archiv/einheitliche_triggerarchitektur/AP-SRV-000/` und
-`AP-SRV-010/`, clientseitig unter
+`AP-SRV-010/` beziehungsweise `AP-SRV-020/`, clientseitig unter
 `ARBEITSPAKETE/AP-CLI-000/`.
 
 ## 4. Nächstes Paket und harte Grenzen
 
-`AP-SRV-020` ist READY und startet exakt auf dem Server-SHA
-`3262079c62c58677cfd6506cd09d020b5b27ef44`.
+`AP-SRV-030` ist READY und startet exakt auf dem Server-SHA
+`8535ee79bb2d898d9897e91b57d6a735c479edf0`.
 
 Sein Umfang ist:
 
-- unveränderlicher Finaljobkontext mit Session-, Activation-, Segment-ID,
-  Sequenz und Settings-Snapshot;
-- Pending-Activation-Registry statt globaler Current-Activation-Korrelation;
-- genau ein terminaler Segmentausgang für `completed`, `discarded`,
-  `cancelled` oder `failed`;
-- sessionsweite geordnete Finalpublikation trotz Out-of-order-Completion;
-- Queue-Trim, Empty-Final und Workerfehler als sichtbare Terminals;
-- Activationterminal erst nach vollständigem Segmentledger.
+- `activate|refresh|finish|cancel` mit Phasen- und Activation-ID-Validierung;
+- Replaycache und Payload-Konflikterkennung für Commands;
+- Follow-up-Reset ohne `extensionSeconds`/`pending_extension`;
+- Segment-Watchdog mit 600/180/30-Sekunden-Semantik und Warning-Event;
+- monotone Deadlines, `timerRevision` und stale Guards;
+- `closing_input`-Recovery sowie generisches `audioAvailable=false`;
+- Finish-/Cancel-Ereignisse und die bestätigte Verwerfungsgrenze.
 
 Nicht vorwegnehmen:
 
-- Commands, Refresh, Watchdog und Closing-Recovery-Timer (`AP-SRV-030`);
 - Protokoll v2, Handshake, endgültige Events/Snapshots (`AP-SRV-040`);
 - Settings-Control-Plane (`AP-SRV-050`);
 - Wake-Word-Katalog/Detection/Kalibrierung (`AP-SRV-060`);
@@ -111,8 +118,10 @@ python -m pytest
 
 Beim bekannten Windows-Rechteproblem des globalen Pytest-Tempordners werden
 `TEMP` und `TMP` auf das ignorierte repositorylokale Verzeichnis `.tmp`
-gesetzt. AP-SRV-010 bestand unabhängig `101` fokussierte Tests plus `15`
-Subtests und die Vollsuite mit `490 passed, 13 skipped`.
+gesetzt. AP-SRV-020 bestand unabhängig `108` fokussierte Tests plus `9`
+Subtests und die Vollsuite mit `507 passed, 13 skipped`. Die Root-Abnahme
+steht unter `docs/.archiv/einheitliche_triggerarchitektur/AP-SRV-020/` im
+Serverworkspace.
 
 Client:
 

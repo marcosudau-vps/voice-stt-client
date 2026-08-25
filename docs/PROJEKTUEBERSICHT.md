@@ -7,8 +7,8 @@
 > bei 13 Skips und 78 Subtests; Onefile-Build, acht echte Qt-Sounds,
 > Live-Smoke und echter ReSpeaker einschließlich Timeout-Countdown grün
 
-> **Aktueller Trigger-Gate-Stand:** AP-SRV-000, AP-CLI-000 und AP-SRV-010
-> sind abgenommen. AP-SRV-020 ist das nächste freigegebene Paket;
+> **Aktueller Trigger-Gate-Stand:** AP-SRV-000, AP-CLI-000, AP-SRV-010 und
+> AP-SRV-020 sind abgenommen. AP-SRV-030 ist das nächste freigegebene Paket;
 > AP-CLI-010 wartet auf AP-SRV-040. Der verbindliche operative Einstieg ist
 > `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/NACHVERFOLGUNG/WIEDEREINSTIEG.md`.
 
@@ -34,9 +34,9 @@ Ist-Stand unten (Stand 12. August 2026, AP1–AP8) auf Start-HEAD
 reproduzierbar verifiziert und überholte Trigger-Solltests dem neuen
 Contract zugeordnet; Details im Baseline-Bericht unter
 `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/ARBEITSPAKETE/AP-CLI-000/runs/01_BASELINE/REPORT.md`.
-Serverseitig sind zusätzlich AP-SRV-000 und AP-SRV-010 abgenommen; der
+Serverseitig sind zusätzlich AP-SRV-000, AP-SRV-010 und AP-SRV-020 abgenommen; der
 freigegebene Server-SHA lautet
-`3262079c62c58677cfd6506cd09d020b5b27ef44`, und AP-SRV-020 ist READY.
+`8535ee79bb2d898d9897e91b57d6a735c479edf0`, und AP-SRV-030 ist READY.
 Der übrige Inhalt dieser Datei beschreibt weiterhin den Pre-Trigger-Stand.
 
 Die historische Datei

@@ -1,10 +1,10 @@
 # Arbeitsstand und Aufgaben – RealtimeSTT Windows Desktop Client
 
 > **Status:** aktiver Tracker  
-> **Stand:** 25. August 2026, nach Root-PASS von AP-SRV-010
+> **Stand:** 25. August 2026, nach Root-PASS von AP-SRV-020
 > **Aktiver Arbeitsblock:** Einheitliche Triggerarchitektur `[IMPLEMENTIERUNG]`
-> **Abgenommen:** AP-SRV-000, AP-CLI-000 und AP-SRV-010
-> **Nächster Schritt:** AP-SRV-020 (Segmentledger, Hintergrund-Drain und Ergebnisordnung); AP-CLI-010 wartet auf AP-SRV-040
+> **Abgenommen:** AP-SRV-000, AP-CLI-000, AP-SRV-010 und AP-SRV-020
+> **Nächster Schritt:** AP-SRV-030 (Commands, Timer, Watchdog und Recovery); AP-CLI-010 wartet auf AP-SRV-040
 > **Kanonischer Wiedereinstieg:** `ARBEITSDATEIEN/10_AKTUELL/EINHEITLICHE_TRIGGERARCHITEKTUR/NACHVERFOLGUNG/WIEDEREINSTIEG.md`
 > **Separater Restpunkt:** AP6-Wake-Word-Bediennachweis mit echtem Mikrofon (unverändert, siehe AP7 unten)
 > **Repository/Release:** öffentliches GitHub-Repository und geprüfte Windows-CI-/Release-Strecke eingerichtet

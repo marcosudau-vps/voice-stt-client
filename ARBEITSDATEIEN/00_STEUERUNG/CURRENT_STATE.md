@@ -15,7 +15,7 @@ Logging / Observability Teil B
 Start nach Trigger mit OBS-100 (bis OBS-180)
 
 Next:
-Triggerarchitektur: laufendes AP-SRV-020 abnehmen; Client-Lane bleibt bis zum
+Triggerarchitektur: AP-SRV-030 auf dem gepushten AP-SRV-020-SHA starten; Client-Lane bleibt bis zum
 PASS von AP-SRV-040 dependency-bedingt frei
 
 ---
@@ -127,9 +127,10 @@ organisatorisch abgeschlossen und archiviert:
   `71a35e074eb90d75f8f91f5ed7cb46accd4b6498`, AP-CLI-000 auf
   `042fcd203c873d6f84a270413c47bc5da1fbf1ed`. Die genaue Gate-Historie steht
   in `NACHVERFOLGUNG/AUSFUEHRUNGSSTATUS.md`.
-- AP-SRV-010 ist nach Agentenkorrektur und unabhängiger Root-Abnahme als
-  `3262079c62c58677cfd6506cd09d020b5b27ef44` gepusht. AP-SRV-020 ist damit
-  freigegeben und läuft seit `EXEC-SRV-020-START` auf der GPT-Lane. Die erste
+- AP-SRV-020 ist nach zwei Root-Befunden, Korrektur durch denselben Agenten
+  und unabhängiger Root-Abnahme als
+  `8535ee79bb2d898d9897e91b57d6a735c479edf0` gepusht. AP-SRV-030 ist damit
+  freigegeben. Die erste
   fachliche Clientänderung in AP-CLI-010 wartet vertragsgemäß auf AP-SRV-040.
 
 ## Workspace-Status (WS-NORM-002)

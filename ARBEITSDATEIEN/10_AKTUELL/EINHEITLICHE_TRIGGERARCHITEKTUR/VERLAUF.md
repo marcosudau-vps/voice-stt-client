@@ -403,3 +403,19 @@
   Queue-/Worker-/Cancel-/Session-Close-Verlustpfade.
 - Timer/Commands, Wire-v2, Settings, Wake und Legacyabbau bleiben ausdrücklich
   späteren Paketen vorbehalten; die Client-Lane bleibt frei.
+
+## 2026-08-25 05:38:46 +02:00 – EXEC-SRV-020-001 Segmentledger abgenommen und gepusht
+
+- GPT-Agent implementierte unveränderliche Audio-/Job-/Resultatkontexte,
+  Exactly-once-Segmentterminale, sessionweiten Reorder-Drain, Hole-Fill und
+  vollständige Queue-/Scheduler-/Worker-/Cancel-/Close-Terminalisierung.
+- Root wies zwei Nebenläufigkeitsfehler deterministisch nach: sichtbare
+  Ausgabe-Inversion zwischen parallelen Ledgerupdates sowie Textfreigabe aus
+  einer späteren Activation während `cancel_all()`. Derselbe Agent behob beide
+  Befunde in `02_CORRECTION` und amendierte denselben Paketcommit.
+- Root unabhängig validiert: fokussiert `108 passed, 9 subtests passed`;
+  Vollsuite `507 passed, 13 skipped`; vollständiger Range-Check PASS.
+- Genau ein freigegebener AP-Commit auf den Server-Feature-Branch gepusht:
+  `8535ee79bb2d898d9897e91b57d6a735c479edf0`.
+- `AP-SRV-030` ist damit freigegeben; `AP-CLI-010` bleibt bis AP-SRV-040
+  dependency-bedingt blockiert.

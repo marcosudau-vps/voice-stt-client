@@ -3,9 +3,10 @@
 Aktive Arbeitsakte für die gemeinsame Triggerarchitektur von Server, Client
 und ReSpeaker-Feedback.
 
-**Aktuelle Phase:** Implementierung. `AP-SRV-000`, `AP-CLI-000` und
-`AP-SRV-010` sind abgenommen und gepusht; `AP-SRV-020` ist als nächstes
-Paket freigegeben. Die Clientreihe wartet bis zum PASS von `AP-SRV-040`.
+**Aktuelle Phase:** Implementierung. `AP-SRV-000`, `AP-CLI-000`,
+`AP-SRV-010` und `AP-SRV-020` sind abgenommen und gepusht; `AP-SRV-030` ist
+als nächstes Paket freigegeben. Die Clientreihe wartet bis zum PASS von
+`AP-SRV-040`.
 
 ## Einstieg
 
