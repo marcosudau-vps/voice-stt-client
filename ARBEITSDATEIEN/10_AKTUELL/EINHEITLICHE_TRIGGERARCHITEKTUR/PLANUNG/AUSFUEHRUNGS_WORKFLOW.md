@@ -126,6 +126,10 @@ runs/01_<RUNNAME>/
 └── evidence/       # notwendige reproduzierbare Nachweise oder Index
 ```
 
+Im Serverarchiv erhalten diese Dateien gemäß serverseitiger Governance einen
+Datumspräfix, beispielsweise `2026-08-25_PROMPT.md`. Inhalt und Ownership
+bleiben identisch.
+
 Weitere Runs erhalten `02_...`, `03_...` usw. Der Originalprompt eines Runs
 wird nach Start nicht umgeschrieben. Korrekturaufträge werden als datierter
 Abschnitt in `ABNAHME.md` und als eigener Folgeprompt im nächsten Run
