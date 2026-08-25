@@ -2,7 +2,9 @@
 
 **Status:** Vollständigkeitsaudit PLAN-EXEC-002; 129 eindeutige Summary- und
 Einzelanforderungen, AP-Zuordnung verbindlich. Konkrete Testdateien und
-gepushte Nachweis-SHAs werden bei AP-Start beziehungsweise Abnahme ergänzt.
+gepushte Nachweis-SHAs werden bei AP-Start beziehungsweise Abnahme in
+`AUSFUEHRUNGSSTATUS.md` geführt, damit fachlicher Planungsstatus und
+Ausführungsgate getrennt bleiben.
 
 Die fachlichen Details und offenen Teilfragen stehen in
 `../PLANUNG/ENTSCHEIDUNGEN_UND_OFFENE_PUNKTE.md`. Diese Tabelle dient nur

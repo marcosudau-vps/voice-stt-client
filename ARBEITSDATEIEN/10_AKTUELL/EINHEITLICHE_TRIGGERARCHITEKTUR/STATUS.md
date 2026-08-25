@@ -5,16 +5,16 @@ schema: 1
 name: EINHEITLICHE_TRIGGERARCHITEKTUR
 title: Einheitliche Triggerarchitektur
 state: AKTIV
-phase: PLANUNG
+phase: IMPLEMENTIERUNG
 created_at: 2026-08-24 01:08:47 +02:00
-updated_at: 2026-08-25 02:51:08 +02:00
+updated_at: 2026-08-25 03:28:14 +02:00
 branch: feat/einheitliche-triggerarchitektur
 baseline_head: dd0af5ed22e7401895f08c8c13e4e37c7e78ddb7
 -->
 
 **Status:** AKTIV
 
-**Phase:** PLANUNG ABGESCHLOSSEN / READY FOR IMPLEMENTATION
+**Phase:** IMPLEMENTIERUNG / WELLE 1 ABGENOMMEN
 
 **Branch:** `feat/einheitliche-triggerarchitektur`
 
@@ -114,11 +114,22 @@ Agentenbericht, Endabnahme und Evidence; Agent erstellt genau einen lokalen
 Commit, Befunde werden vor Push per Amend korrigiert, und die Koordination
 pusht erst nach PASS auf den jeweiligen GitHub-Feature-Branch.
 
+Welle 1 ist vollständig abgenommen und auf beide Feature-Branches gepusht:
+
+- `AP-SRV-000`: `71a35e074eb90d75f8f91f5ed7cb46accd4b6498`;
+- `AP-CLI-000`: `042fcd203c873d6f84a270413c47bc5da1fbf1ed`.
+
+Beide Baselinepakete besitzen eine repositorylokale Akte mit Originalprompt,
+Agentenbericht, Korrekturhistorie, Root-Abnahme und Testnachweisen. Der genaue
+Gate- und Dependency-Stand steht in
+`NACHVERFOLGUNG/AUSFUEHRUNGSSTATUS.md`.
+
 ## Aktive Arbeit
 
-Noch kein Implementierungs-Arbeitspaket. `AP-TRG-000_GATE_0` enthält
-vorbereitende historische Gate-0-Prompts, steuert aber die aktuelle
-Dialogrunde nicht.
+Welle 1 (`AP-SRV-000` und `AP-CLI-000`) ist mit `PASS` abgeschlossen. Als
+nächstes beginnt `AP-SRV-010`. Für ein Client-Produktpaket ist bis zur
+Abnahme von `AP-SRV-040` noch keine Abhängigkeit erfüllt; die Client-Lane
+bleibt deshalb bewusst frei.
 
 ## Bekannte neue Abweichungen
 
@@ -140,13 +151,15 @@ Score-/Audiodaten innerhalb des eingefrorenen Contracts kalibriert.
 
 ## Nächster Schritt
 
-Den vollständig auditierten Planungsstand committen und auf den
-Client-Feature-Branch pushen. Danach die repositorylokalen Akten und
-Originalprompts für AP-SRV-000 und AP-CLI-000 mit aktuellen SHAs erzeugen und
-Welle 1 starten.
+Den Auftrag für `AP-SRV-010` gegen den abgenommenen Server-Start-SHA
+`71a35e074eb90d75f8f91f5ed7cb46accd4b6498` erzeugen und auf der GPT-Lane
+ausführen. Danach folgen `AP-SRV-020`, `AP-SRV-030` und `AP-SRV-040` seriell;
+erst das PASS von `AP-SRV-040` öffnet `AP-CLI-010` und damit wieder ein
+echtes Parallelfenster.
 
 ## Abgrenzung
 
-Dieser Dokumentationslauf verändert keinen Produktcode, führt kein
-Implementierungs-Arbeitspaket aus und erstellt ohne ausdrückliche Freigabe
-keinen Commit.
+Die Baselinepakete charakterisieren und sichern den Ist-Zustand. Die erste
+fachliche Serveränderung erfolgt in `AP-SRV-010`; die erste fachliche
+Clientänderung erfolgt nach der notwendigen Servervorleistung in
+`AP-CLI-010`.

@@ -329,3 +329,21 @@
   verbindlichen Workflow festgeschrieben.
 - Kein Namespace-Inhalt gelesen, kein Produktcode verändert und noch kein
   Implementierungsagent gestartet.
+
+## 2026-08-25 03:28:14 +02:00 – EXEC-W1-001 Baselinewelle abgenommen und gepusht
+
+- `AP-SRV-000` auf dem Serverrepository durch einen GPT-Agenten umgesetzt,
+  nach Root-Befund im selben Agentenlauf korrigiert, unabhängig mit 3
+  fokussierten Tests sowie der Vollsuite (`492 passed, 13 skipped`) validiert
+  und als genau ein Commit gepusht:
+  `71a35e074eb90d75f8f91f5ed7cb46accd4b6498`.
+- `AP-CLI-000` über Claude Code mit Sonnet umgesetzt, nach drei dokumentierten
+  Prüf-/Korrekturrunden im selben Commit gehärtet und durch die Koordination
+  mit 24 fokussierten Tests sowie der Vollsuite (`1192 passed`) validiert.
+  Gepushter Commit:
+  `042fcd203c873d6f84a270413c47bc5da1fbf1ed`.
+- Für beide Pakete liegen Originalprompt, Agentenbericht, Root-Abnahme und
+  Evidence repositorylokal vor. Es wurde jeweils erst nach PASS gepusht.
+- Der GitHub-Account für weitere Operationen ist `marcosudau-vps`.
+- `AP-SRV-010` ist freigegeben. Die Client-Lane bleibt bis zum PASS von
+  `AP-SRV-040` dependency-bedingt ohne ausführbares Produktpaket.

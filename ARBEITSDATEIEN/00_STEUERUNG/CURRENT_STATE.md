@@ -15,8 +15,8 @@ Logging / Observability Teil B
 Start nach Trigger mit OBS-100 (bis OBS-180)
 
 Next:
-Triggerarchitektur: Planungsstand sichern, konkrete Aufträge für AP-SRV-000
-und AP-CLI-000 erzeugen, dann parallele Ausführungswelle 1 starten
+Triggerarchitektur: AP-SRV-010 auf dem abgenommenen Serverbaseline-Commit
+starten; Client-Lane bleibt bis zum PASS von AP-SRV-040 dependency-bedingt frei
 
 ---
 
@@ -121,9 +121,12 @@ organisatorisch abgeschlossen und archiviert:
 - Zentrale aktuelle Arbeitsdatei:
   `PLANUNG/ENTSCHEIDUNGEN_UND_OFFENE_PUNKTE.md`.
 - Status und Funde: `NACHVERFOLGUNG/` sowie `STATUS.md` und `VERLAUF.md`.
-- Noch kein Implementierungs-Arbeitspaket aktiv. Als Nächstes werden getrennt
-  AP-SRV-000 und AP-CLI-000 ausgeführt; die erste Produktänderung beginnt mit
-  AP-SRV-010.
+- Ausführungswelle 1 ist abgenommen und gepusht: AP-SRV-000 auf
+  `71a35e074eb90d75f8f91f5ed7cb46accd4b6498`, AP-CLI-000 auf
+  `042fcd203c873d6f84a270413c47bc5da1fbf1ed`. Die genaue Gate-Historie steht
+  in `NACHVERFOLGUNG/AUSFUEHRUNGSSTATUS.md`.
+- Als Nächstes beginnt AP-SRV-010. Die erste fachliche Clientänderung in
+  AP-CLI-010 wartet vertragsgemäß auf AP-SRV-040.
 
 ## Workspace-Status (WS-NORM-002)
 
@@ -147,5 +150,5 @@ organisatorisch abgeschlossen und archiviert:
   zusammengeführt (beide Entwicklungsstände erhalten, keine Seite verworfen).
 - Dieser Organisationsrun trifft keine fachlichen Triggerentscheidungen.
 
-**Stand:** 2026-08-25 (PLAN-EXEC-002, Traceability-Vollaudit,
-Server-GitHub-Branchpfad und Commit-/Push-/AP-Archivgate vorbereitet)
+**Stand:** 2026-08-25 (EXEC-W1-001, Baselinewelle in Server und Client
+abgenommen und auf beide Feature-Branches gepusht)

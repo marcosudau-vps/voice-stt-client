@@ -8,6 +8,8 @@ Planung mit Status- und Evidence-Tabellen zu vermischen.
 - `../STATUS.md` – aktuelle Phase, aktive Arbeit und nächster Schritt.
 - `../VERLAUF.md` – chronologischer Verlauf dieses Arbeitsblocks.
 - `FUNDE.md` – bekannte oder neu gemeldete Abweichungen und Defekte.
+- `AUSFUEHRUNGSSTATUS.md` – AP-Gates, Start-/Push-SHAs und freigegebene
+  Dependencies.
 - `TRACEABILITY.md` – fachliche Anforderungen, verbindliche AP-Zuordnung und
   späterer Nachweisstatus.
 

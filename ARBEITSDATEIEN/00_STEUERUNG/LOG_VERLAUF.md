@@ -1784,3 +1784,17 @@
   Push erst nach PASS.
 - Kein Namespace-Inhalt gelesen, kein Produktcode verändert und noch kein
   Implementierungsagent gestartet.
+
+## 2026-08-25 03:28:14 +02:00 – EXEC-W1-001: Baselinewelle abgenommen und gepusht
+
+- Serverbaseline `AP-SRV-000` nach Agentenkorrektur und unabhängiger
+  Root-Validierung (`3 passed`; Vollsuite `492 passed, 13 skipped`) als
+  `71a35e074eb90d75f8f91f5ed7cb46accd4b6498` auf den Server-Feature-Branch
+  gepusht.
+- Clientbaseline `AP-CLI-000` nach dokumentierten Claude-Code-Korrekturen und
+  unabhängiger Root-Validierung (`24 passed`; Vollsuite `1192 passed`) als
+  `042fcd203c873d6f84a270413c47bc5da1fbf1ed` auf den Client-Feature-Branch
+  gepusht.
+- Beide APs besitzen eine vollständige Akte und genau einen abgenommenen
+  Commit. `AP-SRV-010` ist als nächstes Paket freigegeben; `AP-CLI-010` bleibt
+  bis zum PASS von `AP-SRV-040` blockiert.
