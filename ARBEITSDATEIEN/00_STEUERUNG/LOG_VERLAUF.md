@@ -1830,3 +1830,14 @@
   AP-SRV-020-Grenzen, Testbefehle und Gateprozess ohne Chatkontext.
 - Struktur-/Statusquellen bleiben getrennt; kein Produktcode und kein
   IDEEN-/Namespace-Inhalt geändert oder ausgewertet.
+
+## 2026-08-25 04:46:30 +02:00 – EXEC-SRV-020-START: Segmentledger-Paket gestartet
+
+- AP-SRV-020 auf der GPT-Lane gegen
+  `3262079c62c58677cfd6506cd09d020b5b27ef44` gestartet.
+- Datierten Plan und vollständige Serverakte vor Umsetzung angelegt;
+  Originalprompt-SHA-256:
+  `B43DA4544262C5A3CDCB049AE14F89B26AFA222662DB1531FD6E1AA4A1B76B6A`.
+- Scope auf Ledger, unveränderliche Finaljobkontexte, Exactly-once-Terminals,
+  geordnete Publikation und vollständige Faultterminalisierung begrenzt;
+  Folgepakete und Clientcode werden nicht vorweggenommen.

@@ -389,3 +389,17 @@
   beiden Workspaces, Branches, Produkt-SHAs, Pflichtlektüre, AP-SRV-020-Scope,
   Folgepaketgrenzen, Testbefehlen und Commit-/Abnahmeprozess angelegt.
 - Kein Produktcode geändert und kein Namespace-/IDEEN-Inhalt verwendet.
+
+## 2026-08-25 04:46:30 +02:00 – EXEC-SRV-020-START Segmentledger-Paket gestartet
+
+- `AP-SRV-020` auf der GPT-Lane gegen den abgenommenen Server-Start-SHA
+  `3262079c62c58677cfd6506cd09d020b5b27ef44` gestartet.
+- Vollständige datierte Serverakte vor der Implementierung angelegt; der
+  Originalprompt ist über SHA-256
+  `B43DA4544262C5A3CDCB049AE14F89B26AFA222662DB1531FD6E1AA4A1B76B6A`
+  fixiert.
+- Auftrag umfasst unveränderlichen Jobkontext, Terminalcardinality,
+  Pending-Registry, Out-of-order-/Hole-Fill-Reihenfolge sowie sämtliche
+  Queue-/Worker-/Cancel-/Session-Close-Verlustpfade.
+- Timer/Commands, Wire-v2, Settings, Wake und Legacyabbau bleiben ausdrücklich
+  späteren Paketen vorbehalten; die Client-Lane bleibt frei.
