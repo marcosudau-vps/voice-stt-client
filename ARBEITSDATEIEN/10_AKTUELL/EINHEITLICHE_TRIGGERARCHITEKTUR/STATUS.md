@@ -7,16 +7,16 @@ title: Einheitliche Triggerarchitektur
 state: AKTIV
 phase: IMPLEMENTIERUNG
 created_at: 2026-08-24 01:08:47 +02:00
-updated_at: 2026-08-25 05:38:46 +02:00
+updated_at: 2026-08-27 20:07:43 +02:00
 branch: feat/einheitliche-triggerarchitektur
 baseline_head: dd0af5ed22e7401895f08c8c13e4e37c7e78ddb7
 -->
 
 **Status:** AKTIV
 
-**Phase:** IMPLEMENTIERUNG / AP-SRV-030 READY
+**Phase:** IMPLEMENTIERUNG / AP-SRV-060 READY
 
-**Branch:** `feat/einheitliche-triggerarchitektur`
+**Branch:** `feat/einheitliche-triggerarchitektur` (Distributed-/Review-Branches sind Execution-Provenienz, nicht kanonische Basis)
 
 ## Aktueller Stand
 
@@ -93,7 +93,8 @@ Gate-Status, Traceability und freigegebene Commitpaare vor parallelen
 Schreibkonflikten.
 
 Der Traceability-Vollständigkeitsaudit hat die zuvor stark gebündelte Matrix
-auf 129 eindeutige Summary- und Einzelanforderungen erweitert. Phasen,
+auf 130 eindeutige Summary- und Einzelanforderungen erweitert (129 plus die
+Root-entschiedene Aufteilung von `SET-13` in `SET-13a` und `SET-13b`). Phasen,
 Pipeline, Ledger, Reihenfolge, Timer, Commands, Suppression, Wire, Wake Words,
 Settings, Geräte-/Feedbackgrenzen, Recovery, Kompatibilität sowie
 Ausführungsgovernance sind jetzt jeweils separat abnehmbar. Vier erkannte
@@ -133,24 +134,34 @@ und Gateprozess ohne Abhängigkeit vom Chatkontext fest.
 
 ## Aktive Arbeit
 
-Welle 1 (`AP-SRV-000` und `AP-CLI-000`) sowie `AP-SRV-010` und `AP-SRV-020`
-sind mit `PASS` abgeschlossen. Der gepushte Segmentledger-SHA lautet
-`8535ee79bb2d898d9897e91b57d6a735c479edf0`; `AP-SRV-030` ist darauf
-freigegeben. Für ein
-Client-Produktpaket ist bis zur Abnahme von `AP-SRV-040` noch keine
-Abhängigkeit erfüllt; die Client-Lane bleibt deshalb bewusst frei.
+Welle 1 (`AP-SRV-000` und `AP-CLI-000`) sowie `AP-SRV-010`, `AP-SRV-020`,
+`AP-SRV-030`, `AP-SRV-040` und `AP-SRV-050` sind mit `PASS` abgeschlossen:
+
+- `SRV-000..050 PASS`;
+- kanonische Commitkette auf `feat/einheitliche-triggerarchitektur`:
+  `8535ee7…` (SRV-020) → `b220dd0…` (SRV-030 canonical) → `c0806e5…`
+  (SRV-040 canonical) → `c901cda…` (SRV-050 canonical);
+- `AP-SRV-050` lieferte die Settings-Control-Plane: eine
+  `SessionSettingsState` je v2-Session, getrennte `ServerSettingsState`,
+  monotone getrennte Revisionen, immutable `next_activation`-Timing-Latches,
+  linearisierte Settings-Patch-/Wire-/`settings.changed`-Reihenfolge und
+  strikt validierte Persistenz. Root-Findings `F1`–`F6` sind `PASS`;
+- `AP-SRV-060` ist der nächste aktive Server-AP, startend auf
+  `c901cda3f2c19eeb78c468524161728498b6e27e`;
+- Client `AP-CLI-010` ist technisch entblockt (AP-SRV-040 dependency
+  erfüllt), wird aber bewusst erst nach Abschluss der Serverlinie
+  `AP-SRV-060 → AP-SRV-070` ausgeführt.
 
 ## Bekannte neue Abweichungen
 
-- Der neue serverseitige `ActivationController` kumuliert aktuell
-  Extension-Zeit. Gewünscht ist ein nicht kumulatives Zurücksetzen des
-  Inaktivitätstimers (`FIND-010`).
 - Mehrere Wake-Word-Detection-Signale pro gesprochener Äußerung sind gemeldet.
   Einzel-Score-Adapterpfad und fehlender Detection-Guard nach dem ersten
   Treffer bestätigen einen technischen Mehrfachsignalpfad. Ein fachlicher
   Latch bis zum Unlock ist festgelegt; nur eine möglicherweise zusätzliche
   Fehlalarm-Bestätigungsregel wird noch mit Audio- und Score-Traces bestimmt
-  (`FIND-011`).
+  (`FIND-011`, Ziel AP-SRV-060).
+- `FIND-010` (kumulative Extend-Semantik) ist durch AP-SRV-030 geschlossen;
+  `refresh` folgt dem eingefrorenen nicht-kumulativen Timervertrag.
 
 ## Verbleibende Kalibrierung
 
@@ -160,9 +171,10 @@ Score-/Audiodaten innerhalb des eingefrorenen Contracts kalibriert.
 
 ## Nächster Schritt
 
-`AP-SRV-030` auf dem gepushten AP-SRV-020-SHA starten. Das Paket implementiert
-Commands, nicht kumulative Refresh-/Watchdog-Timer, Replay-/Stale-Härtung und
-Closing-Recovery. Danach folgt `AP-SRV-040` seriell.
+`AP-SRV-060` startet als nächster aktiver Server-AP auf dem kanonischen
+AP-SRV-050-SHA `c901cda3f2c19eeb78c468524161728498b6e27e` (Wake-Word-Katalog
+und Kalibrierung, einschließlich `GET /api/v2/wake-words` / `SET-13b`). Danach
+folgt `AP-SRV-070` seriell, erst dann beginnt die Clientlinie.
 
 ## Abgrenzung
 
