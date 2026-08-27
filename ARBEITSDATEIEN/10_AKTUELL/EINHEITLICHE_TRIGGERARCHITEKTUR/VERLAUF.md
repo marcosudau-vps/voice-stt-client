@@ -419,3 +419,29 @@
   `8535ee79bb2d898d9897e91b57d6a735c479edf0`.
 - `AP-SRV-030` ist damit freigegeben; `AP-CLI-010` bleibt bis AP-SRV-040
   dependency-bedingt blockiert.
+
+## 2026-08-27 – CANONICAL CLOSE AP-SRV-030 + AP-SRV-040
+
+1. **AP-SRV-030 canonical archive-complete close.** Der bereits abgenommene
+   Execution-/Root-PASS-Stand (`325e55c…`, Tree `ec5b6e…`) wurde deterministisch
+   als genau ein kanonischer Commit auf `feat/einheitliche-triggerarchitektur`
+   übernommen: `b220dd03a594d2b9f8cad65fd279046be36864cc` (Parent `8535ee7…`).
+   Produkt-/Test-/Dokustand identisch zur Source; zusätzlich ausschließlich
+   Paketakten-Vervollständigung (Original-C2-Prompt `D1797C55…`,
+   C3-/CI-Validierungsprovenienz, Umsetzungsvergleich, Archivinventar).
+
+2. **AP-SRV-040 Root PASS / canonical close.** Der Root-geprüfte C3-Kandidat
+   (`6f73a4e…`, Tree `6d36c263…`) wurde als genau ein kanonischer Commit auf
+   dem kanonischen AP-SRV-030 übernommen:
+   `c0806e5bc5d503580070f2dacc88831d51447938` (Parent `b220dd0…`).
+   Außerhalb der Paketakten identisch zu C3; Vollsuite 779 passed, 14 skipped,
+   448 subtests; C3 event ordering 20/20; `git diff --check` PASS.
+   Kanonische AP040-Akte vervollständigt (Run 01 Originalprompts, C2-/C3-Prompt
+   byteidentisch, Abnahme, Umsetzungsvergleich, Vertragsinterpretationen,
+   Archivinventar).
+
+3. **Tracking-/Sequenzupdate.** Verbindliche Sequenzentscheidung: zuerst die
+   komplette Serverlinie `AP-SRV-050 → AP-SRV-060 → AP-SRV-070`, danach die
+   Clientlinie. `AP-SRV-050` ist READY (Basis `c0806e5…`); `AP-CLI-010` ist
+   technisch entblockt, aber bewusst deferred. Distributed-/Review-Branches
+   bleiben Execution-Provenienz.

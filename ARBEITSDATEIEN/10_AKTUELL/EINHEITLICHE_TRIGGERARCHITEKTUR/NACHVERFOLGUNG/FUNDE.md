@@ -64,7 +64,10 @@ Für jeden neuen Fund einen Block kopieren:
   `test_06_wake_word_then_manual_merges` und
   `test_a_merge_does_not_raise_the_generation` schreiben dieses vom
   Zielbild abweichende Verhalten derzeit fest.
-- Status: CONFIRMED.
+- **Nachschau (2026-08-27):** Der kanonische Serverstand implementiert die
+  First-Trigger-wins-Regel; siehe `tests/unit/test_server_trigger_contract.py::test_a_second_source_is_locked_to_the_first_activation`
+  (`activation_locked`, identische `activationId`).
+- Status: RESOLVED durch AP-SRV-010.
 
 ### FIND-007 – Continuous Streaming nicht erreicht
 - [x] Bestätigt.
@@ -101,7 +104,11 @@ Für jeden neuen Fund einen Block kopieren:
 - Blockiert aktuelles Gate? NEIN; aktuell läuft noch die Planung.
 - Evidence: Codefund; ältere Follow-up-Implementierung verwendet dagegen
   bereits Generationen zum Ersetzen laufender Timer.
-- Status: CONFIRMED.
+- **Nachschau (2026-08-27):** AP-SRV-030 entfernt die kumulative
+  Extend-Semantik; `refresh` folgt dem eingefrorenen nicht-kumulativen
+  Timervertrag. Execution-Source: `325e55c186713069b25208871da4fef16470f85a`;
+  kanonischer Abschluss: `b220dd03a594d2b9f8cad65fd279046be36864cc`.
+- Status: RESOLVED (Resolved by: AP-SRV-030).
 
 ### FIND-011 – Mehrere Detection-Signale pro Wake-Word-Äußerung
 

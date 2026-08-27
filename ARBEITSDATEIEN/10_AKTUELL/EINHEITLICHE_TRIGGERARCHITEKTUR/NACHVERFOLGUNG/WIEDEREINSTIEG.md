@@ -12,7 +12,7 @@ Namespace-Unterordner sind keine freigegebenen Quellen.
 
 | Rolle | Workspace | Branch | letzter freigegebener Produkt-AP-SHA |
 |---|---|---|---|
-| Server | `P:\GithubRepos\marcosudau-vps\voice-stt-server\workspaces\einheitliche-triggerarchitektur` | `feat/einheitliche-triggerarchitektur` | `8535ee79bb2d898d9897e91b57d6a735c479edf0` (`AP-SRV-020`) |
+| Server | `P:\GithubRepos\marcosudau-vps\voice-stt-server\workspaces\einheitliche-triggerarchitektur` | `feat/einheitliche-triggerarchitektur` | `c0806e5bc5d503580070f2dacc88831d51447938` (`AP-SRV-040`, canonical) |
 | Desktop-Client und Koordination | `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur` | `feat/einheitliche-triggerarchitektur` | `042fcd203c873d6f84a270413c47bc5da1fbf1ed` (`AP-CLI-000`) |
 
 Beide Branches verfolgen
@@ -21,6 +21,12 @@ Beide Branches verfolgen
 und der Remote-HEAD zu prüfen. Koordinationsdokumente können im Clientbranch
 nach dem letzten Client-Produkt-AP liegen und sind kein zusätzlicher
 Client-Produktumbau.
+
+Die Distributed-/Review-Branches
+(`feat/einheitliche-triggerarchitektur-distributed`,
+`review/AP-SRV-030/run-01`, `review/AP-SRV-040/run-01`) sind
+**Execution-Provenienz** und **keine** neue kanonische Basis. Die zentrale
+Paketkette liegt ausschließlich auf `feat/einheitliche-triggerarchitektur`.
 
 ## 2. Lesereihenfolge für einen Neustart
 
@@ -45,7 +51,27 @@ Nicht aus alten Chatnachrichten, `IDEEN/`, Namespace-Dateien,
 - `AP-SRV-010` PASS:
   `3262079c62c58677cfd6506cd09d020b5b27ef44`;
 - `AP-SRV-020` PASS:
-  `8535ee79bb2d898d9897e91b57d6a735c479edf0`.
+  `8535ee79bb2d898d9897e91b57d6a735c479edf0`;
+- `AP-SRV-030` PASS / canonical:
+  `b220dd03a594d2b9f8cad65fd279046be36864cc`;
+- `AP-SRV-040` PASS / canonical:
+  `c0806e5bc5d503580070f2dacc88831d51447938`.
+
+Abgenommene Kette:
+
+```text
+SRV000
+SRV010
+SRV020
+SRV030 canonical
+SRV040 canonical
+```
+
+`AP-SRV-030` wurde aus dem bereits abgenommenen Execution-Stand
+(`325e55c…`) als archivvollständiger kanonischer Commit geschlossen;
+`AP-SRV-040` aus dem Root-geprüften C3 (`6f73a4e…`) als genau ein
+kanonischer Commit. Beide liegen linear auf
+`feat/einheitliche-triggerarchitektur` direkt auf der SRV-000..020-Kette.
 
 AP-SRV-010 liefert genau einen serverseitigen Vordergrundslot mit
 `idle`, `waiting_first_speech`, `segment_active`, `followup_wait` und
@@ -68,29 +94,31 @@ Die vollständigen AP-Nachweise liegen serverseitig unter
 
 ## 4. Nächstes Paket und harte Grenzen
 
-`AP-SRV-030` ist READY und startet exakt auf dem Server-SHA
-`8535ee79bb2d898d9897e91b57d6a735c479edf0`.
+`AP-SRV-050` ist READY und startet exakt auf dem kanonischen Server-SHA
 
-Sein Umfang ist:
+```text
+c0806e5bc5d503580070f2dacc88831d51447938  (AP-SRV-040 canonical)
+```
 
-- `activate|refresh|finish|cancel` mit Phasen- und Activation-ID-Validierung;
-- Replaycache und Payload-Konflikterkennung für Commands;
-- Follow-up-Reset ohne `extensionSeconds`/`pending_extension`;
-- Segment-Watchdog mit 600/180/30-Sekunden-Semantik und Warning-Event;
-- monotone Deadlines, `timerRevision` und stale Guards;
-- `closing_input`-Recovery sowie generisches `audioAvailable=false`;
-- Finish-/Cancel-Ereignisse und die bestätigte Verwerfungsgrenze.
+Sein Umfang ist (Settings-/Control-Plane-Portierung gemäß Plan):
+
+- Serverautorität, Session-/Server-Scope und Apply-Policies;
+- triggerrelevante Einstellungen und admin-geschützte Servereinstellungen;
+- v2-Settings-Schema, Serverwerte/-Patch und Wake-Word-Katalog an den
+  eingefrorenen Endpunkten;
+- vorbereiteter Integrationsstand für `AP-SRV-060` (Wake-Word-Katalog,
+  Kalibrierung).
 
 Nicht vorwegnehmen:
 
-- Protokoll v2, Handshake, endgültige Events/Snapshots (`AP-SRV-040`);
-- Settings-Control-Plane (`AP-SRV-050`);
 - Wake-Word-Katalog/Detection/Kalibrierung (`AP-SRV-060`);
 - Legacyabbau (`AP-SRV-070`);
 - jegliche Clientproduktänderung.
 
-`AP-CLI-010` ist trotz fertiger Clientbaseline blockiert, bis AP-SRV-040
-abgenommen wurde. Deshalb läuft aktuell keine parallele Clientimplementierung.
+`AP-CLI-010` ist dependency-seitig entblockt (technische Dependency
+AP-SRV-040 erfüllt), wird aber **bewusst deferred**: erst nach Abschluss der
+Serverlinie `AP-SRV-050 → AP-SRV-060 → AP-SRV-070` beginnt die Clientlinie.
+Deshalb läuft aktuell keine parallele Clientimplementierung.
 
 ## 5. Verbindliche Quellen
 
