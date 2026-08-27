@@ -15,12 +15,12 @@ Logging / Observability Teil B
 Start nach Trigger mit OBS-100 (bis OBS-180)
 
 Next:
-Triggerarchitektur: Serverlinie weiter auf `AP-SRV-050`; letzter kanonisch
-abgeschlossener Server-AP ist `AP-SRV-040` (Serverbranch
+Triggerarchitektur: Serverlinie weiter auf `AP-SRV-060`; letzter kanonisch
+abgeschlossener Server-AP ist `AP-SRV-050` (Serverbranch
 `feat/einheitliche-triggerarchitektur` =
-`c0806e5bc5d503580070f2dacc88831d51447938`). Die Clientlane ist technisch
+`c901cda3f2c19eeb78c468524161728498b6e27e`). Die Clientlane ist technisch
 entblockt (technische Dependency AP-SRV-040 erfüllt), wird aber bewusst bis
-zum Abschluss der Serverlinie AP-SRV-050 → AP-SRV-060 → AP-SRV-070 deferred.
+zum Abschluss der Serverlinie AP-SRV-060 → AP-SRV-070 deferred.
 Distributed-/Review-Branches sind Execution-Provenienz und keine neue
 kanonische Basis; die zentrale Paketkette liegt auf
 `feat/einheitliche-triggerarchitektur`.
@@ -144,6 +144,19 @@ organisatorisch abgeschlossen und archiviert:
   fachliche Clientänderung in AP-CLI-010 ist technisch entblockt, wird aber
   bewusst deferred, bis die Serverlinie AP-SRV-050 → AP-SRV-060 → AP-SRV-070
   abgeschlossen ist.
+- `AP-SRV-050` (Settings-Control-Plane) ist nach drei lokalen Läufen
+  (C1 Implementierung, C2 sechs Root-Findings, C3 Wire-Atomicity) mit
+  `ROOT PASS` abgenommen und als genau ein kanonischer Commit auf
+  `feat/einheitliche-triggerarchitektur` geschlossen:
+  `c901cda3f2c19eeb78c468524161728498b6e27e` (Parent `c0806e5…`,
+  Root-PASS-Source C3 `18b65216433329456946afd3c41d8df6bbd07d44`).
+  `AP-SRV-060` ist damit der nächste aktive Server-AP; `GET /api/v2/wake-words`
+  gehört ausdrücklich dorthin (`SET-13` ist in `SET-13a`/SRV-050 und
+  `SET-13b`/SRV-060 aufgeteilt).
+- Die textuelle Server-Prep-Provenienz vom 2026-08-25 ist byteidentisch
+  versioniert unter
+  `ARBEITSDATEIEN/90_HISTORIE/2026-08-25_TRIGGERARCHITEKTUR_SERVER_PREP/`.
+  Sie ist ausdrücklich **nicht normativ**.
 
 ## Workspace-Status (WS-NORM-002)
 
@@ -167,5 +180,5 @@ organisatorisch abgeschlossen und archiviert:
   zusammengeführt (beide Entwicklungsstände erhalten, keine Seite verworfen).
 - Dieser Organisationsrun trifft keine fachlichen Triggerentscheidungen.
 
-**Stand:** 2026-08-27 (CANONICAL CLOSE AP-SRV-030 + AP-SRV-040; nächster
-aktiver Server-AP ist AP-SRV-050)
+**Stand:** 2026-08-27 20:07:43 +02:00 (CANONICAL CLOSE AP-SRV-050; nächster
+aktiver Server-AP ist AP-SRV-060)

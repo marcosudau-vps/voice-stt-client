@@ -1,6 +1,7 @@
 # Wiedereinstieg – Einheitliche Triggerarchitektur
 
-**Stand:** 25. August 2026, nach Root-PASS von `AP-SRV-020`
+**Stand:** 27. August 2026, 20:07:43 +02:00, nach Root-PASS und kanonischem
+Abschluss von `AP-SRV-050`
 
 Diese Datei ist die kompakte operative Übergabe für einen neuen Agenten ohne
 Chatkontext. Bei einem Widerspruch gelten in dieser Reihenfolge der aktuelle
@@ -12,7 +13,7 @@ Namespace-Unterordner sind keine freigegebenen Quellen.
 
 | Rolle | Workspace | Branch | letzter freigegebener Produkt-AP-SHA |
 |---|---|---|---|
-| Server | `P:\GithubRepos\marcosudau-vps\voice-stt-server\workspaces\einheitliche-triggerarchitektur` | `feat/einheitliche-triggerarchitektur` | `c0806e5bc5d503580070f2dacc88831d51447938` (`AP-SRV-040`, canonical) |
+| Server | `P:\GithubRepos\marcosudau-vps\voice-stt-server\workspaces\einheitliche-triggerarchitektur` | `feat/einheitliche-triggerarchitektur` | `c901cda3f2c19eeb78c468524161728498b6e27e` (`AP-SRV-050`, canonical) |
 | Desktop-Client und Koordination | `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur` | `feat/einheitliche-triggerarchitektur` | `042fcd203c873d6f84a270413c47bc5da1fbf1ed` (`AP-CLI-000`) |
 
 Beide Branches verfolgen
@@ -24,7 +25,8 @@ Client-Produktumbau.
 
 Die Distributed-/Review-Branches
 (`feat/einheitliche-triggerarchitektur-distributed`,
-`review/AP-SRV-030/run-01`, `review/AP-SRV-040/run-01`) sind
+`review/AP-SRV-030/run-01`, `review/AP-SRV-040/run-01`,
+`review/AP-SRV-050/run-01`) sind
 **Execution-Provenienz** und **keine** neue kanonische Basis. Die zentrale
 Paketkette liegt ausschließlich auf `feat/einheitliche-triggerarchitektur`.
 
@@ -55,7 +57,9 @@ Nicht aus alten Chatnachrichten, `IDEEN/`, Namespace-Dateien,
 - `AP-SRV-030` PASS / canonical:
   `b220dd03a594d2b9f8cad65fd279046be36864cc`;
 - `AP-SRV-040` PASS / canonical:
-  `c0806e5bc5d503580070f2dacc88831d51447938`.
+  `c0806e5bc5d503580070f2dacc88831d51447938`;
+- `AP-SRV-050` PASS / canonical:
+  `c901cda3f2c19eeb78c468524161728498b6e27e`.
 
 Abgenommene Kette:
 
@@ -65,6 +69,7 @@ SRV010
 SRV020
 SRV030 canonical
 SRV040 canonical
+SRV050 canonical
 ```
 
 `AP-SRV-030` wurde aus dem bereits abgenommenen Execution-Stand
@@ -72,6 +77,16 @@ SRV040 canonical
 `AP-SRV-040` aus dem Root-geprüften C3 (`6f73a4e…`) als genau ein
 kanonischer Commit. Beide liegen linear auf
 `feat/einheitliche-triggerarchitektur` direkt auf der SRV-000..020-Kette.
+
+`AP-SRV-050` wurde aus dem Root-geprüften C3
+(`18b65216433329456946afd3c41d8df6bbd07d44`, Tree `b0dec32d…`) ebenfalls als
+genau ein kanonischer Commit auf `c0806e5…` geschlossen. Die
+Execution-Provenienz liegt auf `review/AP-SRV-050/run-01` (C1 `489ac23a…`,
+C2 `536ff67c…`, C3 `18b65216…`). AP-SRV-050 liefert die
+Settings-Control-Plane: genau eine Settings-Domainautorität je v2-Session,
+getrennte Serversettings, monotone getrennte Revisionen, immutable
+`next_activation`-Timing-Latches, linearisierte Patch-/Wire-/
+`settings.changed`-Reihenfolge und strikt validierte Persistenz.
 
 AP-SRV-010 liefert genau einen serverseitigen Vordergrundslot mit
 `idle`, `waiting_first_speech`, `segment_active`, `followup_wait` und
@@ -94,30 +109,31 @@ Die vollständigen AP-Nachweise liegen serverseitig unter
 
 ## 4. Nächstes Paket und harte Grenzen
 
-`AP-SRV-050` ist READY und startet exakt auf dem kanonischen Server-SHA
+`AP-SRV-060` ist READY und startet exakt auf dem kanonischen Server-SHA
 
 ```text
-c0806e5bc5d503580070f2dacc88831d51447938  (AP-SRV-040 canonical)
+c901cda3f2c19eeb78c468524161728498b6e27e  (AP-SRV-050 canonical)
+Tree f81144a26f93fb3bc553ab5110d07197a473aa46
 ```
 
-Sein Umfang ist (Settings-/Control-Plane-Portierung gemäß Plan):
+Sein Umfang ist (Wake-Word-Katalog und Kalibrierung gemäß Plan):
 
-- Serverautorität, Session-/Server-Scope und Apply-Policies;
-- triggerrelevante Einstellungen und admin-geschützte Servereinstellungen;
-- v2-Settings-Schema, Serverwerte/-Patch und Wake-Word-Katalog an den
-  eingefrorenen Endpunkten;
-- vorbereiteter Integrationsstand für `AP-SRV-060` (Wake-Word-Katalog,
-  Kalibrierung).
+- versionierter Wake-Word-Katalog über `GET /api/v2/wake-words`
+  (`SET-13b`, `WW-09`); dieser Endpunkt wurde in AP-SRV-050 bewusst **nicht**
+  implementiert;
+- serverautoritative Cooldown-/Pre-Roll-Konfiguration (`WW-15`);
+- Cooldown-/Pre-Roll-Kalibrierung aus realer Score-/Audio-Evidence
+  (`WW-18`, `WW-19`);
+- Detection-Härtung gegen Mehrfachsignale (`FIND-011`).
 
 Nicht vorwegnehmen:
 
-- Wake-Word-Katalog/Detection/Kalibrierung (`AP-SRV-060`);
 - Legacyabbau (`AP-SRV-070`);
 - jegliche Clientproduktänderung.
 
 `AP-CLI-010` ist dependency-seitig entblockt (technische Dependency
 AP-SRV-040 erfüllt), wird aber **bewusst deferred**: erst nach Abschluss der
-Serverlinie `AP-SRV-050 → AP-SRV-060 → AP-SRV-070` beginnt die Clientlinie.
+Serverlinie `AP-SRV-060 → AP-SRV-070` beginnt die Clientlinie.
 Deshalb läuft aktuell keine parallele Clientimplementierung.
 
 ## 5. Verbindliche Quellen
@@ -134,7 +150,12 @@ Deshalb läuft aktuell keine parallele Clientimplementierung.
   `../PLANUNG/AUSFUEHRUNGS_WORKFLOW.md`.
 
 Historische Archive belegen nur frühere Zustände und überschreiben diese
-Quellen nicht.
+Quellen nicht. Das gilt ausdrücklich auch für die am 2026-08-27 gesicherte
+Server-Prep-Provenienz unter
+`ARBEITSDATEIEN/90_HISTORIE/2026-08-25_TRIGGERARCHITEKTUR_SERVER_PREP/`:
+byteidentische Voranalyse-/Planungsstände vom 2026-08-25 zu AP-SRV-040 bis
+AP-SRV-070, **nicht normativ**, keine AP-Abnahme, kein kanonischer
+Produktstand. Nicht daraus implementieren.
 
 ## 6. Tests und Gateprozess
 

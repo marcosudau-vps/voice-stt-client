@@ -1,6 +1,7 @@
 # Traceability – Entscheidung zu Umsetzung und Nachweis
 
-**Status:** Vollständigkeitsaudit PLAN-EXEC-002; 129 eindeutige Summary- und
+**Status:** Vollständigkeitsaudit PLAN-EXEC-002, fortgeschrieben durch die
+Root-Abnahme von `AP-SRV-050` (2026-08-27); 130 eindeutige Summary- und
 Einzelanforderungen, AP-Zuordnung verbindlich. Konkrete Testdateien und
 gepushte Nachweis-SHAs werden bei AP-Start beziehungsweise Abnahme in
 `AUSFUEHRUNGSSTATUS.md` geführt, damit fachlicher Planungsstatus und
@@ -137,17 +138,17 @@ kann.
 
 | ID | Einzelanforderung | Status | AP | Nachweis |
 |---|---|---|---|---|
-| WW-09 | Alle im Build enthaltenen und nicht global deaktivierten Wake Words sind über einen versionierten Katalog abfragbar | BESTÄTIGT | SRV-050, SRV-060, CLI-030 | Catalog-API-/Disable-Test |
+| WW-09 | Alle im Build enthaltenen und nicht global deaktivierten Wake Words sind über einen versionierten Katalog abfragbar | BESTÄTIGT | SRV-060, CLI-030 | Catalog-API-/Disable-Test |
 | WW-10 | Aliasnormalisierung verwendet Unicode-Trim und case-insensitive Vergleich; nur explizite Aliase dürfen etwa „Hey“ weglassen | CONTRACT FROZEN | SRV-060 | Alias-/Collision-Test |
 | WW-11 | Unbekannte, deaktivierte oder nicht ladbare Wake-Word-ID lehnt die gesamte Sessionauswahl ohne Teilfallback ab | BESTÄTIGT | SRV-060 | Atomic-Admission-Test |
 | WW-12 | Nur die für eine angenommene Session gewählten Wake-Word-Modelle werden initialisiert | BESTÄTIGT | SRV-060 | Resource-/Initialization-Test |
 | WW-13 | `wakeword.detected` enthält kanonische ID, Score und die dadurch akzeptierte `activationId`; Rohscores bleiben Diagnose | CONTRACT FROZEN | SRV-060, SRV-040 | Event-/No-Raw-Domain-Test |
 | WW-14 | Sensitivity ist gemeinsam für alle Session-Wake-Words konfigurierbar; zusätzliche Mehrfach-Chunk-Regel nur nach Messdaten | BESTÄTIGT / KALIBRIERUNG | SRV-050, SRV-060 | Score-Trace-/Config-Test |
-| WW-15 | Wake-Word-Cooldown und Pre-Roll sind serverautoritativ konfigurierbar; 0 ms Pre-Roll ist zulässig | BESTÄTIGT | SRV-050, SRV-060, CLI-030 | Schema-/Boundary-Test |
+| WW-15 | Wake-Word-Cooldown und Pre-Roll sind serverautoritativ konfigurierbar; 0 ms Pre-Roll ist zulässig | BESTÄTIGT | SRV-060, CLI-030 | Schema-/Boundary-Test |
 | WW-16 | Nach dem ersten akzeptierten Treffer bleibt Detection bis zum Eingabeschluss gelatcht und erzeugt kein Mehrfachereignis | BESTÄTIGT | SRV-060 | One-Utterance-/Latch-Test |
 | WW-17 | Leere Wake-Auswahl ist nur bei `trigger.wakeWord=false` zulässig; Suppression ersetzt keine Sessionauswahl | CONTRACT FROZEN | SRV-040, SRV-060, CLI-030 | Handshake-/UI-Negativtest |
-| WW-18 | Konkreter Cooldown-Default/-Bereich wird aus Score-/Audio-Evidence festgelegt, nicht vom Agenten erfunden | KALIBRIERUNG OFFEN | SRV-000, SRV-050, SRV-060 | Calibration-Report plus Config-Test |
-| WW-19 | Konkreter Pre-Roll-Default/-Bereich wird anhand des Wake-/Sprachgrenztests festgelegt; 0 ms bleibt zulässig | KALIBRIERUNG OFFEN | SRV-000, SRV-050, SRV-060 | Audio-Grenzreport plus Config-Test |
+| WW-18 | Konkreter Cooldown-Default/-Bereich wird aus Score-/Audio-Evidence festgelegt, nicht vom Agenten erfunden | KALIBRIERUNG OFFEN | SRV-000, SRV-060 | Calibration-Report plus Config-Test |
+| WW-19 | Konkreter Pre-Roll-Default/-Bereich wird anhand des Wake-/Sprachgrenztests festgelegt; 0 ms bleibt zulässig | KALIBRIERUNG OFFEN | SRV-000, SRV-060 | Audio-Grenzreport plus Config-Test |
 
 ### Settings, Authentifizierung und Anwendung
 
@@ -161,7 +162,8 @@ kann.
 | SET-10 | Admin-Key kann im Windows Credential Manager angelegt, ersetzt und per UI gelöscht werden | BESTÄTIGT | CLI-030 | Credential-Lifecycle-Test |
 | SET-11 | `QSettings` hält nur nicht geheime Metadaten; es gibt keinen Klartext-Fallback für den Admin-Key | BESTÄTIGT | CLI-030 | Registry-/Secret-Negativtest |
 | SET-12 | `server_restart` wird nur für technisch unvermeidbare fundamentale Serverwerte verwendet | BESTÄTIGT | SRV-050 | Apply-Policy-Review/Test |
-| SET-13 | Server-API stellt v2-Settings-Schema, Serverwerte/-Patch und Wake-Word-Katalog an den eingefrorenen Endpunkten bereit | CONTRACT FROZEN | SRV-050 | HTTP-Contract-Test |
+| SET-13a | Server-API stellt v2-Settings-Schema und Serverwerte/-Patch an den eingefrorenen Endpunkten bereit | CONTRACT FROZEN | SRV-050 | HTTP-Settings-Contract-Test |
+| SET-13b | Server-API stellt den versionierten Wake-Word-Katalog über `GET /api/v2/wake-words` bereit | CONTRACT FROZEN | SRV-060 | Catalog-HTTP-Contract-Test |
 
 ### Gerät, Feedback, Recovery und Verlustschutz
 
@@ -193,6 +195,27 @@ kann.
 | PROC-05 | Endabnahme ergänzt `ABNAHME.md` im selben Commit und pusht erst nach vollständigem PASS auf GitHub | EXECUTION FROZEN | alle SRV/CLI | Commit-/Remote-SHA-Prüfung |
 | PROC-06 | Folge-APs starten ausschließlich auf der gepushten, als Dependency vermerkten Vorgänger-SHA | EXECUTION FROZEN | alle APs | Prompt-Metadaten-/SHA-Prüfung |
 | PROC-07 | Maximal ein GPT-Implementierungsagent und ein Claude-Code-CLI-Lauf arbeiten parallel; nie zwei desselben Anbieters | EXECUTION FROZEN | alle APs | Run-/Zeitachsenprüfung |
+
+## Root-Korrektur der AP-Zuordnung (2026-08-27, AP-SRV-050 Root PASS)
+
+Mit der Root-Abnahme von `AP-SRV-050` ist die Paketownership rund um den
+Wake-Word-Katalog verbindlich korrigiert. Die fachliche Semantik der
+Anforderungen bleibt unverändert; nur die AP-Zuordnung wurde berichtigt.
+
+- `SET-13` ist aufgeteilt: `SET-13a` (v2-Settings-Schema, Serverwerte/-Patch,
+  `AP-SRV-050`) und `SET-13b` (versionierter Wake-Word-Katalog über
+  `GET /api/v2/wake-words`, `AP-SRV-060`). Dadurch steigt die Zahl eindeutiger
+  Anforderungen von 129 auf 130.
+- `WW-09` führt `SRV-050` nicht mehr; serverseitig ist der Katalog eindeutig
+  `SRV-060`.
+- `WW-15` führt `SRV-050` nicht mehr, weil `AP-SRV-050` bewusst keine nicht
+  eingefrorenen Cooldown-/Pre-Roll-Keys erfunden hat.
+- `WW-18` und `WW-19` führen `SRV-050` nicht mehr; die Kalibrierung bleibt bei
+  `SRV-000` und `SRV-060`.
+
+Die übrigen AP050-Zuordnungen bleiben unverändert bestehen, insbesondere
+`SET-01/02/04/05/06/07/09/12`, `A-03`, `TIME-01/02` sowie `WW-03` und `WW-14`
+als Sensitivity-/Settingsfundament.
 
 ## Überholte Traceability-Aussagen
 

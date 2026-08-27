@@ -445,3 +445,62 @@
    Clientlinie. `AP-SRV-050` ist READY (Basis `c0806e5…`); `AP-CLI-010` ist
    technisch entblockt, aber bewusst deferred. Distributed-/Review-Branches
    bleiben Execution-Provenienz.
+
+## 2026-08-27 – CANONICAL CLOSE AP-SRV-050
+
+1. **Execution-Provenienz.** `AP-SRV-050` (Settings-Control-Plane) lief in drei
+   lokalen Commits auf `review/AP-SRV-050/run-01`, jeweils ohne Amend, Merge
+   oder Rebase:
+
+   ```text
+   C1  489ac23a192b2a64abbcdb6779ed132f159e4518  2026-08-27 10:58:11 +02:00
+       Implementierung der Control Plane
+   C2  536ff67cda872b1449f88c5d99e8d8c3017139f4  2026-08-27 16:45:11 +02:00
+       Härtung gegen die sechs Root-Findings F1–F6
+   C3  18b65216433329456946afd3c41d8df6bbd07d44  2026-08-27 18:33:02 +02:00
+       Linearisierung der Wire-Projektion; Root-PASS Source
+       Tree b0dec32ddde90052956165c249b313478c267773
+   ```
+
+2. **Root PASS.** `F1`–`F6` PASS. Testevidenz: Settings `120 passed`;
+   Protocol v2 `205 passed / 1 skipped / 281 subtests`; Activation/Timer
+   `218 passed / 82 subtests`; Vollsuite `899 passed / 14 skipped / 448
+   subtests`; neue C3-Races Snapshot/Patch `20/20` und
+   settings.changed/Domain-Ordering `20/20`. Zwei Root-Notes sind
+   ausdrücklich NON-BLOCKING: die byteidentisch archivierte C3-Promptdatei
+   behält ihre Markdown-Hardbreak-Trailing-Spaces, und die committeten
+   Red-Tests belegen den C2-Fehler, während der Produktfix das Fenster
+   strukturell schließt.
+
+3. **Canonical Close.** Der Root-geprüfte C3-Tree wurde als genau ein
+   kanonischer Commit auf `feat/einheitliche-triggerarchitektur` übernommen:
+
+   ```text
+   Canonical  c901cda3f2c19eeb78c468524161728498b6e27e
+   Tree       f81144a26f93fb3bc553ab5110d07197a473aa46
+   Parent     c0806e5bc5d503580070f2dacc88831d51447938
+   Zeit       2026-08-27 20:07:43 +02:00
+   ```
+
+   Produkt-, Test- und dauerhafte Dokumentation sind identisch zu C3; die
+   einzigen Unterschiede sind die drei Root-Close-Dokumente der AP050-Akte
+   (`ABNAHME.md`, `2026-08-27_README.md`,
+   `2026-08-27_AP-SRV-050_UMSETZUNGSVERGLEICH.md`). Genau ein Commit im Range
+   `c0806e5…..c901cda…`.
+
+4. **SET-13 Ownership-Korrektur.** Root-entschieden und in `TRACEABILITY.md`
+   umgesetzt: `SET-13` ist in `SET-13a` (Settings-REST, `AP-SRV-050`) und
+   `SET-13b` (`GET /api/v2/wake-words`, `AP-SRV-060`) aufgeteilt; die
+   Anforderungszahl steigt von 129 auf 130. `WW-09`, `WW-15`, `WW-18` und
+   `WW-19` führen `SRV-050` nicht mehr. Die fachliche Semantik der
+   Anforderungen bleibt unverändert.
+
+5. **Prep-Provenienz gesichert.** Die bis dahin unversionierte textuelle
+   Server-Vorbereitung vom 2026-08-25 liegt jetzt byteidentisch unter
+   `ARBEITSDATEIEN/90_HISTORIE/2026-08-25_TRIGGERARCHITEKTUR_SERVER_PREP/`
+   (19 Dateien, `SHA256SUMS.txt`, 0 Abweichungen). Der Snapshot ist
+   ausdrücklich **nicht normativ**; das Original unter `_PREP\SERVER` bleibt
+   unangetastet.
+
+6. **Next.** `AP-SRV-060` ist READY auf `c901cda…`. `AP-CLI-010` bleibt
+   bewusst deferred bis zum Abschluss von `AP-SRV-060 → AP-SRV-070`.

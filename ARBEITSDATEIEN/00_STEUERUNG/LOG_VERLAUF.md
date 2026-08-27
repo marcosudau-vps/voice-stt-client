@@ -1853,3 +1853,127 @@
 - Freigegebener Server-SHA:
   `8535ee79bb2d898d9897e91b57d6a735c479edf0`.
 - AP-SRV-030 ist READY; AP-CLI-010 bleibt bis AP-SRV-040 blockiert.
+
+## 2026-08-27 – NACHTRAG (rekonstruiert): AP-SRV-030 und AP-SRV-040
+
+```text
+Nachtrag am 2026-08-27 erstellt.
+Historische Zeitpunkte aus Git-Metadaten rekonstruiert.
+Append-only-Reihenfolge wurde nicht umgeschrieben.
+```
+
+Die detaillierte Chronik dieser Datei endete bisher bei `AP-SRV-020`
+(2026-08-25 05:38:46 +02:00). `AP-SRV-030` und `AP-SRV-040` wurden beim
+vorherigen kanonischen Abschluss nicht nachgetragen. Diese Lücke wird hier
+transparent geschlossen; frühere Einträge wurden dafür weder umsortiert noch
+rückwirkend ergänzt.
+
+**Zeitbasis.** Alle unten genannten Zeitpunkte stammen aus
+`git show -s --format=%aI/%cI` im Serverrepository
+(`voice-stt-server/workspaces/einheitliche-triggerarchitektur`), umgerechnet
+auf Europe/Berlin. Eine Git-Commitzeit belegt den Commit- beziehungsweise
+Closezeitpunkt, **nicht** den Startzeitpunkt des jeweiligen Agentenlaufs. Die
+Startzeitpunkte der AP-SRV-030- und AP-SRV-040-Läufe sind weder aus Git noch
+aus den archivierten Prompts/Reports belastbar ableitbar und werden deshalb
+bewusst nicht angegeben.
+
+### AP-SRV-030 – Commands und Timer (rekonstruiert)
+
+- **2026-08-27 03:02:19 +02:00** – Execution-/Root-PASS-Source
+  `325e55c186713069b25208871da4fef16470f85a`
+  (Tree `ec5b6e0849bb7a0949ae5da05d168b8c19a4456e`, Parent
+  `8535ee79bb2d898d9897e91b57d6a735c479edf0`),
+  Commitbetreff `feat(trigger): implement AP-SRV-030 commands and timers`.
+  Inhalt: semantische Commands und der eingefrorene, nicht kumulative
+  Timervertrag; damit ist `FIND-010` (kumulative Extend-Semantik) geschlossen.
+  Der Stand durchlief eine Root-Korrekturrunde und eine CI-Validierung auf
+  Windows/Python 3.12 (Branch `review/AP-SRV-030/run-01`, CI-Provenienz
+  `ci/AP-SRV-030-c3-validation`).
+- **2026-08-27 06:52:23 +02:00** – kanonischer Archive-Complete-Close
+  `b220dd03a594d2b9f8cad65fd279046be36864cc`
+  (Tree `61c65f59b1778085affada90b66411e27ec1c004`, Parent
+  `8535ee79bb2d898d9897e91b57d6a735c479edf0`),
+  Commitbetreff `feat(trigger): canonicalize AP-SRV-030 commands and timers`.
+  Produkt-, Test- und Dokustand identisch zur Execution-Source; zusätzlich
+  ausschließlich Vervollständigung der Paketakte. `AP-SRV-040` freigegeben.
+
+### AP-SRV-040 – Protokoll v2 (rekonstruiert)
+
+- **2026-08-27 05:59:00 +02:00** – Root-geprüfter C3-Kandidat
+  `6f73a4e347be51d02005e81a0c6be546f036deef`
+  (Tree `6d36c2639a199c5bdd10a2c8dc1899d8261caee6`),
+  Commitbetreff `fix(protocol): serialize AP-SRV-040 event dispatch`.
+  Der Lauf umfasste drei Commits auf `review/AP-SRV-040/run-01`: C1
+  Implementierung von Protokoll v2 (Handshake, Events, Snapshot), C2
+  `stateVersion`-Härtung und C3 die gemeinsame Linearisierung von Projection,
+  `eventSeq`-Mint und Sink-Übergabe.
+- **2026-08-27 07:01:26 +02:00** – kanonischer Close
+  `c0806e5bc5d503580070f2dacc88831d51447938`
+  (Tree `e9a1a93aecf433941db91827393bc51afef4ebff`, Parent
+  `b220dd03a594d2b9f8cad65fd279046be36864cc`; Autorzeit 07:00:16 +02:00),
+  Commitbetreff `feat(protocol): canonicalize AP-SRV-040 protocol v2`.
+  Außerhalb der Paketakten identisch zu C3. Nachweise: Vollsuite
+  `779 passed, 14 skipped, 448 subtests`, C3-Event-Ordering `20/20`,
+  `git diff --check` PASS. `AP-SRV-050` freigegeben.
+
+**Reihenfolgehinweis.** Die Zeitstempel zeigen, dass der AP-SRV-040-Review
+(C3, 05:59) auf der bereits abgenommenen AP-SRV-030-Execution-Source lief,
+während der kanonische AP-SRV-030-Commit erst danach (06:52) erzeugt wurde.
+Die kanonische Kette selbst ist davon unberührt linear:
+`8535ee7…` → `b220dd0…` → `c0806e5…`.
+
+## 2026-08-27 20:07:43 +02:00 – CANONICAL CLOSE AP-SRV-050
+
+Zeitbasis: Git-Metadaten. C1/C2/C3 aus dem lokalen Reviewworktree
+`workspaces/ap-srv-050` (`review/AP-SRV-050/run-01`), der kanonische Commit
+aus dem Serverworkspace nach dem Push.
+
+```text
+C1  489ac23a192b2a64abbcdb6779ed132f159e4518  2026-08-27 10:58:11 +02:00
+    Tree 17eeb88254809c535404c84872111241470f1010
+C2  536ff67cda872b1449f88c5d99e8d8c3017139f4  2026-08-27 16:45:11 +02:00
+    Tree 9ff02381fef0b6c8dd6e01482d4633e21ef56be4
+C3  18b65216433329456946afd3c41d8df6bbd07d44  2026-08-27 18:33:02 +02:00
+    Tree b0dec32ddde90052956165c249b313478c267773   (Root-PASS Source)
+
+Canonical  c901cda3f2c19eeb78c468524161728498b6e27e  2026-08-27 20:07:43 +02:00
+Tree       f81144a26f93fb3bc553ab5110d07197a473aa46
+Parent     c0806e5bc5d503580070f2dacc88831d51447938
+```
+
+- **C1 Implementation.** Settings-Control-Plane: Registry mit
+  key/scope/auth/type/constraints, Apply-Policies, sechs Activation-Timings,
+  Wake-Sensitivity, Session-Wake-Auswahl und admin-geschützte
+  Servereinstellungen.
+- **C2 Root Findings F1–F6.** Härtung der Domainautorität, der getrennten
+  Session-/Serverrevisionen, der `next_activation`-Latches, der
+  `requested`/`effective`-Resyncbarkeit, der Persistenzvalidierung und des
+  REST-/Auth-/Secret-Schutzes.
+- **C3 Wire-Atomicity.** Settings-Patch, Wire-Mirror und `settings.changed`
+  sind gemeinsam linearisiert; der Snapshot liegt auf derselben
+  AP-SRV-040-Dispatchgrenze. Damit ist das in C2 nachgewiesene Wire-Race
+  strukturell geschlossen.
+- **ROOT PASS.** `F1`–`F6` PASS. Settings `120 passed`; Protocol v2
+  `205 passed / 1 skipped / 281 subtests`; Activation/Timer
+  `218 passed / 82 subtests`; Vollsuite `899 passed / 14 skipped / 448
+  subtests`; C3-Races `20/20` (Snapshot/Patch) und `20/20`
+  (settings.changed/Domain-Ordering). Zwei NON-BLOCKING Root-Notes: die
+  byteidentisch archivierte C3-Promptdatei behält ihre
+  Markdown-Hardbreak-Trailing-Spaces, und die committeten Red-Tests belegen
+  den C2-Fehler, ohne als Scheduler-Beweis mathematisch vollständig zu sein.
+- **Canonical Close.** Genau ein Commit auf `c0806e5…`; Produkt-, Test- und
+  dauerhafte Dokumentation identisch zum Root-geprüften C3, zusätzlich nur die
+  drei Root-Close-Dokumente der AP050-Akte. `git diff --check` meldet
+  ausschließlich die bekannte archivierte Promptdatei; ohne sie ist der Lauf
+  sauber.
+- **SET-13a/SET-13b Ownership-Korrektur.** `SET-13` ist aufgeteilt in
+  `SET-13a` (Settings-REST, AP-SRV-050) und `SET-13b`
+  (`GET /api/v2/wake-words`, AP-SRV-060); die Anforderungszahl steigt von 129
+  auf 130. `WW-09`, `WW-15`, `WW-18` und `WW-19` führen `SRV-050` nicht mehr.
+- **Prep-Provenienz.** Die textuelle Server-Vorbereitung vom 2026-08-25 ist
+  byteidentisch gesichert unter
+  `ARBEITSDATEIEN/90_HISTORIE/2026-08-25_TRIGGERARCHITEKTUR_SERVER_PREP/`
+  (19 Dateien, `SHA256SUMS.txt`, 0 Abweichungen). Ausdrücklich **nicht
+  normative** Prep-Provenienz; das Original unter `_PREP\SERVER` bleibt
+  bestehen.
+- **AP-SRV-060 NEXT** auf `c901cda…`; `AP-CLI-010` bleibt bewusst deferred.

@@ -7,14 +7,14 @@ title: Einheitliche Triggerarchitektur
 state: AKTIV
 phase: IMPLEMENTIERUNG
 created_at: 2026-08-24 01:08:47 +02:00
-updated_at: 2026-08-25 05:38:46 +02:00
+updated_at: 2026-08-27 20:07:43 +02:00
 branch: feat/einheitliche-triggerarchitektur
 baseline_head: dd0af5ed22e7401895f08c8c13e4e37c7e78ddb7
 -->
 
 **Status:** AKTIV
 
-**Phase:** IMPLEMENTIERUNG / AP-SRV-050 READY
+**Phase:** IMPLEMENTIERUNG / AP-SRV-060 READY
 
 **Branch:** `feat/einheitliche-triggerarchitektur` (Distributed-/Review-Branches sind Execution-Provenienz, nicht kanonische Basis)
 
@@ -93,7 +93,8 @@ Gate-Status, Traceability und freigegebene Commitpaare vor parallelen
 Schreibkonflikten.
 
 Der Traceability-Vollständigkeitsaudit hat die zuvor stark gebündelte Matrix
-auf 129 eindeutige Summary- und Einzelanforderungen erweitert. Phasen,
+auf 130 eindeutige Summary- und Einzelanforderungen erweitert (129 plus die
+Root-entschiedene Aufteilung von `SET-13` in `SET-13a` und `SET-13b`). Phasen,
 Pipeline, Ledger, Reihenfolge, Timer, Commands, Suppression, Wire, Wake Words,
 Settings, Geräte-/Feedbackgrenzen, Recovery, Kompatibilität sowie
 Ausführungsgovernance sind jetzt jeweils separat abnehmbar. Vier erkannte
@@ -134,17 +135,22 @@ und Gateprozess ohne Abhängigkeit vom Chatkontext fest.
 ## Aktive Arbeit
 
 Welle 1 (`AP-SRV-000` und `AP-CLI-000`) sowie `AP-SRV-010`, `AP-SRV-020`,
-`AP-SRV-030` und `AP-SRV-040` sind mit `PASS` abgeschlossen:
+`AP-SRV-030`, `AP-SRV-040` und `AP-SRV-050` sind mit `PASS` abgeschlossen:
 
-- `SRV-000..040 PASS`;
+- `SRV-000..050 PASS`;
 - kanonische Commitkette auf `feat/einheitliche-triggerarchitektur`:
   `8535ee7…` (SRV-020) → `b220dd0…` (SRV-030 canonical) → `c0806e5…`
-  (SRV-040 canonical);
-- `AP-SRV-050` ist der nächste aktive Server-AP, gestartet auf
-  `c0806e5bc5d503580070f2dacc88831d51447938`;
+  (SRV-040 canonical) → `c901cda…` (SRV-050 canonical);
+- `AP-SRV-050` lieferte die Settings-Control-Plane: eine
+  `SessionSettingsState` je v2-Session, getrennte `ServerSettingsState`,
+  monotone getrennte Revisionen, immutable `next_activation`-Timing-Latches,
+  linearisierte Settings-Patch-/Wire-/`settings.changed`-Reihenfolge und
+  strikt validierte Persistenz. Root-Findings `F1`–`F6` sind `PASS`;
+- `AP-SRV-060` ist der nächste aktive Server-AP, startend auf
+  `c901cda3f2c19eeb78c468524161728498b6e27e`;
 - Client `AP-CLI-010` ist technisch entblockt (AP-SRV-040 dependency
   erfüllt), wird aber bewusst erst nach Abschluss der Serverlinie
-  `AP-SRV-050 → AP-SRV-060 → AP-SRV-070` ausgeführt.
+  `AP-SRV-060 → AP-SRV-070` ausgeführt.
 
 ## Bekannte neue Abweichungen
 
@@ -165,10 +171,10 @@ Score-/Audiodaten innerhalb des eingefrorenen Contracts kalibriert.
 
 ## Nächster Schritt
 
-`AP-SRV-050` startet als nächster aktiver Server-AP auf dem kanonischen
-AP-SRV-040-SHA `c0806e5bc5d503580070f2dacc88831d51447938` (Settings-/
-Control-Plane-Port). Danach folgen `AP-SRV-060` und `AP-SRV-070` seriell, erst
-dann beginnt die Clientlinie.
+`AP-SRV-060` startet als nächster aktiver Server-AP auf dem kanonischen
+AP-SRV-050-SHA `c901cda3f2c19eeb78c468524161728498b6e27e` (Wake-Word-Katalog
+und Kalibrierung, einschließlich `GET /api/v2/wake-words` / `SET-13b`). Danach
+folgt `AP-SRV-070` seriell, erst dann beginnt die Clientlinie.
 
 ## Abgrenzung
 

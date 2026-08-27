@@ -1,6 +1,6 @@
 # Ausführungsstatus – Einheitliche Triggerarchitektur
 
-**Stand:** 2026-08-27 03:02:19 +02:00
+**Stand:** 2026-08-27 20:07:43 +02:00
 
 Diese Datei führt ausschließlich Ausführungsgates und immutable Commit-SHAs.
 Fachliche Anforderungen und Planungsstatus bleiben in `TRACEABILITY.md`.
@@ -14,6 +14,7 @@ Fachliche Anforderungen und Planungsstatus bleiben in `TRACEABILITY.md`.
 | AP-SRV-020 | `voice-stt-server` | PASS | `3262079c62c58677cfd6506cd09d020b5b27ef44` | `8535ee79bb2d898d9897e91b57d6a735c479edf0` | AP-SRV-030 freigegeben |
 | AP-SRV-030 | `voice-stt-server` | PASS | `8535ee79bb2d898d9897e91b57d6a735c479edf0` | Execution-/Root-PASS-Source `325e55c186713069b25208871da4fef16470f85a`; Canonical Archive-Complete `b220dd03a594d2b9f8cad65fd279046be36864cc` | AP-SRV-040 freigegeben; Parent `8535ee7…` |
 | AP-SRV-040 | `voice-stt-server` | PASS | Execution Source `325e55c186713069b25208871da4fef16470f85a`; Root-reviewed C3 `6f73a4e347be51d02005e81a0c6be546f036deef` | Canonical `c0806e5bc5d503580070f2dacc88831d51447938` | AP-SRV-050 freigegeben; Parent `b220dd03a594d2b9f8cad65fd279046be36864cc` |
+| AP-SRV-050 | `voice-stt-server` | PASS | Canonical Base `c0806e5bc5d503580070f2dacc88831d51447938`; Execution provenance C1 `489ac23a192b2a64abbcdb6779ed132f159e4518` / C2 `536ff67cda872b1449f88c5d99e8d8c3017139f4` / C3 `18b65216433329456946afd3c41d8df6bbd07d44` | Canonical `c901cda3f2c19eeb78c468524161728498b6e27e` | AP-SRV-060 freigegeben; Parent `c0806e5bc5d503580070f2dacc88831d51447938` |
 | AP-CLI-000 | `voice-stt-client` | PASS | `db102fdc6dd70e4de798a363608d1e7412533dd7` | `042fcd203c873d6f84a270413c47bc5da1fbf1ed` | Clientbaseline erfüllt; AP-CLI-010 dependency-seitig entblockt, Ausführung bewusst deferred |
 
 ## AP-SRV-030 – Execution-/Root-PASS Source
@@ -45,12 +46,54 @@ Parent:                 b220dd03a594d2b9f8cad65fd279046be36864cc
 Dependency:             AP-SRV-050 freigegeben
 ```
 
+## AP-SRV-050 – Root PASS / Canonical
+
+```text
+Start (canonical base): c0806e5bc5d503580070f2dacc88831d51447938
+Start tree:             e9a1a93aecf433941db91827393bc51afef4ebff
+
+Execution provenance:
+C1  489ac23a192b2a64abbcdb6779ed132f159e4518
+    Tree 17eeb88254809c535404c84872111241470f1010
+C2  536ff67cda872b1449f88c5d99e8d8c3017139f4
+    Tree 9ff02381fef0b6c8dd6e01482d4633e21ef56be4
+C3  18b65216433329456946afd3c41d8df6bbd07d44   (Root-PASS Source)
+    Tree b0dec32ddde90052956165c249b313478c267773
+
+Canonical PASS:         c901cda3f2c19eeb78c468524161728498b6e27e
+Canonical tree:         f81144a26f93fb3bc553ab5110d07197a473aa46
+Parent:                 c0806e5bc5d503580070f2dacc88831d51447938
+Commit count AP040..AP050: 1
+Dependency:             AP-SRV-060 freigegeben
+```
+
+Root-Findings `F1`–`F6` sind `PASS`. Produkt-, Test- und dauerhafter
+Dokustand des kanonischen Commits sind identisch zum Root-geprüften C3
+(Tree `b0dec32d…`); die einzigen Unterschiede sind die drei Root-Close-
+Dokumente der AP050-Akte (`ABNAHME.md`, `2026-08-27_README.md`,
+`2026-08-27_AP-SRV-050_UMSETZUNGSVERGLEICH.md`).
+
+Testevidenz (aus C3 übernommen, Root-geprüft): Settings `120 passed`;
+Protocol v2 `205 passed / 1 skipped / 281 subtests`; Activation/Timer
+`218 passed / 82 subtests`; Vollsuite `899 passed / 14 skipped / 448
+subtests`; C3-Races Snapshot/Patch `20/20` und settings.changed/Domain
+ordering `20/20`.
+
+`git diff --check` meldet ausschließlich die bekannten Markdown-Hardbreak-
+Trailing-Spaces der byteidentisch archivierten Promptdatei
+`AP-SRV-050/runs/03_ROOT_CORRECTION/2026-08-27_PROMPT.md`; ohne diese Datei
+ist der Lauf sauber. Die Datei wurde bewusst nicht verändert, damit der
+Byte-/SHA-Nachweis erhalten bleibt.
+
+Root-Disposition: `GET /api/v2/wake-words` gehört `AP-SRV-060`; `SET-13` ist
+in `SET-13a` (SRV-050) und `SET-13b` (SRV-060) aufgeteilt.
+
 ## Nächste Gates
 
 | AP | Status | Erfüllte Dependencies | Noch erforderlich |
 |---|---|---|---|
-| AP-SRV-050 | READY | AP-SRV-010 bis AP-SRV-040 | auf exakt `c0806e5bc5d503580070f2dacc88831d51447938` / Tree `e9a1a93aecf433941db91827393bc51afef4ebff` starten |
-| AP-CLI-010 | DEFERRED BY EXECUTION SEQUENCE | AP-CLI-000; technische Dependency AP-SRV-040 erfüllt | bewusst deferred bis Abschluss Serverlinie AP-SRV-050 → AP-SRV-060 → AP-SRV-070 |
+| AP-SRV-060 | READY | AP-SRV-010 bis AP-SRV-050 | auf exakt `c901cda3f2c19eeb78c468524161728498b6e27e` / Tree `f81144a26f93fb3bc553ab5110d07197a473aa46` starten; umfasst `SET-13b` (`GET /api/v2/wake-words`), `WW-09`, `WW-15`, `WW-18`, `WW-19` |
+| AP-CLI-010 | DEFERRED BY EXECUTION SEQUENCE | AP-CLI-000; technische Dependency AP-SRV-040 erfüllt | bewusst deferred bis Abschluss Serverlinie AP-SRV-060 → AP-SRV-070 |
 
 ## AP-SRV-030 Evidence-Referenz
 
