@@ -28,7 +28,7 @@ Fachliche Anforderungen und Planungsstatus bleiben in `TRACEABILITY.md`.
 - PASS-SHA: `325e55c186713069b25208871da4fef16470f85a`
 - PASS-Tree: `ec5b6e0849bb7a0949ae5da05d168b8c19a4456e`
 - Parent / AP-SRV-020: `8535ee79bb2d898d9897e91b57d6a735c479edf0`
-- Der finale Commit ist genau ein Commit vor AP-SRV-020.
+- Der finale Commit ist genau ein Commit nach AP-SRV-020.
 - Der Produkt-/Test-/Dokumentationsstand vor Einfügung der Root-Abnahme wurde als Tree `a61584db3397f388e3039f69082d5befce025b68` vollständig in GitHub Actions Run `33028252444` auf Windows/Python 3.12 validiert.
 - C3-Zielregressionen: 2 PASS.
 - AP-SRV-030-Fokussuite: 197 PASS, 82 Subtests PASS.
