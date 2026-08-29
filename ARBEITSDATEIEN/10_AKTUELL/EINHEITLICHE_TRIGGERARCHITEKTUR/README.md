@@ -5,10 +5,10 @@ und ReSpeaker-Feedback.
 
 **Aktuelle Phase:** Implementierung. `AP-SRV-000`, `AP-CLI-000`,
 `AP-SRV-010`, `AP-SRV-020`, `AP-SRV-030` (canonical), `AP-SRV-040`
-(canonical) und `AP-SRV-050` (canonical) sind abgenommen und gepusht;
-`AP-SRV-060` ist das nächste Serverpaket. Der letzte freigegebene
-Serverproduktstand ist `c901cda3f2c19eeb78c468524161728498b6e27e`
-(`AP-SRV-050` canonical). Die Clientreihe ist technisch entblockt, wird aber
+(canonical), `AP-SRV-050` (canonical) und `AP-SRV-060` (canonical) sind
+abgenommen und gepusht; `AP-SRV-070` ist das nächste Serverpaket. Der letzte
+freigegebene Serverproduktstand ist `c82923fc6ce889b4dfbbde1f9877b8b76481a1e8`
+(`AP-SRV-060` canonical). Die Clientreihe ist technisch entblockt, wird aber
 bewusst bis zum Abschluss der Serverlinie (AP-SRV-060 → AP-SRV-070)
 deferred.
 

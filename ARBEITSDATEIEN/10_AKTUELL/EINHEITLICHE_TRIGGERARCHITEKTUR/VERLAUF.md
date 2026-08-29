@@ -504,3 +504,47 @@
 
 6. **Next.** `AP-SRV-060` ist READY auf `c901cda…`. `AP-CLI-010` bleibt
    bewusst deferred bis zum Abschluss von `AP-SRV-060 → AP-SRV-070`.
+
+## 2026-08-29 – CANONICAL CLOSE AP-SRV-060
+
+1. **Execution-Provenienz.** `AP-SRV-060` (Wake-Word-Katalog, Detection und
+   Audiogrenze) lief in fünf Commits auf `work/AP-SRV-060/C3`, jeweils ohne
+   Amend, Merge oder Rebase:
+
+   ```text
+   C1             548057e96a8a722c84d9a43451577a4415bcd7b1  2026-08-28 01:47:40 +02:00
+                  Tree 8751ef47ab17a6c5a1359d75f08fcd18358c5003
+   C2             5e429d6227d6a4660b79c432aa934318e293ecfd  2026-08-28 07:03:33 +02:00
+                  Tree ac278c4649e64793bdf938a0a41e484209d882ff
+   C3             d681afa4580bc8d769777b4fe45a36e3cfc6987a  2026-08-28 17:40:57 +02:00
+                  Tree 7610f208fefdd890556e0f9a557b377095c5ad4c
+   Asset-Final    abf8e6207d0019018f55ce4dcf57f81328c4cb5a  2026-08-28 20:50:02 +02:00
+                  Tree 0276f5752ac918b3e28e15e14d7f11c91182f248
+   Final Repair   2b08e379a36590c99e48e59c81a39418395d9742  2026-08-28 21:53:54 +02:00
+                  Tree de6fe364545b508a47a87ead67a01c5732477e71   (Root-PASS Source)
+   ```
+
+2. **Root PASS.** C1 (ROOT FAIL, Findings F1–F10) und C2 (ROOT FAIL, Findings
+   F11–F15) führten über C3, Asset-Finalisierung (TFLite-Dual-Backend-Artefakte)
+   und Final Root Repair zum `ROOT PASS`. Testevidenz: Vollsuite
+   `1180 passed, 14 skipped, 762 subtests, 0 failed`. Empirische
+   Wake-Audio-Kalibrierung (`WW-18`, `WW-19`) bleibt ehrlich als
+   `EVIDENCE_BLOCKED / calibration pending` ausgewiesen (reales Positivmaterial
+   lokal nicht vorhanden).
+
+3. **Canonical Close.** Der Root-geprüfte Source-Tree wurde als genau ein
+   kanonischer Commit auf `feat/einheitliche-triggerarchitektur` übernommen:
+
+   ```text
+   Canonical  c82923fc6ce889b4dfbbde1f9877b8b76481a1e8
+   Tree       de6fe364545b508a47a87ead67a01c5732477e71
+   Parent     c901cda3f2c19eeb78c468524161728498b6e27e
+   Zeit       2026-08-29 09:09:02 +02:00
+   ```
+
+   Produkt-, Test- und Dokumentationsstand entsprechen exakt dem finalen
+   Root-Source-Tree `de6fe364545b508a47a87ead67a01c5732477e71`. Genau ein Commit
+   im Range `c901cda…..c82923f…`.
+
+4. **Next.** `AP-SRV-070` ist READY auf `c82923f…`. `AP-CLI-010` bleibt
+   bewusst deferred bis zum Abschluss von `AP-SRV-060 → AP-SRV-070`.

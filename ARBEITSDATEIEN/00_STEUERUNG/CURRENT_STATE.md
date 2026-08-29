@@ -15,10 +15,10 @@ Logging / Observability Teil B
 Start nach Trigger mit OBS-100 (bis OBS-180)
 
 Next:
-Triggerarchitektur: Serverlinie weiter auf `AP-SRV-060`; letzter kanonisch
-abgeschlossener Server-AP ist `AP-SRV-050` (Serverbranch
-`feat/einheitliche-triggerarchitektur` =
-`c901cda3f2c19eeb78c468524161728498b6e27e`). Die Clientlane ist technisch
+Triggerarchitektur: Serverlinie weiter auf `AP-SRV-070` (Legacyabbau und
+Protokollgrenze); letzter kanonisch abgeschlossener Server-AP ist `AP-SRV-060`
+(Serverbranch `feat/einheitliche-triggerarchitektur` =
+`c82923fc6ce889b4dfbbde1f9877b8b76481a1e8`). Die Clientlane ist technisch
 entblockt (technische Dependency AP-SRV-040 erfüllt), wird aber bewusst bis
 zum Abschluss der Serverlinie AP-SRV-060 → AP-SRV-070 deferred.
 Distributed-/Review-Branches sind Execution-Provenienz und keine neue
@@ -150,9 +150,23 @@ organisatorisch abgeschlossen und archiviert:
   `feat/einheitliche-triggerarchitektur` geschlossen:
   `c901cda3f2c19eeb78c468524161728498b6e27e` (Parent `c0806e5…`,
   Root-PASS-Source C3 `18b65216433329456946afd3c41d8df6bbd07d44`).
-  `AP-SRV-060` ist damit der nächste aktive Server-AP; `GET /api/v2/wake-words`
-  gehört ausdrücklich dorthin (`SET-13` ist in `SET-13a`/SRV-050 und
-  `SET-13b`/SRV-060 aufgeteilt).
+- `AP-SRV-060` (Wake-Word-Katalog, Detection und Audiogrenze) ist mit
+  `ROOT PASS` abgenommen und als genau ein kanonischer Commit auf
+  `feat/einheitliche-triggerarchitektur` geschlossen:
+  `c82923fc6ce889b4dfbbde1f9877b8b76481a1e8` (Parent `c901cda3f2c19eeb78c468524161728498b6e27e`,
+  Tree `de6fe364545b508a47a87ead67a01c5732477e71`, Root-Source-Stand
+  `2b08e379a36590c99e48e59c81a39418395d9742` aus C1/C2/C3/Asset-Finalisierung/Final-Repair).
+  Der Server besitzt damit den versionierten Buildkatalog
+  (`VoiceSTT/assets/wakeword_models/` mit ONNX- und TFLite-Dual-Backend-Artefakten),
+  die öffentliche Catalog-API `GET /api/v2/wake-words` (`SET-13b`) und
+  `POST /api/v2/wake-words/refresh`, atomare Sessionadmission,
+  selected-only Modellinitialisierung, `WakeHitTracker` mit Exactly-once
+  `wakeword.detected`-Eventing, Single-Backend-je-Engine-Policy sowie die
+  detection-verankerte Audiogrenze (operationaler Nullpunkt an Trailing Edge des
+  Wake-Hits). Vollsuite: 1180 passed, 14 skipped, 762 subtests, 0 failed.
+  Empirische Kalibrierung (`WW-18`, `WW-19`) bleibt ehrlich als
+  `EVIDENCE_BLOCKED / calibration pending` ausgewiesen.
+  `AP-SRV-070` (Legacyabbau und Protokollgrenze) ist das nächste Serverarbeitspaket.
 - Die textuelle Server-Prep-Provenienz vom 2026-08-25 ist byteidentisch
   versioniert unter
   `ARBEITSDATEIEN/90_HISTORIE/2026-08-25_TRIGGERARCHITEKTUR_SERVER_PREP/`.
@@ -180,5 +194,5 @@ organisatorisch abgeschlossen und archiviert:
   zusammengeführt (beide Entwicklungsstände erhalten, keine Seite verworfen).
 - Dieser Organisationsrun trifft keine fachlichen Triggerentscheidungen.
 
-**Stand:** 2026-08-27 20:07:43 +02:00 (CANONICAL CLOSE AP-SRV-050; nächster
-aktiver Server-AP ist AP-SRV-060)
+**Stand:** 2026-08-29 09:09:02 +02:00 (CANONICAL CLOSE AP-SRV-060; nächster
+aktiver Server-AP ist AP-SRV-070)

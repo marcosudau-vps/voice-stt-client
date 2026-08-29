@@ -64,7 +64,10 @@ Für jeden neuen Fund einen Block kopieren:
   `test_06_wake_word_then_manual_merges` und
   `test_a_merge_does_not_raise_the_generation` schreiben dieses vom
   Zielbild abweichende Verhalten derzeit fest.
-- Status: CONFIRMED.
+- **Nachschau (2026-08-27):** Der kanonische Serverstand implementiert die
+  First-Trigger-wins-Regel; siehe `tests/unit/test_server_trigger_contract.py::test_a_second_source_is_locked_to_the_first_activation`
+  (`activation_locked`, identische `activationId`).
+- Status: RESOLVED durch AP-SRV-010.
 
 ### FIND-007 – Continuous Streaming nicht erreicht
 - [x] Bestätigt.
@@ -101,7 +104,11 @@ Für jeden neuen Fund einen Block kopieren:
 - Blockiert aktuelles Gate? NEIN; aktuell läuft noch die Planung.
 - Evidence: Codefund; ältere Follow-up-Implementierung verwendet dagegen
   bereits Generationen zum Ersetzen laufender Timer.
-- Status: CONFIRMED.
+- **Nachschau (2026-08-27):** AP-SRV-030 entfernt die kumulative
+  Extend-Semantik; `refresh` folgt dem eingefrorenen nicht-kumulativen
+  Timervertrag. Execution-Source: `325e55c186713069b25208871da4fef16470f85a`;
+  kanonischer Abschluss: `b220dd03a594d2b9f8cad65fd279046be36864cc`.
+- Status: RESOLVED (Resolved by: AP-SRV-030).
 
 ### FIND-011 – Mehrere Detection-Signale pro Wake-Word-Äußerung
 
@@ -127,10 +134,16 @@ Für jeden neuen Fund einen Block kopieren:
   `VoiceSTT/core/wakeword.py`, Recorder-Detection-State und serverseitige
   Event-/Triggeraufnahme.
 - Betroffene Entscheidung: WW-04.
-- Arbeitspaket: erst nach Verifikation und Plan-Freeze zuordnen.
-- Blockiert aktuelles Gate? NEIN; muss vor Implementierungsplanung als
-  reproduzierbarer Ist-Fall konkretisiert werden.
+- Arbeitspaket: AP-SRV-060.
+- Blockiert aktuelles Gate? NEIN.
 - Evidence: Adapter-, Chunk- und fehlender Guard im Callbackpfad bestätigt;
-  Audio-/Score-Traces für eine möglicherweise zusätzlich nötige
-  Fehlalarm-Bestätigungsregel noch zu ergänzen.
-- Status: CONFIRMED / FALSE-POSITIVE POLICY TO MEASURE.
+  `WakeHitTracker` und Exactly-once Eventing in AP-SRV-060 implementiert.
+- **Nachschau (2026-08-29):** Im kanonischen v2-Pfad behoben durch AP-SRV-060:
+  der fehlende Guard in `VoiceSTT/core/recording.py` ist geschlossen (Detection
+  läuft nicht weiter, solange ein Treffer gelatcht ist); `WakeHitTracker`
+  gruppiert Trefferbereiche deterministisch; genau ein logisches
+  `wakeword.detected` wird emittiert; operationaler Nullpunkt an Trailing Edge.
+  Die empirische Kalibrierung (`WW-18`, `WW-19`) bleibt als `EVIDENCE_BLOCKED`
+  nachverfolgt; der v1-Pfad behält Legacy-Semantik bis AP-SRV-070.
+  Kanonischer Commit: `c82923fc6ce889b4dfbbde1f9877b8b76481a1e8`.
+- Status: RESOLVED (Resolved by: AP-SRV-060 in v2-Pfad).

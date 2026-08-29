@@ -1,7 +1,7 @@
 # Wiedereinstieg – Einheitliche Triggerarchitektur
 
-**Stand:** 27. August 2026, 20:07:43 +02:00, nach Root-PASS und kanonischem
-Abschluss von `AP-SRV-050`
+**Stand:** 29. August 2026, 09:09:02 +02:00, nach Root-PASS und kanonischem
+Abschluss von `AP-SRV-060`
 
 Diese Datei ist die kompakte operative Übergabe für einen neuen Agenten ohne
 Chatkontext. Bei einem Widerspruch gelten in dieser Reihenfolge der aktuelle
@@ -13,7 +13,7 @@ Namespace-Unterordner sind keine freigegebenen Quellen.
 
 | Rolle | Workspace | Branch | letzter freigegebener Produkt-AP-SHA |
 |---|---|---|---|
-| Server | `P:\GithubRepos\marcosudau-vps\voice-stt-server\workspaces\einheitliche-triggerarchitektur` | `feat/einheitliche-triggerarchitektur` | `c901cda3f2c19eeb78c468524161728498b6e27e` (`AP-SRV-050`, canonical) |
+| Server | `P:\GithubRepos\marcosudau-vps\voice-stt-server\workspaces\einheitliche-triggerarchitektur` | `feat/einheitliche-triggerarchitektur` | `c82923fc6ce889b4dfbbde1f9877b8b76481a1e8` (`AP-SRV-060`, canonical) |
 | Desktop-Client und Koordination | `P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\einheitliche-triggerarchitektur` | `feat/einheitliche-triggerarchitektur` | `042fcd203c873d6f84a270413c47bc5da1fbf1ed` (`AP-CLI-000`) |
 
 Beide Branches verfolgen
@@ -26,7 +26,7 @@ Client-Produktumbau.
 Die Distributed-/Review-Branches
 (`feat/einheitliche-triggerarchitektur-distributed`,
 `review/AP-SRV-030/run-01`, `review/AP-SRV-040/run-01`,
-`review/AP-SRV-050/run-01`) sind
+`review/AP-SRV-050/run-01`, `work/AP-SRV-060/C3`) sind
 **Execution-Provenienz** und **keine** neue kanonische Basis. Die zentrale
 Paketkette liegt ausschließlich auf `feat/einheitliche-triggerarchitektur`.
 
@@ -59,7 +59,9 @@ Nicht aus alten Chatnachrichten, `IDEEN/`, Namespace-Dateien,
 - `AP-SRV-040` PASS / canonical:
   `c0806e5bc5d503580070f2dacc88831d51447938`;
 - `AP-SRV-050` PASS / canonical:
-  `c901cda3f2c19eeb78c468524161728498b6e27e`.
+  `c901cda3f2c19eeb78c468524161728498b6e27e`;
+- `AP-SRV-060` PASS / canonical:
+  `c82923fc6ce889b4dfbbde1f9877b8b76481a1e8`.
 
 Abgenommene Kette:
 
@@ -70,6 +72,7 @@ SRV020
 SRV030 canonical
 SRV040 canonical
 SRV050 canonical
+SRV060 canonical
 ```
 
 `AP-SRV-030` wurde aus dem bereits abgenommenen Execution-Stand
@@ -80,13 +83,22 @@ kanonischer Commit. Beide liegen linear auf
 
 `AP-SRV-050` wurde aus dem Root-geprüften C3
 (`18b65216433329456946afd3c41d8df6bbd07d44`, Tree `b0dec32d…`) ebenfalls als
-genau ein kanonischer Commit auf `c0806e5…` geschlossen. Die
-Execution-Provenienz liegt auf `review/AP-SRV-050/run-01` (C1 `489ac23a…`,
-C2 `536ff67c…`, C3 `18b65216…`). AP-SRV-050 liefert die
-Settings-Control-Plane: genau eine Settings-Domainautorität je v2-Session,
-getrennte Serversettings, monotone getrennte Revisionen, immutable
-`next_activation`-Timing-Latches, linearisierte Patch-/Wire-/
-`settings.changed`-Reihenfolge und strikt validierte Persistenz.
+genau ein kanonischer Commit auf `c0806e5…` geschlossen.
+
+`AP-SRV-060` wurde aus dem finalen Root-Source-Stand
+(`2b08e379a36590c99e48e59c81a39418395d9742`, Tree `de6fe364545b508a47a87ead67a01c5732477e71`)
+als genau ein kanonischer Commit auf `c901cda…` geschlossen (`c82923f…`, Tree `de6fe364…`).
+Die Execution-Provenienz liegt auf `work/AP-SRV-060/C3` (C1 `548057e…`,
+C2 `5e429d6…`, C3 `d681afa…`, Asset-Finalisierung `abf8e62…`, Final Repair `2b08e37…`).
+AP-SRV-060 liefert den versionierten Buildkatalog (`VoiceSTT/assets/wakeword_models/`
+mit Dual-Backend ONNX und TFLite), `GET /api/v2/wake-words` (`SET-13b`),
+`POST /api/v2/wake-words/refresh`, atomare Sessionadmission, selected-only
+Modellinitialisierung, `WakeHitTracker` mit Exactly-once `wakeword.detected`-Eventing,
+Single-Backend-je-Engine-Policy sowie die detection-verankerte Audiogrenze
+(operationaler Nullpunkt an Trailing Edge des Wake-Hits). Vollsuite:
+`1180 passed, 14 skipped, 762 subtests, 0 failed`. Empirische Kalibrierung
+(`WW-18`, `WW-19`) bleibt ehrlich als `EVIDENCE_BLOCKED / calibration pending`
+ausgewiesen.
 
 AP-SRV-010 liefert genau einen serverseitigen Vordergrundslot mit
 `idle`, `waiting_first_speech`, `segment_active`, `followup_wait` und
@@ -98,38 +110,24 @@ Vordergrund nicht mehr.
 AP-SRV-020 ergänzt unveränderliche Segment-/Finaljobkontexte,
 Exactly-once-Segmentterminale, sessionweiten Reorder-Drain, vollständige
 Faultterminalisierung und Activationterminale nach Input-Close plus
-vollständigem Drain. Eine Root-Korrekturrunde schloss zwei deterministisch
-reproduzierte Nebenläufigkeitsfehler: Ausgabe-Inversion zwischen parallelen
-Ledgerupdates und Textfreigabe während eines sessionweiten Cancel-all.
+vollständigem Drain.
 
 Die vollständigen AP-Nachweise liegen serverseitig unter
-`docs/.archiv/einheitliche_triggerarchitektur/AP-SRV-000/` und
-`AP-SRV-010/` beziehungsweise `AP-SRV-020/`, clientseitig unter
-`ARBEITSPAKETE/AP-CLI-000/`.
+`docs/.archiv/einheitliche_triggerarchitektur/AP-SRV-000/` bis
+`AP-SRV-060/`, clientseitig unter `ARBEITSPAKETE/AP-CLI-000/`.
 
 ## 4. Nächstes Paket und harte Grenzen
 
-`AP-SRV-060` ist READY und startet exakt auf dem kanonischen Server-SHA
+`AP-SRV-070` ist READY und startet exakt auf dem kanonischen Server-SHA
 
 ```text
-c901cda3f2c19eeb78c468524161728498b6e27e  (AP-SRV-050 canonical)
-Tree f81144a26f93fb3bc553ab5110d07197a473aa46
+c82923fc6ce889b4dfbbde1f9877b8b76481a1e8  (AP-SRV-060 canonical)
+Tree de6fe364545b508a47a87ead67a01c5732477e71
 ```
 
-Sein Umfang ist (Wake-Word-Katalog und Kalibrierung gemäß Plan):
+Sein Umfang ist: Legacyabbau und Protokollgrenze.
 
-- versionierter Wake-Word-Katalog über `GET /api/v2/wake-words`
-  (`SET-13b`, `WW-09`); dieser Endpunkt wurde in AP-SRV-050 bewusst **nicht**
-  implementiert;
-- serverautoritative Cooldown-/Pre-Roll-Konfiguration (`WW-15`);
-- Cooldown-/Pre-Roll-Kalibrierung aus realer Score-/Audio-Evidence
-  (`WW-18`, `WW-19`);
-- Detection-Härtung gegen Mehrfachsignale (`FIND-011`).
-
-Nicht vorwegnehmen:
-
-- Legacyabbau (`AP-SRV-070`);
-- jegliche Clientproduktänderung.
+Nicht vorwegnehmen: jegliche Clientproduktänderung.
 
 `AP-CLI-010` ist dependency-seitig entblockt (technische Dependency
 AP-SRV-040 erfüllt), wird aber **bewusst deferred**: erst nach Abschluss der
