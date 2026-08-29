@@ -134,10 +134,16 @@ Für jeden neuen Fund einen Block kopieren:
   `VoiceSTT/core/wakeword.py`, Recorder-Detection-State und serverseitige
   Event-/Triggeraufnahme.
 - Betroffene Entscheidung: WW-04.
-- Arbeitspaket: erst nach Verifikation und Plan-Freeze zuordnen.
-- Blockiert aktuelles Gate? NEIN; muss vor Implementierungsplanung als
-  reproduzierbarer Ist-Fall konkretisiert werden.
+- Arbeitspaket: AP-SRV-060.
+- Blockiert aktuelles Gate? NEIN.
 - Evidence: Adapter-, Chunk- und fehlender Guard im Callbackpfad bestätigt;
-  Audio-/Score-Traces für eine möglicherweise zusätzlich nötige
-  Fehlalarm-Bestätigungsregel noch zu ergänzen.
-- Status: CONFIRMED / FALSE-POSITIVE POLICY TO MEASURE.
+  `WakeHitTracker` und Exactly-once Eventing in AP-SRV-060 implementiert.
+- **Nachschau (2026-08-29):** Im kanonischen v2-Pfad behoben durch AP-SRV-060:
+  der fehlende Guard in `VoiceSTT/core/recording.py` ist geschlossen (Detection
+  läuft nicht weiter, solange ein Treffer gelatcht ist); `WakeHitTracker`
+  gruppiert Trefferbereiche deterministisch; genau ein logisches
+  `wakeword.detected` wird emittiert; operationaler Nullpunkt an Trailing Edge.
+  Die empirische Kalibrierung (`WW-18`, `WW-19`) bleibt als `EVIDENCE_BLOCKED`
+  nachverfolgt; der v1-Pfad behält Legacy-Semantik bis AP-SRV-070.
+  Kanonischer Commit: `c82923fc6ce889b4dfbbde1f9877b8b76481a1e8`.
+- Status: RESOLVED (Resolved by: AP-SRV-060 in v2-Pfad).

@@ -1977,3 +1977,50 @@ Parent     c0806e5bc5d503580070f2dacc88831d51447938
   normative** Prep-Provenienz; das Original unter `_PREP\SERVER` bleibt
   bestehen.
 - **AP-SRV-060 NEXT** auf `c901cda…`; `AP-CLI-010` bleibt bewusst deferred.
+
+## 2026-08-29 09:09:02 +02:00 – CANONICAL CLOSE AP-SRV-060
+
+Zeitbasis: Git-Metadaten. C1/C2/C3/Asset-Finalisierung/Final Repair aus dem
+lokalen Reviewworktree `workspaces/ap-srv-060` (`work/AP-SRV-060/C3`), der
+kanonische Commit aus dem Serverworkspace nach dem Push.
+
+```text
+C1             548057e96a8a722c84d9a43451577a4415bcd7b1  2026-08-28 01:47:40 +02:00
+               Tree 8751ef47ab17a6c5a1359d75f08fcd18358c5003
+C2             5e429d6227d6a4660b79c432aa934318e293ecfd  2026-08-28 07:03:33 +02:00
+               Tree ac278c4649e64793bdf938a0a41e484209d882ff
+C3             d681afa4580bc8d769777b4fe45a36e3cfc6987a  2026-08-28 17:40:57 +02:00
+               Tree 7610f208fefdd890556e0f9a557b377095c5ad4c
+Asset-Final    abf8e6207d0019018f55ce4dcf57f81328c4cb5a  2026-08-28 20:50:02 +02:00
+               Tree 0276f5752ac918b3e28e15e14d7f11c91182f248
+Final Repair   2b08e379a36590c99e48e59c81a39418395d9742  2026-08-28 21:53:54 +02:00
+               Tree de6fe364545b508a47a87ead67a01c5732477e71   (Root-PASS Source)
+
+Canonical      c82923fc6ce889b4dfbbde1f9877b8b76481a1e8  2026-08-29 09:09:02 +02:00
+Tree           de6fe364545b508a47a87ead67a01c5732477e71
+Parent         c901cda3f2c19eeb78c468524161728498b6e27e
+```
+
+- **C1 Implementation.** Wake-Word-Katalog, `models.json`, Initialisierung,
+  Detection-Adapter, `GET /api/v2/wake-words`, `POST /api/v2/wake-words/refresh`,
+  Session-Admission, `wakeWord.cooldownMs`/`preRollMs`. Von Root mit Findings
+  F1–F10 abgelehnt (`ROOT FAIL`).
+- **C2 Root Findings F1–F10.** Wire-Kanonizität, Runtime-Binding für
+  `next_activation`, Admission-Ladbarkeitsprobe, Refresh-Atomizität,
+  Revisionstracking, Latch/Window-Trennung. Von Root mit Findings F11–F15
+  abgelehnt (`ROOT FAIL`).
+- **C3 Root Correction F11–F15.** `WakeHitTracker` mit Score-Schwelle,
+  `minConsecutivePredictionFrames`, First-finalized-wins, Trailing-Edge-
+  Finalisierung, operationaler Nullpunkt, Single-Backend-je-Engine-Policy,
+  Exactly-once Eventing (`wakeword.detected`), per-Backend Loadability-Probe.
+- **Asset-Finalisierung & Final Root Repair.** Dual-Backend-Artefakte
+  (TFLite neben ONNX) im Buildkatalog gebündelt, Manifestgenerator gehärtet,
+  F3-Admission-Regressionstest ergänzt.
+- **ROOT PASS.** Full Suite: `1180 passed, 14 skipped, 762 subtests, 0 failed`.
+  Empirische Kalibrierung (`WW-18`, `WW-19`) bleibt ehrlich als
+  `EVIDENCE_BLOCKED / calibration pending` ausgewiesen (lokal kein reales
+  Positivmaterial). Das blockiert AP-SRV-060 ROOT PASS nicht.
+- **Canonical Close.** Genau ein Aggregate-Commit auf `feat/einheitliche-triggerarchitektur`
+  mit Parent `c901cda…` und Tree `de6fe364545b508a47a87ead67a01c5732477e71`
+  (identisch zum Root-Source-Stand `2b08e37…`).
+- **AP-SRV-070 NEXT** auf `c82923f…`; `AP-CLI-010` bleibt bewusst deferred.
