@@ -21,10 +21,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from core.config import LedConfig  # noqa: E402
-from core.feedback_mapping import LedCall, LedVerb  # noqa: E402
-from core.led_controller import MUTE_PIN_INDEX, MUTE_PIN_NAME  # noqa: E402
-from ui.led_feedback import LedFeedback  # noqa: E402
+from voice_stt_client.core.config import LedConfig  # noqa: E402
+from voice_stt_client.core.feedback_mapping import LedCall, LedVerb  # noqa: E402
+from voice_stt_client.core.led_controller import MUTE_PIN_INDEX, MUTE_PIN_NAME  # noqa: E402
+from voice_stt_client.ui.led_feedback import LedFeedback  # noqa: E402
 
 PIN_NAMES = ("X0D11", "X0D30", "X0D31", "X0D33", "X0D39")
 RING_POWER_INDEX = 3

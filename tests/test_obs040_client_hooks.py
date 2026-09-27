@@ -19,24 +19,24 @@ import logging
 import unittest
 from unittest.mock import patch
 
-from core.config import AppConfig
-from core.controller import (
+from voice_stt_client.core.config import AppConfig
+from voice_stt_client.core.controller import (
     DictationState,
     FinalProcessingResult,
     FinalProcessingStatus,
     STTController,
     TransientEventType,
 )
-from core.observability.adapters.client_events import ClientEventEmitter
-from core.observability.ingress import NULL_INGRESS, ObservabilityIngress
-from core.stt_session import STTSession, TransportState
+from voice_stt_client.core.observability.adapters.client_events import ClientEventEmitter
+from voice_stt_client.core.observability.ingress import NULL_INGRESS, ObservabilityIngress
+from voice_stt_client.core.stt_session import STTSession, TransportState
 from tests.test_controller import (
     FakeAudioCapture,
     FakeInjectionQueue,
     FakeSessionCoordinator,
     FakeSTTSession,
 )
-from core.history import TranscriptHistoryManager
+from voice_stt_client.core.history import TranscriptHistoryManager
 
 
 def build_ingress(**changes) -> ObservabilityIngress:
@@ -506,7 +506,7 @@ class TestControllerHooks(unittest.IsolatedAsyncioTestCase):
 
 class TestAudioCaptureHooks(unittest.TestCase):
     def test_stream_stopped_reports_the_final_counters(self):
-        from core.audio_capture import AudioCapture
+        from voice_stt_client.core.audio_capture import AudioCapture
 
         ingress = build_ingress()
         config = AppConfig()
@@ -525,7 +525,7 @@ class TestAudioCaptureHooks(unittest.TestCase):
         self.assertEqual(record.channel, "audit")
 
     def test_capture_counters_snapshot_is_a_plain_int_mapping(self):
-        from core.audio_capture import AudioCapture
+        from voice_stt_client.core.audio_capture import AudioCapture
 
         capture = AudioCapture(AppConfig().audio)
         counters = capture.capture_counters()
@@ -540,7 +540,7 @@ class TestAudioCaptureHooks(unittest.TestCase):
 
 class TestInjectionQueueStateHook(unittest.TestCase):
     def test_queue_state_is_aggregated_and_rate_limited(self):
-        from core.text_injector import TextInjectionQueue
+        from voice_stt_client.core.text_injector import TextInjectionQueue
 
         ingress = build_ingress()
         config = AppConfig()
@@ -601,7 +601,7 @@ class TestDeliberatelyNotInstrumented(unittest.TestCase):
         settings_metadata, actions, version): bewusst rein, nicht aendern."*"""
         import pathlib
 
-        root = pathlib.Path(__file__).resolve().parents[1] / "core"
+        root = pathlib.Path(__file__).resolve().parents[1] / "voice_stt_client" / "core"
         for name in (
             "event_models",
             "event_protocol",
@@ -622,7 +622,9 @@ class TestDeliberatelyNotInstrumented(unittest.TestCase):
         import pathlib
 
         source = (
-            pathlib.Path(__file__).resolve().parents[1] / "app.py"
+            pathlib.Path(__file__).resolve().parents[1]
+            / "voice_stt_client"
+            / "app.py"
         ).read_text(encoding="utf-8")
         self.assertIn('print(f"  [{prefix}] seg={segment_id}: {text}")', source)
 

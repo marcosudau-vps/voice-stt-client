@@ -27,15 +27,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Optional, Sequence
 
-from core.config import LoggingObservabilityConfig
-from core.observability.health import LoggingHealthState, LoggingInternalHealth
-from core.observability.ingress import ObservabilityIngress
-from core.observability.manager import ObservabilityManager
-from core.observability.models import CanonicalLogRecord
-from core.observability.storage.sqlite import OpenResult
-from core.observability.worker import STORE_PAUSE_S, LoggingWorker
+from voice_stt_client.core.config import LoggingObservabilityConfig
+from voice_stt_client.core.observability.health import LoggingHealthState, LoggingInternalHealth
+from voice_stt_client.core.observability.ingress import ObservabilityIngress
+from voice_stt_client.core.observability.manager import ObservabilityManager
+from voice_stt_client.core.observability.models import CanonicalLogRecord
+from voice_stt_client.core.observability.storage.sqlite import OpenResult
+from voice_stt_client.core.observability.worker import STORE_PAUSE_S, LoggingWorker
 
-SQLITE_SOURCE = Path(__file__).resolve().parents[1] / "core" / "observability" / "storage" / "sqlite.py"
+SQLITE_SOURCE = Path(__file__).resolve().parents[1] / "voice_stt_client" / "core" / "observability" / "storage" / "sqlite.py"
 
 
 def _iso() -> str:
@@ -247,7 +247,7 @@ class TestW4EmptyTestWriteAfterThePause(unittest.TestCase):
         self.assertIsNone(worker._store_paused_until)
 
     def test_probe_write_on_the_real_store_detects_a_closed_database(self):
-        from core.observability.storage.sqlite import SQLiteLogStore
+        from voice_stt_client.core.observability.storage.sqlite import SQLiteLogStore
         import tempfile
 
         with tempfile.TemporaryDirectory() as tmp:

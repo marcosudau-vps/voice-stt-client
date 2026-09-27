@@ -12,12 +12,12 @@ import threading
 import unittest
 from typing import List, Optional, Tuple
 
-from app import RealtimeSTTClient
-from core.config import AppConfig
-from core.history import TranscriptHistoryManager, HistoryEntry
-from core.text_injector import WindowsInjectionBackend
-from core.stt_session import STTSession, TransportState
-from core.controller import DictationState
+from voice_stt_client.app import RealtimeSTTClient
+from voice_stt_client.core.config import AppConfig
+from voice_stt_client.core.history import TranscriptHistoryManager, HistoryEntry
+from voice_stt_client.core.text_injector import WindowsInjectionBackend
+from voice_stt_client.core.stt_session import STTSession, TransportState
+from voice_stt_client.core.controller import DictationState
 
 
 class FakeWindowsBackend(WindowsInjectionBackend):

@@ -11,10 +11,10 @@ import threading
 import time
 import unittest
 
-from core.config import LedConfig
-from core.feedback_mapping import LedCall, LedVerb
-from core.led_controller import LedConfigurationError, LedControllerError
-from ui.led_feedback import MAX_PENDING, LedFeedback
+from voice_stt_client.core.config import LedConfig
+from voice_stt_client.core.feedback_mapping import LedCall, LedVerb
+from voice_stt_client.core.led_controller import LedConfigurationError, LedControllerError
+from voice_stt_client.ui.led_feedback import MAX_PENDING, LedFeedback
 
 
 def wait_until(predicate, timeout: float = 2.0) -> bool:

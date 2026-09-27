@@ -14,8 +14,8 @@ os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 from PySide6.QtCore import QObject, Qt, Slot
 from PySide6.QtWidgets import QApplication
 
-from core.config import AppConfig
-from core.controller import (
+from voice_stt_client.core.config import AppConfig
+from voice_stt_client.core.controller import (
     AvailabilityState,
     CommandResult,
     ControllerStatusSnapshot,
@@ -23,12 +23,12 @@ from core.controller import (
     TransientEvent,
     TransientEventType,
 )
-from core.history import HistoryEntry
-from core.event_models import CanonicalEventType, FeedbackSource, FeedbackState
-from core.feedback_mapping import FeedbackRule
-from core.feedback_reducer import FeedbackDecision
-from core.reinsertion import ReinsertionResult, ReinsertionStatus
-from ui.core_bridge import CoreBridge
+from voice_stt_client.core.history import HistoryEntry
+from voice_stt_client.core.event_models import CanonicalEventType, FeedbackSource, FeedbackState
+from voice_stt_client.core.feedback_mapping import FeedbackRule
+from voice_stt_client.core.feedback_reducer import FeedbackDecision
+from voice_stt_client.core.reinsertion import ReinsertionResult, ReinsertionStatus
+from voice_stt_client.ui.core_bridge import CoreBridge
 
 
 def make_snapshot(revision=1):

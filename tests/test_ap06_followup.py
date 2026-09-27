@@ -12,25 +12,31 @@ from unittest.mock import patch
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
-from PySide6.QtWidgets import QApplication, QCheckBox, QDoubleSpinBox
+from PySide6.QtGui import QKeySequence
+from PySide6.QtWidgets import (
+    QApplication,
+    QCheckBox,
+    QDoubleSpinBox,
+    QKeySequenceEdit,
+)
 
-from core.audio_capture import AudioCapture
-from core.config import AppConfig, OperatingMode, SessionConfig
-from core.controller import (
+from voice_stt_client.core.audio_capture import AudioCapture
+from voice_stt_client.core.config import AppConfig, OperatingMode, SessionConfig
+from voice_stt_client.core.controller import (
     DictationState,
     DictationWindowPhase,
     STTController,
 )
-from core.event_models import CanonicalEventType
-from core.history import TranscriptHistoryManager
-from core.settings_metadata import (
+from voice_stt_client.core.event_models import CanonicalEventType
+from voice_stt_client.core.history import TranscriptHistoryManager
+from voice_stt_client.core.settings_metadata import (
     ApplyPolicy,
     SETTING_DEFINITIONS,
     SettingType,
     build_candidate,
     get_config_value,
 )
-from core.stt_session import (
+from voice_stt_client.core.stt_session import (
     ClientState,
     SessionConfigurationError,
     SessionState,
@@ -43,13 +49,13 @@ from tests.test_controller import (
     FakeSTTSession,
 )
 from tests.test_ui_application import FakeBridge, FakeGuard, FakeHotkeyBackend
-from ui.application import DesktopApplication
-from ui.hotkeys import (
+from voice_stt_client.ui.application import DesktopApplication
+from voice_stt_client.ui.hotkeys import (
     GlobalHotkeyManager,
     HOTKEY_ID_CANCEL,
     HOTKEY_ID_FINISH,
 )
-from ui.settings_dialog import SettingsDialog
+from voice_stt_client.ui.settings_dialog import SettingsDialog
 
 
 class RecordingHotkeyBackend:
@@ -175,7 +181,7 @@ class TestSessionConfigAndMetadata(unittest.TestCase):
                 "overlay:\n  enabled: true\nsession:\n  mode: wake_word\n",
                 encoding="utf-8",
             )
-            with patch("core.config.DEFAULT_CONFIG_PATH", project):
+            with patch("voice_stt_client.core.config.DEFAULT_CONFIG_PATH", project):
                 config = AppConfig.load(user_path=user)
             self.assertTrue(config.overlay.enabled)
             self.assertEqual(config.server.ping_interval, 9)
@@ -183,13 +189,13 @@ class TestSessionConfigAndMetadata(unittest.TestCase):
 
             destination = root / "saved.yaml"
             destination.write_text("old: value\n", encoding="utf-8")
-            with patch("core.config.os.replace", side_effect=OSError("disk")):
+            with patch("voice_stt_client.core.config.os.replace", side_effect=OSError("disk")):
                 with self.assertRaises(OSError):
                     config.save(destination)
             self.assertEqual(destination.read_text(encoding="utf-8"), "old: value\n")
             self.assertFalse(any(root.glob(f".{destination.name}.*.tmp")))
 
-    def test_unknown_user_field_rejects_complete_override(self):
+    def test_unknown_user_field_keeps_valid_override(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             project = root / "project.yaml"
@@ -199,9 +205,28 @@ class TestSessionConfigAndMetadata(unittest.TestCase):
                 "overlay:\n  enabled: true\n  invented: 123\n",
                 encoding="utf-8",
             )
-            with patch("core.config.DEFAULT_CONFIG_PATH", project):
+            with patch("voice_stt_client.core.config.DEFAULT_CONFIG_PATH", project):
                 config = AppConfig.load(user_path=user)
-            self.assertFalse(config.overlay.enabled)
+            self.assertTrue(config.overlay.enabled)
+
+    def test_legacy_user_config_is_fallback_only(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            project = root / "project.yaml"
+            current = root / "current.yaml"
+            legacy = root / "legacy.yaml"
+            project.write_text("overlay:\n  enabled: false\n", encoding="utf-8")
+            legacy.write_text("overlay:\n  enabled: true\n", encoding="utf-8")
+            with (
+                patch("voice_stt_client.core.config.DEFAULT_CONFIG_PATH", project),
+                patch("voice_stt_client.core.config.DEFAULT_USER_CONFIG_PATH", current),
+                patch("voice_stt_client.core.config.LEGACY_USER_CONFIG_PATH", legacy),
+            ):
+                self.assertTrue(AppConfig.load().overlay.enabled)
+                current.write_text(
+                    "overlay:\n  enabled: false\n", encoding="utf-8"
+                )
+                self.assertFalse(AppConfig.load().overlay.enabled)
 
 
 WINDOW = 0.25
@@ -354,7 +379,9 @@ class TestDictationWindow(unittest.IsolatedAsyncioTestCase):
             },
         )
 
-        await asyncio.sleep(WINDOW * 0.8)
+        # Leave enough scheduling margin for Windows' timer resolution while
+        # still asserting that the warning arrives before the server window.
+        await asyncio.sleep(WINDOW * 0.9)
         self.assertIn(
             CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING,
             [item.event.event_type for item in decisions],
@@ -622,6 +649,96 @@ class TestSettingsDialog(unittest.TestCase):
         self.assertIsInstance(
             dialog._editors["overlay.opacity"], QDoubleSpinBox
         )
+        self.assertIsInstance(
+            dialog._editors["hotkey.toggle_key"], QKeySequenceEdit
+        )
+        dialog.close()
+
+    def test_hotkey_editor_records_and_normalizes_key_sequence(self):
+        dialog = SettingsDialog(AppConfig(), lambda candidate, policies: True)
+        editor = dialog._editors["hotkey.toggle_key"]
+        editor.setKeySequence(QKeySequence("Ctrl+Alt+F12"))
+        definition = dialog._definitions["hotkey.toggle_key"]
+        self.assertEqual(dialog._editor_value(definition), "Ctrl+Alt+F12")
+        dialog.close()
+
+    def test_reopening_dialog_discards_unapplied_draft(self):
+        dialog = SettingsDialog(AppConfig(), lambda candidate, policies: True)
+        dialog.show()
+        finish = dialog._editors["hotkey.finish_key"]
+        opacity = dialog._editors["overlay.opacity"]
+        finish.setKeySequence(QKeySequence("Ctrl+Alt+F12"))
+        opacity.setValue(0.55)
+        dialog.status_label.setText("Vorschlag noch nicht übernommen")
+
+        dialog.close()
+        dialog.show()
+
+        self.assertTrue(finish.keySequence().isEmpty())
+        self.assertEqual(opacity.value(), dialog._config.overlay.opacity)
+        self.assertEqual(dialog.status_label.text(), "")
+        dialog.close()
+
+    def test_windows_modifier_round_trips_through_qt_editor(self):
+        config = AppConfig()
+        config.hotkey.reinsert_last_key = "Ctrl+Shift+Win+F10"
+        dialog = SettingsDialog(config, lambda candidate, policies: True)
+        editor = dialog._editors["hotkey.reinsert_last_key"]
+        self.assertIn("Meta", editor.keySequence().toString())
+        self.assertEqual(
+            dialog._editor_value(dialog._definitions["hotkey.reinsert_last_key"]),
+            "Ctrl+Shift+Win+F10",
+        )
+        dialog._sync_editors()
+        self.assertEqual(
+            dialog._editor_value(dialog._definitions["hotkey.reinsert_last_key"]),
+            "Ctrl+Shift+Win+F10",
+        )
+        dialog.close()
+
+    def test_rejected_hotkey_restores_committed_value_and_explains_failure(self):
+        with patch(
+            "voice_stt_client.ui.settings_dialog.find_available_hotkey",
+            return_value="Ctrl+Alt+Shift+F11",
+        ):
+            dialog = SettingsDialog(
+                AppConfig(), lambda candidate, policies: False,
+                apply_error=lambda: "Diese Tastenkombination ist bereits belegt.",
+            )
+            editor = dialog._editors["hotkey.toggle_key"]
+            editor.setKeySequence(QKeySequence("Ctrl+Alt+F12"))
+            dialog.apply_changes()
+            self.assertEqual(editor.keySequence().toString(), "Ctrl+Alt+Shift+F11")
+            self.assertEqual(dialog._config.hotkey.toggle_key, "Ctrl+Shift+Space")
+            self.assertIn("Weiter aktiv: Ctrl+Shift+Space", dialog.status_label.text())
+            self.assertIn("noch nicht aktiviert", dialog.status_label.text())
+            dialog.close()
+
+    def test_slider_spinbox_preserves_non_step_audio_rate(self):
+        config = AppConfig()
+        config.audio.sample_rate = 44100
+        dialog = SettingsDialog(config, lambda candidate, policies: True)
+        editor = dialog._editors["audio.sample_rate"]
+        self.assertEqual(editor.value(), 44100)
+        editor.slider.setValue(48000 - 8000)
+        self.assertEqual(editor.value(), 48000)
+        dialog.close()
+
+    def test_installed_defaults_round_trip_through_every_settings_editor(self):
+        with tempfile.TemporaryDirectory() as directory:
+            config = AppConfig.load(user_path=Path(directory) / "missing.yaml")
+        dialog = SettingsDialog(config, lambda candidate, policies: True)
+        for path, definition in dialog._definitions.items():
+            if path not in dialog._editors:
+                continue
+            with self.subTest(path=path):
+                value = dialog._editor_value(definition)
+                expected = get_config_value(config, path)
+                if isinstance(expected, float) and expected is not None:
+                    self.assertAlmostEqual(value, expected, places=3)
+                else:
+                    self.assertEqual(value, expected)
+        self.assertTrue(dialog._editors["feedback.start_sound"].text())
         dialog.close()
 
     def test_standard_editor_builds_typed_candidate(self):
@@ -639,18 +756,23 @@ class TestSettingsDialog(unittest.TestCase):
         self.assertEqual(calls[0][0].overlay.opacity, 0.55)
         dialog.close()
 
-    def test_dependency_visibility_tracks_mode_and_sound_toggle(self):
+    def test_dependency_fields_remain_visible_but_disable_when_inactive(self):
         dialog = SettingsDialog(AppConfig(), lambda candidate, policies: True)
         wake_words = dialog._editors["session.wake_words"]
-        self.assertTrue(wake_words.isHidden())
-        mode = dialog._editors["session.mode"]
-        mode.setCurrentIndex(mode.findData("wake_word"))
         self.assertFalse(wake_words.isHidden())
+        self.assertFalse(wake_words.isEnabled())
+        mode = dialog._editors["session.mode"]
+        mode.setCurrentData("wake_word")
+        mode.valueChanged.emit("wake_word")
+        self.assertFalse(wake_words.isHidden())
+        self.assertTrue(wake_words.isEnabled())
         start_sound = dialog._editors["feedback.start_sound"]
-        self.assertTrue(start_sound.isHidden())
+        self.assertFalse(start_sound.isHidden())
+        self.assertFalse(start_sound.isEnabled())
         sounds = dialog._editors["feedback.sounds_enabled"]
         sounds.setChecked(True)
         self.assertFalse(start_sound.isHidden())
+        self.assertTrue(start_sound.isEnabled())
         dialog.close()
 
     def test_failed_runtime_submit_rolls_hotkeys_and_file_back(self):

@@ -28,9 +28,9 @@ from PySide6.QtWidgets import (
     QApplication, QCheckBox, QComboBox, QFileDialog, QLineEdit, QMessageBox
 )
 
-from core.config import AppConfig, LedConfig
-from core.observability.health import LoggingHealthState, LoggingInternalHealth
-from core.observability.query.base import (
+from voice_stt_client.core.config import AppConfig, LedConfig
+from voice_stt_client.core.observability.health import LoggingHealthState, LoggingInternalHealth
+from voice_stt_client.core.observability.query.base import (
     LogRecordView,
     ProviderState,
     ProviderStatus,
@@ -38,11 +38,11 @@ from core.observability.query.base import (
     QueryFilter,
     QueryPage,
 )
-from ui.logs.log_detail_view import NO_SELECTION, RAW_PLACEHOLDER, LogDetailView
-from ui.logs.log_filter_bar import ACTIVATION_HINT, LogFilterBar
-from ui.logs.log_page import MODE_HISTORY, MODE_LIVE, MODE_MIXED, LogPage
-from ui.logs.log_query_controller import LogQueryController
-from ui.logs.log_table_model import (
+from voice_stt_client.ui.logs.log_detail_view import NO_SELECTION, RAW_PLACEHOLDER, LogDetailView
+from voice_stt_client.ui.logs.log_filter_bar import ACTIVATION_HINT, LogFilterBar
+from voice_stt_client.ui.logs.log_page import MODE_HISTORY, MODE_LIVE, MODE_MIXED, LogPage
+from voice_stt_client.ui.logs.log_query_controller import LogQueryController
+from voice_stt_client.ui.logs.log_table_model import (
     COLUMN_INDEX,
     COLUMN_SPECS,
     DEFAULT_VISIBLE_FIELDS,
@@ -51,7 +51,7 @@ from ui.logs.log_table_model import (
     COLUMNS,
     LogTableModel,
 )
-from ui.logs.log_window import GEOMETRY_KEY, LogWindow
+from voice_stt_client.ui.logs.log_window import GEOMETRY_KEY, LogWindow
 
 
 def view(index: int = 0, **overrides) -> LogRecordView:
@@ -1033,7 +1033,7 @@ class TestLogWindow(QtTestCase):
 
 class TestSettingsTab(QtTestCase):
     def make_dialog(self):
-        from ui.settings_dialog import SettingsDialog
+        from voice_stt_client.ui.settings_dialog import SettingsDialog
 
         dialog = SettingsDialog(AppConfig(), lambda candidate, policies: True)
         self.addCleanup(dialog.close)
@@ -1045,7 +1045,7 @@ class TestSettingsTab(QtTestCase):
         self.assertEqual(dialog.tabs.tabText(5), "Logging & Diagnose")
 
     def test_every_logging_setting_has_an_editor(self):
-        from core.logging_settings_metadata import LOGGING_SETTING_DEFINITIONS
+        from voice_stt_client.core.logging_settings_metadata import LOGGING_SETTING_DEFINITIONS
 
         dialog = self.make_dialog()
         for definition in LOGGING_SETTING_DEFINITIONS:
@@ -1086,7 +1086,7 @@ class TestSettingsTab(QtTestCase):
         config.logging.observability.file_sink_dir = str(
             os.path.join(os.path.expanduser("~"), "logs")
         )
-        from ui.settings_dialog import SettingsDialog
+        from voice_stt_client.ui.settings_dialog import SettingsDialog
 
         dialog = SettingsDialog(config, lambda candidate, policies: True)
         self.addCleanup(dialog.close)
@@ -1099,10 +1099,10 @@ class TestSettingsTab(QtTestCase):
         self.assertIsNone(value)
 
     def test_changing_a_logging_setting_produces_an_immediate_policy(self):
-        from core.settings_metadata import ApplyPolicy
+        from voice_stt_client.core.settings_metadata import ApplyPolicy
 
         seen = []
-        from ui.settings_dialog import SettingsDialog
+        from voice_stt_client.ui.settings_dialog import SettingsDialog
 
         dialog = SettingsDialog(
             AppConfig(),
@@ -1118,10 +1118,10 @@ class TestSettingsTab(QtTestCase):
         self.assertEqual(policies, frozenset({ApplyPolicy.IMMEDIATE}))
 
     def test_store_enabled_change_reports_app_restart(self):
-        from core.settings_metadata import ApplyPolicy
+        from voice_stt_client.core.settings_metadata import ApplyPolicy
 
         seen = []
-        from ui.settings_dialog import SettingsDialog
+        from voice_stt_client.ui.settings_dialog import SettingsDialog
 
         dialog = SettingsDialog(
             AppConfig(),
@@ -1167,7 +1167,7 @@ class FakeManager:
 class TestDesktopWiring(QtTestCase):
     def make_desktop(self, manager=None):
         from tests.test_ui_application import FakeBridge, FakeGuard, FakeHotkeyBackend
-        from ui.application import DesktopApplication
+        from voice_stt_client.ui.application import DesktopApplication
 
         class DialogCapableBridge(FakeBridge):
             """The settings dialog wires two history commands the AP06 double

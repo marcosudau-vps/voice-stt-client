@@ -79,7 +79,7 @@ Verworfen, weil die dauerhaft aktive, freisprechbare Hintergrundsession ein ausd
 
 ## Aktueller Umgang
 
-- Keine Modusoption in `config.yaml` oder `core/config.py`.
+- Keine Modusoption in `config.yaml` oder `voice_stt_client/core/config.py`.
 - Kein Sessionprofil oder Wake-Word-Override im Clientprotokoll.
 - Keine vorweggenommene Modusauswahl in AP4 oder AP6.
 - Die alternative Lösung und ihre Auswirkungen werden erst nach der

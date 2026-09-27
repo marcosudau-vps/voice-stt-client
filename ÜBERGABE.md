@@ -1,6 +1,6 @@
 # ÜBERGABE – RealtimeSTT Windows Desktop Client
 
-> **Stand:** 12. August 2026
+> **Stand:** 23. September 2026
 > **Projektpfad:** `P:\GithubRepos\marcosudau-vps\voice-stt-client`
 > **Status:** AP07-M0 bis M9 und akute M10-Debugfeedback-Korrektur abgenommen
 > **Nächster Schritt:** verbleibende gesprochene M10-Bedien-, Disconnect- und Langlaufmatrix sowie Alltagstuning
@@ -12,6 +12,16 @@
 > sessiongebundener `/ws/logs`-Replay/LIVE-Pfad ohne Audio oder Injection grün
 > **Separater Restpunkt:** gesprochenes `hey_jarvis` nach dem AP6-Fix einmal
 > mit echtem Mikrofon bestätigen
+
+V1-Release-Polish: Hotkeys werden im Dialog direkt aufgenommen. Config, Logs
+und Historie verwenden standardmäßig `~/.voice-stt/client`; Legacy-Dateien
+bleiben lesbar. `--config` und `VOICESTT_CLIENT_CONFIG` erlauben einen
+ausdrücklichen Configpfad. Benutzerhandbuch und vollständige Feldreferenz
+liegen unter `docs/USER_GUIDE.md` und `docs/CONFIGURATION.md`. Die vollständige
+Windows-Suite ist nach der Namespace-Migration mit 1132 Tests plus
+`compileall` grün. Der Client ist als PyPI-Wheel/sdist unter dem Namespace
+`voice_stt_client` lokal paketiert und isoliert installiert worden. Der
+manuelle Bedien-Smoke der neuen EXE und das autorisierte Release stehen aus.
 
 ## 1. Projektziel und aktueller Stand
 
@@ -104,7 +114,7 @@ Gelb und Rot sind damit keine Betriebsmodusfarben. Gelb signalisiert eine
 ## 3. Einstellungen und Persistenz
 
 `AppConfig` und ihre typisierten Unterobjekte sind die einzige Wertquelle.
-`core/settings_metadata.py` beschreibt Darstellung, Grenzen und
+`voice_stt_client/core/settings_metadata.py` beschreibt Darstellung, Grenzen und
 Änderungswirkung, speichert aber keine eigenen Laufzeitwerte.
 
 Ladereihenfolge:
@@ -176,13 +186,13 @@ Textinjektion. Realtime- und Timeline-Ereignisse werden nie eingefügt.
 Regulärer Start:
 
 ```powershell
-.\venv\Scripts\python.exe app.py
+.\venv\Scripts\python.exe voice_stt_client/app.py
 ```
 
 Headless-Diagnose:
 
 ```powershell
-.\venv\Scripts\python.exe app.py --headless
+.\venv\Scripts\python.exe voice_stt_client/app.py --headless
 ```
 
 Automatische Gesamtsuite:
@@ -260,7 +270,7 @@ Soundasset; Fehler isoliert, gedrosselt und Worker sauber beendet,
   SHA-256 `1e6b2b54ed010149bd233d3c77071a096df769de9bac3dfbc41d06d234bd5d5a`,
 - realer Qt-Soundbackend-Smoke mit lokalem Windows-WAV: Asset akzeptiert,
   Backendstatus `Ready`, keine Fehlermeldung,
-- `compileall` über `app.py`, `core/`, `ui/`, `scripts/` und `tests/`,
+- `compileall` über `voice_stt_client/app.py`, `voice_stt_client/core/`, `voice_stt_client/ui/`, `scripts/` und `tests/`,
 - Offscreen-Qt-Smoke des fünfteiligen Einstellungsdialogs,
 - produktiver Health-/WebSocket-/Pong-Test,
 - Live-Vertragstest:

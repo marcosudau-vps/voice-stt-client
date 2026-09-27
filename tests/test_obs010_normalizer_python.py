@@ -10,7 +10,7 @@ import logging
 import sys
 import unittest
 
-from core.observability.normalizer import (
+from voice_stt_client.core.observability.normalizer import (
     LOGGER_CHANNEL_MAP,
     from_log_record,
 )

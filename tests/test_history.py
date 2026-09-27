@@ -6,8 +6,8 @@ import time
 import unittest
 from pathlib import Path
 
-from core.config import HistoryConfig, HistoryMemoryConfig, HistoryPersistentConfig, AppConfig
-from core.history import TranscriptHistoryManager, HistoryEntry, InjectionAttempt, InjectionStatus
+from voice_stt_client.core.config import HistoryConfig, HistoryMemoryConfig, HistoryPersistentConfig, AppConfig
+from voice_stt_client.core.history import TranscriptHistoryManager, HistoryEntry, InjectionAttempt, InjectionStatus
 
 
 class TestTranscriptHistoryManager(unittest.TestCase):
@@ -708,7 +708,7 @@ class TestTranscriptHistoryManager(unittest.TestCase):
             persistent=HistoryPersistentConfig(enabled=True, db_path=None)
         )
         manager_p3 = TranscriptHistoryManager(config_p3)
-        expected_default = Path(mock_localappdata) / "RealtimeSTT_Client" / "transcript_history.db"
+        expected_default = Path.home() / ".voice-stt" / "client" / "data" / "transcript_history.db"
         self.assertEqual(manager_p3.db_path.resolve(), expected_default.resolve())
 
 

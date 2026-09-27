@@ -170,7 +170,7 @@ Ein späterer organisatorischer Teilabschluss-/Dokumentationscommit kann diese L
 ### Core
 
 ```text
-core/observability/
+voice_stt_client/core/observability/
 ```
 
 insbesondere:
@@ -192,21 +192,21 @@ sinks/
 ### Integration
 
 ```text
-core/logging_setup.py
-core/config.py
-core/controller.py
-core/stt_session.py
-core/session_coordinator.py
-core/event_stream.py
-core/audio_capture.py
-ui/application.py
-ui/settings_dialog.py
+voice_stt_client/core/logging_setup.py
+voice_stt_client/core/config.py
+voice_stt_client/core/controller.py
+voice_stt_client/core/stt_session.py
+voice_stt_client/core/session_coordinator.py
+voice_stt_client/core/event_stream.py
+voice_stt_client/core/audio_capture.py
+voice_stt_client/ui/application.py
+voice_stt_client/ui/settings_dialog.py
 ```
 
 ### UI
 
 ```text
-ui/logs/
+voice_stt_client/ui/logs/
 ```
 
 ---

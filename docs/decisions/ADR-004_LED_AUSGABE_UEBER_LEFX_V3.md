@@ -131,7 +131,7 @@ und Anwendung auseinanderlaufen, mit dunklem Ring und weiterlaufendem Datenstrom
   friert den Client dauerhaft auf zehn Wirkungen ein; Overlays, Slots und Presets
   blieben unerreichbar, und es gäbe für immer zwei Vokabulare.
 - **LEFX als eigener Prozess** statt eingebettet: verworfen für diesen Schritt.
-  Der schmale Port (`core/led_controller.py`) hält den Weg offen — eine zweite
+  Der schmale Port (`voice_stt_client/core/led_controller.py`) hält den Weg offen — eine zweite
   Implementierung über `ControllerClient` berührt weder YAML noch Reducer.
 - **Effektparameter im Client mitvalidieren**: verworfen, siehe oben.
 
@@ -163,9 +163,9 @@ und Anwendung auseinanderlaufen, mit dunklem Ring und weiterlaufendem Datenstrom
 
 ## Betroffene Dokumente und Tests
 
-- `core/feedback_mapping.py`, `core/led_controller.py`, `core/config.py`,
-  `core/settings_metadata.py`
-- `ui/led_feedback.py`, `ui/application.py`, `ui/tray.py`
+- `voice_stt_client/core/feedback_mapping.py`, `voice_stt_client/core/led_controller.py`, `voice_stt_client/core/config.py`,
+  `voice_stt_client/core/settings_metadata.py`
+- `voice_stt_client/ui/led_feedback.py`, `voice_stt_client/ui/application.py`, `voice_stt_client/ui/tray.py`
 - `config.yaml`, `requirements.txt`, `requirements-dev.txt`,
   `voice-stt-client.spec`
 - `tests/test_feedback_mapping.py`, `tests/test_led_feedback.py`,

@@ -2,7 +2,7 @@
 
 import unittest
 
-from core.event_models import (
+from voice_stt_client.core.event_models import (
     CanonicalEventType,
     EventEnvelope,
     EventOrigin,

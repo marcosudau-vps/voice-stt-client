@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import unittest
 
-from ui.single_instance import (
+from voice_stt_client.ui.single_instance import (
     InstanceAcquireStatus,
     SingleInstanceGuard,
 )

@@ -35,7 +35,7 @@ flowchart TD
 ## Modulstruktur
 
 ```text
-core/observability/
+voice_stt_client/core/observability/
 ├── models.py
 ├── redaction.py
 ├── normalizer.py
@@ -58,7 +58,7 @@ core/observability/
     ├── base.py
     └── jsonl_file.py
 
-ui/logs/
+voice_stt_client/ui/logs/
 ├── log_window.py
 ├── log_page.py
 ├── log_table_model.py
@@ -77,8 +77,8 @@ sinks kennen nur Models
 query kennt Models + Store-Abstraktion
 adapters kennen Ingress + Normalizer
 
-ui/logs importiert Query, nicht sqlite3/storage
-core/** importiert kein PySide6
+voice_stt_client/ui/logs importiert Query, nicht sqlite3/storage
+voice_stt_client/core/** importiert kein PySide6
 ```
 
 ## Schreibpfad

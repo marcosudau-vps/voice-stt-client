@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voice-stt-client"
+dynamic = ["version", "dependencies"]
+description = "Windows desktop client for the Voice STT Server"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+authors = [
+  { name = "Marco Sudau" },
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Win32 (MS Windows)",
+  "Intended Audience :: End Users/Desktop",
+  "Operating System :: Microsoft :: Windows :: Windows 10",
+  "Operating System :: Microsoft :: Windows :: Windows 11",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+
+[project.urls]
+Homepage = "https://github.com/marcosudau-vps/voice-stt-client"
+Documentation = "https://github.com/marcosudau-vps/voice-stt-client#readme"
+Issues = "https://github.com/marcosudau-vps/voice-stt-client/issues"
+
+[project.scripts]
+voice-stt-client = "voice_stt_client.app:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["voice_stt_client*"]
+
+[tool.setuptools.package-data]
+voice_stt_client = [
+  "config.yaml",
+  "assets/feedback_sounds/debug/*.wav",
+  "assets/feedback_sounds/debug/*.md",
+]
+
+[tool.setuptools.dynamic]
+version = { file = ["VERSION"] }
+dependencies = { file = ["requirements.txt"] }

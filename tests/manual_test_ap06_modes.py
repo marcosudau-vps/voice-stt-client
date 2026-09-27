@@ -7,7 +7,7 @@ import json
 
 from websockets.asyncio.client import connect
 
-from core.config import AppConfig, OperatingMode, SessionConfig
+from voice_stt_client.core.config import AppConfig, OperatingMode, SessionConfig
 
 
 async def check_mode(mode: OperatingMode) -> None:

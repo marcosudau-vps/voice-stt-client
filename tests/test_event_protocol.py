@@ -7,9 +7,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from core.event_cursor_store import EventCursorStore
-from core.event_models import EventConnectionState, EventOrigin
-from core.event_protocol import (
+from voice_stt_client.core.event_cursor_store import EventCursorStore
+from voice_stt_client.core.event_models import EventConnectionState, EventOrigin
+from voice_stt_client.core.event_protocol import (
     EventProtocolError,
     EventProtocolIssue,
     EventProtocolProcessor,

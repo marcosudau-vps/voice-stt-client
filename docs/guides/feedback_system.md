@@ -27,11 +27,11 @@ Fünf Stationen, jede mit einer Aufgabe:
 dem STT-Transport als Rückfallebene, und der Anwendung selbst (Hotkey gedrückt,
 Mikrofon verloren, Text eingefügt).
 
-**Normalizer** (`core/event_normalizer.py`). Übersetzt alle drei in **ein**
+**Normalizer** (`voice_stt_client/core/event_normalizer.py`). Übersetzt alle drei in **ein**
 Vokabular: 30 `CanonicalEventType`-Werte, sauber getrennt in `server.*` und
 `client.*`. Ab hier weiß niemand mehr, woher ein Fakt kam.
 
-**Reducer** (`core/feedback_reducer.py`). Entscheidet, was gelten soll. Er ist
+**Reducer** (`voice_stt_client/core/feedback_reducer.py`). Entscheidet, was gelten soll. Er ist
 deterministisch und kennt kein einziges Gerät. Hier wohnt die schwierige Logik:
 
 - **Doppelte Fakten** aus zwei Quellen werden als einer erkannt.
@@ -42,7 +42,7 @@ deterministisch und kennt kein einziges Gerät. Hier wohnt die schwierige Logik:
 - **Lokale Störungen** (Mikrofon weg) überlagern den Serverzustand, ohne ihn zu
   löschen.
 
-**Regel** (`core/feedback_mapping.py`). Die Übersetzung von „was gilt" nach „was
+**Regel** (`voice_stt_client/core/feedback_mapping.py`). Die Übersetzung von „was gilt" nach „was
 zeigen" — und zwar als Konfiguration, nicht als Code. Jedes Ereignis darf bis zu
 drei Wirkungen haben: `led`, `sound`, `app`.
 
@@ -65,7 +65,7 @@ blockieren. Fällt einer aus, laufen die anderen weiter.
 Der Ring wird nicht mehr direkt angesteuert. Der Client bettet den
 **LEFX-V3-Controller** (`led-controller-version-3`) als Thread in seinen eigenen
 Prozess ein und spricht mit ihm über einen schmalen Port mit sechs Verben
-(`core/led_controller.py`).
+(`voice_stt_client/core/led_controller.py`).
 
 Damit steht der komplette Katalog zur Verfügung: **36 Effekte und 71 Presets**
 aus `core-set` und `smartspeaker-set`, in drei Lebenszyklusformen:

@@ -411,6 +411,14 @@ damit alle folgenden Pakete sofort durch diese Gates laufen. Für AP08 bleiben:
 - abschließende End-to-End- und Bedienprüfungen,
 - abschließender Release- und Dokumentationsabgleich.
 
+Der V1-Release-Polish vom 23. September 2026 hat bereits den gemeinsamen
+Benutzerordner `~/.voice-stt/client`, rückwärtskompatibles Lesen der alten
+LocalAppData-Dateien, `--config`/`VOICESTT_CLIENT_CONFIG`, direkte
+Hotkey-Aufnahme sowie Anwender- und Konfigurationshandbuch umgesetzt. Eine
+PyPI-Veröffentlichung des Clients benötigt zuvor ein eigenes Namespace-Paket;
+die heutigen Top-Level-Namen `core` und `ui` dürfen nicht unverändert in einen
+öffentlichen Python-Installationsraum gelangen.
+
 ---
 
 ## Arbeitspaket 9: LED-Ausgabe über LEFX V3 `[ABGENOMMEN]`

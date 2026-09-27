@@ -6,15 +6,15 @@ import threading
 
 from PySide6.QtCore import QCoreApplication
 
-from core.config import FeedbackConfig, LedConfig
-from core.feedback_mapping import (
+from voice_stt_client.core.config import FeedbackConfig, LedConfig
+from voice_stt_client.core.feedback_mapping import (
     LedCall,
     LedVerb,
     SoundCueId,
     SoundEffect,
 )
-from ui.feedback import SoundFeedback
-from ui.led_feedback import LedFeedback
+from voice_stt_client.ui.feedback import SoundFeedback
+from voice_stt_client.ui.led_feedback import LedFeedback
 
 
 def main() -> None:

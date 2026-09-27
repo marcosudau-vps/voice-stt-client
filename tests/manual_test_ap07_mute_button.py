@@ -30,10 +30,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from core.audio_capture import AudioCapture  # noqa: E402
-from core.config import AppConfig, LedConfig  # noqa: E402
-from core.led_controller import MUTE_PIN_INDEX, MUTE_PIN_NAME  # noqa: E402
-from ui.led_feedback import LedFeedback  # noqa: E402
+from voice_stt_client.core.audio_capture import AudioCapture  # noqa: E402
+from voice_stt_client.core.config import AppConfig, LedConfig  # noqa: E402
+from voice_stt_client.core.led_controller import MUTE_PIN_INDEX, MUTE_PIN_NAME  # noqa: E402
+from voice_stt_client.ui.led_feedback import LedFeedback  # noqa: E402
 
 PIN_NAMES = ("X0D11", "X0D30", "X0D31", "X0D33", "X0D39")
 WATCH_S = 25.0

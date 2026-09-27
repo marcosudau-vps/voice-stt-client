@@ -96,8 +96,8 @@ TextInjectionQueue
 ```
 
 Der Core-Bereich ist mit AP4 und AP5 integriert
-(`core/controller.py`, `core/stt_session.py`). AP6 setzt dieses Modell in
-`ui/core_bridge.py` sowie der PySide6-Shell um.
+(`voice_stt_client/core/controller.py`, `voice_stt_client/core/stt_session.py`). AP6 setzt dieses Modell in
+`voice_stt_client/ui/core_bridge.py` sowie der PySide6-Shell um.
 
 ---
 
@@ -105,27 +105,27 @@ Der Core-Bereich ist mit AP4 und AP5 integriert
 
 ### Implementiert & Integriert (AP1–AP6)
 
-- `core/audio_capture.py`: Mikrofonaufnahme als Mono-PCM16, bevorzugt 16 kHz und 40-ms-Pakete.
-- `core/stt_session.py`: Server-Handshake, Protokollzustand, Session-Generations, Ping-Miss-Erkennung, 1013-Delay, Backoff-Reset auf Pong.
-- `core/history.py`: AP1 Transkript-Historie mit `add_entry_with_status`.
-- `core/text_injector.py`: AP2 Text-Injection-Queue.
-- `core/reinsertion.py`: AP3 erneutes Einfügen.
-- `core/controller.py`: AP4 Controller-Integration & AP5 Zustands- und Selbstheilungsmodell (`AvailabilityState`, `DictationState`, `ControllerStatusSnapshot`, `TransientEvent`, start confirmation 10s timeout, disconnect dictation interruption).
-- `ui/core_bridge.py`: thread-sichere Qt-/asyncio-Brücke mit eigenem
+- `voice_stt_client/core/audio_capture.py`: Mikrofonaufnahme als Mono-PCM16, bevorzugt 16 kHz und 40-ms-Pakete.
+- `voice_stt_client/core/stt_session.py`: Server-Handshake, Protokollzustand, Session-Generations, Ping-Miss-Erkennung, 1013-Delay, Backoff-Reset auf Pong.
+- `voice_stt_client/core/history.py`: AP1 Transkript-Historie mit `add_entry_with_status`.
+- `voice_stt_client/core/text_injector.py`: AP2 Text-Injection-Queue.
+- `voice_stt_client/core/reinsertion.py`: AP3 erneutes Einfügen.
+- `voice_stt_client/core/controller.py`: AP4 Controller-Integration & AP5 Zustands- und Selbstheilungsmodell (`AvailabilityState`, `DictationState`, `ControllerStatusSnapshot`, `TransientEvent`, start confirmation 10s timeout, disconnect dictation interruption).
+- `voice_stt_client/ui/core_bridge.py`: thread-sichere Qt-/asyncio-Brücke mit eigenem
   Core-Thread und kontrolliertem Shutdown.
-- `ui/hotkeys.py`: native globale Win32-Hotkeys mit atomarem
+- `voice_stt_client/ui/hotkeys.py`: native globale Win32-Hotkeys mit atomarem
   Konflikt-Rollback.
-- `ui/single_instance.py`: Win32-Mutex vor Core-, Hotkey- und Traystart.
-- `ui/tray.py`, `ui/overlay.py`, `ui/presentation.py`: Status, Bedienung,
+- `voice_stt_client/ui/single_instance.py`: Win32-Mutex vor Core-, Hotkey- und Traystart.
+- `voice_stt_client/ui/tray.py`, `voice_stt_client/ui/overlay.py`, `voice_stt_client/ui/presentation.py`: Status, Bedienung,
   Verlauf und passive Darstellung ohne Fokusübernahme; Hotkeystatus in
   Grün-, Wake-Word-Status in Blautönen, weißer Rand für Sprachwartephasen,
   Gelb für äußere Störungen und Rot für tatsächliche Fehler.
-- `ui/application.py`: GUI-Komposition und Lifecycle.
-- `core/settings_metadata.py`, `core/actions.py`: deklarative
+- `voice_stt_client/ui/application.py`: GUI-Komposition und Lifecycle.
+- `voice_stt_client/core/settings_metadata.py`, `voice_stt_client/core/actions.py`: deklarative
   Einstellungsmetadaten und stabile Aktions-IDs ohne zweite Wertquelle.
-- `ui/settings_dialog.py`: fünfteiliger Dialog für Verlauf, Allgemein,
+- `voice_stt_client/ui/settings_dialog.py`: fünfteiliger Dialog für Verlauf, Allgemein,
   Verbindung/Betriebsmodus, Geräte/Audio und Erscheinungsbild/Feedback.
-- `app.py`: regulärer GUI-Start; der bisherige Diagnosebetrieb bleibt über
+- `voice_stt_client/app.py`: regulärer GUI-Start; der bisherige Diagnosebetrieb bleibt über
   `--headless` erhalten.
 - `VERSION`, `scripts/build.py` und `voice-stt-client.spec`: reproduzierbarer
   versionierter Windows-Onefile-Build.
@@ -166,8 +166,8 @@ Wake-Word-Prüfung mit echtem Mikrofon.
 
 ### Wichtige Grenzen des aktuellen Stands
 
-- Die Aufnahme liefert bereits `int16`; es existiert kein `core/audio_processor.py` und kein lokaler Resampler.
-- Die WebSocket-Komponente heißt `core/stt_session.py`; ein `core/stt_client.py` existiert nicht.
+- Die Aufnahme liefert bereits `int16`; es existiert kein `voice_stt_client/core/audio_processor.py` und kein lokaler Resampler.
+- Die WebSocket-Komponente heißt `voice_stt_client/core/stt_session.py`; ein `voice_stt_client/core/stt_client.py` existiert nicht.
 - Fällt die bevorzugte Samplerate aus, kann `AudioCapture` mit der Geräte-Samplerate arbeiten; eine lokale Umrechnung auf 16 kHz ist nicht implementiert.
 - Der zunächst fehlgeschlagene Audio-End-to-End-Lauf führte zur Korrektur der
   Thread-Brücke. Ein anschließender regulärer Lauf belegte Mikrofon,
@@ -267,8 +267,8 @@ finales Server-Event
 Realtime-Events lösen diesen Pfad nicht aus.
 
 **Implementiert und unabhängig verifiziert:**
-- `core/controller.py` (`STTController`, `ControllerStatus`, `CommandResult`, `FinalProcessingResult`)
-- `app.py` Headless-Einstiegspunkt erweitert `STTController` mit DI-Oberfläche
+- `voice_stt_client/core/controller.py` (`STTController`, `ControllerStatus`, `CommandResult`, `FinalProcessingResult`)
+- `voice_stt_client/app.py` Headless-Einstiegspunkt erweitert `STTController` mit DI-Oberfläche
 - Primary-Driver Run-Loop (`session.run()` steuert Dauer; Auto-Start Ende beendet run() nicht)
 - konkurrierende, Cancellation-geschützte Shutdown-Idempotenz (Stop-Zähler exakt 1)
 - Shutdown gegen parallele Start-/Stop-/Toggle-Übergänge serialisiert
@@ -279,7 +279,7 @@ Realtime-Events lösen diesen Pfad nicht aus.
 - Asynchrone ehrliche Diktierbefehle (`async start_dictation`, `stop_dictation`, `toggle_dictation`)
 
 **Verifikation:** 46 Unittests in `tests/test_controller.py`, 9 in
-`tests/test_app.py` (insgesamt 152 Tests in der Suite).
+`tests/test_voice_stt_client/app.py` (insgesamt 152 Tests in der Suite).
 
 ### AP5 – Fehlerverhalten und Selbstheilung `[ABGESCHLOSSEN]`
 
@@ -309,7 +309,7 @@ Realtime-Events lösen diesen Pfad nicht aus.
 
 **Verifikation:** 10 Tests in `tests/test_config.py`, 18 in
 `tests/test_stt_session.py`, 62 in `tests/test_controller.py`, 10 in
-`tests/test_app.py`; insgesamt 197 Tests. Zusätzlich wurde die echte
+`tests/test_voice_stt_client/app.py`; insgesamt 197 Tests. Zusätzlich wurde die echte
 `STTSession` ohne Audio gegen den produktiven Server bis zum gültigen Pong und
 sauberen Stop geprüft. Details:
 `docs/2026-07-25_AP05_ANTIGRAVITY/GESAMTABNAHME_UND_SELBSTFERTIGSTELLUNG.md`.
@@ -432,7 +432,7 @@ Aufteilung:
 - AP07-M8 Qt-, Tray-, Overlay- und Soundintegration: 13
 - AP07-M9 ReSpeaker-USB-LED-Adapter und Replay-Härtung: 13
 - Session-, Backoff- und Ping/Pong-Härtung: 18
-- `app.py` Audio-Thread-Brücke und DI-Isolation: 10
+- `voice_stt_client/app.py` Audio-Thread-Brücke und DI-Isolation: 10
 - native Hotkeys: 6
 - Single Instance: 3
 - Präsentation, Tray und Overlay: 14
@@ -465,7 +465,7 @@ Zusätzlich am 25. Juli 2026 manuell verifiziert:
 - reale Injection in Notepad einschließlich Clipboard-Restore: erfolgreich,
 - Mikrofon, `AudioCapture` und Paketformat: erfolgreich,
 - vollständiger Wake-Word-/Realtime-/Finaltext-Pfad mit temporär korrigierter `call_soon_threadsafe`-Brücke: erfolgreich; 733 von 733 Paketen ohne volle Clientqueue gesendet,
-- dieselbe Thread-Brücke anschließend dauerhaft in `app.py` implementiert und mit Regressionstests abgesichert,
+- dieselbe Thread-Brücke anschließend dauerhaft in `voice_stt_client/app.py` implementiert und mit Regressionstests abgesichert,
 - regulärer Wiederholungslauf mit serverweit deaktiviertem Wake Word: direkte Realtime-Ausgaben und Finaltext erfolgreich.
 - echter Smoke-Test der aktuell gehärteten `STTSession`: `hello`, `ready`,
   anwendungsseitiger Ping, als aktuell validierter Pong erkannte Antwort und
@@ -499,7 +499,7 @@ präzisiert. E-06 bleibt ein getrennter Hygiene-Restpunkt für AP8.
 
 ## 8. Bekannte technische Risiken
 
-- Die frühere Fremdthread-Übergabe an `asyncio.Queue` erzeugte bestätigte Audiobursts mit 175–199 wartenden 40-ms-Paketen. Sie ist behoben: `app.py` bindet seine Event-Loop und plant Queue-Einträge über `call_soon_threadsafe`; Pakete außerhalb einer aktiven Streaminggrenze werden verworfen. Acht Regressionstests sichern einschließlich des Generationswechsels diese Brücke ab.
+- Die frühere Fremdthread-Übergabe an `asyncio.Queue` erzeugte bestätigte Audiobursts mit 175–199 wartenden 40-ms-Paketen. Sie ist behoben: `voice_stt_client/app.py` bindet seine Event-Loop und plant Queue-Einträge über `call_soon_threadsafe`; Pakete außerhalb einer aktiven Streaminggrenze werden verworfen. Acht Regressionstests sichern einschließlich des Generationswechsels diese Brücke ab.
 - Ein realer Lauf derselben korrigierten Brückenlogik übertrug 700 von 700 Paketen ohne Rückstau; ein weiterer Lauf mit „Hey Jarvis“ bestätigte mit 733 von 733 Paketen den vollständigen Pfad bis zum Finaltext.
 - Der frühere breite Sessionprofilentwurf bleibt verworfen. Der Server bietet
   inzwischen stattdessen einen engen sessionlokalen Wake-Word-Contract über
@@ -592,3 +592,10 @@ eingelesen.
 > in Arbeit; M11 bleibt bis zum Abschluss der realen Matrix gesperrt.
 > Die öffentliche GitHub-, Commit-CI-, PyInstaller- und Releasebasis ist mit
 > einem lokal gestarteten, versionierten Windows-Build bereits vorbereitet.
+
+V1-Polish ergänzt einen stabilen Benutzerpfad unter `~/.voice-stt/client`,
+direkte Hotkey-Aufnahme, einen expliziten Configpfad und die Anwenderreferenz.
+Die alte LocalAppData-Konfiguration und Historie bleiben kompatibel. Für PyPI
+sind die früheren generischen Top-Level-Pakete `core` und `ui` inzwischen in
+den eindeutigen Client-Namespace `voice_stt_client` migriert und lokal geprüft.
+Der manuelle Bedien-Smoke und das autorisierte Release stehen noch aus.

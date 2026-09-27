@@ -98,9 +98,9 @@ die Python-Referenzimplementierung.
 
 ## Betroffene Dokumente und Tests
 
-- `ui/led_feedback.py`
-- `core/config.py`, `config.yaml`, `core/settings_metadata.py`
-- `ui/application.py`, `voice-stt-client.spec`, `requirements.txt`
+- `voice_stt_client/ui/led_feedback.py`
+- `voice_stt_client/core/config.py`, `config.yaml`, `voice_stt_client/core/settings_metadata.py`
+- `voice_stt_client/ui/application.py`, `voice-stt-client.spec`, `requirements.txt`
 - `tests/test_led_feedback.py`
 - `tests/manual_test_ap07_led_hardware.py`
 - `scripts/pyinstaller_runtime_platform.py`, `scripts/pyinstaller_site/`

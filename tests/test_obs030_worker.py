@@ -19,11 +19,11 @@ from pathlib import Path
 from types import MappingProxyType
 from typing import List, Optional, Sequence
 
-from core.observability.health import LoggingHealthState, LoggingInternalHealth
-from core.observability.ingress import ObservabilityIngress
-from core.observability.models import CanonicalLogRecord
-from core.observability.storage.sqlite import OpenResult, SQLiteLogStore
-from core.observability.worker import LoggingWorker
+from voice_stt_client.core.observability.health import LoggingHealthState, LoggingInternalHealth
+from voice_stt_client.core.observability.ingress import ObservabilityIngress
+from voice_stt_client.core.observability.models import CanonicalLogRecord
+from voice_stt_client.core.observability.storage.sqlite import OpenResult, SQLiteLogStore
+from voice_stt_client.core.observability.worker import LoggingWorker
 
 
 def _iso() -> str:
@@ -150,8 +150,8 @@ class TestEndToEndLoggerToSqlite(unittest.TestCase):
     Worker -> SQLite (WP-OBS-030 Pflichtpruefungen)."""
 
     def test_logger_info_reaches_sqlite(self):
-        from core.observability.adapters.python_logging import UnifiedLogHandler
-        from core.observability.normalizer import from_log_record
+        from voice_stt_client.core.observability.adapters.python_logging import UnifiedLogHandler
+        from voice_stt_client.core.observability.normalizer import from_log_record
 
         with tempfile.TemporaryDirectory() as tmp:
             db_path = Path(tmp) / "obs.sqlite3"

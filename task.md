@@ -1,7 +1,7 @@
 # Arbeitsstand und Aufgaben – RealtimeSTT Windows Desktop Client
 
 > **Status:** aktiver Tracker  
-> **Stand:** 12. August 2026
+> **Stand:** 23. September 2026
 > **Aktives Paket:** AP7 Feedback- und Eventsystem `[M10 DEBUG-FEEDBACK-KORREKTUR ABGENOMMEN]`
 > **Nächster Schritt:** gesprochene Bedien-/Disconnect-/Langlaufmatrix und alltagstaugliches Feedbacktuning
 > **Separater Restpunkt:** AP6-Wake-Word-Bediennachweis mit echtem Mikrofon  
@@ -9,14 +9,14 @@
 
 ## Phase 1 – Headless Audio-/WebSocket-Core `[VORHANDEN; LIVE UND AUTOMATISIERT TEILVERIFIZIERT]`
 
-- [x] `core/audio_capture.py`: Mono-PCM16-Aufnahme, bevorzugt 16 kHz, 40-ms-Pakete
-- [x] `core/stt_session.py`: WebSocket-Handshake, Protokollzustand, Audioübertragung und Transport-Reconnect
-- [x] `app.py`: headless Verdrahtung und Konsolenausgabe von Realtime-/Finaltext
+- [x] `voice_stt_client/core/audio_capture.py`: Mono-PCM16-Aufnahme, bevorzugt 16 kHz, 40-ms-Pakete
+- [x] `voice_stt_client/core/stt_session.py`: WebSocket-Handshake, Protokollzustand, Audioübertragung und Transport-Reconnect
+- [x] `voice_stt_client/app.py`: headless Verdrahtung und Konsolenausgabe von Realtime-/Finaltext
 - [x] Live-Smoke-Test am 25. Juli 2026 für Health, `hello`, `ready` und `pong`
 - [x] manueller Diagnose-End-to-End-Test am 25. Juli 2026 mit temporär korrigierter Thread-Brücke und „Hey Jarvis“: Wake Word, Aufnahme, Realtime und echter Finaltext erfolgreich; 733/733 Pakete gesendet, keine volle Clientqueue
-- [x] thread-sichere Übergabe aus dem Audio-Verarbeitungsthread an die asyncio-Queue am 25. Juli 2026 dauerhaft in `app.py` korrigiert: Übergabe über `loop.call_soon_threadsafe`, kein Audio vor erfolgreich gesendetem `start`, sichere Drop-Grenzen bei Stop/Loop-Ende/Queue-Vollstand
-- [x] `tests/test_app.py`: 10 Regressionstests für Event-Loop-Bindung, Fremdthread-Übergabe, Start-Gating und Shutdown-/Überlastgrenzen
-- [x] manueller Wiederholungstest mit dem dauerhaft korrigierten regulären `app.py` am 25. Juli 2026: Server-Wake-Word deaktiviert, direkte Realtime-Ausgaben und Finaltext `Test eins, zwei, drei, Test.` erfolgreich
+- [x] thread-sichere Übergabe aus dem Audio-Verarbeitungsthread an die asyncio-Queue am 25. Juli 2026 dauerhaft in `voice_stt_client/app.py` korrigiert: Übergabe über `loop.call_soon_threadsafe`, kein Audio vor erfolgreich gesendetem `start`, sichere Drop-Grenzen bei Stop/Loop-Ende/Queue-Vollstand
+- [x] `tests/test_voice_stt_client/app.py`: 10 Regressionstests für Event-Loop-Bindung, Fremdthread-Übergabe, Start-Gating und Shutdown-/Überlastgrenzen
+- [x] manueller Wiederholungstest mit dem dauerhaft korrigierten regulären `voice_stt_client/app.py` am 25. Juli 2026: Server-Wake-Word deaktiviert, direkte Realtime-Ausgaben und Finaltext `Test eins, zwei, drei, Test.` erfolgreich
 - [x] früheren breiten Sessionprofilentwurf nach damaliger Serverprüfung
   verworfen und aus dem Client entfernt
 - [x] verworfene Serverprofil-Spezifikation nach `docs/archive/2026-07-25_SERVER_SESSION_PROFILE_SPECIFICATION_VERWORFEN.md` archiviert
@@ -29,18 +29,18 @@
   beendet; kein automatischer Neustart und kein Audio-Replay nach Reconnect
 - [x] zuverlässige Ping-Miss-Erkennung umgesetzt und im AP5-Vertrag abgesichert
 
-Hinweis: Es existieren weder `core/audio_processor.py` noch `core/stt_client.py`. `AudioCapture` liefert bereits `int16`; lokales Resampling ist nicht implementiert.
+Hinweis: Es existieren weder `voice_stt_client/core/audio_processor.py` noch `voice_stt_client/core/stt_client.py`. `AudioCapture` liefert bereits `int16`; lokales Resampling ist nicht implementiert.
 
 ## Phase 1.5 – Transkript-Historie (AP1) `[ABGESCHLOSSEN]`
 
-- [x] `core/history.py`: RAM- und selektive SQLite-Speicherung finaler Transkripte und Einfügeversuche
+- [x] `voice_stt_client/core/history.py`: RAM- und selektive SQLite-Speicherung finaler Transkripte und Einfügeversuche
 - [x] Deduplizierung über `(session_id, segment_id)`
 - [x] `tests/test_history.py`: 30 Tests erfolgreich
 - [x] Einbindung in den realen Finalevent-Pfad in AP4 umgesetzt
 
 ## Phase 2 – Textinjektion (AP2) `[ABGESCHLOSSEN]`
 
-- [x] `core/text_injector.py`: serialisierte FIFO-Queue, Clipboard und `SendInput`
+- [x] `voice_stt_client/core/text_injector.py`: serialisierte FIFO-Queue, Clipboard und `SendInput`
 - [x] definierter Queue-Lifecycle und nicht-daemonisierter Worker
 - [x] `tests/test_text_injector.py`: 41 Tests mit Test-Backend erfolgreich
 - [x] manueller Notepad-Smoke-Test am 25. Juli 2026: `command_sent`, Text im fokussierten Notepad erschienen und vorheriger Clipboard-Inhalt wiederhergestellt
@@ -48,7 +48,7 @@ Hinweis: Es existieren weder `core/audio_processor.py` noch `core/stt_client.py`
 
 ## Phase 3 – Erneutes Einfügen (AP3) `[ABGESCHLOSSEN]`
 
-- [x] `core/reinsertion.py`: `TranscriptReinsertionService`
+- [x] `voice_stt_client/core/reinsertion.py`: `TranscriptReinsertionService`
 - [x] Memory-first-Auflösung, SQLite-Fallback und definierte Resultatstatus
 - [x] `tests/test_reinsertion.py`: 26 Tests erfolgreich
 - [x] Controller-Anbindung in AP4 umgesetzt (Korrekturrunde 3 abgeschlossen)
@@ -65,7 +65,7 @@ Hinweis: Es existieren weder `core/audio_processor.py` noch `core/stt_client.py`
 - [x] Cancellation-geschützten gemeinsamen Shutdown umgesetzt (`asyncio.shield()`)
 - [x] Aufnahmeübergänge atomar serialisiert (`asyncio.Lock`, `_start_dictation_locked`, `_stop_dictation_locked`)
 - [x] Vulnerable Lifecycle-Rennen zusätzlich unabhängig abgesichert: partieller Task-Start, Queue-Start-Rollback, Cancellation-geschützter Shutdown, Shutdown gegen Aufnahmeübergang und Finalannahme gegen Closing
-- [x] Tests und Typimporte in `app.py` und `tests/test_controller.py` bereinigt; neue Race-Tests verwenden Events statt willkürlicher Wartezeiten
+- [x] Tests und Typimporte in `voice_stt_client/app.py` und `tests/test_controller.py` bereinigt; neue Race-Tests verwenden Events statt willkürlicher Wartezeiten
 - [x] Kanonische Dokumentation synchronisiert
 
 ## Phase 5 – Fehlerverhalten und Selbstheilung (AP5) `[ABGESCHLOSSEN]`
@@ -98,7 +98,7 @@ Hinweis: Es existieren weder `core/audio_processor.py` noch `core/stt_client.py`
 - [x] globale Hotkeys via Win32 `RegisterHotKey` mit Konflikt-Rollback
 - [x] Reinsertion über Hotkey, Tray und ID-gebundene Verlaufsauswahl
 - [x] nativer Win32-Single-Instance-Guard vor dem Corestart
-- [x] GUI als regulärer Start; Diagnosepfad über `app.py --headless`
+- [x] GUI als regulärer Start; Diagnosepfad über `voice_stt_client/app.py --headless`
 - [x] gezielte AP6-Härtung: 74 Tests erfolgreich
 - [x] Gesamtsuite nach erster AP6-Umsetzung: 238 Tests in 6,181 Sekunden erfolgreich
 - [x] `py_compile`, nativer Win32-Smoke und vollständiger AP6-Live-Smoke mit
@@ -281,6 +281,19 @@ Hinweis: Es existieren weder `core/audio_processor.py` noch `core/stt_client.py`
 
 ## Phase 8 – Härtung und Polish (AP8) `[OFFEN]`
 
+### V1 Release-Polish `[IN ARBEIT]`
+
+- [x] Hotkeys über eine direkt gedrückte einzelne Tastenkombination erfassen
+- [x] Benutzerdaten unter `~/.voice-stt/client/` vereinheitlichen und alten
+  `%LOCALAPPDATA%`-Configpfad rückwärtskompatibel lesen
+- [x] expliziten Config-Pfad per CLI/Environment ergänzen
+- [x] Anwenderanleitung und vollständige Konfigurationsreferenz erstellen
+- [x] Client-PyPI-Paketierung neben dem vorhandenen Windows-EXE-/GitHub-Pfad
+  vorbereiten; dafür müssen die flachen Pakete `core`/`ui` vor Veröffentlichung
+  sauber namespaced werden (kein risikoloses Release-Detail)
+- [ ] Clientversion 1.0.0 mit Quellcommit-/Server-Kompatibilitätsmetadaten bauen
+- [ ] kein Push, Tag oder Release ohne ausdrückliche Benutzerfreigabe
+
 - [ ] allgemeine Reconnect- und Langzeit-Stresstests über AP7 hinaus
 - [ ] Mikrofonverlust, Hot-Plug und Gerätewechsel behandeln
 - [ ] Windows-Sleep/Wake und tatsächlichen Audiowiederanlauf absichern
@@ -305,11 +318,11 @@ Hinweis: Es existieren weder `core/audio_processor.py` noch `core/stt_client.py`
   fensterlose PyInstaller-Onefile-EXE
 - [x] `.github/workflows/ci.yml` führt auf normalen Pushes und Pull Requests
   Tests, `compileall`, EXE-Build und Smoke aus und lädt die EXE als Artefakt hoch
-- [x] `.github/workflows/release.yml` prüft Tags erneut und erstellt ein
-  GitHub-Release mit versionierter EXE und SHA-256-Datei
-- [x] `scripts/release.py` bestimmt die nächste Version, rollt lokale
-  Prüffehler zurück, wartet auf grünes CI für exakt den Release-Commit und
-  taggt erst danach; kein Sync in ein zweites Repository
+- [x] `.github/workflows/release.yml` verwendet einen grünen CI-Run als
+  unveränderlichen Candidate, veröffentlicht PyPI zuerst und erstellt Tag
+  sowie GitHub Release erst nach Remote-Hashprüfung
+- [x] der frühere lokale Tag-zuerst-Schreibpfad in `scripts/release.py` ist
+  gesperrt; `--dry-run` bleibt für lokale Diagnostik erhalten
 - [x] lokaler PyInstaller-Build für `0.1.0`: 73.299.320 Byte,
   SHA-256 `ddea29ee62e0a8ba56063d0702b3d1e81c78b4c94db1d93e96bc2fb47e834f37`
 
@@ -323,8 +336,8 @@ Zuletzt am 12. August 2026 ausgeführt (Vor-AP6-Baseline war 197 Tests):
 .\venv\Scripts\python.exe -m unittest discover -s tests -p "test_*.py"
 ```
 
-Ergebnis: **451 Clienttests erfolgreich**; `compileall` über `app.py`,
-`core/`, `ui/`, `scripts/` und `tests/` ebenfalls erfolgreich. Die aktuelle
+Ergebnis: **451 Clienttests erfolgreich**; `compileall` über `voice_stt_client/app.py`,
+`voice_stt_client/core/`, `voice_stt_client/ui/`, `scripts/` und `tests/` ebenfalls erfolgreich. Die aktuelle
 Servergesamtsuite bestand mit **378 Tests bei 13 Skips und 78 Subtests**. Der AP07-Livevertrag wurde mit zwei isolierten
 Sessions sowie einem echten Audiofixture-Ereignis geprüft. Details siehe
 `ÜBERGABE.md` und
@@ -342,7 +355,7 @@ Sessions sowie einem echten Audiofixture-Ereignis geprüft. Details siehe
 - AP07-M8 Qt-, Tray-, Overlay- und Soundintegration: 13
 - AP07-M9 ReSpeaker-USB-LED-Adapter und Replay-Härtung: 13
 - Session-, Backoff- und Ping/Pong-Härtung: 18
-- `app.py` Audio-Thread-Brücke und DI-Isolation: 10
+- `voice_stt_client/app.py` Audio-Thread-Brücke und DI-Isolation: 10
 - native Hotkeys: 6
 - Single Instance: 3
 - Präsentation, Tray und Overlay: 14

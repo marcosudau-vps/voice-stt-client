@@ -18,7 +18,7 @@ import unittest
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OBSERVABILITY_DIR = PROJECT_ROOT / "core" / "observability"
+OBSERVABILITY_DIR = PROJECT_ROOT / "voice_stt_client" / "core" / "observability"
 
 
 def _strip_docstrings(text: str) -> str:
@@ -100,12 +100,12 @@ class TestModuleIsolation(unittest.TestCase):
 class TestAcyclicImports(unittest.TestCase):
     def test_every_obs030_module_imports_in_a_fresh_interpreter(self):
         modules = [
-            "core.observability",
-            "core.observability.storage.sqlite",
-            "core.observability.sinks.jsonl_file",
-            "core.observability.worker",
-            "core.observability.manager",
-            "app",
+            "voice_stt_client.core.observability",
+            "voice_stt_client.core.observability.storage.sqlite",
+            "voice_stt_client.core.observability.sinks.jsonl_file",
+            "voice_stt_client.core.observability.worker",
+            "voice_stt_client.core.observability.manager",
+            "voice_stt_client.app",
         ]
         for module in modules:
             with self.subTest(module=module):
@@ -124,19 +124,19 @@ class TestAcyclicImports(unittest.TestCase):
 
 class TestLogStoreSignatures(unittest.TestCase):
     def test_write_batch_returns_a_two_tuple(self):
-        from core.observability.storage.sqlite import SQLiteLogStore
+        from voice_stt_client.core.observability.storage.sqlite import SQLiteLogStore
         signature = inspect.signature(SQLiteLogStore.write_batch)
         self.assertIn("records", signature.parameters)
 
     def test_clear_signature(self):
-        from core.observability.storage.sqlite import SQLiteLogStore
+        from voice_stt_client.core.observability.storage.sqlite import SQLiteLogStore
         signature = inspect.signature(SQLiteLogStore.clear)
         self.assertEqual(list(signature.parameters), ["self"])
 
 
 class TestManagerLifecycleSignature(unittest.TestCase):
     def test_start_stop_signatures(self):
-        from core.observability.manager import ObservabilityManager
+        from voice_stt_client.core.observability.manager import ObservabilityManager
         start_sig = inspect.signature(ObservabilityManager.start)
         stop_sig = inspect.signature(ObservabilityManager.stop)
         self.assertEqual(list(start_sig.parameters), ["self"])

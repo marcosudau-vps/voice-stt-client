@@ -15,11 +15,11 @@ import inspect
 import pathlib
 import unittest
 
-import core.observability as observability_package
-from core.observability.adapters.client_events import ClientEventEmitter
-from core.observability.adapters.server_live import ServerLiveAdapter
-from core.observability.health import LoggingHealthSnapshot
-from core.observability.ingress import NULL_INGRESS, ObservabilityIngress
+import voice_stt_client.core.observability as observability_package
+from voice_stt_client.core.observability.adapters.client_events import ClientEventEmitter
+from voice_stt_client.core.observability.adapters.server_live import ServerLiveAdapter
+from voice_stt_client.core.observability.health import LoggingHealthSnapshot
+from voice_stt_client.core.observability.ingress import NULL_INGRESS, ObservabilityIngress
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
@@ -27,8 +27,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 class TestFrozenModuleStructure(unittest.TestCase):
     def test_the_two_new_adapters_exist_where_arch_51_puts_them(self):
         for relative in (
-            "core/observability/adapters/client_events.py",
-            "core/observability/adapters/server_live.py",
+            "voice_stt_client/core/observability/adapters/client_events.py",
+            "voice_stt_client/core/observability/adapters/server_live.py",
         ):
             with self.subTest(module=relative):
                 self.assertTrue((ROOT / relative).is_file())
@@ -48,11 +48,11 @@ class TestFrozenModuleStructure(unittest.TestCase):
         query/server_history.py, sinks/text_file.py, core/server_control/,
         ui/settings/logging_settings.py."*"""
         for relative in (
-            "core/observability/adapters/led.py",
-            "core/observability/query/server_history.py",
-            "core/observability/sinks/text_file.py",
-            "core/server_control",
-            "ui/settings/logging_settings.py",
+            "voice_stt_client/core/observability/adapters/led.py",
+            "voice_stt_client/core/observability/query/server_history.py",
+            "voice_stt_client/core/observability/sinks/text_file.py",
+            "voice_stt_client/core/server_control",
+            "voice_stt_client/ui/settings/logging_settings.py",
         ):
             with self.subTest(path=relative):
                 self.assertFalse((ROOT / relative).exists())
@@ -64,7 +64,7 @@ class TestLayeringAndImportDirection(unittest.TestCase):
         for name in ("client_events", "server_live"):
             with self.subTest(module=name):
                 source = (
-                    ROOT / "core/observability/adapters" / f"{name}.py"
+                    ROOT / "voice_stt_client/core/observability/adapters" / f"{name}.py"
                 ).read_text(encoding="utf-8")
                 self.assertNotIn("from ..worker", source)
                 self.assertNotIn("from ..manager", source)
@@ -72,7 +72,7 @@ class TestLayeringAndImportDirection(unittest.TestCase):
 
     def test_no_observability_module_imports_pyside(self):
         """§5.2: ``core/**`` importiert NIE PySide6."""
-        for path in (ROOT / "core").rglob("*.py"):
+        for path in (ROOT / "voice_stt_client" / "core").rglob("*.py"):
             if "__pycache__" in path.parts:
                 continue
             with self.subTest(module=str(path.relative_to(ROOT))):
@@ -80,7 +80,7 @@ class TestLayeringAndImportDirection(unittest.TestCase):
 
     @staticmethod
     def _observability_modules():
-        for path in (ROOT / "core/observability").rglob("*.py"):
+        for path in (ROOT / "voice_stt_client/core/observability").rglob("*.py"):
             if "__pycache__" not in path.parts:
                 yield path
 
@@ -143,8 +143,8 @@ class TestLayeringAndImportDirection(unittest.TestCase):
         for path in self._observability_modules():
             with self.subTest(module=str(path.relative_to(ROOT))):
                 used = self._names_used(path)
-                self.assertNotIn("core.feedback_reducer", used)
-                self.assertNotIn("core.feedback_mapping", used)
+                self.assertNotIn("voice_stt_client.core.feedback_reducer", used)
+                self.assertNotIn("voice_stt_client.core.feedback_mapping", used)
                 self.assertNotIn("CanonicalEventType", used)
                 self.assertNotIn("FeedbackEngine", used)
                 self.assertNotIn("report_local_feedback", used)
@@ -205,17 +205,17 @@ class TestWiringContract(unittest.TestCase):
     def test_the_ingress_keyword_is_optional_everywhere(self):
         """Every injection point is additive: the default is ``NULL_INGRESS``,
         so no existing caller has to change (CONTRACTS §6)."""
-        from core.audio_capture import AudioCapture
-        from core.controller import STTController
-        from core.event_stream import EventStreamTransport
-        from core.session_coordinator import DualSessionCoordinator
-        from core.stt_session import STTSession
-        from core.text_injector import TextInjectionQueue
-        from ui.application import DesktopApplication, run_gui
-        from ui.core_bridge import CoreBridge
-        from ui.hotkeys import GlobalHotkeyManager
-        from ui.led_feedback import LedFeedback
-        from ui.settings_dialog import SettingsDialog
+        from voice_stt_client.core.audio_capture import AudioCapture
+        from voice_stt_client.core.controller import STTController
+        from voice_stt_client.core.event_stream import EventStreamTransport
+        from voice_stt_client.core.session_coordinator import DualSessionCoordinator
+        from voice_stt_client.core.stt_session import STTSession
+        from voice_stt_client.core.text_injector import TextInjectionQueue
+        from voice_stt_client.ui.application import DesktopApplication, run_gui
+        from voice_stt_client.ui.core_bridge import CoreBridge
+        from voice_stt_client.ui.hotkeys import GlobalHotkeyManager
+        from voice_stt_client.ui.led_feedback import LedFeedback
+        from voice_stt_client.ui.settings_dialog import SettingsDialog
 
         targets = (
             AudioCapture.__init__,
@@ -243,8 +243,8 @@ class TestWiringContract(unittest.TestCase):
         """CONTRACTS §6: *"Mit der Default-Factory bleibt eine von aussen
         uebergebene Factory einstellig und der Controller erhaelt
         NULL_INGRESS."*"""
-        from core.config import AppConfig
-        from ui.core_bridge import CoreBridge
+        from voice_stt_client.core.config import AppConfig
+        from voice_stt_client.ui.core_bridge import CoreBridge
 
         seen = {}
 
@@ -256,8 +256,8 @@ class TestWiringContract(unittest.TestCase):
         self.assertIs(bridge._controller_factory, one_argument_factory)
 
     def test_the_default_factory_hands_the_ingress_to_the_controller(self):
-        from core.config import AppConfig
-        from ui.core_bridge import CoreBridge
+        from voice_stt_client.core.config import AppConfig
+        from voice_stt_client.ui.core_bridge import CoreBridge
 
         ingress = ObservabilityIngress(instance_id="bridge-test")
         config = AppConfig()
@@ -288,49 +288,49 @@ class TestHookListCoverage(unittest.TestCase):
 
     IMPLEMENTED_TYPES = {
         # §12.1
-        "client.app.started": "ui/application.py",
-        "client.app.stopping": "ui/application.py",
-        "client.core.thread_started": "ui/core_bridge.py",
-        "client.core.thread_stopped": "ui/core_bridge.py",
-        "client.controller.run_started": "core/controller.py",
-        "client.websocket.connecting": "core/stt_session.py",
-        "client.websocket.connected": "core/stt_session.py",
-        "client.websocket.disconnected": "core/stt_session.py",
-        "client.session.admitted": "core/stt_session.py",
-        "client.session.ready": "core/stt_session.py",
-        "client.reconnect.scheduled": "core/stt_session.py",
-        "client.eventstream.state_changed": "core/session_coordinator.py",
-        "client.eventstream.protocol_error": "core/event_stream.py",
-        "client.config.validation_failed": "core/controller.py",
+        "client.app.started": "voice_stt_client/ui/application.py",
+        "client.app.stopping": "voice_stt_client/ui/application.py",
+        "client.core.thread_started": "voice_stt_client/ui/core_bridge.py",
+        "client.core.thread_stopped": "voice_stt_client/ui/core_bridge.py",
+        "client.controller.run_started": "voice_stt_client/core/controller.py",
+        "client.websocket.connecting": "voice_stt_client/core/stt_session.py",
+        "client.websocket.connected": "voice_stt_client/core/stt_session.py",
+        "client.websocket.disconnected": "voice_stt_client/core/stt_session.py",
+        "client.session.admitted": "voice_stt_client/core/stt_session.py",
+        "client.session.ready": "voice_stt_client/core/stt_session.py",
+        "client.reconnect.scheduled": "voice_stt_client/core/stt_session.py",
+        "client.eventstream.state_changed": "voice_stt_client/core/session_coordinator.py",
+        "client.eventstream.protocol_error": "voice_stt_client/core/event_stream.py",
+        "client.config.validation_failed": "voice_stt_client/core/controller.py",
         # §12.2
-        "client.hotkey.pressed": "ui/hotkeys.py",
-        "client.command.requested": "ui/core_bridge.py",
-        "client.command.completed": "ui/core_bridge.py",
-        "client.stream.start_sent": "core/stt_session.py",
-        "client.dictation.start_attempt": "core/controller.py",
-        "client.dictation.confirmed": "core/controller.py",
-        "client.dictation.failed": "core/controller.py",
-        "client.dictation.interrupted": "core/controller.py",
-        "client.settings.apply_started": "ui/application.py",
-        "client.settings.apply_completed": "ui/application.py",
-        "client.settings.runtime_apply": "core/controller.py",
-        "client.action.blocked": "core/controller.py",
-        "client.audio.stream_started": "core/audio_capture.py",
-        "client.audio.stream_stopped": "core/audio_capture.py",
+        "client.hotkey.pressed": "voice_stt_client/ui/hotkeys.py",
+        "client.command.requested": "voice_stt_client/ui/core_bridge.py",
+        "client.command.completed": "voice_stt_client/ui/core_bridge.py",
+        "client.stream.start_sent": "voice_stt_client/core/stt_session.py",
+        "client.dictation.start_attempt": "voice_stt_client/core/controller.py",
+        "client.dictation.confirmed": "voice_stt_client/core/controller.py",
+        "client.dictation.failed": "voice_stt_client/core/controller.py",
+        "client.dictation.interrupted": "voice_stt_client/core/controller.py",
+        "client.settings.apply_started": "voice_stt_client/ui/application.py",
+        "client.settings.apply_completed": "voice_stt_client/ui/application.py",
+        "client.settings.runtime_apply": "voice_stt_client/core/controller.py",
+        "client.action.blocked": "voice_stt_client/core/controller.py",
+        "client.audio.stream_started": "voice_stt_client/core/audio_capture.py",
+        "client.audio.stream_stopped": "voice_stt_client/core/audio_capture.py",
         # §12.3
-        "client.injection.enqueued": "core/controller.py",
-        "client.injection.rejected": "core/controller.py",
-        "client.final.deduplicated": "core/controller.py",
+        "client.injection.enqueued": "voice_stt_client/core/controller.py",
+        "client.injection.rejected": "voice_stt_client/core/controller.py",
+        "client.final.deduplicated": "voice_stt_client/core/controller.py",
         # §12.4
-        "client.audio.stream_stats": "core/controller.py",
-        "client.queue.state": "core/text_injector.py",
-        "logging.record_rejected": "core/observability/ingress.py",
+        "client.audio.stream_stats": "voice_stt_client/core/controller.py",
+        "client.queue.state": "voice_stt_client/core/text_injector.py",
+        "logging.record_rejected": "voice_stt_client/core/observability/ingress.py",
         # §12.5
-        "client.feedback.decision": "ui/application.py",
-        "client.led.dispatch_failed": "ui/led_feedback.py",
-        "client.led.queue_overflow": "ui/led_feedback.py",
-        "client.sound.failed": "ui/application.py",
-        "client.server.error_classified": "core/controller.py",
+        "client.feedback.decision": "voice_stt_client/ui/application.py",
+        "client.led.dispatch_failed": "voice_stt_client/ui/led_feedback.py",
+        "client.led.queue_overflow": "voice_stt_client/ui/led_feedback.py",
+        "client.sound.failed": "voice_stt_client/ui/application.py",
+        "client.server.error_classified": "voice_stt_client/core/controller.py",
     }
 
     def test_every_implemented_type_appears_in_its_module(self):
@@ -340,7 +340,7 @@ class TestHookListCoverage(unittest.TestCase):
                 self.assertIn(record_type, source)
 
     def test_the_worker_produced_types_of_obs030_are_still_there(self):
-        source = (ROOT / "core/observability/worker.py").read_text(
+        source = (ROOT / "voice_stt_client/core/observability/worker.py").read_text(
             encoding="utf-8"
         )
         for record_type in (
@@ -355,9 +355,9 @@ class TestHookListCoverage(unittest.TestCase):
         """§12: ``P`` means *"bestehende Python-Logzeile genuegt"*. Those lines
         must neither be removed nor reworded."""
         expectations = (
-            ("core/history.py", "logger."),
-            ("core/config.py", "logger."),
-            ("core/controller.py", 'logger.error("Error stopping audio capture'),
+            ("voice_stt_client/core/history.py", "logger."),
+            ("voice_stt_client/core/config.py", "logger."),
+            ("voice_stt_client/core/controller.py", 'logger.error("Error stopping audio capture'),
         )
         for relative, needle in expectations:
             with self.subTest(module=relative):

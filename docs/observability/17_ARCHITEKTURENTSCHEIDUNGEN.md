@@ -16,12 +16,12 @@ So muss eine spätere Änderung nicht dieselbe Diskussion noch einmal von vorn f
 
 ---
 
-## DEC-001 – eigenes Paket `core/observability`
+## DEC-001 – eigenes Paket `voice_stt_client/core/observability`
 
 ### Entscheidung
 
 ```text
-core/observability/
+voice_stt_client/core/observability/
 ```
 
 ### Warum

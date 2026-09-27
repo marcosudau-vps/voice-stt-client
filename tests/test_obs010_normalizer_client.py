@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import unittest
 
-from core.observability.normalizer import from_client_event
+from voice_stt_client.core.observability.normalizer import from_client_event
 
 INSTANCE_ID = "client-instance-1"
 

@@ -2,12 +2,15 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from core.version import read_version
+from voice_stt_client.core.version import read_version
 from scripts.build import render_windows_version_info
-from scripts.release import Abort, determine_release_version, next_patch, write_version
+from scripts.release import Abort, determine_release_version, next_patch, write_version, main
 
 
 class VersionTests(unittest.TestCase):
+    def test_local_tag_first_publication_is_disabled(self):
+        self.assertEqual(main(["--yes"]), 1)
+
     def test_repository_version_is_valid(self):
         self.assertRegex(read_version(), r"^\d+\.\d+\.\d+$")
 

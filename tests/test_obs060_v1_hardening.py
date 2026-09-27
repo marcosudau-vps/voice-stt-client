@@ -33,16 +33,16 @@ import time
 import unittest
 from pathlib import Path
 
-from core.observability.health import LoggingHealthState, LoggingInternalHealth
-from core.observability.ingress import ObservabilityIngress
-from core.observability.manager import ObservabilityManager
-from core.observability.models import CanonicalLogRecord, RecordPriority
-from core.observability.query.base import ProviderState, QueryFilter
-from core.observability.query.local import DEFAULT_LIMIT, MAX_LIMIT, LocalLogProvider
-from core.observability.storage.sqlite import OpenResult, SQLiteLogStore
-from core.observability.worker import LoggingWorker
+from voice_stt_client.core.observability.health import LoggingHealthState, LoggingInternalHealth
+from voice_stt_client.core.observability.ingress import ObservabilityIngress
+from voice_stt_client.core.observability.manager import ObservabilityManager
+from voice_stt_client.core.observability.models import CanonicalLogRecord, RecordPriority
+from voice_stt_client.core.observability.query.base import ProviderState, QueryFilter
+from voice_stt_client.core.observability.query.local import DEFAULT_LIMIT, MAX_LIMIT, LocalLogProvider
+from voice_stt_client.core.observability.storage.sqlite import OpenResult, SQLiteLogStore
+from voice_stt_client.core.observability.worker import LoggingWorker
 
-import core.observability.worker as worker_module
+import voice_stt_client.core.observability.worker as worker_module
 
 
 def make_record(**overrides) -> CanonicalLogRecord:
@@ -536,8 +536,8 @@ class TestTranscriptPolicyAnchor(unittest.TestCase):
     default INFO level keeps it out of the store entirely."""
 
     def test_a_debug_realtime_line_does_not_reach_the_store_at_info_level(self):
-        from core.observability.adapters.python_logging import UnifiedLogHandler
-        from core.observability.normalizer import from_log_record
+        from voice_stt_client.core.observability.adapters.python_logging import UnifiedLogHandler
+        from voice_stt_client.core.observability.normalizer import from_log_record
 
         ingress = ObservabilityIngress(instance_id="inst-1", queue_size=64, level="INFO")
         handler = UnifiedLogHandler(
@@ -561,7 +561,7 @@ class TestTranscriptPolicyAnchor(unittest.TestCase):
         self.assertEqual(drained, [], "the realtime DEBUG line reached the queue")
 
     def test_and_if_it_ever_did_the_content_would_still_be_redacted(self):
-        from core.observability.redaction import redact_text
+        from voice_stt_client.core.observability.redaction import redact_text
 
         redacted = redact_text("Realtime [seg=3]: streng geheimer zwischentext",
                                store_transcription_content=False)

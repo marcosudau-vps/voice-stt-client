@@ -13,13 +13,13 @@ import threading
 import time
 import unittest
 
-from core.observability.health import LoggingHealthState, LoggingInternalHealth
-from core.observability.ingress import (
+from voice_stt_client.core.observability.health import LoggingHealthState, LoggingInternalHealth
+from voice_stt_client.core.observability.ingress import (
     NULL_INGRESS,
     NullIngress,
     ObservabilityIngress,
 )
-from core.observability.models import CanonicalLogRecord
+from voice_stt_client.core.observability.models import CanonicalLogRecord
 
 
 def make_record(**overrides) -> CanonicalLogRecord:
@@ -181,7 +181,7 @@ class TestNullIngressIsBehaviorallyEquivalent(unittest.TestCase):
         self.assertIsInstance(NULL_INGRESS, ObservabilityIngress)
 
     def test_module_constant_is_a_singleton_instance(self):
-        from core.observability.ingress import NULL_INGRESS as again
+        from voice_stt_client.core.observability.ingress import NULL_INGRESS as again
         self.assertIs(NULL_INGRESS, again)
 
 

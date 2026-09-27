@@ -14,7 +14,7 @@ import threading
 import unittest
 from unittest import mock
 
-from core.observability.health import (
+from voice_stt_client.core.observability.health import (
     EMERGENCY_LOGGER_NAME,
     LoggingHealthSnapshot,
     LoggingHealthState,
@@ -133,7 +133,7 @@ class TestEmergencyRateLimit(unittest.TestCase):
         clock = _FakeClock()
         limiter = _RateLimiter(window_s=60.0)
         buffer = io.StringIO()
-        with mock.patch("core.observability.health.time.monotonic", clock), \
+        with mock.patch("voice_stt_client.core.observability.health.time.monotonic", clock), \
              mock.patch("sys.stderr", buffer):
             for _ in range(2000):
                 emergency("burst_code", "detail", limiter=limiter)
@@ -147,7 +147,7 @@ class TestEmergencyRateLimit(unittest.TestCase):
         clock = _FakeClock()
         limiter = _RateLimiter(window_s=10.0)
         buffer = io.StringIO()
-        with mock.patch("core.observability.health.time.monotonic", clock), \
+        with mock.patch("voice_stt_client.core.observability.health.time.monotonic", clock), \
              mock.patch("sys.stderr", buffer):
             emergency("rep_code", "first", limiter=limiter)  # emitted, count=1
             for _ in range(4):
@@ -163,7 +163,7 @@ class TestEmergencyRateLimit(unittest.TestCase):
         clock = _FakeClock()
         limiter = _RateLimiter(window_s=60.0)
         buffer = io.StringIO()
-        with mock.patch("core.observability.health.time.monotonic", clock), \
+        with mock.patch("voice_stt_client.core.observability.health.time.monotonic", clock), \
              mock.patch("sys.stderr", buffer):
             emergency("code_a", "a", limiter=limiter)
             emergency("code_b", "b", limiter=limiter)

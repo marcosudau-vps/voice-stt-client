@@ -3,7 +3,7 @@ from __future__ import annotations
 from concurrent.futures import ThreadPoolExecutor
 import unittest
 
-from core.event_models import (
+from voice_stt_client.core.event_models import (
     CanonicalEventType,
     EventConnectionState,
     EventOrigin,
@@ -11,13 +11,13 @@ from core.event_models import (
     FeedbackSource,
     FeedbackState,
 )
-from core.feedback_mapping import (
+from voice_stt_client.core.feedback_mapping import (
     FeedbackMappingConfig,
     FeedbackRule,
     SoundCueId,
     SoundEffect,
 )
-from core.feedback_reducer import FeedbackEngine
+from voice_stt_client.core.feedback_reducer import FeedbackEngine
 from tests.test_event_normalizer import log_result
 
 

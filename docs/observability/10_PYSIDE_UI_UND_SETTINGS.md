@@ -39,7 +39,7 @@ Damit bleibt Qt eine Darstellungsschicht.
 ## 2. UI-Module
 
 ```text
-ui/logs/
+voice_stt_client/ui/logs/
 ├── log_window.py
 ├── log_page.py
 ├── log_table_model.py

@@ -14,8 +14,8 @@ from unittest.mock import MagicMock, patch
 
 import sounddevice as sd
 
-from core.audio_capture import AudioCapture
-from core.config import AudioConfig
+from voice_stt_client.core.audio_capture import AudioCapture
+from voice_stt_client.core.config import AudioConfig
 
 
 class TestMicrophoneMute(unittest.TestCase):

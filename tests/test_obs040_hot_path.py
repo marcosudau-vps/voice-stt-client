@@ -17,31 +17,31 @@ from __future__ import annotations
 import inspect
 import unittest
 
-from core.audio_capture import AudioCapture
-from core.config import AppConfig
-from core.controller import STTController
-from core.observability.ingress import ObservabilityIngress
-from core.observability.worker import AGGREGATE_INTERVAL_S, LoggingWorker
-from core.stt_session import STTSession
+from voice_stt_client.core.audio_capture import AudioCapture
+from voice_stt_client.core.config import AppConfig
+from voice_stt_client.core.controller import STTController
+from voice_stt_client.core.observability.ingress import ObservabilityIngress
+from voice_stt_client.core.observability.worker import AGGREGATE_INTERVAL_S, LoggingWorker
+from voice_stt_client.core.stt_session import STTSession
 from tests.test_controller import (
     FakeAudioCapture,
     FakeInjectionQueue,
     FakeSessionCoordinator,
     FakeSTTSession,
 )
-from core.history import TranscriptHistoryManager
+from voice_stt_client.core.history import TranscriptHistoryManager
 
 # ARCH §8.6, the complete hot-path list.
 HOT_PATH = (
-    ("core.audio_capture", "AudioCapture", "_audio_callback"),
-    ("core.audio_capture", "AudioCapture", "_process_loop"),
-    ("core.controller", "STTController", "_on_audio_packet_from_thread"),
-    ("core.controller", "STTController", "_enqueue_audio_packet"),
-    ("core.controller", "STTController", "_audio_sender"),
-    ("core.stt_session", "STTSession", "send_audio"),
-    ("core.stt_session", "STTSession", "_message_loop"),
-    ("core.event_stream", "EventStreamTransport", "_run_live"),
-    ("core.event_stream", "EventStreamTransport", "_receive_result"),
+    ("voice_stt_client.core.audio_capture", "AudioCapture", "_audio_callback"),
+    ("voice_stt_client.core.audio_capture", "AudioCapture", "_process_loop"),
+    ("voice_stt_client.core.controller", "STTController", "_on_audio_packet_from_thread"),
+    ("voice_stt_client.core.controller", "STTController", "_enqueue_audio_packet"),
+    ("voice_stt_client.core.controller", "STTController", "_audio_sender"),
+    ("voice_stt_client.core.stt_session", "STTSession", "send_audio"),
+    ("voice_stt_client.core.stt_session", "STTSession", "_message_loop"),
+    ("voice_stt_client.core.event_stream", "EventStreamTransport", "_run_live"),
+    ("voice_stt_client.core.event_stream", "EventStreamTransport", "_receive_result"),
 )
 
 # What OBS-040 must not have introduced: any route from a hot-path function to
@@ -67,7 +67,7 @@ class _RecordingStore:
         self.rows = []
 
     def open(self):
-        from core.observability.storage.sqlite import OpenResult
+        from voice_stt_client.core.observability.storage.sqlite import OpenResult
 
         return OpenResult(True, False, "")
 

@@ -2,18 +2,18 @@ from __future__ import annotations
 
 import unittest
 
-from core.config import AppConfig
-from core.controller import FinalProcessingStatus, STTController
-from core.event_models import (
+from voice_stt_client.core.config import AppConfig
+from voice_stt_client.core.controller import FinalProcessingStatus, STTController
+from voice_stt_client.core.event_models import (
     CanonicalEventType,
     EventConnectionState,
     EventOrigin,
     FeedbackImpulse,
     FeedbackSource,
 )
-from core.event_normalizer import EventNormalizationError
-from core.history import TranscriptHistoryManager
-from core.session_coordinator import SessionContext
+from voice_stt_client.core.event_normalizer import EventNormalizationError
+from voice_stt_client.core.history import TranscriptHistoryManager
+from voice_stt_client.core.session_coordinator import SessionContext
 from tests.test_controller import (
     FakeAudioCapture,
     FakeInjectionQueue,

@@ -7,9 +7,9 @@ Must be run manually; ignored by automatic unittest discovery.
 import sys
 import time
 
-from core.config import AppConfig, HistoryConfig, HistoryMemoryConfig, HistoryPersistentConfig
-from core.history import TranscriptHistoryManager
-from core.text_injector import TextInjectionQueue, CtypesWindowsInjectionBackend
+from voice_stt_client.core.config import AppConfig, HistoryConfig, HistoryMemoryConfig, HistoryPersistentConfig
+from voice_stt_client.core.history import TranscriptHistoryManager
+from voice_stt_client.core.text_injector import TextInjectionQueue, CtypesWindowsInjectionBackend
 
 def main() -> None:
     if sys.platform != "win32":

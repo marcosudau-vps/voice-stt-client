@@ -169,7 +169,7 @@ Bestätigung leiser sein als bei einem Fehler. Ein nicht gesetzter Cue ist still
 eine fehlende Datei wird einmal gemeldet und bricht nichts ab.
 
 Die ausgelieferte Diagnosekonfiguration verwendet relative Pfade unter
-`assets/feedback_sounds/debug/`. Sie werden in der Sourcekopie und im
+`voice_stt_client/assets/feedback_sounds/debug/`. Sie werden in der Sourcekopie und im
 PyInstaller-Onefile-Build gegen den stabilen Anwendungsroot aufgelöst. Der Cue
 `timeout_tick` unterstützt zusätzlich `action: stop`, damit neue Sprache oder
 eine Verlängerung ein laufendes Ticken sofort beendet.

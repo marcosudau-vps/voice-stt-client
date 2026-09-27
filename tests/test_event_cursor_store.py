@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from core.event_cursor_store import EventCursorStore, normalize_endpoint
+from voice_stt_client.core.event_cursor_store import EventCursorStore, normalize_endpoint
 
 
 ENDPOINT = "wss://stt.voice.marcosudau.com/ws/logs"
@@ -98,7 +98,7 @@ class TestEventCursorStore(unittest.TestCase):
                 protocol_version=2,
             )
             previous = path.read_text(encoding="utf-8")
-            with patch("core.event_cursor_store.os.replace", side_effect=OSError("disk")):
+            with patch("voice_stt_client.core.event_cursor_store.os.replace", side_effect=OSError("disk")):
                 with self.assertRaises(OSError):
                     store.commit(
                         2,

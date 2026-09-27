@@ -16,15 +16,17 @@ htmlcov/
 # Build and release output
 build/
 dist/
+dist-feedback-rc*/
 release/
+*.egg-info/
 *.manifest
 
 # Runtime data
 logs/
-# ...but ui/logs/ is source code, not runtime data: it is the log VIEW
+# ...but voice_stt_client/ui/logs/ is source code, not runtime data: it is the log VIEW
 # (OBS-050, frozen module path in LOGGING_ARCHITEKTUR_FREEZE_V1.md §5.1).
 # Without this line the whole package would be silently unversionable.
-!ui/logs/
+!voice_stt_client/ui/logs/
 *.log
 *.db
 *.db-*
@@ -50,7 +52,7 @@ docs/**/agy-cli.log
 *.zip
 
 # Local sound source collection. No sound is an active product default.
-assets/sound_effects/
+voice_stt_client/assets/sound_effects/
 # ...and the manifest generated from it. A listing of ignored files has
 # nothing to say to anybody who does not have those files.
 audio_aliases.yaml

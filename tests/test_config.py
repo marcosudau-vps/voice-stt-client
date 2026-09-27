@@ -6,10 +6,11 @@ import unittest
 import tempfile
 import math
 from pathlib import Path
+from unittest.mock import patch
 
 import yaml
 
-from core.config import (
+from voice_stt_client.core.config import (
     AppConfig,
     EventStreamConfig,
     FeedbackConfig,
@@ -19,10 +20,39 @@ from core.config import (
     ServerConfig,
     normalize_hotkey_spec,
 )
-from core.event_models import CanonicalEventType
+from voice_stt_client.core.event_models import CanonicalEventType
 
 
 class TestConfigValidation(unittest.TestCase):
+
+    def test_explicit_profile_layers_packaged_feedback_and_saves_back_to_profile(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            profile = Path(temp_dir) / "profile.yaml"
+            profile.write_text("server:\n  url: ws://127.0.0.1:19999/ws/transcribe\n", encoding="utf-8")
+            config = AppConfig.load(profile)
+            self.assertTrue(config.feedback.sounds_enabled)
+            self.assertTrue(config.feedback.start_sound)
+            self.assertTrue(config.feedback_mappings.events["client.lifecycle.started"].led)
+            self.assertEqual(config.server.url, "ws://127.0.0.1:19999/ws/transcribe")
+            config.feedback.sounds_enabled = False
+            config.save_user()
+            self.assertFalse(yaml.safe_load(profile.read_text(encoding="utf-8"))["feedback"]["sounds_enabled"])
+
+    def test_legacy_all_null_sounds_in_user_config_inherit_bundled_paths(self):
+        sound_names = (
+            "wake_word_sound", "start_sound", "stop_sound", "complete_sound",
+            "cancel_sound", "warning_sound", "error_sound", "timeout_tick_sound",
+        )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            user_file = Path(temp_dir) / "config.yaml"
+            user_file.write_text(
+                yaml.safe_dump({"feedback": {"sounds_enabled": False, **{name: None for name in sound_names}}}),
+                encoding="utf-8",
+            )
+            with patch("voice_stt_client.core.config.DEFAULT_USER_CONFIG_PATH", user_file):
+                config = AppConfig.load()
+            self.assertFalse(config.feedback.sounds_enabled)
+            self.assertTrue(config.feedback.start_sound)
 
     def test_default_config_valid(self):
         cfg = AppConfig()
@@ -223,7 +253,8 @@ server:
 
     def test_shipped_debug_feedback_assets_and_mapping_are_complete(self):
         project_root = Path(__file__).resolve().parent.parent
-        config = AppConfig.load(project_root / "config.yaml")
+        package_root = project_root / "voice_stt_client"
+        config = AppConfig.load(package_root / "config.yaml")
         self.assertTrue(config.feedback.sounds_enabled)
         self.assertEqual(config.led.brightness, 192)
         paths = (
@@ -240,7 +271,7 @@ server:
         for path in paths:
             with self.subTest(path=path):
                 self.assertIsNotNone(path)
-                self.assertTrue((project_root / path).is_file())
+                self.assertTrue((package_root / path).is_file())
 
         degraded = config.feedback_mappings.rule_for(
             CanonicalEventType.CLIENT_EVENT_STREAM_DEGRADED
@@ -311,14 +342,13 @@ overlay:
         finally:
             temp_path.unlink(missing_ok=True)
 
-    def test_non_mapping_yaml_root_falls_back_to_valid_defaults(self):
+    def test_non_mapping_explicit_yaml_fails_instead_of_silently_using_defaults(self):
         with tempfile.NamedTemporaryFile("w", delete=False, suffix=".yaml") as f:
             f.write("- not\\n- a\\n- mapping\\n")
             temp_path = Path(f.name)
         try:
-            cfg = AppConfig.load(temp_path)
-            self.assertEqual(cfg.hotkey.toggle_key, "Ctrl+Shift+Space")
-            cfg.validate()
+            with self.assertRaisesRegex(ValueError, "must be a mapping"):
+                AppConfig.load(temp_path)
         finally:
             temp_path.unlink(missing_ok=True)
 
@@ -337,6 +367,11 @@ overlay:
             self.assertNotIn("key", saved["hotkey"])
         finally:
             temp_path.unlink(missing_ok=True)
+
+    def test_qt_meta_hotkey_is_normalized_as_windows_key(self):
+        from voice_stt_client.core.config import normalize_hotkey_spec
+
+        self.assertEqual(normalize_hotkey_spec("Meta+Space"), "Win+Space")
 
 
 if __name__ == "__main__":

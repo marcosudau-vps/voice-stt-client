@@ -26,25 +26,25 @@ Nicht jeder technische Logsatz bekommt einen eigenen `type`. Ein stabiler Eventt
 
 | Typ | Typischer Ort | Art | Bedeutung |
 |---|---|---:|---|
-| `client.app.started` | `app.py` | S | Anwendung gestartet |
-| `client.app.stopping` | `app.py` | S | kontrollierter Shutdown beginnt |
+| `client.app.started` | `voice_stt_client/app.py` | S | Anwendung gestartet |
+| `client.app.stopping` | `voice_stt_client/app.py` | S | kontrollierter Shutdown beginnt |
 | `client.core.thread_started` | UI/Core-Bridge | S | Core-Thread gestartet |
 | `client.core.thread_stopped` | UI/Core-Bridge | S | Core-Thread beendet |
-| `client.controller.run_started` | `core/controller.py` | S | Controller-Runloop gestartet |
-| `client.controller.shutdown_*` | `core/controller.py` | P/S | Shutdown-Schritte |
-| `client.websocket.connecting` | `core/stt_session.py` | P+S | STT-Transport verbindet |
-| `client.websocket.connected` | `core/stt_session.py` | P+S | WebSocket verbunden |
-| `client.websocket.disconnected` | `core/stt_session.py` | P+S | Verbindung getrennt |
-| `client.session.admitted` | `core/stt_session.py` | P+S | Session vom Server angenommen |
-| `client.session.ready` | `core/stt_session.py` | S | Session/Server bereit |
-| `client.reconnect.scheduled` | `core/stt_session.py` | P+S | Reconnect geplant |
-| `client.eventstream.state_changed` | `core/session_coordinator.py` | S | Eventstream-Zustand geändert |
+| `client.controller.run_started` | `voice_stt_client/core/controller.py` | S | Controller-Runloop gestartet |
+| `client.controller.shutdown_*` | `voice_stt_client/core/controller.py` | P/S | Shutdown-Schritte |
+| `client.websocket.connecting` | `voice_stt_client/core/stt_session.py` | P+S | STT-Transport verbindet |
+| `client.websocket.connected` | `voice_stt_client/core/stt_session.py` | P+S | WebSocket verbunden |
+| `client.websocket.disconnected` | `voice_stt_client/core/stt_session.py` | P+S | Verbindung getrennt |
+| `client.session.admitted` | `voice_stt_client/core/stt_session.py` | P+S | Session vom Server angenommen |
+| `client.session.ready` | `voice_stt_client/core/stt_session.py` | S | Session/Server bereit |
+| `client.reconnect.scheduled` | `voice_stt_client/core/stt_session.py` | P+S | Reconnect geplant |
+| `client.eventstream.state_changed` | `voice_stt_client/core/session_coordinator.py` | S | Eventstream-Zustand geändert |
 | `client.eventstream.gap` | Eventstream-Fan-out | S | Lücke erkannt |
 | `client.eventstream.error` | Eventstream-Fan-out | S | Eventstreamfehler |
 | `client.eventstream.replay_completed` | Eventstream-Fan-out | S | Replayphase beendet |
-| `client.eventstream.protocol_error` | `core/event_stream.py` | S | Protokollfehler |
+| `client.eventstream.protocol_error` | `voice_stt_client/core/event_stream.py` | S | Protokollfehler |
 | `client.config.validation_failed` | Config / Settings | P+S | Konfiguration ungültig |
-| `client.config.loaded` | `core/config.py` | P | Config geladen |
+| `client.config.loaded` | `voice_stt_client/core/config.py` | P | Config geladen |
 
 ### Warum diese Gruppe wichtig ist
 
@@ -67,23 +67,23 @@ Die tatsächliche fachliche Sessionsteuerung bleibt trotzdem außerhalb der Obse
 
 | Typ | Typischer Ort | Art | Relevante IDs |
 |---|---|---:|---|
-| `client.hotkey.pressed` | `ui/hotkeys.py` | S | ggf. `correlation_id` |
-| `client.command.requested` | `ui/core_bridge.py` | S | `correlation_id` |
-| `client.command.completed` | `ui/core_bridge.py` | S | gleiche `correlation_id` |
-| `client.trigger.sent` | `core/stt_session.py` | P+S | Session, Generation, Command |
-| `client.trigger.ack_received` | `core/stt_session.py` | S | Command, Session |
-| `client.trigger.ack_dropped` | `core/stt_session.py` | P+S | Command, Session |
-| `client.stream.start_sent` | `core/stt_session.py` | P+S | Session, Generation |
-| `client.dictation.start_attempt` | `core/controller.py` | S | Session/Korrelation |
-| `client.dictation.confirmed` | `core/controller.py` | S | Session |
-| `client.dictation.failed` | `core/controller.py` | S | Session/Fehlerkontext |
-| `client.dictation.interrupted` | `core/controller.py` | P+S | Session |
-| `client.settings.apply_started` | `ui/application.py` | S | `correlation_id` |
-| `client.settings.apply_completed` | `ui/application.py` | S | gleiche `correlation_id` |
-| `client.settings.runtime_apply` | `core/controller.py` | S | gleiche `correlation_id` |
-| `client.action.blocked` | `core/controller.py` | S | abhängig von Aktion |
-| `client.audio.stream_started` | `core/audio_capture.py` | P+S | Session/Audio-Kontext |
-| `client.audio.stream_stopped` | `core/audio_capture.py` | P+S | Session/Audio-Kontext |
+| `client.hotkey.pressed` | `voice_stt_client/ui/hotkeys.py` | S | ggf. `correlation_id` |
+| `client.command.requested` | `voice_stt_client/ui/core_bridge.py` | S | `correlation_id` |
+| `client.command.completed` | `voice_stt_client/ui/core_bridge.py` | S | gleiche `correlation_id` |
+| `client.trigger.sent` | `voice_stt_client/core/stt_session.py` | P+S | Session, Generation, Command |
+| `client.trigger.ack_received` | `voice_stt_client/core/stt_session.py` | S | Command, Session |
+| `client.trigger.ack_dropped` | `voice_stt_client/core/stt_session.py` | P+S | Command, Session |
+| `client.stream.start_sent` | `voice_stt_client/core/stt_session.py` | P+S | Session, Generation |
+| `client.dictation.start_attempt` | `voice_stt_client/core/controller.py` | S | Session/Korrelation |
+| `client.dictation.confirmed` | `voice_stt_client/core/controller.py` | S | Session |
+| `client.dictation.failed` | `voice_stt_client/core/controller.py` | S | Session/Fehlerkontext |
+| `client.dictation.interrupted` | `voice_stt_client/core/controller.py` | P+S | Session |
+| `client.settings.apply_started` | `voice_stt_client/ui/application.py` | S | `correlation_id` |
+| `client.settings.apply_completed` | `voice_stt_client/ui/application.py` | S | gleiche `correlation_id` |
+| `client.settings.runtime_apply` | `voice_stt_client/core/controller.py` | S | gleiche `correlation_id` |
+| `client.action.blocked` | `voice_stt_client/core/controller.py` | S | abhängig von Aktion |
+| `client.audio.stream_started` | `voice_stt_client/core/audio_capture.py` | P+S | Session/Audio-Kontext |
+| `client.audio.stream_stopped` | `voice_stt_client/core/audio_capture.py` | P+S | Session/Audio-Kontext |
 
 ### Typische Kette
 
@@ -103,10 +103,10 @@ Diese Kette ist besonders wertvoll, weil sie später mit `command_id` und `corre
 
 | Typ | Typischer Ort | Art | Bedeutung |
 |---|---|---:|---|
-| `client.injection.enqueued` | `core/controller.py` | P+S | Textinjektion in Queue aufgenommen |
-| `client.injection.rejected` | `core/controller.py` | P+S | Textinjektion abgelehnt |
-| `client.final.deduplicated` | `core/controller.py` | P+S | doppeltes Final unterdrückt |
-| `client.history.persist_failed` | `core/history.py` | P | Historienpersistenz fehlgeschlagen |
+| `client.injection.enqueued` | `voice_stt_client/core/controller.py` | P+S | Textinjektion in Queue aufgenommen |
+| `client.injection.rejected` | `voice_stt_client/core/controller.py` | P+S | Textinjektion abgelehnt |
+| `client.final.deduplicated` | `voice_stt_client/core/controller.py` | P+S | doppeltes Final unterdrückt |
+| `client.history.persist_failed` | `voice_stt_client/core/history.py` | P | Historienpersistenz fehlgeschlagen |
 
 Diese Events betreffen **lokale Tatsachen**. Ein Serverevent kann z. B. ein Final melden; ob der Client den Text anschließend tatsächlich in die lokale Injection-Queue gestellt hat, weiß nur der Client.
 
@@ -131,11 +131,11 @@ Hochfrequente Messwerte sollen aggregiert werden. V1 vermeidet ausdrücklich ein
 
 | Typ | Typischer Ort | Art | Bedeutung |
 |---|---|---:|---|
-| `client.feedback.decision` | `ui/application.py` | P+S | Feedbackentscheidung beobachtet |
-| `client.led.dispatch_failed` | `ui/led_feedback.py` | P+S | LED-Ausgabe fehlgeschlagen |
-| `client.led.queue_overflow` | `ui/led_feedback.py` | P+S | LED-Queue überlastet |
-| `client.sound.failed` | `ui/application.py` | P+S | Soundausgabe fehlgeschlagen |
-| `client.server.error_classified` | `core/controller.py` | P+S | Serverfehler klassifiziert |
+| `client.feedback.decision` | `voice_stt_client/ui/application.py` | P+S | Feedbackentscheidung beobachtet |
+| `client.led.dispatch_failed` | `voice_stt_client/ui/led_feedback.py` | P+S | LED-Ausgabe fehlgeschlagen |
+| `client.led.queue_overflow` | `voice_stt_client/ui/led_feedback.py` | P+S | LED-Queue überlastet |
+| `client.sound.failed` | `voice_stt_client/ui/application.py` | P+S | Soundausgabe fehlgeschlagen |
+| `client.server.error_classified` | `voice_stt_client/core/controller.py` | P+S | Serverfehler klassifiziert |
 
 Wichtig: Diese Events **beobachten** Entscheidungen oder Ausgabefehler. Sie führen nicht selbst Sound oder LED aus.
 

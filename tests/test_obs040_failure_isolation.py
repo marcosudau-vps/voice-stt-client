@@ -19,13 +19,13 @@ import asyncio
 import time
 import unittest
 
-from core.config import AppConfig, EventStreamConfig, ServerConfig
-from core.controller import STTController, TransientEventType
-from core.history import TranscriptHistoryManager
-from core.observability.health import LoggingHealthState
-from core.observability.ingress import ObservabilityIngress
-from core.session_coordinator import DualSessionCoordinator
-from core.stt_session import STTSession, TransportState
+from voice_stt_client.core.config import AppConfig, EventStreamConfig, ServerConfig
+from voice_stt_client.core.controller import STTController, TransientEventType
+from voice_stt_client.core.history import TranscriptHistoryManager
+from voice_stt_client.core.observability.health import LoggingHealthState
+from voice_stt_client.core.observability.ingress import ObservabilityIngress
+from voice_stt_client.core.session_coordinator import DualSessionCoordinator
+from voice_stt_client.core.stt_session import STTSession, TransportState
 from tests.test_controller import (
     FakeAudioCapture,
     FakeInjectionQueue,
@@ -135,7 +135,7 @@ class TestObserverFailureDoesNotAffectTheClient(unittest.IsolatedAsyncioTestCase
         self.addAsyncCleanup(coordinator.shutdown)
         coordinator._binding = 1
 
-        from core.event_models import EventConnectionState
+        from voice_stt_client.core.event_models import EventConnectionState
 
         coordinator._handle_state(1, EventConnectionState.LIVE)
 
@@ -144,7 +144,7 @@ class TestObserverFailureDoesNotAffectTheClient(unittest.IsolatedAsyncioTestCase
         )
 
     async def test_a_broken_ingress_does_not_stop_the_injection_queue(self):
-        from core.text_injector import TextInjectionQueue
+        from voice_stt_client.core.text_injector import TextInjectionQueue
 
         ingress = ExplodingIngress()
         config = AppConfig()

@@ -12,8 +12,8 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-from core.observability.models import CanonicalLogRecord
-from core.observability.sinks.jsonl_file import JsonlSink, SCHEMA_VERSION
+from voice_stt_client.core.observability.models import CanonicalLogRecord
+from voice_stt_client.core.observability.sinks.jsonl_file import JsonlSink, SCHEMA_VERSION
 
 
 def _iso() -> str:

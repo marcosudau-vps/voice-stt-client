@@ -77,13 +77,19 @@ Wenn `venv` im Checkout bereits vorhanden und eingerichtet ist, entfällt das er
 Regulärer GUI-Start:
 
 ```powershell
-.\venv\Scripts\python.exe app.py
+.\venv\Scripts\python.exe -m voice_stt_client
+```
+
+Mit einer ausdrücklichen Konfigurationsdatei:
+
+```powershell
+.\venv\Scripts\python.exe -m voice_stt_client --config C:\Pfad\client.yaml
 ```
 
 Diagnosebetrieb mit Konsolenausgabe:
 
 ```powershell
-.\venv\Scripts\python.exe app.py --headless
+.\venv\Scripts\python.exe -m voice_stt_client --headless
 ```
 
 Die gebaute Windows-Anwendung benötigt keine lokale Python-Installation. Ein
@@ -97,14 +103,11 @@ reproduzierbarer Build entsteht mit:
 Das Ergebnis liegt unter `dist/voice-stt-client.exe`. Normale Pushes und Pull
 Requests führen dieselbe Test- und Buildstrecke in GitHub Actions aus.
 
-Ein offizielles Release einschließlich automatischer Versionswahl, doppeltem
-Test-/Build-Gate und GitHub-Release-Artefakt wird mit folgendem Befehl erstellt:
-
-```powershell
-.\venv\Scripts\python.exe scripts\release.py
-```
-
-Details und Dry-Run stehen unter `docs/RELEASE.md`.
+Das offizielle 1.0.0-Release läuft ausschließlich in GitHub Actions:
+Ein grüner `ci.yml`-Lauf auf `main` liefert die unveränderlichen Artefakte;
+`release.yml` veröffentlicht danach PyPI, erstellt zuletzt den Git-Tag und
+das GitHub Release. Der alte lokale Schreibpfad in `scripts/release.py` ist
+gesperrt. Ablauf und Dry-Run stehen in `docs/RELEASE.md`.
 
 Bedienung:
 
@@ -139,10 +142,18 @@ Overlay und wird nie automatisch eingefügt.
 
 ## Konfiguration
 
-Die sichtbaren Laufzeitdefaults stehen in `config.yaml`. Änderungen aus dem
+Die sichtbaren Laufzeitdefaults stehen in der mitgelieferten
+`voice_stt_client/config.yaml`. Änderungen aus dem
 Einstellungsdialog werden atomar unter
-`%LOCALAPPDATA%\RealtimeSTT Client\config.yaml` gespeichert. Zugangsdaten in
-`.env` dürfen weder dokumentiert noch committed werden.
+`%USERPROFILE%\.voice-stt\client\config.yaml` gespeichert. Eine vorhandene
+Legacy-Datei unter `%LOCALAPPDATA%\RealtimeSTT Client\config.yaml` wird weiter
+gelesen, solange die neue Datei noch nicht existiert.
+Bei `--config` wird die angegebene Datei über die Paketdefaults gelegt und
+Änderungen werden wieder dort gespeichert.
+Details zu Pfaden,
+Umgebungsvariablen und allen Feldern stehen in
+[`docs/CONFIGURATION.md`](docs/CONFIGURATION.md). Zugangsdaten gehören nicht in
+die Konfiguration oder das Repository.
 
 Der Hotkeymodus fordert `wakeWordEnabled=false`; der Wake-Word-Modus fordert
 `wakeWordEnabled=true` und verwendet standardmäßig die logische Modell-ID
@@ -152,6 +163,8 @@ weitere Verbindungsversuche bis zu einer echten Konfigurationsänderung.
 
 ## Weiterführende Dokumentation
 
+- `docs/USER_GUIDE.md` – Installation, Bedienung, Verbindung, Logs und Fehlerhilfe
+- `docs/CONFIGURATION.md` – vollständige Konfigurations-, Environment- und CLI-Referenz
 - `docs/PROJEKTUEBERSICHT.md` – kompakter technischer Gesamtüberblick
 - `docs/IMPLEMENTATION_ROADMAP.md` – verbindlicher Fahrplan
 - `task.md` – aktueller Fortschritt
@@ -165,4 +178,5 @@ weitere Verbindungsversuche bis zu einer echten Konfigurationsänderung.
 - `docs/work-packages/AP05_FEHLERVERHALTEN_UND_SELBSTHEILUNG.md` – abgenommener AP5-Vertrag
 - `docs/2026-07-25_AP05_ANTIGRAVITY/GESAMTABNAHME_UND_SELBSTFERTIGSTELLUNG.md` – unabhängiger AP5-Korrektur- und Testnachweis
 - `server-docs-for-client-development/` – verbindlicher Serverprotokollvertrag
-- `docs/RELEASE.md` – Windows-Build, Commit-CI und vollautomatisches GitHub-Release
+- `docs/RELEASE.md` – Windows-Build, PyPI-Paket und gemeinsamer Releaseablauf
+- `docs/COMPATIBILITY.md` – geprüfte V1-Zuordnung und sicherer V2-Historienübergang

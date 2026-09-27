@@ -11,15 +11,15 @@ from __future__ import annotations
 
 import unittest
 
-from core.event_protocol import (
+from voice_stt_client.core.event_protocol import (
     EventProtocolProcessor,
     EventProtocolResult,
     EventResultKind,
 )
-from core.event_models import EventEnvelope, EventOrigin
-from core.session_coordinator import SessionContext
+from voice_stt_client.core.event_models import EventEnvelope, EventOrigin
+from voice_stt_client.core.session_coordinator import SessionContext
 
-from core.observability.normalizer import from_server_result
+from voice_stt_client.core.observability.normalizer import from_server_result
 
 from test_event_protocol import (
     access,
@@ -157,8 +157,8 @@ class TestServerEventMapping(unittest.TestCase):
         self.assertIs(record.raw, result.payload)
 
     def test_scope_is_global_for_server_event_without_session(self):
-        from core.event_protocol import EventProtocolResult, EventResultKind
-        from core.event_models import EventEnvelope, EventOrigin, EventConnectionState
+        from voice_stt_client.core.event_protocol import EventProtocolResult, EventResultKind
+        from voice_stt_client.core.event_models import EventEnvelope, EventOrigin, EventConnectionState
         raw_event = envelope(13, "evt-13")
         raw_event["sessionId"] = None
         env = EventEnvelope.from_mapping(raw_event)

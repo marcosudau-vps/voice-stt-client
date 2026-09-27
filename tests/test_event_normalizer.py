@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from core.event_models import (
+from voice_stt_client.core.event_models import (
     CanonicalEventType,
     EventConnectionState,
     EventEnvelope,
@@ -11,8 +11,8 @@ from core.event_models import (
     FeedbackSource,
     FeedbackState,
 )
-from core.event_normalizer import EventNormalizationError, EventNormalizer
-from core.event_protocol import EventProtocolResult, EventResultKind
+from voice_stt_client.core.event_normalizer import EventNormalizationError, EventNormalizer
+from voice_stt_client.core.event_protocol import EventProtocolResult, EventResultKind
 
 
 def log_result(

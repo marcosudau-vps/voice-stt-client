@@ -13,7 +13,7 @@ from __future__ import annotations
 import unittest
 from unittest import mock
 
-import app
+from voice_stt_client import app
 
 
 class TestObservabilityManagerLifecycleInMain(unittest.TestCase):
@@ -44,7 +44,7 @@ class TestObservabilityManagerLifecycleInMain(unittest.TestCase):
             calls.append("run_headless")
             return 0
 
-        with mock.patch("core.observability.manager.ObservabilityManager", FakeManager), \
+        with mock.patch("voice_stt_client.core.observability.manager.ObservabilityManager", FakeManager), \
              mock.patch.object(app, "run_headless", fake_run_headless), \
              mock.patch.object(app, "setup_logging") as fake_setup_logging:
             exit_code = app.main(["--headless"])
@@ -80,7 +80,7 @@ class TestObservabilityManagerLifecycleInMain(unittest.TestCase):
         def fake_run_headless(config):
             raise RuntimeError("boom")
 
-        with mock.patch("core.observability.manager.ObservabilityManager", FakeManager), \
+        with mock.patch("voice_stt_client.core.observability.manager.ObservabilityManager", FakeManager), \
              mock.patch.object(app, "run_headless", fake_run_headless), \
              mock.patch.object(app, "setup_logging"):
             with self.assertRaises(RuntimeError):

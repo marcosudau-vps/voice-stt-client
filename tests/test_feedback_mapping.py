@@ -4,9 +4,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from core.config import AppConfig, DEFAULT_CONFIG_PATH
-from core.event_models import CanonicalEventType
-from core.feedback_mapping import (
+from voice_stt_client.core.config import AppConfig, DEFAULT_CONFIG_PATH
+from voice_stt_client.core.event_models import CanonicalEventType
+from voice_stt_client.core.feedback_mapping import (
     AppActionId,
     FeedbackMappingConfig,
     LedVerb,

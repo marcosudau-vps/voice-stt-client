@@ -11,7 +11,7 @@ from __future__ import annotations
 import unittest
 from types import MappingProxyType
 
-from core.observability.models import (
+from voice_stt_client.core.observability.models import (
     CanonicalLogRecord,
     Channel,
     Level,
