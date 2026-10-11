@@ -26,11 +26,7 @@
     "condition": "Eigener Windows-Volltest bestanden; finale PR-CI grün; Base unverändert.",
     "authorizedFollowUp": "Beauftragte Rollenregelpflege und Abnahme-/Freigabenachweise im selben PR; keine Produkt-/Teständerung."
   },
-  "writeOwner": {
-    "id": "R05-WINDOWS-NACHWEIS",
-    "role": "closure",
-    "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/00_PROMPT_ORIGINAL.md"
-  },
+  "writeOwner": null,
   "blockingReason": null,
   "nextAction": "Finale CI/Head/Base prüfen; gemäß gesichertem Nutzerauftrag PR #2 als genau einen Squash-Commit auf feat/client-v2 übernehmen. Kein automatischer Folgepaketstart.",
   "workAuthorization": {
