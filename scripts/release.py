@@ -1,10 +1,8 @@
-"""Create a verified GitHub release without a repository-sync stage.
+"""Legacy local release checks; public publication is workflow-only.
 
-The script determines the release version, runs the complete local test and
-PyInstaller build gate, commits and pushes a version bump when necessary,
-waits for CI on that exact commit, and only then creates and pushes the tag.
-The tag starts ``.github/workflows/release.yml``, whose successful completion
-creates the GitHub release and uploads the Windows executable.
+The dry-run remains useful for local diagnostics. The old tag-first publish
+path is disabled; ``release.yml`` now publishes PyPI from an already qualified
+CI artifact and creates the immutable Git tag only after remote hash checks.
 """
 
 from __future__ import annotations
@@ -21,9 +19,9 @@ import time
 from pathlib import Path
 
 if __package__:
-    from .build import REPO_ROOT, VERSION_FILE, read_version
+    from .build import DIST_DIR, REPO_ROOT, VERSION_FILE, read_version
 else:
-    from build import REPO_ROOT, VERSION_FILE, read_version
+    from build import DIST_DIR, REPO_ROOT, VERSION_FILE, read_version
 
 
 RELEASE_BRANCH = "main"
@@ -209,12 +207,29 @@ def run_local_gate() -> None:
     )
     step("checking Python bytecode compilation")
     run(
-        [sys.executable, "-m", "compileall", "-q", "app.py", "core", "ui", "scripts", "tests"],
+        [sys.executable, "-m", "compileall", "-q", "voice_stt_client", "scripts", "tests"],
         capture=False,
         env=env,
     )
     step("building and smoke-testing the Windows executable")
     run([sys.executable, "scripts/build.py", "--clean"], capture=False, env=env)
+    step("building and validating the PyPI distributions")
+    run(
+        [sys.executable, "-m", "build", "--sdist", "--wheel"],
+        capture=False,
+        env=env,
+    )
+    distributions = sorted(DIST_DIR.glob("*.whl")) + sorted(DIST_DIR.glob("*.tar.gz"))
+    if len(distributions) != 2:
+        raise Abort(
+            "Expected exactly one wheel and one source distribution, found: "
+            + ", ".join(path.name for path in distributions)
+        )
+    run(
+        [sys.executable, "-m", "twine", "check", *map(str, distributions)],
+        capture=False,
+        env=env,
+    )
 
 
 def wait_for_workflow(
@@ -260,7 +275,7 @@ def wait_for_workflow(
 def confirm(version: str) -> None:
     print(
         f"\nAbout to release v{version}:"
-        "\n  * temporarily set VERSION and run all tests plus the PyInstaller build"
+        "\n  * temporarily set VERSION and run all tests plus the EXE/PyPI builds"
         "\n  * restore VERSION automatically if a local gate fails"
         "\n  * commit and push the version bump when needed"
         "\n  * wait for green CI on that exact commit"
@@ -282,6 +297,11 @@ def main(argv: list[str] | None = None) -> int:
     version_changed = False
     committed = False
     try:
+        if not args.dry_run:
+            raise Abort(
+                "Local tag-first publication is disabled. Qualify main with ci.yml "
+                "and dispatch release.yml with that successful candidate_run_id."
+            )
         check_tools()
         token = ensure_github_auth(args.env_file)
         check_repository(token)

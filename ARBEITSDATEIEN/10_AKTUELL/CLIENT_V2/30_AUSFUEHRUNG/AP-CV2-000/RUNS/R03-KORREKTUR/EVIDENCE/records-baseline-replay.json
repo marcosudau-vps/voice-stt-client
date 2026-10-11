@@ -1,0 +1,14 @@
+{
+  "result": "FAIL",
+  "package": "AP-CV2-000",
+  "packageStatus": "CHANGES_REQUIRED",
+  "referencedFiles": 8,
+  "markdownFiles": 9,
+  "relativeLinks": 94,
+  "errors": [
+    "Status mismatch: WORKFLOW_STATUS=CHANGES_REQUIRED, manifest=REVIEW_READY",
+    "Broken link in C:\\Users\\marco\\AppData\\Local\\Temp\\voice-stt-r03-baseline2dc-64gpxcp7\\repo\\ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-CV2-000\\00_PAKET.md: 30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/00_PROMPT_ORIGINAL.md -> C:\\Users\\marco\\AppData\\Local\\Temp\\voice-stt-r03-baseline2dc-64gpxcp7\\repo\\ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-CV2-000\\30_AUSFUEHRUNG\\AP-CV2-000\\RUNS\\R02-ABNAHME\\00_PROMPT_ORIGINAL.md",
+    "Broken link in C:\\Users\\marco\\AppData\\Local\\Temp\\voice-stt-r03-baseline2dc-64gpxcp7\\repo\\ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-CV2-000\\00_PAKET.md: 30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md -> C:\\Users\\marco\\AppData\\Local\\Temp\\voice-stt-r03-baseline2dc-64gpxcp7\\repo\\ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-CV2-000\\30_AUSFUEHRUNG\\AP-CV2-000\\RUNS\\R02-ABNAHME\\01_REPORT.md",
+    "Broken link in C:\\Users\\marco\\AppData\\Local\\Temp\\voice-stt-r03-baseline2dc-64gpxcp7\\repo\\ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-CV2-000\\00_PAKET.md: 30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md -> C:\\Users\\marco\\AppData\\Local\\Temp\\voice-stt-r03-baseline2dc-64gpxcp7\\repo\\ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-CV2-000\\30_AUSFUEHRUNG\\AP-CV2-000\\RUNS\\R02-ABNAHME\\EVIDENCE\\INDEX.md"
+  ]
+}

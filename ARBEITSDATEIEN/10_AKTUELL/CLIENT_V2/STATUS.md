@@ -1,11 +1,29 @@
 # Status – Client V2
 
-- Stand 2026-10-11: vollständige Planrevision 10 auf `feat/client-v2`. Der Revision-9-Unterlagenstart `bfade9d0ffe1262ca25b05c9334dcacfcd3d3452` bleibt unverändert erhalten; danach genau ein Dokumentkorrekturcommit vor AP-CV2-000.
-- Die separate Dokumentausnahme einschließlich normalem Push wurde ausdrücklich vom Auftraggeber freigegeben: [Originalauftrag und Umfang](PLANUNG/EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md). Commitidentität und tatsächlichen Remote-Stand aus Git prüfen; kein Selbst-SHA im Commit.
-- Client-Ausgangscommit 8bab1b3 und Serverreferenz ada13b0 fachlich unverändert. Server-Distributed bleibt offen.
-- Alle regulären Client-/Integrationspakete PLANNED, bedingte FIX-Vorlage nicht gestartet. Integrierter Client-SHA, Ausführungsrun, unabhängiges Paket-PASS und Paketübernahmefreigabe bleiben offen.
-- Ergänzt: belegte Recovery-/Auswahlregeln, Server-FIX-Linie/Rückkehr, Herkunft und unabhängige Prüfung realer Plattformbelege, nachträgliche Zusatzkorrektur, Endnachweis ohne Folgepaket; aktuelle Revisionsmetadaten vereinheitlicht.
-- Keine Umschreibung des veröffentlichten Startcommits. Nach diesem Dokumentkorrekturcommit weiterhin genau ein freigegebener Aggregatcommit je angenommenem Arbeitspaket.
-- Nächstes Produktpaket bleibt AP-CV2-000 vom aktuellen Feature-HEAD; keine neuen regulären Pakete oder obligatorischen Zusatzreviews. Der Veröffentlichungsauftrag erteilt keinen Umsetzungsauftrag und keine künftigen Kandidaten-Gitrechte.
+## Aktuelle ergänzende Abnahme R05 (2026-10-11)
 
-[Aktueller Plan](PLANUNG/README.md), [Bewertung der Funde](PLANUNG/EVIDENCE/BEWERTUNG_PRUEFBEFUNDE_REV10.md), [Workflowstatus](WORKFLOW_STATUS.json).
+**AP-CV2-000 ROOT_PASS / READY_FOR_CANONICALIZATION**. R04 schließt F01 fachlich; R05 schließt den Testblocker: 1233 Windows-PASS plus5 Startup-PASS. [Report/Freigabe](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md). Finale PR-CI/Base vor Einzel-Squash prüfen; tatsächliche kanonische Übernahme noch nicht erfolgt. Neue Testverantwortung: Windows-Vollsuite im Umsetzungslauf, unabhängiger ChatGPT-Review anhand Code und gültigem Nachweis.
+
+## Historische unabhängige Folgesichtung R04 (2026-10-11)
+
+**AP-CV2-000 BLOCKED** ausschließlich wegen des noch fehlenden unabhängig durchgeführten/veranlassten vollständigen Windows-Prüflaufs. [R04-Report](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/01_REPORT.md). Das frühere Produktfinding `CV2-R02-F01` wurde anhand der korrigierten Startlogik fachlich geschlossen; die vorhandene Windows-CI [38163179818](https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38163179818) besteht mit 1233 Tests. Unabhängiger eigener Windows-Test **NOT_RUN**, kein ROOT_PASS. Workflow-/Unterlagenänderungen auf ausdrücklichen Wunsch nicht inhaltlich bewertet. Keine kanonische Übernahme/kein Folgepaket.
+
+## Vorheriger R03-Selbstqualifikationsstand
+
+## Historischer Korrekturkandidat – R03 (2026-10-11)
+
+**AP-CV2-000 REVIEW_READY**. [R03-Report](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md): F01 selbst korrigiert, gesamte Clientsuite 1233 PASS; Wheel/sdist und EXE samt Smokes bestanden. Gemeinsamer Aktenprüfer, Statusabgleich und Testweg präzisiert. [Belegsatz einschließlich drei Archivteilen](PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/README.md) im selben Kandidaten. Nächste Aktion: unabhängiger Vollreview; bisheriger F01 braucht unabhängigen Recheck und R02-NOT_RUN eigenständige Windows-Nachweise. Kein ROOT_PASS oder Merge; Schreibrecht zurückgegeben.
+
+## Historische unabhängige Abnahme – R02 (2026-10-11)
+
+**AP-CV2-000 CHANGES_REQUIRED**. Im [R02-Report](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md) ist `CV2-R02-F01` dokumentiert: Hotkey-Fallback speichert Benutzerpräferenz vor bestätigtem Corestart. Der unabhängige Windows-Gesamttest ist **NOT_RUN**, CI 38145266161 ist dagegen grün. Prüfkandidat `8b1c4c157b6b431dac6af69e2e264d0c37579bef`, Tree `cc099b87c450b91ad4eefddf11a3715ddf4ccf3e`, Parent unverändert. Umsetzer-Korrektur und frischer unabhängiger Review stehen an; **kein ROOT_PASS, keine Übernahmefreigabe, kein CV2-010**.
+
+## Historischer R01-Stand vor R02
+
+Stand 2026-10-11. Planung Revision 10; **AP-CV2-000 REVIEW_READY** auf `work/client-v2/ap-cv2-000` ab Parent `050e776cf316eb332177294db0c0a2719c2b4415`. [Paketakte](30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md), [Report](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md), [Workflowstatus](WORKFLOW_STATUS.json).
+
+Feature-/Releasebasis in voice_stt_client integriert; vollständige pytest-/Unittest-Suite je 1221 Tests grün, Wheel und sdist außerhalb Checkout qualifiziert. Bisheriger V1-Transport bleibt; keine V2-Kompatibilität oder reale Hardwareabnahme. Alle Folgepakete PLANNED; bedingtes Server-FIX nicht gestartet.
+
+Kein unabhängiger PASS und keine menschliche Übernahmefreigabe. Gemeinsame Feature-Spitze bleibt `050e776cf316eb332177294db0c0a2719c2b4415`; integrierter kanonischer Client-SHA offen. Nächste Aktion: unabhängige Abnahme in frischer Session. Ab Abgabe Umsetzer-Schreibrecht pausiert. CV2-010 erst nach PASS, ausdrücklichem Übernahmeprompt und nachgewiesenem Einzelaggregat.
+
+Workflowweite Kandidaten-Gitrechte aus [Originalauftrag](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md) gesichert; keine Main-/Serverpromotion, Tags, Releases, Force-Pushes oder Cleanup. Server-Distributed/ada13b0 bleibt offen. Historischer Revision-9-Start bfade9d und Dokumentkorrektur Revision 10 bleiben erhalten.

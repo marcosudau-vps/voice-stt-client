@@ -14,8 +14,8 @@ import unittest
 from typing import List, Optional, Tuple
 from unittest.mock import patch
 
-from core.config import AppConfig, HistoryConfig, HistoryMemoryConfig, HistoryPersistentConfig
-from core.controller import (
+from voice_stt_client.core.config import AppConfig, HistoryConfig, HistoryMemoryConfig, HistoryPersistentConfig
+from voice_stt_client.core.controller import (
     AvailabilityState,
     DictationState,
     STTController,
@@ -23,21 +23,21 @@ from core.controller import (
     FinalProcessingResult,
     TransientEventType,
 )
-from core.history import (
+from voice_stt_client.core.history import (
     TranscriptHistoryManager,
     HistoryEntry,
 )
-from core.text_injector import (
+from voice_stt_client.core.text_injector import (
     TextInjectionQueue,
     WindowsInjectionBackend,
     QueueState,
 )
-from core.reinsertion import (
+from voice_stt_client.core.reinsertion import (
     TranscriptReinsertionService,
     ReinsertionResult,
     ReinsertionStatus,
 )
-from core.stt_session import TransportState, ClientState, SessionState
+from voice_stt_client.core.stt_session import TransportState, ClientState, SessionState
 
 
 class FakeWindowsBackend(WindowsInjectionBackend):
@@ -526,7 +526,7 @@ class TestSTTControllerRunLoopAndConcurrentShutdown(unittest.IsolatedAsyncioTest
                 raise RuntimeError("Task creation 3 failed")
             return real_create_task(coro)
 
-        with patch("core.controller.asyncio.create_task", side_effect=fail_third_create_task):
+        with patch("voice_stt_client.core.controller.asyncio.create_task", side_effect=fail_third_create_task):
             with self.assertRaisesRegex(RuntimeError, "Task creation 3 failed"):
                 await cntr.run()
 
@@ -565,7 +565,7 @@ class TestSTTControllerRunLoopAndConcurrentShutdown(unittest.IsolatedAsyncioTest
             created_tasks.append(task)
             return task
 
-        with patch("core.controller.asyncio.create_task", side_effect=fail_second_create_task):
+        with patch("voice_stt_client.core.controller.asyncio.create_task", side_effect=fail_second_create_task):
             with self.assertRaisesRegex(RuntimeError, "Task creation 2 failed"):
                 await cntr.run()
 

@@ -1,78 +1,23 @@
 # Build- und Release-Anleitung
 
-> **Status:** aktiv  
-> **Stand:** 9. August 2026  
-> **Zuständig für:** Windows-PyInstaller-Build, normale CI und GitHub-Releases
+Stand 2026-10-11, AP-CV2-000: aus V1 portierte Build-/Releaseguards. Keine V2-Veröffentlichung beauftragt. Kandidat und Tree zusätzlich zur portierten VERSION 1.0.0 aus Git/Paketakte bestimmen.
 
-Repository: <https://github.com/marcosudau-vps/voice-stt-client>
+## Qualifikation
 
-## Normaler Commit
-
-Jeder Push auf `main` und jeder Pull Request startet `.github/workflows/ci.yml`
-auf einem Windows-Runner mit Python 3.12. Der Workflow installiert
-`requirements-dev.txt`, führt die vollständige Unittest-Suite und
-`compileall` aus, baut `dist/voice-stt-client.exe` mit PyInstaller und startet
-die EXE einmal mit `--version`. Die EXE wird anschließend als zeitlich
-begrenztes Workflow-Artefakt abgelegt.
-
-Lokaler identischer Build:
+CI prüft main/feat-client-v2-Pushes und Pull Requests (auch Base feat/client-v2) unter Windows mit Python **3.12.10**. Vollständige Unittest-Suite, compileall, PyInstaller mit Versions- und Qt-Importsmoke, Wheel/sdist, Twine und außerhalb Source installierter Wheelnamespace bilden den Prüfpfad. Artefakte sind zeitlich begrenzte CI-Kandidaten, kein Release.
 
 ```powershell
-.\venv\Scripts\python.exe -m pip install -r requirements-dev.txt
-.\venv\Scripts\python.exe scripts\build.py --clean
+.\venv\Scripts\python.exe -m unittest discover -s tests -p "test_*.py"
+.\venv\Scripts\python.exe -m compileall -q voice_stt_client scripts tests
+.\venv\Scripts\python.exe scripts\build.py
+.\venv\Scripts\python.exe -m build --sdist --wheel
+.\venv\Scripts\python.exe -m twine check dist/*.whl dist/*.tar.gz
 ```
 
-`VERSION` ist die einzige Release-Versionsquelle. PyInstaller übernimmt sie
-sowohl in die Anwendung als auch in die Windows-Dateieigenschaften.
+Build prüft die qualifizierte Pythonpatchversion, Qt-Runtime-DLLs und gebündelte Feedbackressourcen. Ein separates `--dist-dir dist-feedback-rc-<name>` erhält vorhandene Distartefakte. AP000-Wheel- und sdist-Installationsnachweise liegen in der [Runakte](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md). Finaler V2-Frozen-/Hardwaregate bleibt späteren Paketen zugeordnet.
 
-## Offizielles Release
+## Veröffentlichung
 
-```powershell
-.\venv\Scripts\python.exe scripts\release.py
-```
+`scripts/release.py` erlaubt nur lokale Dry-run-Diagnose; der frühere lokale Tag-first-Publishpfad ist deaktiviert. `.github/workflows/release.yml` wird separat manuell auf main mit `candidate_run_id` eines erfolgreichen main-CI-Laufs gestartet. Er prüft Workflow-/Branch-/SHA-Herkunft, VERSION und unveränderte Kandidatenbytes, veröffentlicht und verifiziert Pythonartefakte; erst danach folgen immutable Tag/GitHub-Release. Keine automatische Veröffentlichung durch Paket-PR, Featurepush oder Tagpush. Der derzeit portierte Releaseguard ist bewusst auf V1 1.0.0 begrenzt; V2-Releaseplanung erfordert eigenen Auftrag.
 
-Das Skript verwendet `GH_TOKEN`, wenn die Variable gesetzt ist. Alternativ
-liest es `GITHUB_TOKEN_VPS` aus einer mit `--env-file` angegebenen Datei oder
-aus `%USERPROFILE%\OneDrive\Desktop\github_accounts.env`. Der Token wird nicht
-ausgegeben und nicht ins Repository geschrieben.
-
-Der Ablauf stoppt beim ersten Fehler:
-
-1. `main`, sauberer Arbeitsbaum, `origin/main` synchron, öffentliches Zielrepo
-   und GitHub-Account `marcosudau-vps` prüfen;
-2. Version selbstständig bestimmen: Solange die aktuelle `VERSION` noch nicht
-   getaggt ist, wird sie wiederverwendet; andernfalls folgt der nächste Patch;
-3. neue Version vorübergehend setzen;
-4. vollständige Tests, `compileall`, PyInstaller-Build und EXE-Smoke ausführen;
-5. bei einem lokalen Fehler `VERSION` automatisch zurücksetzen;
-6. erfolgreichen Versionsstand committen und pushen;
-7. auf grünes `ci.yml` für exakt diesen Commit warten;
-8. erst danach den annotierten Tag `vX.Y.Z` pushen;
-9. auf `release.yml` warten und die entstandene GitHub-Release-URL ausgeben.
-
-Ohne Tag wird kein offizielles Release erzeugt. Schlägt CI nach dem
-Versionscommit fehl, bleibt der Tag frei; nach der Korrektur verwendet das
-Skript dieselbe noch nicht veröffentlichte Version erneut. Dadurch wird keine
-Versionsnummer übersprungen.
-
-### Vorabprüfung ohne Commit oder Tag
-
-```powershell
-.\venv\Scripts\python.exe scripts\release.py --dry-run
-```
-
-### Explizite Version
-
-```powershell
-.\venv\Scripts\python.exe scripts\release.py --version 1.0.0
-```
-
-Das Tag startet `.github/workflows/release.yml`. Der Workflow wiederholt Tests,
-Syntaxprüfung und Build, prüft Tag gegen `VERSION` und erstellt anschließend
-das GitHub-Release mit:
-
-- `voice-stt-client-vX.Y.Z-windows-x64.exe`
-- `SHA256SUMS.txt`
-
-Es gibt bewusst keinen Sync in ein zweites Repository und keinen
-Releasepfad, der das grüne CI-Gate vor dem Tag umgehen kann.
+Eine Veröffentlichung ist kein Schritt dieses Client-V2-Paketauftrags. Kein Releaseworkflow wurde ausgeführt.

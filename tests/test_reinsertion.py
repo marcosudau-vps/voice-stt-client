@@ -15,10 +15,10 @@ import unittest
 from pathlib import Path
 from typing import List, Optional, Tuple
 
-from core.config import AppConfig
-from core.history import HistoryEntry, InjectionAttempt, TranscriptHistoryManager
-from core.reinsertion import ReinsertionResult, ReinsertionStatus, TranscriptReinsertionService
-from core.text_injector import TextInjectionQueue, WindowsInjectionBackend
+from voice_stt_client.core.config import AppConfig
+from voice_stt_client.core.history import HistoryEntry, InjectionAttempt, TranscriptHistoryManager
+from voice_stt_client.core.reinsertion import ReinsertionResult, ReinsertionStatus, TranscriptReinsertionService
+from voice_stt_client.core.text_injector import TextInjectionQueue, WindowsInjectionBackend
 
 
 class ControlledHistoryManager:

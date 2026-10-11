@@ -14,7 +14,7 @@ from pathlib import Path
 from types import MappingProxyType
 from urllib.parse import urlsplit
 
-from core.observability.redaction import (
+from voice_stt_client.core.observability.redaction import (
     MAX_DEPTH,
     MAX_NODES,
     SENSITIVE_KEYS,

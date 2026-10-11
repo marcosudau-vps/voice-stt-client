@@ -72,7 +72,7 @@ Es gibt keinen Pflichtsatz von Unterordnern für jede Testart und keine mehrfach
 
 ## 6. Reviewakte auf dem Paketbranch
 
-Reviewer sichert seine neue Abnahmeakte im ausdrücklich erlaubten Scope per Docs-Commit/Push auf dem Paketbranch, während der Umsetzer pausiert. Eigener isolierter Reviewworktree; keine Produkt-/Test-/Kontraktänderungen. Im Report die tatsächlich geprüfte Kandidaten-SHA nennen, den späteren eigenen Docs-Commit in der Übergabe aus Git ableiten. Umsetzer übernimmt diese Spitze vor Korrektur. Maßgebliche Findings stehen im versionierten Report, der PR verlinkt ihn. [Schreib-/SHA-/CI-Regeln](PR_UND_REVIEW_UEBERGABE.md).
+Reviewer sichert seine neue Abnahmeakte im ausdrücklich erlaubten Scope per Docs-Commit/Push auf dem Paketbranch, während der Umsetzer pausiert. Kandidatenzugriff über isolierten Reviewworktree oder commitgebundene GitHub-Dateien; keine Produkt-/Test-/Kontraktänderungen. Im Report die tatsächlich geprüfte Kandidaten-SHA nennen, eigene Prüfungen und unabhängig validierte Umsetzungstests getrennt ausweisen; Windows-Vollsuite nicht routinemäßig wiederholen. Den späteren eigenen Docs-Commit in der Übergabe aus Git ableiten. Umsetzer übernimmt diese Spitze vor Korrektur. Maßgebliche Findings stehen im versionierten Report, der PR verlinkt ihn. [Schreib-/SHA-/CI-Regeln](PR_UND_REVIEW_UEBERGABE.md).
 
 ## Zustand als Pflichtübergabe
 

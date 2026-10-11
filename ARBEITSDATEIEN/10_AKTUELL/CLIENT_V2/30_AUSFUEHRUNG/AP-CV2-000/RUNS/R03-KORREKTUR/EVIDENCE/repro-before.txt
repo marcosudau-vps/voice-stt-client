@@ -1,0 +1,93 @@
+test_disabled_and_wake_only_never_register_or_rewrite_profile (tests.test_startup_hotkey_persistence.StartupPersistence.test_disabled_and_wake_only_never_register_or_rewrite_profile) ... UI received fatal Core error: Core konnte nicht gestartet werden
+UI received fatal Core error: Core konnte nicht gestartet werden
+ok
+test_failed_core_preserves_profile_and_restores_in_memory_hotkeys (tests.test_startup_hotkey_persistence.StartupPersistence.test_failed_core_preserves_profile_and_restores_in_memory_hotkeys) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 23, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+UI received fatal Core error: Core konnte nicht gestartet werden
+FAIL
+test_retry_after_failed_core_uses_original_binding_then_persists (tests.test_startup_hotkey_persistence.StartupPersistence.test_retry_after_failed_core_uses_original_binding_then_persists) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 23, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+UI received fatal Core error: Core konnte nicht gestartet werden
+FAIL
+test_save_failure_stops_started_core_and_restores_hotkeys (tests.test_startup_hotkey_persistence.StartupPersistence.test_save_failure_stops_started_core_and_restores_hotkeys) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 23, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+Could not persist the working fallback hotkey.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\application.py", line 291, in _register_startup_hotkeys
+    self.config.save_user()
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+PermissionError: read-only profile
+FAIL
+test_success_persists_after_core_start_and_preserves_preferences (tests.test_startup_hotkey_persistence.StartupPersistence.test_success_persists_after_core_start_and_preserves_preferences) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 23, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+FAIL
+
+======================================================================
+FAIL: test_failed_core_preserves_profile_and_restores_in_memory_hotkeys (tests.test_startup_hotkey_persistence.StartupPersistence.test_failed_core_preserves_profile_and_restores_in_memory_hotkeys)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 64, in test_failed_core_preserves_profile_and_restores_in_memory_hotkeys
+    self.assertEqual(profile.read_bytes(), before)
+AssertionError: b"server:\r\n  url: wss://stt.voice.marcos[9535 chars]\r\n" != b'feedback:\r\n  sounds_enabled: false\r\n[75 chars]\r\n'
+
+======================================================================
+FAIL: test_retry_after_failed_core_uses_original_binding_then_persists (tests.test_startup_hotkey_persistence.StartupPersistence.test_retry_after_failed_core_uses_original_binding_then_persists)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 119, in test_retry_after_failed_core_uses_original_binding_then_persists
+    self.assertEqual(profile.read_bytes(), before)
+AssertionError: b"server:\r\n  url: wss://stt.voice.marcos[9535 chars]\r\n" != b'feedback:\r\n  sounds_enabled: false\r\n[75 chars]\r\n'
+
+======================================================================
+FAIL: test_save_failure_stops_started_core_and_restores_hotkeys (tests.test_startup_hotkey_persistence.StartupPersistence.test_save_failure_stops_started_core_and_restores_hotkeys)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 108, in test_save_failure_stops_started_core_and_restores_hotkeys
+    self.assertIn("start", bridge.calls)
+AssertionError: 'start' not found in []
+
+======================================================================
+FAIL: test_success_persists_after_core_start_and_preserves_preferences (tests.test_startup_hotkey_persistence.StartupPersistence.test_success_persists_after_core_start_and_preserves_preferences)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 81, in test_success_persists_after_core_start_and_preserves_preferences
+    self.assertTrue(desktop.start())
+                    ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\application.py", line 240, in start
+    if not self.bridge.start():
+           ^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 77, in start
+    self.assertEqual(profile.read_bytes(), before)
+AssertionError: b"server:\r\n  url: wss://stt.voice.marcos[9535 chars]\r\n" != b'feedback:\r\n  sounds_enabled: false\r\n[75 chars]\r\n'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.585s
+
+FAILED (failures=4)

@@ -1,0 +1,403 @@
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=69
+  - wheel
+* Getting build dependencies for sdist...
+running egg_info
+writing voice_stt_client.egg-info\PKG-INFO
+writing dependency_links to voice_stt_client.egg-info\dependency_links.txt
+writing entry points to voice_stt_client.egg-info\entry_points.txt
+writing requirements to voice_stt_client.egg-info\requires.txt
+writing top-level names to voice_stt_client.egg-info\top_level.txt
+reading manifest file 'voice_stt_client.egg-info\SOURCES.txt'
+writing manifest file 'voice_stt_client.egg-info\SOURCES.txt'
+* Installed build dependency versions:
+  - setuptools==84.0.0
+  - wheel==0.48.0
+* Building sdist...
+running sdist
+running egg_info
+writing voice_stt_client.egg-info\PKG-INFO
+writing dependency_links to voice_stt_client.egg-info\dependency_links.txt
+writing entry points to voice_stt_client.egg-info\entry_points.txt
+writing requirements to voice_stt_client.egg-info\requires.txt
+writing top-level names to voice_stt_client.egg-info\top_level.txt
+reading manifest file 'voice_stt_client.egg-info\SOURCES.txt'
+writing manifest file 'voice_stt_client.egg-info\SOURCES.txt'
+running check
+creating voice_stt_client-1.0.0
+creating voice_stt_client-1.0.0\tests
+creating voice_stt_client-1.0.0\voice_stt_client
+creating voice_stt_client-1.0.0\voice_stt_client.egg-info
+creating voice_stt_client-1.0.0\voice_stt_client\assets\feedback_sounds\debug
+creating voice_stt_client-1.0.0\voice_stt_client\core
+creating voice_stt_client-1.0.0\voice_stt_client\core\observability
+creating voice_stt_client-1.0.0\voice_stt_client\core\observability\adapters
+creating voice_stt_client-1.0.0\voice_stt_client\core\observability\query
+creating voice_stt_client-1.0.0\voice_stt_client\core\observability\sinks
+creating voice_stt_client-1.0.0\voice_stt_client\core\observability\storage
+creating voice_stt_client-1.0.0\voice_stt_client\ui
+creating voice_stt_client-1.0.0\voice_stt_client\ui\logs
+copying files to voice_stt_client-1.0.0...
+copying README.md -> voice_stt_client-1.0.0
+copying VERSION -> voice_stt_client-1.0.0
+copying pyproject.toml -> voice_stt_client-1.0.0
+copying requirements.txt -> voice_stt_client-1.0.0
+copying tests\test_ap06_followup.py -> voice_stt_client-1.0.0\tests
+copying tests\test_ap_cli_000_baseline_characterization.py -> voice_stt_client-1.0.0\tests
+copying tests\test_app.py -> voice_stt_client-1.0.0\tests
+copying tests\test_audio_capture.py -> voice_stt_client-1.0.0\tests
+copying tests\test_build_script.py -> voice_stt_client-1.0.0\tests
+copying tests\test_client_release_guard.py -> voice_stt_client-1.0.0\tests
+copying tests\test_client_release_workflow.py -> voice_stt_client-1.0.0\tests
+copying tests\test_config.py -> voice_stt_client-1.0.0\tests
+copying tests\test_controller.py -> voice_stt_client-1.0.0\tests
+copying tests\test_core_bridge.py -> voice_stt_client-1.0.0\tests
+copying tests\test_cv2_000_integration.py -> voice_stt_client-1.0.0\tests
+copying tests\test_event_cursor_store.py -> voice_stt_client-1.0.0\tests
+copying tests\test_event_models.py -> voice_stt_client-1.0.0\tests
+copying tests\test_event_normalizer.py -> voice_stt_client-1.0.0\tests
+copying tests\test_event_protocol.py -> voice_stt_client-1.0.0\tests
+copying tests\test_event_stream.py -> voice_stt_client-1.0.0\tests
+copying tests\test_feedback_integration.py -> voice_stt_client-1.0.0\tests
+copying tests\test_feedback_mapping.py -> voice_stt_client-1.0.0\tests
+copying tests\test_feedback_reducer.py -> voice_stt_client-1.0.0\tests
+copying tests\test_feedback_ui.py -> voice_stt_client-1.0.0\tests
+copying tests\test_history.py -> voice_stt_client-1.0.0\tests
+copying tests\test_hotkeys.py -> voice_stt_client-1.0.0\tests
+copying tests\test_led_feedback.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs010_contracts.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs010_models.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs010_normalizer_client.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs010_normalizer_python.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs010_normalizer_server.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs010_query_contracts.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs010_redaction.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs020_contracts.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs020_health.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs020_ingress.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs020_logging_setup_integration.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs020_python_logging_handler.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs020_redaction_end_to_end.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs030_app_wiring.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs030_config.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs030_contracts.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs030_gate_corrections.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs030_jsonl_sink.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs030_manager.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs030_path_boundaries.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs030_sqlite_store.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs030_worker.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs030_worker_fault_injection.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs040_client_hooks.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs040_contracts.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs040_failure_isolation.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs040_fanout_hook.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs040_hot_path.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs040_server_live_adapter.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs050_contracts.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs050_local_provider.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs050_query_service.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs050_settings.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs050_ui.py -> voice_stt_client-1.0.0\tests
+copying tests\test_obs060_v1_hardening.py -> voice_stt_client-1.0.0\tests
+copying tests\test_reinsertion.py -> voice_stt_client-1.0.0\tests
+copying tests\test_release.py -> voice_stt_client-1.0.0\tests
+copying tests\test_session_coordinator.py -> voice_stt_client-1.0.0\tests
+copying tests\test_single_instance.py -> voice_stt_client-1.0.0\tests
+copying tests\test_stt_session.py -> voice_stt_client-1.0.0\tests
+copying tests\test_text_injector.py -> voice_stt_client-1.0.0\tests
+copying tests\test_trigger_feedback_contract.py -> voice_stt_client-1.0.0\tests
+copying tests\test_trigger_lifecycle.py -> voice_stt_client-1.0.0\tests
+copying tests\test_ui_application.py -> voice_stt_client-1.0.0\tests
+copying tests\test_ui_widgets.py -> voice_stt_client-1.0.0\tests
+copying voice_stt_client\__init__.py -> voice_stt_client-1.0.0\voice_stt_client
+copying voice_stt_client\__main__.py -> voice_stt_client-1.0.0\voice_stt_client
+copying voice_stt_client\app.py -> voice_stt_client-1.0.0\voice_stt_client
+copying voice_stt_client\config.yaml -> voice_stt_client-1.0.0\voice_stt_client
+copying voice_stt_client.egg-info\PKG-INFO -> voice_stt_client-1.0.0\voice_stt_client.egg-info
+copying voice_stt_client.egg-info\SOURCES.txt -> voice_stt_client-1.0.0\voice_stt_client.egg-info
+copying voice_stt_client.egg-info\dependency_links.txt -> voice_stt_client-1.0.0\voice_stt_client.egg-info
+copying voice_stt_client.egg-info\entry_points.txt -> voice_stt_client-1.0.0\voice_stt_client.egg-info
+copying voice_stt_client.egg-info\requires.txt -> voice_stt_client-1.0.0\voice_stt_client.egg-info
+copying voice_stt_client.egg-info\top_level.txt -> voice_stt_client-1.0.0\voice_stt_client.egg-info
+copying voice_stt_client\assets\feedback_sounds\debug\ATTRIBUTION.md -> voice_stt_client-1.0.0\voice_stt_client\assets\feedback_sounds\debug
+copying voice_stt_client\assets\feedback_sounds\debug\cancel.wav -> voice_stt_client-1.0.0\voice_stt_client\assets\feedback_sounds\debug
+copying voice_stt_client\assets\feedback_sounds\debug\complete.wav -> voice_stt_client-1.0.0\voice_stt_client\assets\feedback_sounds\debug
+copying voice_stt_client\assets\feedback_sounds\debug\error.wav -> voice_stt_client-1.0.0\voice_stt_client\assets\feedback_sounds\debug
+copying voice_stt_client\assets\feedback_sounds\debug\start.wav -> voice_stt_client-1.0.0\voice_stt_client\assets\feedback_sounds\debug
+copying voice_stt_client\assets\feedback_sounds\debug\stop.wav -> voice_stt_client-1.0.0\voice_stt_client\assets\feedback_sounds\debug
+copying voice_stt_client\assets\feedback_sounds\debug\timeout_tick.wav -> voice_stt_client-1.0.0\voice_stt_client\assets\feedback_sounds\debug
+copying voice_stt_client\assets\feedback_sounds\debug\wake_word.wav -> voice_stt_client-1.0.0\voice_stt_client\assets\feedback_sounds\debug
+copying voice_stt_client\assets\feedback_sounds\debug\warning.wav -> voice_stt_client-1.0.0\voice_stt_client\assets\feedback_sounds\debug
+copying voice_stt_client\core\__init__.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\actions.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\audio_capture.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\config.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\controller.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\event_cursor_store.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\event_models.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\event_normalizer.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\event_protocol.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\event_stream.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\feedback_mapping.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\feedback_reducer.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\history.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\led_controller.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\logging_settings_metadata.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\logging_setup.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\reinsertion.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\session_coordinator.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\settings_metadata.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\stt_session.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\text_injector.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\version.py -> voice_stt_client-1.0.0\voice_stt_client\core
+copying voice_stt_client\core\observability\__init__.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability
+copying voice_stt_client\core\observability\health.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability
+copying voice_stt_client\core\observability\ingress.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability
+copying voice_stt_client\core\observability\manager.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability
+copying voice_stt_client\core\observability\models.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability
+copying voice_stt_client\core\observability\normalizer.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability
+copying voice_stt_client\core\observability\redaction.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability
+copying voice_stt_client\core\observability\worker.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability
+copying voice_stt_client\core\observability\adapters\__init__.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\adapters
+copying voice_stt_client\core\observability\adapters\client_events.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\adapters
+copying voice_stt_client\core\observability\adapters\python_logging.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\adapters
+copying voice_stt_client\core\observability\adapters\server_live.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\adapters
+copying voice_stt_client\core\observability\query\__init__.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\query
+copying voice_stt_client\core\observability\query\base.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\query
+copying voice_stt_client\core\observability\query\local.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\query
+copying voice_stt_client\core\observability\query\service.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\query
+copying voice_stt_client\core\observability\sinks\__init__.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\sinks
+copying voice_stt_client\core\observability\sinks\base.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\sinks
+copying voice_stt_client\core\observability\sinks\jsonl_file.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\sinks
+copying voice_stt_client\core\observability\storage\__init__.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\storage
+copying voice_stt_client\core\observability\storage\base.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\storage
+copying voice_stt_client\core\observability\storage\sqlite.py -> voice_stt_client-1.0.0\voice_stt_client\core\observability\storage
+copying voice_stt_client\ui\__init__.py -> voice_stt_client-1.0.0\voice_stt_client\ui
+copying voice_stt_client\ui\application.py -> voice_stt_client-1.0.0\voice_stt_client\ui
+copying voice_stt_client\ui\core_bridge.py -> voice_stt_client-1.0.0\voice_stt_client\ui
+copying voice_stt_client\ui\feedback.py -> voice_stt_client-1.0.0\voice_stt_client\ui
+copying voice_stt_client\ui\hotkeys.py -> voice_stt_client-1.0.0\voice_stt_client\ui
+copying voice_stt_client\ui\led_feedback.py -> voice_stt_client-1.0.0\voice_stt_client\ui
+copying voice_stt_client\ui\overlay.py -> voice_stt_client-1.0.0\voice_stt_client\ui
+copying voice_stt_client\ui\presentation.py -> voice_stt_client-1.0.0\voice_stt_client\ui
+copying voice_stt_client\ui\settings_dialog.py -> voice_stt_client-1.0.0\voice_stt_client\ui
+copying voice_stt_client\ui\single_instance.py -> voice_stt_client-1.0.0\voice_stt_client\ui
+copying voice_stt_client\ui\tray.py -> voice_stt_client-1.0.0\voice_stt_client\ui
+copying voice_stt_client\ui\logs\__init__.py -> voice_stt_client-1.0.0\voice_stt_client\ui\logs
+copying voice_stt_client\ui\logs\log_detail_view.py -> voice_stt_client-1.0.0\voice_stt_client\ui\logs
+copying voice_stt_client\ui\logs\log_filter_bar.py -> voice_stt_client-1.0.0\voice_stt_client\ui\logs
+copying voice_stt_client\ui\logs\log_page.py -> voice_stt_client-1.0.0\voice_stt_client\ui\logs
+copying voice_stt_client\ui\logs\log_query_controller.py -> voice_stt_client-1.0.0\voice_stt_client\ui\logs
+copying voice_stt_client\ui\logs\log_table_model.py -> voice_stt_client-1.0.0\voice_stt_client\ui\logs
+copying voice_stt_client\ui\logs\log_window.py -> voice_stt_client-1.0.0\voice_stt_client\ui\logs
+Writing voice_stt_client-1.0.0\setup.cfg
+Creating tar archive
+removing 'voice_stt_client-1.0.0' (and everything under it)
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=69
+  - wheel
+* Getting build dependencies for wheel...
+running egg_info
+writing voice_stt_client.egg-info\PKG-INFO
+writing dependency_links to voice_stt_client.egg-info\dependency_links.txt
+writing entry points to voice_stt_client.egg-info\entry_points.txt
+writing requirements to voice_stt_client.egg-info\requires.txt
+writing top-level names to voice_stt_client.egg-info\top_level.txt
+reading manifest file 'voice_stt_client.egg-info\SOURCES.txt'
+writing manifest file 'voice_stt_client.egg-info\SOURCES.txt'
+* Installed build dependency versions:
+  - setuptools==84.0.0
+  - wheel==0.48.0
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+running egg_info
+writing voice_stt_client.egg-info\PKG-INFO
+writing dependency_links to voice_stt_client.egg-info\dependency_links.txt
+writing entry points to voice_stt_client.egg-info\entry_points.txt
+writing requirements to voice_stt_client.egg-info\requires.txt
+writing top-level names to voice_stt_client.egg-info\top_level.txt
+reading manifest file 'voice_stt_client.egg-info\SOURCES.txt'
+writing manifest file 'voice_stt_client.egg-info\SOURCES.txt'
+installing to build\bdist.win-amd64\wheel
+running install
+running install_lib
+creating build\bdist.win-amd64\wheel
+creating build\bdist.win-amd64\wheel\voice_stt_client
+copying build\lib\voice_stt_client\app.py -> build\bdist.win-amd64\wheel\.\voice_stt_client
+creating build\bdist.win-amd64\wheel\voice_stt_client\assets
+creating build\bdist.win-amd64\wheel\voice_stt_client\assets\feedback_sounds
+creating build\bdist.win-amd64\wheel\voice_stt_client\assets\feedback_sounds\debug
+copying build\lib\voice_stt_client\assets\feedback_sounds\debug\ATTRIBUTION.md -> build\bdist.win-amd64\wheel\.\voice_stt_client\assets\feedback_sounds\debug
+copying build\lib\voice_stt_client\assets\feedback_sounds\debug\cancel.wav -> build\bdist.win-amd64\wheel\.\voice_stt_client\assets\feedback_sounds\debug
+copying build\lib\voice_stt_client\assets\feedback_sounds\debug\complete.wav -> build\bdist.win-amd64\wheel\.\voice_stt_client\assets\feedback_sounds\debug
+copying build\lib\voice_stt_client\assets\feedback_sounds\debug\error.wav -> build\bdist.win-amd64\wheel\.\voice_stt_client\assets\feedback_sounds\debug
+copying build\lib\voice_stt_client\assets\feedback_sounds\debug\start.wav -> build\bdist.win-amd64\wheel\.\voice_stt_client\assets\feedback_sounds\debug
+copying build\lib\voice_stt_client\assets\feedback_sounds\debug\stop.wav -> build\bdist.win-amd64\wheel\.\voice_stt_client\assets\feedback_sounds\debug
+copying build\lib\voice_stt_client\assets\feedback_sounds\debug\timeout_tick.wav -> build\bdist.win-amd64\wheel\.\voice_stt_client\assets\feedback_sounds\debug
+copying build\lib\voice_stt_client\assets\feedback_sounds\debug\wake_word.wav -> build\bdist.win-amd64\wheel\.\voice_stt_client\assets\feedback_sounds\debug
+copying build\lib\voice_stt_client\assets\feedback_sounds\debug\warning.wav -> build\bdist.win-amd64\wheel\.\voice_stt_client\assets\feedback_sounds\debug
+copying build\lib\voice_stt_client\config.yaml -> build\bdist.win-amd64\wheel\.\voice_stt_client
+creating build\bdist.win-amd64\wheel\voice_stt_client\core
+copying build\lib\voice_stt_client\core\actions.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\audio_capture.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\config.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\controller.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\event_cursor_store.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\event_models.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\event_normalizer.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\event_protocol.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\event_stream.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\feedback_mapping.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\feedback_reducer.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\history.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\led_controller.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\logging_settings_metadata.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\logging_setup.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+creating build\bdist.win-amd64\wheel\voice_stt_client\core\observability
+creating build\bdist.win-amd64\wheel\voice_stt_client\core\observability\adapters
+copying build\lib\voice_stt_client\core\observability\adapters\client_events.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\adapters
+copying build\lib\voice_stt_client\core\observability\adapters\python_logging.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\adapters
+copying build\lib\voice_stt_client\core\observability\adapters\server_live.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\adapters
+copying build\lib\voice_stt_client\core\observability\adapters\__init__.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\adapters
+copying build\lib\voice_stt_client\core\observability\health.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability
+copying build\lib\voice_stt_client\core\observability\ingress.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability
+copying build\lib\voice_stt_client\core\observability\manager.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability
+copying build\lib\voice_stt_client\core\observability\models.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability
+copying build\lib\voice_stt_client\core\observability\normalizer.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability
+creating build\bdist.win-amd64\wheel\voice_stt_client\core\observability\query
+copying build\lib\voice_stt_client\core\observability\query\base.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\query
+copying build\lib\voice_stt_client\core\observability\query\local.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\query
+copying build\lib\voice_stt_client\core\observability\query\service.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\query
+copying build\lib\voice_stt_client\core\observability\query\__init__.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\query
+copying build\lib\voice_stt_client\core\observability\redaction.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability
+creating build\bdist.win-amd64\wheel\voice_stt_client\core\observability\sinks
+copying build\lib\voice_stt_client\core\observability\sinks\base.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\sinks
+copying build\lib\voice_stt_client\core\observability\sinks\jsonl_file.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\sinks
+copying build\lib\voice_stt_client\core\observability\sinks\__init__.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\sinks
+creating build\bdist.win-amd64\wheel\voice_stt_client\core\observability\storage
+copying build\lib\voice_stt_client\core\observability\storage\base.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\storage
+copying build\lib\voice_stt_client\core\observability\storage\sqlite.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\storage
+copying build\lib\voice_stt_client\core\observability\storage\__init__.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability\storage
+copying build\lib\voice_stt_client\core\observability\worker.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability
+copying build\lib\voice_stt_client\core\observability\__init__.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core\observability
+copying build\lib\voice_stt_client\core\reinsertion.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\session_coordinator.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\settings_metadata.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\stt_session.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\text_injector.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\version.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+copying build\lib\voice_stt_client\core\__init__.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\core
+creating build\bdist.win-amd64\wheel\voice_stt_client\ui
+copying build\lib\voice_stt_client\ui\application.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui
+copying build\lib\voice_stt_client\ui\core_bridge.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui
+copying build\lib\voice_stt_client\ui\feedback.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui
+copying build\lib\voice_stt_client\ui\hotkeys.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui
+copying build\lib\voice_stt_client\ui\led_feedback.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui
+creating build\bdist.win-amd64\wheel\voice_stt_client\ui\logs
+copying build\lib\voice_stt_client\ui\logs\log_detail_view.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui\logs
+copying build\lib\voice_stt_client\ui\logs\log_filter_bar.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui\logs
+copying build\lib\voice_stt_client\ui\logs\log_page.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui\logs
+copying build\lib\voice_stt_client\ui\logs\log_query_controller.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui\logs
+copying build\lib\voice_stt_client\ui\logs\log_table_model.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui\logs
+copying build\lib\voice_stt_client\ui\logs\log_window.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui\logs
+copying build\lib\voice_stt_client\ui\logs\__init__.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui\logs
+copying build\lib\voice_stt_client\ui\overlay.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui
+copying build\lib\voice_stt_client\ui\presentation.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui
+copying build\lib\voice_stt_client\ui\settings_dialog.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui
+copying build\lib\voice_stt_client\ui\single_instance.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui
+copying build\lib\voice_stt_client\ui\tray.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui
+copying build\lib\voice_stt_client\ui\__init__.py -> build\bdist.win-amd64\wheel\.\voice_stt_client\ui
+copying build\lib\voice_stt_client\__init__.py -> build\bdist.win-amd64\wheel\.\voice_stt_client
+copying build\lib\voice_stt_client\__main__.py -> build\bdist.win-amd64\wheel\.\voice_stt_client
+running install_egg_info
+Copying voice_stt_client.egg-info to build\bdist.win-amd64\wheel\.\voice_stt_client-1.0.0-py3.12.egg-info
+running install_scripts
+creating build\bdist.win-amd64\wheel\voice_stt_client-1.0.0.dist-info\WHEEL
+creating 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\dist\\.tmp-nr274ak2\\voice_stt_client-1.0.0-py3-none-any.whl' and adding 'build\\bdist.win-amd64\\wheel' to it
+adding 'voice_stt_client/__init__.py'
+adding 'voice_stt_client/__main__.py'
+adding 'voice_stt_client/app.py'
+adding 'voice_stt_client/config.yaml'
+adding 'voice_stt_client/assets/feedback_sounds/debug/ATTRIBUTION.md'
+adding 'voice_stt_client/assets/feedback_sounds/debug/cancel.wav'
+adding 'voice_stt_client/assets/feedback_sounds/debug/complete.wav'
+adding 'voice_stt_client/assets/feedback_sounds/debug/error.wav'
+adding 'voice_stt_client/assets/feedback_sounds/debug/start.wav'
+adding 'voice_stt_client/assets/feedback_sounds/debug/stop.wav'
+adding 'voice_stt_client/assets/feedback_sounds/debug/timeout_tick.wav'
+adding 'voice_stt_client/assets/feedback_sounds/debug/wake_word.wav'
+adding 'voice_stt_client/assets/feedback_sounds/debug/warning.wav'
+adding 'voice_stt_client/core/__init__.py'
+adding 'voice_stt_client/core/actions.py'
+adding 'voice_stt_client/core/audio_capture.py'
+adding 'voice_stt_client/core/config.py'
+adding 'voice_stt_client/core/controller.py'
+adding 'voice_stt_client/core/event_cursor_store.py'
+adding 'voice_stt_client/core/event_models.py'
+adding 'voice_stt_client/core/event_normalizer.py'
+adding 'voice_stt_client/core/event_protocol.py'
+adding 'voice_stt_client/core/event_stream.py'
+adding 'voice_stt_client/core/feedback_mapping.py'
+adding 'voice_stt_client/core/feedback_reducer.py'
+adding 'voice_stt_client/core/history.py'
+adding 'voice_stt_client/core/led_controller.py'
+adding 'voice_stt_client/core/logging_settings_metadata.py'
+adding 'voice_stt_client/core/logging_setup.py'
+adding 'voice_stt_client/core/reinsertion.py'
+adding 'voice_stt_client/core/session_coordinator.py'
+adding 'voice_stt_client/core/settings_metadata.py'
+adding 'voice_stt_client/core/stt_session.py'
+adding 'voice_stt_client/core/text_injector.py'
+adding 'voice_stt_client/core/version.py'
+adding 'voice_stt_client/core/observability/__init__.py'
+adding 'voice_stt_client/core/observability/health.py'
+adding 'voice_stt_client/core/observability/ingress.py'
+adding 'voice_stt_client/core/observability/manager.py'
+adding 'voice_stt_client/core/observability/models.py'
+adding 'voice_stt_client/core/observability/normalizer.py'
+adding 'voice_stt_client/core/observability/redaction.py'
+adding 'voice_stt_client/core/observability/worker.py'
+adding 'voice_stt_client/core/observability/adapters/__init__.py'
+adding 'voice_stt_client/core/observability/adapters/client_events.py'
+adding 'voice_stt_client/core/observability/adapters/python_logging.py'
+adding 'voice_stt_client/core/observability/adapters/server_live.py'
+adding 'voice_stt_client/core/observability/query/__init__.py'
+adding 'voice_stt_client/core/observability/query/base.py'
+adding 'voice_stt_client/core/observability/query/local.py'
+adding 'voice_stt_client/core/observability/query/service.py'
+adding 'voice_stt_client/core/observability/sinks/__init__.py'
+adding 'voice_stt_client/core/observability/sinks/base.py'
+adding 'voice_stt_client/core/observability/sinks/jsonl_file.py'
+adding 'voice_stt_client/core/observability/storage/__init__.py'
+adding 'voice_stt_client/core/observability/storage/base.py'
+adding 'voice_stt_client/core/observability/storage/sqlite.py'
+adding 'voice_stt_client/ui/__init__.py'
+adding 'voice_stt_client/ui/application.py'
+adding 'voice_stt_client/ui/core_bridge.py'
+adding 'voice_stt_client/ui/feedback.py'
+adding 'voice_stt_client/ui/hotkeys.py'
+adding 'voice_stt_client/ui/led_feedback.py'
+adding 'voice_stt_client/ui/overlay.py'
+adding 'voice_stt_client/ui/presentation.py'
+adding 'voice_stt_client/ui/settings_dialog.py'
+adding 'voice_stt_client/ui/single_instance.py'
+adding 'voice_stt_client/ui/tray.py'
+adding 'voice_stt_client/ui/logs/__init__.py'
+adding 'voice_stt_client/ui/logs/log_detail_view.py'
+adding 'voice_stt_client/ui/logs/log_filter_bar.py'
+adding 'voice_stt_client/ui/logs/log_page.py'
+adding 'voice_stt_client/ui/logs/log_query_controller.py'
+adding 'voice_stt_client/ui/logs/log_table_model.py'
+adding 'voice_stt_client/ui/logs/log_window.py'
+adding 'voice_stt_client-1.0.0.dist-info/METADATA'
+adding 'voice_stt_client-1.0.0.dist-info/WHEEL'
+adding 'voice_stt_client-1.0.0.dist-info/entry_points.txt'
+adding 'voice_stt_client-1.0.0.dist-info/top_level.txt'
+adding 'voice_stt_client-1.0.0.dist-info/RECORD'
+removing build\bdist.win-amd64\wheel
+Successfully built voice_stt_client-1.0.0.tar.gz and voice_stt_client-1.0.0-py3-none-any.whl

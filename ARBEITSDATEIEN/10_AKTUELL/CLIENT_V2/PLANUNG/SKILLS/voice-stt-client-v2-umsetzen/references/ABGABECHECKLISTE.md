@@ -12,7 +12,7 @@ Vor REVIEW_READY diese Liste gegen das beauftragte Paket prüfen. Sie ist eine A
 ## Tests und Belege
 
 - [ ] Relevante Vorher-Baseline dokumentiert, gezielte Repros/Negativ-/Race-/Migrationsfälle bestanden und entdeckte Fehler iterativ behoben.
-- [ ] Nach Produktänderung vollständige Clientregression grün, compileall und git diff --check bestanden; bei Serverfix zusätzlich vollständige schnelle Serversuite und betroffene Integration. Konkrete Befehle und Runtime im Report.
+- [ ] Nach Produktänderung vollständige Clientregression auf Windows grün, compileall und git diff --check bestanden; bei Serverfix zusätzlich vollständige schnelle Serversuite und betroffene Integration. Windows-/Python-/Runtimeidentität, getesteten SHA bzw. Basis/Diff, vollständigen Befehl, Exitcode, Testzahl und vollständige Logs im PR nachgewiesen. Kandidat stimmt im Produkt-/Test-/testrelevanten Konfigurationsstand mit dem getesteten Stand überein; administrative Nachträge per Diff belegt. Diesen Pflichtnachweis vor REVIEW_READY liefern, keine erneute Vollsuite vom Reviewer voraussetzen.
 - [ ] Paketabhängige Build-/Crossrepo-/reale Pflichtfälle nach [Testplan](../../../REFERENZ/QUALIFIKATION/TEST_UND_ABNAHMEPLAN.md) ausgeführt. PASS/FAIL/NOT_RUN/NOT_PROVEN/SKIPPED_EXPECTED getrennt; kein Pflichtskip als Erfolg.
 - [ ] [Traceability-Matrix](../../../REFERENZ/TRACEABILITY/TRACEABILITY_MATRIX.md) und [Requirements-JSON](../../../REFERENZ/TRACEABILITY/requirements.json) konsistent: jede Paket-ID mit tatsächlicher Methode/manuellem Fall, Runbeleg und Kandidatenbezug. CLIENT OPEN nicht selbst zur unabhängig angenommenen Abnahme hochstufen; Implementierungsbelege separat ergänzen.
 - [ ] Ersetzte V1-Assertions jeweils fachlichem Nachfolger zugeordnet. Kein vorgeschriebener Funktionsfall entfallen; anders benannte Testdatei zulässig.
@@ -46,3 +46,12 @@ Weitere Details nur bei Bedarf: [Regelwerksreferenz](../../../REFERENZ/GOVERNANC
 
 - [ ] Ausgewählte Kandidatenlinie mit tatsächlicher Auswahlquelle belegt; bei Wiederaufnahme Übergabe/WIP-Ausgang gesichert. Serverblocker mit FIX-Verweis und gehaltenem Clientstand dokumentiert.
 - [ ] Zugeordnete reale Plattformfälle vollständig nach [Nachweisregeln](../../../REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md) belegt; bei fehlendem Zugriff nötige Durchführung organisiert, kein Fake-PASS.
+
+## Aktenprüfung vor jeder Abgabe
+
+- [ ] WORKFLOW_STATUS, Manifest, Paketkopf und Index mit der tatsächlich aktuellen PR-Kurzfassung synchronisiert; Originalprompts, Reports und Evidenz vollständig bereitgestellt. Neue/geänderte relative Links aus dem Quelldokument aufgelöst; historische Belege erhalten. Auch Review-Dokumentcommits strukturell prüfen.
+- [ ] [Gemeinsamen read-only-Aktenprüfer](../../GEMEINSAM/scripts/pruefe_arbeitsakten.py) aus dem Repository ausgeführt; geänderte weitere Markdownunterlagen über `--paths` ergänzen und aktuelle PR-Kurzfassung gemäß [Übergabereferenz](../../GEMEINSAM/references/PR_UND_REVIEW_UEBERGABE.md) abgleichen:
+
+```powershell
+.\venv\Scripts\python.exe ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/scripts/pruefe_arbeitsakten.py
+```

@@ -15,13 +15,13 @@ import time
 import unittest
 from typing import Any, List, Optional
 
-from core.observability.adapters.python_logging import (
+from voice_stt_client.core.observability.adapters.python_logging import (
     INTERNAL_LOGGER_NAME,
     UnifiedLogHandler,
 )
-from core.observability.health import LoggingInternalHealth
-from core.observability.models import CanonicalLogRecord
-from core.observability.normalizer import from_log_record
+from voice_stt_client.core.observability.health import LoggingInternalHealth
+from voice_stt_client.core.observability.models import CanonicalLogRecord
+from voice_stt_client.core.observability.normalizer import from_log_record
 
 
 class RecordingIngress:

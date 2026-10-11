@@ -11,8 +11,8 @@ from unittest.mock import patch
 
 from websockets.protocol import State
 
-from core.config import ServerConfig
-from core.stt_session import (
+from voice_stt_client.core.config import ServerConfig
+from voice_stt_client.core.stt_session import (
     ClientState,
     STTSession,
     SessionState,
@@ -78,7 +78,7 @@ class TestSTTSessionStateAndBackoff(unittest.TestCase):
             self.assertEqual(state.generation, 3)
 
     def test_first_failure_uses_minimum_and_growth_is_exponential(self) -> None:
-        with patch("core.stt_session.random.random", return_value=0.0):
+        with patch("voice_stt_client.core.stt_session.random.random", return_value=0.0):
             self.session._backoff_attempt = 1
             self.assertEqual(self.session._backoff_delay(), 0.5)
             self.session._backoff_attempt = 2
@@ -88,7 +88,7 @@ class TestSTTSessionStateAndBackoff(unittest.TestCase):
 
     def test_backoff_is_capped_including_jitter(self) -> None:
         self.session._backoff_attempt = 100
-        with patch("core.stt_session.random.random", return_value=1.0):
+        with patch("voice_stt_client.core.stt_session.random.random", return_value=1.0):
             self.assertEqual(
                 self.session._backoff_delay(),
                 self.config.reconnect_max_delay,
@@ -96,7 +96,7 @@ class TestSTTSessionStateAndBackoff(unittest.TestCase):
 
     def test_backoff_does_not_overflow_after_extreme_failure_count(self) -> None:
         self.session._backoff_attempt = 100_000
-        with patch("core.stt_session.random.random", return_value=0.0):
+        with patch("voice_stt_client.core.stt_session.random.random", return_value=0.0):
             self.assertEqual(
                 self.session._backoff_delay(),
                 self.config.reconnect_max_delay,
@@ -105,13 +105,13 @@ class TestSTTSessionStateAndBackoff(unittest.TestCase):
     def test_server_busy_uses_long_minimum_but_remains_capped(self) -> None:
         self.session._is_server_busy = True
         self.session._backoff_attempt = 1
-        with patch("core.stt_session.random.random", return_value=0.0):
+        with patch("voice_stt_client.core.stt_session.random.random", return_value=0.0):
             self.assertEqual(
                 self.session._backoff_delay(),
                 self.config.server_busy_min_delay,
             )
         self.session._backoff_attempt = 100
-        with patch("core.stt_session.random.random", return_value=1.0):
+        with patch("voice_stt_client.core.stt_session.random.random", return_value=1.0):
             self.assertEqual(
                 self.session._backoff_delay(),
                 self.config.reconnect_max_delay,
@@ -288,7 +288,7 @@ class TestSTTSessionAsync(unittest.IsolatedAsyncioTestCase):
                 ]
             )
 
-        with patch("core.stt_session.ws_connect", side_effect=connect_once):
+        with patch("voice_stt_client.core.stt_session.ws_connect", side_effect=connect_once):
             await self.session._connect_and_run()
             first_generation = self.session.generation
             first_ping_task = self.session._ping_task
@@ -317,13 +317,13 @@ class TestSTTSessionAsync(unittest.IsolatedAsyncioTestCase):
                 ]
             )
 
-        with patch("core.stt_session.ws_connect", side_effect=rejected_connect):
+        with patch("voice_stt_client.core.stt_session.ws_connect", side_effect=rejected_connect):
             await self.session._connect_and_run()
 
         self.assertTrue(self.session.is_server_busy)
         self.assertEqual(self.session.last_failure_reason, "server_busy")
         self.assertEqual(self.session.reconnect_attempt, 1)
-        with patch("core.stt_session.random.random", return_value=0.0):
+        with patch("voice_stt_client.core.stt_session.random.random", return_value=0.0):
             self.assertEqual(
                 self.session._backoff_delay(),
                 self.config.server_busy_min_delay,
@@ -339,7 +339,8 @@ class TestSTTSessionAsync(unittest.IsolatedAsyncioTestCase):
             )
 
         with patch(
-            "core.stt_session.ws_connect", side_effect=unavailable_connect
+            "voice_stt_client.core.stt_session.ws_connect",
+            side_effect=unavailable_connect,
         ):
             await self.session._connect_and_run()
 

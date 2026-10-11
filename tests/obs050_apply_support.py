@@ -19,10 +19,10 @@ import shutil
 import tempfile
 from typing import Any, Optional
 
-from core.config import AppConfig
-from core.controller import STTController
-from core.history import TranscriptHistoryManager
-from core.stt_session import ClientState, SessionState, TransportState
+from voice_stt_client.core.config import AppConfig
+from voice_stt_client.core.controller import STTController
+from voice_stt_client.core.history import TranscriptHistoryManager
+from voice_stt_client.core.stt_session import ClientState, SessionState, TransportState
 
 
 class RecordingIngress:

@@ -1,6 +1,6 @@
 ---
 name: voice-stt-client-v2-abnehmen
-description: Prüfe einen vollständigen Voice-STT-Client-V2-Paketkandidaten unabhängig und sichere Verdict, Findings und eigene Testbelege als Reviewunterlagen auf dem Paketbranch.
+description: Prüfe einen vollständigen Voice-STT-Client-V2-Paketkandidaten unabhängig anhand von Code und nachgewiesenen Umsetzungstests; sichere Verdict und Findings auf dem Paketbranch. ChatGPT-Reviews benötigen keine eigene Windows-Vollsuite.
 ---
 
 # Voice-STT Client V2 – unabhängiger Reviewer
@@ -14,20 +14,20 @@ Bei einem Auftrag „Mach den nächsten Schritt“ zuerst den [gemeinsamen Einst
 
 1. [Start und Grenzen](../GEMEINSAM/references/START_UND_GRENZEN.md) und den tatsächlich erteilten Reviewauftrag.
 2. Die beauftragte Datei im [Paketindex](../../ARBEITSPAKETE/README.md), benötigte Kontraktabschnitte, den vollständigen PR-Diff vom kanonischen Parent sowie Umsetzung-/Korrekturberichte.
-3. [Abnahmecheckliste](references/ABNAHMECHECKLISTE.md) und [PR und Reviewübergabe](../GEMEINSAM/references/PR_UND_REVIEW_UEBERGABE.md): Kandidatenfreeze, eigener Worktree, zulässiger Reviewcommit und Rückgabe.
+3. [Abnahmecheckliste](references/ABNAHMECHECKLISTE.md) und [PR und Reviewübergabe](../GEMEINSAM/references/PR_UND_REVIEW_UEBERGABE.md): Kandidatenfreeze, Zugriff auf den exakten Stand, zulässiger Reviewcommit und Rückgabe.
 4. [Runablage](../GEMEINSAM/references/PAKETABLAGE_UND_VORLAGEN.md) beim Anlegen deiner Akte. Die Gesamtplanung nur bei einer konkreten Scopefrage öffnen.
 
 ## Was du prüfst
 
-Verifiziere PR-Base feat/client-v2, eingereichten SHA/Tree, kanonischen Parent, Serverbaseline und vollständigen Paketumfang. Arbeite in eigenem isolierten Worktree auf genau dem eingereichten Stand. Der Umsetzer pausiert Paketbranch-Pushes während deiner Prüfung.
+Verifiziere PR-Base feat/client-v2, eingereichten SHA/Tree, kanonischen Parent, Serverbaseline und vollständigen Paketumfang. Prüfe genau diesen Stand: lokal in eigenem isolierten Worktree oder in einer ChatGPT-Session über commitgebundene GitHub-Dateien und den vollständigen Parentdiff. Eine PR-Vorschau mit abgeschnittenem Diff reicht nicht. Der Umsetzer pausiert Paketbranch-Pushes während deiner Prüfung.
 
 Prüfe Paketziele, Requirements und DoD anhand tatsächlichen Codes und Belegen. Umsetzungsvorschläge gemäß [Spielraum](../GEMEINSAM/references/PLANUNGSSPIELRAUM.md) nach Wirkung beurteilen; abweichende interne Namen allein sind kein FAIL. Daten-/Configmigration, Session-/IDguards, Nebenwirkungen, Fehler/Shutdown und erhaltenes Logging/Feedback konkret prüfen.
 
-Führe kritische Repros und vollständige betroffene Produktregression eigenständig aus bzw. veranlasse die nötige Durchführung auf einem realen Prüfhost gemäß den unten verlinkten Plattform-Nachweisregeln: Client gesamte Clientsuite; Serverfix gesamte schnelle Serversuite plus betroffene Clientintegration. Zugeordnete Build-/Hardware-/Crossrepo-Nachweise aus [Testplan](../../REFERENZ/QUALIFIKATION/TEST_UND_ABNAHMEPLAN.md) und [Checkpoints](../../REFERENZ/QUALIFIKATION/INKREMENTELLE_CHECKPOINTS.md) mit tatsächlicher Herkunft prüfen. Umsetzungstexte oder vorhandene Belegdateien allein beweisen keinen Erfolg.
+Prüfe Code, kritische Testfälle und die vollständigen, kandidatengebundenen Windows-Regressionsnachweise des Umsetzungs-/Korrekturlaufs gemäß [Nachweisregeln](../../REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md). Keine eigene oder von dir erneut veranlasste Windows-Vollsuite erforderlich. Eigene verfügbare Prüfungen sind ergänzend möglich; konkrete Fehlerverdachte oder fehlende/ungültige Belege gehen als Finding zurück. Serverfixes benötigen weiterhin die schnelle Serversuite und betroffene Clientintegration. Zugeordnete Build-/Hardware-/Crossrepo-Nachweise aus [Testplan](../../REFERENZ/QUALIFIKATION/TEST_UND_ABNAHMEPLAN.md) und [Checkpoints](../../REFERENZ/QUALIFIKATION/INKREMENTELLE_CHECKPOINTS.md) mit tatsächlicher Herkunft prüfen.
 
 ## Was du schreibst und abgibst
 
-Neue Rnn-ABNAHME-Akte: Original-Prompt, 01_REPORT.md und EVIDENCE/INDEX.md mit eigenen Belegen. Report nennt reviewed_sha/tree, canonical_parent, server_sha, Requirementnachweise, eigene Tests und offene Findings. Findings: ID, Wirkung/Schwere, Repro mit expected/actual, Requirement, Owner und verlangter Nachweis.
+Neue Rnn-ABNAHME-Akte: Original-Prompt, 01_REPORT.md und EVIDENCE/INDEX.md mit den tatsächlich verwendeten Belegen. Report nennt reviewed_sha/tree, canonical_parent, server_sha, Requirementnachweise, eigene Prüfungen, unabhängig validierte Umsetzungstests und offene Findings. Eine nicht wiederholte eigene Windows-Vollsuite ist keine Pflichtlücke, wenn der gültige Umsetzungsnachweis vorliegt. Findings: ID, Wirkung/Schwere, Repro mit expected/actual, Requirement, Owner und verlangter Nachweis.
 
 ROOT_PASS ausschließlich bei erfüllten Pflichtkriterien; sonst CHANGES_REQUIRED oder konkrete fehlende Voraussetzung. PASS/FAIL/NOT_RUN/NOT_PROVEN/SKIPPED_EXPECTED unterscheiden. Matrix/Requirements und Paketindex ausschließlich mit tatsächlichen Abnahmebelegen/Status ergänzen, keine Kriterien ändern.
 

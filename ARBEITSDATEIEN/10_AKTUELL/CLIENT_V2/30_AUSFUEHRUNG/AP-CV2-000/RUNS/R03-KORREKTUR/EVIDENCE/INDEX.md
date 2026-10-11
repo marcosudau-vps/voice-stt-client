@@ -1,0 +1,31 @@
+# R03-KORREKTUR – Evidenzindex
+
+Windows, ausschließlich Projektvenv Python 3.12.10; Qt offscreen. Produktänderung gegenüber R02-Spitze `2dc251df959f97e2a0bb37b10a1a77486ae6eb5a`: nur voice_stt_client/ui/application.py plus gezielte Tests; aktive Unterlagen und kompletter Belegsatz im kumulativen PR #2. Parent050e776 unverändert. [Runreport](../01_REPORT.md), [Original](../00_PROMPT_ORIGINAL.md), [vorbereiteter Belegsatz](../../../../../PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/README.md).
+
+Alle Python-Aufrufe unten mit `.\venv\Scripts\python.exe` aus dem Repository, sofern Temp-CWD ausdrücklich genannt. Alte R01/R02-Belege unverändert; keine eigene unabhängige Abnahme.
+
+| Beleg | Erzeugender Befehl/Fall und Ergebnis |
+| --- | --- |
+| [start-state.json](start-state.json) | Git HEAD, aktive Statusquellen und SHA256 aller R01/R02-Dateien vor Änderungen; Ausgangsstatus CHANGES_REQUIRED, Manifest widersprüchlich REVIEW_READY, drei gebrochene R02-Links. |
+| [bundle-preparation.json](bundle-preparation.json) | Unveränderte BEREITSTELLUNG-/IMPORT_MANIFEST-Daten vor R03-Metadatenpflege; Hashprovenienz des übernommenen lokalen Belegsatzes. |
+| [baseline.txt](baseline.txt) | `-m unittest tests.test_ui_application tests.test_cv2_000_integration tests.test_config tests.test_hotkeys -v`: 73 PASS vor erster Produktänderung. |
+| [repro-before.txt](repro-before.txt) | `-m unittest tests.test_startup_hotkey_persistence -v` vor Fix: 4 FAIL / 1 PASS; echter isolierter Profil/Corestart-Repro, keine historische fehlerhafte Fixture. |
+| [focused-after.txt](focused-after.txt) | `-m unittest tests.test_startup_hotkey_persistence tests.test_ui_application tests.test_cv2_000_integration -v`: 33 PASS. |
+| [targeted-final.txt](targeted-final.txt) | `-m unittest tests.test_startup_hotkey_persistence tests.test_v2_work_records -v`: 12 PASS nach zusätzlicher Prüfung tatsächlich aktiver Backendregistrierungen/keiner Registrierungsversuche bei disabled/Wake-only. |
+| [tests-unittest.txt](tests-unittest.txt), [tests-pytest.txt](tests-pytest.txt) | `-m unittest discover -s tests -v`: 1233 PASS / 110.043s; `-m pytest -q`: 1233 PASS / 104.09s, keine Skips. |
+| [tests-unittest-final.txt](tests-unittest-final.txt) | Nach finaler Testassertion-Präzisierung gesamte unveränderte Clientsuite erneut `-m unittest discover -s tests -v`; finales Ergebnis im vollständigen Log. |
+| [records-before.txt](records-before.txt) | Neuer gemeinsamer Prüfer vor Linkkorrektur: drei tatsächliche gebrochene R02-Verweise FAIL. |
+| [records-baseline-replay.json](records-baseline-replay.json) | `git archive 2dc251df959f97e2a0bb37b10a1a77486ae6eb5a`, isoliertes vollständiges Entpacken, neuer Prüfer `--block <archiviertes CLIENT_V2>`: genau 4 Fehler (Manifeststatus + 3 Links). Kein fremder Checkout verändert. |
+| [records-final.json](records-final.json) | Gemeinsamer `PLANUNG/SKILLS/GEMEINSAM/scripts/pruefe_arbeitsakten.py --paths <vier geänderte Workflowreferenzen/Checklisten> --pr-summary <aktueller PR-Body>`: aktuelle Akten/Dateien/relative Links/Status und PR-Kurzfassung geprüft; Ergebnis im Log. |
+| [final-checks.txt](final-checks.txt) | `-m compileall -q voice_stt_client scripts tests ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/scripts`; `git diff --check`; SHA256-R01/R02-Vergleich mit start-state; neue/geänderte relative Markdownlinks aus Quelldokument aufgelöst. |
+| [packaging-build.txt](packaging-build.txt), [packaging-check.txt](packaging-check.txt) | `-m build --sdist --wheel --outdir dist/r03`; `-m twine check dist/r03/voice_stt_client-1.0.0-py3-none-any.whl dist/r03/voice_stt_client-1.0.0.tar.gz`: PASS. |
+| [wheel-install.txt](wheel-install.txt), [sdist-install.txt](sdist-install.txt) | `-m pip install --no-deps --target <getrenntes Tempziel> <Artefakt>`: beide PASS, sdist neu backendgebaut. |
+| [wheel-smoke.txt](wheel-smoke.txt), [sdist-smoke.txt](sdist-smoke.txt) | Unverändertes [R01-installed_smoke.py](../../R01-UMSETZUNG/EVIDENCE/installed_smoke.py) kopiert nach Temp; CWD Temp und PYTHONPATH nur Installationsziel: Namespace, Config, 8 WAVs, Attribution, Version, Entrypoint und GUIimport PASS. |
+| [installation-identity.json](installation-identity.json) | Getrennte Installationsziele/Pythonidentität; LF-normalisierter Hash der installierten korrigierten application.py jeweils gleich getesteter Source. |
+| [frozen-build.txt](frozen-build.txt), [artifact-hashes.json](artifact-hashes.json) | `scripts/build.py --dist-dir dist-r03-cv2-000`: Windows-EXE neu gebaut, Versions-/Qt-GUIruntime-Smokes PASS. Hashes von EXE/wheel/sdist; Binaries bleiben ignored lokal. |
+| [bundle-check.txt](bundle-check.txt) | `PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/pruefe_bereitstellung.py`: vollständiger manifestierter Satz, alle Archivteil-/6355 Inhaltsdateihashes und relative Übergabelinks PASS. Prüfer behauptet selbst keine Online-Bereitstellung oder Produktabnahme. |
+| [verifiziere_remote.py](verifiziere_remote.py) | Nach Push: `--commit <tatsächlicher voller Remote-SHA> --output <Belegdatei>`; echte rohe GitHub-Dateien, alle 22 Bundle-Dateien + sämtliche Paketakten + geänderte erforderliche Pfade. Texte LF-normalisiert SHA256, drei Archivteile bytegenau. Erster Log wird mit Metadaten in demselben Korrekturkandidaten gesichert; finaler erneuter Check im PR-Übergabekommentar belegt. Kein Abruf der früheren externen Ablage. |
+
+Endgültige SHA/Tree und tatsächlich abgeschlossene CI/Head-/Base-Testmerge in PR-Checks und Übergabekommentar, aus realem Gitstand ermittelt. Keine fiktive Selbst-SHA oder vorhergesagte CI. Physischer Hotkey/Core/ASR/USB/Clipboard-End-to-End-Test nicht behauptet; F01 verwendet tatsächliche Profilpersistenz mit kontrollierten Backend-/Core-Fakes. Folgereviewer muss vollständige eigene geeignete Windows-Regressionsnachweise und F01-Recheck sichern.
+
+[remote-first-publication.json](remote-first-publication.json): tatsächlicher vollständiger Remoteabruf am qualifizierten Commit210c2ae, 117 Pfade PASS, davon 22 Belegdateien und drei bytegleiche Archivteile. Erneuter finaler Abruf einschließlich dieses Nachweises und der geänderten Metadaten im PR-Übergabekommentar. Remoteprüfer liest Gitinhalt der angeforderten SHA; ignorierte Caches gehören nicht zu bereitgestellten Arbeitsakten.

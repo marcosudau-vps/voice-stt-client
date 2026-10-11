@@ -46,6 +46,8 @@ Jedes Matrixrequirement bekommt eine konkrete Testmethode oder einen konkreten m
 
 ## 3. Vollständige Regression und Build
 
+Der Umsetzungs-/Korrekturlauf führt die Windows-Vollsuite aus und stellt vollständigen Log, Runtime, Befehl, Ergebnis und getestete Kandidatenidentität im Paket-PR bereit. Der unabhängige ChatGPT-Reviewer prüft diesen Nachweis gemäß [Nachweisregeln](WINDOWS_UND_HARDWARENACHWEISE.md); eine zweite Windows-Vollsuite durch den Reviewer ist keine Abnahmevoraussetzung. Bei konkreten Fehlerverdachten, testrelevanten Änderungen oder unzureichenden Belegen verlangt er gezielte Ergänzung bzw. erneute Qualifikation. Die zugeordneten echten Hardware-/Serverfälle bleiben unverändert Pflicht.
+
 Aus Clientrepo, Projektvenv (Python 3.12):
 
 ```powershell

@@ -23,3 +23,24 @@ Sechs Funde geprüft: konkrete Recovery-/Serverrouting-/Auswahlregeln ergänzt, 
 ## PLAN-CLIENT-V2-011 – 2026-10-11 – Revision 10 zur Veröffentlichung freigegeben
 
 Auf Originalprompt „Go: Revision 10 als einen Dokumentkorrekturcommit auf `feat/client-v2` übernehmen und pushen.“ die vollständige Revision 10 und aktuelle Status-/Agenteneinstiege für genau einen zusätzlichen Dokumentcommit finalisiert. Erhaltener Parent bfade9d, Vorbereitung auf work/client-v2/planung-rev10, Übernahme nur fast-forward und normaler Push mit tatsächlicher Git-/Remoteprüfung. Benannte einmalige Dokumentausnahme vor AP-CV2-000; danach unverändert ein Aggregat je angenommenem AP. Kein Produktcode, keine AP-Abnahme und keine zukünftige Umsetzungsfreigabe. Originalauftrag und abschließende Dokumentprüfung liegen unter PLANUNG/EVIDENCE im aktiven Client-V2-Block. Endgültige Commit-/Transportidentität wird nach Ausführung außerhalb des Commitinhalts gesichert.
+
+## AP-CV2-000 / R01 – 2026-10-11
+
+Integrierter Paketkandidat REVIEW_READY. Maßgeblicher Meilenstein AP-CV2-000-R01 im [Steuerungslog](../../00_STEUERUNG/LOG_VERLAUF.md); Belege in der [Runakte](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md). Nächste Aktion unabhängige Abnahme; keine kanonische Übernahme.
+
+## AP-CV2-000 / R02 – 2026-10-11
+
+Unabhängige statische Paketprüfung von `8b1c4c157b6b431dac6af69e2e264d0c37579bef` mit CI-Provenienz: **CHANGES_REQUIRED**, Finding `CV2-R02-F01` (Hotkey-Fallback persistiert schon vor bestätigtem Corestart), eigene vollständige Windows-Regression `NOT_RUN`. [Versionierter Reviewreport](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md). Kein Produktfix, kein Merge, kein Folgepaketstart. Meilenstein AP-CV2-000-R02 im Steuerungslog.
+
+
+## R03-KORREKTUR – 2026-10-11
+
+Einreichung REVIEW_READY; [Korrekturreport](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md). Meilenstein AP-CV2-000-R03 im Steuerungslog. Unabhängiger Vollreview offen, keine Übernahme.
+
+## AP-CV2-000 / R04 – 2026-10-11
+
+Unabhängige fachliche Folgesichtung von `cd872d4bfa8eccd0167337cbab16a572ca70bfd4`: F01 anhand Codekontrollfluss und neuer Regressionstests geschlossen; externe Windows-CI 1233 PASS für kandidatenidentischen Tree überprüft. **BLOCKED** nur wegen eigenem unabhängigem Windows-Gesamttest NOT_RUN (`R04-T01`); kein weiterer Produktfinding. Arbeits-/Workflowkorrekturen ausdrücklich von Bewertung ausgenommen. [R04-Report](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/01_REPORT.md). Keine Produktänderung, kein ROOT_PASS oder Merge.
+
+## 2026-10-11 – R05 Windows-Nachweis und Nutzerfreigabe
+
+R04-T01 durch tatsächliche unabhängige Windows-Ausführung geschlossen (1233 PASS plus5 Startup-PASS); ROOT_PASS aus R04-Produktreview und R05-Ausführung. Auf ausdrücklichen Nutzerauftrag Testverantwortung vereinfacht, Rollenregelversion7. Nutzerfreigabe für Beleg-/Regelpush und anschließenden Einzel-Squash nach grüner finaler CI gesichert. Kein vorweggenommener Merge. [Report](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md).

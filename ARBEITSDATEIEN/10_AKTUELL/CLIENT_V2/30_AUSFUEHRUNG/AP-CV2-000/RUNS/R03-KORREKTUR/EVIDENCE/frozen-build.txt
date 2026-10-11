@@ -1,0 +1,125 @@
+273 INFO: PyInstaller: 6.21.0, contrib hooks: 2026.6
+273 INFO: Python: 3.12.10
+321 INFO: Platform: Windows-10.0.26300
+321 INFO: Python environment: P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\venv
+324 INFO: Removing temporary files and cleaning cache in C:\Users\marco\AppData\Local\pyinstaller
+465 INFO: Module search paths (PYTHONPATH):
+['',
+ 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\scripts\\pyinstaller_site',
+ 'C:\\Users\\marco\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip',
+ 'C:\\Users\\marco\\AppData\\Local\\Programs\\Python\\Python312\\DLLs',
+ 'C:\\Users\\marco\\AppData\\Local\\Programs\\Python\\Python312\\Lib',
+ 'C:\\Users\\marco\\AppData\\Local\\Programs\\Python\\Python312',
+ 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv',
+ 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages',
+ 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2']
+1284 INFO: Appending 'binaries' from .spec
+1284 INFO: Appending 'datas' from .spec
+1285 INFO: checking Analysis
+1286 INFO: Building Analysis because Analysis-00.toc is non existent
+1286 INFO: Looking for Python shared library...
+1286 INFO: Using Python shared library: C:\Users\marco\AppData\Local\Programs\Python\Python312\python312.dll
+1286 INFO: Running Analysis Analysis-00.toc
+1286 INFO: Target bytecode optimization level: 0
+1286 INFO: Initializing module dependency graph...
+1293 INFO: Initializing module graph hook caches...
+1312 INFO: Analyzing modules for base_library.zip ...
+3733 INFO: Processing standard module hook 'hook-encodings.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+5131 INFO: Processing standard module hook 'hook-math.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+7270 INFO: Processing standard module hook 'hook-pickle.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+8751 INFO: Processing standard module hook 'hook-heapq.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+9878 INFO: Caching module dependency graph...
+9976 INFO: Analyzing P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\app.py
+10256 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+10549 INFO: Processing standard module hook 'hook-xml.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+11012 INFO: Processing standard module hook 'hook-_ctypes.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+12298 INFO: Processing standard module hook 'hook-platform.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+12403 INFO: Processing standard module hook 'hook-sqlite3.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+13159 INFO: Processing standard module hook 'hook-websockets.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+14594 INFO: Processing standard module hook 'hook-numpy.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+15032 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+15035 INFO: SetuptoolsInfo: initializing cached setuptools info...
+16759 INFO: Processing standard module hook 'hook-sysconfig.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+16996 INFO: Processing standard module hook 'hook-webbrowser.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+18978 INFO: Processing standard module hook 'hook-difflib.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+20496 INFO: Processing standard module hook 'hook-charset_normalizer.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+21219 INFO: Processing standard module hook 'hook-sounddevice.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+22002 INFO: Processing standard module hook 'hook-PySide6.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+22960 INFO: Processing standard module hook 'hook-shiboken6.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+23422 INFO: Processing standard module hook 'hook-PySide6.QtNetwork.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+27974 INFO: Processing standard module hook 'hook-PySide6.QtCore.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+32723 INFO: Processing standard module hook 'hook-PySide6.QtWidgets.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+37991 INFO: Processing standard module hook 'hook-PySide6.QtGui.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+72716 INFO: Processing standard module hook 'hook-usb.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\stdhooks'
+72746 WARNING: No backend available
+72875 INFO: Processing standard module hook 'hook-libusb_package.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\libusb_package\\__pyinstaller'
+72879 INFO: Processing pre-safe-import-module hook 'hook-importlib_resources.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+72881 INFO: Processing standard module hook 'hook-importlib_resources.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+72917 INFO: Processing pre-safe-import-module hook 'hook-zipp.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+72917 INFO: Setuptools: 'zipp' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.zipp'!
+72928 INFO: Processing standard module hook 'hook-setuptools.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+72946 INFO: Processing pre-safe-import-module hook 'hook-distutils.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+72977 INFO: Processing pre-safe-import-module hook 'hook-jaraco.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+72978 INFO: Setuptools: 'jaraco' appears to be a partial setuptools-vendored copy - extending search paths to ['P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\jaraco', 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\setuptools\\_vendor\\jaraco']!
+72979 INFO: Processing pre-safe-import-module hook 'hook-jaraco.functools.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+72993 INFO: Processing pre-safe-import-module hook 'hook-more_itertools.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+73166 INFO: Processing standard module hook 'hook-_osx_support.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+73181 INFO: Processing pre-safe-import-module hook 'hook-packaging.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+73664 INFO: Processing pre-safe-import-module hook 'hook-jaraco.text.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+73665 INFO: Setuptools: 'jaraco.text' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.jaraco.text'!
+73679 INFO: Processing standard module hook 'hook-setuptools._vendor.jaraco.text.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+73682 INFO: Processing pre-safe-import-module hook 'hook-jaraco.context.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+73692 INFO: Processing pre-safe-import-module hook 'hook-backports.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+73692 INFO: Setuptools: 'backports' appears to be a full setuptools-vendored copy - creating alias to 'setuptools._vendor.backports'!
+74292 INFO: Processing pre-safe-import-module hook 'hook-tomli.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+74293 INFO: Setuptools: 'tomli' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.tomli'!
+74891 INFO: Processing pre-safe-import-module hook 'hook-wheel.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_safe_import_module'
+74892 INFO: Setuptools: 'wheel' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.wheel'!
+75114 INFO: Processing standard module hook 'hook-PySide6.QtMultimedia.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+78025 INFO: Analyzing hidden import 'lefx.sets.core_set'
+78033 INFO: Analyzing hidden import 'lefx.sets.smartspeaker_set'
+78035 INFO: Analyzing hidden import 'colorsys'
+78041 INFO: Processing module hooks (post-graph stage)...
+78338 WARNING: Hidden import "importlib_resources.trees" not found!
+78348 INFO: Processing standard module hook 'hook-PySide6.QtMultimediaWidgets.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+79457 INFO: Performing binary vs. data reclassification (173 entries)
+79613 INFO: Looking for ctypes DLLs
+79732 INFO: Analyzing run-time hooks ...
+79732 INFO: Including custom run-time hook 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\scripts\\pyinstaller_runtime_platform.py'
+79742 INFO: Including run-time hook 'pyi_rth_usb.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\_pyinstaller_hooks_contrib\\rthooks'
+79749 INFO: Including run-time hook 'pyi_rth_setuptools.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+79751 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+79756 INFO: Including run-time hook 'pyi_rth_pyside6.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+79760 INFO: Processing pre-find-module-path hook 'hook-_pyi_rth_utils.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\pre_find_module_path'
+79763 INFO: Processing standard module hook 'hook-_pyi_rth_utils.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks'
+79770 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+79774 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+79815 INFO: Creating base_library.zip...
+79848 INFO: Looking for dynamic libraries
+81580 INFO: Extra DLL search directories (AddDllDirectory): ['P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\main\\venv\\Lib\\site-packages\\shiboken6', 'P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Lib\\site-packages\\numpy.libs']
+81580 INFO: Extra DLL search directories (PATH): []
+84307 INFO: Warnings written to P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\build\voice-stt-client\warn-voice-stt-client.txt
+84445 INFO: Graph cross-reference written to P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\build\voice-stt-client\xref-voice-stt-client.html
+84515 INFO: checking PYZ
+84515 INFO: Building PYZ because PYZ-00.toc is non existent
+84515 INFO: Building PYZ (ZlibArchive) P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\build\voice-stt-client\PYZ-00.pyz
+85364 INFO: Building PYZ (ZlibArchive) P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\build\voice-stt-client\PYZ-00.pyz completed successfully.
+85411 INFO: checking PKG
+85411 INFO: Building PKG because PKG-00.toc is non existent
+85411 INFO: Building PKG (CArchive) voice-stt-client.pkg
+107813 INFO: Building PKG (CArchive) voice-stt-client.pkg completed successfully.
+107819 INFO: Bootloader P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\venv\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
+107819 INFO: checking EXE
+107820 INFO: Building EXE because EXE-00.toc is non existent
+107820 INFO: Building EXE from EXE-00.toc
+107820 INFO: Copying bootloader EXE to P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\dist-r03-cv2-000\voice-stt-client.exe
+107825 INFO: Copying icon to EXE
+107829 INFO: Copying version information to EXE
+107835 INFO: Copying 0 resources to EXE
+107835 INFO: Embedding manifest in EXE
+107837 INFO: Appending PKG archive to EXE
+107902 INFO: Fixing EXE headers
+108337 INFO: Building EXE from EXE-00.toc completed successfully.
+108347 INFO: Build complete! The results are available in: P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\dist-r03-cv2-000
+Built dist-r03-cv2-000\voice-stt-client.exe (75423632 bytes)
+Version 1.0.0; SHA-256 6cdf75b2df2f66341034acee582c3b0b197611f43ebda64bfc48a6d051eca5fd

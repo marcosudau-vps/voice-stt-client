@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+from pathlib import Path
 import unittest
 from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
@@ -12,10 +13,10 @@ os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 from PySide6.QtCore import QObject, Signal
 from PySide6.QtWidgets import QApplication
 
-from app import build_argument_parser
-from core.config import AppConfig, LedConfig
-from core.controller import CommandResult
-from core.event_models import (
+from voice_stt_client.app import build_argument_parser
+from voice_stt_client.core.config import AppConfig, LedConfig
+from voice_stt_client.core.controller import CommandResult
+from voice_stt_client.core.event_models import (
     CanonicalEventType,
     EventOrigin,
     FeedbackImpulse,
@@ -23,7 +24,7 @@ from core.event_models import (
     FeedbackState,
     NormalizedFeedbackEvent,
 )
-from core.feedback_mapping import (
+from voice_stt_client.core.feedback_mapping import (
     AppActionId,
     AppEffect,
     FeedbackRule,
@@ -32,16 +33,16 @@ from core.feedback_mapping import (
     SoundCueId,
     SoundEffect,
 )
-from core.feedback_reducer import FeedbackDecision
-from ui.application import (
+from voice_stt_client.core.feedback_reducer import FeedbackDecision
+from voice_stt_client.ui.application import (
     DesktopApplication,
     EXIT_ALREADY_RUNNING,
     EXIT_TRAY_UNAVAILABLE,
     EXIT_UI_INITIALIZATION_FAILED,
     run_gui,
 )
-from ui.hotkeys import HOTKEY_ID_REINSERT_LAST, HOTKEY_ID_TOGGLE
-from ui.single_instance import (
+from voice_stt_client.ui.hotkeys import HOTKEY_ID_REINSERT_LAST, HOTKEY_ID_TOGGLE
+from voice_stt_client.ui.single_instance import (
     InstanceAcquireResult,
     InstanceAcquireStatus,
 )
@@ -239,7 +240,7 @@ class TestDesktopApplication(unittest.TestCase):
             1,
         )
 
-    def test_hotkey_conflict_keeps_tray_core_operational(self):
+    def test_hotkey_conflict_without_fallback_aborts_before_core_start(self):
         bridge = FakeBridge()
         desktop = self.make_desktop(
             bridge=bridge,
@@ -247,10 +248,35 @@ class TestDesktopApplication(unittest.TestCase):
         )
         self.addCleanup(desktop.shutdown)
 
-        self.assertTrue(desktop.start())
+        with patch("voice_stt_client.ui.application.fallback_hotkeys", return_value=["Ctrl+Alt+Shift+F12"]), patch(
+            "voice_stt_client.ui.application.QMessageBox.critical"
+        ):
+            self.assertFalse(desktop.start())
+        self.assertNotIn("start", bridge.calls)
+        self.assertFalse(desktop.tray.tray.isVisible())
+
+    def test_startup_replaces_conflicting_key_only_after_real_registration(self):
+        class SpaceConflictBackend(FakeHotkeyBackend):
+            def register(self, hwnd, hotkey_id, modifiers, virtual_key):
+                if hotkey_id == HOTKEY_ID_REINSERT_LAST and virtual_key == 0x20:
+                    raise OSError(1409, "occupied")
+                super().register(hwnd, hotkey_id, modifiers, virtual_key)
+
+        config = AppConfig()
+        config.led = LedConfig(enabled=False)
+        bridge = FakeBridge()
+        desktop = self.make_desktop(
+            config=config, bridge=bridge, hotkey_backend=SpaceConflictBackend()
+        )
+        self.addCleanup(desktop.shutdown)
+        with patch("voice_stt_client.ui.application.fallback_hotkeys", return_value=["Ctrl+Alt+Shift+F12"]), patch.object(
+            config, "save_user"
+        ) as saved:
+            self.assertTrue(desktop.start())
+        self.assertEqual(config.hotkey.reinsert_last_key, "Ctrl+Alt+Shift+F12")
+        self.assertTrue(desktop.hotkeys.is_registered)
+        saved.assert_called_once()
         self.assertIn("start", bridge.calls)
-        self.assertTrue(desktop.overlay.isVisible())
-        self.assertIn("Hotkeys", desktop.overlay.label.text())
 
     def test_text_signal_adapts_segment_text_and_final_for_overlay(self):
         bridge = FakeBridge()
@@ -420,6 +446,10 @@ class TestDesktopApplication(unittest.TestCase):
         parser = build_argument_parser()
         self.assertFalse(parser.parse_args([]).headless)
         self.assertTrue(parser.parse_args(["--headless"]).headless)
+        self.assertEqual(
+            parser.parse_args(["--config", "custom.yaml"]).config,
+            Path("custom.yaml"),
+        )
 
     def test_second_instance_exits_before_ui_start(self):
         guard = FakeGuard(InstanceAcquireStatus.ALREADY_RUNNING)
@@ -430,7 +460,7 @@ class TestDesktopApplication(unittest.TestCase):
     def test_missing_system_tray_is_controlled_and_releases_mutex(self):
         guard = FakeGuard()
         with patch(
-            "ui.application.QSystemTrayIcon.isSystemTrayAvailable",
+            "voice_stt_client.ui.application.QSystemTrayIcon.isSystemTrayAvailable",
             return_value=False,
         ):
             result = run_gui(AppConfig(), [], instance_guard=guard)
@@ -441,11 +471,11 @@ class TestDesktopApplication(unittest.TestCase):
         guard = FakeGuard()
         with (
             patch(
-                "ui.application.QSystemTrayIcon.isSystemTrayAvailable",
+                "voice_stt_client.ui.application.QSystemTrayIcon.isSystemTrayAvailable",
                 return_value=True,
             ),
             patch(
-                "ui.application.DesktopApplication",
+                "voice_stt_client.ui.application.DesktopApplication",
                 side_effect=RuntimeError("simulated UI construction failure"),
             ),
         ):

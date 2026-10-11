@@ -5,9 +5,10 @@ import tempfile
 import time
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
-from core.config import HistoryConfig, HistoryMemoryConfig, HistoryPersistentConfig, AppConfig
-from core.history import TranscriptHistoryManager, HistoryEntry, InjectionAttempt, InjectionStatus
+from voice_stt_client.core.config import HistoryConfig, HistoryMemoryConfig, HistoryPersistentConfig, AppConfig
+from voice_stt_client.core.history import TranscriptHistoryManager, HistoryEntry, InjectionAttempt, InjectionStatus
 
 
 class TestTranscriptHistoryManager(unittest.TestCase):
@@ -15,6 +16,16 @@ class TestTranscriptHistoryManager(unittest.TestCase):
         # Create a temp directory for DB testing
         self.temp_dir = tempfile.mkdtemp()
         self.db_path = os.path.join(self.temp_dir, "test_history.db")
+        self._home_patch = patch(
+            "voice_stt_client.core.history.Path.home",
+            return_value=Path(self.temp_dir) / "home",
+        )
+        self._home_patch.start()
+        self.addCleanup(self._home_patch.stop)
+        self._client_home_patch = patch.dict(os.environ)
+        self._client_home_patch.start()
+        self.addCleanup(self._client_home_patch.stop)
+        os.environ.pop("VOICESTT_CLIENT_HOME", None)
         # Mock LOCALAPPDATA to prevent writing to user's real app data
         self.original_localappdata = os.environ.get("LOCALAPPDATA")
         os.environ["LOCALAPPDATA"] = os.path.join(self.temp_dir, "mock_localappdata")
@@ -708,7 +719,7 @@ class TestTranscriptHistoryManager(unittest.TestCase):
             persistent=HistoryPersistentConfig(enabled=True, db_path=None)
         )
         manager_p3 = TranscriptHistoryManager(config_p3)
-        expected_default = Path(mock_localappdata) / "RealtimeSTT_Client" / "transcript_history.db"
+        expected_default = Path.home() / ".voice-stt" / "client" / "data" / "transcript_history.db"
         self.assertEqual(manager_p3.db_path.resolve(), expected_default.resolve())
 
 

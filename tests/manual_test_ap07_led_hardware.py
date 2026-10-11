@@ -18,9 +18,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from core.config import AppConfig, LedConfig  # noqa: E402
-from core.feedback_mapping import LedCall, LedVerb  # noqa: E402
-from ui.led_feedback import LedFeedback  # noqa: E402
+from voice_stt_client.core.config import AppConfig, LedConfig  # noqa: E402
+from voice_stt_client.core.feedback_mapping import LedCall, LedVerb  # noqa: E402
+from voice_stt_client.ui.led_feedback import LedFeedback  # noqa: E402
 
 HOLD_S = 1.6
 

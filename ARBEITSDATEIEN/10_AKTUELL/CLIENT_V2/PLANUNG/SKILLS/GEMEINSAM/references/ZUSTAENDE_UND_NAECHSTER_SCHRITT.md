@@ -14,6 +14,10 @@ Danach kanonischen Gitverlauf und Paketfolge im [Manifest](../../../EVIDENCE/pac
 
 Bei nicht freigegebenem writeOwner hat dessen aktive Schreibhoheit Vorrang, auch beim Review. Vor Rollenbeginn den Schreibanspruch in der erreichbaren Akte und beim Remoteablauf im freigegebenen Übergabekanal bekanntmachen; aktuelle Schreibansprüche in PR-Übergabekommentaren berücksichtigen, ohne daraus PASS oder Mergefreigaben abzuleiten. Eine nur lokal uncommittierte Statusdatei ist für entfernte Agenten keine sichtbare Koordination. Ist die Schreibhoheit nicht eindeutig geklärt, keinen parallelen Run starten. Abbruch/Übergabe, Auswahlwechsel und Serverfix-Rückkehr gemäß [Sonderfallreferenz](SONDERFAELLE_UND_WIEDERAUFNAHME.md) behandeln; fehlende menschliche Übergabe nicht durch Altersannahmen ersetzen. Eine verlinkte blockierende Server-FIX-Linie vor neuem Client-AP verfolgen.
 
+## Abgleich vor der Rollenwahl
+
+Aktuelle Remote-/PR-Spitze mit lokalem HEAD und getrackter/ungetrackter Vorarbeit abgleichen; Abweichungen erhalten und zuordnen, Reviewspitze vor Korrektur sicher übernehmen. Die ausgewählte Paketlinie ist die aktuelle Quelle. Ihre aktiven Angaben in WORKFLOW_STATUS.json, package-manifest.json, Paketkopf und Paketindex müssen übereinstimmen; abgeschlossene Runreports behalten ihre damaligen Zustände. Bei Widersprüchen Herkunft und Quelle klären und aktive Angaben berichtigen. Keinen PASS, Übernahmeschritt oder Paketstart aus einer veralteten Kopie ableiten. Gitprovenienz, unabhängiger PASS und menschliche Freigabe bleiben erforderlich.
+
 ## Zustände und eindeutige Aktionen
 
 Paketstatus und workflowPhase sind getrennt: ROOT_PASS ist das technische Urteil, WAITING_FOR_APPROVAL die nächste Workflowentscheidung. Die vorhandenen Paketstatusnamen bleiben erhalten.

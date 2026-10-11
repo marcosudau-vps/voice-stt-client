@@ -1,0 +1,119 @@
+{
+  "baseRefName": "feat/client-v2",
+  "baseRefOid": "050e776cf316eb332177294db0c0a2719c2b4415",
+  "comments": [
+    {
+      "id": "IC_kwDOTy--dM8AAAABbCyreQ",
+      "author": {
+        "login": "marcosudau-vps"
+      },
+      "authorAssociation": "OWNER",
+      "body": "AP-CV2-000 ist REVIEW_READY und für die frische unabhängige Abnahme übergeben. Umsetzer-Schreibrecht pausiert; Workingtree sauber. Kein unabhängiger PASS und keine menschliche Übernahmefreigabe.\n\n- Eingereichter Head: 8b1c4c157b6b431dac6af69e2e264d0c37579bef\n- Tree: cc099b87c450b91ad4eefddf11a3715ddf4ccf3e\n- Kanonischer Paketparent/Base feat/client-v2: 050e776cf316eb332177294db0c0a2719c2b4415, lokal und veröffentlicht unverändert.\n- Serverbaseline: ada13b011e1d3829f78e7f389e3b927795a2b3be, unverändert.\n\n[CI 38145266161](https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38145266161) SUCCESS auf genau diesem Head. Checkoutlog und Gitobjekt belegen den geprüften Head/Base-Testmerge 36bb647053f35ba28510f2268cf37b1e19c6b039 mit den beiden obigen Parent-SHAs; Testmerge-Tree gleich eingereichtem Tree. Vollständige Suite: 1221 Tests / 81.773s, compileall, EXE-Versions-/Qt-Smoke, Wheel/sdist/Twine und installierter Wheel-Smoke PASS. CI-EXE SHA256 fca6cc1873f79509888d05df075647171d6d3a401da8bb6841ba5c5f2917268f. Hochgeladenes zeitlich begrenztes CI-Kandidatenartefakt 11704169503, ZIP-Digest sha256:40c196f44845c984f39d5acd2a24654eeb1684db67ef48abac85d34512f053d1.\n\nLokal nach der CI-Pfadtestpräzisierung: pytest1221/95.76s und unittest1221/95.801s PASS. Produktcode und Buildskripte gegenüber dem qualifizierten Produktcommit e0cfd85445c87302dc3dc24dbab6b0dd9cda5b00 unverändert. Beide lokalen installierten Distributionen samt acht WAVs und Qt-Importsmoke belegt. Die anfängliche CI-Kurz-/Langpfad-Teststörung ist mit Originalfehler und samefile-Nachfolger in R01 dokumentiert, kein Skip. Der allgemeine alte Blockvalidator wird begründet als nicht V2-anwendbar eingeordnet; V2-Aktenprüfung grün.\n\n[Paketakte](https://github.com/marcosudau-vps/voice-stt-client/blob/8b1c4c157b6b431dac6af69e2e264d0c37579bef/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md), [Report](https://github.com/marcosudau-vps/voice-stt-client/blob/8b1c4c157b6b431dac6af69e2e264d0c37579bef/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](https://github.com/marcosudau-vps/voice-stt-client/blob/8b1c4c157b6b431dac6af69e2e264d0c37579bef/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [Originalfreigabe](https://github.com/marcosudau-vps/voice-stt-client/blob/8b1c4c157b6b431dac6af69e2e264d0c37579bef/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md).\n\nNächste Aktion: unabhängiger Reviewer in frischer Session prüft genau diesen Head und den vollständigen Diff vom kanonischen Parent gemäß Abnahmeskill. Bestehender Transport bleibt V1; kein V2-Socket-/Live-ASR-/Hardware-PASS. Erst unabhängiger PASS, ausdrücklicher menschlicher Übernahmeprompt und tatsächlicher Einzelaggregatcommit erlauben CV2-010. Kein Auto-Merge oder Folgepaketstart.\r\n",
+      "createdAt": "2026-10-11T14:03:39Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/2#issuecomment-6109834105",
+      "viewerDidAuthor": true
+    },
+    {
+      "id": "IC_kwDOTy--dM8AAAABbC9xVw",
+      "author": {
+        "login": "marcosudau-vps"
+      },
+      "authorAssociation": "OWNER",
+      "body": "## Unabhängige Abnahme AP-CV2-000 / R02 – CHANGES_REQUIRED\n\n**Geprüfter Produktkandidat:** `8b1c4c157b6b431dac6af69e2e264d0c37579bef` (Tree `cc099b87c450b91ad4eefddf11a3715ddf4ccf3e`). **Parent:** `050e776cf316eb332177294db0c0a2719c2b4415`.\n\n**Finding CV2-R02-F01 (BASE-05/BASE-08):** Wenn beim Start ein belegter globaler Hotkey automatisch ersetzt wird, schreibt `_register_startup_hotkeys()` die Änderung sofort mittels `save_user()` ins Benutzerprofil. `bridge.start()` kommt erst danach. Schlägt der Corestart fehl, wurde das Profil trotzdem dauerhaft geändert. Erwartet wird kein Persistieren ohne erfolgreichen Start (oder korrektes Zurückrollen). Fundstelle: `voice_stt_client/ui/application.py`. **Statisch nachgewiesen; dynamischer Negativrepro steht aus.**\n\n**Testgrenze:** Windows-CI [38145266161](https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38145266161) war für den geprüften Kandidaten erfolgreich (1221 Tests, Build/Install-Smokes). Eine eigene vollständige Windows-Regression im isolierten Reviewer-Worktree war hier **NOT_RUN**; deshalb ist **kein ROOT_PASS** möglich. Die CI des rein administrativen nachfolgenden Reviewcommits darf nicht mit der bereits bestandenen Kandidaten-CI verwechselt werden.\n\n**[Versionierter R02-Reviewbericht](https://github.com/marcosudau-vps/voice-stt-client/blob/2dc251df959f97e2a0bb37b10a1a77486ae6eb5a/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md)** · [Evidenzindex](https://github.com/marcosudau-vps/voice-stt-client/blob/2dc251df959f97e2a0bb37b10a1a77486ae6eb5a/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md)\n\nDer Reviewer-Docs-Commit `2dc251df959f97e2a0bb37b10a1a77486ae6eb5a` enthält keine Produkt-/Test-/Kontraktänderungen. **Nächste Aktion:** Umsetzer korrigiert CV2-R02-F01 im selben PR und liefert gezielten Startfehler-Regressionstest plus Gesamttestnachweise; anschließend frische unabhängige Windows-Abnahme. Kein Merge, keine Übernahmefreigabe, kein Folgepaket.",
+      "createdAt": "2026-10-11T14:24:13Z",
+      "includesCreatedEdit": false,
+      "isMinimized": false,
+      "minimizedReason": "",
+      "reactionGroups": [],
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/2#issuecomment-6110015831",
+      "viewerDidAuthor": true
+    }
+  ],
+  "commits": [
+    {
+      "authoredDate": "2026-10-11T13:46:23Z",
+      "authors": [
+        {
+          "email": "marcosudau@marcosudau.com",
+          "id": "U_kgDOETy5Ug",
+          "login": "marcosudau-vps",
+          "name": "marcosudau-vps"
+        }
+      ],
+      "committedDate": "2026-10-11T13:46:23Z",
+      "messageBody": "",
+      "messageHeadline": "AP-CV2-000: integrate feature baseline and V1 packaging namespace",
+      "oid": "e0cfd85445c87302dc3dc24dbab6b0dd9cda5b00"
+    },
+    {
+      "authoredDate": "2026-10-11T13:49:00Z",
+      "authors": [
+        {
+          "email": "marcosudau@marcosudau.com",
+          "id": "U_kgDOETy5Ug",
+          "login": "marcosudau-vps",
+          "name": "marcosudau-vps"
+        }
+      ],
+      "committedDate": "2026-10-11T13:49:00Z",
+      "messageBody": "",
+      "messageHeadline": "AP-CV2-000: record package PR and qualified implementation identity",
+      "oid": "b9c90f82c4fd9eb71e55b23456630fc6ff764f79"
+    },
+    {
+      "authoredDate": "2026-10-11T13:57:52Z",
+      "authors": [
+        {
+          "email": "marcosudau@marcosudau.com",
+          "id": "U_kgDOETy5Ug",
+          "login": "marcosudau-vps",
+          "name": "marcosudau-vps"
+        }
+      ],
+      "committedDate": "2026-10-11T13:57:52Z",
+      "messageBody": "",
+      "messageHeadline": "AP-CV2-000: qualify legacy history file identity on Windows CI",
+      "oid": "8b1c4c157b6b431dac6af69e2e264d0c37579bef"
+    },
+    {
+      "authoredDate": "2026-10-11T14:23:39Z",
+      "authors": [
+        {
+          "email": "marcosudau@marcosudau.com",
+          "id": "U_kgDOETy5Ug",
+          "login": "marcosudau-vps",
+          "name": "marcosudau-vps"
+        }
+      ],
+      "committedDate": "2026-10-11T14:23:39Z",
+      "messageBody": "",
+      "messageHeadline": "review(AP-CV2-000): R02 unabhängiger Befund und Status CHANGES_REQUIRED",
+      "oid": "2dc251df959f97e2a0bb37b10a1a77486ae6eb5a"
+    }
+  ],
+  "headRefName": "work/client-v2/ap-cv2-000",
+  "headRefOid": "2dc251df959f97e2a0bb37b10a1a77486ae6eb5a",
+  "mergeStateStatus": "CLEAN",
+  "number": 2,
+  "reviewDecision": "",
+  "reviews": [],
+  "state": "OPEN",
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-11T14:27:32Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38147000711/job/114492356409",
+      "name": "Test and build release candidates",
+      "startedAt": "2026-10-11T14:23:49Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    }
+  ],
+  "title": "AP-CV2-000: qualifizierte Feature-/Releasebasis im Paketnamespace",
+  "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/2"
+}

@@ -21,12 +21,12 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from core.config import (
+from voice_stt_client.core.config import (
     DEFAULT_LOCAL_APP_DIR,
     LoggingObservabilityConfig,
     is_inside_user_profile,
 )
-from core.observability.manager import DEFAULT_DB_PATH, ObservabilityManager
+from voice_stt_client.core.observability.manager import DEFAULT_DB_PATH, ObservabilityManager
 
 
 def _profile_root() -> Path:

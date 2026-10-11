@@ -9,6 +9,15 @@ Releases: <https://github.com/marcosudau-vps/voice-stt-client/releases>
 
 ## Aktueller Entwicklungsstand
 
+Aktiver Einstieg ist [Client V2](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md).
+AP-CV2-000 hat die Feature-/Releasebasis in `voice_stt_client` technisch qualifiziert (REVIEW_READY nach R03-Korrektur).
+Der Paketkandidat ist noch nicht unabhängig abgenommen oder auf `feat/client-v2`
+übernommen. Der bestehende Transport ist weiterhin V1; die Migration auf den
+gepinnten V2-Serververtrag erfolgt in den Folgepaketen. Aktuelle Startbefehle,
+Benutzerpfade und Grenzen: [Kompatibilität](docs/compatibility.md).
+
+Die folgende Bestandsbeschreibung ist historische Produktorientierung.
+
 Derzeit vorhanden:
 
 - headless Mikrofon-/WebSocket-Core,
@@ -77,13 +86,13 @@ Wenn `venv` im Checkout bereits vorhanden und eingerichtet ist, entfällt das er
 Regulärer GUI-Start:
 
 ```powershell
-.\venv\Scripts\python.exe app.py
+.\venv\Scripts\python.exe -m voice_stt_client
 ```
 
 Diagnosebetrieb mit Konsolenausgabe:
 
 ```powershell
-.\venv\Scripts\python.exe app.py --headless
+.\venv\Scripts\python.exe -m voice_stt_client --headless
 ```
 
 Die gebaute Windows-Anwendung benötigt keine lokale Python-Installation. Ein
@@ -94,17 +103,15 @@ reproduzierbarer Build entsteht mit:
 .\venv\Scripts\python.exe scripts\build.py --clean
 ```
 
-Das Ergebnis liegt unter `dist/voice-stt-client.exe`. Normale Pushes und Pull
+Das Ergebnis liegt unter `dist/voice-stt-client.exe`. Pushes auf main/feat/client-v2 und Pull
 Requests führen dieselbe Test- und Buildstrecke in GitHub Actions aus.
 
-Ein offizielles Release einschließlich automatischer Versionswahl, doppeltem
-Test-/Build-Gate und GitHub-Release-Artefakt wird mit folgendem Befehl erstellt:
-
-```powershell
-.\venv\Scripts\python.exe scripts\release.py
-```
-
-Details und Dry-Run stehen unter `docs/RELEASE.md`.
+Offizielle Veröffentlichungen erfolgen ausschließlich im separat freigegebenen
+Releaseworkflow aus geprüften Main-CI-Artefakten. Der frühere lokale
+Tag-first-Publishpfad ist deaktiviert. Dieser V2-Paketbranch wird nicht
+veröffentlicht; `VERSION` übernimmt den vorhandenen Wert 1.0.0, die konkrete
+Kandidatenidentität bestimmen Branch und Commit. Siehe
+[Kompatibilität und Migration](docs/compatibility.md).
 
 Bedienung:
 
@@ -176,3 +183,5 @@ Verbindungsversuche bis zu einer echten Konfigurationsänderung.
 - `docs/2026-07-25_AP05_ANTIGRAVITY/GESAMTABNAHME_UND_SELBSTFERTIGSTELLUNG.md` – unabhängiger AP5-Korrektur- und Testnachweis
 - `server-docs-for-client-development/` – verbindlicher Serverprotokollvertrag
 - `docs/RELEASE.md` – Windows-Build, Commit-CI und vollautomatisches GitHub-Release
+
+R03 korrigiert die Hotkey-Persistierung bei fehlgeschlagenem Corestart; [aktueller Korrekturreport](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md). Unabhängige Abnahme weiterhin offen.

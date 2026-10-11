@@ -11,7 +11,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from core.config import (
+from voice_stt_client.core.config import (
     DEFAULT_LOCAL_APP_DIR,
     AppConfig,
     LoggingConfig,

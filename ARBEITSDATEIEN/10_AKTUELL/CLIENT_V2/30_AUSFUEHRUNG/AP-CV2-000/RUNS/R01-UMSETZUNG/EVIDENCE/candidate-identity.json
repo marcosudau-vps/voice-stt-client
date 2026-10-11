@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/2",
+  "baseBranch": "feat/client-v2",
+  "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+  "candidateBranch": "work/client-v2/ap-cv2-000",
+  "qualifiedImplementationCommit": "e0cfd85445c87302dc3dc24dbab6b0dd9cda5b00",
+  "qualifiedImplementationTree": "e6da645f8092fbf6faa5c5a4fe3540a23441d992",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "finalHeadResolution": "Resolve PR headRefOid after this administrative candidate commit; do not embed its own SHA. Final SHA/Tree and current CI head/base test merge are stated in the PR handoff.",
+  "promotion": "NOT_AUTHORIZED; independent PASS then explicit human prompt required",
+  "additionalQualification": "R01 CI samefile test precision: product namespace/scripts unchanged; pytest1221/95.76s and unittest1221/95.801s; final submitted SHA from actual PR head after correction."
+}

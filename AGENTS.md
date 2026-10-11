@@ -8,6 +8,8 @@ Für AP-CV2-*, AP-IV2-* und die zugehörige Planpflege ist `ARBEITSDATEIEN/10_AK
 
 Bei „Mach den nächsten Schritt“ zuerst ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md lesen. Paket und Rolle anhand offener Paketlinien, WORKFLOW_STATUS.json und tatsächlicher Git-/PR-Provenienz selbst ermitteln; Zustandsdatei vor Abgabe pflegen. ROOT_PASS wartet ohne menschliche Übernahmefreigabe. Ausdrücklich weiteres unabhängiges Review ist optional möglich und hat Vorrang.
 
+Die vollständige Windows-Clientsuite wird im Umsetzungs-/Korrekturlauf kandidatengebunden mit vollständigen Logs nachgewiesen. Der unabhängige Reviewer darf in einer ChatGPT-Session über commitgebundene GitHub-Dateien arbeiten und prüft Code sowie diese Nachweise; eine erneute Windows-Vollsuite durch den Reviewer ist keine Pflicht. Konkrete Fehlerverdachte oder fehlende/ungültige Pflichtbelege werden zur Ergänzung zurückgegeben. Maßgeblich: `PLANUNG/REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md` im aktiven Client-V2-Block.
+
 ## Projektziel
 
 Dieses Repository enthält einen Windows-Desktop-Client für einen bereits vorhandenen RealtimeSTT-Server.
@@ -44,7 +46,10 @@ Für unterschiedliche Sachgebiete gelten unterschiedliche verbindliche Quellen.
 
 ### Serverprotokoll
 
-Für WebSocket-Protokoll, Session-Lebenszyklus, Events, Zustandsübergänge, Reconnect-Verhalten und Fehlersemantik sind ausschließlich die Dateien unter folgendem Pfad maßgeblich:
+Für Client-V2 gelten die auf Servercommit ada13b0 gepinnten K-01 bis K-04 unter
+`ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/KONTRAKTE/`.
+AP-CV2-000 integriert zunächst die bestehende Feature-/Releasebasis; es ist
+noch kein V2-kompatibler Transport. Die historische V1-Protokollreferenz liegt unter:
 
 `server-docs-for-client-development/`
 

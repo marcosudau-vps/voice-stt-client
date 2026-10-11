@@ -18,15 +18,15 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from core.config import AppConfig, LoggingObservabilityConfig
-from core.logging_settings_metadata import (
+from voice_stt_client.core.config import AppConfig, LoggingObservabilityConfig
+from voice_stt_client.core.logging_settings_metadata import (
     ALL_SETTING_DEFINITIONS,
     CATEGORY,
     LOGGING_SETTING_DEFINITIONS,
 )
-from core.observability.ingress import NULL_INGRESS, ObservabilityIngress
-from core.observability.manager import ObservabilityManager
-from core.settings_metadata import (
+from voice_stt_client.core.observability.ingress import NULL_INGRESS, ObservabilityIngress
+from voice_stt_client.core.observability.manager import ObservabilityManager
+from voice_stt_client.core.settings_metadata import (
     SETTING_DEFINITIONS,
     ApplyPolicy,
     SettingType,
@@ -127,7 +127,7 @@ class TestSettingsMetadata(unittest.TestCase):
     def test_pure_settings_metadata_module_stays_free_of_observability(self):
         """§12.7 keeps ``settings_metadata`` *"bewusst rein"*, which is why
         the sixth tab's entries live in their own module."""
-        root = Path(__file__).resolve().parents[1] / "core"
+        root = Path(__file__).resolve().parents[1] / "voice_stt_client" / "core"
         source = (root / "settings_metadata.py").read_text(encoding="utf-8")
         self.assertNotIn("observability", source)
 
@@ -199,7 +199,7 @@ class TestIngressOwnershipDomain(unittest.TestCase):
         self.assertTrue(ingress.enabled)
 
     def test_disabling_stops_acceptance_and_re_enabling_restores_it(self):
-        from core.observability.models import CanonicalLogRecord
+        from voice_stt_client.core.observability.models import CanonicalLogRecord
 
         ingress = self.make_ingress()
         record = CanonicalLogRecord(
@@ -214,7 +214,7 @@ class TestIngressOwnershipDomain(unittest.TestCase):
         self.assertTrue(ingress.submit(record))
 
     def test_level_filter_follows_immediately(self):
-        from core.observability.models import CanonicalLogRecord
+        from voice_stt_client.core.observability.models import CanonicalLogRecord
 
         ingress = self.make_ingress()
         debug_record = CanonicalLogRecord(
@@ -304,7 +304,7 @@ class TestManagerOwnershipDomain(unittest.TestCase):
         self.assertIsNone(received[0]["sink"])
 
     def test_enabling_the_file_sink_hands_the_worker_a_sink(self):
-        from core.observability.sinks.jsonl_file import JsonlSink
+        from voice_stt_client.core.observability.sinks.jsonl_file import JsonlSink
 
         manager, _path = self.make_manager()
         received = []
@@ -330,7 +330,7 @@ class TestManagerOwnershipDomain(unittest.TestCase):
         self.assertEqual(manager.db_path, path)
 
     def test_health_follows_enabled_but_never_overwrites_a_failure(self):
-        from core.observability.health import LoggingHealthState
+        from voice_stt_client.core.observability.health import LoggingHealthState
 
         manager, _path = self.make_manager()
         manager.ingress.apply_config(LoggingObservabilityConfig(enabled=False))
@@ -353,7 +353,8 @@ class TestManagerOwnershipDomain(unittest.TestCase):
         self.assertIs(service, manager.query_service)
         self.assertEqual(service.provider_ids(), ("local",))
         page = service.query("local", __import__(
-            "core.observability.query.base", fromlist=["QueryFilter"]
+            "voice_stt_client.core.observability.query.base",
+            fromlist=["QueryFilter"],
         ).QueryFilter())
         self.assertEqual(page.records, ())
         self.assertFalse(path.exists())
@@ -364,11 +365,11 @@ class TestWorkerRuntimeSettings(unittest.TestCase):
     connection and sink ownership)."""
 
     def make_worker(self):
-        from core.observability.worker import LoggingWorker
+        from voice_stt_client.core.observability.worker import LoggingWorker
 
         class NullStore:
             def open(self):
-                from core.observability.storage.sqlite import OpenResult
+                from voice_stt_client.core.observability.storage.sqlite import OpenResult
 
                 return OpenResult(True, False, "")
 

@@ -7,4 +7,4 @@ Stand 2026-10-11. Gemeinsamer Abschlussbranch: `feat/client-v2`.
 - [Status](STATUS.md) und [Verlauf](VERLAUF.md).
 - [Branchführung und gemeinsame Planpflege](PLANUNG/REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
 
-Erster neuer Commit: nur Unterlagen (Revision 9). Es folgt einmalig die [ausdrücklich freigegebene Dokumentkorrektur Revision 10](PLANUNG/EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md). Danach je angenommenem Paket genau ein Commit mit Code und aktualisierter Planung. Bearbeitung ausschließlich auf untergeordneten Paketbranches. Nächster beauftragbarer Implementierungsschritt: AP-CV2-000; in diesem Startlauf nicht umgesetzt. Runakten entstehen erst beim tatsächlichen Lauf unter `30_AUSFUEHRUNG/<AP-ID>/`.
+**Aktueller Paketstand:** AP-CV2-000 ROOT_PASS nach R04-Review und R05-Windows-Volltest (1233 PASS). [Nachweis/Freigabe](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md). Finale CI prüfen und den freigegebenen Einzel-Squash ausführen; kein Folgepaketstart vor tatsächlicher Übernahme. Windows-Vollsuite künftig Umsetzungspflicht, ChatGPT-Review anhand Code und gültigen Nachweisen.

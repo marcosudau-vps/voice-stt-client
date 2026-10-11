@@ -27,11 +27,11 @@ import uuid
 from datetime import datetime, timezone
 from typing import List, Optional, Sequence
 
-from core.observability.health import LoggingHealthState
-from core.observability.ingress import ObservabilityIngress
-from core.observability.models import CanonicalLogRecord
-from core.observability.storage.sqlite import OpenResult
-from core.observability.worker import WORKER_FAILURE_THRESHOLD, LoggingWorker
+from voice_stt_client.core.observability.health import LoggingHealthState
+from voice_stt_client.core.observability.ingress import ObservabilityIngress
+from voice_stt_client.core.observability.models import CanonicalLogRecord
+from voice_stt_client.core.observability.storage.sqlite import OpenResult
+from voice_stt_client.core.observability.worker import WORKER_FAILURE_THRESHOLD, LoggingWorker
 
 
 def _iso() -> str:

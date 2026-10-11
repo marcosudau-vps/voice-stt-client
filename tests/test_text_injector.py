@@ -16,9 +16,9 @@ import sys
 from pathlib import Path
 from typing import List, Optional, Tuple
 
-from core.config import AppConfig, HistoryConfig, HistoryMemoryConfig, HistoryPersistentConfig
-from core.history import TranscriptHistoryManager, HistoryEntry
-from core.text_injector import (
+from voice_stt_client.core.config import AppConfig, HistoryConfig, HistoryMemoryConfig, HistoryPersistentConfig
+from voice_stt_client.core.history import TranscriptHistoryManager, HistoryEntry
+from voice_stt_client.core.text_injector import (
     TextInjectionQueue,
     WindowsInjectionBackend,
     CtypesWindowsInjectionBackend,
@@ -847,7 +847,7 @@ class TestTextInjector(unittest.TestCase):
 
     # 33. Check SetForegroundWindow is never used in the module
     def test_no_forbidden_win32_calls(self) -> None:
-        path = Path(__file__).resolve().parent.parent / "core" / "text_injector.py"
+        path = Path(__file__).resolve().parent.parent / "voice_stt_client" / "core" / "text_injector.py"
         with open(path, "r", encoding="utf-8") as f:
             content = f.read()
 

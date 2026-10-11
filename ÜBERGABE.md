@@ -1,3 +1,23 @@
+# Aktueller Client-V2-Korrekturstand R03 – 2026-10-11
+
+AP-CV2-000 **REVIEW_READY** in [PR #2](https://github.com/marcosudau-vps/voice-stt-client/pull/2), Branch `work/client-v2/ap-cv2-000`, Parent `050e776cf316eb332177294db0c0a2719c2b4415`. [R03-Report](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md) und [Workflowstatus](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json) sind der aktuelle Übergabestand.
+
+F01: Hotkeyersatz wird erst nach erfolgreichem Corestart gespeichert; fehlgeschlagener Start erhält Profil und ursprüngliche Hotkeys. 1233 Gesamttests PASS, Packaging-/Installations-/Frozen-Smokes bestanden. Projektvenv Python 3.12.10. Nächste Aktion: frischer unabhängiger Vollreview einschließlich eigener Windows-Gesamtregression. Schreibrecht nach Übergabe pausiert; kein ROOT_PASS, Übernahmeprompt oder Folgepaketstart. Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`; V1-Transport und spätere V2-/Hardwaregates bleiben offen.
+
+## Historischer Einstieg vor R03
+
+# Client V2 – Operative Übergabe, 2026-10-11
+
+Aktiver Block CLIENT_V2, Planung Revision 10. AP-CV2-000 **REVIEW_READY** auf `work/client-v2/ap-cv2-000`, Parent `050e776cf316eb332177294db0c0a2719c2b4415`. [Aktueller Einstieg](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md), [Paketakte](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md), [Runreport](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md).
+
+Feature-/Releaseintegration in `voice_stt_client`, Präferenzen/Legacydaten erhalten. Gesamte pytest-/Unittestregression je 1221 Tests grün, Wheel und sdist außerhalb Source qualifiziert. Start `.\venv\Scripts\python.exe -m voice_stt_client`; Details zu Profilen und Pfaden in [Kompatibilität](docs/compatibility.md). Projektvenv Python 3.12.10; lokale venv-Verknüpfung zur bestehenden Clientumgebung.
+
+Nächste Aktion: frische unabhängige Abnahme des vollständigen Kandidaten. Schreibrecht des Umsetzers nach Abgabe pausiert; kein unabhängiger PASS, menschlicher Übernahmeprompt oder kanonischer AP-Commit. Server ada13b0/Distributed bleibt offen; Transport noch V1 und bekannter Streamstartfehler dokumentiert. Keine V2-/Live-ASR-/Hardwareabnahme. AP-CV2-010 startet erst nach tatsächlicher kanonischer Übernahme.
+
+---
+
+Die folgende datierte Vorfassung bleibt historische Provenienz; ihre Next-/Freeze-/Branchanweisungen steuern Client V2 nicht.
+
 # ÜBERGABE – RealtimeSTT Windows Desktop Client
 
 > **Stand:** 25. August 2026, operative Triggerübergabe; historische Clientdetails unten
@@ -216,13 +236,13 @@ Textinjektion. Realtime- und Timeline-Ereignisse werden nie eingefügt.
 Regulärer Start:
 
 ```powershell
-.\venv\Scripts\python.exe app.py
+.\venv\Scripts\python.exe -m voice_stt_client
 ```
 
 Headless-Diagnose:
 
 ```powershell
-.\venv\Scripts\python.exe app.py --headless
+.\venv\Scripts\python.exe -m voice_stt_client --headless
 ```
 
 Automatische Gesamtsuite:

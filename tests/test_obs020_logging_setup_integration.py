@@ -12,11 +12,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from core.config import LoggingConfig
-from core.logging_setup import setup_logging
-from core.observability.adapters.python_logging import UnifiedLogHandler
-from core.observability.health import LoggingInternalHealth
-from core.observability.ingress import ObservabilityIngress
+from voice_stt_client.core.config import LoggingConfig
+from voice_stt_client.core.logging_setup import setup_logging
+from voice_stt_client.core.observability.adapters.python_logging import UnifiedLogHandler
+from voice_stt_client.core.observability.health import LoggingInternalHealth
+from voice_stt_client.core.observability.ingress import ObservabilityIngress
 
 
 class FakeObservability:

@@ -20,9 +20,9 @@ from __future__ import annotations
 
 import unittest
 
-from core.config import AppConfig, OperatingMode, SessionConfig
-from core.controller import STTController
-from core.event_models import (
+from voice_stt_client.core.config import AppConfig, OperatingMode, SessionConfig
+from voice_stt_client.core.controller import STTController
+from voice_stt_client.core.event_models import (
     CanonicalEventType,
     EventOrigin,
     FeedbackImpulse,
@@ -206,6 +206,7 @@ class EveryConfiguredSoundCueHasAnAsset(unittest.TestCase):
         self.mappings = AppConfig.load().feedback_mappings
         self.asset_dir = (
             Path(__file__).resolve().parents[1]
+            / "voice_stt_client"
             / "assets"
             / "feedback_sounds"
             / "debug"
@@ -224,7 +225,7 @@ class EveryConfiguredSoundCueHasAnAsset(unittest.TestCase):
                 self.assertTrue(path.is_file(), f"missing sound asset: {path}")
 
     def test_every_declared_cue_has_a_sound_file(self):
-        from core.feedback_mapping import SoundCueId
+        from voice_stt_client.core.feedback_mapping import SoundCueId
 
         for cue in SoundCueId:
             with self.subTest(cue=cue.value):
@@ -232,7 +233,7 @@ class EveryConfiguredSoundCueHasAnAsset(unittest.TestCase):
                 self.assertTrue(path.is_file(), f"missing sound asset: {path}")
 
     def test_the_trigger_path_cues_are_actually_wired(self):
-        from core.feedback_mapping import SoundCueId
+        from voice_stt_client.core.feedback_mapping import SoundCueId
 
         expected = {
             CanonicalEventType.CLIENT_HOTKEY_ACCEPTED: SoundCueId.WAKE_WORD,

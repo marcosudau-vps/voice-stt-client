@@ -8,10 +8,24 @@ Ziel ist `marcosudau-vps/voice-stt-client`, Base `feat/client-v2`, Head der beau
 
 Ein Draft-PR ist bei erteilter PR-Freigabe schon während der Umsetzung möglich; zur unabhängigen Abnahme erst den vollständigen Kandidaten als REVIEW_READY melden. Korrekturen aktualisieren denselben PR. Titel enthält AP-ID und Ergebnis; Beschreibung nennt Scope, Parent, Server-SHA, aktuellen Kandidaten und Links auf Paket-/Runakten. Findings und Testdetails stehen maßgeblich im versionierten Report; im PR nur Urteil/Kurzfassung und Links pflegen. PR-Anlage/Updates oder Kommentare sind nur im tatsächlich erlaubten Scope zulässig. In Codex den erstellten oder zur Bearbeitung beauftragten PR an die Aufgabe anhängen.
 
+## Strukturprüfung vor jeder Übergabe
+
+Vor jeder Abgabe aktive Statusangaben in WORKFLOW_STATUS, Manifest, Paketkopf und Index mit der aktuellen PR-Kurzfassung synchronisieren. Neue oder geänderte relative Aktenlinks vom tatsächlichen Quelldokument aus auflösen; referenzierte Originalprompts, Reports und Evidenz müssen im veröffentlichten Kandidaten verfügbar sein. Historische Reports und Belege bleiben erhalten. Auch ein Reviewer prüft seinen ausschließlich administrativen Docs-Commit strukturell vor der Rückgabe.
+
+Gemeinsamer read-only-Prüfer: [pruefe_arbeitsakten.py](../scripts/pruefe_arbeitsakten.py). Aufruf aus dem Repository:
+
+```powershell
+.\venv\Scripts\python.exe ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/scripts/pruefe_arbeitsakten.py
+```
+
+Er prüft aktive Paket-/Manifest-/Kopf-/Indexzustände, referenzierte Dateipfade und relative Links der Paketakte. `--paths <Dateien>` ergänzt neue/geänderte Markdownunterlagen außerhalb der Akte. `--pr-summary <lokal gespeicherte aktuelle PR-Beschreibung>` prüft zusätzlich deren AP/Status. PR-Inhalt vorher tatsächlich abrufen, keine alte Kopie verwenden. Der Prüfer liest lokal, ändert nichts und ersetzt weder fachlichen Review noch die Prüfung der tatsächlichen Remote-Bereitstellung. Kein alter allgemeiner Blockvalidator darf eine abweichende V2-Struktur erzwingen.
+
+Bei ChatGPT-Review ohne lokalen Checkout sind dieselben Struktur-/Status-/Linkprüfungen anhand der commitgebundenen GitHub-Dateien zulässig; Prüfweg und Befunde im Reviewreport sichern. Der lokale Python-Aufruf setzt dann keine Windows-Umgebung des Reviewers voraus. Ein Docs-Push muss weiterhin gültige Links und konsistente aktive Statusangaben liefern.
+
 ## Schreibübergabe an den Reviewer
 
 1. Umsetzer meldet PR-URL und **exakten eingereichten SHA**; Workingtree sauber, alle erforderlichen Unterlagen und Belege bereits im Kandidaten. Ab diesem Punkt pausiert er Änderungen und Pushes auf diesem Paketbranch.
-2. Reviewer verifiziert PR-Base, aktuellen Head und `canonical_parent`, liest den vollständigen Diff vom Parent und prüft genau diesen SHA in eigenem isolierten Worktree. Ein eigener lokaler `review/...`-Branch oder Detached-Checkout vermeidet, denselben lokalen Branch in zwei Worktrees auszuchecken. Tests verändern keine Produktdateien.
+2. Reviewer verifiziert PR-Base, aktuellen Head und `canonical_parent`, liest den vollständigen Diff vom Parent und prüft genau diesen SHA in eigenem isolierten Worktree oder über commitgebundene GitHub-Dateien in einer ChatGPT-Session. Ein lokaler `review/...`-Branch oder Detached-Checkout ist nur beim lokalen Prüfweg nötig. Der vollständige Windows-Testnachweis muss bereits aus Umsetzung/Korrektur im PR vorliegen; keine erneute Vollsuite durch den Reviewer erforderlich. [Nachweisregeln](../../../REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md). Eigene zusätzliche Tests verändern keine Produktdateien.
 3. Reviewer legt einen neuen `Rnn-ABNAHME` unter `30_AUSFUEHRUNG/<AP-ID>/RUNS/` an: tatsächlicher Original-Prompt, `01_REPORT.md`, `EVIDENCE/INDEX.md` und Belege. `reviewed_sha`, `reviewed_tree`, `canonical_parent` und `server_sha` benennen den geprüften Kandidaten **vor** dem Reviewunterlagen-Commit.
 4. Bei ausdrücklicher Review-Gitfreigabe committet er ausschließlich seine neue Reviewakte, notwendige Beleg-/Statusverweise in Paketindex, Matrix/Requirements, WORKFLOW_STATUS.json und Steuerungslog. Keine Produkt-, Test-, Kontrakt-, Vektor- oder fachliche Spezifikationsänderung. Auch ein Metadatenpfad ist keine Erlaubnis zur Änderung der fachlichen Kriterien. Fehlt ein Nachweis, als Finding melden, nicht erfinden.
 5. Vor dem Push prüfen, dass der entfernte Paketbranch noch den eingereichten SHA hat. Den Reviewcommit nur als normalen Fast-forward auf **diesen Paketbranch** pushen. Ein eigener lokaler Reviewbranch darf damit seine Docs-Spitze auf den entfernten Paketbranch übertragen; keinen zweiten Review-PR eröffnen. Bei fremdem Fortschritt stoppen und den neuen Kandidaten melden. Nicht automatisch rebasen oder überschreiben.

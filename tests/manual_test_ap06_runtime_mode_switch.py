@@ -6,9 +6,9 @@ import asyncio
 import copy
 import time
 
-from core.config import AppConfig
-from core.controller import DictationState, STTController
-from core.stt_session import STTSession
+from voice_stt_client.core.config import AppConfig
+from voice_stt_client.core.controller import DictationState, STTController
+from voice_stt_client.core.stt_session import STTSession
 
 
 class SafeAudioCapture:

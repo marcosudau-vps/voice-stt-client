@@ -25,17 +25,17 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from core.config import EventStreamConfig, ServerConfig
-from core.event_cursor_store import EventCursorStore
-from core.event_models import EventConnectionState
-from core.event_protocol import (
+from voice_stt_client.core.config import EventStreamConfig, ServerConfig
+from voice_stt_client.core.event_cursor_store import EventCursorStore
+from voice_stt_client.core.event_models import EventConnectionState
+from voice_stt_client.core.event_protocol import (
     EventProtocolProcessor,
     EventResultKind,
     EventStreamAccess,
 )
-from core.event_stream import EventStreamTransport
-from core.observability.ingress import NULL_INGRESS, ObservabilityIngress
-from core.session_coordinator import DualSessionCoordinator, SessionContext
+from voice_stt_client.core.event_stream import EventStreamTransport
+from voice_stt_client.core.observability.ingress import NULL_INGRESS, ObservabilityIngress
+from voice_stt_client.core.session_coordinator import DualSessionCoordinator, SessionContext
 from tests.test_obs040_server_live_adapter import (
     ENDPOINT,
     access,
@@ -225,10 +225,10 @@ class TestHookLocationAndForm(unittest.TestCase):
     def test_forbidden_hook_locations_carry_no_observation(self):
         """CONTRACTS §7.4 lists five explicitly forbidden hook locations. None
         of them may contain an observation call."""
-        import core.event_protocol as event_protocol
-        import core.feedback_reducer as feedback_reducer
-        import ui.application as ui_application
-        from core.controller import STTController
+        import voice_stt_client.core.event_protocol as event_protocol
+        import voice_stt_client.core.feedback_reducer as feedback_reducer
+        import voice_stt_client.ui.application as ui_application
+        from voice_stt_client.core.controller import STTController
 
         forbidden = (
             (EventStreamTransport, "_dispatch"),
@@ -253,9 +253,9 @@ class TestHookLocationAndForm(unittest.TestCase):
         """§7.4: ``STTController.on_event_stream_event`` is *"vorhanden und
         frei, ABER sein Rueckgabewert entscheidet ueber Cursor-Commit und
         Verbindungsrecycling"*. Logging must never occupy it."""
-        from core.config import AppConfig
-        from core.controller import STTController
-        from core.history import TranscriptHistoryManager
+        from voice_stt_client.core.config import AppConfig
+        from voice_stt_client.core.controller import STTController
+        from voice_stt_client.core.history import TranscriptHistoryManager
         from tests.test_controller import (
             FakeAudioCapture,
             FakeInjectionQueue,

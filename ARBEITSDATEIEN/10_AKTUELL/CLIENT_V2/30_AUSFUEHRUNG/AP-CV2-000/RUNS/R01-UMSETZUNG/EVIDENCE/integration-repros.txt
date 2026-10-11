@@ -1,0 +1,61 @@
+.FF..F                                                                   [100%]
+================================== FAILURES ===================================
+_ IntegratedPreferences.test_disabled_hotkeys_remain_disabled_and_do_not_block_startup _
+
+self = <tests.test_cv2_000_integration.IntegratedPreferences testMethod=test_disabled_hotkeys_remain_disabled_and_do_not_block_startup>
+
+    def test_disabled_hotkeys_remain_disabled_and_do_not_block_startup(self):
+        config = AppConfig()
+        config.hotkey.enabled = False
+        bridge = FakeBridge()
+        backend = FakeHotkeyBackend(fail=True)
+        desktop = DesktopApplication(
+            self.qt, config, FakeGuard(), bridge=bridge,
+            hotkey_backend=backend, led_feedback=FakeLedFeedback(),
+        )
+        self.addCleanup(desktop.shutdown)
+        with patch("voice_stt_client.ui.application.QMessageBox.critical"):
+>           self.assertTrue(desktop.start())
+E           AssertionError: False is not true
+
+tests\test_cv2_000_integration.py:38: AssertionError
+------------------------------ Captured log call ------------------------------
+ERROR    ui.application:application.py:263 Global hotkeys are disabled in the configuration.
+_ IntegratedPreferences.test_editor_sync_keeps_effective_legacy_trigger_flags _
+
+self = <tests.test_cv2_000_integration.IntegratedPreferences testMethod=test_editor_sync_keeps_effective_legacy_trigger_flags>
+
+    def test_editor_sync_keeps_effective_legacy_trigger_flags(self):
+        for mode in ("hotkey", "wake_word"):
+            with self.subTest(mode=mode), patch(
+                "voice_stt_client.ui.settings_dialog.AudioCapture.list_devices", return_value=[]
+            ):
+                config = AppConfig()
+                config.session.mode = mode
+                dialog = SettingsDialog(config, lambda *_args: False)
+                self.addCleanup(dialog.close)
+                dialog.complete_apply(True, config, "")
+>               self.assertEqual(
+                    dialog._editors["session.manual_trigger_enabled"].isChecked(),
+                    config.session.effective_manual_trigger_enabled,
+                )
+E               AssertionError: False != True
+
+tests\test_cv2_000_integration.py:53: AssertionError
+_ IntegratedPreferences.test_feature_pr_ci_tests_namespace_build_and_installed_wheel _
+
+self = <tests.test_cv2_000_integration.IntegratedPreferences testMethod=test_feature_pr_ci_tests_namespace_build_and_installed_wheel>
+
+    def test_feature_pr_ci_tests_namespace_build_and_installed_wheel(self):
+        root = Path(__file__).resolve().parents[1]
+        workflow = yaml.load((root / ".github/workflows/ci.yml").read_text(encoding="utf-8"), Loader=yaml.BaseLoader)
+        self.assertIn("pull_request", workflow["on"])
+>       self.assertIn("feat/client-v2", workflow["on"]["push"]["branches"])
+E       AssertionError: 'feat/client-v2' not found in ['main']
+
+tests\test_cv2_000_integration.py:113: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_cv2_000_integration.py::IntegratedPreferences::test_disabled_hotkeys_remain_disabled_and_do_not_block_startup
+FAILED tests/test_cv2_000_integration.py::IntegratedPreferences::test_editor_sync_keeps_effective_legacy_trigger_flags
+FAILED tests/test_cv2_000_integration.py::IntegratedPreferences::test_feature_pr_ci_tests_namespace_build_and_installed_wheel
+3 failed, 3 passed in 1.77s

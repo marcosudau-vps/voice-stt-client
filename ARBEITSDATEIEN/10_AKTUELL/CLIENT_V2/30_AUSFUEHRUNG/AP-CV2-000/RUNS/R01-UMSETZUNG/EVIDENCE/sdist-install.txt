@@ -1,0 +1,18 @@
+Processing p:\githubrepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\dist\voice_stt_client-1.0.0.tar.gz
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: voice-stt-client
+  Building wheel for voice-stt-client (pyproject.toml): started
+  Building wheel for voice-stt-client (pyproject.toml): finished with status 'done'
+  Created wheel for voice-stt-client: filename=voice_stt_client-1.0.0-py3-none-any.whl size=1131879 sha256=7daa932c9bd97eee727b8d864d8ca4967c95a76943e5f532eac0e94623a59e7a
+  Stored in directory: c:\users\marco\appdata\local\pip\cache\wheels\b9\2c\d4\32b57b1f4845c0df939d54fe10e7d00a64dd3edf8418999859
+Successfully built voice-stt-client
+Installing collected packages: voice-stt-client
+Successfully installed voice-stt-client-1.0.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\venv\Scripts\python.exe -m pip install --upgrade pip
