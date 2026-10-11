@@ -7,3 +7,7 @@
 *.wav binary
 *.mp3 binary
 *.flac binary
+
+# Contract vector hashes refer to exact Git/server LF bytes on every platform.
+tests/contracts/protocol-v2-vectors.json -text
+ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/KONTRAKTE/VEKTOREN/protocol-v2-vectors.json text eol=lf

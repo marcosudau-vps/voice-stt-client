@@ -1,63 +1,41 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "READY_FOR_CANONICALIZATION",
-  "packageStatus": "ROOT_PASS",
-  "activePackage": "AP-CV2-000",
-  "nextPackage": "AP-CV2-010",
+  "workflowPhase": "IMPLEMENTATION_IN_PROGRESS",
+  "packageStatus": "IN_PROGRESS",
+  "activePackage": "AP-CV2-010",
+  "nextPackage": "AP-CV2-020",
   "canonicalBranch": "feat/client-v2",
-  "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
-  "candidateBranch": "work/client-v2/ap-cv2-000",
-  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/2",
+  "canonicalParent": "1cf076bd2ed56929b1a3780bc140da51348a8295",
+  "candidateBranch": "work/client-v2/ap-cv2-010",
+  "pullRequest": null,
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R05-WINDOWS-NACHWEIS",
-    "role": "review",
-    "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md"
+    "role": "implementation",
+    "id": "R01-UMSETZUNG",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+    "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md"
   },
-  "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+  "reviewedCommit": null,
+  "reviewReport": null,
   "openFindingIds": [],
-  "humanApproval": {
-    "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/00_PROMPT_ORIGINAL.md",
-    "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/2",
-    "headAtApproval": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
-    "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
-    "condition": "Eigener Windows-Volltest bestanden; finale PR-CI grün; Base unverändert.",
-    "authorizedFollowUp": "Beauftragte Rollenregelpflege und Abnahme-/Freigabenachweise im selben PR; keine Produkt-/Teständerung."
-  },
-  "writeOwner": null,
+  "humanApproval": null,
+  "writeOwner": "AP-CV2-010/R01-UMSETZUNG Codex 2026-10-11",
   "blockingReason": null,
-  "nextAction": "Finale CI/Head/Base prüfen; gemäß gesichertem Nutzerauftrag PR #2 als genau einen Squash-Commit auf feat/client-v2 übernehmen. Kein automatischer Folgepaketstart.",
+  "nextAction": "Beauftragten reinen V2-Codec implementieren und vollständig qualifizieren.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
-  "context": "R04 schließt F01 fachlich, R05 ergänzt den fehlenden unabhängigen Windows-Volltest: 1233 PASS und 5 gezielte PASS. R04 bleibt erhalten. Nutzerauftrag erlaubt Regelpflege und anschließenden Einzel-Squash nach finaler grüner CI.",
   "canonicalParentRef": "feat/client-v2",
-  "canonicalParentResolution": "Lokaler und veröffentlichter Revision-10-HEAD am Paketstart aus Git verifiziert; vollständiger SHA in canonicalParent.",
+  "canonicalParentResolution": "Current local and fetched origin/feat/client-v2 match actual AP000 aggregate 1cf076bd2ed56929b1a3780bc140da51348a8295",
   "repository": "marcosudau-vps/voice-stt-client",
   "candidateSelection": {
-    "reason": "Keine offene Paketlinie; tatsächlicher Revision-10-Feature-HEAD ist Startbasis.",
-    "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "candidateId": "AP-CV2-000"
+    "source": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "candidateId": "AP-CV2-010",
+    "reason": "Ausdrücklicher Paketauftrag nach belegter kanonischer AP-CV2-000-Übernahme."
   },
   "recovery": null,
   "relatedServerFix": null,
-  "qualifiedImplementationCommit": "210c2ae14355d22e9b25172cf47a1bcf94860300",
-  "qualifiedImplementationTree": "94c11320c44bef32cd59f2b65d7aaa70857de72d",
-  "findingDisposition": {
-    "CV2-R02-F01": {
-      "state": "CLOSED_VERIFIED_WINDOWS",
-      "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md"
-    }
-  },
-  "qualifiedImplementationMeaning": "R03 product/test-qualified first publication; final candidate includes only subsequent handoff/evidence metadata and remote verifier scope correction. Resolve exact final HEAD from package PR.",
-  "windowsValidation": {
-    "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/windows-validation.json",
-    "testedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
-    "result": "PASS"
-  }
+  "predecessorCanonicalization": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
 }

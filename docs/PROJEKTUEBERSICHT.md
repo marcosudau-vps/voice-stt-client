@@ -1,3 +1,7 @@
+# Aktueller Client-V2-Stand – AP-CV2-010, 2026-10-11
+
+AP-CV2-000 ist nach unabhängigem PASS und menschlicher Freigabe über PR #2 als `1cf076bd2ed56929b1a3780bc140da51348a8295` übernommen. AP-CV2-010 wird auf `work/client-v2/ap-cv2-010` umgesetzt: reiner V2-Codec, Datentypen und Vertragsfixtures. Runtime bleibt bis zur Transportintegration auf ihrem bisherigen Pfad; keine Datenmigration. [Paketakte](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/00_PAKET.md), [Codecvertrag](protocol-v2-codec.md). Historische Einstiege unten bleiben ihrem Datum zugeordnet.
+
 # Aktueller Client-V2-Korrekturstand R03 – 2026-10-11
 
 AP-CV2-000 **REVIEW_READY** in [PR #2](https://github.com/marcosudau-vps/voice-stt-client/pull/2), Branch `work/client-v2/ap-cv2-000`, Parent `050e776cf316eb332177294db0c0a2719c2b4415`. [R03-Report](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md) und [Workflowstatus](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json) sind der aktuelle Übergabestand.

@@ -1,0 +1,35 @@
+test_audio_exact_existing_bytes_16_48khz_mono_stereo_eight_channels (tests.test_v2_protocol.AudioCodec.test_audio_exact_existing_bytes_16_48khz_mono_stereo_eight_channels) ... ok
+test_audio_metadata_boundary_and_invalid_binary_frames (tests.test_v2_protocol.AudioCodec.test_audio_metadata_boundary_and_invalid_binary_frames) ... ok
+test_audio_optional_metadata_defaults_and_byte_example (tests.test_v2_protocol.AudioCodec.test_audio_optional_metadata_defaults_and_byte_example) ... ok
+test_audio_sample_channel_frames_limits_and_bool_rejected (tests.test_v2_protocol.AudioCodec.test_audio_sample_channel_frames_limits_and_bool_rejected) ... ok
+test_additive_fields_immutable_and_retry_string (tests.test_v2_protocol.ClientMessages.test_additive_fields_immutable_and_retry_string) ... ok
+test_all_commands_and_controls_encode_without_rewriting (tests.test_v2_protocol.ClientMessages.test_all_commands_and_controls_encode_without_rewriting) ... ok
+test_command_envelope_and_payload_negatives (tests.test_v2_protocol.ClientMessages.test_command_envelope_and_payload_negatives) ... ok
+test_forbidden_activation_field_combinations (tests.test_v2_protocol.ClientMessages.test_forbidden_activation_field_combinations) ... ok
+test_hello_builder_and_uuid_generation (tests.test_v2_protocol.ClientMessages.test_hello_builder_and_uuid_generation) ... ok
+test_hello_missing_required_fields_and_bool_integer (tests.test_v2_protocol.ClientMessages.test_hello_missing_required_fields_and_bool_integer) ... ok
+test_hello_trigger_selection_and_suppression_matrix (tests.test_v2_protocol.ClientMessages.test_hello_trigger_selection_and_suppression_matrix) ... ok
+test_uuid_canonical_not_version_restricted (tests.test_v2_protocol.ClientMessages.test_uuid_canonical_not_version_restricted) ... ok
+test_ack_error_fields_and_nullable_activation (tests.test_v2_protocol.ServerMessages.test_ack_error_fields_and_nullable_activation) ... ok
+test_all_18_events_and_required_field_omissions (tests.test_v2_protocol.ServerMessages.test_all_18_events_and_required_field_omissions) ... ok
+test_all_ack_results_and_phases (tests.test_v2_protocol.ServerMessages.test_all_ack_results_and_phases) ... ok
+test_event_bool_int_uuid_null_negatives (tests.test_v2_protocol.ServerMessages.test_event_bool_int_uuid_null_negatives) ... ok
+test_handshake_rejections_have_no_session_and_carry_error_details (tests.test_v2_protocol.ServerMessages.test_handshake_rejections_have_no_session_and_carry_error_details) ... ok
+test_invalid_text_frames_and_non_finite_json (tests.test_v2_protocol.ServerMessages.test_invalid_text_frames_and_non_finite_json) ... ok
+test_minimal_and_rich_interim_defensive_optional_fields (tests.test_v2_protocol.ServerMessages.test_minimal_and_rich_interim_defensive_optional_fields) ... ok
+test_unknown_valid_event_preserves_sequence_without_domain_effect (tests.test_v2_protocol.ServerMessages.test_unknown_valid_event_preserves_sequence_without_domain_effect) ... ok
+test_hello_accepted_log_token_repr_and_unavailable (tests.test_v2_protocol.SnapshotsAndSettings.test_hello_accepted_log_token_repr_and_unavailable) ... ok
+test_log_access_shape_paths_identity_expiry_and_no_secret_errors (tests.test_v2_protocol.SnapshotsAndSettings.test_log_access_shape_paths_identity_expiry_and_no_secret_errors) ... ok
+test_schema_read_patch_have_distinct_forms_and_revision_scopes (tests.test_v2_protocol.SnapshotsAndSettings.test_schema_read_patch_have_distinct_forms_and_revision_scopes) ... ok
+test_settings_numbers_and_maps_not_coerced (tests.test_v2_protocol.SnapshotsAndSettings.test_settings_numbers_and_maps_not_coerced) ... ok
+test_snapshot_has_full_separate_maps_and_embedded_shape (tests.test_v2_protocol.SnapshotsAndSettings.test_snapshot_has_full_separate_maps_and_embedded_shape) ... ok
+test_snapshot_open_phases_pending_order_and_additions (tests.test_v2_protocol.SnapshotsAndSettings.test_snapshot_open_phases_pending_order_and_additions) ... ok
+test_snapshot_revisions_bool_and_input_null_omission (tests.test_v2_protocol.SnapshotsAndSettings.test_snapshot_revisions_bool_and_input_null_omission) ... ok
+test_every_original_vector_is_directionally_classified (tests.test_v2_protocol.VocabularyAndVectors.test_every_original_vector_is_directionally_classified) ... ok
+test_vendored_vectors_are_byte_identical_and_hashed (tests.test_v2_protocol.VocabularyAndVectors.test_vendored_vectors_are_byte_identical_and_hashed) ... ok
+test_vocabulary_and_endpoint_match_pinned_manifest (tests.test_v2_protocol.VocabularyAndVectors.test_vocabulary_and_endpoint_match_pinned_manifest) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.052s
+
+OK

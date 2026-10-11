@@ -1,6 +1,6 @@
 # AP-CV2-000 – Paketakte
 
-Stand 2026-10-11. Status **ROOT_PASS** nach R04-Produktreview und unabhängigem R05-Windows-Volltest1233 PASS. Menschliche bedingte Übernahmefreigabe gesichert; finale CI und tatsächlicher Einzel-Squash noch auszuführen.
+Stand 2026-10-11. Status **ACCEPTED** nach R04-Produktreview und unabhängigem R05-Windows-Volltest1233 PASS. Menschliche bedingte Übernahmefreigabe gesichert; finale CI und tatsächlicher Einzel-Squash noch auszuführen.
 
 Ziel/Scope: [Revision-10-Paketvertrag](../../PLANUNG/ARBEITSPAKETE/AP-CV2-000.md), Feature-/Releaseintegration, namespace-only Kernmigration und V1-Polish, kein V2-Lifecycle. Relevante Auftragshashes: [plan-hashes.txt](RUNS/R01-UMSETZUNG/EVIDENCE/plan-hashes.txt).
 
@@ -42,3 +42,6 @@ Geprüft: `cd872d4bfa8eccd0167337cbab16a572ca70bfd4`, Tree `6aff2fa629b0c01fde50
 ## Aktueller R05-Nachweis und freigegebener Abschluss
 
 [R05-Report](RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md), [Originalauftrag/Freigabe](RUNS/R05-WINDOWS-NACHWEIS/00_PROMPT_ORIGINAL.md), [Evidenz](RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md). 1233 Windows-PASS und5 Startup-PASS; R04-T01 geschlossen, keine offenen Produktfindings. R04 bleibt als damalige BLOCKED-Akte erhalten. Nutzerauftrag erlaubt Rollenregelpflege und nach grüner finaler CI den Einzel-Squash auf feat/client-v2. Kein vorweggenommener CANONICALIZED-Status oder Folgepaketstart.
+
+
+Nachmergebeleg, nachgeführt in AP010: PR #2 tatsächlich übernommen als `1cf076bd2ed56929b1a3780bc140da51348a8295`, Single-Parent nach050e776 und Treegleichheit6dd2a359. [Git-/PR-Nachweis](../AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). Historische Reports behalten ihr damaliges Urteil.
