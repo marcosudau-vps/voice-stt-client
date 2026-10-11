@@ -11,3 +11,5 @@ Kanonischer Parent `050e776cf316eb332177294db0c0a2719c2b4415`; Bearbeitung `work
 | R01-UMSETZUNG | implementation / REVIEW_READY | [Original](RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md) | [Report](RUNS/R01-UMSETZUNG/01_REPORT.md), [EVIDENCE](RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md) |
 
 Nächste Aktion: frische unabhängige Abnahme. Schreibrecht des Umsetzers nach Abgabe pausiert. Korrekturen nur nach Folgeauftrag im selben PR; bestehende workflowweite Arbeitsfreigabe unter workAuthorization gesichert. Kein AP-CV2-010 vor PASS, menschlichem Prompt und kanonischer Übernahme.
+
+Vor endgültiger Übergabe CI-Kurz-/Langpfadassertion im neuen Historientest auf samefile präzisiert; Produktcode unverändert. Beide vollständigen Gesamtsuiten erneut1221 PASS, Belege im selben R01. Finaler Reviewhead ist die nach dieser Testpräzisierung eingereichte PR-Spitze; b9c90f8 bleibt Vorgängerprovenienz.

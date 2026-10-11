@@ -39,3 +39,7 @@ Saubere Baselinearchive und getrennte Installationsziele liegen lokal unter `%TE
 ## Git-/PR-Identität
 
 [PR #2](https://github.com/marcosudau-vps/voice-stt-client/pull/2), Base feat/client-v2, qualifizierter Produktcommit `e0cfd85445c87302dc3dc24dbab6b0dd9cda5b00`, Tree `e6da645f8092fbf6faa5c5a4fe3540a23441d992`, einziger Parent `050e776cf316eb332177294db0c0a2719c2b4415`. [candidate-identity.json](candidate-identity.json) nennt den getesteten Produktcommit und den Auflösungsweg des finalen, ausschließlich administrativ ergänzten Heads. Der finale CI-Lauf/Head-/Base-Testmerge ist in den GitHub-PR-Checks und dem sachlichen Übergabekommentar nachprüfbar; keine CI-Selbst-SHA oder vorhergesagter Erfolg.
+
+## Zusätzliche CI-Pfadqualifikation (derselbe R01)
+
+`ci-initial-failure.txt`: unveränderter gh-run-log-failed des CI-Laufs 38144685227, Head b9c90f8/Base050e776/Testmerge6a4422e. Ein Fehler unter 1221 Tests: Kurz-/Langpfadschreibweise im neuen Historytest. Nachfolger prüft mit samefile die tatsächliche Legacy-Datei; Produktcode unverändert. Erneute komplette lokale pytest-/Unittestläufe unter derselben Runtime in [tests-pytest-ci-fix.txt](tests-pytest-ci-fix.txt) und [tests-unittest-ci-fix.txt](tests-unittest-ci-fix.txt); tatsächliche Ergebnisse in den Logs. Finale CI prüft den aktualisierten PR-Head; Erfolg erst nach tatsächlichem Abschluss extern im Übergabekommentar belegt.

@@ -118,7 +118,9 @@ class IntegratedPreferences(unittest.TestCase):
                 with patch.dict(os.environ):
                     os.environ.pop("VOICESTT_CLIENT_HOME", None)
                     loaded = TranscriptHistoryManager(config)
-            self.assertEqual(loaded.db_path, legacy.resolve())
+            # Windows hosted runners may expose TEMP through an 8.3 alias.
+            # Verify the same existing file, not its spelling.
+            self.assertTrue(loaded.db_path.samefile(legacy))
             self.assertEqual(loaded.get_persistent_entries()[0].id, entry.id)
             self.assertEqual(legacy.read_bytes(), before)
             self.assertFalse((root / "home" / ".voice-stt").exists())

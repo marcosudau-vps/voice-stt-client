@@ -26,7 +26,7 @@
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md"
   },
-  "context": "AP-CV2-000 technisch selbstqualifiziert; unabhängiger PASS und menschliche Übernahme fehlen.",
+  "context": "AP-CV2-000 technisch selbstqualifiziert, CI-8.3-Testassertion korrigiert und beide Gesamtsuiten erneut bestanden; unabhängiger PASS und Übernahme fehlen.",
   "canonicalParentRef": "feat/client-v2",
   "canonicalParentResolution": "Lokaler und veröffentlichter Revision-10-HEAD am Paketstart aus Git verifiziert; vollständiger SHA in canonicalParent.",
   "repository": "marcosudau-vps/voice-stt-client",
