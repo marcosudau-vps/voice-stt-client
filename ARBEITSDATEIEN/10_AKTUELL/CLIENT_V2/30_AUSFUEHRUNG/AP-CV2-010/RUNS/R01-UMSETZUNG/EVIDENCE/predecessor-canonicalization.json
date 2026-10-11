@@ -1,0 +1,22 @@
+{
+  "status": "CANONICALIZED",
+  "aggregateCommit": "1cf076bd2ed56929b1a3780bc140da51348a8295",
+  "parent": "050e776cf316eb332177294db0c0a2719c2b4415",
+  "tree": "6dd2a359d01a08f0e8ed30f6de52e85957caedf1",
+  "candidateHead": "9aa175c6e8d2425eb927b2592e002961f47e9121",
+  "candidateTree": "6dd2a359d01a08f0e8ed30f6de52e85957caedf1",
+  "pr": {
+    "baseRefName": "feat/client-v2",
+    "headRefOid": "9aa175c6e8d2425eb927b2592e002961f47e9121",
+    "mergeCommit": {
+      "oid": "1cf076bd2ed56929b1a3780bc140da51348a8295"
+    },
+    "mergedAt": "2026-10-11T19:12:36Z",
+    "state": "MERGED",
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/2"
+  },
+  "commitCount": 1,
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+  "humanApproval": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/00_PROMPT_ORIGINAL.md",
+  "transport": "Actual merged PR #2 and fetched canonical Git ref; verified before AP010 start"
+}

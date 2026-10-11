@@ -1,0 +1,931 @@
+{
+  "origin": "Client-authored complete fixtures; historical server vectors remain unchanged.",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "snapshot": {
+    "type": "session.snapshot",
+    "protocolVersion": 2,
+    "serverVersion": "2.0.0-test",
+    "serverCommit": "server-test-commit",
+    "sessionId": "20000000-0000-4000-8000-000000000001",
+    "stateVersion": 8,
+    "lastEventSeq": 12,
+    "settingsRevision": 3,
+    "input": {
+      "phase": "idle",
+      "activationId": null,
+      "primarySource": null,
+      "deadlineAtUnixMs": null,
+      "remainingMs": null,
+      "closeRequested": false
+    },
+    "pendingActivations": [],
+    "trigger": {
+      "configured": {
+        "manual": true,
+        "wakeWord": true
+      },
+      "suppressed": {
+        "manual": false,
+        "wakeWord": false
+      },
+      "effective": {
+        "manual": true,
+        "wakeWord": true
+      }
+    },
+    "audioAvailable": true,
+    "effectiveSettings": {
+      "activation.closingRecoveryTimeoutMs": 5000,
+      "activation.followupTimeoutMs": 3000,
+      "activation.initialSpeechTimeoutMs": 15000,
+      "activation.segmentWatchdogInitialMs": 600000,
+      "activation.segmentWatchdogRefreshMs": 180000,
+      "activation.segmentWatchdogWarningMs": 30000,
+      "runtimeSuppression.manual": false,
+      "runtimeSuppression.wakeWord": false,
+      "wakeWord.cooldownMs": 0,
+      "wakeWord.detectorGain": 1.0,
+      "wakeWord.minConsecutivePredictionFrames": 1,
+      "wakeWord.noiseSuppressionEnabled": false,
+      "wakeWord.preRollMs": 0,
+      "wakeWord.selection": [],
+      "wakeWord.sensitivity": 0.5,
+      "wakeWord.vadThreshold": 0.0
+    },
+    "wakeWordCapabilities": {
+      "catalogRevision": 1,
+      "availableWakeWordIds": [
+        "hey_jarvis"
+      ]
+    },
+    "requestedSettings": {
+      "activation.closingRecoveryTimeoutMs": 5000,
+      "activation.followupTimeoutMs": 3000,
+      "activation.initialSpeechTimeoutMs": 15000,
+      "activation.segmentWatchdogInitialMs": 600000,
+      "activation.segmentWatchdogRefreshMs": 180000,
+      "activation.segmentWatchdogWarningMs": 30000,
+      "runtimeSuppression.manual": false,
+      "runtimeSuppression.wakeWord": false,
+      "wakeWord.cooldownMs": 0,
+      "wakeWord.detectorGain": 1.0,
+      "wakeWord.minConsecutivePredictionFrames": 1,
+      "wakeWord.noiseSuppressionEnabled": false,
+      "wakeWord.preRollMs": 0,
+      "wakeWord.selection": [],
+      "wakeWord.sensitivity": 0.5,
+      "wakeWord.vadThreshold": 0.0
+    }
+  },
+  "events": [
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "activation.started",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "activationSequence": 1,
+      "primarySource": "manual",
+      "inputPhase": "waiting_first_speech",
+      "effectiveSettings": {
+        "activation.closingRecoveryTimeoutMs": 5000,
+        "activation.followupTimeoutMs": 3000,
+        "activation.initialSpeechTimeoutMs": 15000,
+        "activation.segmentWatchdogInitialMs": 600000,
+        "activation.segmentWatchdogRefreshMs": 180000,
+        "activation.segmentWatchdogWarningMs": 30000,
+        "runtimeSuppression.manual": false,
+        "runtimeSuppression.wakeWord": false,
+        "wakeWord.cooldownMs": 0,
+        "wakeWord.detectorGain": 1.0,
+        "wakeWord.minConsecutivePredictionFrames": 1,
+        "wakeWord.noiseSuppressionEnabled": false,
+        "wakeWord.preRollMs": 0,
+        "wakeWord.selection": [],
+        "wakeWord.sensitivity": 0.5,
+        "wakeWord.vadThreshold": 0.0
+      }
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "activation.phase_changed",
+      "activationId": null,
+      "previousPhase": "closing_input",
+      "inputPhase": "idle",
+      "deadlineAtUnixMs": null,
+      "remainingMs": null
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "activation.input_closed",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "reason": "finished",
+      "causedByCommandId": null,
+      "acceptedSegmentCount": 1
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "activation.completed",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "acceptedSegmentCount": 1,
+      "terminalSegmentCount": 1
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "activation.cancelled",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "acceptedSegmentCount": 1,
+      "terminalSegmentCount": 1,
+      "reason": "cancelled"
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "activation.failed",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "acceptedSegmentCount": 1,
+      "terminalSegmentCount": 1,
+      "reason": "diagnostic_extension"
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "activation.trigger_suppressed",
+      "source": "manual",
+      "reason": "trigger_suppressed"
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "segment.recording_started",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "segmentId": "40000000-0000-4000-8000-000000000001",
+      "segmentSequence": 1
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "segment.recording_ended",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "segmentId": "40000000-0000-4000-8000-000000000001",
+      "segmentSequence": 1,
+      "reason": "recording_stop"
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "transcription.accepted",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "segmentId": "40000000-0000-4000-8000-000000000001",
+      "segmentSequence": 1
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "transcription.interim",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "segmentId": "40000000-0000-4000-8000-000000000001",
+      "segmentSequence": 1,
+      "text": "synthetic preview"
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "transcription.completed",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "segmentId": "40000000-0000-4000-8000-000000000001",
+      "segmentSequence": 1,
+      "text": ""
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "transcription.discarded",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "segmentId": "40000000-0000-4000-8000-000000000001",
+      "segmentSequence": 1,
+      "reason": "empty_final"
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "transcription.failed",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "segmentId": "40000000-0000-4000-8000-000000000001",
+      "segmentSequence": 1,
+      "reason": "synthetic_failure"
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "watchdog.warning",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "segmentId": null,
+      "segmentSequence": null,
+      "deadlineAtUnixMs": 1787616001000,
+      "remainingMs": 1000
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "wakeword.detected",
+      "activationId": "30000000-0000-4000-8000-000000000001",
+      "wakeWordId": "hey_jarvis",
+      "score": null,
+      "primarySource": "wake_word"
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "wakeword.availability_changed",
+      "catalogRevision": 1,
+      "availableWakeWordIds": [
+        "hey_jarvis"
+      ]
+    },
+    {
+      "protocolVersion": 2,
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "eventId": "60000000-0000-4000-8000-000000000001",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1787616000000,
+      "type": "settings.changed",
+      "settingsRevision": 1,
+      "scope": "session",
+      "changedKeys": [
+        "activation.followupTimeoutMs"
+      ],
+      "applyPolicy": "next_activation"
+    }
+  ],
+  "helloAccepted": {
+    "type": "hello.accepted",
+    "protocolVersion": 2,
+    "sessionId": "20000000-0000-4000-8000-000000000001",
+    "serverVersion": "2.0.0-test",
+    "serverCommit": "server-test-commit",
+    "snapshot": {
+      "protocolVersion": 2,
+      "serverVersion": "2.0.0-test",
+      "serverCommit": "server-test-commit",
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "stateVersion": 8,
+      "lastEventSeq": 12,
+      "settingsRevision": 3,
+      "input": {
+        "phase": "idle",
+        "activationId": null,
+        "primarySource": null,
+        "deadlineAtUnixMs": null,
+        "remainingMs": null,
+        "closeRequested": false
+      },
+      "pendingActivations": [],
+      "trigger": {
+        "configured": {
+          "manual": true,
+          "wakeWord": true
+        },
+        "suppressed": {
+          "manual": false,
+          "wakeWord": false
+        },
+        "effective": {
+          "manual": true,
+          "wakeWord": true
+        }
+      },
+      "audioAvailable": true,
+      "effectiveSettings": {
+        "activation.closingRecoveryTimeoutMs": 5000,
+        "activation.followupTimeoutMs": 3000,
+        "activation.initialSpeechTimeoutMs": 15000,
+        "activation.segmentWatchdogInitialMs": 600000,
+        "activation.segmentWatchdogRefreshMs": 180000,
+        "activation.segmentWatchdogWarningMs": 30000,
+        "runtimeSuppression.manual": false,
+        "runtimeSuppression.wakeWord": false,
+        "wakeWord.cooldownMs": 0,
+        "wakeWord.detectorGain": 1.0,
+        "wakeWord.minConsecutivePredictionFrames": 1,
+        "wakeWord.noiseSuppressionEnabled": false,
+        "wakeWord.preRollMs": 0,
+        "wakeWord.selection": [],
+        "wakeWord.sensitivity": 0.5,
+        "wakeWord.vadThreshold": 0.0
+      },
+      "wakeWordCapabilities": {
+        "catalogRevision": 1,
+        "availableWakeWordIds": [
+          "hey_jarvis"
+        ]
+      },
+      "requestedSettings": {
+        "activation.closingRecoveryTimeoutMs": 5000,
+        "activation.followupTimeoutMs": 3000,
+        "activation.initialSpeechTimeoutMs": 15000,
+        "activation.segmentWatchdogInitialMs": 600000,
+        "activation.segmentWatchdogRefreshMs": 180000,
+        "activation.segmentWatchdogWarningMs": 30000,
+        "runtimeSuppression.manual": false,
+        "runtimeSuppression.wakeWord": false,
+        "wakeWord.cooldownMs": 0,
+        "wakeWord.detectorGain": 1.0,
+        "wakeWord.minConsecutivePredictionFrames": 1,
+        "wakeWord.noiseSuppressionEnabled": false,
+        "wakeWord.preRollMs": 0,
+        "wakeWord.selection": [],
+        "wakeWord.sensitivity": 0.5,
+        "wakeWord.vadThreshold": 0.0
+      }
+    },
+    "logAccess": {
+      "available": true,
+      "websocketPath": "/ws/logs",
+      "historyPath": "/api/logs/history",
+      "accessToken": "synthetic-memory-only-token",
+      "sessionId": "20000000-0000-4000-8000-000000000001",
+      "expiresAt": "2030-01-01T00:00:00Z",
+      "logProtocolVersion": 2,
+      "deliveryMode": "sqlite_first",
+      "replayAvailable": true,
+      "serverInstanceId": "synthetic-instance",
+      "oldestCursor": 0,
+      "latestCursor": 0
+    }
+  },
+  "settingsSchema": {
+    "protocolVersion": 2,
+    "serverVersion": "unknown",
+    "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+    "secretsExposed": false,
+    "settings": [
+      {
+        "key": "activation.closingRecoveryTimeoutMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 1000,
+          "max": 30000,
+          "unit": "ms"
+        },
+        "defaultValue": 5000,
+        "applyPolicy": "next_activation",
+        "description": "Recoveryfrist in `closing_input`."
+      },
+      {
+        "key": "activation.followupTimeoutMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 100,
+          "max": 60000,
+          "unit": "ms"
+        },
+        "defaultValue": 3000,
+        "applyPolicy": "next_activation",
+        "description": "Nachfragefenster nach einem beendeten Segment derselben Activation."
+      },
+      {
+        "key": "activation.initialSpeechTimeoutMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 100,
+          "max": 3600000,
+          "unit": "ms"
+        },
+        "defaultValue": 15000,
+        "applyPolicy": "next_activation",
+        "description": "Wartezeit auf die erste Sprache einer neuen Activation."
+      },
+      {
+        "key": "activation.segmentWatchdogInitialMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 60000,
+          "max": 3600000,
+          "unit": "ms"
+        },
+        "defaultValue": 600000,
+        "applyPolicy": "next_activation",
+        "description": "Segment-Watchdog-Deadline beim Segmentstart."
+      },
+      {
+        "key": "activation.segmentWatchdogRefreshMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 30000,
+          "max": 600000,
+          "unit": "ms"
+        },
+        "defaultValue": 180000,
+        "applyPolicy": "next_activation",
+        "description": "Mindest-Restzeit, die ein Refresh in `segment_active` sichert."
+      },
+      {
+        "key": "activation.segmentWatchdogWarningMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 5000,
+          "unit": "ms",
+          "lessThanKeys": [
+            "activation.segmentWatchdogInitialMs",
+            "activation.segmentWatchdogRefreshMs"
+          ]
+        },
+        "defaultValue": 30000,
+        "applyPolicy": "next_activation",
+        "description": "Vorwarnzeit vor dem Watchdog-Ablauf. Muss kleiner sein als die jeweils wirksame Watchdog-Frist."
+      },
+      {
+        "key": "runtimeSuppression.manual",
+        "scope": "session",
+        "auth": "session",
+        "type": "bool",
+        "constraints": {},
+        "defaultValue": false,
+        "applyPolicy": "live",
+        "description": "Laufzeit-UnterdrÃ¼ckung der manuellen Triggerquelle. Die SchreibautoritÃ¤t bleibt `trigger_suppression.set`."
+      },
+      {
+        "key": "runtimeSuppression.wakeWord",
+        "scope": "session",
+        "auth": "session",
+        "type": "bool",
+        "constraints": {},
+        "defaultValue": false,
+        "applyPolicy": "live",
+        "description": "Laufzeit-UnterdrÃ¼ckung der Wake-Word-Quelle. Die SchreibautoritÃ¤t bleibt `trigger_suppression.set`."
+      },
+      {
+        "key": "wakeWord.cooldownMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 0,
+          "unit": "ms",
+          "calibration": "pending",
+          "calibrationTraceabilityIds": [
+            "WW-18"
+          ]
+        },
+        "defaultValue": 0,
+        "applyPolicy": "next_activation",
+        "description": "Expliziter Operator-Cooldown nach einem akzeptierten Wake-Hit. Er ist NICHT die interne Gruppierung desselben Trefferbereichs - die leistet der WakeHitTracker ohne Timer - und bleibt bewusst auch nach dem sicheren Eingabeschluss wirksam. Default 0 = kein zusaetzlicher Cooldown. ACHTUNG: Der kalibrierte Betriebswert (WW-18) erfordert reale positive Wake-Word-Aufnahmen und ist derzeit EVIDENCE_BLOCKED."
+      },
+      {
+        "key": "wakeWord.detectorGain",
+        "scope": "session",
+        "auth": "session",
+        "type": "float",
+        "constraints": {
+          "min": 0.0,
+          "max": 3.0,
+          "calibration": "pending",
+          "calibrationTraceabilityIds": [
+            "WW-18"
+          ]
+        },
+        "defaultValue": 1.0,
+        "applyPolicy": "next_activation",
+        "description": "Linearer Gain ausschliesslich auf einer PCM-Kopie fuer die Wake-Inferenz. Das Originalaudio fuer Aufnahme, Transkription und Audiohistorie bleibt unveraendert; die Kopie wird saettigend auf int16 geclippt."
+      },
+      {
+        "key": "wakeWord.globalDisabledIds",
+        "scope": "server",
+        "auth": "admin",
+        "type": "string_list",
+        "constraints": {
+          "minItems": 0
+        },
+        "defaultValue": [],
+        "applyPolicy": "next_session",
+        "description": "Global deaktivierte Wake-Word-Katalog-IDs. Wirkt auf neue Sessions; der Katalog selbst gehÃ¶rt AP-SRV-060."
+      },
+      {
+        "key": "wakeWord.inferenceBackend",
+        "scope": "server",
+        "auth": "admin",
+        "type": "string",
+        "constraints": {
+          "allowedValues": [
+            "auto",
+            "onnx",
+            "tflite"
+          ]
+        },
+        "defaultValue": "auto",
+        "applyPolicy": "next_session",
+        "description": "Gemeinsames Inference-Backend der Wake-Engine. 'auto' bevorzugt ONNX unter Windows und TFLite/LiteRT unter Linux und faellt fuer die GESAMTE ausgewaehlte Wake-Word-Menge auf das jeweils andere Backend zurueck. 'onnx' und 'tflite' erlauben ausschliesslich dieses Backend - ohne stillen Wechsel. Eine Live-Engine verwendet immer genau ein gemeinsames Backend fuer alle ausgewaehlten Wake Words."
+      },
+      {
+        "key": "wakeWord.minConsecutivePredictionFrames",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 1,
+          "unit": "predictionFrames",
+          "calibration": "pending",
+          "calibrationTraceabilityIds": [
+            "WW-18"
+          ]
+        },
+        "defaultValue": 1,
+        "applyPolicy": "next_activation",
+        "description": "Mindestanzahl aufeinanderfolgender OpenWakeWord-Prediction-Frames mit Score >= wakeWord.sensitivity, bevor ein Trefferbereich qualifiziert. Gezaehlt werden nur echte neue Prediction-Frames, keine Recorderchunks und kein intern wiederholter Score. Default 1 ist ein neutraler Startwert, KEINE Aussage, dass 1 empirisch optimal ist; die Kalibrierung (WW-18) erfordert reale positive Wake-Word-Aufnahmen und ist derzeit EVIDENCE_BLOCKED."
+      },
+      {
+        "key": "wakeWord.noiseSuppressionEnabled",
+        "scope": "session",
+        "auth": "session",
+        "type": "bool",
+        "constraints": {},
+        "defaultValue": false,
+        "applyPolicy": "next_session",
+        "description": "Aktiviert die vorhandene OpenWakeWord/Speex-Rauschunterdrueckung der Wake-Inferenz. Sie wirkt beim Aufbau der Engine und damit auf neu aufgebaute Sessions."
+      },
+      {
+        "key": "wakeWord.preRollMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 0,
+          "unit": "ms",
+          "calibration": "pending",
+          "calibrationTraceabilityIds": [
+            "WW-19"
+          ]
+        },
+        "defaultValue": 0,
+        "applyPolicy": "next_activation",
+        "description": "Nutzsprachen-Pre-Roll vor dem operationalen Nullpunkt. Der Nullpunkt ist die Trailing Edge des gewonnenen qualifizierten Wake-Hits und eine bewusste serverseitige Produktdefinition. 0 ms gibt das Audio genau am Nullpunkt frei. Es gibt keine aus dem Classifier-Receptive-Field abgeleitete Obergrenze; die tatsaechliche Grenze ist die real vorgehaltene Audiohistorie, gegen die zur Laufzeit geclampt wird. Der kalibrierte Betriebswert (WW-19) erfordert reale positive Wake-Word-Aufnahmen und ist derzeit EVIDENCE_BLOCKED."
+      },
+      {
+        "key": "wakeWord.selection",
+        "scope": "session",
+        "auth": "session",
+        "type": "string_list",
+        "constraints": {
+          "minItems": 0
+        },
+        "defaultValue": [],
+        "applyPolicy": "next_session",
+        "description": "Kanonische IDs der fÃ¼r die Session gewÃ¤hlten Wake Words. Wirkt auf neu aufgebaute Sessions; die atomare Admission gehÃ¶rt AP-SRV-060."
+      },
+      {
+        "key": "wakeWord.sensitivity",
+        "scope": "session",
+        "auth": "session",
+        "type": "float",
+        "constraints": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "defaultValue": 0.5,
+        "applyPolicy": "next_activation",
+        "description": "Gemeinsame Wake-Word-Empfindlichkeit der Session. Der Server validiert und verÃ¶ffentlicht den tatsÃ¤chlich aufgelÃ¶sten Wert; die Detection selbst gehÃ¶rt AP-SRV-060."
+      },
+      {
+        "key": "wakeWord.vadThreshold",
+        "scope": "session",
+        "auth": "session",
+        "type": "float",
+        "constraints": {
+          "min": 0.0,
+          "max": 1.0,
+          "calibration": "pending",
+          "calibrationTraceabilityIds": [
+            "WW-18"
+          ]
+        },
+        "defaultValue": 0.0,
+        "applyPolicy": "next_session",
+        "description": "Schwelle des OpenWakeWord-internen VAD-Gates vor der Wake-Inferenz; 0.0 deaktiviert es. Das ist der dem Detector vorgeschaltete Wake-VAD ausserhalb einer Activation und eroeffnet keinen zweiten Betriebsstrang: innerhalb einer Activation gilt weiterhin die bestehende Speech-/Transkriptionslogik."
+      }
+    ]
+  },
+  "serverSettings": {
+    "protocolVersion": 2,
+    "serverVersion": "",
+    "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+    "settingsRevision": 0,
+    "settings": [
+      {
+        "key": "activation.closingRecoveryTimeoutMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 1000,
+          "max": 30000,
+          "unit": "ms"
+        },
+        "requestedValue": 5000,
+        "effectiveValue": 5000,
+        "applyPolicy": "next_activation"
+      },
+      {
+        "key": "activation.followupTimeoutMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 100,
+          "max": 60000,
+          "unit": "ms"
+        },
+        "requestedValue": 3000,
+        "effectiveValue": 3000,
+        "applyPolicy": "next_activation"
+      },
+      {
+        "key": "activation.initialSpeechTimeoutMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 100,
+          "max": 3600000,
+          "unit": "ms"
+        },
+        "requestedValue": 15000,
+        "effectiveValue": 15000,
+        "applyPolicy": "next_activation"
+      },
+      {
+        "key": "activation.segmentWatchdogInitialMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 60000,
+          "max": 3600000,
+          "unit": "ms"
+        },
+        "requestedValue": 600000,
+        "effectiveValue": 600000,
+        "applyPolicy": "next_activation"
+      },
+      {
+        "key": "activation.segmentWatchdogRefreshMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 30000,
+          "max": 600000,
+          "unit": "ms"
+        },
+        "requestedValue": 180000,
+        "effectiveValue": 180000,
+        "applyPolicy": "next_activation"
+      },
+      {
+        "key": "activation.segmentWatchdogWarningMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 5000,
+          "unit": "ms",
+          "lessThanKeys": [
+            "activation.segmentWatchdogInitialMs",
+            "activation.segmentWatchdogRefreshMs"
+          ]
+        },
+        "requestedValue": 30000,
+        "effectiveValue": 30000,
+        "applyPolicy": "next_activation"
+      },
+      {
+        "key": "wakeWord.cooldownMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 0,
+          "unit": "ms",
+          "calibration": "pending",
+          "calibrationTraceabilityIds": [
+            "WW-18"
+          ]
+        },
+        "requestedValue": 0,
+        "effectiveValue": 0,
+        "applyPolicy": "next_activation"
+      },
+      {
+        "key": "wakeWord.detectorGain",
+        "scope": "session",
+        "auth": "session",
+        "type": "float",
+        "constraints": {
+          "min": 0.0,
+          "max": 3.0,
+          "calibration": "pending",
+          "calibrationTraceabilityIds": [
+            "WW-18"
+          ]
+        },
+        "requestedValue": 1.0,
+        "effectiveValue": 1.0,
+        "applyPolicy": "next_activation"
+      },
+      {
+        "key": "wakeWord.globalDisabledIds",
+        "scope": "server",
+        "auth": "admin",
+        "type": "string_list",
+        "constraints": {
+          "minItems": 0
+        },
+        "requestedValue": [],
+        "effectiveValue": [],
+        "applyPolicy": "next_session"
+      },
+      {
+        "key": "wakeWord.inferenceBackend",
+        "scope": "server",
+        "auth": "admin",
+        "type": "string",
+        "constraints": {
+          "allowedValues": [
+            "auto",
+            "onnx",
+            "tflite"
+          ]
+        },
+        "requestedValue": "auto",
+        "effectiveValue": "auto",
+        "applyPolicy": "next_session"
+      },
+      {
+        "key": "wakeWord.minConsecutivePredictionFrames",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 1,
+          "unit": "predictionFrames",
+          "calibration": "pending",
+          "calibrationTraceabilityIds": [
+            "WW-18"
+          ]
+        },
+        "requestedValue": 1,
+        "effectiveValue": 1,
+        "applyPolicy": "next_activation"
+      },
+      {
+        "key": "wakeWord.noiseSuppressionEnabled",
+        "scope": "session",
+        "auth": "session",
+        "type": "bool",
+        "constraints": {},
+        "requestedValue": false,
+        "effectiveValue": false,
+        "applyPolicy": "next_session"
+      },
+      {
+        "key": "wakeWord.preRollMs",
+        "scope": "session",
+        "auth": "session",
+        "type": "int",
+        "constraints": {
+          "min": 0,
+          "unit": "ms",
+          "calibration": "pending",
+          "calibrationTraceabilityIds": [
+            "WW-19"
+          ]
+        },
+        "requestedValue": 0,
+        "effectiveValue": 0,
+        "applyPolicy": "next_activation"
+      },
+      {
+        "key": "wakeWord.sensitivity",
+        "scope": "session",
+        "auth": "session",
+        "type": "float",
+        "constraints": {
+          "min": 0.0,
+          "max": 1.0
+        },
+        "requestedValue": 0.5,
+        "effectiveValue": 0.5,
+        "applyPolicy": "next_activation"
+      },
+      {
+        "key": "wakeWord.vadThreshold",
+        "scope": "session",
+        "auth": "session",
+        "type": "float",
+        "constraints": {
+          "min": 0.0,
+          "max": 1.0,
+          "calibration": "pending",
+          "calibrationTraceabilityIds": [
+            "WW-18"
+          ]
+        },
+        "requestedValue": 0.0,
+        "effectiveValue": 0.0,
+        "applyPolicy": "next_session"
+      }
+    ]
+  },
+  "classifications": {
+    "wake_enabled_without_selection": "reject_locally",
+    "client_claims_wake_word": "reject_locally",
+    "activate_with_activation_id": "reject_locally",
+    "refresh_without_activation_id": "reject_locally",
+    "command_id_conflict": "stateful_conflict_valid_syntax",
+    "idle_snapshot": "historical_incomplete_snapshot_rejected"
+  }
+}

@@ -2082,3 +2082,12 @@ Reviewer prüfte PR #2 `cd872d4bfa8eccd0167337cbab16a572ca70bfd4` Tree `6aff2fa6
 ## WF-CLIENT-V2-R05-WINDOWS – 2026-10-11 – Testblocker geschlossen und Abschluss beauftragt
 
 R04 gelesen; einziger Blocker R04-T01. Sauberer Detached-Checkout7c4bb2f, codegleich zu R04cd872d4: vollständige Windows-Suite1233 PASS, Startup-Persistenz5 PASS, compileall/Diffprüfung PASS, keine Produktänderung. Nutzerauftrag zu Kandidatenpush/anschließender Einzelübernahme und neuer Testverantwortung in R05 gesichert. Windows-Vollsuite künftig Umsetzungspflicht, ChatGPT-Reviewer prüft Code und gültige Belege ohne Pflichtwiederholung; Rollenregeln Version7 bei Planrevision10. R01–R04 erhalten. ROOT_PASS; finale CI und tatsächliche Einzel-Squash-Provenienz vor CANONICALIZED noch ausstehend. Belege: CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md.
+
+
+## AP-CV2-010-R01 – 2026-10-11 – Codecqualifikation und REVIEW_READY
+
+Aus tatsächlicher kanonischer AP000-Basis1cf076b: immutable V2-Wirecodec, bytegleiche Originalvektoren, vollständige Fixtures und echter gepinnter Servercheckpoint. Windows1263 Tests, Codec30 Tests, Server188 Checks PASS; individuelle WIRE-01..17-Belege, APIs und Akte aktualisiert. [R01-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md), PR #3 gegen feat/client-v2. Unabhängiger Review als nächste Aktion, Paketbranch ab Übergabe pausiert. Keine eigene Abnahme/Promotion und kein Folgepaketstart.
+
+## AP-CV2-010-R02 – 2026-10-11 – unabhängige technische Abnahme ROOT_PASS
+
+Unabhängiger commitgebundener Vollreview des PR #3: `7124e5629e24817dd711b2e2b697b9c07aa11dd7`, Tree `37b61ff4cab90c18abf8e5bfae920f2e265ad3ab`, Parent `1cf076bd2ed56929b1a3780bc140da51348a8295`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`. Produkt-/Testdiff, WIRE-01..17, 30 Codec-Tests, 1263 Windowsvollsuite, 188 gepinnte Serverchecks, Originalvektoren und finale GitHub-CI unabhängig validiert; keine Pflichtfindings. Windows/HW durch Reviewer selbst NOT_RUN (gültige Fremdevidenz). [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md). Paketstatus ROOT_PASS, Workflow WAITING_FOR_APPROVAL; keine Übernahmefreigabe und kein Merge, AP020 nicht gestartet.

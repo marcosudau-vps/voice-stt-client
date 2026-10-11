@@ -6,7 +6,7 @@
       "title": "Feature-/Releaseintegration und qualifizierte Clientstartbasis",
       "dependencies": [],
       "path": "ARBEITSPAKETE/AP-CV2-000.md",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "testModules": [
         "test_cv2_000_integration",
         "test_trigger_lifecycle",
@@ -52,7 +52,10 @@
       "executionReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
       "candidateBranch": "work/client-v2/ap-cv2-000",
       "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
-      "latestReview": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md"
+      "latestReview": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+      "canonicalCommit": "1cf076bd2ed56929b1a3780bc140da51348a8295",
+      "canonicalTree": "6dd2a359d01a08f0e8ed30f6de52e85957caedf1",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "AP-CV2-010",
@@ -61,7 +64,7 @@
         "AP-CV2-000"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-010.md",
-      "status": "PLANNED",
+      "status": "ROOT_PASS",
       "testModules": [
         "test_v2_protocol"
       ],
@@ -97,7 +100,16 @@
         "defaultRuns": 1,
         "scopeNote": "one complete package session; steps are not separate runs"
       },
-      "testModulesRole": "suggested locations; actual coverage and methods required"
+      "testModulesRole": "suggested locations; actual coverage and methods required",
+      "candidateBranch": "work/client-v2/ap-cv2-010",
+      "canonicalParent": "1cf076bd2ed56929b1a3780bc140da51348a8295",
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+      "qualifiedImplementationCommit": "9838558173b6bd88d4620b20d4e2e9d832e814c7",
+      "qualifiedImplementationTree": "c3a0b826e5d9614ad6dfb80b51815af77f8090bf",
+      "latestReview": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+      "reviewedCommit": "7124e5629e24817dd711b2e2b697b9c07aa11dd7",
+      "reviewedTree": "37b61ff4cab90c18abf8e5bfae920f2e265ad3ab"
     },
     {
       "id": "AP-CV2-020",

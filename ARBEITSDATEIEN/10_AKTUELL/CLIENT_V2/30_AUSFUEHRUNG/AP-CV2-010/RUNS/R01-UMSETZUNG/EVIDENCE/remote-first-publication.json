@@ -1,0 +1,367 @@
+{
+  "result": "PASS",
+  "publishedCommit": "364c0d8e4b42eb585fe32fe194441d57c75862a0",
+  "publishedTree": "58fbe010637d84829ed7ddeaa33a26e821b71e3e",
+  "canonicalParent": "1cf076bd2ed56929b1a3780bc140da51348a8295",
+  "testedCommit": "9838558173b6bd88d4620b20d4e2e9d832e814c7",
+  "pullRequest": {
+    "baseRefName": "feat/client-v2",
+    "headRefName": "work/client-v2/ap-cv2-010",
+    "headRefOid": "364c0d8e4b42eb585fe32fe194441d57c75862a0",
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/3"
+  },
+  "scope": "Initial full publication checked before final purely administrative evidence attachment; final submitted identity is separately reported in PR handoff.",
+  "onlineTree": [
+    {
+      "path": ".gitattributes",
+      "gitBlob": "29fb8c562b544c888dd6e0db21755b9e3a6b5fc4",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md",
+      "gitBlob": "1cb95517d811749e76c6a30c0dac60009f2184c8",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/00_STEUERUNG/LOG_VERLAUF.md",
+      "gitBlob": "5fe3cbc489b00bee8585d503df0da792af5b28e4",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/00_STEUERUNG/MASTERPLAN.md",
+      "gitBlob": "46ebb5f59fff10408d9e6bc3eecf0edebe8a2072",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md",
+      "gitBlob": "b79d3de7560d5336cda318c5866768f2ac2fe292",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/00_PAKET.md",
+      "gitBlob": "c57e74e504f847c2101c2351482f42d4f18f68bd",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+      "gitBlob": "7df1b16988c413d850d8e56ad006570e5c878ff7",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "gitBlob": "97ff4fb75992182f1ba0f5eeb349549665bfb720",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+      "gitBlob": "2e31d4298087738e678ed53de909b96765081d8a",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/administrative-validation.json",
+      "gitBlob": "7a14225ef2e45afb0837978c9b94268c55d3e99f",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/baseline-full-unittest.txt",
+      "gitBlob": "fc158d93c6eeba170454f4d1cf3d33b9c98b26c6",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/compileall.txt",
+      "gitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json",
+      "gitBlob": "b4a827925229a7203ca80ff46cdd922be6a7d288",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/remote-first-publication.json",
+      "gitBlob": "99fa8c04ef509ea5a342bc9bf63ea36e9cb8e846",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/server-contract-checkpoint.json",
+      "gitBlob": "1a76a2bd03b85a5a73c9db79de3930265c390f2b",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/start-contract-hashes.json",
+      "gitBlob": "4b025e9c3b375a855ee2667b8f657a10ab8332b7",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/targeted-protocol-unittest.txt",
+      "gitBlob": "69725710e7a8e636b180f760a0d6f069abac20b3",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/windows-full-unittest.txt",
+      "gitBlob": "64e41dc9707fd3891d9e2427030a23326a8c5f7e",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+      "gitBlob": "403bf3825bb328ac28d3dd397ae15bc161aeaf96",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/AP-CV2-000.md",
+      "gitBlob": "ad6bedaf067c6efc91f3656c6704f76bd23d28ec",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/AP-CV2-010.md",
+      "gitBlob": "18f5c13c75f58e65fc0d1bc1f585f67d1f363a69",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/README.md",
+      "gitBlob": "5d6f522ffc868b3cee44c6a7c1ce6fda83e2b0df",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/package-manifest.json",
+      "gitBlob": "d70555686fcba902b764c7d4ef33a06f87f6e110",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/planning-baseline.json",
+      "gitBlob": "6e97d36e08667b8baa45a9c604ca6253c4e2c7c8",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md",
+      "gitBlob": "bc1f2a746f38235c750f7d50c079cf715b6aec27",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/KONTRAKTE/K-01_WIRE_AUDIO_COMMANDS.md",
+      "gitBlob": "1a191c2ddca681d3eba3bb14aafac0d250725c57",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/TRACEABILITY/TRACEABILITY_MATRIX.md",
+      "gitBlob": "968bf1823261a80ad55e67c9ffcd322cbac2c61a",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/TRACEABILITY/requirements.json",
+      "gitBlob": "16889de019a0401ef30de5e65bfb6a61ea00c36b",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/README.md",
+      "gitBlob": "7b31d40a27931b4757ff92b7c8e5387bd4d1b5d9",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/STATUS.md",
+      "gitBlob": "2555c7b951af65ce9f939b569b9c6fd87890fcbb",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/VERLAUF.md",
+      "gitBlob": "a54cdd78eee73c6aeb5b9846f4c4cb2dc7636937",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json",
+      "gitBlob": "daba5f18bb3a67e8b007574a14431b612427d089",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "docs/PROJEKTUEBERSICHT.md",
+      "gitBlob": "996625ea7dbeedbae594eddc287ca7cd0b620af6",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "docs/protocol-v2-codec.md",
+      "gitBlob": "584d505d1e25f23b5fb201061d738b7cd8c97099",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "scripts/check_v2_server_contract.py",
+      "gitBlob": "712a25698e1cccb1d3bf736f8d19585963f467f4",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "task.md",
+      "gitBlob": "e3efdefb055f630dbdbe0500d926405cda008be3",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "tests/contracts/protocol-v2-client-fixtures.json",
+      "gitBlob": "b1780d633abb60966fb7e1be6fe4bbe35bd129ca",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "tests/contracts/protocol-v2-provenance.json",
+      "gitBlob": "acc1ad0f00089a78031bad3a255faaea9bd177a3",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "tests/contracts/protocol-v2-vectors.json",
+      "gitBlob": "334e1d71f78c0688325a718ab7e5139954a7119f",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "tests/test_v2_protocol.py",
+      "gitBlob": "de66709b1df6399091037df0b225dff2ab455fdc",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "voice_stt_client/core/protocol_v2.py",
+      "gitBlob": "cdb4e167d0795e6ddf32aad0092100dec16e7fb8",
+      "onlineTreeResult": "PASS"
+    },
+    {
+      "path": "ÜBERGABE.md",
+      "gitBlob": "15dbb0f15413e70eac1aa16a1188c04efc97a016",
+      "onlineTreeResult": "PASS"
+    }
+  ],
+  "onlineBlobComparisons": [
+    {
+      "path": "voice_stt_client/core/protocol_v2.py",
+      "sha256": "b67d49d81a55121dde68d67a2e07fe04ce142b2e1494300504e3cd219859f355",
+      "bytes": 32384,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "tests/test_v2_protocol.py",
+      "sha256": "eabced19e5d78cd2aff0ef7ce29838092a4c674dbc3b8e2533fea84febd62bfe",
+      "bytes": 29560,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "scripts/check_v2_server_contract.py",
+      "sha256": "9b750349821c21a141bc0c919edbbd9f7e742b7d2ba526413d595d41d3643672",
+      "bytes": 18293,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "tests/contracts/protocol-v2-vectors.json",
+      "sha256": "694971cea437ca57c207620fac7f169d0397987d7fe1ee02fd276eb8b941de34",
+      "bytes": 8237,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "tests/contracts/protocol-v2-provenance.json",
+      "sha256": "2a560ee1ab7888b1e018d19f4cc910cd37ce159ab4d6d191fc86e96a197bbcad",
+      "bytes": 444,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "tests/contracts/protocol-v2-client-fixtures.json",
+      "sha256": "18be2b74c91ff981731b116949760b4cfd5439d31b0b37d97fb41a406cb8fcc0",
+      "bytes": 30686,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "docs/protocol-v2-codec.md",
+      "sha256": "1783775e352f93724d279c1f1a1e5850c4ab06ea901d0e85e1072d340db05a64",
+      "bytes": 7410,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json",
+      "sha256": "87c1358c52d373e5f03fba3530bad4b2654602373b90f2662eff27bbb498ef99",
+      "bytes": 2494,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+      "sha256": "495616a6f11f683fe8c4cd84e41bb42638701383db49bb48fb28852ff512d935",
+      "bytes": 748,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "sha256": "562e80173a6e558de720a2b78d1cc9dccd48bbd33bc10d264eb70d99944ef09d",
+      "bytes": 12961,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+      "sha256": "f4647480bb76d1f0e9ccb47e6ce5a2f8df417569a6492db4002a1e43e80afa80",
+      "bytes": 2881,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+      "sha256": "b084627b1aa5fa7df702b66057fdaa9b8d25cf312ef822b894facd127a7b9cd4",
+      "bytes": 3042,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/windows-full-unittest.txt",
+      "sha256": "fbb901200b495878324e8af006c505432c86cbeba7d2800411266d98b9a0bb2c",
+      "bytes": 36231,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/targeted-protocol-unittest.txt",
+      "sha256": "742521f167fec9404aabd96e6de7a81944e8bbb8bd9a6aa350e25a8525d0bb66",
+      "bytes": 4667,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/server-contract-checkpoint.json",
+      "sha256": "a6404178d759f2d0cade3bf3259a0124b71060e244afbe2908d5846f2a1aa876",
+      "bytes": 12712,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/baseline-full-unittest.txt",
+      "sha256": "a727cf973ab030f3d021108cc30e2e18e948b65625b5d040b057db2c57840840",
+      "bytes": 36235,
+      "onlineBlobResult": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json",
+      "sha256": "9edac6959830f775e58eb4fe5e712c8192fa45f8d78f82f276df345e1fc71aa2",
+      "bytes": 964,
+      "onlineBlobResult": "PASS"
+    }
+  ],
+  "testedLogHashesMatchGitBlobs": true,
+  "postQualificationAdministrativePaths": [
+    "ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md",
+    "ARBEITSDATEIEN/00_STEUERUNG/LOG_VERLAUF.md",
+    "ARBEITSDATEIEN/00_STEUERUNG/MASTERPLAN.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/00_PAKET.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/administrative-validation.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/compileall.txt",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/remote-first-publication.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/targeted-protocol-unittest.txt",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/windows-full-unittest.txt",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/AP-CV2-000.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/AP-CV2-010.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/README.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/package-manifest.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/planning-baseline.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/TRACEABILITY/TRACEABILITY_MATRIX.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/TRACEABILITY/requirements.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/README.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/STATUS.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/VERLAUF.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json",
+    "docs/PROJEKTUEBERSICHT.md",
+    "task.md",
+    "ÜBERGABE.md"
+  ],
+  "commands": [
+    "gh pr view 3 --json headRefOid,baseRefName,headRefName,url",
+    "gh api repos/marcosudau-vps/voice-stt-client/git/trees/58fbe010637d84829ed7ddeaa33a26e821b71e3e?recursive=1",
+    "gh api repos/<repo>/git/blobs/<verified-blob-sha>; base64 decoded bytes equal git show <published-head>:<path>",
+    "git diff --name-only <testedCommit> <publishedCommit>; all product/test/configuration files unchanged"
+  ]
+}

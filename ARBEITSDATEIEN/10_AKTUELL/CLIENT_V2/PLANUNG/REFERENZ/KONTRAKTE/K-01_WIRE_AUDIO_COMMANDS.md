@@ -138,12 +138,14 @@ Es gibt kein Magic, kein `VSTT`, keine Versionsbytes und keine Flags.
 | `sampleRate` | Pflicht, positive Ganzzahl; Server resampelt auf 16 kHz |
 | `channels` | optional, Default 1, Integer 1–8, interleaved |
 | `format` | optional, Default und einziger Wert `pcm_s16le` |
-| `frames` | optional; falls vorhanden `frames * channels * 2 == PCM-Bytes` |
+| `frames` | optional; falls vorhanden positive Ganzzahl (Bool ausgeschlossen) und `frames * channels * 2 == PCM-Bytes` |
 
 Metadaten ≤ 65 536 Bytes, PCM ≤ `max_audio_packet_bytes` (Code-Default 524 288; aktuelle Grenze aus `/api/config`). PCM-Länge muss Vielfaches von `channels*2` sein. Ungültige Frames werden still verworfen, nie quittiert. Gleichmäßige Pakete mit 20–100 ms sind eine technische Empfehlung, 40 ms der erste Clientstartwert; passende vorhandene Paketierung darf nach Latenz-/Lastprüfung weitergenutzt werden. Float vor int16-Umwandlung clampen. Gerätewechsel aktualisiert Rate und Kanalzahl jedes Pakets. Audio vor Annahme ist untersagt.
 
 Client-Sendqueue ist begrenzt: Überlauf, stale Generation und Encoderfehler werden gezählt und sichtbar diagnostiziert. Es gibt kein unbeschränktes Nachsenden alter Mikrofondaten. Technischer Startwert: 500 ms Audio in der Sendqueue; bei anhaltendem Überlauf Aufnahmeverfügbarkeit degradieren und Transport prüfen. Ein anderer begrenzter Wert ist mit Latenz-/Überlauftest und dokumentierter Begründung zulässig; kein Serverlimit.
 
 ## 6. Quellen
+
+Präzisierung AP-CV2-010, 2026-10-11: Der gepinnte `server.py:packet_to_server_samples` prüft vorhandene `frames` über `require_positive_int`; `frames=0` ist auch bei leerem PCM ungültig. Ein leeres Paket ohne `frames` ist zulässig. Keine Änderung der Serverbaseline.
 
 Servermodule `api_fastapi_server/protocol_v2/{schema,handshake,commands,connection,session}.py`, `api_fastapi_server/protocol.py`, `/ws/v2` in `api_fastapi_server/server.py`; Tests `test_protocol_v2_contract`, `test_protocol_v2_e2e`, `test_protocol_v2_state_version`, `test_protocol_v1_v2_boundary`. Der [Quellenindex](../../EVIDENCE/source-manifest.json) fixiert alle Pfade auf den Servercommit.
