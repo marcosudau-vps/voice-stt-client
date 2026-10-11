@@ -20,11 +20,11 @@ import logging
 import unittest
 from typing import Any, List, Optional
 
-from core.observability.adapters.python_logging import UnifiedLogHandler
-from core.observability.health import LoggingInternalHealth
-from core.observability.ingress import ObservabilityIngress
-from core.observability.models import CanonicalLogRecord
-from core.observability.normalizer import from_log_record
+from voice_stt_client.core.observability.adapters.python_logging import UnifiedLogHandler
+from voice_stt_client.core.observability.health import LoggingInternalHealth
+from voice_stt_client.core.observability.ingress import ObservabilityIngress
+from voice_stt_client.core.observability.models import CanonicalLogRecord
+from voice_stt_client.core.observability.normalizer import from_log_record
 
 
 class RecordingIngress:
@@ -109,7 +109,7 @@ class TestAudioPayloadIsNeverReachable(unittest.TestCase):
     def test_hot_path_audio_functions_never_reference_the_ingress(self):
         import inspect
 
-        from core.audio_capture import AudioCapture
+        from voice_stt_client.core.audio_capture import AudioCapture
 
         for name in ("_audio_callback", "_process_loop"):
             with self.subTest(function=name):

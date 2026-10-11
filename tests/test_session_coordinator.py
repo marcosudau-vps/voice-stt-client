@@ -4,10 +4,10 @@ import asyncio
 import unittest
 from datetime import datetime, timedelta, timezone
 
-from core.config import EventStreamConfig, ServerConfig
-from core.event_models import EventConnectionState, EventEnvelope, EventOrigin
-from core.event_protocol import EventProtocolResult, EventResultKind
-from core.session_coordinator import DualSessionCoordinator
+from voice_stt_client.core.config import EventStreamConfig, ServerConfig
+from voice_stt_client.core.event_models import EventConnectionState, EventEnvelope, EventOrigin
+from voice_stt_client.core.event_protocol import EventProtocolResult, EventResultKind
+from voice_stt_client.core.session_coordinator import DualSessionCoordinator
 
 
 class FakeEventTransport:

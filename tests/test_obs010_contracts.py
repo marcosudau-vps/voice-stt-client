@@ -14,11 +14,11 @@ import sys
 import unittest
 from pathlib import Path
 
-from core.observability import redaction
-from core.observability.ingress import Ingress
+from voice_stt_client.core.observability import redaction
+from voice_stt_client.core.observability.ingress import Ingress
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OBSERVABILITY_DIR = PROJECT_ROOT / "core" / "observability"
+OBSERVABILITY_DIR = PROJECT_ROOT / "voice_stt_client" / "core" / "observability"
 
 
 class TestModuleIsolation(unittest.TestCase):
@@ -53,7 +53,7 @@ class TestModuleIsolation(unittest.TestCase):
     def test_models_imports_nothing_from_own_package(self):
         text = (OBSERVABILITY_DIR / "models.py").read_text(encoding="utf-8")
         self.assertNotIn("from .", text)
-        self.assertNotIn("from core.observability", text)
+        self.assertNotIn("from voice_stt_client.core.observability", text)
 
     def test_normalizer_imports_no_runtime_objects(self):
         """The normalizer must neither import nor reference the runtime
@@ -77,14 +77,14 @@ class TestModuleIsolation(unittest.TestCase):
 class TestAcyclicImports(unittest.TestCase):
     def test_every_module_imports_in_a_fresh_interpreter(self):
         modules = [
-            "core.observability",
-            "core.observability.models",
-            "core.observability.redaction",
-            "core.observability.normalizer",
-            "core.observability.ingress",
-            "core.observability.storage.base",
-            "core.observability.sinks.base",
-            "core.observability.query.base",
+            "voice_stt_client.core.observability",
+            "voice_stt_client.core.observability.models",
+            "voice_stt_client.core.observability.redaction",
+            "voice_stt_client.core.observability.normalizer",
+            "voice_stt_client.core.observability.ingress",
+            "voice_stt_client.core.observability.storage.base",
+            "voice_stt_client.core.observability.sinks.base",
+            "voice_stt_client.core.observability.query.base",
         ]
         for module in modules:
             with self.subTest(module=module):
@@ -154,7 +154,7 @@ class TestMutationGuards(unittest.TestCase):
 
 
 def redaction_from_client_event():
-    from core.observability.normalizer import from_client_event
+    from voice_stt_client.core.observability.normalizer import from_client_event
     record = from_client_event(
         "client.final.deduplicated",
         channel="transcription",

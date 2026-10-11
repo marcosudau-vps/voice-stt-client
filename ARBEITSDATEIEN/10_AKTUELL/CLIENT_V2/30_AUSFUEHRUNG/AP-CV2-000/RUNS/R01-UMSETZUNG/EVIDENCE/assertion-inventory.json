@@ -1,0 +1,31 @@
+[
+  {
+    "baseline": "FEATURE",
+    "file": "test_ap06_followup.py",
+    "renamed_or_replaced": [
+      "TestSessionConfigAndMetadata.test_unknown_user_field_rejects_complete_override",
+      "TestSettingsDialog.test_dependency_visibility_tracks_mode_and_sound_toggle"
+    ]
+  },
+  {
+    "baseline": "FEATURE",
+    "file": "test_config.py",
+    "renamed_or_replaced": [
+      "TestConfigValidation.test_non_mapping_yaml_root_falls_back_to_valid_defaults"
+    ]
+  },
+  {
+    "baseline": "FEATURE",
+    "file": "test_feedback_ui.py",
+    "renamed_or_replaced": [
+      "SoundFeedbackTests.test_frozen_application_uses_pyinstaller_resource_root"
+    ]
+  },
+  {
+    "baseline": "FEATURE",
+    "file": "test_ui_application.py",
+    "renamed_or_replaced": [
+      "TestDesktopApplication.test_hotkey_conflict_keeps_tray_core_operational"
+    ]
+  }
+]

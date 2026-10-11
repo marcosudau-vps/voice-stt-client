@@ -20,17 +20,17 @@ import unittest
 from pathlib import Path
 from types import MappingProxyType
 
-from core.event_cursor_store import EventCursorStore
-from core.event_models import EventOrigin
-from core.event_protocol import (
+from voice_stt_client.core.event_cursor_store import EventCursorStore
+from voice_stt_client.core.event_models import EventOrigin
+from voice_stt_client.core.event_protocol import (
     EventProtocolProcessor,
     EventResultKind,
     EventStreamAccess,
 )
-from core.observability.adapters.server_live import ServerLiveAdapter
-from core.observability.ingress import ObservabilityIngress
-from core.observability.models import RecordPriority
-from core.session_coordinator import SessionContext
+from voice_stt_client.core.observability.adapters.server_live import ServerLiveAdapter
+from voice_stt_client.core.observability.ingress import ObservabilityIngress
+from voice_stt_client.core.observability.models import RecordPriority
+from voice_stt_client.core.session_coordinator import SessionContext
 
 ENDPOINT = "wss://stt.voice.marcosudau.com/ws/logs"
 
@@ -488,7 +488,7 @@ class TestAdapterFailureIsolation(unittest.TestCase):
         normalizer that breaks its "never raises" contract. Reachable only by
         replacing the normalizer, which is exactly what makes it worth a test:
         the guard must count ``malformed`` and emit one substitute record."""
-        import core.observability.ingress as ingress_module
+        import voice_stt_client.core.observability.ingress as ingress_module
 
         ingress = build_ingress()
         adapter = ServerLiveAdapter(ingress)

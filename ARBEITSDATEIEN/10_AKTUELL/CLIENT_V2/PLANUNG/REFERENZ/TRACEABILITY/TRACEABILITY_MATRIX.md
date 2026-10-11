@@ -322,3 +322,7 @@ Datei-/Testnamen bezeichnen geplante Zuordnungen, keine Pflicht zur Neuanlage. F
 Jedes Implementationpaket besitzt zugeordnete Requirements. CV2-100 besitzt FINAL-01/02 sowie RUNTIME-01..04 und integriert die Ergebnisse aller Vorgänger; deren funktionale Requirements werden im Runtimegate erneut geprüft. AP-SV2-FIX ist eine bedingte Vorlage, kein offen gelassenes Pflichtfeature; bei einem Befund werden konkrete Requirement-IDs zugeordnet.
 
 Nachweisformat je Requirement: geprüfter Clientcommit, geprüfter Servercommit, Testdatei::Testmethode oder M-Fall, Runreport, PASS/FAIL/NOT_RUN, bekannte Grenze. Eine Änderung an SHA, Kontrakt oder Fixture invalidiert nur die davon betroffenen früheren Nachweise und die gemeinsame Kompatibilitätsbehauptung, bis erneut geprüft.
+
+## Implementierungsnachweise AP-CV2-000 / R01
+
+BASE-01 bis BASE-12: technische Selbstchecks REVIEW_READY auf `work/client-v2/ap-cv2-000`, Parent 050e776cf316eb332177294db0c0a2719c2b4415. Jede ID mit tatsächlichen Methoden und Evidenz steht in der [Requirementtabelle des Runreports](../../../30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md#requirementbelege) und maschinenlesbar unter `implementationEvidence` in requirements.json. Status aller IDs bleibt CLIENT OPEN bis unabhängiger Abnahme. Namespace-/Installationssmokes, Assertionnachfolger und vollständige 1221-Testregression sind belegt; keine V2-Serverkompatibilität behauptet.

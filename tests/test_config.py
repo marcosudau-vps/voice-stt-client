@@ -6,10 +6,11 @@ import unittest
 import tempfile
 import math
 from pathlib import Path
+from unittest.mock import patch
 
 import yaml
 
-from core.config import (
+from voice_stt_client.core.config import (
     AppConfig,
     EventStreamConfig,
     FeedbackConfig,
@@ -19,10 +20,39 @@ from core.config import (
     ServerConfig,
     normalize_hotkey_spec,
 )
-from core.event_models import CanonicalEventType
+from voice_stt_client.core.event_models import CanonicalEventType
 
 
 class TestConfigValidation(unittest.TestCase):
+
+    def test_explicit_profile_layers_packaged_feedback_and_saves_back_to_profile(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            profile = Path(temp_dir) / "profile.yaml"
+            profile.write_text("server:\n  url: ws://127.0.0.1:19999/ws/transcribe\n", encoding="utf-8")
+            config = AppConfig.load(profile)
+            self.assertTrue(config.feedback.sounds_enabled)
+            self.assertTrue(config.feedback.start_sound)
+            self.assertTrue(config.feedback_mappings.events["client.lifecycle.started"].led)
+            self.assertEqual(config.server.url, "ws://127.0.0.1:19999/ws/transcribe")
+            config.feedback.sounds_enabled = False
+            config.save_user()
+            self.assertFalse(yaml.safe_load(profile.read_text(encoding="utf-8"))["feedback"]["sounds_enabled"])
+
+    def test_legacy_all_null_sounds_in_user_config_inherit_bundled_paths(self):
+        sound_names = (
+            "wake_word_sound", "start_sound", "stop_sound", "complete_sound",
+            "cancel_sound", "warning_sound", "error_sound", "timeout_tick_sound",
+        )
+        with tempfile.TemporaryDirectory() as temp_dir:
+            user_file = Path(temp_dir) / "config.yaml"
+            user_file.write_text(
+                yaml.safe_dump({"feedback": {"sounds_enabled": False, **{name: None for name in sound_names}}}),
+                encoding="utf-8",
+            )
+            with patch("voice_stt_client.core.config.DEFAULT_USER_CONFIG_PATH", user_file):
+                config = AppConfig.load()
+            self.assertFalse(config.feedback.sounds_enabled)
+            self.assertTrue(config.feedback.start_sound)
 
     def test_default_config_valid(self):
         cfg = AppConfig()
@@ -223,7 +253,8 @@ server:
 
     def test_shipped_debug_feedback_assets_and_mapping_are_complete(self):
         project_root = Path(__file__).resolve().parent.parent
-        config = AppConfig.load(project_root / "config.yaml")
+        package_root = project_root / "voice_stt_client"
+        config = AppConfig.load(package_root / "config.yaml")
         self.assertTrue(config.feedback.sounds_enabled)
         self.assertEqual(config.led.brightness, 192)
         paths = (
@@ -240,7 +271,7 @@ server:
         for path in paths:
             with self.subTest(path=path):
                 self.assertIsNotNone(path)
-                self.assertTrue((project_root / path).is_file())
+                self.assertTrue((package_root / path).is_file())
 
         degraded = config.feedback_mappings.rule_for(
             CanonicalEventType.CLIENT_EVENT_STREAM_DEGRADED
@@ -311,14 +342,13 @@ overlay:
         finally:
             temp_path.unlink(missing_ok=True)
 
-    def test_non_mapping_yaml_root_falls_back_to_valid_defaults(self):
+    def test_non_mapping_explicit_yaml_fails_instead_of_silently_using_defaults(self):
         with tempfile.NamedTemporaryFile("w", delete=False, suffix=".yaml") as f:
             f.write("- not\\n- a\\n- mapping\\n")
             temp_path = Path(f.name)
         try:
-            cfg = AppConfig.load(temp_path)
-            self.assertEqual(cfg.hotkey.toggle_key, "Ctrl+Shift+Space")
-            cfg.validate()
+            with self.assertRaisesRegex(ValueError, "must be a mapping"):
+                AppConfig.load(temp_path)
         finally:
             temp_path.unlink(missing_ok=True)
 
@@ -338,6 +368,11 @@ overlay:
         finally:
             temp_path.unlink(missing_ok=True)
 
+    def test_qt_meta_hotkey_is_normalized_as_windows_key(self):
+        from voice_stt_client.core.config import normalize_hotkey_spec
+
+        self.assertEqual(normalize_hotkey_spec("Meta+Space"), "Win+Space")
+
 
 class TestAP6ConfigMigration(unittest.TestCase):
     """The migration rule of the specification, verbatim.
@@ -351,7 +386,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
     """
 
     def test_legacy_hotkey_mode_migrates_to_manual_only(self):
-        from core.config import SessionConfig, OperatingMode
+        from voice_stt_client.core.config import SessionConfig, OperatingMode
         cfg = SessionConfig(mode=OperatingMode.HOTKEY.value)
         cfg.validate()
         self.assertTrue(cfg.effective_manual_trigger_enabled)
@@ -361,7 +396,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
         self.assertEqual(params["wakeWordTriggerEnabled"], "false")
 
     def test_legacy_wake_word_mode_migrates_to_wake_word_only(self):
-        from core.config import SessionConfig, OperatingMode
+        from voice_stt_client.core.config import SessionConfig, OperatingMode
         cfg = SessionConfig(mode=OperatingMode.WAKE_WORD.value)
         cfg.validate()
         self.assertFalse(
@@ -374,7 +409,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
         self.assertEqual(params["wakeWordTriggerEnabled"], "true")
 
     def test_no_legacy_mode_ever_migrates_to_both_triggers(self):
-        from core.config import SessionConfig, OperatingMode
+        from voice_stt_client.core.config import SessionConfig, OperatingMode
         for mode in OperatingMode:
             with self.subTest(mode=mode.value):
                 cfg = SessionConfig(mode=mode.value)
@@ -389,7 +424,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
                 self.assertIn(True, enabled, "a mode must map to one trigger")
 
     def test_explicit_flags_override_the_legacy_mode(self):
-        from core.config import SessionConfig, OperatingMode
+        from voice_stt_client.core.config import SessionConfig, OperatingMode
         cfg = SessionConfig(
             mode=OperatingMode.WAKE_WORD.value,
             manual_trigger_enabled=True,
@@ -402,7 +437,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
         self.assertFalse(cfg.migrated_from_legacy_mode)
 
     def test_a_single_explicit_flag_still_reads_the_other_from_the_mode(self):
-        from core.config import SessionConfig, OperatingMode
+        from voice_stt_client.core.config import SessionConfig, OperatingMode
         cfg = SessionConfig(
             mode=OperatingMode.WAKE_WORD.value, manual_trigger_enabled=True
         )
@@ -411,21 +446,21 @@ class TestAP6ConfigMigration(unittest.TestCase):
         self.assertTrue(cfg.effective_wake_word_trigger_enabled)
 
     def test_a_missing_mode_field_keeps_the_hotkey_default(self):
-        from core.config import SessionConfig
+        from voice_stt_client.core.config import SessionConfig
         cfg = SessionConfig()
         cfg.validate()
         self.assertTrue(cfg.effective_manual_trigger_enabled)
         self.assertFalse(cfg.effective_wake_word_trigger_enabled)
 
     def test_an_invalid_legacy_mode_value_is_rejected(self):
-        from core.config import SessionConfig
+        from voice_stt_client.core.config import SessionConfig
         cfg = SessionConfig(mode="dictation")
         with self.assertRaises(ValueError) as ctx:
             cfg.validate()
         self.assertIn("session.mode", str(ctx.exception))
 
     def test_disabling_all_triggers_raises_validation_error(self):
-        from core.config import SessionConfig
+        from voice_stt_client.core.config import SessionConfig
         cfg = SessionConfig(
             manual_trigger_enabled=False, wake_word_trigger_enabled=False
         )
@@ -434,7 +469,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
         self.assertIn("At least one trigger source", str(ctx.exception))
 
     def test_disabling_all_triggers_is_rejected_for_every_legacy_mode(self):
-        from core.config import SessionConfig, OperatingMode
+        from voice_stt_client.core.config import SessionConfig, OperatingMode
         for mode in OperatingMode:
             with self.subTest(mode=mode.value):
                 cfg = SessionConfig(
@@ -446,7 +481,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
                     cfg.validate()
 
     def test_a_non_boolean_trigger_flag_is_rejected(self):
-        from core.config import SessionConfig
+        from voice_stt_client.core.config import SessionConfig
         for field in ("manual_trigger_enabled", "wake_word_trigger_enabled"):
             with self.subTest(field=field):
                 cfg = SessionConfig(**{field: "yes"})
@@ -455,7 +490,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
                 self.assertIn(field, str(ctx.exception))
 
     def test_wake_word_details_are_only_sent_when_the_wake_word_is_on(self):
-        from core.config import SessionConfig, OperatingMode
+        from voice_stt_client.core.config import SessionConfig, OperatingMode
         hotkey = SessionConfig(mode=OperatingMode.HOTKEY.value)
         hotkey.validate()
         params = hotkey.query_parameters()
@@ -469,7 +504,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
         self.assertEqual(params["wakeWords"], "hey_jarvis")
 
     def test_activation_timings_reach_the_query_when_configured(self):
-        from core.config import SessionConfig
+        from voice_stt_client.core.config import SessionConfig
         cfg = SessionConfig(
             initial_speech_timeout=12.0,
             followup_timeout=2.5,

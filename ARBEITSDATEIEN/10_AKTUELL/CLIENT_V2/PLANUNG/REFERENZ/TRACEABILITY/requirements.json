@@ -40,7 +40,18 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/pyproject.toml"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "Gitfall: source-identities.txt und Start-/Endrefabgleich"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/source-identities.txt"
+      }
     },
     {
       "id": "BASE-02",
@@ -81,7 +92,21 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/pyproject.toml"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.test_trigger_lifecycle (sämtliche Methoden)",
+          "tests.test_trigger_feedback_contract (sämtliche Methoden)",
+          "StreamRestartsAfterFinishWithAFaithfulDouble.test_a_second_activation_resends_start_despite_the_finish_comment",
+          "qualify_sources.py: namespace-only controller/stt_session/Featuretests"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/source-preservation.txt"
+      }
     },
     {
       "id": "BASE-03",
@@ -122,7 +147,19 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/history.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.test_history, test_text_injector, test_feedback_mapping, test_feedback_reducer, test_obs010_* bis test_obs060_* (sämtliche Methoden)",
+          "IntegratedPreferences.test_explicit_profile_keeps_feature_flags_and_preferences_on_roundtrip"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-unittest.txt"
+      }
     },
     {
       "id": "BASE-04",
@@ -149,7 +186,18 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/.github/workflows/ci.yml"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "Baseline Feature: pytest 1192; Release: unittest 1147; kombiniert: pytest und unittest je 1221"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-pytest.txt"
+      }
     },
     {
       "id": "BASE-05",
@@ -176,7 +224,20 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/.github/workflows/ci.yml"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "IntegratedPreferences.test_existing_legacy_history_is_read_in_place_without_loss",
+          "IntegratedPreferences.test_environment_profile_never_silently_falls_back_to_legacy",
+          "Gitfall: sauberer Start, fremde Worktrees nur inventarisiert"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/start-status.txt"
+      }
     },
     {
       "id": "BASE-06",
@@ -203,7 +264,18 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/.github/workflows/ci.yml"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "Gitfall: unveränderte Remote-Refs, keine Serveraktionen; workAuthorization verbietet Promotion"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/start-remote.txt"
+      }
     },
     {
       "id": "WIRE-01",
@@ -6931,7 +7003,18 @@
       ],
       "kind": "CLIENT-SOLL",
       "status": "CLIENT OPEN",
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "Gitfall: source-identities.txt; UEBERNAHMEMATRIX.md; namespace-normalisierter Vergleich qualify_sources.py"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/UEBERNAHMEMATRIX.md"
+      }
     },
     {
       "id": "BASE-08",
@@ -6965,7 +7048,22 @@
       ],
       "kind": "CLIENT-SOLL",
       "status": "CLIENT OPEN",
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "IntegratedPreferences (alle sieben Methoden)",
+          "TestConfigValidation.test_explicit_profile_layers_packaged_feedback_and_saves_back_to_profile",
+          "TestGlobalHotkeyManager.test_disabled_manager_never_touches_backend",
+          "BuildScriptTests.test_release_build_requires_qualified_python_patch",
+          "tests.test_client_release_guard, test_client_release_workflow"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-unittest.txt"
+      }
     },
     {
       "id": "BASE-09",
@@ -6999,7 +7097,18 @@
       ],
       "kind": "CLIENT-SOLL",
       "status": "CLIENT OPEN",
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "installed_smoke.py: Wheel UND sdist außerhalb Source; compileall; twine check; vollständige Regression"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/wheel-smoke.txt"
+      }
     },
     {
       "id": "BASE-10",
@@ -7026,7 +7135,18 @@
       ],
       "kind": "CLIENT-SOLL",
       "status": "CLIENT OPEN",
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "Gitfall: Paketbranch Parent 050e776cf316eb332177294db0c0a2719c2b4415; Featurebranch unverändert; PR Base feat/client-v2"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/start-status.txt"
+      }
     },
     {
       "id": "BASE-11",
@@ -7053,7 +7173,18 @@
       ],
       "kind": "CLIENT-SOLL",
       "status": "CLIENT OPEN",
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "Administrativer Fall: REVIEW_READY, reviewedCommit/humanApproval null; Schreibrecht abgegeben; kein Folgepaketstart"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "BASE-12",
@@ -7080,7 +7211,18 @@
       ],
       "kind": "CLIENT-SOLL",
       "status": "CLIENT OPEN",
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "assertion-inventory.json; UEBERNAHMEMATRIX.md mit allen fünf Assertionnachfolgern; getrennte Baselines und vollständige Regression"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/assertion-inventory.json"
+      }
     }
   ]
 }

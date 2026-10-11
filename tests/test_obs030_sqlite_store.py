@@ -19,8 +19,8 @@ from pathlib import Path
 from types import MappingProxyType
 from typing import Optional
 
-from core.observability.models import CanonicalLogRecord
-from core.observability.storage.sqlite import SQLiteLogStore, SCHEMA_VERSION
+from voice_stt_client.core.observability.models import CanonicalLogRecord
+from voice_stt_client.core.observability.storage.sqlite import SQLiteLogStore, SCHEMA_VERSION
 
 
 def _iso(dt: Optional[datetime] = None) -> str:
@@ -348,7 +348,7 @@ class TestMigrationAndVersioning(TempDbCase):
             conn.execute("CREATE TABLE logs (id INTEGER PRIMARY KEY)")
             raise RuntimeError("simulated migration failure")
 
-        import core.observability.storage.sqlite as sqlite_module
+        import voice_stt_client.core.observability.storage.sqlite as sqlite_module
         original_migrations = sqlite_module._MIGRATIONS
         sqlite_module._MIGRATIONS = ((1, _broken_migration),)
         try:
@@ -422,7 +422,7 @@ class TestRetention(TempDbCase):
     def test_retention_is_blockwise_and_respects_time_budget(self):
         store = self.open_store()
         store.open()
-        import core.observability.storage.sqlite as sqlite_module
+        import voice_stt_client.core.observability.storage.sqlite as sqlite_module
         original_block = sqlite_module.RETENTION_BLOCK_SIZE
         sqlite_module.RETENTION_BLOCK_SIZE = 3
         try:
@@ -439,7 +439,7 @@ class TestRetention(TempDbCase):
         """FD-D8: no auto_vacuum/incremental_vacuum/VACUUM PRAGMA/statement
         anywhere in actual code (prose mentions explaining the omission are
         fine and intentionally excluded from this check)."""
-        text = Path("core/observability/storage/sqlite.py").read_text(encoding="utf-8")
+        text = Path("voice_stt_client/core/observability/storage/sqlite.py").read_text(encoding="utf-8")
         code_only: list[str] = []
         in_docstring = False
         for line in text.splitlines():

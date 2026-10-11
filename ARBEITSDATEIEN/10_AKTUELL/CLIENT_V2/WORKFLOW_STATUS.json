@@ -1,31 +1,40 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "READY_FOR_IMPLEMENTATION",
-  "packageStatus": "PLANNED",
-  "activePackage": null,
-  "nextPackage": "AP-CV2-000",
+  "workflowPhase": "REVIEW_READY",
+  "packageStatus": "REVIEW_READY",
+  "activePackage": "AP-CV2-000",
+  "nextPackage": "AP-CV2-010",
   "canonicalBranch": "feat/client-v2",
-  "canonicalParent": null,
-  "candidateBranch": null,
+  "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+  "candidateBranch": "work/client-v2/ap-cv2-000",
   "pullRequest": null,
-  "selectedCandidate": false,
-  "lastRun": null,
+  "selectedCandidate": true,
+  "lastRun": {
+    "role": "implementation",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+    "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "id": "R01-UMSETZUNG"
+  },
   "reviewedCommit": null,
   "reviewReport": null,
   "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "AP-CV2-000 auf eigenem Paketbranch vom tatsächlich aktuellen feat/client-v2-HEAD umsetzen; Rechte aus dem tatsächlichen Umsetzungsauftrag prüfen. Unterlagen bereits vollständig in der Startbasis.",
+  "nextAction": "Frische unabhängige Abnahme von AP-CV2-000 am finalen eingereichten Paket-PR-Head; kein Folgepaketstart.",
   "workAuthorization": {
-    "source": null,
-    "scope": "Keine Kandidaten-Gitrechte durch diese Initialdatei erteilt; tatsächlichen menschlichen Auftrag oder gesicherte fortgeltende Arbeitsfreigabe verwenden."
+    "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
+    "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md"
   },
-  "context": "Vollständige Unterlagen Revision 10 auf feat/client-v2 nach erhaltenem Planungsstart bfade9d und ausdrücklich freigegebenem Dokumentkorrekturcommit. Keine aktive Produktpaketlinie, kein AP begonnen. Veröffentlichungsfreigabe in PLANUNG/EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md betrifft ausschließlich diese Dokumentausnahme; keine künftige Kandidaten-Git- oder Paketübernahmefreigabe.",
+  "context": "AP-CV2-000 technisch selbstqualifiziert; unabhängiger PASS und menschliche Übernahme fehlen.",
   "canonicalParentRef": "feat/client-v2",
-  "canonicalParentResolution": "Initial planning state only: resolve actual canonical HEAD from Git before AP-CV2-000 starts and persist its full SHA on the package branch. No self-SHA in the planning commit.",
+  "canonicalParentResolution": "Lokaler und veröffentlichter Revision-10-HEAD am Paketstart aus Git verifiziert; vollständiger SHA in canonicalParent.",
   "repository": "marcosudau-vps/voice-stt-client",
-  "candidateSelection": null,
+  "candidateSelection": {
+    "reason": "Keine offene Paketlinie; tatsächlicher Revision-10-Feature-HEAD ist Startbasis.",
+    "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "candidateId": "AP-CV2-000"
+  },
   "recovery": null,
   "relatedServerFix": null
 }

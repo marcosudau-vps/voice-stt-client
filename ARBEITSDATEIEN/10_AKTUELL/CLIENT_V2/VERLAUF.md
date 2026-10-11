@@ -23,3 +23,7 @@ Sechs Funde geprüft: konkrete Recovery-/Serverrouting-/Auswahlregeln ergänzt, 
 ## PLAN-CLIENT-V2-011 – 2026-10-11 – Revision 10 zur Veröffentlichung freigegeben
 
 Auf Originalprompt „Go: Revision 10 als einen Dokumentkorrekturcommit auf `feat/client-v2` übernehmen und pushen.“ die vollständige Revision 10 und aktuelle Status-/Agenteneinstiege für genau einen zusätzlichen Dokumentcommit finalisiert. Erhaltener Parent bfade9d, Vorbereitung auf work/client-v2/planung-rev10, Übernahme nur fast-forward und normaler Push mit tatsächlicher Git-/Remoteprüfung. Benannte einmalige Dokumentausnahme vor AP-CV2-000; danach unverändert ein Aggregat je angenommenem AP. Kein Produktcode, keine AP-Abnahme und keine zukünftige Umsetzungsfreigabe. Originalauftrag und abschließende Dokumentprüfung liegen unter PLANUNG/EVIDENCE im aktiven Client-V2-Block. Endgültige Commit-/Transportidentität wird nach Ausführung außerhalb des Commitinhalts gesichert.
+
+## AP-CV2-000 / R01 – 2026-10-11
+
+Integrierter Paketkandidat REVIEW_READY. Maßgeblicher Meilenstein AP-CV2-000-R01 im [Steuerungslog](../../00_STEUERUNG/LOG_VERLAUF.md); Belege in der [Runakte](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md). Nächste Aktion unabhängige Abnahme; keine kanonische Übernahme.

@@ -12,17 +12,17 @@ from PySide6.QtCore import Qt
 from PySide6.QtTest import QTest
 from PySide6.QtWidgets import QApplication
 
-from core.config import OverlayConfig
-from core.event_models import (
+from voice_stt_client.core.config import OverlayConfig
+from voice_stt_client.core.event_models import (
     CanonicalEventType,
     EventOrigin,
     FeedbackSource,
     FeedbackState,
     NormalizedFeedbackEvent,
 )
-from core.feedback_mapping import AppActionId, AppEffect, FeedbackRule
-from core.feedback_reducer import FeedbackDecision
-from core.controller import (
+from voice_stt_client.core.feedback_mapping import AppActionId, AppEffect, FeedbackRule
+from voice_stt_client.core.feedback_reducer import FeedbackDecision
+from voice_stt_client.core.controller import (
     AvailabilityState,
     ControllerStatusSnapshot,
     DictationState,
@@ -30,10 +30,10 @@ from core.controller import (
     TransientEvent,
     TransientEventType,
 )
-from core.history import HistoryEntry
-from core.stt_session import SessionState
-from ui.overlay import TranscriptOverlay
-from ui.presentation import (
+from voice_stt_client.core.history import HistoryEntry
+from voice_stt_client.core.stt_session import SessionState
+from voice_stt_client.ui.overlay import TranscriptOverlay
+from voice_stt_client.ui.presentation import (
     IndicatorColor,
     format_history_label,
     presentation_for_feedback_decision,
@@ -41,7 +41,7 @@ from ui.presentation import (
     presentation_for_mapped_action,
     presentation_for_snapshot,
 )
-from ui.tray import TrayController, create_status_icon
+from voice_stt_client.ui.tray import TrayController, create_status_icon
 
 
 def snapshot(

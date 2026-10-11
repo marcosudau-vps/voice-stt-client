@@ -18,15 +18,15 @@ from unittest import mock
 from pathlib import Path
 from uuid import uuid4
 
-from core.observability.models import CanonicalLogRecord
-from core.observability.query.base import ProviderState, QueryFilter
-from core.observability.query.local import (
+from voice_stt_client.core.observability.models import CanonicalLogRecord
+from voice_stt_client.core.observability.query.base import ProviderState, QueryFilter
+from voice_stt_client.core.observability.query.local import (
     MAX_LIMIT,
     LocalLogProvider,
     decode_cursor,
     encode_cursor,
 )
-from core.observability.storage.sqlite import SQLiteLogStore
+from voice_stt_client.core.observability.storage.sqlite import SQLiteLogStore
 
 
 def make_record(**overrides) -> CanonicalLogRecord:
@@ -431,7 +431,7 @@ class TestReadOnlyConnection(ProviderTestCase):
             r"|CREATE\s+(TABLE|INDEX|UNIQUE)|PRAGMA\s+\w*VACUUM)",
             re.IGNORECASE,
         )
-        root = Path(__file__).resolve().parents[1] / "core" / "observability" / "query"
+        root = Path(__file__).resolve().parents[1] / "voice_stt_client" / "core" / "observability" / "query"
         for name in ("base.py", "local.py", "service.py"):
             text = (root / name).read_text(encoding="utf-8")
             with self.subTest(module=name):

@@ -12,9 +12,9 @@ import json
 
 from websockets.asyncio.client import connect
 
-from core.config import AppConfig
-from core.event_models import EventConnectionState
-from core.session_coordinator import DualSessionCoordinator
+from voice_stt_client.core.config import AppConfig
+from voice_stt_client.core.event_models import EventConnectionState
+from voice_stt_client.core.session_coordinator import DualSessionCoordinator
 
 
 async def wait_for_ready(websocket, timeout: float) -> None:

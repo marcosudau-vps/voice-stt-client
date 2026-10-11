@@ -6,8 +6,18 @@
       "title": "Feature-/Releaseintegration und qualifizierte Clientstartbasis",
       "dependencies": [],
       "path": "ARBEITSPAKETE/AP-CV2-000.md",
-      "status": "PLANNED",
-      "testModules": [],
+      "status": "REVIEW_READY",
+      "testModules": [
+        "test_cv2_000_integration",
+        "test_trigger_lifecycle",
+        "test_trigger_feedback_contract",
+        "test_ap_cli_000_baseline_characterization",
+        "test_config",
+        "test_hotkeys",
+        "test_build_script",
+        "test_client_release_guard",
+        "test_client_release_workflow"
+      ],
       "requirements": [
         "BASE-01",
         "BASE-02",
@@ -36,7 +46,10 @@
         "defaultRuns": 1,
         "scopeNote": "one complete package session; steps are not separate runs"
       },
-      "testModulesRole": "suggested locations; actual coverage and methods required"
+      "testModulesRole": "suggested locations; actual coverage and methods required",
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "candidateBranch": "work/client-v2/ap-cv2-000",
+      "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415"
     },
     {
       "id": "AP-CV2-010",

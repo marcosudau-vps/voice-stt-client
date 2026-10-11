@@ -4,12 +4,13 @@ from __future__ import annotations
 
 import os
 import unittest
+from unittest.mock import patch
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
 from PySide6.QtWidgets import QApplication
 
-from ui.hotkeys import (
+from voice_stt_client.ui.hotkeys import (
     HOTKEY_ID_REINSERT_LAST,
     HOTKEY_ID_TOGGLE,
     MOD_ALT,
@@ -17,6 +18,8 @@ from ui.hotkeys import (
     MOD_NOREPEAT,
     MOD_SHIFT,
     GlobalHotkeyManager,
+    find_available_hotkey,
+    hotkey_failure_message,
     parse_hotkey,
 )
 
@@ -39,6 +42,20 @@ class FakeHotkeyBackend:
 
 
 class TestHotkeyParser(unittest.TestCase):
+    def test_probe_skips_occupied_candidate_and_releases_available_one(self):
+        class ProbeBackend(FakeHotkeyBackend):
+            def register(self, window_handle, hotkey_id, modifiers, virtual_key):
+                if virtual_key == parse_hotkey("Ctrl+Alt+Shift+F12").virtual_key:
+                    raise OSError(1409, "occupied")
+                super().register(window_handle, hotkey_id, modifiers, virtual_key)
+
+        backend = ProbeBackend()
+        with patch("voice_stt_client.ui.hotkeys.fallback_hotkeys", return_value=[
+            "Ctrl+Alt+Shift+F12", "Ctrl+Alt+Shift+F11",
+        ]):
+            self.assertEqual(find_available_hotkey(backend=backend), "Ctrl+Alt+Shift+F11")
+        self.assertEqual(backend.unregistered, [(0, 0x51FE)])
+        self.assertIn("belegt", hotkey_failure_message(OSError(1409, "occupied")))
     def test_parses_legacy_toggle_hotkey(self):
         spec = parse_hotkey("<ctrl>+<shift>+space")
         self.assertEqual(spec.canonical, "Ctrl+Shift+Space")
@@ -93,6 +110,7 @@ class TestGlobalHotkeyManager(unittest.TestCase):
         manager = self._manager(backend, [])
 
         self.assertFalse(manager.register())
+        self.assertEqual(manager.last_failure[0], HOTKEY_ID_REINSERT_LAST)
         self.assertEqual(
             backend.unregistered,
             [(0, HOTKEY_ID_TOGGLE)],

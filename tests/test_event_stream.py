@@ -10,11 +10,11 @@ from pathlib import Path
 
 from websockets.protocol import State
 
-from core.config import EventStreamConfig
-from core.event_cursor_store import EventCursorStore
-from core.event_models import EventConnectionState
-from core.event_models import CanonicalEventType, FeedbackImpulse
-from core.feedback_mapping import (
+from voice_stt_client.core.config import EventStreamConfig
+from voice_stt_client.core.event_cursor_store import EventCursorStore
+from voice_stt_client.core.event_models import EventConnectionState
+from voice_stt_client.core.event_models import CanonicalEventType, FeedbackImpulse
+from voice_stt_client.core.feedback_mapping import (
     FeedbackMappingConfig,
     FeedbackRule,
     LedCall,
@@ -22,13 +22,13 @@ from core.feedback_mapping import (
     SoundCueId,
     SoundEffect,
 )
-from core.feedback_reducer import FeedbackEngine
-from core.event_protocol import (
+from voice_stt_client.core.feedback_reducer import FeedbackEngine
+from voice_stt_client.core.event_protocol import (
     EventProtocolError,
     EventProtocolProcessor,
     EventStreamAccess,
 )
-from core.event_stream import (
+from voice_stt_client.core.event_stream import (
     EventProcessingRejected,
     EventStreamTransport,
     logger as event_stream_logger,

@@ -19,8 +19,8 @@ import unittest
 
 from websockets.protocol import State
 
-from core.config import AppConfig, OperatingMode, ServerConfig, SessionConfig
-from core.stt_session import (
+from voice_stt_client.core.config import AppConfig, OperatingMode, ServerConfig, SessionConfig
+from voice_stt_client.core.stt_session import (
     ClientState,
     SessionState,
     STTSession,
@@ -258,7 +258,7 @@ class ControllerKeepsTheStreamCommand(unittest.IsolatedAsyncioTestCase):
     """The regression that mattered: `start` must not be replaced."""
 
     async def _controller(self, session):
-        from core.controller import STTController
+        from voice_stt_client.core.controller import STTController
         from tests.test_controller import FakeAudioCapture, FakeInjectionQueue
 
         config = AppConfig()
@@ -370,7 +370,7 @@ class ContinuousStreamingInvariant(unittest.IsolatedAsyncioTestCase):
     """
 
     async def _controller(self, session, config=None):
-        from core.controller import STTController
+        from voice_stt_client.core.controller import STTController
         from tests.test_controller import FakeAudioCapture, FakeInjectionQueue
 
         config = config or AppConfig()
@@ -523,7 +523,7 @@ class ContinuousStreamingInvariant(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(session.stream_stops, 0)
 
     async def test_the_stream_only_stops_when_the_session_ends(self):
-        from core.controller import STTController
+        from voice_stt_client.core.controller import STTController
         from tests.test_controller import FakeAudioCapture, FakeInjectionQueue
 
         session = StreamCountingSession(accept=True)

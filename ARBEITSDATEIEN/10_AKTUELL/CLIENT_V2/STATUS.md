@@ -1,11 +1,9 @@
 # Status – Client V2
 
-- Stand 2026-10-11: vollständige Planrevision 10 auf `feat/client-v2`. Der Revision-9-Unterlagenstart `bfade9d0ffe1262ca25b05c9334dcacfcd3d3452` bleibt unverändert erhalten; danach genau ein Dokumentkorrekturcommit vor AP-CV2-000.
-- Die separate Dokumentausnahme einschließlich normalem Push wurde ausdrücklich vom Auftraggeber freigegeben: [Originalauftrag und Umfang](PLANUNG/EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md). Commitidentität und tatsächlichen Remote-Stand aus Git prüfen; kein Selbst-SHA im Commit.
-- Client-Ausgangscommit 8bab1b3 und Serverreferenz ada13b0 fachlich unverändert. Server-Distributed bleibt offen.
-- Alle regulären Client-/Integrationspakete PLANNED, bedingte FIX-Vorlage nicht gestartet. Integrierter Client-SHA, Ausführungsrun, unabhängiges Paket-PASS und Paketübernahmefreigabe bleiben offen.
-- Ergänzt: belegte Recovery-/Auswahlregeln, Server-FIX-Linie/Rückkehr, Herkunft und unabhängige Prüfung realer Plattformbelege, nachträgliche Zusatzkorrektur, Endnachweis ohne Folgepaket; aktuelle Revisionsmetadaten vereinheitlicht.
-- Keine Umschreibung des veröffentlichten Startcommits. Nach diesem Dokumentkorrekturcommit weiterhin genau ein freigegebener Aggregatcommit je angenommenem Arbeitspaket.
-- Nächstes Produktpaket bleibt AP-CV2-000 vom aktuellen Feature-HEAD; keine neuen regulären Pakete oder obligatorischen Zusatzreviews. Der Veröffentlichungsauftrag erteilt keinen Umsetzungsauftrag und keine künftigen Kandidaten-Gitrechte.
+Stand 2026-10-11. Planung Revision 10; **AP-CV2-000 REVIEW_READY** auf `work/client-v2/ap-cv2-000` ab Parent `050e776cf316eb332177294db0c0a2719c2b4415`. [Paketakte](30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md), [Report](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md), [Workflowstatus](WORKFLOW_STATUS.json).
 
-[Aktueller Plan](PLANUNG/README.md), [Bewertung der Funde](PLANUNG/EVIDENCE/BEWERTUNG_PRUEFBEFUNDE_REV10.md), [Workflowstatus](WORKFLOW_STATUS.json).
+Feature-/Releasebasis in voice_stt_client integriert; vollständige pytest-/Unittest-Suite je 1221 Tests grün, Wheel und sdist außerhalb Checkout qualifiziert. Bisheriger V1-Transport bleibt; keine V2-Kompatibilität oder reale Hardwareabnahme. Alle Folgepakete PLANNED; bedingtes Server-FIX nicht gestartet.
+
+Kein unabhängiger PASS und keine menschliche Übernahmefreigabe. Gemeinsame Feature-Spitze bleibt `050e776cf316eb332177294db0c0a2719c2b4415`; integrierter kanonischer Client-SHA offen. Nächste Aktion: unabhängige Abnahme in frischer Session. Ab Abgabe Umsetzer-Schreibrecht pausiert. CV2-010 erst nach PASS, ausdrücklichem Übernahmeprompt und nachgewiesenem Einzelaggregat.
+
+Workflowweite Kandidaten-Gitrechte aus [Originalauftrag](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md) gesichert; keine Main-/Serverpromotion, Tags, Releases, Force-Pushes oder Cleanup. Server-Distributed/ada13b0 bleibt offen. Historischer Revision-9-Start bfade9d und Dokumentkorrektur Revision 10 bleiben erhalten.

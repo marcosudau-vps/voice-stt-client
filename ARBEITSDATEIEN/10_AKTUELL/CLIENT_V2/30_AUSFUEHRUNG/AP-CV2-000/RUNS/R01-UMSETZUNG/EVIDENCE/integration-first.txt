@@ -1,0 +1,76 @@
+.........................F.............................................. [  5%]
+........................................................................ [ 11%]
+........................................................................ [ 17%]
+........................................................................ [ 23%]
+........................................................................ [ 29%]
+........................................................................ [ 35%]
+........................................................................ [ 41%]
+........................................................................ [ 47%]
+........................................................................ [ 53%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 71%]
+........................................................................ [ 77%]
+........................................................................ [ 83%]
+........................................................................ [ 88%]
+................................................................FF...... [ 94%]
+..............................................................           [100%]
+================================== FAILURES ===================================
+_ TestSettingsDialog.test_installed_defaults_round_trip_through_every_settings_editor _
+
+self = <tests.test_ap06_followup.TestSettingsDialog testMethod=test_installed_defaults_round_trip_through_every_settings_editor>
+
+    def test_installed_defaults_round_trip_through_every_settings_editor(self):
+        with tempfile.TemporaryDirectory() as directory:
+            config = AppConfig.load(user_path=Path(directory) / "missing.yaml")
+        dialog = SettingsDialog(config, lambda candidate, policies: True)
+        for path, definition in dialog._definitions.items():
+            if path not in dialog._editors:
+                continue
+            with self.subTest(path=path):
+                value = dialog._editor_value(definition)
+                expected = get_config_value(config, path)
+                if isinstance(expected, float) and expected is not None:
+                    self.assertAlmostEqual(value, expected, places=3)
+                else:
+>                   self.assertEqual(value, expected)
+E                   AssertionError: True != None
+
+tests\test_ap06_followup.py:747: AssertionError
+_ EveryConfiguredSoundCueHasAnAsset.test_every_cue_named_by_a_mapping_has_a_sound_file _
+
+self = <tests.test_trigger_feedback_contract.EveryConfiguredSoundCueHasAnAsset testMethod=test_every_cue_named_by_a_mapping_has_a_sound_file>
+
+    def test_every_cue_named_by_a_mapping_has_a_sound_file(self):
+        used = {
+            rule.sound.cue
+            for rule in self.mappings.events.values()
+            if rule.sound is not None
+        }
+        self.assertTrue(used, "no sound cues configured at all")
+        for cue in sorted(used, key=lambda item: item.value):
+            with self.subTest(cue=cue.value):
+                path = self.asset_dir / f"{cue.value}.wav"
+>               self.assertTrue(path.is_file(), f"missing sound asset: {path}")
+E               AssertionError: False is not true : missing sound asset: P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\assets\feedback_sounds\debug\cancel.wav
+
+tests\test_trigger_feedback_contract.py:224: AssertionError
+_ EveryConfiguredSoundCueHasAnAsset.test_every_declared_cue_has_a_sound_file __
+
+self = <tests.test_trigger_feedback_contract.EveryConfiguredSoundCueHasAnAsset testMethod=test_every_declared_cue_has_a_sound_file>
+
+    def test_every_declared_cue_has_a_sound_file(self):
+        from voice_stt_client.core.feedback_mapping import SoundCueId
+
+        for cue in SoundCueId:
+            with self.subTest(cue=cue.value):
+                path = self.asset_dir / f"{cue.value}.wav"
+>               self.assertTrue(path.is_file(), f"missing sound asset: {path}")
+E               AssertionError: False is not true : missing sound asset: P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\assets\feedback_sounds\debug\wake_word.wav
+
+tests\test_trigger_feedback_contract.py:232: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_ap06_followup.py::TestSettingsDialog::test_installed_defaults_round_trip_through_every_settings_editor
+FAILED tests/test_trigger_feedback_contract.py::EveryConfiguredSoundCueHasAnAsset::test_every_cue_named_by_a_mapping_has_a_sound_file
+FAILED tests/test_trigger_feedback_contract.py::EveryConfiguredSoundCueHasAnAsset::test_every_declared_cue_has_a_sound_file
+3 failed, 1211 passed in 101.89s (0:01:41)

@@ -30,8 +30,8 @@ from __future__ import annotations
 
 import unittest
 
-from core.config import AppConfig
-from core.controller import STTController
+from voice_stt_client.core.config import AppConfig
+from voice_stt_client.core.controller import STTController
 from tests.test_controller import FakeAudioCapture, FakeInjectionQueue
 from tests.test_trigger_lifecycle import StreamCountingSession
 

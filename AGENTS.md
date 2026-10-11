@@ -44,7 +44,10 @@ Für unterschiedliche Sachgebiete gelten unterschiedliche verbindliche Quellen.
 
 ### Serverprotokoll
 
-Für WebSocket-Protokoll, Session-Lebenszyklus, Events, Zustandsübergänge, Reconnect-Verhalten und Fehlersemantik sind ausschließlich die Dateien unter folgendem Pfad maßgeblich:
+Für Client-V2 gelten die auf Servercommit ada13b0 gepinnten K-01 bis K-04 unter
+`ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/KONTRAKTE/`.
+AP-CV2-000 integriert zunächst die bestehende Feature-/Releasebasis; es ist
+noch kein V2-kompatibler Transport. Die historische V1-Protokollreferenz liegt unter:
 
 `server-docs-for-client-development/`
 

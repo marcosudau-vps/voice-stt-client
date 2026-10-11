@@ -1,6 +1,6 @@
 # CURRENT STATE
 
-**Aktueller Unterlagenstand:** Revision 10 auf `feat/client-v2`, nach dem unveränderten Revision-9-Start bfade9d als ein ausdrücklich freigegebener Dokumentkorrekturcommit. [Freigabe und Ausnahmeumfang](../10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md), [Befundbewertung](../10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/BEWERTUNG_PRUEFBEFUNDE_REV10.md). Kein AP umgesetzt; nächster Produktauftrag AP-CV2-000 vom aktuellen Feature-HEAD.
+**Aktueller Unterlagenstand:** Revision 10 auf `feat/client-v2`, nach dem unveränderten Revision-9-Start bfade9d als ein ausdrücklich freigegebener Dokumentkorrekturcommit. [Freigabe und Ausnahmeumfang](../10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md), [Befundbewertung](../10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/BEWERTUNG_PRUEFBEFUNDE_REV10.md). AP-CV2-000 technisch selbstqualifiziert: REVIEW_READY auf work/client-v2/ap-cv2-000, Parent 050e776cf316eb332177294db0c0a2719c2b4415. [Paketakte](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md). Nächste Aktion: frische unabhängige Abnahme; keine kanonische Übernahme oder Folgepaketfreigabe.
 
 Stand 2026-10-11. Aktiver Clientworkstream: **Client V2**.
 
@@ -8,14 +8,14 @@ Stand 2026-10-11. Aktiver Clientworkstream: **Client V2**.
 - Vollständige Unterlagen Revision 10 auf `feat/client-v2`; Revision-9-Start bleibt erhalten: [Auftraggeber](../10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/GOVERNANCE/AUFTRAGGEBER.md). Kein Import aus einer Vorbereitungsablage erforderlich.
 - Planung/Agenteneinstiege: [PLANUNG](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md).
 - Abschlusslinie: `feat/client-v2`, begonnen bei Clientcanonical 8bab1b3; erster neuer Commit enthält nur Unterlagen.
-- Nächster Implementierungsauftrag: AP-CV2-000 auf eigenem Paketbranch vom tatsächlich aktuellen `feat/client-v2`-HEAD. Noch keine neue Implementierung oder Paketabnahme.
+- AP-CV2-000 auf eigenem Paketbranch technisch qualifiziert; nächste Aktion unabhängige Abnahme. AP-CV2-010 bleibt ohne Vorgänger-PASS, menschliche Freigabe und kanonische Übernahme gesperrt.
 - Serverreferenz ada13b0 bleibt auf Server-Distributed; finales Serverrestaggregat später nach gemeinsamer Qualifikation und eigener Freigabe.
 - Logging/Observability Teil A bleibt vorhandene Foundation; Teil B bleibt bis nach Trigger-/V2-Migration deferred. Historische offene Formal-/Hardwaregates sind durch diesen Dokumentstart nicht bestanden.
 - Aktuellen Checkout/HEAD stets mit Git prüfen; alte absolute Session-/Workspaceangaben nicht ungeprüft übernehmen.
 
 Die folgende vollständig erhaltene Vorfassung beschreibt den früheren Stand 2026-08-29 und ist historische Provenienz. Ihre Next-/Freeze-/Branch-/Warteanweisungen steuern die neue Client-V2-Arbeit nicht.
 
-Gemeinsamer Kurzauftrag: [Nächster Schritt](../10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md). Rolle/AP aus dokumentiertem Stand selbst ermitteln; [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json) mit offenen Paketlinien abgleichen. Zusätzliches unabhängiges Review bleibt ausdrücklich beauftragbar. Noch kein AP begonnen.
+Gemeinsamer Kurzauftrag: [Nächster Schritt](../10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md). Rolle/AP aus dokumentiertem Stand selbst ermitteln; [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json) mit offenen Paketlinien abgleichen. Zusätzliches unabhängiges Review bleibt ausdrücklich beauftragbar. AP-CV2-000 REVIEW_READY; Umsetzer-Schreibrecht nach Übergabe pausiert. Kein PASS oder Übernahmeprompt vorhanden.
 
 ---
 

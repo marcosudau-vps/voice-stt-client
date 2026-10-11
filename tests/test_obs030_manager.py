@@ -15,10 +15,10 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-from core.config import LoggingObservabilityConfig
-from core.observability.manager import ObservabilityManager
-from core.observability.models import CanonicalLogRecord
-from core.observability.storage.sqlite import SQLiteLogStore
+from voice_stt_client.core.config import LoggingObservabilityConfig
+from voice_stt_client.core.observability.manager import ObservabilityManager
+from voice_stt_client.core.observability.models import CanonicalLogRecord
+from voice_stt_client.core.observability.storage.sqlite import SQLiteLogStore
 
 
 def _iso() -> str:

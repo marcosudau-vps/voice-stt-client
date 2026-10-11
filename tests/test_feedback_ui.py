@@ -13,10 +13,10 @@ from PySide6.QtCore import QObject, Signal
 from PySide6.QtMultimedia import QSoundEffect
 from PySide6.QtWidgets import QApplication
 
-from core.config import FeedbackConfig
-from core.feedback_mapping import SoundCueId, SoundEffect
+from voice_stt_client.core.config import FeedbackConfig
+from voice_stt_client.core.feedback_mapping import SoundCueId, SoundEffect
 MappedSoundEffect = SoundEffect
-from ui.feedback import SoundFeedback, application_resource_root, resolve_sound_asset
+from voice_stt_client.ui.feedback import SoundFeedback, application_resource_root, resolve_sound_asset
 
 
 class FakeSoundEffect(QObject):
@@ -220,11 +220,19 @@ class SoundFeedbackTests(unittest.TestCase):
             expected,
         )
 
-    def test_frozen_application_uses_pyinstaller_resource_root(self) -> None:
+    def test_frozen_application_uses_bundled_package_root(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             frozen_root = Path(directory)
+            asset = frozen_root / "voice_stt_client" / "assets" / "feedback_sounds" / "debug" / "start.wav"
+            asset.parent.mkdir(parents=True)
+            asset.touch()
             with mock.patch.object(sys, "_MEIPASS", str(frozen_root), create=True):
-                self.assertEqual(application_resource_root(), frozen_root)
+                self.assertEqual(application_resource_root(), frozen_root / "voice_stt_client")
+                self.assertEqual(
+                    resolve_sound_asset("assets/feedback_sounds/debug/start.wav"),
+                    asset,
+                )
+                self.assertTrue(resolve_sound_asset("assets/feedback_sounds/debug/start.wav").is_file())
 
 
 if __name__ == "__main__":

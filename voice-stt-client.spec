@@ -2,11 +2,14 @@
 
 import os
 from pathlib import Path
+import PySide6
 from PyInstaller.utils.hooks import collect_data_files, collect_dynamic_libs
 
 
 ROOT = Path.cwd()
-FEEDBACK_SOUNDS = ROOT / "assets" / "feedback_sounds" / "debug"
+PACKAGE_ROOT = ROOT / "voice_stt_client"
+FEEDBACK_SOUNDS = PACKAGE_ROOT / "assets" / "feedback_sounds" / "debug"
+PYSIDE_DIR = Path(PySide6.__file__).resolve().parent
 version_file = os.environ.get("VOICE_STT_VERSION_FILE")
 if not version_file:
     raise RuntimeError("VOICE_STT_VERSION_FILE must be provided by scripts/build.py")
@@ -22,13 +25,16 @@ if not lefx_catalogues:
     )
 
 a = Analysis(
-    [str(ROOT / "app.py")],
+    [str(PACKAGE_ROOT / "app.py")],
     pathex=[str(ROOT)],
     binaries=collect_dynamic_libs("libusb_package"),
     datas=[
-        (str(ROOT / "config.yaml"), "."),
-        (str(ROOT / "VERSION"), "."),
-        (str(FEEDBACK_SOUNDS), "assets/feedback_sounds/debug"),
+        (str(PACKAGE_ROOT / "config.yaml"), "voice_stt_client"),
+        (str(ROOT / "VERSION"), "voice_stt_client"),
+        (
+            str(FEEDBACK_SOUNDS),
+            "voice_stt_client/assets/feedback_sounds/debug",
+        ),
         *lefx_catalogues,
     ],
     hiddenimports=[
@@ -76,6 +82,34 @@ a = Analysis(
     noarchive=False,
     optimize=0,
 )
+
+# Python distributions can carry their own Universal CRT and VC runtime. In a
+# one-file build those DLLs land at the extraction root and win Windows' DLL
+# lookup before the newer copies shipped with PySide6. QtCore then fails with
+# ERROR_PROC_NOT_FOUND. Windows 10/11 provide the UCRT/API-set forwarders; keep
+# those out of the bundle and use PySide6's qualified VC runtime at the root.
+root_runtime_names = {"vcruntime140.dll", "vcruntime140_1.dll"}
+filtered_binaries = []
+for entry in a.binaries:
+    destination = Path(entry[0])
+    name = destination.name.lower()
+    is_root = len(destination.parts) == 1
+    if is_root and (
+        name == "ucrtbase.dll"
+        or name.startswith("api-ms-win-")
+        or name in {"icuuc.dll", "icuin.dll"}
+        or name.startswith("icudt")
+    ):
+        continue
+    if is_root and name in root_runtime_names:
+        continue
+    filtered_binaries.append(entry)
+a.binaries = filtered_binaries
+a.binaries += [
+    (runtime_name, str(PYSIDE_DIR / runtime_name), "BINARY")
+    for runtime_name in sorted(root_runtime_names)
+]
+
 pyz = PYZ(a.pure)
 
 exe = EXE(

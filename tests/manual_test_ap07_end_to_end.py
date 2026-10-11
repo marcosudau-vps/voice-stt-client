@@ -28,10 +28,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from core.config import AppConfig, LedConfig  # noqa: E402
-from core.controller import STTController  # noqa: E402
-from core.feedback_reducer import FeedbackDecision  # noqa: E402
-from ui.led_feedback import LedFeedback  # noqa: E402
+from voice_stt_client.core.config import AppConfig, LedConfig  # noqa: E402
+from voice_stt_client.core.controller import STTController  # noqa: E402
+from voice_stt_client.core.feedback_reducer import FeedbackDecision  # noqa: E402
+from voice_stt_client.ui.led_feedback import LedFeedback  # noqa: E402
 
 
 def server_is_up(url: str, timeout: float = 10.0) -> tuple[bool, str]:

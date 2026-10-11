@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import unittest
 
-from core.observability.query.base import (
+from voice_stt_client.core.observability.query.base import (
     LogProvider,
     LogRecordView,
     ProviderState,

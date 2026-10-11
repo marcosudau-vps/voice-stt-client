@@ -15,11 +15,11 @@ import sys
 import unittest
 from pathlib import Path
 
-from core.observability.health import EMERGENCY_LOGGER_NAME
-from core.observability.ingress import ObservabilityIngress
+from voice_stt_client.core.observability.health import EMERGENCY_LOGGER_NAME
+from voice_stt_client.core.observability.ingress import ObservabilityIngress
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-OBSERVABILITY_DIR = PROJECT_ROOT / "core" / "observability"
+OBSERVABILITY_DIR = PROJECT_ROOT / "voice_stt_client" / "core" / "observability"
 
 
 class TestModuleIsolation(unittest.TestCase):
@@ -56,7 +56,7 @@ class TestModuleIsolation(unittest.TestCase):
         text = (OBSERVABILITY_DIR / "adapters" / "python_logging.py").read_text(
             encoding="utf-8"
         )
-        for forbidden in ("session_coordinator", "core.controller",
+        for forbidden in ("session_coordinator", "voice_stt_client.core.controller",
                           "stt_session", "audio_capture", "core_bridge"):
             self.assertNotIn(forbidden, text)
 
@@ -64,12 +64,12 @@ class TestModuleIsolation(unittest.TestCase):
 class TestAcyclicImports(unittest.TestCase):
     def test_every_obs020_module_imports_in_a_fresh_interpreter(self):
         modules = [
-            "core.observability",
-            "core.observability.health",
-            "core.observability.ingress",
-            "core.observability.adapters",
-            "core.observability.adapters.python_logging",
-            "core.logging_setup",
+            "voice_stt_client.core.observability",
+            "voice_stt_client.core.observability.health",
+            "voice_stt_client.core.observability.ingress",
+            "voice_stt_client.core.observability.adapters",
+            "voice_stt_client.core.observability.adapters.python_logging",
+            "voice_stt_client.core.logging_setup",
         ]
         for module in modules:
             with self.subTest(module=module):
@@ -109,7 +109,7 @@ class TestIngressSignatures(unittest.TestCase):
         self.assertIn("timeout", signature.parameters)
 
     def test_event_signature_matches_frozen_ingress_protocol(self):
-        from core.observability.ingress import Ingress
+        from voice_stt_client.core.observability.ingress import Ingress
         protocol_sig = inspect.signature(Ingress.event)
         concrete_sig = inspect.signature(ObservabilityIngress.event)
         self.assertEqual(list(protocol_sig.parameters), list(concrete_sig.parameters))
@@ -117,7 +117,7 @@ class TestIngressSignatures(unittest.TestCase):
 
 class TestLoggingSetupSignature(unittest.TestCase):
     def test_setup_logging_observability_parameter_is_optional_keyword_only(self):
-        from core.logging_setup import setup_logging
+        from voice_stt_client.core.logging_setup import setup_logging
         signature = inspect.signature(setup_logging)
         self.assertIn("observability", signature.parameters)
         parameter = signature.parameters["observability"]

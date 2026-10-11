@@ -12,15 +12,15 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from core.observability.query.base import (
+from voice_stt_client.core.observability.query.base import (
     ProviderState,
     ProviderStatus,
     QueryFacets,
     QueryFilter,
     QueryPage,
 )
-from core.observability.query.local import LocalLogProvider
-from core.observability.query.service import LogQueryService
+from voice_stt_client.core.observability.query.local import LocalLogProvider
+from voice_stt_client.core.observability.query.service import LogQueryService
 
 
 class FakeProvider:

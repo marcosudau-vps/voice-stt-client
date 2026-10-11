@@ -1,6 +1,6 @@
 # Voice-STT Client V2 – Einstieg
 
-Stand **2026-10-11, Revision 10**. Eigenständige Planungs- und Arbeitsgrundlage; Clientumsetzung weiterhin offen. Revision 10 bildet den aktuellen Unterlagenstand auf `feat/client-v2`. Der veröffentlichte Revision-9-Start bleibt erhalten; die Korrektur folgt als ein eigener Dokumentcommit vor AP-CV2-000 gemäß [ausdrücklicher Freigabe](EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md).
+Stand **2026-10-11, Revision 10**. Eigenständige Planungs- und Arbeitsgrundlage; AP-CV2-000 auf Paketbranch REVIEW_READY, unabhängige Abnahme offen ([Paketakte](../30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md)). Revision 10 bildet den aktuellen Unterlagenstand auf `feat/client-v2`. Der veröffentlichte Revision-9-Start bleibt erhalten; die Korrektur folgt als ein eigener Dokumentcommit vor AP-CV2-000 gemäß [ausdrücklicher Freigabe](EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md).
 
 ## Dein Einstieg als Auftraggeber
 
@@ -42,7 +42,7 @@ EVIDENCE/                       Quellen, Baselines und Prüfung der Planung
 - [Umsetzungsspielraum](SKILLS/GEMEINSAM/references/PLANUNGSSPIELRAUM.md), [Paketakten](SKILLS/GEMEINSAM/references/PAKETABLAGE_UND_VORLAGEN.md), [ausführliches Agentenregelwerk](REFERENZ/GOVERNANCE/AGENTEN_REGELWERK.md).
 - [Baselinequelle](EVIDENCE/planning-baseline.json), [Quellenmanifest](EVIDENCE/source-manifest.json) und [Planungsprüfbericht](EVIDENCE/PRUEFBERICHT.md).
 
-Serverreferenz bleibt `ada13b011e1d3829f78e7f389e3b927795a2b3be`; Client setzt die vorhandene Featurelinie fort, V1-main liefert gezielte Releaseverbesserungen. CV2-000 qualifiziert den heute noch offenen integrierten Start-SHA. Exakte Werte und Rollen stehen in der Baselinequelle.
+Serverreferenz bleibt `ada13b011e1d3829f78e7f389e3b927795a2b3be`; Client setzt die vorhandene Featurelinie fort, V1-main liefert gezielte Releaseverbesserungen. CV2-000 hat einen integrierten Kandidaten technisch qualifiziert; der kanonische Start-SHA bleibt bis PASS, menschlicher Freigabe und tatsächlicher Übernahme offen. Exakte Werte und Rollen stehen in der Baselinequelle.
 
 Ein Paket-PR zielt auf `feat/client-v2`. Umsetzer und Reviewer übergeben das Schreibrecht nacheinander; Reviewberichte werden im erlaubten Scope auf dem Paketbranch versioniert. [PR-/SHA-Übergabe](SKILLS/GEMEINSAM/references/PR_UND_REVIEW_UEBERGABE.md).
 
