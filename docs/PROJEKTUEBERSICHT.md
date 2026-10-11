@@ -1,11 +1,7 @@
-# Aktueller Client-V2-Stand – AP-CV2-020, 2026-10-12
+# Aktueller Client-V2-Korrekturstand – AP-CV2-020 / R03, 2026-10-12
 
-AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067` (PR #3). AP-CV2-020 CHANGES_REQUIRED auf `work/client-v2/ap-cv2-020`; [Paketakte](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md). Headless V2-Transport, Commandkorrelation und Bootstrapguards; [API](protocol-v2-transport.md). Bisherige Appkomposition bis CV2-100 erhalten. Windowsvollsuite1290, gezielte57 Tests, echter Servercheckpoint21 und compileall PASS auf `7546298f26e00b83ad4c9510a9b8c1e7e6726fc3`. PR #4, unabhängiger Review als nächste Aktion; Schreibhoheit pausiert. Keine reale ASR-/Hardwareabnahme.
-R02-Abnahme: [Pflichtfindings F01/F02](https://github.com/marcosudau-vps/voice-stt-client/blob/work/client-v2/ap-cv2-020/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R02-ABNAHME/01_REPORT.md), Korrekturlauf im bestehenden PR #4; kein ROOT_PASS oder Merge.
+AP-CV2-020 **REVIEW_READY** im [PR #4](https://github.com/marcosudau-vps/voice-stt-client/pull/4), Branch `work/client-v2/ap-cv2-020`, Parent `91065f5f7715aa6653ec5335d9e757b6ef97a067` (AP010 ACCEPTED, unverändert). [R03-Report](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md), [Workflowstatus](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json). Beide R02-Findings berechtigt und selbst korrigiert; unabhängiger Recheck offen. Neue kandidatengebundene Qualifikation `98ab3c0fc5c935019d81d6d6acb1423185cb4793`: **1294 Windows-Tests,61 gezielte Tests,21 Serverfälle und compileall PASS**. Serverada13b0 unverändert. Nächste Aktion: frische unabhängige Abnahme des ganzen PR einschließlich F01/F02; Paketbranch nach finaler Übergabe pausiert. Keine kanonische Übernahme oder AP030; Appkomposition CV2-100, Hardware/ASR später.
 
-
-
-[PR #4](https://github.com/marcosudau-vps/voice-stt-client/pull/4); vollständige Selbstchecks bestanden, unabhängiges Urteil offen.
 ## Historischer Stand vor AP-CV2-020
 
 # Aktueller Client-V2-Stand – AP-CV2-010, 2026-10-11

@@ -121,7 +121,7 @@
         "AP-CV2-010"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-020.md",
-      "status": "IN_PROGRESS",
+      "status": "REVIEW_READY",
       "testModules": [
         "test_v2_transport"
       ],
@@ -173,14 +173,20 @@
       "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
       "executionReport": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
       "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/4",
-      "qualifiedImplementationCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
-      "qualifiedImplementationTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+      "qualifiedImplementationCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+      "qualifiedImplementationTree": "c394dbe3d75086132234cb987469ee6639647af6",
       "reviewReport": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
       "reviewedCommit": "2b79a9a23a6be554a2a2a05ff3256a63ccf022d4",
       "openFindingIds": [
         "CV2-020-R02-F01",
         "CV2-020-R02-F02"
-      ]
+      ],
+      "correctionReport": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+      "selfCorrectedFindingIds": [
+        "CV2-020-R02-F01",
+        "CV2-020-R02-F02"
+      ],
+      "independentRecheck": "OPEN"
     },
     {
       "id": "AP-CV2-030",

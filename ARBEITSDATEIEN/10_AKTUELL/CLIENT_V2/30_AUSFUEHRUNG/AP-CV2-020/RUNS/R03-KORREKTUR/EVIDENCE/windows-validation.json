@@ -1,0 +1,97 @@
+{
+  "testedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+  "testedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+  "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "worktreeBefore": "",
+  "runtime": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "executable": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "qt": "offscreen",
+    "cwd": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2",
+    "dependencies": {
+      "PySide6": "6.11.1",
+      "websockets": "17.0.1",
+      "fastapi": "0.135.4",
+      "uvicorn": "0.44.0",
+      "halo": "0.0.31"
+    }
+  },
+  "startedAtUtc": "2026-10-11T23:14:29.423702+00:00",
+  "checks": [
+    {
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-W",
+        "error",
+        "-m",
+        "unittest",
+        "tests.test_v2_transport",
+        "tests.test_v2_protocol",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 4.985,
+      "log": "targeted-transport-codec-unittest.txt",
+      "sha256": "1496bc068cbce53b8d6d6b3132807a9d9d206b9c24b5e2b8870109779d758705",
+      "result": "PASS",
+      "testCount": 61,
+      "testSeconds": 4.445
+    },
+    {
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "scripts/check_v2_server_transport.py",
+        "--server-root",
+        "C:\\Users\\marco\\AppData\\Local\\Temp\\voice-stt-ap-cv2-020-ada13b0",
+        "--server-repository",
+        "P:/GithubRepos/marcosudau-vps/voice-stt-server/main"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 8.75,
+      "log": "server-transport-checkpoint.json",
+      "sha256": "33c48c33e05bfa18c2c5981709653ac884fd86fa992f31ed21b3edcc586f00e3",
+      "result": "PASS",
+      "serverCheckCount": 21,
+      "verifiedSourceCount": 46
+    },
+    {
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "voice_stt_client",
+        "scripts",
+        "tests"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.172,
+      "log": "compileall.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 98.89,
+      "log": "windows-full-unittest.txt",
+      "sha256": "02ecbdb4100be7e244ec0dcaff2e6309f9e01d31c6408befbbeaafd87a68a036",
+      "result": "PASS",
+      "testCount": 1294,
+      "testSeconds": 97.328
+    }
+  ],
+  "logHashConvention": "UTF-8 LF, complete merged stdout and stderr; CRLF normalized only",
+  "finishedAtUtc": "2026-10-11T23:16:22.208425+00:00"
+}
