@@ -1,3 +1,9 @@
+# Transportergänzung AP-CV2-020, 2026-10-12
+
+V2STTSession verwendet `/ws/v2`; explizite Legacy-URLs bleiben erhalten und werden über typed BLOCKED/legacy_endpoint_requires_migration sichtbar. Keine Profilschreiboperation, kein stiller Hostwechsel. [Transportvertrag](protocol-v2-transport.md). Bestehende Appkomposition wird in CV2-100 umgestellt; allgemeine persistierte Konfigmigration bleibt CV2-070.
+
+## Historischer Stand vor AP-CV2-020
+
 # Client-V2-Startbasis und Migration
 
 Stand 2026-10-11, AP-CV2-000. Paketkandidat auf

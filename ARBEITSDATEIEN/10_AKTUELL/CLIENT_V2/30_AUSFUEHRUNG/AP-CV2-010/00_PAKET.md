@@ -1,3 +1,9 @@
+# AP-CV2-010 – kanonisch übernommen
+
+Status **ACCEPTED**, Aggregate `91065f5f7715aa6653ec5335d9e757b6ef97a067`, PR #3. R02-ROOT_PASS, menschliches Freigabeoriginal, Single-Parent/Einzelcommit und Baumgleichheit sind im [AP020-Startbeleg](../AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json) nachgeführt. Abgeschlossene Reports bleiben unverändert.
+
+## Historischer Stand vor AP-CV2-020
+
 # AP-CV2-010 – V2-Codec
 
 Status **ROOT_PASS**; `workflowPhase=WAITING_FOR_APPROVAL`. Aktiver Run [R01-UMSETZUNG](RUNS/R01-UMSETZUNG/01_REPORT.md), [PR #3](https://github.com/marcosudau-vps/voice-stt-client/pull/3), Base `feat/client-v2`, Headbranch `work/client-v2/ap-cv2-010`.

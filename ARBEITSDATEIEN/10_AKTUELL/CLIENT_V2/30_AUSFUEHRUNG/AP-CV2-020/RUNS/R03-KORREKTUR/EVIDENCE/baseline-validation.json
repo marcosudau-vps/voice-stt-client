@@ -1,0 +1,20 @@
+{
+  "command": [
+    "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "-W",
+    "error",
+    "-m",
+    "unittest",
+    "tests.test_v2_transport",
+    "tests.test_v2_protocol",
+    "-v"
+  ],
+  "exitCode": 0,
+  "elapsedSeconds": 4.516,
+  "sourceCommit": "71f757bcc2b699f2056d7cef3f8f7d9aa9ee2d37",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "result": "PASS",
+  "logSha256": "f976333fdabfcb2314bbeb5ac29f935d0672fb6a39c07c8b1e65f7e58e54b31b",
+  "checkedAtUtc": "2026-10-11T23:03:33.564305+00:00"
+}

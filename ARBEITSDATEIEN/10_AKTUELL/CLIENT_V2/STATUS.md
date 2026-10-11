@@ -1,3 +1,10 @@
+# Aktueller Client-V2-Korrekturstand – AP-CV2-020 / R03, 2026-10-12
+
+AP-CV2-020 **ROOT_PASS / WAITING_FOR_APPROVAL** im [PR #4](https://github.com/marcosudau-vps/voice-stt-client/pull/4), Branch `work/client-v2/ap-cv2-020`, Parent `91065f5f7715aa6653ec5335d9e757b6ef97a067` (AP010 ACCEPTED, unverändert). [R03-Report](30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md), [Workflowstatus](WORKFLOW_STATUS.json). Beide R02-Findings berechtigt und selbst korrigiert; unabhängiger Recheck offen. Neue kandidatengebundene Qualifikation `98ab3c0fc5c935019d81d6d6acb1423185cb4793`: **1294 Windows-Tests,61 gezielte Tests,21 Serverfälle und compileall PASS**. Serverada13b0 unverändert. Nächste Aktion: frische unabhängige Abnahme des ganzen PR einschließlich F01/F02; Paketbranch nach finaler Übergabe pausiert. Keine kanonische Übernahme oder AP030; Appkomposition CV2-100, Hardware/ASR später.
+Unabhängige [R04-Abnahme](https://github.com/marcosudau-vps/voice-stt-client/blob/work/client-v2/ap-cv2-020/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md): beide R02-Findings geschlossen, keine offenen Pflichtbefunde. Übernahme nur nach ausdrücklicher menschlicher Freigabe.
+
+## Historischer Stand vor AP-CV2-020
+
 # Client V2 – AP-CV2-010
 
 AP-CV2-000 ACCEPTED auf `1cf076bd2ed56929b1a3780bc140da51348a8295`, PR #2. AP-CV2-010 ROOT_PASS (R02; Übernahmefreigabe ausstehend): [Paketakte](30_AUSFUEHRUNG/AP-CV2-010/00_PAKET.md), [Workflowstatus](WORKFLOW_STATUS.json). Reiner Codec; unveränderte Serverbaseline ada13b0. Nachmergeprovenienz ist in der AP010-Akte nachgewiesen, kein zweiter AP000-Abschlusscommit.

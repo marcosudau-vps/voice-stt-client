@@ -439,7 +439,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/server.py @ ada13b0; Server api_fastapi_server/protocol_v2/schema.py @ ada13b0; Server tests/unit/test_protocol_v1_v2_boundary.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -489,6 +489,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -499,7 +504,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol_v2/schema.py @ ada13b0; Server api_fastapi_server/protocol_v2/handshake.py @ ada13b0; Server tests/unit/test_protocol_v2_contract.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -550,6 +555,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -560,7 +570,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol_v2/schema.py @ ada13b0; Server api_fastapi_server/protocol_v2/handshake.py @ ada13b0; Server tests/unit/test_protocol_v2_contract.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -610,6 +620,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -620,7 +635,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol_v2/schema.py @ ada13b0; Server api_fastapi_server/protocol_v2/handshake.py @ ada13b0; Server tests/unit/test_protocol_v2_contract.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -670,6 +685,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -680,7 +700,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol_v2/schema.py @ ada13b0; Server api_fastapi_server/protocol_v2/handshake.py @ ada13b0; Server tests/unit/test_protocol_v2_contract.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -731,6 +751,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -741,7 +766,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server tests/unit/test_protocol_v2_contract.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -785,6 +810,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -795,7 +825,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server tests/unit/test_protocol_v2_contract.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -838,6 +868,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -848,7 +883,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server tests/unit/test_protocol_v2_contract.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -892,6 +927,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -902,7 +942,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server tests/unit/test_protocol_v2_contract.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -947,6 +987,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -957,7 +1002,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server tests/unit/test_protocol_v2_contract.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1002,6 +1047,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -1012,7 +1062,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol_v2/schema.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_contract.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1064,6 +1114,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -1074,7 +1129,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server api_fastapi_server/protocol_v2/commands.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1126,6 +1181,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -1136,7 +1196,7 @@
       "test": "test_v2_protocol",
       "source": "Server tests/contracts/protocol-v2-vectors.json @ ada13b0; Server api_fastapi_server/protocol_v2/schema.py @ ada13b0; Server tests/unit/test_protocol_v2_contract.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1188,6 +1248,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -1198,7 +1263,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1249,6 +1314,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -1259,7 +1329,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1310,6 +1380,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -1320,7 +1395,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/protocol.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1371,6 +1446,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -1381,7 +1461,7 @@
       "test": "test_v2_protocol",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/handshake.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1435,6 +1515,11 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
         "testProvenance": "Windows full suite 1263; codec30; pinned server checkpoint188; reviewed independently, not rerun by reviewer"
+      },
+      "canonicalizationEvidence": {
+        "commit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
       }
     },
     {
@@ -1445,7 +1530,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1469,7 +1554,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-02",
@@ -1479,7 +1603,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1503,7 +1627,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-03",
@@ -1513,7 +1676,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1537,7 +1700,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-04",
@@ -1547,7 +1749,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1571,7 +1773,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-05",
@@ -1581,7 +1822,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1605,7 +1846,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-06",
@@ -1615,7 +1895,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1639,7 +1919,48 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands",
+          "tests.test_v2_transport.Transport.test_closing_input_ack_blocks_more_refresh_for_same_activation"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands",
+          "tests.test_v2_transport.Transport.test_closing_input_ack_blocks_more_refresh_for_same_activation"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-07",
@@ -1649,7 +1970,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1673,7 +1994,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-08",
@@ -1683,7 +2043,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1707,7 +2067,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-09",
@@ -1717,7 +2116,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1741,7 +2140,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-10",
@@ -1751,7 +2189,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1775,7 +2213,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-11",
@@ -1785,7 +2262,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1809,7 +2286,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-12",
@@ -1819,7 +2335,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1843,7 +2359,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-13",
@@ -1853,7 +2408,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1877,7 +2432,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-14",
@@ -1887,7 +2481,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1911,7 +2505,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-15",
@@ -1921,7 +2554,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1945,7 +2578,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-16",
@@ -1955,7 +2627,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1979,7 +2651,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_event_before_old_ack_and_duplicate_ack_do_not_project"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_event_before_old_ack_and_duplicate_ack_do_not_project"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-17",
@@ -1989,7 +2700,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2013,7 +2724,48 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Tracker.test_fake_ack_wait_retry_identical_and_revision_guard",
+          "tests.test_v2_transport.Transport.test_retry_exact_bytes_once_and_timeout_no_new_id"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Tracker.test_fake_ack_wait_retry_identical_and_revision_guard",
+          "tests.test_v2_transport.Transport.test_retry_exact_bytes_once_and_timeout_no_new_id"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-18",
@@ -2023,7 +2775,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2047,7 +2799,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_eventless_payload_completion_and_snapshot_replay"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_eventless_payload_completion_and_snapshot_replay"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-19",
@@ -2057,7 +2848,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2081,7 +2872,48 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_eventless_payload_completion_and_snapshot_replay",
+          "tests.test_v2_transport.Transport.test_same_domain_serialized_other_domain_independent"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_eventless_payload_completion_and_snapshot_replay",
+          "tests.test_v2_transport.Transport.test_same_domain_serialized_other_domain_independent"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-20",
@@ -2091,7 +2923,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2115,7 +2947,52 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_foreign_session_and_generation_never_confirm_or_publish",
+          "tests.test_v2_transport.Transport.test_disconnect_finishes_pending_and_domain_waiters",
+          "tests.test_v2_transport.Transport.test_cancel_request_stalled_send_and_audio_loss_invalidate",
+          "tests.test_v2_transport.Tracker.test_capacity_cancellation_and_close_clear_waiters"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_foreign_session_and_generation_never_confirm_or_publish",
+          "tests.test_v2_transport.Transport.test_disconnect_finishes_pending_and_domain_waiters",
+          "tests.test_v2_transport.Transport.test_cancel_request_stalled_send_and_audio_loss_invalidate",
+          "tests.test_v2_transport.Tracker.test_capacity_cancellation_and_close_clear_waiters"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "ACK-21",
@@ -2125,7 +3002,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2149,7 +3026,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_reconnect_new_binding_ids_empty_queue_and_suppression_retained"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_reconnect_new_binding_ids_empty_queue_and_suppression_retained"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "FG-01",
@@ -3850,7 +4766,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3867,7 +4783,48 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_terminal_recovery.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_close_codes_block_or_reconnect_with_capacity_floor",
+          "tests.test_v2_transport.Transport.test_malformed_admission_second_hello_and_binary_server_block"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_close_codes_block_or_reconnect_with_capacity_floor",
+          "tests.test_v2_transport.Transport.test_malformed_admission_second_hello_and_binary_server_block"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "RECONNECT-02",
@@ -3877,7 +4834,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3894,7 +4851,47 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_terminal_recovery.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_4408_only_one_retry_with_stable_process_run_id"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_4408_only_one_retry_with_stable_process_run_id",
+          "tests.test_v2_transport.Transport.test_4408_retry_budget_resets_only_after_ready_between_episodes"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "RECONNECT-03",
@@ -3904,7 +4901,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3921,7 +4918,50 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_terminal_recovery.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_handshake_refusal_config_capacity_and_incompatible",
+          "tests.test_v2_transport.Transport.test_close_codes_block_or_reconnect_with_capacity_floor"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_handshake_refusal_config_capacity_and_incompatible",
+          "tests.test_v2_transport.Transport.test_close_codes_block_or_reconnect_with_capacity_floor",
+          "tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once",
+          "tests.test_v2_transport.Transport.test_http_upgrade_rate_limit_has_capacity_backoff_and_bounded_stop"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "RECONNECT-04",
@@ -3931,7 +4971,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3948,7 +4988,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_terminal_recovery.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_reconnect_new_binding_ids_empty_queue_and_suppression_retained"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_reconnect_new_binding_ids_empty_queue_and_suppression_retained"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "RECONNECT-05",
@@ -3958,7 +5037,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3975,7 +5054,48 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_terminal_recovery.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_reconnect_new_binding_ids_empty_queue_and_suppression_retained",
+          "tests.test_v2_transport.Transport.test_foreign_session_and_generation_never_confirm_or_publish"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_reconnect_new_binding_ids_empty_queue_and_suppression_retained",
+          "tests.test_v2_transport.Transport.test_foreign_session_and_generation_never_confirm_or_publish"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "RECONNECT-06",
@@ -3985,7 +5105,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4002,7 +5122,55 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_terminal_recovery.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_admission_and_connect_timeout_no_hanging_run",
+          "tests.test_v2_transport.Transport.test_retry_exact_bytes_once_and_timeout_no_new_id",
+          "tests.test_v2_transport.Transport.test_close_timeout_aborts_underlying_transport",
+          "tests.test_v2_transport.Transport.test_cancel_connect_bootstrap_and_stop_caller_leave_no_tasks"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_admission_and_connect_timeout_no_hanging_run",
+          "tests.test_v2_transport.Transport.test_retry_exact_bytes_once_and_timeout_no_new_id",
+          "tests.test_v2_transport.Transport.test_close_timeout_aborts_underlying_transport",
+          "tests.test_v2_transport.Transport.test_cancel_connect_bootstrap_and_stop_caller_leave_no_tasks",
+          "tests.test_v2_transport.Transport.test_http_upgrade_transient_errors_backoff_then_ready",
+          "tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once",
+          "tests.test_v2_transport.Transport.test_http_upgrade_rate_limit_has_capacity_backoff_and_bounded_stop"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "RECONNECT-07",
@@ -4012,7 +5180,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4029,7 +5197,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_terminal_recovery.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+        "qualifiedTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_transport_ping_only_and_no_final_inference_timer"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-020",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "qualifiedCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
+        "qualifiedTree": "c394dbe3d75086132234cb987469ee6639647af6",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_v2_transport.Transport.test_transport_ping_only_and_no_final_inference_timer"
+        ],
+        "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
+      }
     },
     {
       "id": "CONTROL-01",

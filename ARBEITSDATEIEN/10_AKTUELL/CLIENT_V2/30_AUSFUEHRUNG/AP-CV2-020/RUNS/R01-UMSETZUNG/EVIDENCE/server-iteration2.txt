@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\scripts\check_v2_server_transport.py", line 200, in <module>
+    main()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\scripts\check_v2_server_transport.py", line 196, in main
+    print(json.dumps(asyncio.run(run(args.server_root.resolve(), args.server_repository.resolve())), indent=2))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\scripts\check_v2_server_transport.py", line 173, in run
+    hashes = verify_sources(root, repository)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\scripts\check_v2_server_transport.py", line 52, in verify_sources
+    raise AssertionError(f"server source differs: {relative}")
+AssertionError: server source differs: api_fastapi_server/__init__.py
