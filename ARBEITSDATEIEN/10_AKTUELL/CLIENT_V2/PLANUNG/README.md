@@ -1,6 +1,6 @@
 # Voice-STT Client V2 – Einstieg
 
-Stand **2026-10-11, Revision 10**. Eigenständige Planungs- und Arbeitsgrundlage; AP-CV2-000 auf Paketbranch REVIEW_READY, unabhängige Abnahme offen ([Paketakte](../30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md)). Revision 10 bildet den aktuellen Unterlagenstand auf `feat/client-v2`. Der veröffentlichte Revision-9-Start bleibt erhalten; die Korrektur folgt als ein eigener Dokumentcommit vor AP-CV2-000 gemäß [ausdrücklicher Freigabe](EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md).
+Stand **2026-10-11, Revision 10**. Eigenständige Planungs- und Arbeitsgrundlage; AP-CV2-000 auf Paketbranch nach R02-Review CHANGES_REQUIRED, Finding CV2-R02-F01 offen ([Paketakte](../30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md)). Revision 10 bildet den aktuellen Unterlagenstand auf `feat/client-v2`. Der veröffentlichte Revision-9-Start bleibt erhalten; die Korrektur folgt als ein eigener Dokumentcommit vor AP-CV2-000 gemäß [ausdrücklicher Freigabe](EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md).
 
 ## Dein Einstieg als Auftraggeber
 
