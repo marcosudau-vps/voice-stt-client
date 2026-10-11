@@ -1,6 +1,6 @@
 # CURRENT_STATE – AP-CV2-010
 
-AP-CV2-000 tatsächlich CANONICALIZED/ACCEPTED auf `1cf076bd2ed56929b1a3780bc140da51348a8295` (PR #2; PASS und menschliche Freigabe vorhanden). Aktiver Auftrag AP-CV2-010, REVIEW_READY auf `work/client-v2/ap-cv2-010`. [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Paketakte](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/00_PAKET.md). Kein automatischer Folgepaketstart.
+AP-CV2-000 tatsächlich CANONICALIZED/ACCEPTED auf `1cf076bd2ed56929b1a3780bc140da51348a8295` (PR #2; PASS und menschliche Freigabe vorhanden). Aktiver Auftrag AP-CV2-010, ROOT_PASS (R02); Workflow WAITING_FOR_APPROVAL auf `work/client-v2/ap-cv2-010`. [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Paketakte](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/00_PAKET.md). Kein automatischer Folgepaketstart.
 
 Die folgende datierte Steuerung bleibt Historie.
 

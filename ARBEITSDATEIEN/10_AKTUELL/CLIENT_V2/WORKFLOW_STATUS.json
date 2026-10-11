@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "REVIEW_READY",
-  "packageStatus": "REVIEW_READY",
+  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "packageStatus": "ROOT_PASS",
   "activePackage": "AP-CV2-010",
   "nextPackage": "AP-CV2-020",
   "canonicalBranch": "feat/client-v2",
@@ -10,18 +10,18 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
   "selectedCandidate": true,
   "lastRun": {
-    "role": "implementation",
-    "id": "R01-UMSETZUNG",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
-    "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md"
+    "role": "review",
+    "id": "R02-ABNAHME",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+    "report": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md"
   },
-  "reviewedCommit": null,
-  "reviewReport": null,
+  "reviewedCommit": "7124e5629e24817dd711b2e2b697b9c07aa11dd7",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Frische unabhängige Session prüft den gesamten AP-CV2-010-Kandidaten in PR #3 einschließlich Windowsnachweisen. Paketbranch bis dahin pausiert; keine kanonische Übernahme oder Folgepaketstart.",
+  "nextAction": "AP-CV2-010 R02 unabhängiger ROOT_PASS auf 7124e5629e24817dd711b2e2b697b9c07aa11dd7. Menschliche Übernahmefreigabe für PR #3 einholen; aktueller PR-Docs-Head vor Freigabe/Squash gegen den reviewed_sha auf ausschließlich administrative Änderungen prüfen. Kein Merge oder Folgepaketstart ohne ausdrücklichen Auftrag.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -40,5 +40,6 @@
   "predecessorCanonicalization": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json",
   "qualifiedImplementationCommit": "9838558173b6bd88d4620b20d4e2e9d832e814c7",
   "qualifiedImplementationTree": "c3a0b826e5d9614ad6dfb80b51815af77f8090bf",
-  "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+  "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+  "reviewedTree": "37b61ff4cab90c18abf8e5bfae920f2e265ad3ab"
 }
