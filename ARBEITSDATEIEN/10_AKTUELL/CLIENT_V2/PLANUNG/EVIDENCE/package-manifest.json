@@ -64,7 +64,7 @@
         "AP-CV2-000"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-010.md",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "testModules": [
         "test_v2_protocol"
       ],
@@ -109,7 +109,10 @@
       "qualifiedImplementationTree": "c3a0b826e5d9614ad6dfb80b51815af77f8090bf",
       "latestReview": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
       "reviewedCommit": "7124e5629e24817dd711b2e2b697b9c07aa11dd7",
-      "reviewedTree": "37b61ff4cab90c18abf8e5bfae920f2e265ad3ab"
+      "reviewedTree": "37b61ff4cab90c18abf8e5bfae920f2e265ad3ab",
+      "canonicalCommit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+      "canonicalTree": "58823206255cec322f29c439c06b0bda09ed485c",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "AP-CV2-020",
@@ -118,7 +121,7 @@
         "AP-CV2-010"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-020.md",
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "testModules": [
         "test_v2_transport"
       ],
@@ -165,7 +168,10 @@
         "defaultRuns": 1,
         "scopeNote": "one complete package session; steps are not separate runs"
       },
-      "testModulesRole": "suggested locations; actual coverage and methods required"
+      "testModulesRole": "suggested locations; actual coverage and methods required",
+      "candidateBranch": "work/client-v2/ap-cv2-020",
+      "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md"
     },
     {
       "id": "AP-CV2-030",

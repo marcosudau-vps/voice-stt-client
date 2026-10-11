@@ -1,3 +1,9 @@
+# Aktueller Client-V2-Stand – AP-CV2-020, 2026-10-12
+
+AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067` (PR #3). AP-CV2-020 IN_PROGRESS auf `work/client-v2/ap-cv2-020`; [Paketakte](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md). Headless V2-Transport, Commandkorrelation und Bootstrapguards; [API](protocol-v2-transport.md). Bisherige Appkomposition bis CV2-100 erhalten. Baseline1263 PASS; finale kandidativen Windows-/Serverprüfungen laufen. Keine reale ASR-/Hardwareabnahme.
+
+## Historischer Stand vor AP-CV2-020
+
 # Aktueller Client-V2-Stand – AP-CV2-010, 2026-10-11
 
 AP-CV2-000 ist nach unabhängigem PASS und menschlicher Freigabe über PR #2 als `1cf076bd2ed56929b1a3780bc140da51348a8295` übernommen. AP-CV2-010 ist REVIEW_READY in [PR #3](https://github.com/marcosudau-vps/voice-stt-client/pull/3) auf `work/client-v2/ap-cv2-010`: reiner V2-Codec, Datentypen und Vertragsfixtures. Windowsvollsuite1263, Codec30 und gepinnter Servercheckpoint188 PASS; unabhängiger Review als nächste Aktion, Schreibhoheit pausiert. Runtime bleibt bis zur Transportintegration auf ihrem bisherigen Pfad; keine Datenmigration. [Paketakte](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/00_PAKET.md), [Codecvertrag](protocol-v2-codec.md). Historische Einstiege unten bleiben ihrem Datum zugeordnet.

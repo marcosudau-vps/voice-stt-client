@@ -1,3 +1,9 @@
+# Aktueller Arbeitsblock – AP-CV2-020
+
+CLIENT_V2 ist aktiv. AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067` (PR #3); AP-CV2-020 IN_PROGRESS auf `work/client-v2/ap-cv2-020`. [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Paketakte](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md). Nächste Aktion: beauftragte Umsetzung und Qualifikation abschließen.
+
+## Historischer Stand vor AP-CV2-020
+
 # MASTERPLAN – AP-CV2-010
 
 AP-CV2-000 tatsächlich CANONICALIZED/ACCEPTED auf `1cf076bd2ed56929b1a3780bc140da51348a8295` (PR #2; PASS und menschliche Freigabe vorhanden). Aktiver Auftrag AP-CV2-010, ROOT_PASS (R02); Workflow WAITING_FOR_APPROVAL auf `work/client-v2/ap-cv2-010`. [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Paketakte](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/00_PAKET.md). Kein automatischer Folgepaketstart.

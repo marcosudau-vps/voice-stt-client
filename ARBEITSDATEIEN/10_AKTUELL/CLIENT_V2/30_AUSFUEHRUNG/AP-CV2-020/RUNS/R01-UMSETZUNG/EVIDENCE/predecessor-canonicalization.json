@@ -1,0 +1,22 @@
+{
+  "package": "AP-CV2-010",
+  "status": "ACCEPTED",
+  "aggregateCommit": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+  "aggregateTree": "58823206255cec322f29c439c06b0bda09ed485c",
+  "canonicalParent": "1cf076bd2ed56929b1a3780bc140da51348a8295",
+  "singleParent": true,
+  "singleNewCommit": true,
+  "approvedHead": "525571afd0ee6a1855e19da565b0ee6c6d8a8a54",
+  "treeEqual": true,
+  "reviewedCommit": "7124e5629e24817dd711b2e2b697b9c07aa11dd7",
+  "independentReview": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+  "reviewReportSha256": "82ca9a14fd1318f40787746a690df4b7c6b93aa21fbbc6b9e5ba22a404c32eb0",
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+  "mergedAt": "2026-10-11T21:45:08Z",
+  "humanApprovalSource": "https://github.com/marcosudau-vps/voice-stt-client/pull/3#issuecomment-6114124896",
+  "humanApprovalOriginal": "Der Reviewer hat Pass erteilt. Bitte prüfe nochmal grob den Umfang und Bewertungsmaßstäbe und so... keine Detailprüfung mehr... Wenn du nichts einzuwenden hast, erteile ich dir die Freigabe, um den Pull Request so zu mergen.",
+  "closingEvidence": "https://github.com/marcosudau-vps/voice-stt-client/pull/3#issuecomment-6114191467",
+  "postmergeCI": "https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38177659026",
+  "canonicalCommitMessage": "AP-CV2-010: V2 codec and pinned server contract fixtures (#3)\n\nAP-CV2-010: pure V2 codec, contract fixtures and pinned server checkpoint. Independent R02 ROOT_PASS; no blocking findings. High-level scope/acceptance plausibility checked by closing agent, no new detailed code review.\n\nCanonical parent: 1cf076bd2ed56929b1a3780bc140da51348a8295\nFinal approved PR head: 525571afd0ee6a1855e19da565b0ee6c6d8a8a54\nReviewed product head: 7124e5629e24817dd711b2e2b697b9c07aa11dd7\nApproved tree: 58823206255cec322f29c439c06b0bda09ed485c\nServer baseline: ada13b011e1d3829f78e7f389e3b927795a2b3be\nReview report: ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md\nPremerge CI: 38176517756 SUCCESS, tested merge fc93e5ee68444ed659c93e0d185666d2844a18de (exact parent/head), 1263 tests and build/install smoke PASS. After technical review only administrative docs changed. Structure checker and diff check PASS.\n\nActual human authorization (verbatim):\nDer Reviewer hat Pass erteilt. Bitte prÃ¼fe nochmal grob den Umfang und BewertungsmaÃŸstÃ¤be und so... keine DetailprÃ¼fung mehr... Wenn du nichts einzuwenden hast, erteile ich dir die Freigabe, um den Pull Request so zu mergen.\n\nAuthorization condition satisfied: scope and acceptance are appropriate; no objection to adoption. Exactly one squash aggregate onto feat/client-v2; no main/server promotion, branch deletion or successor implementation. Committed premerge ROOT_PASS status is historical; canonical acceptance is derived from merged PR and verified aggregate, and will be carried forward on the next package branch.",
+  "openPackagePRsAtStart": []
+}

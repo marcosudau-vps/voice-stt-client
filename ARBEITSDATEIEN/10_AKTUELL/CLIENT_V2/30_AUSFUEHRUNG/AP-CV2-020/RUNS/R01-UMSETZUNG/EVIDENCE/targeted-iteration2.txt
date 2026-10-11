@@ -1,0 +1,38 @@
+test_capacity_cancellation_and_close_clear_waiters (tests.test_v2_transport.Tracker.test_capacity_cancellation_and_close_clear_waiters) ... ok
+test_fake_ack_wait_retry_identical_and_revision_guard (tests.test_v2_transport.Tracker.test_fake_ack_wait_retry_identical_and_revision_guard) ... ok
+test_4408_only_one_retry_with_stable_process_run_id (tests.test_v2_transport.Transport.test_4408_only_one_retry_with_stable_process_run_id) ... ok
+test_admission_and_connect_timeout_no_hanging_run (tests.test_v2_transport.Transport.test_admission_and_connect_timeout_no_hanging_run) ... ok
+test_all_fifteen_ack_results_complete_once_without_new_commands (tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands) ... ok
+test_close_codes_block_or_reconnect_with_capacity_floor (tests.test_v2_transport.Transport.test_close_codes_block_or_reconnect_with_capacity_floor) ... ok
+test_disconnect_finishes_pending_and_domain_waiters (tests.test_v2_transport.Transport.test_disconnect_finishes_pending_and_domain_waiters) ... ok
+test_endpoint_default_legacy_profile_blocks_without_rewrite (tests.test_v2_transport.Transport.test_endpoint_default_legacy_profile_blocks_without_rewrite) ... ok
+test_event_before_old_ack_and_duplicate_ack_do_not_project (tests.test_v2_transport.Transport.test_event_before_old_ack_and_duplicate_ack_do_not_project) ... ok
+test_eventless_payload_completion_and_snapshot_replay (tests.test_v2_transport.Transport.test_eventless_payload_completion_and_snapshot_replay) ... FAIL
+test_foreign_session_and_generation_never_confirm_or_publish (tests.test_v2_transport.Transport.test_foreign_session_and_generation_never_confirm_or_publish) ... ok
+test_handshake_refusal_config_capacity_and_incompatible (tests.test_v2_transport.Transport.test_handshake_refusal_config_capacity_and_incompatible) ... ok
+test_hello_first_bootstrap_gate_and_callback_order (tests.test_v2_transport.Transport.test_hello_first_bootstrap_gate_and_callback_order) ... ok
+test_missing_failed_and_timed_out_bootstrap_never_ready (tests.test_v2_transport.Transport.test_missing_failed_and_timed_out_bootstrap_never_ready) ... ok
+test_reconnect_new_binding_ids_empty_queue_and_suppression_retained (tests.test_v2_transport.Transport.test_reconnect_new_binding_ids_empty_queue_and_suppression_retained) ... ok
+test_retry_exact_bytes_once_and_timeout_no_new_id (tests.test_v2_transport.Transport.test_retry_exact_bytes_once_and_timeout_no_new_id) ... ok
+test_same_domain_serialized_other_domain_independent (tests.test_v2_transport.Transport.test_same_domain_serialized_other_domain_independent) ... ok
+test_stop_cancel_double_close_and_backoff_are_bounded (tests.test_v2_transport.Transport.test_stop_cancel_double_close_and_backoff_are_bounded) ... ok
+test_transport_ping_only_and_no_final_inference_timer (tests.test_v2_transport.Transport.test_transport_ping_only_and_no_final_inference_timer) ... ok
+
+======================================================================
+FAIL: test_eventless_payload_completion_and_snapshot_replay (tests.test_v2_transport.Transport.test_eventless_payload_completion_and_snapshot_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 193, in test_eventless_payload_completion_and_snapshot_replay
+    self.assertTrue(completion.projectable)
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 19 tests in 3.235s
+
+FAILED (failures=1)

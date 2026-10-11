@@ -1,3 +1,9 @@
+# Client V2 – AP-CV2-020
+
+AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067` (PR #3, R02-PASS und menschliche Übernahme belegt). AP-CV2-020 IN_PROGRESS auf `work/client-v2/ap-cv2-020`; [Paketakte](../30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md). [Transport-/Bootstrapinterfaces](../../../../docs/protocol-v2-transport.md).
+
+## Historischer Stand vor AP-CV2-020
+
 # Voice-STT Client V2 – Einstieg
 
 Stand **2026-10-11, Revision10, Rollenregelversion7**. AP-CV2-000 ACCEPTED, tatsächlicher PR-#2-Aggregatcommit `1cf076bd2ed56929b1a3780bc140da51348a8295`; AP-CV2-010 ROOT_PASS (R02; WAITING_FOR_APPROVAL); [Paketakte](../30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md). PASS, menschliche Freigabe und tatsächlicher Merge wurden beim AP010-Start geprüft; [AP010-Akte](../30_AUSFUEHRUNG/AP-CV2-010/00_PAKET.md). Revision-9-Start und freigegebene Dokumentkorrektur Revision10 bleiben erhalten.
