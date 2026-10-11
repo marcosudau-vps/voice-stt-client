@@ -1,8 +1,8 @@
 # Gesamtimplementierungsplan – Desktop-Client auf Server V2 nachziehen
 
-**Aktuelle Branchführung (Revision 9):** Neue Clientpakete laufen auf `feat/client-v2`, ausgehend von 8bab1b3 mit demselben Produktbaum wie a80a6b1. Der erste neue Commit enthält nur Unterlagen; AP-CV2-000 bleibt offen. Historische Distributed-/Featurebezeichnungen unten benennen die analysierten Ausgangsquellen. Kumulative Kandidaten liegen künftig auf untergeordneten Paketbranches, Code und Planpflege gehen als ein Paketaggregat gemeinsam ein. [Verbindliche Branchreferenz](../GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
+**Aktuelle Branchführung (Revision 10):** Neue Clientpakete laufen auf `feat/client-v2`, ausgehend von 8bab1b3 mit demselben Produktbaum wie a80a6b1. Der erste neue Commit enthält nur Unterlagen; AP-CV2-000 bleibt offen. Historische Distributed-/Featurebezeichnungen unten benennen die analysierten Ausgangsquellen. Kumulative Kandidaten liegen künftig auf untergeordneten Paketbranches, Code und Planpflege gehen als ein Paketaggregat gemeinsam ein. [Verbindliche Branchreferenz](../GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
 
-Stand 2026-10-11, Revision 9. Fachliche Baselineanalyse vom 2026-10-04/05. Fachliche Ziele und Nachweise spezifiziert; interne Umsetzung anpassbar gemäß [Umsetzungsspielraum](../../SKILLS/GEMEINSAM/references/PLANUNGSSPIELRAUM.md); Implementierung noch nicht begonnen. Server: `ada13b011e1d3829f78e7f389e3b927795a2b3be`. Clientlinie: Distributed a80a6b1 und kanonischer Featurestand 8bab1b3; V1-main f625904 ist Integrationsreferenz. Der getestete integrierte Start-SHA entsteht in CV2-000.
+Stand 2026-10-11, Revision 10. Fachliche Baselineanalyse vom 2026-10-04/05. Fachliche Ziele und Nachweise spezifiziert; interne Umsetzung anpassbar gemäß [Umsetzungsspielraum](../../SKILLS/GEMEINSAM/references/PLANUNGSSPIELRAUM.md); Implementierung noch nicht begonnen. Server: `ada13b011e1d3829f78e7f389e3b927795a2b3be`. Clientlinie: Distributed a80a6b1 und kanonischer Featurestand 8bab1b3; V1-main f625904 ist Integrationsreferenz. Der getestete integrierte Start-SHA entsteht in CV2-000.
 
 ## 1. Ziel, Umfang und feste Entscheidungen
 
@@ -83,3 +83,7 @@ Der erste Implementierungsauftrag ist AP-CV2-000. Er setzt die Feature-Linie for
 ## 8. Messbare Zwischenstände
 
 Jedes Paket besitzt einen [inkrementellen Checkpoint](../QUALIFIKATION/INKREMENTELLE_CHECKPOINTS.md). Ab CV2-020 wird der tatsächliche neue Clienttransport gegen einen isolierten modellfreien Server am gepinnten SHA geprüft, danach der Verbund schrittweise erweitert. IV2-010 wiederholt und vervollständigt diese Prüfungen am finalen Commitpaar; echte Modell-/Hardwareabnahme in IV2-020. Die Checks gehören zu den bestehenden Paketläufen, Aufwand und Paketfolge bleiben gleich.
+
+## Sonderfälle und Basisschätzung
+
+28–30 Sessions sind die Basisschätzung der regulären Umsetzung/Abnahme, keine Gesamtprognose mit Korrekturen und Zusatzaufträgen. Wiederaufnahme, Auswahlwechsel und Serverfix-Routing ergänzen den vorhandenen Ablauf gemäß [Sonderfallreferenz](../../SKILLS/GEMEINSAM/references/SONDERFAELLE_UND_WIEDERAUFNAHME.md). Echte Plattformbelege können vom Auftraggeber/benannten Tester stammen und werden nach [Nachweisregel](../QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md) unabhängig validiert. Nach IV2-020 COMPLETED aus Git/Review/Freigabe ableiten; kein zusätzliches reguläres Paket. Nachträglicher nötiger Fix ohne geeignetes Folgepaket nur als ausdrücklich beauftragte neue Instanz, alte Geschichte erhalten.

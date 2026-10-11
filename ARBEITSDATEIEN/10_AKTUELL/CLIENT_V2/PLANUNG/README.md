@@ -1,6 +1,6 @@
 # Voice-STT Client V2 – Einstieg
 
-Stand **2026-10-11, Revision 9**. Eigenständige Planungs- und Arbeitsgrundlage; Clientumsetzung weiterhin offen.
+Stand **2026-10-11, Revision 10**. Eigenständige Planungs- und Arbeitsgrundlage; Clientumsetzung weiterhin offen. Revision 10 bildet den aktuellen Unterlagenstand auf `feat/client-v2`. Der veröffentlichte Revision-9-Start bleibt erhalten; die Korrektur folgt als ein eigener Dokumentcommit vor AP-CV2-000 gemäß [ausdrücklicher Freigabe](EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md).
 
 ## Dein Einstieg als Auftraggeber
 
@@ -53,3 +53,7 @@ Unabhängiger PASS ist die technische Abnahme. Kanonische Übernahme braucht ans
 `feat/client-v2` führt diese vollständige Planung und die kommende Umsetzung gemeinsam: erster Commit nur Unterlagen, danach je angenommenem Paket genau ein Commit mit Code und aktualisierten Unterlagen. Bearbeitung/Korrekturen finden auf untergeordneten Paketbranches statt. Verbindliche Zuordnung, Ausgangs-SHAs, Aggregationsprüfungen und Serverabgrenzung: [Branchführung und Planpflege](REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md). Aktive Ablage im Clientrepository: `ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/`.
 
 Paketweise Funktionsmessung und früher Serverkontakt: [Inkrementelle Checkpoints](REFERENZ/QUALIFIKATION/INKREMENTELLE_CHECKPOINTS.md).
+
+## Bedarfsgerechte Ausnahme-Referenzen
+
+[Wiederaufnahme, Kandidatenwahl, Serverfix-Routing und Endabschluss](SKILLS/GEMEINSAM/references/SONDERFAELLE_UND_WIEDERAUFNAHME.md) sowie [unabhängig geprüfte Windows-/Hardwarebelege](REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md) nur beim betreffenden Fall laden. [Bewertung des externen Prüfberichts](EVIDENCE/BEWERTUNG_PRUEFBEFUNDE_REV10.md). Aktuelle Dokumentrevision/roleSkillVersion stimmen in Baseline und Paketmanifest überein; schemaVersion, Aktenstruktur und Aufwandsmodellversion sind eigenständige Versionen.

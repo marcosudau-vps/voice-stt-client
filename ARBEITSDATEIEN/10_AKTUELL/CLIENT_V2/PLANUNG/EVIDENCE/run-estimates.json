@@ -212,5 +212,8 @@
       "defaultRuns": null,
       "scopeNote": "one complete package session; steps are not separate runs"
     }
-  ]
+  ],
+  "modelVersion": 3,
+  "documentPlanningRevision": 10,
+  "scope": "Baseline estimate only, not a forecast of total sessions including corrections, additional reviews, recovery, server fixes or separately commissioned closure sessions."
 }

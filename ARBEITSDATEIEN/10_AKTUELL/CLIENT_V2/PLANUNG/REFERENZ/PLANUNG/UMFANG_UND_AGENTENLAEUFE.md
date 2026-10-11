@@ -1,6 +1,6 @@
 # Umfang und Agentenläufe pro Arbeitspaket
 
-Stand 2026-10-11, Planrevision 9; Aufwandsmodell Version 3 (fachlich unverändert). **Regelfall: ein vollständiger Umsetzungslauf je Paket, anschließend ein unabhängiger Abnahmelauf.** Die Facharbeit nutzt die bestehenden Clientkomponenten. Technische Schritte innerhalb eines Pakets sind keine automatisch getrennten Sessions.
+Stand 2026-10-11, Planrevision 10; Aufwandsmodell Version 3 (fachlich unverändert). **Regelfall: ein vollständiger Umsetzungslauf je Paket, anschließend ein unabhängiger Abnahmelauf.** Die Facharbeit nutzt die bestehenden Clientkomponenten. Technische Schritte innerhalb eines Pakets sind keine automatisch getrennten Sessions.
 
 | Paket | Umsetzung im Regelfall | Unabhängige Abnahme / Abschluss | Schwerpunkt |
 | --- | ---: | ---: | --- |
@@ -20,7 +20,7 @@ Stand 2026-10-11, Planrevision 9; Aufwandsmodell Version 3 (fachlich unveränder
 | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | 1 | 1 | Reale Windows-/ASR-/Bedien-/Clipboard-/Credential-Prüfung; ReSpeaker/USB/Wakepositive-/Negativ-/Nutzsprachgrenze |
 | [AP-SV2-FIX](../../ARBEITSPAKETE/AP-SV2-FIX.md) | befundabhängig | separat | Nur bei einem konkreten reproduzierbaren Serverbefund separat schätzen |
 
-**Regelfall ohne Korrekturen: 14 Umsetzungssessions + 14 unabhängige Abnahmesessions = 28 Agentensessions.** Ein zusätzlicher Umsetzungslauf kommt allenfalls bei Transport oder Mirror/Resync in Betracht, wenn sich während der Umsetzung ein konkreter Bedarf zeigt; damit **28–30 Sessions** statt der früheren übervorsichtigen Schätzung.
+**Basisschätzung ohne Korrekturen: 14 Umsetzungssessions + 14 unabhängige Abnahmesessions = 28 Agentensessions.** Ein zusätzlicher Umsetzungslauf kommt allenfalls bei Transport oder Mirror/Resync in Betracht, wenn sich während der Umsetzung ein konkreter Bedarf zeigt; damit **28–30 Basissessions**. Dies ist keine Prognose der Gesamtzahl einschließlich Korrekturen, Zusatzreviews, Wiederaufnahmen, Serverfixes oder gesondert beauftragter Abschluss-/Ausnahmesessions.
 
 Die Hälfte der regulären Sessions entfällt auf die ausdrücklich gewünschte unabhängige Abnahme pro Paket. Das ist keine zusätzliche Verdoppelung der Implementierung. Ein Review umfasst technische Prüfung und PASS-/Befundbericht. Nach ausdrücklichem Auftraggeberprompt übernimmt vorzugsweise der Umsetzer die kurze kanonische Abschlussaktion im bestehenden Lauf; alternativ ein ausdrücklich beauftragter Abschlussagent. Diese Übernahme wird nicht pauschal als dritte Fachsession pro Paket eingeplant.
 

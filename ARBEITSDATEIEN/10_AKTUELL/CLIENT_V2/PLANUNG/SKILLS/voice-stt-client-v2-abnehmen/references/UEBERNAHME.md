@@ -12,3 +12,5 @@ Erst nach tatsächlichem menschlichem Übernahmeprompt ausführen. Vorzugsweise 
 Vor Merge bleiben versionierte Unterlagen beim technischen ROOT_PASS mit gesicherter menschlicher Freigabe; der eindeutige Gitcommit und gemergte PR belegen danach CANONICALIZED. Bereits abgeschlossene Reviewreports unverändert erhalten. Den eigenen finalen Commit-SHA aus Git ableiten, keine unmögliche Selbstreferenz schreiben.
 
 Lokale Einzelaggregation nur bei ausdrücklichem Auftrag statt PR-Squash: auf exaktem Parent ein Single-Parent-Aggregat vorbereiten, geprüften Baum abgleichen, erforderliche CI dieses vorbereiteten SHA prüfen und feat/client-v2 nur fast-forward fortführen/pushen, soweit erlaubt. Serverfixes bleiben auf Server-Distributed bis zur gesonderten finalen Serveraggregation. Details: [Branchreferenz](../../../REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
+
+Beim letzten regulären Paket nach tatsächlicher Übernahme den Endstatus und post-merge Nachweis gemäß [Sonderfallreferenz](../../GEMEINSAM/references/SONDERFAELLE_UND_WIEDERAUFNAHME.md) sichern. Server-FIX verwendet die dortige ausdrücklich freigegebene Distributed-Sicherung, nicht den Client-PR-Squash.

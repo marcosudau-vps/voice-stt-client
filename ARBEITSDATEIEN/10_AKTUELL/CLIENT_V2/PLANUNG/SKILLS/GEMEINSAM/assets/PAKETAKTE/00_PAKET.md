@@ -30,3 +30,12 @@ Vor tatsächlichem Merge bleibt Status ROOT_PASS, auch wenn die Freigabe gesiche
 Strukturierte Zustandsdatei: {{LINK_AUF_WORKFLOW_STATUS_JSON}}.
 workflowPhase: {{BELEGTER_ZUSTAND}}; nächste Aktion: {{AKTION}}; tatsächliche Arbeitsfreigabe: {{ORIGINALQUELLE_ODER_KEINE}}.
 Zusätzliche unabhängige Reviews als eigene Runs oben verlinken; offene Pflichtfindings aus allen gültigen Reviews berücksichtigen.
+
+## Nur bei einem tatsächlichen Sonderfall
+
+Kandidatenauswahl/Ablösung: {{ID_QUELLE_ALTE_UND_NEUE_LINIE_ODER_ENTFALLEN}}.
+Wiederaufnahme: {{UEBERGABEAUFTRAG_VORHERIGER_OWNER_GESICHERTER_STAND_NEUER_RUN_ODER_ENTFALLEN}}.
+Server-FIX/Rückkehr: {{REPOSITORY_FIX_STATUSPFAD_GEHALTENER_CLIENT_NEUE_SERVER_SHA_ODER_ENTFALLEN}}.
+Letzter Nachmerge-Nachweis: {{NACH_ABSCHLUSS_PFAD_ODER_ENTFALLEN}}.
+
+Diese Angaben nur bei Bedarf führen; keine leeren Runordner/zusätzlichen Pflichtsessions anlegen.

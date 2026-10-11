@@ -1,12 +1,14 @@
 # CURRENT STATE
 
+**Aktueller Unterlagenstand:** Revision 10 auf `feat/client-v2`, nach dem unveränderten Revision-9-Start bfade9d als ein ausdrücklich freigegebener Dokumentkorrekturcommit. [Freigabe und Ausnahmeumfang](../10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md), [Befundbewertung](../10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/BEWERTUNG_PRUEFBEFUNDE_REV10.md). Kein AP umgesetzt; nächster Produktauftrag AP-CV2-000 vom aktuellen Feature-HEAD.
+
 Stand 2026-10-11. Aktiver Clientworkstream: **Client V2**.
 
 - Aktiver Block: [CLIENT_V2](../10_AKTUELL/CLIENT_V2/README.md).
-- Vollständig konsolidierter Unterlagenstart Revision 9 auf `feat/client-v2`: [Auftraggeber](../10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/GOVERNANCE/AUFTRAGGEBER.md). Kein Import aus einer Vorbereitungsablage erforderlich.
+- Vollständige Unterlagen Revision 10 auf `feat/client-v2`; Revision-9-Start bleibt erhalten: [Auftraggeber](../10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/GOVERNANCE/AUFTRAGGEBER.md). Kein Import aus einer Vorbereitungsablage erforderlich.
 - Planung/Agenteneinstiege: [PLANUNG](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md).
 - Abschlusslinie: `feat/client-v2`, begonnen bei Clientcanonical 8bab1b3; erster neuer Commit enthält nur Unterlagen.
-- Nächster Implementierungsauftrag: AP-CV2-000 auf eigenem Paketbranch vom Planungsstartcommit. Noch keine neue Implementierung oder Paketabnahme.
+- Nächster Implementierungsauftrag: AP-CV2-000 auf eigenem Paketbranch vom tatsächlich aktuellen `feat/client-v2`-HEAD. Noch keine neue Implementierung oder Paketabnahme.
 - Serverreferenz ada13b0 bleibt auf Server-Distributed; finales Serverrestaggregat später nach gemeinsamer Qualifikation und eigener Freigabe.
 - Logging/Observability Teil A bleibt vorhandene Foundation; Teil B bleibt bis nach Trigger-/V2-Migration deferred. Historische offene Formal-/Hardwaregates sind durch diesen Dokumentstart nicht bestanden.
 - Aktuellen Checkout/HEAD stets mit Git prüfen; alte absolute Session-/Workspaceangaben nicht ungeprüft übernehmen.

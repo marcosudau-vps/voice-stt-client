@@ -23,7 +23,7 @@ Verifiziere PR-Base feat/client-v2, eingereichten SHA/Tree, kanonischen Parent, 
 
 Prüfe Paketziele, Requirements und DoD anhand tatsächlichen Codes und Belegen. Umsetzungsvorschläge gemäß [Spielraum](../GEMEINSAM/references/PLANUNGSSPIELRAUM.md) nach Wirkung beurteilen; abweichende interne Namen allein sind kein FAIL. Daten-/Configmigration, Session-/IDguards, Nebenwirkungen, Fehler/Shutdown und erhaltenes Logging/Feedback konkret prüfen.
 
-Führe kritische Repros und vollständige betroffene Produktregression selbst aus: Client gesamte Clientsuite; Serverfix gesamte schnelle Serversuite plus betroffene Clientintegration. Zugeordnete Build-/Hardware-/Crossrepo-Nachweise aus [Testplan](../../REFERENZ/QUALIFIKATION/TEST_UND_ABNAHMEPLAN.md) und [Checkpoints](../../REFERENZ/QUALIFIKATION/INKREMENTELLE_CHECKPOINTS.md) mit tatsächlicher Herkunft prüfen. Umsetzungstexte oder vorhandene Belegdateien allein beweisen keinen Erfolg.
+Führe kritische Repros und vollständige betroffene Produktregression eigenständig aus bzw. veranlasse die nötige Durchführung auf einem realen Prüfhost gemäß den unten verlinkten Plattform-Nachweisregeln: Client gesamte Clientsuite; Serverfix gesamte schnelle Serversuite plus betroffene Clientintegration. Zugeordnete Build-/Hardware-/Crossrepo-Nachweise aus [Testplan](../../REFERENZ/QUALIFIKATION/TEST_UND_ABNAHMEPLAN.md) und [Checkpoints](../../REFERENZ/QUALIFIKATION/INKREMENTELLE_CHECKPOINTS.md) mit tatsächlicher Herkunft prüfen. Umsetzungstexte oder vorhandene Belegdateien allein beweisen keinen Erfolg.
 
 ## Was du schreibst und abgibst
 
@@ -40,3 +40,7 @@ Im ausdrücklich erlaubten Scope nur diese Reviewunterlagen committieren und fas
 Ein ROOT_PASS ist technische Abnahme. Die Übernahme verlangt danach einen ausdrücklichen menschlichen Prompt, vorzugsweise an den Umsetzer. Kein Merge, kein Auto-Merge und kein Folgepaketstart durch dein Verdict. Falls der Auftraggeber dich später ausdrücklich mit der kurzen Abschlussaktion beauftragt, gilt der [Übernahmeablauf](references/UEBERNAHME.md); keine obligatorische dritte Prüfsession.
 
 [Review-Auftragsvorlage](assets/PROMPT_ABNAHME.md), [Übernahmevorlage für den Abschlussagenten](assets/PROMPT_UEBERNAHME.md). Regelwerksdetails nur bei Bedarf: [Agentenregelwerk](../../REFERENZ/GOVERNANCE/AGENTEN_REGELWERK.md).
+
+## Beauftragte Ausnahmefälle
+
+Bei Wiederaufnahme, alternativer Kandidatenlinie, Server-FIX oder letztem Abschluss nur den betreffenden Abschnitt der [Sonderfallreferenz](../GEMEINSAM/references/SONDERFAELLE_UND_WIEDERAUFNAHME.md) lesen. Für Server-FIX erst tatsächliches Serverrepository, dortigen Kandidaten und Ziel Server-Distributed feststellen; die oben genannten Client-PR-/feat/client-v2-Prüfungen durch diese Serverzuordnung ersetzen. Serverrechte separat aus tatsächlichem Auftrag prüfen. Pflicht-Plattformfälle nach [Hardware-Nachweisregeln](../../REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md); Eigen- und Fremddurchführung getrennt belegen.

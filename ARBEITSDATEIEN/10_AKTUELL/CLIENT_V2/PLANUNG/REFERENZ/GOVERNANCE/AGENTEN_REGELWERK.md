@@ -1,6 +1,6 @@
 # Verbindliche Rollen und Paketabnahme
 
-Stand 2026-10-11, Revision 9. Praktische Rollenabläufe stehen in [Auftraggeberleitfaden](AUFTRAGGEBER.md), [Umsetzungsskill](../../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) und [Abnahmeskill](../../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Dieses Dokument erläutert deren verbindliche Grenzen; kein zusätzlicher vollständiger Lesedurchgang je Run.
+Stand 2026-10-11, Revision 10. Praktische Rollenabläufe stehen in [Auftraggeberleitfaden](AUFTRAGGEBER.md), [Umsetzungsskill](../../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) und [Abnahmeskill](../../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Dieses Dokument erläutert deren verbindliche Grenzen; kein zusätzlicher vollständiger Lesedurchgang je Run.
 
 ## Rollen und Gitrechte
 
@@ -29,7 +29,7 @@ Paketfolge seriell. [Startcheck](../../SKILLS/GEMEINSAM/references/START_UND_GRE
 
 Fachlicher Paketumfang, Requirements, Produktziele, Serververtrag und Pflichtnachweise verbindlich. [Umsetzungsspielraum](../../SKILLS/GEMEINSAM/references/PLANUNGSSPIELRAUM.md) erlaubt begründete interne Umsetzung, andere Modul-/Testnamen und lokale technische Startwerte. Logging/Feedback/Audio/UI erhalten und passend anschließen; keine versteckten Folgefeatures.
 
-Nach Produktänderungen gezielte Tests und gesamte Clienttestsuite, compileall und Diffprüfung; bei Serverfix gesamte schnelle Serversuite und betroffene Clientintegration. Zugeordnete Build-/reale Pflichten gelten nur für die entsprechenden Pakete. Reviewer führt Regression und kritische Repros selbst aus. Fehler iterativ reproduzieren/beheben; Pflichtfehler oder Pflicht-NOT_RUN blockieren Paket-PASS. Reine Dokumentänderung braucht Dokument-/Link-/JSON-/Matrixkonsistenz, keine erfundene Produktqualifikation.
+Nach Produktänderungen gezielte Tests und gesamte Clienttestsuite, compileall und Diffprüfung; bei Serverfix gesamte schnelle Serversuite und betroffene Clientintegration. Zugeordnete Build-/reale Pflichten gelten nur für die entsprechenden Pakete. Reviewer prüft Regression und kritische Repros eigenständig; nötige Plattformdurchführung auf realem Prüfhost und verifizierte Fremd-Hardwarebelege nach der unten verlinkten Nachweisregel führen. Fehler iterativ reproduzieren/beheben; Pflichtfehler oder Pflicht-NOT_RUN blockieren Paket-PASS. Reine Dokumentänderung braucht Dokument-/Link-/JSON-/Matrixkonsistenz, keine erfundene Produktqualifikation.
 
 Ersetzte V1-Assertions mit fachlichem Nachfolger verknüpfen: Assertion, Requirement, konkrete Testmethode, Begründung. Keine pauschalen Skips oder toleranten Doubles zur Abnahme. Teststatus PASS/FAIL/NOT_RUN/NOT_PROVEN/SKIPPED_EXPECTED getrennt. Tatsächliche frühe [Servercheckpoints](../QUALIFIKATION/INKREMENTELLE_CHECKPOINTS.md) bleiben paketweise Pflicht; IV2-010 ist abschließende Paarqualifikation.
 
@@ -55,6 +55,12 @@ Vor ausdrücklich beauftragtem Cleanup Quellcommit/Tree, Review, Aggregatecommit
 
 ## Auswahl der nächsten Rolle
 
-Workflowrevision 9: Ein tatsächlich erteilter Kurzauftrag „Mach den nächsten Schritt“ beauftragt die anhand der [Zustandsregeln](../../SKILLS/GEMEINSAM/references/ZUSTAENDE_UND_NAECHSTER_SCHRITT.md) bestimmte eine Fachaktion. Der [gemeinsame Einstieg](../../SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md) ermittelt AP/Kandidat/Rolle selbst. Keine manuelle Übergabe nötig; tatsächliche Gitrechte bleiben in gesicherter Arbeitsfreigabe referenziert. Ein kanonischer AP-Commit ist innerhalb des vereinbarten Workflows der Abschlussnachweis; offene Paketlinien und dazugehörige Belege dennoch mitprüfen.
+Workflowrevision 10: Ein tatsächlich erteilter Kurzauftrag „Mach den nächsten Schritt“ beauftragt die anhand der [Zustandsregeln](../../SKILLS/GEMEINSAM/references/ZUSTAENDE_UND_NAECHSTER_SCHRITT.md) bestimmte eine Fachaktion. Der [gemeinsame Einstieg](../../SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md) ermittelt AP/Kandidat/Rolle selbst. Keine manuelle Übergabe nötig; tatsächliche Gitrechte bleiben in gesicherter Arbeitsfreigabe referenziert. Ein kanonischer AP-Commit ist innerhalb des vereinbarten Workflows der Abschlussnachweis; offene Paketlinien und dazugehörige Belege dennoch mitprüfen.
 
 Jeder Run pflegt die Statusübersicht und nächste Aktion vor Abgabe. ROOT_PASS ohne menschlichen Prompt wartet. Eine ausdrücklich beauftragte zusätzliche unabhängige Abnahme hat Vorrang; neue frische Akte, frühere Findings erhalten und klären. Es entsteht keine Pflicht zu einem zweiten Review.
+
+## Wiederaufnahme, Serverrouting und Endnachweis
+
+[Gemeinsame Sonderfallreferenz](../../SKILLS/GEMEINSAM/references/SONDERFAELLE_UND_WIEDERAUFNAHME.md) regelt tatsächliche Schreibübergabe/Recovery, Auswahl und Ersetzung von Kandidaten, ausdrücklich beauftragte Server-FIX-Linien samt Clientrückkehr, nachträgliche Zusatzkorrekturen und COMPLETED ohne weiteres reguläres Paket. Statusfelder erteilen weiterhin keine Rechte.
+
+Echte Plattform-/Hardwaredurchführung darf bei fehlendem Agentenzugriff ein benannter Bediener übernehmen. Reviewer prüft Identität, Vollständigkeit und Wirkung und veranlasst notwendige Wiederholungen; Eigen-/Fremddurchführung getrennt berichten. [Verbindliche Nachweisregel](../QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md). Keine Aufhebung eines Pflichtgates.

@@ -1,26 +1,21 @@
-# Prüfbericht – vollständiger Client-V2-Unterlagenstart
+# Prüfbericht – Unterlagenkorrektur Revision 10
 
-Stand 2026-10-11, Revision 9. Geltungsbereich: konsolidierte eigenständige Planungs- und Arbeitsunterlagen auf feat/client-v2; keine V2-Produktabnahme.
+Stand 2026-10-11. Geltungsbereich: eigenständig bewertete und korrigierte externe Dokumentfunde; keine Produktumsetzung und keine unabhängige Abnahme dieser eigenen Korrektur.
 
-## Aktualität und fachliche Grundlage
+## Ergebnis und Herkunft
 
-Serverreferenz bleibt ada13b011e1d3829f78e7f389e3b927795a2b3be. Clientbasis bleibt der kanonische Featurecommit 8bab1b3f4aa070d0756c305908def4d9ebc52582 mit demselben Produktbaum wie Distributed a80a6b17b40751740f9c9d2aef9cad32b0470c0c. V1 f625904795880ce71acec216e43678f9ec1656d0 liefert gezielte Releaseverbesserungen; der integrierte Client-SHA entsteht erst in AP-CV2-000.
+[Befundbewertung mit Korrekturzuordnung](BEWERTUNG_PRUEFBEFUNDE_REV10.md) und [originaler externer Bericht](HISTORIE/EXTERNER_PRUEFBERICHT_REV9.md). Die sechs Befunde sind berechtigt oder konkretisierungsbedürftig. Der vorhandene Ausnahmeweg für nachträgliche Korrekturen und der bereits definierte Endzustand wurden präzisiert; grundlegende Architektur/Paketserie bleiben erhalten.
 
-Kontrakte, Vertragsvektoren, Quellenbindungen und die 216 Requirements bleiben fachlich erhalten. Paketumfang: zwölf Clientpakete, zwei Integrationspakete und bedingte Serverfixes. Richtwert weiterhin 14 Umsetzungsläufe plus 14 unabhängige Reviews; Korrekturen nicht eingerechnet. Logging und Feedback werden weiterverwendet; der Hauptumbau betrifft die Serverkommunikation und deren Lifecycle. Zwischenprüfungen am echten Server beginnen gemäß Checkpointreferenz frühzeitig.
+Ergänzt sind bedingte Recovery-/Auswahl-/Serverroutingregeln, nachvollziehbare echte Plattformbelege einschließlich Fremddurchführung, Zusatzfix ohne Umschreibung alter Geschichte und post-merge Endnachweis. Baseline-/Manifestmetadaten sind konsistent; 28–30 Sessions bleiben eine Basisschätzung.
 
-## Bereinigte aktive Arbeitsanweisungen
+## Formale Nachprüfung und Grenzen
 
-- Sämtliche Rollen-/Zustandsunterlagen sind Bestandteil des ersten Unterlagencommits; kein Import aus work/client-v2/rollenworkflow oder externen Archiven in AP-CV2-000 erforderlich.
-- Ein gemeinsamer Einstieg bestimmt genau eine nächste Aktion anhand offener Paketlinien, Akten und Git-/PR-Provenienz. ROOT_PASS wartet auf den ausdrücklichen menschlichen Übernahmeprompt; zusätzliche unabhängige Reviews bleiben möglich.
-- Paketarbeit erfolgt auf untergeordneten Branches; pro angenommenem AP genau ein Code-/Unterlagenaggregat auf feat/client-v2. Server-Distributed bleibt bis zur gemeinsamen Qualifikation offen.
-- Initiale Commitidentität wird aus Git ermittelt; ein tatsächlich gestarteter Paketbranch muss den vollen kanonischen Parent dokumentieren. Keine unmögliche Selbst-SHA im Startcommit.
-- Die erste Kandidaten-Gitfreigabe hat eine vollständige Vorlage innerhalb der Planung und wird erst durch den tatsächlich erteilten Prompt verbindlich.
-- Frühere Prüfberichte sind ausdrücklich historische Nachweise. Sie setzen keine aktuellen Branch-/Import-/Freigaberegeln.
+[revision10-validation.json](revision10-validation.json) enthält den tatsächlichen Dokumentprüflauf: interne Dateiverweise, JSON/YAML, drei Rollen-Skills, Requirements-/Paketownership, unveränderte Kontrakte/Vektoren/Quellenbindungen, Metadaten, offene Initialzustände, Git-Branchnamen und dokumentarischer Diffumfang. Die dortigen Testzahlen beziehen sich ausschließlich auf diese Prüfung.
 
-## Prüfung und Beweisgrenzen
+Die Ausnahmewege wurden anhand konkreter Prüfsituationen manuell durchgelesen und auf widersprüchliche Rollen-/Identitäts-/Freigaberegeln geprüft; die Befundbewertung dokumentiert diese Situationen. Kein automatischer Workflowdienst implementiert und keine unabhängigen Agentensessions/echten Hardwarefälle simuliert. Fehlende zukünftige Produktnachweise bleiben offen.
 
-Aktuelle maschinenlesbare Dokument-/Quellenprüfung: [publication-validation.json](publication-validation.json). Geprüft werden vollständige lokale Verweise, JSON/YAML und Skills, Requirements-/Paketzuordnung, Quellenhashes an den gepinnten Gitcommits, unveränderte Kontrakte/Vektoren, initialer offener Workflowstatus und ausschließlich dokumentarischer Änderungsumfang. Der aktuelle Dokumentprüflauf enthält keine neuen Tests des V2-Produkts.
+[Historischer Revision-9-Prüfbericht](HISTORIE/PRUEFBERICHT_REV9.md) und publication-validation.json behalten ihren damaligen Geltungsbereich. Quellenbasis bleibt Serverada13b0, Clientfeature8bab1b3/a80a6b1 und Releaseintegrationsreferenzf625904. Requirements und Kontrakte unverändert; integratedClientCommit bleibt null.
 
-Die historische Revision-6-Baselineprüfung wurde vor Konsolidierung erneut ausgeführt: 5.294 Prüfungen bestanden; dauerhaftes Quellenarchiv mit 1.988 Dateien und 143.583.164 Bytes hashverifiziert. Deren damalige Produkttestzahlen und weitere historische Ergebnisse sind im [historischen Prüfbericht](HISTORIE/PRUEFBERICHT_BIS_REV8.md) erhalten. Sie ersetzen keine Qualifikation des noch offenen integrierten Clients.
+## Gitstand
 
-AP-CV2-000 bis AP-CV2-110 sowie AP-IV2-010/020 bleiben PLANNED. Kein erfundener Run, unabhängiger PASS oder menschlicher Paketfreigabeprompt. Tatsächlichen ersten Startcommit und Remoteidentität nach Veröffentlichung aus Git prüfen. Der [Veröffentlichungsauftrag](VEROEFFENTLICHUNGSAUFTRAG_REV9.md) gilt ausschließlich für diesen Unterlagenstart.
+Der auf work/client-v2/planung-rev10 vorbereitete Korrekturstand folgt auf den erhaltenen Unterlagenstart bfade9d0ffe1262ca25b05c9334dcacfcd3d3452 als genau ein zusätzlicher Single-Parent-Dokumentcommit auf feat/client-v2. [Ausdrücklicher Veröffentlichungsauftrag](VEROEFFENTLICHUNGSAUFTRAG_REV10.md) erlaubt diese benannte Ausnahme und normalen Push. [Prüfung des endgültigen Veröffentlichungssatzes](revision10-publication-validation.json) ergänzt den erhaltenen vorherigen Korrekturprüflauf. Die endgültige Commit-/Remoteidentität wird nach Transport aus Git ermittelt; kein Selbst-SHA oder zusätzlicher Abschlusscommit. Alle regulären Pakete PLANNED, Server-FIX-Vorlage CONDITIONAL. Keine Umschreibung des veröffentlichten Startcommits und keine Produktabnahme.

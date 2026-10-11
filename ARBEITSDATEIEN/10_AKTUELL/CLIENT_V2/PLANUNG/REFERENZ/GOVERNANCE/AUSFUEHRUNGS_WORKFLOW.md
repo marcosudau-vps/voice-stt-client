@@ -1,6 +1,6 @@
 # Ausführungsworkflow, Status und Übergaben
 
-Stand 2026-10-11, Revision 9. Praktische Einstiege: [Auftraggeber](AUFTRAGGEBER.md), [Umsetzer](../../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md), [Reviewer](../../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Jeder Einstieg führt zur nötigen Checkliste und Akten-/Promptvorlage; die Gesamtplanung ist keine pauschale Run-Pflichtlektüre.
+Stand 2026-10-11, Revision 10. Praktische Einstiege: [Auftraggeber](AUFTRAGGEBER.md), [Umsetzer](../../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md), [Reviewer](../../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Jeder Einstieg führt zur nötigen Checkliste und Akten-/Promptvorlage; die Gesamtplanung ist keine pauschale Run-Pflichtlektüre.
 
 ## Serieller Paketablauf
 
@@ -46,8 +46,12 @@ Bei neuem Server-SHA Repro, Vertragswirkung, Clientwirkung und Testpaar belegen.
 
 ## Gemeinsamer Kurzauftrag und zusätzliche Reviews
 
-Workflowrevision 9 ergänzt den [gemeinsamen Einstieg](../../SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md). Er ermittelt die eine nächste Aktion aus offenen Paket-PRs/Branches, Runakten und kanonischen Abschlüssen. Paket/Rolle/SHA/Reportpfade müssen nicht manuell übergeben werden. Die Ablaufbeschreibung oben beschreibt die ermittelten Rollenaktionen; eine ausdrückliche Zusatzreviewanweisung hat Vorrang.
+Workflowrevision 10 ergänzt den [gemeinsamen Einstieg](../../SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md). Er ermittelt die eine nächste Aktion aus offenen Paket-PRs/Branches, Runakten und kanonischen Abschlüssen. Paket/Rolle/SHA/Reportpfade müssen nicht manuell übergeben werden. Die Ablaufbeschreibung oben beschreibt die ermittelten Rollenaktionen; eine ausdrückliche Zusatzreviewanweisung hat Vorrang.
 
 [Zustandsreferenz](../../SKILLS/GEMEINSAM/references/ZUSTAENDE_UND_NAECHSTER_SCHRITT.md) definiert Phasen, Pflichtfelder, Übergänge und Pflege. WORKFLOW_STATUS.json wird auf Paketbranches geführt, keine Zwischenstatuscommits auf feat/client-v2. ROOT_PASS ohne menschliche Freigabe wartet. CHANGES_REQUIRED plus tatsächlich erteiltem Kurzauftrag beauftragt Korrektur. Bestehende Kandidatenrechte aus dokumentierter menschlicher Arbeitsfreigabe fortführen.
 
 Ein weiteres unabhängiges Review bleibt optional beauftragbar. Neue Akte, kein Überschreiben; alle Pflichtfindings müssen vor Übernahme geklärt sein. Kein automatischer zusätzlicher Pflichtlauf.
+
+## Unterbrechungen und Repositorywechsel
+
+Beim Reviewbeginn REVIEW_IN_PROGRESS und writeOwner pflegen. Unterbrochene Schreibhoheit, Kandidatenwechsel, SERVER_FIX_REQUIRED, servereigene Sicherung und Rückkehr zum Client gemäß [Sonderfallreferenz](../../SKILLS/GEMEINSAM/references/SONDERFAELLE_UND_WIEDERAUFNAHME.md). Bei letztem Paket den Endstatus COMPLETED aus tatsächlichen kanonischen Abschlüssen ableiten und Nachmerge-Beleg in der Paketakte sichern; kein Folgepaket/Status-Aufräumcommit erforderlich.

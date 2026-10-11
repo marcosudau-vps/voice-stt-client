@@ -12,7 +12,7 @@ Den vollständigen Kandidaten prüfen, nicht nur einen letzten Korrekturcommit. 
 
 - [ ] Tatsächlichen Code/Diff gegen zugehörige Vertragsabschnitte geprüft; nur benötigte Kontrakte über die Paketdatei öffnen.
 - [ ] Jede Paketrequirement in [Matrix](../../../REFERENZ/TRACEABILITY/TRACEABILITY_MATRIX.md) und [Requirements-JSON](../../../REFERENZ/TRACEABILITY/requirements.json) mit konkretem Test bzw. manuellem Fall und Kandidatenbeleg abgeglichen; beide Darstellungen konsistent.
-- [ ] Kritische Negativ-/Race-/Migrations-/Recoveryrepros selbst ausgeführt; vollständige betroffene Produktregression selbst grün geprüft. Client: gesamte Clientsuite; Serverfix: gesamte schnelle Serversuite plus betroffene Clientintegration.
+- [ ] Kritische Negativ-/Race-/Migrations-/Recoveryrepros selbst ausgeführt; vollständige betroffene Produktregression eigenständig geprüft/auf Prüfhost veranlasst; nötige Plattformausführung und Fremdbelege nach [Nachweisregeln](../../../REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md) getrennt validiert. Client: gesamte Clientsuite; Serverfix: gesamte schnelle Serversuite plus betroffene Clientintegration.
 - [ ] Zugeordnete Build-/Crossrepo-/Hardwarepflichten aus [Testplan](../../../REFERENZ/QUALIFIKATION/TEST_UND_ABNAHMEPLAN.md) geprüft, einschließlich Herkunft von Runtime, SHA-Paar, Build und notwendigen eigenen Smokes. Vorhandene Datei allein ist kein Erfolgsbeleg.
 - [ ] Daten-/Configmigration, Nebenwirkungen, Thread-/IDguards, Fehler/Shutdown, lokale Bounds und erhaltene Logging-/Feedback-/UI-Funktionen soweit betroffen konkret geprüft.
 - [ ] Tests nicht durch breite Skips, entfernte Assertions oder tolerante Fakes entwertet; Tests für unveränderte Komponenten bleiben Teil der Regression.
@@ -44,3 +44,6 @@ Der Umsetzer führt vorzugsweise die später menschlich freigegebene Übernahme 
 
 - [ ] WORKFLOW_STATUS.json mit reviewedCommit/Report/Finding-IDs aktualisiert: CHANGES_REQUIRED oder ROOT_PASS/WAITING_FOR_APPROVAL; Schreibrecht zurückgegeben. [Zustandsregeln](../../GEMEINSAM/references/ZUSTAENDE_UND_NAECHSTER_SCHRITT.md).
 - [ ] Bei Zusatzreview eigene neue unabhängige Akte; alte Reports erhalten. Frühere offene Pflichtfindings konkret berücksichtigt/geschlossen; neuer negativer Befund blockiert die Übernahme trotz älterem PASS.
+
+- [ ] Bei realen Fremdbelegen Tester, Build-/SHA-Paar, Ablauf und tatsächliche Wirkungsbelege geprüft; eigene Prüfungen und extern validierte Durchführung getrennt berichtet. Pflichtlücken blockieren PASS.
+- [ ] Bei Server-FIX die tatsächlich verlinkte Serverakte/Zielrolle angewendet; kein Client-PR-Basecheck an einem Serverkandidaten. Bei Recovery/Wechsel tatsächliche Übergabe-/Auswahlquelle geprüft.

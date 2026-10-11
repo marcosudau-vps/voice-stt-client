@@ -1,15 +1,11 @@
 # Status – Client V2
 
-- Stand: 2026-10-11, Planrevision 9; vollständiger konsolidierter Unterlagenstart auf `feat/client-v2`.
-- Client-Ausgangscommit: `8bab1b3f4aa070d0756c305908def4d9ebc52582`; identischer Produktbaum wie Distributed a80a6b1.
-- Erster neuer Commit: ausschließlich Planung, Skills und Dokumenteinstiege. Seine SHA wird aus Git ermittelt; keine Selbst-SHA in der Commitdatei.
-- Serverreferenz: `ada13b011e1d3829f78e7f389e3b927795a2b3be`; Server-Distributed bleibt offen.
-- Implementierung: alle AP-CV2-/AP-IV2-Pakete PLANNED; AP-SV2-FIX bedingt und nicht gestartet. Kein neues Paket-PASS.
-- Integrierter Clientstart: offen; AP-CV2-000 qualifiziert ihn einschließlich gezielter Releaseintegration.
-- Workflow: gemeinsamer Zustandseinstieg, getrennte Umsetzung/Abnahme, kumulativer Paket-PR, versionierter Reviewreport; kanonische Übernahme erst nach menschlichem Prompt als genau ein Paketcommit.
-- Nächster Schritt: AP-CV2-000 vom tatsächlichen aktuellen `feat/client-v2`-HEAD auf eigenem Paketbranch beginnen. Die Unterlagen liegen bereits vollständig in dieser Basis; kein Import aus einer Vorbereitungsablage.
-- Gittransport dieses Auftrags: Aktualisierung des noch unveröffentlichten Unterlagenstartcommits und erstmaliger Push von `feat/client-v2` ausdrücklich beauftragt. Der tatsächliche Remote-SHA ist per Git prüfbar. Dieser Auftrag führt keine Produktumsetzung aus und erteilt keine zukünftige Paketübernahme.
+- Stand 2026-10-11: vollständige Planrevision 10 auf `feat/client-v2`. Der Revision-9-Unterlagenstart `bfade9d0ffe1262ca25b05c9334dcacfcd3d3452` bleibt unverändert erhalten; danach genau ein Dokumentkorrekturcommit vor AP-CV2-000.
+- Die separate Dokumentausnahme einschließlich normalem Push wurde ausdrücklich vom Auftraggeber freigegeben: [Originalauftrag und Umfang](PLANUNG/EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md). Commitidentität und tatsächlichen Remote-Stand aus Git prüfen; kein Selbst-SHA im Commit.
+- Client-Ausgangscommit 8bab1b3 und Serverreferenz ada13b0 fachlich unverändert. Server-Distributed bleibt offen.
+- Alle regulären Client-/Integrationspakete PLANNED, bedingte FIX-Vorlage nicht gestartet. Integrierter Client-SHA, Ausführungsrun, unabhängiges Paket-PASS und Paketübernahmefreigabe bleiben offen.
+- Ergänzt: belegte Recovery-/Auswahlregeln, Server-FIX-Linie/Rückkehr, Herkunft und unabhängige Prüfung realer Plattformbelege, nachträgliche Zusatzkorrektur, Endnachweis ohne Folgepaket; aktuelle Revisionsmetadaten vereinheitlicht.
+- Keine Umschreibung des veröffentlichten Startcommits. Nach diesem Dokumentkorrekturcommit weiterhin genau ein freigegebener Aggregatcommit je angenommenem Arbeitspaket.
+- Nächstes Produktpaket bleibt AP-CV2-000 vom aktuellen Feature-HEAD; keine neuen regulären Pakete oder obligatorischen Zusatzreviews. Der Veröffentlichungsauftrag erteilt keinen Umsetzungsauftrag und keine künftigen Kandidaten-Gitrechte.
 
-Einstieg: [Nächster Schritt](PLANUNG/SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md). [Workflowstatus](WORKFLOW_STATUS.json) immer mit offenen Paketlinien und tatsächlichem Gitverlauf abgleichen. Weitere unabhängige Reviews bleiben ausdrücklich beauftragbar.
-
-Referenzen: [Planung](PLANUNG/README.md), [Baseline](PLANUNG/EVIDENCE/planning-baseline.json), [Branchführung](PLANUNG/REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md), [Prüfbericht](PLANUNG/EVIDENCE/PRUEFBERICHT.md).
+[Aktueller Plan](PLANUNG/README.md), [Bewertung der Funde](PLANUNG/EVIDENCE/BEWERTUNG_PRUEFBEFUNDE_REV10.md), [Workflowstatus](WORKFLOW_STATUS.json).

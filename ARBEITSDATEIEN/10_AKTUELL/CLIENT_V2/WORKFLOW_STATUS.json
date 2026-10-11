@@ -21,7 +21,11 @@
     "source": null,
     "scope": "Keine Kandidaten-Gitrechte durch diese Initialdatei erteilt; tatsächlichen menschlichen Auftrag oder gesicherte fortgeltende Arbeitsfreigabe verwenden."
   },
-  "context": "Konsolidierter Unterlagenstart Revision 9; kein AP begonnen, kein Produkt-PASS, keine zukünftige Übernahmefreigabe.",
+  "context": "Vollständige Unterlagen Revision 10 auf feat/client-v2 nach erhaltenem Planungsstart bfade9d und ausdrücklich freigegebenem Dokumentkorrekturcommit. Keine aktive Produktpaketlinie, kein AP begonnen. Veröffentlichungsfreigabe in PLANUNG/EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md betrifft ausschließlich diese Dokumentausnahme; keine künftige Kandidaten-Git- oder Paketübernahmefreigabe.",
   "canonicalParentRef": "feat/client-v2",
-  "canonicalParentResolution": "Initial planning state only: resolve actual canonical HEAD from Git before AP-CV2-000 starts and persist its full SHA on the package branch. No self-SHA in the planning commit."
+  "canonicalParentResolution": "Initial planning state only: resolve actual canonical HEAD from Git before AP-CV2-000 starts and persist its full SHA on the package branch. No self-SHA in the planning commit.",
+  "repository": "marcosudau-vps/voice-stt-client",
+  "candidateSelection": null,
+  "recovery": null,
+  "relatedServerFix": null
 }

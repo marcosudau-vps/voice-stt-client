@@ -40,3 +40,7 @@ Die [Abgabecheckliste](references/ABGABECHECKLISTE.md) vollständig durchgehen. 
 - Ohne Commit/Push/PR-Freigabe: geprüften lokalen Diff und Akte liefern, ausstehende Bereitstellung nennen.
 
 Vorlagen bei Beauftragung: [Umsetzung](assets/PROMPT_UMSETZUNG.md), [Korrektur](assets/PROMPT_KORREKTUR.md), [Übernahme](../voice-stt-client-v2-abnehmen/assets/PROMPT_UEBERNAHME.md). Details bei Bedarf: [Regelwerk](../../REFERENZ/GOVERNANCE/AGENTEN_REGELWERK.md). Vorlagen sind erst durch den tatsächlich erteilten menschlichen Prompt Gitfreigaben.
+
+## Beauftragte Ausnahmefälle
+
+Bei Wiederaufnahme, alternativer Kandidatenlinie, Server-FIX oder letztem Abschluss nur den betreffenden Abschnitt der [Sonderfallreferenz](../GEMEINSAM/references/SONDERFAELLE_UND_WIEDERAUFNAHME.md) lesen. Für Server-FIX erst tatsächliches Serverrepository, dortigen Kandidaten und Ziel Server-Distributed feststellen; die oben genannten Client-PR-/feat/client-v2-Prüfungen durch diese Serverzuordnung ersetzen. Serverrechte separat aus tatsächlichem Auftrag prüfen. Pflicht-Plattformfälle nach [Hardware-Nachweisregeln](../../REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md); Eigen- und Fremddurchführung getrennt belegen.

@@ -1,6 +1,6 @@
 # Neubewertung der Clientbasis und Erhalt beider Entwicklungslinien
 
-**Aktuelle Branchführung (Revision 9):** Neue Clientpakete laufen auf `feat/client-v2`, ausgehend von 8bab1b3 mit demselben Produktbaum wie a80a6b1. Der erste neue Commit enthält nur Unterlagen; AP-CV2-000 bleibt offen. Historische Distributed-/Featurebezeichnungen unten benennen die analysierten Ausgangsquellen. Kumulative Kandidaten liegen künftig auf untergeordneten Paketbranches, Code und Planpflege gehen als ein Paketaggregat gemeinsam ein. [Verbindliche Branchreferenz](../../GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
+**Aktuelle Branchführung (Revision 10):** Neue Clientpakete laufen auf `feat/client-v2`, ausgehend von 8bab1b3 mit demselben Produktbaum wie a80a6b1. Der erste neue Commit enthält nur Unterlagen; AP-CV2-000 bleibt offen. Historische Distributed-/Featurebezeichnungen unten benennen die analysierten Ausgangsquellen. Kumulative Kandidaten liegen künftig auf untergeordneten Paketbranches, Code und Planpflege gehen als ein Paketaggregat gemeinsam ein. [Verbindliche Branchreferenz](../../GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
 
 Stand: 2026-10-04, Revision 2. **Empfehlung: Feature-Linie fortsetzen; V1-Releaseverbesserungen vor der Wire-V2-Implementierung gezielt integrieren.** Die frühere Startannahme „f625904/main als neue V2-Linie“ ist damit abgelöst.
 

@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-11",
+  "revision": 10,
+  "status": "PASS",
+  "checks": 2147,
+  "counts": {
+    "localLinks": 1030,
+    "markdownFiles": 76,
+    "jsonFiles": 20,
+    "roleSkills": 3,
+    "packages": 15,
+    "requirements": 216,
+    "protectedPlanningFiles": 15,
+    "sourceBindings": 612,
+    "sourceFiles": 202,
+    "changedDocumentationPaths": 54,
+    "productFilesChanged": 0
+  },
+  "errors": [],
+  "scope": "Document/source/link/skill integrity and metadata; manual exception scenarios are separately documented, not executable workflow or product acceptance.",
+  "sourceBaseline": "bfade9d0ffe1262ca25b05c9334dcacfcd3d3452",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "integratedClientCommit": null,
+  "externalReportSha256": "003d95044fceece3c8bb542221f7530f88d2bec3ed07e95d66ea0ae83d1e8128",
+  "validatorSha256": "6e2d0d0a6633ff9194c18575f2b7230941d0eaa5ae4243c878fed30195207b2d"
+}

@@ -644,11 +644,13 @@
       "testModulesRole": "suggested locations; actual coverage and methods required"
     }
   ],
-  "revision": 6,
+  "revision": 10,
   "implementationGuidance": "SKILLS/GEMEINSAM/references/PLANUNGSSPIELRAUM.md",
   "workRecordStructure": "SKILLS/GEMEINSAM/references/PAKETABLAGE_UND_VORLAGEN.md",
   "implementationSkill": "SKILLS/voice-stt-client-v2-umsetzen/SKILL.md",
   "acceptanceSkill": "SKILLS/voice-stt-client-v2-abnehmen/SKILL.md",
-  "roleSkillVersion": 2,
-  "branchGuidance": "REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md"
+  "roleSkillVersion": 5,
+  "branchGuidance": "REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md",
+  "metadataVersionMeaning": "revision and roleSkillVersion match the current planning/role guidance; schemaVersion and workRecordStructureVersion are independent format versions",
+  "workRecordStructureVersion": 1
 }

@@ -1,6 +1,6 @@
 # Dein Ablauf als Auftraggeber
 
-Stand 2026-10-11, Workflowrevision 9. Ein gemeinsamer Einstieg ermittelt künftig Paket, Rolle und Kandidat selbst. Du brauchst keine manuelle Übergabe mit SHA-/Reportlisten.
+Stand 2026-10-11, Workflowrevision 10. Ein gemeinsamer Einstieg ermittelt künftig Paket, Rolle und Kandidat selbst. Du brauchst keine manuelle Übergabe mit SHA-/Reportlisten.
 
 ## Was du liest und beauftragst
 
@@ -39,3 +39,9 @@ Die vollständige Planung und alle Skills liegen zusammen auf `feat/client-v2`. 
 Für den ersten Auftrag steht die [Startvorlage](../../SKILLS/voice-stt-client-v2-naechster-schritt/assets/PROMPT_ERSTER_UMSETZUNGSAUFTRAG.md) bereit. Sie beauftragt den nächsten Schritt und erlaubt zugleich workflowweit Kandidaten-Commits, normale Paketbranch-Pushes, Paket-PR-Pflege und ausschließlich administrative Review-Commits. Erst wenn du diese Vorlage tatsächlich als Prompt erteilst, wird ihr Originalwortlaut als workAuthorization gesichert. Danach genügt „Mach den nächsten Schritt“. Die Vorlage selbst und der Planungsveröffentlichungsauftrag sind keine zukünftige Kandidaten- oder Übernahmefreigabe.
 
 Details bei Bedarf: [PR-/Reviewübergabe](../../SKILLS/GEMEINSAM/references/PR_UND_REVIEW_UEBERGABE.md), [Branchführung](BRANCH_UND_PLANPFLEGE.md).
+
+## Sonderfälle, bei denen du eine Entscheidung gibst
+
+„Mach den nächsten Schritt“ setzt keine fremde aktive Session außer Kraft und wählt keinen anderen Versuch. Bei endgültigem Abbruch kannst du die Übernahme der unterbrochenen Linie ausdrücklich erlauben; bei mehreren Versuchen den gewünschten Kandidaten mit Branch bestimmen. Ein nachgewiesener Serverdefekt benötigt einen Auftrag für den konkreten Server-FIX und später dessen eigene Sicherungsfreigabe auf Server-Distributed. [Wiederaufnahme, Auswahl und Serverrückkehr](../../SKILLS/GEMEINSAM/references/SONDERFAELLE_UND_WIEDERAUFNAHME.md).
+
+Reale Windows-/Hardwarefälle kannst du selbst nach dem dokumentierten Ablauf durchführen, wenn ein Agent keinen Zugriff hat. Der Reviewer validiert deine vollständigen Belege unabhängig; [Nachweisregeln](../QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md). Nach dem letzten Paket wird COMPLETED aus Git/Abnahme ermittelt, mit Nachmerge-Beleg in seiner Paketakte. Spätere notwendige Zusatzkorrekturen sind ausdrücklich beauftragbar; frühere PASS-Berichte/Commits bleiben erhalten.

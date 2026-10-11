@@ -43,3 +43,6 @@ Weitere Details nur bei Bedarf: [Regelwerksreferenz](../../../REFERENZ/GOVERNANC
 
 - [ ] WORKFLOW_STATUS.json, Paketindex und Report konsistent: AP/Parent/Kandidatenref/PR, letzter Run, offene Findings, freigegebenes Schreibrecht und nächste Aktion gemäß [Zustandsregeln](../../GEMEINSAM/references/ZUSTAENDE_UND_NAECHSTER_SCHRITT.md).
 - [ ] Vollständige neue Abgabe als REVIEW_READY bereitgestellt; früherer PASS nach fachlicher Änderung nicht weitergeführt. Tatsächliche Arbeitsfreigabe referenziert, keine vorweggenommene menschliche Übernahmefreigabe.
+
+- [ ] Ausgewählte Kandidatenlinie mit tatsächlicher Auswahlquelle belegt; bei Wiederaufnahme Übergabe/WIP-Ausgang gesichert. Serverblocker mit FIX-Verweis und gehaltenem Clientstand dokumentiert.
+- [ ] Zugeordnete reale Plattformfälle vollständig nach [Nachweisregeln](../../../REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md) belegt; bei fehlendem Zugriff nötige Durchführung organisiert, kein Fake-PASS.

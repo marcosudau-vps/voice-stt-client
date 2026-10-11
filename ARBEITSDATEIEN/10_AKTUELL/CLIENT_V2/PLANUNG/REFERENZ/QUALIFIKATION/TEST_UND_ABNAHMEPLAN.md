@@ -1,6 +1,6 @@
 # Teststrategie und detaillierte Abnahme
 
-**Aktuelle Branchführung (Revision 9):** Neue Clientpakete laufen auf `feat/client-v2`, ausgehend von 8bab1b3 mit demselben Produktbaum wie a80a6b1. Der erste neue Commit enthält nur Unterlagen; AP-CV2-000 bleibt offen. Historische Distributed-/Featurebezeichnungen unten benennen die analysierten Ausgangsquellen. Kumulative Kandidaten liegen künftig auf untergeordneten Paketbranches, Code und Planpflege gehen als ein Paketaggregat gemeinsam ein. [Verbindliche Branchreferenz](../GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
+**Aktuelle Branchführung (Revision 10):** Neue Clientpakete laufen auf `feat/client-v2`, ausgehend von 8bab1b3 mit demselben Produktbaum wie a80a6b1. Der erste neue Commit enthält nur Unterlagen; AP-CV2-000 bleibt offen. Historische Distributed-/Featurebezeichnungen unten benennen die analysierten Ausgangsquellen. Kumulative Kandidaten liegen künftig auf untergeordneten Paketbranches, Code und Planpflege gehen als ein Paketaggregat gemeinsam ein. [Verbindliche Branchreferenz](../GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
 
 Historische Baselineprüfung vom 2026-10-04/05: Ausgangslinie ist der vorhandene Featurestand a80a6b1, kanonisch 8bab1b3. Featurebaseline: 1.192 Tests OK; Release-/Migrationsreferenz f625904: 1.147 Tests OK. CV2-000 integriert die nötigen Releaseverbesserungen und qualifiziert einen neuen, heute noch nicht erzeugten Client-SHA. Die alten Testzahlen sind keine bestandene integrierte Baseline. Jedes Paket erhält unabhängig einen Review in frischer Session gemäß [Agentenregelwerk](../GOVERNANCE/AGENTEN_REGELWERK.md).
 
@@ -99,6 +99,8 @@ Die [maschinenlesbaren Client-Szenarien](../KONTRAKTE/VEKTOREN/client-scenarios.
 
 ## 5. Reale Pflichtfälle M-01 bis M-12
 
+[Durchführung und unabhängige Prüfung](WINDOWS_UND_HARDWARENACHWEISE.md): tatsächlicher Bediener kann der Agent oder bei fehlendem Zugriff der Auftraggeber/benannte Tester sein. Reviewer validiert fremde Realbelege und veranlasst notwendige Wiederholungen; Pflichtlücken bleiben blockierend. Prüfungen nur für die dem aktuellen Paket zugeordneten Fälle verlangen.
+
 Für jeden Fall: Clientbuild-SHA/hash, Server-SHA/digest, Betriebssystem, Geräte/Driver, effektive Settings, ASRmodell, Startzeit, genaue Aktionen, sichtbare Ausgabe, Teststatus und Belegpfad dokumentieren. Nutzertext und Secrets redigieren. Reale Sprachaufnahmen nur bewusst gewählte Testsamples, außerhalb Git.
 
 | ID | Durchführung | Erwartung / Nachweis |
@@ -124,7 +126,7 @@ Vor Realtest die Messmethode und Umgebung fixieren: Audioqueuezeit, Commandround
 
 Nach warmem Start und Ende keine stetig wachsende Menge von Tasks, Pendingcommands, gehaltenen Audiobuffern oder abgeschlossenen Tombstones ohne Retentionkonzept. Neue kurzfristige Caches dokumentieren Umfang/Bound. Historyretention wird nicht mit Runtimeledgerretention verwechselt.
 
-**Automatisiertes Gate PASS** verlangt alle verpflichtenden Parser-/Core-/UI-/Migration-/Build-/Crossrepo-Tests und volle Regression. **Reales Gate ACCEPTED** verlangt alle M-Fälle, tatsächliche Hardware-/Credential-/Clipboard-/ASRnachweise und keine unbegründeten offenen Pflichtbefunde. calibration pending bleibt offen, bis echte positive Audio- und Grenzbelege vorliegen.
+**Automatisiertes Gate PASS** verlangt alle verpflichtenden Parser-/Core-/UI-/Migration-/Build-/Crossrepo-Tests und volle Regression. **Reales Gate fachlich erfüllt** verlangt alle M-Fälle, tatsächliche Hardware-/Credential-/Clipboard-/ASRnachweise und keine unbegründeten offenen Pflichtbefunde. calibration pending bleibt offen, bis echte positive Audio- und Grenzbelege vorliegen.
 
 ## 7. Bereits in dieser Planung ausgeführte Prüfungen
 
@@ -138,3 +140,5 @@ Hardware-/Golden-/frozen-V2-Smoke wurden für diese reine Planungsaufgabe nicht 
 ## Umsetzungsvorschläge und technische Startwerte im Review
 
 Der Reviewer bewertet Ergebnisse und Nachweise gemäß [Umsetzungsspielraum](../../SKILLS/GEMEINSAM/references/PLANUNGSSPIELRAUM.md). Ein abweichender Modul-/Testname, ein anderes UI-Layout oder eine sichere bestehende Datenrepräsentation ist kein eigener Mangel. Lokale Queue-/Timeout-/Retrywerte werden an der begründeten tatsächlichen Konfiguration geprüft; Beispielwerte sind keine Server-SLA. Pflicht sind begrenzter Speicher, kontrolliertes Timeout-/Überlaufverhalten, keine doppelten Nebenwirkungen und vollständige Regression. Jeder Nachweis ist mit Runtime und getesteter Konfiguration im [Evidenzindex](../../SKILLS/GEMEINSAM/references/PAKETABLAGE_UND_VORLAGEN.md) verknüpft.
+
+Das fachlich erfüllte reale Gate erhält im unabhängigen Paketreview ROOT_PASS. ACCEPTED/CANONICALIZED folgt erst aus menschlicher Freigabe und tatsächlicher Übernahme; Hardwaredurchführung selbst ist kein Gitabschluss.

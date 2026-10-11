@@ -62,3 +62,10 @@ Steuerungslog-Meilenstein: {{ID_ODER_BEI_NOCH_OFFENEM_RUN_AUSSTEHEND}}.
 Ermittelte Aktion/Quelle des Kurzauftrags: {{ZUSTAND_AP_KANDIDAT_ROLLE}}.
 Workflowphase vor/nach dem Run: {{WERTE}}; Statusdatei: {{PFAD}}; unmittelbar nächste erlaubte Aktion: {{AKTION}}.
 Arbeitsfreigabe und menschliche Übernahmefreigabe getrennt referenzieren. Kein eigener finaler Commit-SHA in derselben Commitdatei.
+
+## Nur bei einem tatsächlichen Sonderfall
+
+{{UEBERGABE_ODER_AUSWAHLENTSCHEIDUNG_GESICHERTER_AUSGANG_UND_REFERENZ_ODER_ENTFALLEN}}.
+{{SERVER_FIX_QUELLAKTE_NEUES_PAAR_UND_RUECKKEHR_ODER_ENTFALLEN}}.
+Eigene Plattformdurchführung: {{BELEGE_ODER_KEINE}}; extern durchgeführt/selbst validiert: {{FALL_TESTER_IDENTITAET_PRUEFENTSCHEIDUNG_ODER_KEINE}}.
+Letzter Nachmerge-Abschluss separat im NACH_ABSCHLUSS-Beleg sichern; abgeschlossenen Report erhalten.

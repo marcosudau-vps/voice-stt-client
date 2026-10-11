@@ -1,10 +1,10 @@
 # AP-SV2-FIX – Bedingtes Serverkorrekturpaket während der Cliententwicklung
 
-**Branch-/Unterlagenpflege:** Clientabschlusslinie `feat/client-v2`; alle Paketbearbeitung auf untergeordnetem Paketbranch vom zuletzt übernommenen Parent, Code und aktualisierte Unterlagen gemeinsam in einem freigegebenen Aggregat. Für Serverfixes gilt die getrennte, aufgeschobene finale Serverpromotion. [Branchreferenz](../REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
+**Branch-/Unterlagenpflege:** Diese FIX-Instanz arbeitet im Serverrepository auf eigenem Serverarbeitsbranch vom festgehaltenen Distributed-Parent. Geprüfte Fixes werden nach menschlicher Sicherungsfreigabe kumulativ auf Server-Distributed übernommen; finales Serverfeature-Aggregat bleibt aufgeschoben. Clientblocker/Rebaseline werden auf dem gehaltenen Clientpaketbranch dokumentiert. [Branchreferenz](../REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
 
 
 
-**Status:** CONDITIONAL / NICHT GESTARTET. **Stand:** 2026-10-11, Revision 9 (Branchführung/Planpflege).
+**Status:** CONDITIONAL / NICHT GESTARTET. **Stand:** 2026-10-11, Revision 10 (Branchführung/Planpflege).
 
 
 
@@ -160,3 +160,7 @@ Notwendige kleine Anschlussänderungen an gemeinsamen Dateien sind mit Begründu
 
 
 Ein einzelner Ausführungsrun bearbeitet das beauftragte Paket. Bericht und reviewbarer Diff werden immer fertiggestellt. Commit, Push, PR, Tag, Merge und Veröffentlichung erfolgen nur, wenn die konkrete Ausführung dafür autorisiert ist. Diese Planung erteilt dafür keine implizite Freigabe; die offene Serverbranch bleibt erhalten.
+
+## Gemeinsamer Einstieg und Rückkehr
+
+SERVER_FIX_REQUIRED blockiert das gehaltene Clientpaket und verweist auf die eine beauftragte servereigene FIX-Akte mit Status/Branch/Parent. Der gemeinsame Einstieg folgt dieser Linie bis zu tatsächlichem FIX_ACCEPTED auf Server-Distributed, dann zurück zum gehaltenen Clientpaket. Neue Server-SHA, betroffene Verträge/Quellen/Matrix und Tests am neuen Paar gemeinsam pflegen; kein automatisch freigegebenes Folge-AP. Auswahl, Serverrechte, Review-/Sicherungsphasen und Rückkehrbelege: [Sonderfallreferenz](../SKILLS/GEMEINSAM/references/SONDERFAELLE_UND_WIEDERAUFNAHME.md). Ohne Serverauftrag keine eigenmächtige Änderung; Clientfreigabe ist keine Serverfreigabe.

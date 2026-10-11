@@ -1,6 +1,6 @@
 # Paketakten, Original-Prompts und Vorlagen
 
-Stand: 2026-10-11, Strukturversion 1, Rollenworkflow Revision 9. Gilt einheitlich für Client-, Integrations- und konkrete Serverfixpakete. Die folgenden Ablagen sind Arbeitsakten außerhalb dieses Planordners. Planung und Paketakten werden gemeinsam im jeweiligen Paketbranch versioniert und mit dem Paketaggregat übernommen. Hier werden ausschließlich Vorgaben und kopierbare Vorlagen bereitgestellt; noch keine Implementierungs- oder Abnahmeakte wird als ausgeführt angelegt.
+Stand: 2026-10-11, Strukturversion 1, Rollenworkflow Revision 10. Gilt strukturell für Client-/Integrationspakete und konkrete Serverfixpakete; die Server-FIX-Akte liegt im Serverrepository am tatsächlich beauftragten Pfad. Die folgenden Ablagen sind Arbeitsakten außerhalb dieses Planordners. Planung und Paketakten werden gemeinsam im jeweiligen Paketbranch versioniert und mit dem Paketaggregat übernommen. Hier werden ausschließlich Vorgaben und kopierbare Vorlagen bereitgestellt; noch keine Implementierungs- oder Abnahmeakte wird als ausgeführt angelegt.
 
 ## 1. Verzeichnisstruktur
 
@@ -8,7 +8,7 @@ Basis im aktiven Clientcheckout: `ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEH
 
 ```text
 30_AUSFUEHRUNG/
-└── AP-CV2-030/                 # ebenso AP-IV2-010 oder AP-SV2-FIX-001
+└── AP-CV2-030/                 # ebenso AP-IV2-010; Server-FIX im Serverrepo
     ├── 00_PAKET.md             # Ziel, Planstand, Status, Run-/Review-/Übernahmeverweise
     ├── 01_ENTSCHEIDUNGEN.md    # nur wenn dauerhafte/paketübergreifende Entscheidungen entstehen
     └── RUNS/
@@ -45,7 +45,7 @@ Ein Original-Prompt enthält keine tatsächlichen Secrets oder Nutzeraudiodaten.
 
 ## 3. Übernahmefreigabe und Abschluss
 
-Nach unabhängigem PASS bleibt das Paket `ROOT_PASS`, bis der Auftraggeber die kanonische Übernahme per ausdrücklichem Prompt erlaubt. Dieser Prompt wird als Original gesichert: bei noch offener Abnahme-/Abschlusssession unter deren `ZUSATZPROMPTS`, bei neuer Session als `00_PROMPT_ORIGINAL.md` eines `Rnn-UEBERNAHME`.
+Nach unabhängigem PASS bleibt das Paket `ROOT_PASS`, bis der Auftraggeber die kanonische Übernahme per ausdrücklichem Prompt erlaubt. Dieser Prompt wird als Original gesichert: bei noch offener beauftragter Abschluss-/Umsetzungssession unter deren `ZUSATZPROMPTS`, bei neuer Session als `00_PROMPT_ORIGINAL.md` eines `Rnn-UEBERNAHME`.
 
 Die kurze Abschlussaktion sichert vor dem Merge die tatsächliche Freigabe und administrative Übernahmeverweise auf dem Paketbranch, soweit erlaubt. Vor Merge bleibt der technische Status ROOT_PASS. Nach Merge tatsächlichen Aggregate-SHA/Tree, Parent, CI-/Merge-/Transportresultat melden; der eindeutige Gitcommit und gemergte PR belegen ACCEPTED. Dieser Nachmerge-Abschluss wird mit dem nächsten Paket gesichert, ohne zweiten Commit des Vorgängers. Das technische Reviewurteil wird nicht umgeschrieben; abgeschlossene Reports erhalten. Fehlgeschlagene oder nicht autorisierte Übernahme bleibt offen.
 
@@ -77,3 +77,7 @@ Reviewer sichert seine neue Abnahmeakte im ausdrücklich erlaubten Scope per Doc
 ## Zustand als Pflichtübergabe
 
 Alle Rollen pflegen die [Workflowzustände](ZUSTAENDE_UND_NAECHSTER_SCHRITT.md) im branchbezogenen WORKFLOW_STATUS.json sowie konsistente Paket-/Runverweise vor Abgabe. Neue Agenten entdecken offene Paketlinien selbst; der Auftraggeber überträgt keine SHA-/Reportlisten. Zusätzliche unabhängige Reviews erhalten jeweils einen neuen Run. Nachmerge-Status wird aus belegtem Featurecommit erkannt und im nächsten Paket gesichert.
+
+## Ausnahmen in vorhandenen Akten
+
+Wiederaufnahme und Auswahlwechsel werden im tatsächlich folgenden Run mit Originalentscheidung/gesichertem Ausgangszustand belegt; keine Pflicht zu einer zusätzlichen Recoveryakte. Server-FIX-Originalakten/Status im Serverrepository, Clientakte verlinkt Blocker und Rückkehr. Nach dem letzten Paket entsteht nur der nötige post-merge Nachweis unter `NACH_ABSCHLUSS/ABSCHLUSS.json` in dessen Paketakte. [Sonderfallreferenz](SONDERFAELLE_UND_WIEDERAUFNAHME.md); abgeschlossene Reports nicht umschreiben.

@@ -1,6 +1,6 @@
 # Branchführung und gemeinsame Planpflege
 
-Stand 2026-10-11, Revision 9. Diese vom Auftraggeber festgelegte Struktur gilt für die neue Cliententwicklung und ersetzt die frühere Client-Zielbranchzuordnung in historischen Analysen. Fachlicher Serververtrag und Paketumfang bleiben bestehen.
+Stand 2026-10-11, Revision 10. Diese vom Auftraggeber festgelegte Struktur gilt für die neue Cliententwicklung und ersetzt die frühere Client-Zielbranchzuordnung in historischen Analysen. Fachlicher Serververtrag und Paketumfang bleiben bestehen.
 
 ## Einstieg und Herkunft
 
@@ -11,7 +11,8 @@ Der gemeinsame Planungs- und Umsetzungsbranch heißt `feat/client-v2` im Reposit
 ```text
 feat/einheitliche-triggerarchitektur @ 8bab1b3
 └── feat/client-v2                       # neue gemeinsame Abschlusslinie
-    ├── START: vollständige Planung      # erster neuer Commit, keine Codeänderung
+    ├── START: vollständige Planung      # Revision 9, bfade9d, keine Codeänderung
+    ├── PLAN-REV10: Dokumentkorrektur      # einmalige ausdrücklich freigegebene Ausnahme
     ├── AP-CV2-000: Code + Unterlagen     # genau ein freigegebener Paketcommit
     ├── AP-CV2-010: Code + Unterlagen     # genau ein freigegebener Paketcommit
     └── weitere APs in geplanter Folge
@@ -36,7 +37,7 @@ Ein Gitbranch ist technisch ein Ref, keine Ordnerhierarchie. „Untergeordnet“
 
 Verbindliche Details zu Schreibhoheit, Review-Push, PASS-SHA, finalem PR-Head, Freigabebeleg und CI: [PR und Reviewübergabe](../../SKILLS/GEMEINSAM/references/PR_UND_REVIEW_UEBERGABE.md).
 
-Damit enthält die neue Abschlusslinie einen Startcommit plus genau einen Commit je angenommenem AP. Ein reines Qualifikationspaket liefert seinen einen Commit mit Plan-/Abnahmebelegen, ohne erfundene Codeänderung. Auch nachträgliche Dokumentkorrekturen werden auf einem Arbeitsbranch vorbereitet und in den nächsten sachlich zuständigen Paketcommit aufgenommen; eine dringliche eigenständige Änderung außerhalb dieser Kette verlangt einen ausdrücklichen Auftrag und sichtbar benannten Ausnahmeumfang.
+Damit enthält die neue Abschlusslinie den erhaltenen Startcommit, die ausdrücklich freigegebene Dokumentkorrektur Revision 10 und danach genau einen Commit je angenommenem AP. Ein reines Qualifikationspaket liefert seinen einen Commit mit Plan-/Abnahmebelegen, ohne erfundene Codeänderung. Auch nachträgliche Dokumentkorrekturen werden auf einem Arbeitsbranch vorbereitet und in den nächsten sachlich zuständigen Paketcommit aufgenommen; eine dringliche eigenständige Änderung außerhalb dieser Kette verlangt einen ausdrücklichen Auftrag und sichtbar benannten Ausnahmeumfang.
 
 Die Selbstreferenz eines Commits wird vermieden: Ein Paketcommit kann seinen eigenen endgültigen SHA nicht bereits enthalten. Paket-ID, Parent, reviewed_sha/tree und Freigabe stehen in seinen Unterlagen; der Aggregate-SHA ist über den eindeutigen AP-Commit im Gitverlauf ermittelbar. Vor Merge bleiben Unterlagen beim technischen ROOT_PASS; erfolgreicher gemergter PR und überprüfter Aggregatecommit belegen ACCEPTED. Der Abschlussreport nennt danach den tatsächlichen SHA und wird mit dem nächsten Paket gesichert. Kein zusätzlicher „Abschluss-SHA-Aufräumcommit“ für dasselbe AP.
 
@@ -54,8 +55,20 @@ Serverreferenz ist `feat/einheitliche-triggerarchitektur-distributed` bei `ada13
 
 Nötige AP-SV2-FIX-nnn-Korrekturen entstehen isoliert auf Serverarbeitsbranches und werden nach Prüfung und passender Freigabe kumulativ auf Server-Distributed geführt. Sie erzwingen keine sofortige Einzelpromotion auf den kanonischen Serverfeaturebranch. Im Client werden neue Server-SHAs und betroffene Kontrakte/Vektoren/Requirements gemeinsam mit dem zugehörigen Clientpaket übernommen und das neue Paar geprüft. Servercode gehört in das Serverrepository; dieses Startcommit ändert dort nichts.
 
-## Konsolidierter Unterlagenstart Revision 9
+## Historischer konsolidierter Unterlagenstart Revision 9
 
 Vor dem ersten Remote-Push werden alle aktuellen Rollen-/Zustandsunterlagen im noch unveröffentlichten ersten Unterlagencommit zusammengeführt. Das ersetzt dessen vorläufige lokale Fassung; die alten Client-Feature-/Distributed-Refs und ihre Historien bleiben unverändert. Es entsteht genau ein Startcommit nach 8bab1b3 und kein vorgezogener CV2-000-Commit. Frühere Prüfergebnisse mit damaligen Vorbereitungsbranch-/Importhinweisen sind in EVIDENCE ausdrücklich historisch gekennzeichnet.
 
 Die SHA des Startcommits lässt sich aus dem Gitverlauf ermitteln: `git rev-list --reverse 8bab1b3f4aa070d0756c305908def4d9ebc52582..feat/client-v2`; erster Eintrag. Im initialen Workflowstatus steht wegen der Selbstreferenz nur canonicalParentRef. Beim ersten Paketstart wird der tatsächliche aktuelle kanonische HEAD auf dem Paketbranch als voller canonicalParent festgehalten. Spätere Pakete starten immer von der zuletzt übernommenen Feature-Spitze.
+
+## Alternative Versuche und nachträgliche Korrekturen
+
+Alternativbranches verwenden beispielsweise `work/client-v2/ap-cv2-030-attempt-02`, ohne die bisherige Linie umzuschreiben. Auswahl/Ablösung mit tatsächlichem menschlichem Entscheidungsbeleg auf beiden erreichbaren Linien nach [Sonderfallreferenz](../../SKILLS/GEMEINSAM/references/SONDERFAELLE_UND_WIEDERAUFNAHME.md).
+
+Ist kein sachlich passendes Folgepaket mehr offen, darf ein ausdrücklich beauftragtes AP-CV2-FIX-nnn ein früher angenommenes Verhalten korrigieren: aktueller Featureparent, neue eigene Paketakte/DoD, unabhängiger Review, menschliche Freigabe, ein neuer Korrekturaggregatcommit. Alte AP-Commits/PASS-Akten erhalten. Reine Dokumentausnahmen brauchen eine eigene ausdrückliche kanonische Gitfreigabe; die Vorbereitung einer Änderung erteilt sie nicht. Der veröffentlichte Revision-9-Start wird nicht nachträglich umgeschrieben.
+
+Der letzte kanonische Paketcommit braucht keinen zweiten Abschlusscommit. COMPLETED und Nachmerge-Nachweis werden gemäß der Sonderfallreferenz aus den tatsächlichen Belegen ermittelt und in der letzten Paketakte gesichert.
+
+## Einmalige Dokumentausnahme Revision 10 vor AP-CV2-000
+
+Der Auftraggeber hat ausdrücklich einen zusätzlichen Dokumentkorrekturcommit auf `feat/client-v2` und dessen normalen Push beauftragt: [Originalfreigabe](../../EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md). Vorbereitung auf `work/client-v2/planung-rev10`, exakter Parent bfade9d0ffe1262ca25b05c9334dcacfcd3d3452, genau ein neuer Single-Parent-Commit ausschließlich mit Unterlagen. Lokale Übernahme nur fast-forward, kein Historymerge, kein Amend des veröffentlichten Revision-9-Starts und kein Force-Push. AP-CV2-000 beginnt vom danach aktuellen Feature-HEAD; dies ist keine AP-Abnahme und keine generelle Ausnahme von der Paketcommitregel.

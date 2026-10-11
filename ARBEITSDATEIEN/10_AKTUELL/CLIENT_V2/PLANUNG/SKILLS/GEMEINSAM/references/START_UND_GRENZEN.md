@@ -1,6 +1,6 @@
 # Start und gemeinsame Grenzen
 
-Projektablageversion 2, Rollenworkflow Revision 9, Stand 2026-10-11. Diese Referenz gilt für beide Agenten. Gültige AGENTS und tatsächlicher menschlicher Auftrag bestimmen Scope und Gitrechte.
+Projektablageversion 2, Rollenworkflow Revision 10, Stand 2026-10-11. Diese Referenz gilt für beide Agenten. Gültige AGENTS und tatsächlicher menschlicher Auftrag bestimmen Scope und Gitrechte.
 
 ## Auftrag und Iststand
 
@@ -52,3 +52,7 @@ Bei „Mach den nächsten Schritt“ übernimmt der [gemeinsame Einstieg](../../
 ## Technische Abnahme und späterer Abschluss
 
 Die unabhängige Prüfung bewertet den eingereichten Kandidaten anhand seiner fachlichen Pflichtkriterien und tatsächlichen Tests. Kriterien, die einen bestandenen Review, menschliche Übernahme oder den kanonischen Abschluss-SHA betreffen, werden erst in der entsprechenden späteren Phase erfüllt. Sie sind keine zirkulären Voraussetzungen für REVIEW_READY oder ROOT_PASS. Der Review fordert keine bereits erfolgte eigene kanonische Übernahme; ACCEPTED bleibt dem nachgewiesenen Abschluss vorbehalten.
+
+## Ausnahmefälle beim Einstieg
+
+Bei unterbrochener fremder Schreibhoheit eine belegte Übergabe oder menschliche Wiederaufnahmefreigabe prüfen. Kandidatenwechsel nur mit eindeutiger Auswahlquelle; alternative Branches bekommen Versuchssuffixe. Ein Serverblocker führt zur ausdrücklich beauftragten Server-FIX-Linie und danach zurück zum gehaltenen Clientpaket. [Gemeinsame Sonderfallreferenz](SONDERFAELLE_UND_WIEDERAUFNAHME.md) nur für den betroffenen Fall laden. Plattform-/Hardwarebelege dürfen von einem benannten realen Bediener stammen; unabhängig nach [Nachweisregeln](../../../REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md) prüfen, fehlende Pflichten nicht überspringen.

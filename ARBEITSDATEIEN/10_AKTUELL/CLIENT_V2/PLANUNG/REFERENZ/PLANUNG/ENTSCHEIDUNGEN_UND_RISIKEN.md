@@ -59,3 +59,7 @@ Ein Wunsch nach individuellen Noise/VADstartoptionen oder Domaintextreplay wäre
 ## D-20 / Revision 9: vollständiger veröffentlichter Unterlagenstart
 
 Alle Rollen-, Zustands-, Review- und Auftragsvorlagen gehören bereits in den ersten Unterlagencommit auf feat/client-v2. Frühere Arbeitsstände werden nicht mehr als zusätzliche Importvoraussetzung für AP-CV2-000 behandelt. Initiale Selbst-SHAs werden aus dem Gitverlauf aufgelöst; jeder tatsächlich begonnene Paketbranch dokumentiert seinen vollen kanonischen Parent. Unabhängiger PASS und menschliche Übernahmefreigabe bleiben getrennt. Der nächste Schritt wird aus belegten Zuständen erkannt; weitere unabhängige Reviews sind auf ausdrücklichen Auftrag möglich.
+
+## D-21 / Revision 10: Ausnahmefälle ohne zusätzliche Pflichtkampagne
+
+Tatsächliche Wiederaufnahmefreigabe, belegte Kandidatenwahl, servereigene FIX-Linie mit Rückkehr zum Client, unabhängig validierte echte Fremd-Hardwarebelege, ausdrücklich beauftragbare Anschlussfixes und abgeleiteter Endabschluss ergänzen die normale Serie. Paketfolge, Requirements, Kontrakte und Basisschätzung bleiben fachlich erhalten. Aktuelle Metadaten revision/roleSkillVersion gemeinsam pflegen; Schema-/Akten-/Aufwandsmodellversionen beschreiben eigenständige Formate.

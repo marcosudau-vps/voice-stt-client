@@ -1,6 +1,6 @@
 # Paket-PR, Reviewunterlagen und eindeutige Übergabe
 
-Stand 2026-10-11, Rollenworkflow Revision 9. Pflichtreferenz beim ersten PR-/Review-/Übernahmeschritt; bei Wiederaufnahme nur geänderte Stellen lesen. Client- und Integrationspakete nutzen den Client-Paketbranch. Serverfixes behalten ihre getrennte Server-Distributed-Zielrolle gemäß [Branchreferenz](../../../REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
+Stand 2026-10-11, Rollenworkflow Revision 10. Pflichtreferenz beim ersten PR-/Review-/Übernahmeschritt; bei Wiederaufnahme nur geänderte Stellen lesen. Client- und Integrationspakete nutzen den Client-Paketbranch. Serverfixes behalten ihre getrennte Server-Distributed-Zielrolle gemäß [Branchreferenz](../../../REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
 
 ## Ein Paket, ein kumulativer PR
 
