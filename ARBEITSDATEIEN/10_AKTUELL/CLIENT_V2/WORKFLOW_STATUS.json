@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "REVIEW_READY",
-  "packageStatus": "REVIEW_READY",
+  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "packageStatus": "ROOT_PASS",
   "activePackage": "AP-CV2-020",
   "nextPackage": "AP-CV2-030",
   "canonicalBranch": "feat/client-v2",
@@ -10,21 +10,18 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/4",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R03-KORREKTUR",
-    "role": "correction",
-    "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md"
+    "id": "R04-ABNAHME",
+    "role": "review",
+    "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "2b79a9a23a6be554a2a2a05ff3256a63ccf022d4",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
-  "openFindingIds": [
-    "CV2-020-R02-F01",
-    "CV2-020-R02-F02"
-  ],
+  "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+  "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Frische unabhängige Abnahme des vollständigen PR #4 und Recheck von F01/F02 am neuen Kandidaten mit R03-Windows-/Serverbelegen. Kein Merge/kein Folgepaket.",
+  "nextAction": "ROOT_PASS R04 liegt vor; auf ausdrücklichen menschlichen Übernahmeprompt für PR #4 und anschließenden Identitäts-/CI-Abgleich warten. Kein Merge und kein AP030 ohne Freigabe.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -44,8 +41,12 @@
   "qualifiedImplementationCommit": "98ab3c0fc5c935019d81d6d6acb1423185cb4793",
   "qualifiedImplementationTree": "c394dbe3d75086132234cb987469ee6639647af6",
   "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
-  "reviewedTree": "647a0b4070d666e37b475841d094d4e37cc43e40",
+  "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
   "selfCorrectedFindingIds": [
+    "CV2-020-R02-F01",
+    "CV2-020-R02-F02"
+  ],
+  "closedFindingIds": [
     "CV2-020-R02-F01",
     "CV2-020-R02-F02"
   ]

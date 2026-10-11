@@ -2109,3 +2109,7 @@ Unabhängiger SHA-gebundener Review von PR #4 auf `2b79a9a23a6be554a2a2a05ff3256
 ## 2026-10-12 – AP-CV2-020 / R03-KORREKTUR – REVIEW_READY
 
 F01/F02 dynamisch bestätigt und gezielt korrigiert (HTTP-Upgrade-Recovery, 4408-Episodenreset erst nach READY). Kandidatenqualifikation `98ab3c0fc5c935019d81d6d6acb1423185cb4793` / `c394dbe3d75086132234cb987469ee6639647af6`:1294 Windowsgesamt-,61 gezielte Tests,21 Serverfälle/46 bytegeprüfte Quellen und compileall PASS. [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md). R02-Findings bleiben bis unabhängiger Abnahme offen; PR #4, keine Übernahme/kein Folgepaket.
+
+## AP-CV2-020-R04 – 2026-10-12 – unabhängige Abnahme ROOT_PASS
+
+Review auf `6d74c1ae06643e026834bc9164028bec908e26df` (Tree `f8a57f79c6bf61d7b079a41a53662adeac34c546`), Parent `91065f5f7715aa6653ec5335d9e757b6ef97a067`, Server ada13b0. R02-Pflichtfindings CV2-020-R02-F01 und -F02 im korrigierten Code plus 4 neuen Regressionstests sowie Vorher-Repros unabhängig geschlossen. Windows1294, targeted61, echter gepinnter Server21/46 Quellblobs, compileall und SHA256 aller Pflichtlogs als vollständige Fremdevidenz unabhängig validiert; GitHub-CI 38183803142 auf exakt submitted Head erfolgreich. Alle28 Paket-Requirements und kumulativer Code-/Testdiff geprüft, kein neuer Pflichtbefund. [R04-Bericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md). Status ROOT_PASS / WAITING_FOR_APPROVAL; keine menschliche Freigabe und kein Merge/Folgepaket.

@@ -1530,7 +1530,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1582,6 +1582,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -1592,7 +1603,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1644,6 +1655,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -1654,7 +1676,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1706,6 +1728,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -1716,7 +1749,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1768,6 +1801,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -1778,7 +1822,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1830,6 +1874,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -1840,7 +1895,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1894,6 +1949,17 @@
           "tests.test_v2_transport.Transport.test_closing_input_ack_blocks_more_refresh_for_same_activation"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -1904,7 +1970,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -1956,6 +2022,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -1966,7 +2043,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2018,6 +2095,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2028,7 +2116,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2080,6 +2168,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2090,7 +2189,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2142,6 +2241,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2152,7 +2262,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2204,6 +2314,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2214,7 +2335,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2266,6 +2387,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2276,7 +2408,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2328,6 +2460,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2338,7 +2481,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2390,6 +2533,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2400,7 +2554,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2452,6 +2606,17 @@
           "tests.test_v2_transport.Transport.test_all_fifteen_ack_results_complete_once_without_new_commands"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2462,7 +2627,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2514,6 +2679,17 @@
           "tests.test_v2_transport.Transport.test_event_before_old_ack_and_duplicate_ack_do_not_project"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2524,7 +2700,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2578,6 +2754,17 @@
           "tests.test_v2_transport.Transport.test_retry_exact_bytes_once_and_timeout_no_new_id"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2588,7 +2775,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2640,6 +2827,17 @@
           "tests.test_v2_transport.Transport.test_eventless_payload_completion_and_snapshot_replay"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2650,7 +2848,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2704,6 +2902,17 @@
           "tests.test_v2_transport.Transport.test_same_domain_serialized_other_domain_independent"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2714,7 +2923,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2772,6 +2981,17 @@
           "tests.test_v2_transport.Tracker.test_capacity_cancellation_and_close_clear_waiters"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -2782,7 +3002,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/commands.py @ ada13b0; Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_state_version.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -2834,6 +3054,17 @@
           "tests.test_v2_transport.Transport.test_reconnect_new_binding_ids_empty_queue_and_suppression_retained"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -4535,7 +4766,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4582,6 +4813,17 @@
           "tests.test_v2_transport.Transport.test_malformed_admission_second_hello_and_binary_server_block"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -4592,7 +4834,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4638,6 +4880,17 @@
           "tests.test_v2_transport.Transport.test_4408_retry_budget_resets_only_after_ready_between_episodes"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -4648,7 +4901,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4697,6 +4950,17 @@
           "tests.test_v2_transport.Transport.test_http_upgrade_rate_limit_has_capacity_backoff_and_bounded_stop"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -4707,7 +4971,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4752,6 +5016,17 @@
           "tests.test_v2_transport.Transport.test_reconnect_new_binding_ids_empty_queue_and_suppression_retained"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -4762,7 +5037,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4809,6 +5084,17 @@
           "tests.test_v2_transport.Transport.test_foreign_session_and_generation_never_confirm_or_publish"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -4819,7 +5105,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4873,6 +5159,17 @@
           "tests.test_v2_transport.Transport.test_http_upgrade_rate_limit_has_capacity_backoff_and_bounded_stop"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
@@ -4883,7 +5180,7 @@
       "test": "test_v2_transport",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4928,6 +5225,17 @@
           "tests.test_v2_transport.Transport.test_transport_ping_only_and_no_final_inference_timer"
         ],
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/server-transport-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R04-ABNAHME",
+        "reviewedCommit": "6d74c1ae06643e026834bc9164028bec908e26df",
+        "reviewedTree": "f8a57f79c6bf61d7b079a41a53662adeac34c546",
+        "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R03 Windows1294/targeted61/pinned real server21; four SHA256 log matches; reviewed independently but Windows suite not rerun by reviewer"
       }
     },
     {
