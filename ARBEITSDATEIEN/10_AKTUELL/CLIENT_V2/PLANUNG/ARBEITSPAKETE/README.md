@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000: ACCEPTED (kanonisch `1cf076bd2ed56929b1a3780bc140da51348a8295`, PR #2). AP-CV2-010: IN_PROGRESS ([Paketakte](../../30_AUSFUEHRUNG/AP-CV2-010/00_PAKET.md)); spätere Pakete: PLANNED. Das bedingte Serverpaket startet nur bei einem belegten Befund. CV2-000 bis CV2-110: zwölf Clientpakete; IV2-010/020: zwei Qualifikationspakete.
+AP-CV2-000: ACCEPTED (kanonisch `1cf076bd2ed56929b1a3780bc140da51348a8295`, PR #2). AP-CV2-010: REVIEW_READY ([Paketakte](../../30_AUSFUEHRUNG/AP-CV2-010/00_PAKET.md)); spätere Pakete: PLANNED. Das bedingte Serverpaket startet nur bei einem belegten Befund. CV2-000 bis CV2-110: zwölf Clientpakete; IV2-010/020: zwei Qualifikationspakete.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |

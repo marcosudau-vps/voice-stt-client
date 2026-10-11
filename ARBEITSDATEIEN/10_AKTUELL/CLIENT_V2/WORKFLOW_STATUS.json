@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "IMPLEMENTATION_IN_PROGRESS",
-  "packageStatus": "IN_PROGRESS",
+  "workflowPhase": "REVIEW_READY",
+  "packageStatus": "REVIEW_READY",
   "activePackage": "AP-CV2-010",
   "nextPackage": "AP-CV2-020",
   "canonicalBranch": "feat/client-v2",
   "canonicalParent": "1cf076bd2ed56929b1a3780bc140da51348a8295",
   "candidateBranch": "work/client-v2/ap-cv2-010",
-  "pullRequest": null,
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
   "selectedCandidate": true,
   "lastRun": {
     "role": "implementation",
@@ -19,9 +19,9 @@
   "reviewReport": null,
   "openFindingIds": [],
   "humanApproval": null,
-  "writeOwner": "AP-CV2-010/R01-UMSETZUNG Codex 2026-10-11",
+  "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Beauftragten reinen V2-Codec implementieren und vollständig qualifizieren.",
+  "nextAction": "Frische unabhängige Session prüft den gesamten AP-CV2-010-Kandidaten in PR #3 einschließlich Windowsnachweisen. Paketbranch bis dahin pausiert; keine kanonische Übernahme oder Folgepaketstart.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -37,5 +37,8 @@
   },
   "recovery": null,
   "relatedServerFix": null,
-  "predecessorCanonicalization": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
+  "predecessorCanonicalization": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json",
+  "qualifiedImplementationCommit": "9838558173b6bd88d4620b20d4e2e9d832e814c7",
+  "qualifiedImplementationTree": "c3a0b826e5d9614ad6dfb80b51815af77f8090bf",
+  "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
 }

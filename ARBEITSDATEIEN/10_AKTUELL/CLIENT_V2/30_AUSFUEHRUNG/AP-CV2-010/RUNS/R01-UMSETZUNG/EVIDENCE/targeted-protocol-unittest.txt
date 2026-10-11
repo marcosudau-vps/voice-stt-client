@@ -30,6 +30,6 @@ test_vendored_vectors_are_byte_identical_and_hashed (tests.test_v2_protocol.Voca
 test_vocabulary_and_endpoint_match_pinned_manifest (tests.test_v2_protocol.VocabularyAndVectors.test_vocabulary_and_endpoint_match_pinned_manifest) ... ok
 
 ----------------------------------------------------------------------
-Ran 30 tests in 0.052s
+Ran 30 tests in 0.061s
 
 OK

@@ -1,6 +1,6 @@
 # AP-CV2-000 – Paketakte
 
-Stand 2026-10-11. Status **ACCEPTED** nach R04-Produktreview und unabhängigem R05-Windows-Volltest1233 PASS. Menschliche bedingte Übernahmefreigabe gesichert; finale CI und tatsächlicher Einzel-Squash noch auszuführen.
+Stand 2026-10-11. Status **ACCEPTED** nach R04-Produktreview und unabhängigem R05-Windows-Volltest1233 PASS. Menschliche Übernahmefreigabe und tatsächlicher Einzel-Squash als 1cf076bd2ed56929b1a3780bc140da51348a8295 nachgewiesen (siehe Nachmergebeleg unten).
 
 Ziel/Scope: [Revision-10-Paketvertrag](../../PLANUNG/ARBEITSPAKETE/AP-CV2-000.md), Feature-/Releaseintegration, namespace-only Kernmigration und V1-Polish, kein V2-Lifecycle. Relevante Auftragshashes: [plan-hashes.txt](RUNS/R01-UMSETZUNG/EVIDENCE/plan-hashes.txt).
 
@@ -10,7 +10,7 @@ Kanonischer Parent `050e776cf316eb332177294db0c0a2719c2b4415`; Bearbeitung `work
 | --- | --- | --- | --- |
 | R01-UMSETZUNG | implementation / REVIEW_READY | [Original](RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md) | [Report](RUNS/R01-UMSETZUNG/01_REPORT.md), [EVIDENCE](RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md) |
 
-Nächste Aktion: unabhängige, vom Reviewer durchgeführte/veranlasste Windows-Gesamtregression auf dem geprüften Kandidaten; F01 statisch geschlossen. Schreibrecht zurückgegeben; kein AP-CV2-010 vor PASS, menschlichem Prompt und kanonischer Übernahme.
+Paket abgeschlossen: PASS, menschlicher Prompt und kanonische Übernahme tatsächlich vorhanden. AP-CV2-010 ist separat beauftragt; seine Akte führt die nächste Aktion. Historische R01–R05-Angaben unten behalten ihren damaligen Zeitpunkt.
 
 Historischer R01-Nachtrag: Vor damaliger endgültiger Übergabe CI-Kurz-/Langpfadassertion im neuen Historientest auf samefile präzisiert; Produktcode unverändert. Beide vollständigen Gesamtsuiten erneut1221 PASS, Belege im selben R01. Finaler Reviewhead ist die nach dieser Testpräzisierung eingereichte PR-Spitze; b9c90f8 bleibt Vorgängerprovenienz.
 
@@ -39,7 +39,7 @@ R03 qualifizierter Erstpublikationscommit `210c2ae14355d22e9b25172cf47a1bcf94860
 
 Geprüft: `cd872d4bfa8eccd0167337cbab16a572ca70bfd4`, Tree `6aff2fa629b0c01fde502c345e7e31035cee0926`. Bekannte Windows-CI PASS (1233 Tests), eigenes Windows-Test-Gate `NOT_RUN`; keine neuen Produktfindings, keine fachliche Bewertung der vom Auftraggeber ausgeklammerten Workflow-/Unterlagenänderungen. Kein technischer ROOT_PASS, Merge oder Folgepaketstart.
 
-## Aktueller R05-Nachweis und freigegebener Abschluss
+## Historischer R05-Nachweis und damaliger freigegebener Abschluss
 
 [R05-Report](RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md), [Originalauftrag/Freigabe](RUNS/R05-WINDOWS-NACHWEIS/00_PROMPT_ORIGINAL.md), [Evidenz](RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md). 1233 Windows-PASS und5 Startup-PASS; R04-T01 geschlossen, keine offenen Produktfindings. R04 bleibt als damalige BLOCKED-Akte erhalten. Nutzerauftrag erlaubt Rollenregelpflege und nach grüner finaler CI den Einzel-Squash auf feat/client-v2. Kein vorweggenommener CANONICALIZED-Status oder Folgepaketstart.
 

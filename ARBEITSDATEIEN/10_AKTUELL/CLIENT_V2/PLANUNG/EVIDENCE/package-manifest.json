@@ -64,7 +64,7 @@
         "AP-CV2-000"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-010.md",
-      "status": "IN_PROGRESS",
+      "status": "REVIEW_READY",
       "testModules": [
         "test_v2_protocol"
       ],
@@ -103,7 +103,10 @@
       "testModulesRole": "suggested locations; actual coverage and methods required",
       "candidateBranch": "work/client-v2/ap-cv2-010",
       "canonicalParent": "1cf076bd2ed56929b1a3780bc140da51348a8295",
-      "executionReport": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md"
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/3",
+      "qualifiedImplementationCommit": "9838558173b6bd88d4620b20d4e2e9d832e814c7",
+      "qualifiedImplementationTree": "c3a0b826e5d9614ad6dfb80b51815af77f8090bf"
     },
     {
       "id": "AP-CV2-020",

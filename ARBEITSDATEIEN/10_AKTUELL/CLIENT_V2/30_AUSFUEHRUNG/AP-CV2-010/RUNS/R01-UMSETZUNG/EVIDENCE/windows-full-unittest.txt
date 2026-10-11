@@ -1,0 +1,476 @@
+.Reconnect paused until the invalid session configuration changes.
+.Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+....Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+..Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+....Dictation interrupted (reason: transport_loss).
+....Session configuration warnings: ['fallback used']
+Session configuration fallbacks: ['sensitivity']
+...Ignoring unknown configuration fields in C:\Users\marco\AppData\Local\Temp\tmp0fxh8_k7\user.yaml: overlay.invented
+...LED output unavailable: [Errno 13] Access denied (insufficient permissions)
+............................................................................Ignoring unknown configuration fields in P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\config.yaml: led.memory, led.persistent
+.Manual server reconnect failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\controller.py", line 1260, in reconnect_server
+    await self.session.invalidate_connection("manual_reconnect")
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_controller.py", line 1968, in boom
+    raise OSError("no route to host")
+OSError: no route to host
+....Dictation interrupted (reason: transport_loss).
+........Dictation interrupted (reason: transport_loss).
+..Error in on_snapshot_change callback.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\controller.py", line 548, in _publish_snapshot
+    self.on_snapshot_change(snapshot)
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_controller.py", line 1600, in fail_callback
+    raise RuntimeError("simulated UI callback failure")
+RuntimeError: simulated UI callback failure
+Error in on_feedback_event callback.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\controller.py", line 581, in _emit_feedback_event
+    self.on_feedback_event(event)
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_controller.py", line 1600, in fail_callback
+    raise RuntimeError("simulated UI callback failure")
+RuntimeError: simulated UI callback failure
+.......Injection queue rejected entry for ('s', 1) (not running/stopping)
+Failed to record attempt for 5efa03f2bda24b63bbe5086ffb706660: Record attempt failed
+.Enqueue exception for ('s', 1): Simulated enqueue failure
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\controller.py", line 2407, in process_raw_final_event
+    enqueued = self.queue.enqueue(entry)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_controller.py", line 1857, in failing_enqueue
+    raise RuntimeError("Simulated enqueue failure")
+RuntimeError: Simulated enqueue failure
+.HistoryEntry unavailable for ('s', 1). Auto-enqueue skipped.
+.Queue is not running (state=NEW). Rejecting entry c0b2b36a19234ab0845aa9c938182907
+Injection queue rejected entry for ('s', 1) (not running/stopping)
+.Failed to add history entry for ('race_sess', 1): History failure simulated
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\controller.py", line 2344, in process_raw_final_event
+    hist_res = self.history.add_entry_with_status(clean_session_id, segment_id, clean_text)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_controller.py", line 931, in add_entry_with_status
+    raise RuntimeError("History failure simulated")
+RuntimeError: History failure simulated
+HistoryEntry unavailable for ('race_sess', 1). Auto-enqueue skipped.
+.Contradictory duplicate final event for ('sess_1', 10): existing='Text version A', new='Text version B'
+...Invalid final event fields: sessionId='', segmentId=1, text='T'
+Invalid final event fields: sessionId='s', segmentId=True, text='T'
+Invalid final event fields: sessionId='s', segmentId=-1, text='T'
+Invalid final event fields: sessionId='s', segmentId=1, text='   '
+.........reinsert_entry requested for unknown entry_id: unknown_id
+.Queue is not running (state=STOPPED). Rejecting entry 01046a24ff48427aa01452d24835bb0e
+Reinsertion rejected: TextInjectionQueue unavailable for entry 01046a24ff48427aa01452d24835bb0e
+..Initial headless auto-start did not complete: send_start simulated failure
+........Initial headless auto-start did not complete: Dictation start was stopped
+..Dictation interrupted (reason: transport_loss).
+................TextInjectionQueue worker did not stop within timeout.
+..................Ignoring invalid event cursor file C:\Users\marco\AppData\Local\Temp\tmpocsjhav8\cursor.json: Expecting value: line 1 column 1 (char 0)
+Ignoring invalid event cursor file C:\Users\marco\AppData\Local\Temp\tmpocsjhav8\cursor.json: cursor fields do not match schema version 1
+Ignoring invalid event cursor file C:\Users\marco\AppData\Local\Temp\tmpocsjhav8\cursor.json: invalid cursor
+Ignoring event cursor 100 ahead of server cursor 99
+................................Event stream attempt failed: simulated cursor disk failure
+....Event stream attempt failed: disconnect during replay
+...Event stream attempt failed: network down
+..Error in on_feedback_decision callback.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\controller.py", line 602, in _publish_feedback_decision
+    self.on_feedback_decision(decision)
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_feedback_integration.py", line 198, in <lambda>
+    self.controller.on_feedback_decision = lambda decision: (_ for _ in ()).throw(
+                                                            ^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_feedback_integration.py", line 198, in <genexpr>
+    self.controller.on_feedback_decision = lambda decision: (_ for _ in ()).throw(
+RuntimeError: adapter failure
+........Ignoring unknown configuration fields in P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\config.yaml: led.memory, led.persistent
+..Ignoring unknown configuration fields in P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\config.yaml: led.memory, led.persistent
+.Ignoring unknown configuration fields in P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\config.yaml: led.memory, led.persistent
+.Ignoring unknown configuration fields in P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\config.yaml: led.memory, led.persistent
+...Ignoring unknown configuration fields in P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\config.yaml: led.memory, led.persistent
+......................Sound feedback failed for error.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\feedback.py", line 96, in play
+    player.play()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_feedback_ui.py", line 53, in play
+    raise RuntimeError("simulated sound backend failure")
+RuntimeError: simulated sound backend failure
+.....Sound asset is unavailable: P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\definitely-missing.wav
+..............Failed to initialize SQLite database: file is not a database. Falling back to in-memory mode.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 165, in _init_db
+    conn.execute("""
+sqlite3.DatabaseError: file is not a database
+..Failed to initialize SQLite database: [WinError 183] Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmp51dba3kd\\parent_is_a_file'. Falling back to in-memory mode.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 162, in _init_db
+    self.db_path.parent.mkdir(parents=True, exist_ok=True)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileExistsError: [WinError 183] Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmp51dba3kd\\parent_is_a_file'
+..Failed to fetch entry from DB: Database connection lost
+Failed to save history entry to DB: Database connection lost
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 366, in _save_to_db
+    with self._db_session() as conn:
+         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 143, in _db_session
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_history.py", line 564, in faulty_connection
+    raise sqlite3.OperationalError("Database connection lost")
+sqlite3.OperationalError: Database connection lost
+Failed to check if parent exists in DB: Database connection lost
+Failed to save history entry and attempt atomar in DB: Database connection lost
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 535, in record_injection_attempt
+    with self._db_session() as conn:
+         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 143, in _db_session
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_history.py", line 564, in faulty_connection
+    raise sqlite3.OperationalError("Database connection lost")
+sqlite3.OperationalError: Database connection lost
+..........Failed to save history entry to DB: database is locked
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 367, in _save_to_db
+    cursor = conn.execute("""
+             ^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_history.py", line 592, in execute
+    raise sqlite3.OperationalError("database is locked")
+sqlite3.OperationalError: database is locked
+..........Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_hotkeys.py", line 35, in register
+    raise OSError("simulated hotkey conflict")
+OSError: simulated hotkey conflict
+......LED output unavailable: no ring window connected
+..LED output unavailable: gone
+..............LED output unavailable: set_state listening: device gone
+.....LED output unavailable: set_state listening: device gone
+LED output unavailable: set_state speaking: gone again
+.the LED worker did not stop in time
+.....LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+LED queue overflowed; dropped 1 oldest calls
+.LED output unavailable: reSpeaker not connected
+LED output unavailable: gone again
+................................................................................................................................................................................Built <MagicMock name='EXE_PATH' id='2552275549888'> (1 bytes)
+Version 1.2.3; SHA-256 2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881
+Built <MagicMock name='EXE_PATH' id='2552278743472'> (1 bytes)
+Version 1.2.3; SHA-256 2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881
+
+[OBS-020 timing baseline] 100000 submits at full queue: 2.0448s (20.45us/call)
+22:55:04 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpfq47unvi\a, json=True
+22:55:04 │ INFO  │ controller   │ identical line 1
+P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\logging_setup.py:77: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpfq47unvi\\a\\client.log' mode='a' encoding='utf-8'>
+  root_logger.handlers.clear()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+22:55:04 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpfq47unvi\b, json=True
+22:55:04 │ INFO  │ controller   │ identical line 1
+C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpfq47unvi\\b\\client.log' mode='a' encoding='utf-8'>
+  function(*args, **kwargs)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.22:55:04 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpmxuwevlb, json=True
+C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpmxuwevlb\\client.log' mode='a' encoding='utf-8'>
+  function(*args, **kwargs)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.22:55:04 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpxw4mfgre, json=True
+P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\logging_setup.py:77: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpxw4mfgre\\client.log' mode='a' encoding='utf-8'>
+  root_logger.handlers.clear()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+22:55:04 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpxw4mfgre, json=True
+C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpxw4mfgre\\client.log' mode='a' encoding='utf-8'>
+  function(*args, **kwargs)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.22:55:04 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpmb8smcls, json=True
+22:55:04 │ INFO  │ controller   │ via root logger
+C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpmb8smcls\\client.log' mode='a' encoding='utf-8'>
+  function(*args, **kwargs)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.22:55:04 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpoj0xn6_s, json=True
+C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpoj0xn6_s\\client.log' mode='a' encoding='utf-8'>
+  function(*args, **kwargs)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...............................Ignoring unknown configuration fields in C:\Users\marco\AppData\Local\Temp\tmpwzmopp96\config.yaml: logging.observability.made_up_field
+..................[observability] store_write_failed: store is broken
+...[observability] retention_pressure: db_bytes=1024 exceeds max_db_bytes=512
+...........[observability] store_write_failed: broken
+.......................................[observability] path_outside_user_profile: logging.observability.db_path is outside the user profile (CONTRACTS §4.3 P-8) and was not accepted; using the default location
+.............................[observability] store_write_failed: boom
+............[observability] sink_write_failed: simulated sink failure
+.[observability] store_disk_full: database or disk is full
+.[observability] store_write_failed: permanently broken
+.[observability] store_write_failed: boom
+.[observability] store_write_failed: transient
+.[observability] worker_loop_failed: injected drain failure
+[observability] worker_drain_failed: injected drain failure
+[observability] shutdown_flush_incomplete: 1 records dropped at shutdown
+....[observability] worker_loop_failed: injected drain failure
+.............Server error classified without transport reset: where=audio_packet count=1 message=bad packet
+Server error classified without transport reset: where=audio_packet count=2 message=bad packet
+........................................................Executing <Task finished name='Task-890' coro=<TestIndependentFanOut.test_a_slow_observer_delays_but_does_not_change_the_outcome() done, defined at P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_obs040_fanout_hook.py:355> result=None created at C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.203 seconds
+....Event stream attempt failed: server sent a frame that is not JSON
+..Event stream attempt failed: {"type": "log.event", "secretFrameContent": 1}
+...............................................................................................................................................................Clearing the diagnostics history failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\application.py", line 717, in clear_diagnostics_history
+    deleted = manager.clear_history()
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_obs050_ui.py", line 1163, in clear_history
+    raise TimeoutError("clear did not complete in time")
+TimeoutError: clear did not complete in time
+..........................................................................................[observability] store_open_failed: open explodes
+[observability] retention_failed: retention explodes
+.[observability] retention_failed: retention explodes
+.................[observability] store_write_failed: injected write failure
+.[observability] store_write_failed: injected write failure
+.[observability] store_write_failed: injected write failure
+.[observability] store_write_failed: injected write failure
+...Failed to read memory history entries (will try persistent fallback): Simulated memory history failure
+Failed to query persistent transcript history: Simulated persistent history failure
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\reinsertion.py", line 142, in reinsert_last
+    persistent_entries = self.history_manager.get_persistent_entries()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_reinsertion.py", line 50, in get_persistent_entries
+    raise RuntimeError("Simulated persistent history failure")
+RuntimeError: Simulated persistent history failure
+......Failed to read memory entries in get_recent_entries: Simulated memory history failure
+Failed to read persistent entries in get_recent_entries: Simulated persistent history failure
+Failed to read memory entries in get_recent_entries: Simulated memory history failure
+Failed to read persistent entries in get_recent_entries: Simulated persistent history failure
+Both memory and persistent history queries failed in get_recent_entries.
+.Reinsertion rejected: TextInjectionQueue unavailable for entry id_1
+Failed to log injection attempt for entry id_1: Simulated record attempt failure
+...reinsert_entry called with invalid entry_id: ''
+reinsert_entry called with invalid entry_id: '   '
+.Failed to read memory history entries (will try persistent fallback): Simulated memory history failure
+......Unexpected exception during enqueue for entry id_1: Enqueue exception simulated
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\reinsertion.py", line 244, in _enqueue_entry
+    accepted = self.injection_queue.enqueue(entry_copy)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_reinsertion.py", line 86, in enqueue
+    raise RuntimeError("Enqueue exception simulated")
+RuntimeError: Enqueue exception simulated
+.Reinsertion rejected: TextInjectionQueue unavailable for entry id_1
+..Failed to read memory history entries: Simulated memory history failure
+..Failed to read memory history entries (will try persistent fallback): Simulated memory history failure
+...reinsert_entry requested for unknown entry_id: non_existent_id
+..
+release stopped: Local tag-first publication is disabled. Qualify main with ci.yml and dispatch release.yml with that successful candidate_run_id.
+..........Event stream task ended: isolated log failure
+...........Failed to acquire single-instance mutex.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\single_instance.py", line 93, in acquire
+    handle, already_exists = self._backend.create(self.name)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_single_instance.py", line 23, in create
+    raise OSError("simulated mutex failure")
+OSError: simulated mutex failure
+...UI received fatal Core error: Core konnte nicht gestartet werden
+UI received fatal Core error: Core konnte nicht gestartet werden
+.Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+UI received fatal Core error: Core konnte nicht gestartet werden
+.Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+UI received fatal Core error: Core konnte nicht gestartet werden
+Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+.Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+Could not persist the working fallback hotkey.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\application.py", line 255, in start
+    self.config.save_user()
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+PermissionError: read-only profile
+.Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+.Server error: where=admission msg=capacity reached
+Session admission rejected: capacity reached
+..Ping timeout after 3 consecutive misses, closing connection (gen 1).
+.Ping loop failed; recycling connection: simulated ping send failure
+.Server reported ready with ok=false
+Server unavailable: Server not ready (ok=false)
+.........................No trigger_ack for commandId=cmd-3ecbd1b2bba2 within 0.1s
+..Failed to backup clipboard content (non-fatal): Format check exception simulated
+Failed to write transcript text to clipboard: Empty clipboard exception simulated
+Failed to restore previous clipboard content: Empty exception in restore
+.Failed to write transcript text to clipboard: Could not open clipboard after maximum retries.
+.....Queue is not running (state=NEW). Rejecting entry 2e2aeb6ec30b444fbf77028cab481a2c
+..Failed to write transcript text to clipboard: Clipboard error simulated
+.....Failed to restore previous clipboard content: Sequence number exception simulated
+Failed to restore previous clipboard content: Sequence number exception simulated
+SendInput encountered error: SendInput exception simulated
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\text_injector.py", line 739, in _process_job
+    sent_count = self.backend.send_input_keyboard(events)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 151, in send_input_keyboard
+    raise RuntimeError("SendInput exception simulated")
+RuntimeError: SendInput exception simulated
+Failed to restore previous clipboard content: Sequence number exception simulated
+..Failed to initialize worker thread: CreateWindowExW exception simulated
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\text_injector.py", line 550, in _worker_loop
+    self.backend.create_owner_window()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 76, in create_owner_window
+    raise RuntimeError("CreateWindowExW exception simulated")
+RuntimeError: CreateWindowExW exception simulated
+Queue is not running (state=STOPPED). Rejecting entry 523305ab8efe41d284f09dd107e8be30
+.Failed to initialize worker thread: Clipboard owner window creation returned invalid HWND 0.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\text_injector.py", line 553, in _worker_loop
+    raise OSError("Clipboard owner window creation returned invalid HWND 0.")
+OSError: Clipboard owner window creation returned invalid HWND 0.
+Queue is not running (state=STOPPED). Rejecting entry 327ca750a96b4d22a008a51d7bddd6cf
+....Queue is not running (state=STOPPED). Rejecting entry ac1c0eec52cd44ea82191f5fd99032f9
+.Failed to initialize worker thread: CreateWindowExW exception simulated
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\text_injector.py", line 550, in _worker_loop
+    self.backend.create_owner_window()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 983, in blocking_failing_create
+    original_create()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 76, in create_owner_window
+    raise RuntimeError("CreateWindowExW exception simulated")
+RuntimeError: CreateWindowExW exception simulated
+..Worker thread join timed out after 0.01 seconds.
+.Worker thread join timed out after 0.01 seconds.
+.Failed to restore previous clipboard content: Failed to restore clipboard connection
+.........Failed to initialize worker thread: CreateWindowExW exception simulated
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\text_injector.py", line 550, in _worker_loop
+    self.backend.create_owner_window()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 76, in create_owner_window
+    raise RuntimeError("CreateWindowExW exception simulated")
+RuntimeError: CreateWindowExW exception simulated
+Queue is not running (state=STOPPED). Rejecting entry 766c2cfb275441a2a41823989f7459f4
+.Worker thread join timed out after 0.05 seconds.
+.Queue is not running (state=STOPPED). Rejecting entry d114f2b1ded4487f9ce21864ac67a39d
+...............Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+...Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+....Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+..Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+....Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+................UI received fatal Core error: Core konnte nicht gestartet werden
+.Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_ui_application.py", line 112, in register
+    raise OSError("conflict")
+OSError: conflict
+Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_ui_application.py", line 112, in register
+    raise OSError("conflict")
+OSError: conflict
+No working global hotkey combination found: Windows konnte die Tastenkombination nicht registrieren.
+.....No system tray is available.
+.....Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_ui_application.py", line 262, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+..Qt UI initialization failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\application.py", line 1017, in run_gui
+    desktop = DesktopApplication(
+              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+RuntimeError: simulated UI construction failure
+................................................................
+----------------------------------------------------------------------
+Ran 1263 tests in 93.640s
+
+OK
