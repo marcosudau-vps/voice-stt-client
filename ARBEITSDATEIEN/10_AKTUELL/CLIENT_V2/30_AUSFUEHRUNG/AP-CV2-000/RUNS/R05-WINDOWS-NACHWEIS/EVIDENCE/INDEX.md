@@ -6,6 +6,7 @@ Getestete SHA `7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe`; Parent `050e776cf316eb
 - [Runtime und Ergebnisse](windows-validation.json): Checkout, getestete SHA/Tree, unveränderter Produkt-/Teststand gegenüber R04, Laufzeit, Exitcodes und sauberer Endzustand.
 - [Windows-Vollsuite](windows-full-unittest.txt): 1.233 PASS, keine Skips, einschließlich aller bestehenden OBS-/Feedback-/History-/Clipboard-/Build-/Trigger- und neuen Tests.
 - [Unveränderte Windows-Originalbytes](windows-full-unittest.cp1252.txt): CP1252-Ausgabe; die oben verlinkte lesbare Fassung ist verlustfrei nach UTF-8 konvertiert. Original-/Text-SHA256 und bestätigter Textgleichheitsnachweis stehen im Runtime-JSON; kein Testresultat wurde verändert.
+- Die beiden vollständigen Logs sind über `.gitattributes` als bytegetreue Artefakte ohne Textdiff geführt. Dadurch normalisiert Git weder CRLF noch die Originalcodierung; beim Lesen die Textdatei/Rawansicht verwenden. Die Diffprüfung bleibt für Produktcode, Tests und bearbeitete Dokumente aktiv.
 - [Startup-Profilrepros](startup-persistence.txt): fünf PASS; realer Profil-Dateischutz mit kontrollierten Backend-/Core-Fakes, keine physische Win32-/Mikrofonabnahme.
 - [compileall](compileall.txt), [Diffprüfung](diff-check.txt).
 - [Aktuelle Akten-/Linkprüfung](records-validation.json), [Skillprüfung](skill-validation.json) und [Scope-/Metadaten-/historische Unverändertheitsprüfung](scope-validation.json).
