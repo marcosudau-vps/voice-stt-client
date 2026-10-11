@@ -7,7 +7,7 @@
   "canonicalBranch": "feat/client-v2",
   "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
   "candidateBranch": "work/client-v2/ap-cv2-000",
-  "pullRequest": null,
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/2",
   "selectedCandidate": true,
   "lastRun": {
     "role": "implementation",
@@ -36,5 +36,7 @@
     "candidateId": "AP-CV2-000"
   },
   "recovery": null,
-  "relatedServerFix": null
+  "relatedServerFix": null,
+  "qualifiedImplementationCommit": "e0cfd85445c87302dc3dc24dbab6b0dd9cda5b00",
+  "qualifiedImplementationTree": "e6da645f8092fbf6faa5c5a4fe3540a23441d992"
 }

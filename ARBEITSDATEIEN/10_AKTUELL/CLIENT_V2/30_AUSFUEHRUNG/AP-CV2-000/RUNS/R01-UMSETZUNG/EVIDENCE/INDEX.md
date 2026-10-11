@@ -35,3 +35,7 @@ Für die Git-Diffprüfung sind abschließende Leerzeilen und Zeilenend-Leerzeich
 | [artifact-hashes.txt](artifact-hashes.txt) | `Get-FileHash -Algorithm SHA256` Wheel/sdist/EXE | Binäridentitäten; Binaries bleiben uncommitted im ignored Distverzeichnis |
 
 Saubere Baselinearchive und getrennte Installationsziele liegen lokal unter `%TEMP%/voice-stt-cv2-000-*`, ohne historische Worktrees zu verändern. Die Quellenarchive entstanden über `git archive <SHA>` und tar-Auspacken; keine Übernahme einer alten Vorbereitungsablage. Nicht ausgeführt: echte V2-Verbindung, physische Mikrofon-/ASR-/Clipboard-/Hotkey-/LED-/Soundwahrnehmung. Sie sind keine AP000-Pflichtfälle und bleiben späteren Paketen zugeordnet. Der AP000-Zwischencheckpoint verlangt die integrierte Clientbasis und besteht in Selbstchecks; keine unabhängige ROOT-Abnahme vorweggenommen.
+
+## Git-/PR-Identität
+
+[PR #2](https://github.com/marcosudau-vps/voice-stt-client/pull/2), Base feat/client-v2, qualifizierter Produktcommit `e0cfd85445c87302dc3dc24dbab6b0dd9cda5b00`, Tree `e6da645f8092fbf6faa5c5a4fe3540a23441d992`, einziger Parent `050e776cf316eb332177294db0c0a2719c2b4415`. [candidate-identity.json](candidate-identity.json) nennt den getesteten Produktcommit und den Auflösungsweg des finalen, ausschließlich administrativ ergänzten Heads. Der finale CI-Lauf/Head-/Base-Testmerge ist in den GitHub-PR-Checks und dem sachlichen Übergabekommentar nachprüfbar; keine CI-Selbst-SHA oder vorhergesagter Erfolg.
