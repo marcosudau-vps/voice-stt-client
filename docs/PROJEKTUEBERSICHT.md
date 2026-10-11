@@ -1,6 +1,7 @@
 # Aktueller Client-V2-Stand – AP-CV2-020, 2026-10-12
 
-AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067` (PR #3). AP-CV2-020 REVIEW_READY auf `work/client-v2/ap-cv2-020`; [Paketakte](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md). Headless V2-Transport, Commandkorrelation und Bootstrapguards; [API](protocol-v2-transport.md). Bisherige Appkomposition bis CV2-100 erhalten. Windowsvollsuite1290, gezielte57 Tests, echter Servercheckpoint21 und compileall PASS auf `7546298f26e00b83ad4c9510a9b8c1e7e6726fc3`. PR #4, unabhängiger Review als nächste Aktion; Schreibhoheit pausiert. Keine reale ASR-/Hardwareabnahme.
+AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067` (PR #3). AP-CV2-020 CHANGES_REQUIRED auf `work/client-v2/ap-cv2-020`; [Paketakte](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md). Headless V2-Transport, Commandkorrelation und Bootstrapguards; [API](protocol-v2-transport.md). Bisherige Appkomposition bis CV2-100 erhalten. Windowsvollsuite1290, gezielte57 Tests, echter Servercheckpoint21 und compileall PASS auf `7546298f26e00b83ad4c9510a9b8c1e7e6726fc3`. PR #4, unabhängiger Review als nächste Aktion; Schreibhoheit pausiert. Keine reale ASR-/Hardwareabnahme.
+R02-Abnahme: [Pflichtfindings F01/F02](https://github.com/marcosudau-vps/voice-stt-client/blob/work/client-v2/ap-cv2-020/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R02-ABNAHME/01_REPORT.md), Korrekturlauf im bestehenden PR #4; kein ROOT_PASS oder Merge.
 
 
 

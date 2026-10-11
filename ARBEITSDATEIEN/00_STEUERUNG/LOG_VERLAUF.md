@@ -2100,3 +2100,7 @@ compileall PASS auf `7546298f26e00b83ad4c9510a9b8c1e7e6726fc3`. PR #4 nach feat/
 Report/Traceability/Belege vollständig. Frische unabhängige Abnahme folgt;
 Schreibhoheit pausiert, keine Paketpromotion oder Folgepaketimplementierung.
 [Runreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md).
+
+## AP-CV2-020-R02 – 2026-10-12 – unabhängiger Review: CHANGES_REQUIRED
+
+Unabhängiger SHA-gebundener Review von PR #4 auf `2b79a9a23a6be554a2a2a05ff3256a63ccf022d4`, Tree `647a0b4070d666e37b475841d094d4e37cc43e40`, Parent `91065f5f7715aa6653ec5335d9e757b6ef97a067`, Server ada13b0. Umsetzerbelege (1290 Windows, 57 targeted, 21 echter Servercheckpoint) validiert: PASS; Reviewer-Windowsvollsuite NOT_RUN gemäß Reviewregel. Pflichtbefunde CV2-020-R02-F01 (HTTP-Upgrade-Fehler verlässt den Reconnectloop) und F02 (4408-Zähler wird bei READY nicht zurückgesetzt). [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R02-ABNAHME/01_REPORT.md). Kein ROOT_PASS, keine Übernahme; Korrektur im bestehenden PR, danach neue Qualifikation/Review.

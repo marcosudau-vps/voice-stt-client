@@ -1,6 +1,7 @@
 # Client V2 – AP-CV2-020
 
-AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067`, PR #3. AP-CV2-020 REVIEW_READY auf `work/client-v2/ap-cv2-020`; [Paketakte](30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md), [Workflowstatus](WORKFLOW_STATUS.json). Serverbaseline ada13b0, spätere App-/Hardwaregates offen.
+AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067`, PR #3. AP-CV2-020 CHANGES_REQUIRED auf `work/client-v2/ap-cv2-020`; [Paketakte](30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md), [Workflowstatus](WORKFLOW_STATUS.json). Serverbaseline ada13b0, spätere App-/Hardwaregates offen.
+R02-Abnahme: [Pflichtfindings F01/F02](https://github.com/marcosudau-vps/voice-stt-client/blob/work/client-v2/ap-cv2-020/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R02-ABNAHME/01_REPORT.md), Korrekturlauf im bestehenden PR #4; kein ROOT_PASS oder Merge.
 
 
 
