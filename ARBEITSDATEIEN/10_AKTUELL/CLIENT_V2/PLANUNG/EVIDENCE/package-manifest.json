@@ -16,7 +16,9 @@
         "test_hotkeys",
         "test_build_script",
         "test_client_release_guard",
-        "test_client_release_workflow"
+        "test_client_release_workflow",
+        "test_startup_hotkey_persistence",
+        "test_v2_work_records"
       ],
       "requirements": [
         "BASE-01",
@@ -47,7 +49,7 @@
         "scopeNote": "one complete package session; steps are not separate runs"
       },
       "testModulesRole": "suggested locations; actual coverage and methods required",
-      "executionReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
       "candidateBranch": "work/client-v2/ap-cv2-000",
       "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415"
     },
@@ -662,8 +664,9 @@
   "workRecordStructure": "SKILLS/GEMEINSAM/references/PAKETABLAGE_UND_VORLAGEN.md",
   "implementationSkill": "SKILLS/voice-stt-client-v2-umsetzen/SKILL.md",
   "acceptanceSkill": "SKILLS/voice-stt-client-v2-abnehmen/SKILL.md",
-  "roleSkillVersion": 5,
+  "roleSkillVersion": 6,
   "branchGuidance": "REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md",
   "metadataVersionMeaning": "revision and roleSkillVersion match the current planning/role guidance; schemaVersion and workRecordStructureVersion are independent format versions",
-  "workRecordStructureVersion": 1
+  "workRecordStructureVersion": 1,
+  "roleSkillVersionMeaning": "R03 targeted record consistency, independent test-path and handoff clarification; planning revision 10 and contracts unchanged"
 }

@@ -1,0 +1,76 @@
+{
+  "checkedAtUtc": "2026-10-11T17:08:00.525047+00:00",
+  "scope": "Workflow audit plus isolated deterministic reproduction; not package acceptance or complete regression",
+  "canonicalCommit": "050e776cf316eb332177294db0c0a2719c2b4415",
+  "reviewedImplementationCommit": "8b1c4c157b6b431dac6af69e2e264d0c37579bef",
+  "reviewDocsCommit": "2dc251df959f97e2a0bb37b10a1a77486ae6eb5a",
+  "localCheckoutCommit": "8b1c4c157b6b431dac6af69e2e264d0c37579bef",
+  "localCheckoutBehindRemoteReviewCommits": 1,
+  "workflowPhase": "CHANGES_REQUIRED",
+  "nextAction": "Umsetzer übernimmt Reviewunterlagen, korrigiert CV2-R02-F01 samt gezieltem Regressionstest, reicht selben PR neu als REVIEW_READY ein; danach frischer unabhängiger Windows-Vollreview. Keine kanonische Übernahme.",
+  "canonicalBranchUnchanged": true,
+  "reviewCommitDocsOnly": true,
+  "reviewCommitChangedPaths": 13,
+  "oldImplementationReportUnmodified": true,
+  "packageMetadataStatus": "REVIEW_READY",
+  "packageMetadataMismatch": true,
+  "reviewRequiredEvidencePathsExist": true,
+  "checkedPackageRecordMarkdownFiles": 8,
+  "checkedRelativeRecordLinks": 79,
+  "brokenRelativeRecordLinks": [
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md",
+      "target": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/00_PROMPT_ORIGINAL.md",
+      "resolved": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/00_PROMPT_ORIGINAL.md"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md",
+      "target": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md",
+      "resolved": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md",
+      "target": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+      "resolved": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+    }
+  ],
+  "requirementsTotal": 216,
+  "currentPackageRequirements": 12,
+  "prBodyStillSaysReviewReady": true,
+  "latestPrCommentMentionsChangesRequired": true,
+  "currentHeadCiConclusion": "SUCCESS",
+  "qualifiedImplementationCommitBeforeCiTestCorrection": "e0cfd85445c87302dc3dc24dbab6b0dd9cda5b00",
+  "hotkeyReproduction": [
+    {
+      "coreStartSucceeds": false,
+      "appStarted": false,
+      "profileModified": true,
+      "persistedHotkey": "Ctrl+Alt+Shift+F12",
+      "callOrder": [
+        "save_user",
+        "bridge.start"
+      ],
+      "originalProfileSha256": "1c31a26b2c541f589740113635e4c25e5f0d552288bf023ca5bfeb50237a334b",
+      "finalProfileSha256": "eede62054fa81bc28cb563e35309295692a1c539dfa5c47e0cb49c58382b6ac0",
+      "userProfilesTouched": false,
+      "expectedProfilePreservationOnFailure": "FAIL_REPRODUCED"
+    },
+    {
+      "coreStartSucceeds": true,
+      "appStarted": true,
+      "profileModified": true,
+      "persistedHotkey": "Ctrl+Alt+Shift+F12",
+      "callOrder": [
+        "save_user",
+        "bridge.start"
+      ],
+      "originalProfileSha256": "1c31a26b2c541f589740113635e4c25e5f0d552288bf023ca5bfeb50237a334b",
+      "finalProfileSha256": "eede62054fa81bc28cb563e35309295692a1c539dfa5c47e0cb49c58382b6ac0",
+      "userProfilesTouched": false,
+      "expectedProfilePreservationOnFailure": null
+    }
+  ],
+  "hotkeyRuntimeBoundary": "Exact application methods + real AppConfig persistence on Windows; fake hotkey registration/core/tray, no real Win32 hardware or full app initialization",
+  "samePersistenceOrderingAlreadyInV1": true,
+  "workingTreeCleanAfterAudit": true
+}

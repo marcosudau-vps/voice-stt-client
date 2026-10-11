@@ -1,0 +1,363 @@
+server:
+  url: wss://stt.voice.marcosudau.com/ws/transcribe
+  health_url: https://stt.voice.marcosudau.com/health
+  reconnect_min_delay: 0.5
+  reconnect_max_delay: 30.0
+  reconnect_jitter: 0.3
+  server_busy_min_delay: 10.0
+  ping_interval: 10.0
+  ping_timeout_count: 3
+  start_confirmation_timeout: 10.0
+  hello_timeout: 5.0
+  ready_timeout: 180.0
+event_stream:
+  enabled: true
+  connect_timeout: 10.0
+  handshake_timeout: 10.0
+  replay_timeout: 60.0
+  message_timeout: 30.0
+  reconnect_min_delay: 0.5
+  reconnect_max_delay: 30.0
+  reconnect_jitter: 0.3
+  max_message_size: 1048576
+  queue_maxsize: 512
+  cursor_persistence_enabled: true
+  cursor_path: null
+session:
+  mode: hotkey
+  manual_trigger_enabled: null
+  wake_word_trigger_enabled: null
+  wake_word_backend: null
+  wake_words: hey_jarvis
+  wake_word_inference_framework: null
+  wake_word_sensitivity: null
+  wake_word_activation_delay: null
+  wake_word_timeout: null
+  wake_word_buffer_duration: null
+  wake_word_followup_window: null
+  initial_speech_timeout: null
+  followup_timeout: null
+  extension_seconds: null
+dictation_window:
+  initial_speech_timeout: 15.0
+  followup_timeout: 3.0
+  extension_seconds: 15.0
+  timeout_warning_seconds: 3.0
+audio:
+  device: null
+  sample_rate: 16000
+  channels: 1
+  chunk_duration_ms: 40
+  dtype: int16
+text_injection:
+  final_strategy: clipboard
+  paste_delay_ms: 50
+  append_space: true
+  warn_elevated: true
+hotkey:
+  enabled: true
+  mode: actions
+  toggle_key: Ctrl+Alt+Shift+F12
+  reinsert_last_key: Ctrl+Alt+Space
+  finish_key: null
+  cancel_key: null
+  overlay_toggle_key: null
+  auto_start: false
+overlay:
+  enabled: true
+  position: bottom_center
+  width: 600
+  max_height: 100
+  opacity: 0.85
+  fade_after: 2.0
+  font_size: 14
+  font_family: null
+  background_color: '#20242a'
+  text_color: '#ffffff'
+  margin: 60
+  show_realtime_text: true
+history:
+  enabled: true
+  memory:
+    max_entries: 5
+  persistent:
+    enabled: true
+    max_entries: 100
+    retention_days: 0
+    min_characters: 1000
+    store_failed_injections: true
+    store_all: false
+    db_path: null
+logging:
+  level: INFO
+  log_dir: C:\Users\marco\.voice-stt\client\logs
+  max_bytes: 5242880
+  backup_count: 3
+  stdout: true
+  json_format: true
+  channel_levels: {}
+  observability:
+    enabled: true
+    level: INFO
+    store_enabled: true
+    db_path: null
+    retention_days: 14
+    max_entries: 200000
+    max_db_bytes: 268435456
+    queue_size: 8192
+    batch_size: 200
+    flush_interval_s: 0.5
+    file_sink_enabled: false
+    file_sink_dir: null
+    store_transcription_content: false
+    store_raw_payload: true
+clipboard:
+  restore_previous: false
+  restore_delay_ms: 300
+  backup_max_bytes: 1048576
+  open_retries: 5
+  open_retry_delay_ms: 20
+feedback:
+  sounds_enabled: false
+  wake_word_sound: assets/feedback_sounds/debug/wake_word.wav
+  start_sound: assets/feedback_sounds/debug/start.wav
+  stop_sound: assets/feedback_sounds/debug/stop.wav
+  complete_sound: assets/feedback_sounds/debug/complete.wav
+  cancel_sound: assets/feedback_sounds/debug/cancel.wav
+  warning_sound: assets/feedback_sounds/debug/warning.wav
+  error_sound: assets/feedback_sounds/debug/error.wav
+  timeout_tick_sound: assets/feedback_sounds/debug/timeout_tick.wav
+led:
+  enabled: false
+  sink: respeaker
+  fps: 30.0
+  vendor_id: 10374
+  product_id: 26
+  brightness: 192
+  usb_timeout_ms: 1000
+  shutdown_timeout: 1.5
+  effect_paths: []
+  simulation_offer_after_s: 120.0
+feedback_mappings:
+  schema_version: 2
+  events:
+    server.wakeword.detected:
+      led:
+      - emit_event: wakeword_detected
+      - set_state: waiting
+      sound:
+        cue: wake_word
+        volume: 1.0
+      app:
+        action: indicator.waiting_for_speech
+    server.recording.started:
+      led:
+        set_state: listening
+      sound:
+        cue: start
+        volume: 1.0
+      app:
+        action: indicator.recording
+    server.recording.ended:
+      led:
+        set_state: thinking
+      sound:
+        cue: stop
+        volume: 1.0
+      app:
+        action: indicator.finalizing
+    server.transcription.started:
+      led:
+        set_state: thinking
+      app:
+        action: indicator.finalizing
+    server.transcription.completed:
+      led:
+      - emit_event: success_event
+        config:
+          duration_ms: 700
+      - set_state: ready_state
+      sound:
+        cue: complete
+        volume: 1.0
+      app:
+        action: indicator.success
+    server.transcription.discarded:
+      led:
+      - emit_event: reject_event
+      - set_state: ready_state
+      sound:
+        cue: cancel
+        volume: 1.0
+      app:
+        action: indicator.idle
+    server.transcription.failed:
+      led:
+      - emit_event: error_event
+        config:
+          duration_ms: 1200
+      - set_state: ready_state
+      sound:
+        cue: error
+        volume: 1.0
+      app:
+        action: indicator.error
+    server.transcription.cancelled:
+      led:
+      - emit_event: reject_event
+      - set_state: ready_state
+      sound:
+        cue: cancel
+        volume: 1.0
+      app:
+        action: indicator.idle
+    server.transcription.rejected:
+      led:
+      - emit_event: reject_event
+      - set_state: ready_state
+      sound:
+        cue: error
+        volume: 1.0
+      app:
+        action: indicator.error
+    client.hotkey.accepted:
+      led:
+      - emit_event: wakeword_detected
+      - set_state: waiting
+      sound:
+        cue: wake_word
+        volume: 1.0
+      app:
+        action: indicator.waiting_for_speech
+    client.action.blocked:
+      led:
+        emit_event: warn_event
+      sound:
+        cue: warning
+        volume: 1.0
+      app:
+        action: indicator.warning
+    client.dictation.interrupted:
+      led:
+      - emit_event: warn_event
+        config:
+          duration_ms: 1000
+      - set_state: ready_state
+      sound:
+        cue: warning
+        volume: 1.0
+      app:
+        action: indicator.warning
+    client.dictation.timeout_warning:
+      led:
+        set_overlay: countdown_ring
+        config:
+          duration_ms: 3000
+          colors:
+          - '#00C066'
+          - '#FFE000'
+          - '#FF0000'
+          brightness: 1.0
+      sound:
+        cue: timeout_tick
+        volume: 0.85
+    client.dictation.timeout_warning_cleared:
+      led:
+        set_overlay: countdown_ring
+        config:
+          duration_ms: 1
+          colors:
+          - '#000000'
+          - '#000000'
+          brightness: 0.0
+      sound:
+        cue: timeout_tick
+        volume: 1.0
+        action: stop
+    client.transport.disconnected:
+      led:
+        set_state: reconnect_network_state
+      sound:
+        cue: warning
+        volume: 1.0
+      app:
+        action: indicator.warning
+    client.event_stream.connecting: {}
+    client.event_stream.replaying: {}
+    client.event_stream.live: {}
+    client.event_stream.degraded: {}
+    client.microphone.lost:
+      led:
+        set_state: reconnect_mic_state
+      sound:
+        cue: warning
+        volume: 1.0
+      app:
+        action: indicator.warning
+    client.microphone.recovered:
+      led:
+      - emit_event: success_event
+      - set_state: ready_state
+      sound:
+        cue: complete
+        volume: 1.0
+    client.injection.accepted:
+      led:
+        emit_event: init_event
+    client.injection.succeeded:
+      led:
+        emit_event: success_event
+    client.injection.failed:
+      led:
+        emit_event: error_event
+      sound:
+        cue: error
+        volume: 1.0
+      app:
+        action: indicator.error
+    client.tts.started:
+      led:
+        set_state: speaking
+      sound:
+        cue: start
+        volume: 0.8
+    client.tts.stopped:
+      led:
+        set_state: ready_state
+      sound:
+        cue: stop
+        volume: 0.8
+    client.tts.failed:
+      led:
+        emit_event: error_event
+      sound:
+        cue: error
+        volume: 1.0
+      app:
+        action: indicator.error
+    client.led.unavailable:
+      sound:
+        cue: warning
+        volume: 1.0
+      app:
+        action: indicator.warning
+    client.sound.failed:
+      app:
+        action: indicator.warning
+    client.configuration.invalid:
+      led:
+        emit_event: error_event
+      app:
+        action: indicator.error
+    client.lifecycle.started:
+      led:
+      - emit_event: init_event
+      - set_state: ready_state
+      sound:
+        cue: start
+        volume: 1.0
+    client.lifecycle.stopping:
+      led:
+        clear_state: primary
+      app:
+        action: indicator.idle

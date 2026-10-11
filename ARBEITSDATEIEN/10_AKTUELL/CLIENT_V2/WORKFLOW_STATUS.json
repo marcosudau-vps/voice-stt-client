@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "CHANGES_REQUIRED",
-  "packageStatus": "CHANGES_REQUIRED",
+  "workflowPhase": "REVIEW_READY",
+  "packageStatus": "REVIEW_READY",
   "activePackage": "AP-CV2-000",
   "nextPackage": "AP-CV2-010",
   "canonicalBranch": "feat/client-v2",
@@ -10,10 +10,10 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/2",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R02-ABNAHME",
-    "role": "review",
-    "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+    "id": "R03-KORREKTUR",
+    "role": "correction",
+    "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md"
   },
   "reviewedCommit": "8b1c4c157b6b431dac6af69e2e264d0c37579bef",
   "reviewReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md",
@@ -22,13 +22,14 @@
   ],
   "humanApproval": null,
   "writeOwner": null,
-  "blockingReason": "CV2-R02-F01: Start-Hotkey-Fallback speichert Benutzerprofil vor erfolgreichem Corestart; unabhängiger Windows-Volltest des Reviewers NOT_RUN.",
-  "nextAction": "Umsetzer übernimmt Reviewunterlagen, korrigiert CV2-R02-F01 samt gezieltem Regressionstest, reicht selben PR neu als REVIEW_READY ein; danach frischer unabhängiger Windows-Vollreview. Keine kanonische Übernahme.",
+  "blockingReason": null,
+  "nextAction": "Frischer unabhängiger Vollreview des gesamten PR #2 auf seiner tatsächlichen Spitze; F01 und eigene Windows-Gesamtregression prüfen. Kein Merge oder Folgepaketstart.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
-    "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md"
+    "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
-  "context": "R01-Selbsttests und CI 38145266161 PASS; R02 ist unabhängige statische Code-/Git-/CI-Sichtung mit CHANGES_REQUIRED und eigenem Windows-Test NOT_RUN. Geprüft ist SHA 8b1c4c157b6b431dac6af69e2e264d0c37579bef.",
+  "context": "R03 korrigiert R02-F01 mit echtem isoliertem Benutzerprofil; vollständige lokale Selbstregression 1233 PASS, keine unabhängige Abnahme. R02 bleibt historisch CHANGES_REQUIRED mit eigenem Volltest NOT_RUN.",
   "canonicalParentRef": "feat/client-v2",
   "canonicalParentResolution": "Lokaler und veröffentlichter Revision-10-HEAD am Paketstart aus Git verifiziert; vollständiger SHA in canonicalParent.",
   "repository": "marcosudau-vps/voice-stt-client",
@@ -40,5 +41,11 @@
   "recovery": null,
   "relatedServerFix": null,
   "qualifiedImplementationCommit": "e0cfd85445c87302dc3dc24dbab6b0dd9cda5b00",
-  "qualifiedImplementationTree": "e6da645f8092fbf6faa5c5a4fe3540a23441d992"
+  "qualifiedImplementationTree": "e6da645f8092fbf6faa5c5a4fe3540a23441d992",
+  "findingDisposition": {
+    "CV2-R02-F01": {
+      "state": "CORRECTED_AWAITING_INDEPENDENT_RECHECK",
+      "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md"
+    }
+  }
 }

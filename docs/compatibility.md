@@ -74,3 +74,7 @@ start) bleibt sichtbar. Der Wire-/Transportnachzug gehört CV2-010/020, die
 Audiolaufzeit CV2-040 und Runtimeintegration CV2-100; finaler Frozen-GUI- und
 Hardware-/ASR-Gate CV2-110/IV2-020. CV2-010 startet erst nach unabhängiger
 Abnahme, menschlichem Übernahmeprompt und tatsächlichem CV2-000-Aggregat.
+
+## Start-Hotkeyersatz nach R03
+
+Ein erfolgreich registrierter Ersatzhotkey wird erst nach erfolgreichem Corestart in das gewählte Benutzerprofil geschrieben. Bei Corestartfehler bleiben dessen Bytes unverändert; Registrierungen und Hotkeykonfiguration werden zurückgenommen. Bei Speicherfehler wird der gestartete Core gestoppt und der Start verworfen. Deaktivierte Hotkeys und Wake-only schreiben keine Ersatzkombination. Der bereits im V1-Release vorhandene Reihenfolgefehler wurde in [R03](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md) gezielt korrigiert.

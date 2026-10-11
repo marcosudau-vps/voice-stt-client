@@ -10,7 +10,7 @@ Releases: <https://github.com/marcosudau-vps/voice-stt-client/releases>
 ## Aktueller Entwicklungsstand
 
 Aktiver Einstieg ist [Client V2](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md).
-AP-CV2-000 hat die Feature-/Releasebasis in `voice_stt_client` technisch qualifiziert (REVIEW_READY).
+AP-CV2-000 hat die Feature-/Releasebasis in `voice_stt_client` technisch qualifiziert (REVIEW_READY nach R03-Korrektur).
 Der Paketkandidat ist noch nicht unabhängig abgenommen oder auf `feat/client-v2`
 übernommen. Der bestehende Transport ist weiterhin V1; die Migration auf den
 gepinnten V2-Serververtrag erfolgt in den Folgepaketen. Aktuelle Startbefehle,
@@ -183,3 +183,5 @@ Verbindungsversuche bis zu einer echten Konfigurationsänderung.
 - `docs/2026-07-25_AP05_ANTIGRAVITY/GESAMTABNAHME_UND_SELBSTFERTIGSTELLUNG.md` – unabhängiger AP5-Korrektur- und Testnachweis
 - `server-docs-for-client-development/` – verbindlicher Serverprotokollvertrag
 - `docs/RELEASE.md` – Windows-Build, Commit-CI und vollautomatisches GitHub-Release
+
+R03 korrigiert die Hotkey-Persistierung bei fehlgeschlagenem Corestart; [aktueller Korrekturreport](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md). Unabhängige Abnahme weiterhin offen.

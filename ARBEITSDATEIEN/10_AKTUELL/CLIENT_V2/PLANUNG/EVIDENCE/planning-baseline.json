@@ -6,7 +6,7 @@
   "clientCanonicalCommit": "8bab1b3f4aa070d0756c305908def4d9ebc52582",
   "clientReleaseReference": "f625904795880ce71acec216e43678f9ec1656d0",
   "integratedClientCommit": null,
-  "status": "FEATURE_LINEAGE_SELECTED; INTEGRATED_CANDIDATE_REVIEW_READY",
+  "status": "FEATURE_LINEAGE_SELECTED; R03_CORRECTION_SELF_QUALIFIED_REVIEW_READY",
   "namespaceBeforeIntegration": "core/ui",
   "namespaceAfterCV2_000": "voice_stt_client",
   "rulebookStatus": "role workflow and state-based next-step dispatch specified; actual human authorization remains required",
@@ -17,7 +17,7 @@
   "workRecordStructureVersion": 1,
   "promptTemplateVersion": 3,
   "organizationVersion": 2,
-  "roleSkillVersion": 5,
+  "roleSkillVersion": 6,
   "workRecordStructure": "SKILLS/GEMEINSAM/references/PAKETABLAGE_UND_VORLAGEN.md",
   "implementationSkill": "SKILLS/voice-stt-client-v2-umsetzen/SKILL.md",
   "acceptanceSkill": "SKILLS/voice-stt-client-v2-abnehmen/SKILL.md",
@@ -52,7 +52,8 @@
   "documentCorrectionPolicy": "One explicitly authorized docs-only single-parent commit immediately after documentCandidateBase; normal push; no rewrite of revision-9 start; subsequent one-commit-per-accepted-package policy unchanged.",
   "documentCorrectionCommitResolution": "Resolve the first commit after documentCandidateBase on feat/client-v2 and verify its single parent and docs-only diff. Its own final SHA is not embedded in its contents.",
   "integratedCandidateRef": "work/client-v2/ap-cv2-000",
-  "integratedCandidateReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+  "integratedCandidateReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
   "canonicalPackageParent": "050e776cf316eb332177294db0c0a2719c2b4415",
-  "integratedClientCommitMeaning": "Canonical aggregate identity remains null until independent PASS, human approval and actual canonical adoption; current qualified candidate is separate."
+  "integratedClientCommitMeaning": "Canonical aggregate identity remains null until independent PASS, human approval and actual canonical adoption; current qualified candidate is separate.",
+  "roleSkillVersionMeaning": "R03 targeted record consistency, independent test-path and handoff clarification; planning revision 10 and contracts unchanged"
 }

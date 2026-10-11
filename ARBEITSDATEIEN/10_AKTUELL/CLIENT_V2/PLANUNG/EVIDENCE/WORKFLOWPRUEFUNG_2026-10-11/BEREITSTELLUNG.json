@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-11",
+  "repository": "marcosudau-vps/voice-stt-client",
+  "branch": "work/client-v2/ap-cv2-000",
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/2",
+  "relativeFolder": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11",
+  "localHeadUnchanged": "8b1c4c157b6b431dac6af69e2e264d0c37579bef",
+  "knownReviewDocsHead": "2dc251df959f97e2a0bb37b10a1a77486ae6eb5a",
+  "featureHeadUnchanged": "050e776cf316eb332177294db0c0a2719c2b4415",
+  "publicationStatus": "R03_CANDIDATE_READY_PENDING_REMOTE_VERIFICATION",
+  "committed": false,
+  "pushed": false,
+  "packageAcceptanceClaimed": false,
+  "nextAction": "Normaler Push in PR #2 und tatsächliche Remote-Hashprüfung aller Belege.",
+  "externalSourceAccessRequired": false,
+  "historicalSourceFilesPreserved": 6355,
+  "sourceArchiveFullyHashVerified": true,
+  "originalAuditFilesInitiallyByteIdentical": [
+    "audit_workflow.py",
+    "BEWERTUNG_UND_EMPFEHLUNG.md",
+    "finalisiere_bewertung.py",
+    "IMPORT_HINWEISE.md",
+    "IMPORT_MANIFEST.json",
+    "KORREKTURPROMPT_AP_CV2_000.md",
+    "pr-body-snapshot.json",
+    "pr-snapshot.json",
+    "SYNTHETISCHE_PROFILE/core-failure-v2.yaml",
+    "SYNTHETISCHE_PROFILE/core-failure.yaml",
+    "SYNTHETISCHE_PROFILE/core-success-v2.yaml",
+    "workflow-audit.json"
+  ],
+  "activeHandoffFilesAdjusted": [
+    "KORREKTURPROMPT_AP_CV2_000.md",
+    "IMPORT_HINWEISE.md",
+    "IMPORT_MANIFEST.json"
+  ],
+  "authorization": [
+    "Ey, das ist nicht in Ordnung, dass du das immer noch unter Workflow Tools speicherst. Die Agent Session, die hat jetzt genau auf V2 Client Workspace oder wie das heißt Zugriff.",
+    "Ja und dann stell bitte auch sicher, dass im Workflow Tools nichts mehr ist, was nicht auch im Workspace oder beziehungsweise in dem gepushten Stand ist. Es muss alles online verfügbar sein. Der Workflow-Tools-Ordner darf keine Rolle mehr spielen.",
+    "Nein, du brauchst das nicht veröffentlichen oder pushen, weil wir doch noch den offenen Pull Request haben. Das heißt, da musst du alles dann reinnehmen. Sonst ist der veröffentlichte Stand wieder ein anderer."
+  ],
+  "validationCommand": ".\\venv\\Scripts\\python.exe ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/pruefe_bereitstellung.py",
+  "codeChanged": false,
+  "productTestsRerun": false,
+  "trackedFilesUnchanged": true,
+  "preparedSteeringEntry": "VERLAUFSEINTRAG_VORBEREITET.md",
+  "correctionRun": "R03-KORREKTUR",
+  "preparationHeadMeaning": "localHeadUnchanged records historical preparation before the safe fast-forward; current candidate is resolved from package branch",
+  "includedBundleFiles": 22
+}

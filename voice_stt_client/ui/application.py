@@ -158,6 +158,7 @@ class DesktopApplication(QObject):
         self.led_feedback.watch_device_mute()
         self.hotkeys = self._create_hotkey_manager(config)
         self._started = False
+        self._startup_hotkey_suggestion: str | None = None
         self._shutting_down = False
         self._lifecycle_started_reported = False
         self._lifecycle_stopping_reported = False
@@ -226,6 +227,9 @@ class DesktopApplication(QObject):
     def start(self) -> bool:
         if self._started:
             return True
+        original_hotkey = replace(self.config.hotkey)
+        original_manager = self.hotkeys
+        self._startup_hotkey_suggestion = None
         self.tray.show()
         hotkeys_ok = self._register_startup_hotkeys()
         if not hotkeys_ok:
@@ -240,8 +244,29 @@ class DesktopApplication(QObject):
         if not self.bridge.start():
             self._on_fatal_error("Core konnte nicht gestartet werden")
             self.hotkeys.unregister()
+            self.config.hotkey = original_hotkey
+            self.hotkeys = original_manager
             self.tray.hide()
             return False
+        if self._startup_hotkey_suggestion is not None:
+            # Registration is provisional until the Core is running. A failed
+            # startup must not replace the user's persisted hotkey preference.
+            try:
+                self.config.save_user()
+            except Exception:
+                logger.exception("Could not persist the working fallback hotkey.")
+                self.bridge.stop(timeout=10.0)
+                self.hotkeys.unregister()
+                self.config.hotkey = original_hotkey
+                self.hotkeys = original_manager
+                self.tray.hide()
+                return False
+            self.tray.tray.showMessage(
+                "Hotkey automatisch ersetzt",
+                f"Ein belegter Hotkey wurde durch {self._startup_hotkey_suggestion} ersetzt. "
+                "Die neue Kombination steht in den Einstellungen.",
+                QSystemTrayIcon.MessageIcon.Warning,
+            )
         self._started = True
         # CONTRACTS §12.1: client.app.started. FD-C3 puts ``process_id`` in the
         # details of exactly this record rather than in a column of every row.
@@ -287,19 +312,7 @@ class DesktopApplication(QObject):
                 continue
             if candidate.register():
                 self.hotkeys = candidate
-                try:
-                    self.config.save_user()
-                except Exception:
-                    logger.exception("Could not persist the working fallback hotkey.")
-                    candidate.unregister()
-                    self.config.hotkey = original
-                    return False
-                self.tray.tray.showMessage(
-                    "Hotkey automatisch ersetzt",
-                    f"Ein belegter Hotkey wurde durch {suggestion} ersetzt. "
-                    "Die neue Kombination steht in den Einstellungen.",
-                    QSystemTrayIcon.MessageIcon.Warning,
-                )
+                self._startup_hotkey_suggestion = suggestion
                 return True
             failure = candidate.last_failure
         self.config.hotkey = original

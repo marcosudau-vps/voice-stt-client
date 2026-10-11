@@ -2,6 +2,11 @@
 
 Den vollständigen Kandidaten prüfen, nicht nur einen letzten Korrekturcommit. Diese Liste steuert die Prüfung; Nachweise/Verdict gehören in einen eigenen Runreport.
 
+## Prüfstart im selben Abnahmerun
+
+- [ ] Isolierten Checkout des tatsächlich eingereichten Kandidaten und nutzbaren Testweg vor fachlicher Prüfung verifiziert: geeignetes lokales Windows oder vom Reviewer veranlasster geeigneter Prüfhost. Kandidaten-SHA/Base, Runtime, Befehle und vollständige Logs nachvollziehbar sichern.
+- [ ] Sichtung bereits grüner CI als Fremdbeleg kennzeichnen; sie belegt keine eigene Testdurchführung. Bei fehlender Voraussetzung konkrete Lücke und nächsten Testweg melden. Statische Teilprüfung darf Findings liefern, aber ohne Pflichtnachweise keinen ROOT_PASS. Keine zusätzliche Phase oder Session für diesen Prüfstart.
+
 ## Identität und Scope
 
 - [ ] Frische unabhängige Session, tatsächlicher Auftrag/Original-Prompt und geltende Paketfassung identifiziert.
@@ -47,3 +52,12 @@ Der Umsetzer führt vorzugsweise die später menschlich freigegebene Übernahme 
 
 - [ ] Bei realen Fremdbelegen Tester, Build-/SHA-Paar, Ablauf und tatsächliche Wirkungsbelege geprüft; eigene Prüfungen und extern validierte Durchführung getrennt berichtet. Pflichtlücken blockieren PASS.
 - [ ] Bei Server-FIX die tatsächlich verlinkte Serverakte/Zielrolle angewendet; kein Client-PR-Basecheck an einem Serverkandidaten. Bei Recovery/Wechsel tatsächliche Übergabe-/Auswahlquelle geprüft.
+
+## Aktenprüfung vor jeder Abgabe
+
+- [ ] WORKFLOW_STATUS, Manifest, Paketkopf und Index mit der tatsächlich aktuellen PR-Kurzfassung synchronisiert; Originalprompts, Reports und Evidenz vollständig bereitgestellt. Neue/geänderte relative Links aus dem Quelldokument aufgelöst; historische Belege erhalten. Auch Review-Dokumentcommits strukturell prüfen.
+- [ ] [Gemeinsamen read-only-Aktenprüfer](../../GEMEINSAM/scripts/pruefe_arbeitsakten.py) aus dem Repository ausgeführt; geänderte weitere Markdownunterlagen über `--paths` ergänzen und aktuelle PR-Kurzfassung gemäß [Übergabereferenz](../../GEMEINSAM/references/PR_UND_REVIEW_UEBERGABE.md) abgleichen:
+
+```powershell
+.\venv\Scripts\python.exe ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/scripts/pruefe_arbeitsakten.py
+```

@@ -1,0 +1,190 @@
+{
+  "BEREITSTELLUNG.json": {
+    "schemaVersion": 1,
+    "date": "2026-10-11",
+    "repository": "marcosudau-vps/voice-stt-client",
+    "branch": "work/client-v2/ap-cv2-000",
+    "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/2",
+    "relativeFolder": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11",
+    "localHeadUnchanged": "8b1c4c157b6b431dac6af69e2e264d0c37579bef",
+    "knownReviewDocsHead": "2dc251df959f97e2a0bb37b10a1a77486ae6eb5a",
+    "featureHeadUnchanged": "050e776cf316eb332177294db0c0a2719c2b4415",
+    "publicationStatus": "LOCAL_PREPARATION_PENDING_CORRECTION_PR",
+    "committed": false,
+    "pushed": false,
+    "packageAcceptanceClaimed": false,
+    "nextAction": "Fast-forward existing package branch to actual review head while preserving this untracked evidence folder; correction agent includes all prepared artifacts and steering entry together with corrections in existing PR #2; then verifies remote file set",
+    "externalSourceAccessRequired": false,
+    "historicalSourceFilesPreserved": 6355,
+    "sourceArchiveFullyHashVerified": true,
+    "originalAuditFilesInitiallyByteIdentical": [
+      "audit_workflow.py",
+      "BEWERTUNG_UND_EMPFEHLUNG.md",
+      "finalisiere_bewertung.py",
+      "IMPORT_HINWEISE.md",
+      "IMPORT_MANIFEST.json",
+      "KORREKTURPROMPT_AP_CV2_000.md",
+      "pr-body-snapshot.json",
+      "pr-snapshot.json",
+      "SYNTHETISCHE_PROFILE/core-failure-v2.yaml",
+      "SYNTHETISCHE_PROFILE/core-failure.yaml",
+      "SYNTHETISCHE_PROFILE/core-success-v2.yaml",
+      "workflow-audit.json"
+    ],
+    "activeHandoffFilesAdjusted": [
+      "KORREKTURPROMPT_AP_CV2_000.md",
+      "IMPORT_HINWEISE.md",
+      "IMPORT_MANIFEST.json"
+    ],
+    "authorization": [
+      "Ey, das ist nicht in Ordnung, dass du das immer noch unter Workflow Tools speicherst. Die Agent Session, die hat jetzt genau auf V2 Client Workspace oder wie das heißt Zugriff.",
+      "Ja und dann stell bitte auch sicher, dass im Workflow Tools nichts mehr ist, was nicht auch im Workspace oder beziehungsweise in dem gepushten Stand ist. Es muss alles online verfügbar sein. Der Workflow-Tools-Ordner darf keine Rolle mehr spielen.",
+      "Nein, du brauchst das nicht veröffentlichen oder pushen, weil wir doch noch den offenen Pull Request haben. Das heißt, da musst du alles dann reinnehmen. Sonst ist der veröffentlichte Stand wieder ein anderer."
+    ],
+    "validationCommand": ".\\venv\\Scripts\\python.exe ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/pruefe_bereitstellung.py",
+    "codeChanged": false,
+    "productTestsRerun": false,
+    "trackedFilesUnchanged": true,
+    "preparedSteeringEntry": "VERLAUFSEINTRAG_VORBEREITET.md"
+  },
+  "IMPORT_MANIFEST.json": {
+    "schemaVersion": 2,
+    "date": "2026-10-11",
+    "scope": "Prepared repository-contained workflow audit and historical source preservation; pending inclusion in existing correction PR",
+    "targetRepository": "marcosudau-vps/voice-stt-client",
+    "targetBranch": "work/client-v2/ap-cv2-000",
+    "targetRelativeFolder": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11",
+    "externalSourceAccessRequired": false,
+    "publicationStatus": "LOCAL_PREPARATION_PENDING_CORRECTION_PR",
+    "payloadFiles": 21,
+    "manifestExcludedFromOwnHashes": true,
+    "files": [
+      {
+        "path": "audit_workflow.py",
+        "bytes": 8877,
+        "sha256": "af5bd73a7a88350f00564fa5d05c0e7070795dcc1ddcfbc1b4f9dd4113891253",
+        "sha256NormalizedLF": "af5bd73a7a88350f00564fa5d05c0e7070795dcc1ddcfbc1b4f9dd4113891253"
+      },
+      {
+        "path": "BEREITSTELLUNG.json",
+        "bytes": 2700,
+        "sha256": "1dcbab7c984e661ebe3d77d12df9ea702446970d316faec539deb7a9d0a55d33",
+        "sha256NormalizedLF": "e939e43626757937d0ca2bbb803bf24b440b1bc751bc6bf69b0036da85942d2d"
+      },
+      {
+        "path": "BEWERTUNG_UND_EMPFEHLUNG.md",
+        "bytes": 8567,
+        "sha256": "822bc764d495ba7b9add27266f604650027297c17e74e8d04a228ba560851114",
+        "sha256NormalizedLF": "822bc764d495ba7b9add27266f604650027297c17e74e8d04a228ba560851114"
+      },
+      {
+        "path": "finalisiere_bewertung.py",
+        "bytes": 2862,
+        "sha256": "eda93b6a0d07aea9983d273b64db851b3fc271e8d1894eac28db72041af0c203",
+        "sha256NormalizedLF": "eda93b6a0d07aea9983d273b64db851b3fc271e8d1894eac28db72041af0c203"
+      },
+      {
+        "path": "HISTORIE/.gitignore",
+        "bytes": 168,
+        "sha256": "c0920902449cd4eb1958d13a3640df18a1f005387470c02ec63ed76b4e76035f",
+        "sha256NormalizedLF": "c0920902449cd4eb1958d13a3640df18a1f005387470c02ec63ed76b4e76035f"
+      },
+      {
+        "path": "HISTORIE/QUELLBESTAND_MANIFEST.json",
+        "bytes": 1671930,
+        "sha256": "14922a75752d417858513feda7ae148037826fabb7b2ce4b59fa574307878ccf",
+        "sha256NormalizedLF": "a05c53578954922003338ae9c3cb217867d8c11893d2fcff09019323848dee31"
+      },
+      {
+        "path": "HISTORIE/WORKFLOW_TOOLS_THEMENSTAND_2026-10-11.zip.001",
+        "bytes": 83886080,
+        "sha256": "b82dae0eae23957e6cd0f0dbb753d303f9d48f592a8b66b60d03093deb1107e6",
+        "sha256NormalizedLF": "bc06d96e184ad841afe4830aea2280bb33afce01e17db57241cbc9d7afaa01fa"
+      },
+      {
+        "path": "HISTORIE/WORKFLOW_TOOLS_THEMENSTAND_2026-10-11.zip.002",
+        "bytes": 83886080,
+        "sha256": "6eeee8ab049242dee2706e082a20a0f77169e20d6fd2b22a0fe1b943ca460488",
+        "sha256NormalizedLF": "b10875c042edf1bbba02e83966a9d9fbd4c5afdc86ce786f99b68ca60c064e62"
+      },
+      {
+        "path": "HISTORIE/WORKFLOW_TOOLS_THEMENSTAND_2026-10-11.zip.003",
+        "bytes": 39374403,
+        "sha256": "dd869e06a1353b692a90b917fdbeab285a1f8956fafe9bd58ea3aece0d8d5d3b",
+        "sha256NormalizedLF": "72d26ff37e821d837fe0a727f24d97ba966a27cfa219cc9a46ca49012deebb68"
+      },
+      {
+        "path": "IMPORT_HINWEISE.md",
+        "bytes": 4086,
+        "sha256": "259a7192fdb31f05ef4c92730d87b81771f4ed76b7bcc9e6e755f08725abc061",
+        "sha256NormalizedLF": "259a7192fdb31f05ef4c92730d87b81771f4ed76b7bcc9e6e755f08725abc061"
+      },
+      {
+        "path": "KORREKTURPROMPT_AP_CV2_000.md",
+        "bytes": 9856,
+        "sha256": "987e2b21cd1f1fdc809cda1c9e3704c96ecb16ff40fdeb05a44db0ff45ddbdda",
+        "sha256NormalizedLF": "987e2b21cd1f1fdc809cda1c9e3704c96ecb16ff40fdeb05a44db0ff45ddbdda"
+      },
+      {
+        "path": "pr-body-snapshot.json",
+        "bytes": 2817,
+        "sha256": "807d330c46dfb662c1f4da38c9956170d80ff6075971f7127c4a2cba811de924",
+        "sha256NormalizedLF": "1a106099589f2d2b09991f3660fe9ca7420ffa27e6471630396e716193feb8d6"
+      },
+      {
+        "path": "pr-snapshot.json",
+        "bytes": 8927,
+        "sha256": "bfac795af24c79c2f614fbadb83b5ffe70d78720ba0523aedb17016df4506f5e",
+        "sha256NormalizedLF": "d58f5cb0246bff4ed3794f2fbbeaaf981ac67f866f131cb91367901c4845dce8"
+      },
+      {
+        "path": "pruefe_bereitstellung.py",
+        "bytes": 3069,
+        "sha256": "ccb57469872055c36170de8aebdd0095991dca74e0aad2b1153ddec56bea3a02",
+        "sha256NormalizedLF": "ccb57469872055c36170de8aebdd0095991dca74e0aad2b1153ddec56bea3a02"
+      },
+      {
+        "path": "README.md",
+        "bytes": 3532,
+        "sha256": "58fc51005b45b2afd645fc1178002043a4efc31f7cdbf01bd69f2a54273e0965",
+        "sha256NormalizedLF": "58fc51005b45b2afd645fc1178002043a4efc31f7cdbf01bd69f2a54273e0965"
+      },
+      {
+        "path": "sichere_quellbestand.py",
+        "bytes": 5015,
+        "sha256": "7ee650ece1406e930a942e9f2d531f6c6cf77739871125fc9c91ecea1c502af0",
+        "sha256NormalizedLF": "7ee650ece1406e930a942e9f2d531f6c6cf77739871125fc9c91ecea1c502af0"
+      },
+      {
+        "path": "SYNTHETISCHE_PROFILE/core-failure-v2.yaml",
+        "bytes": 8847,
+        "sha256": "eede62054fa81bc28cb563e35309295692a1c539dfa5c47e0cb49c58382b6ac0",
+        "sha256NormalizedLF": "e1f8e2cf7eaad2b0e54eafde42da83705c7b833939cb898a60324f4d50c6207e"
+      },
+      {
+        "path": "SYNTHETISCHE_PROFILE/core-failure.yaml",
+        "bytes": 116,
+        "sha256": "feae759ba4aa1d32eb508b170791d941192bb5ebdc94393f8a36a124277526fa",
+        "sha256NormalizedLF": "1dca1bfc5e2ea8cfa7403c34ce91cc0cd9f8e9c266cab5acb0ab312a30b6cdea"
+      },
+      {
+        "path": "SYNTHETISCHE_PROFILE/core-success-v2.yaml",
+        "bytes": 8847,
+        "sha256": "eede62054fa81bc28cb563e35309295692a1c539dfa5c47e0cb49c58382b6ac0",
+        "sha256NormalizedLF": "e1f8e2cf7eaad2b0e54eafde42da83705c7b833939cb898a60324f4d50c6207e"
+      },
+      {
+        "path": "VERLAUFSEINTRAG_VORBEREITET.md",
+        "bytes": 1423,
+        "sha256": "762b6cdf82382f34321fda3e5097dcf628d99499a5263050788b6efd0c2ff85b",
+        "sha256NormalizedLF": "762b6cdf82382f34321fda3e5097dcf628d99499a5263050788b6efd0c2ff85b"
+      },
+      {
+        "path": "workflow-audit.json",
+        "bytes": 3828,
+        "sha256": "fef61089e07abfedccb002c661dfa03efe7970ae7948de1dde1821b1f506fa1a",
+        "sha256NormalizedLF": "4d022eff75ed313477e15d53afa342f014ce187cf54bcc6b4dfe7ae456fa4177"
+      }
+    ]
+  }
+}

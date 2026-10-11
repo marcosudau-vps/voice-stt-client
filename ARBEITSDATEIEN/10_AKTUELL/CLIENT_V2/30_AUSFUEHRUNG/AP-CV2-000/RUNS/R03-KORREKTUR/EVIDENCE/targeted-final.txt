@@ -1,0 +1,69 @@
+test_disabled_and_wake_only_never_register_or_rewrite_profile (tests.test_startup_hotkey_persistence.StartupPersistence.test_disabled_and_wake_only_never_register_or_rewrite_profile) ... UI received fatal Core error: Core konnte nicht gestartet werden
+UI received fatal Core error: Core konnte nicht gestartet werden
+ok
+test_failed_core_preserves_profile_and_restores_in_memory_hotkeys (tests.test_startup_hotkey_persistence.StartupPersistence.test_failed_core_preserves_profile_and_restores_in_memory_hotkeys) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+UI received fatal Core error: Core konnte nicht gestartet werden
+ok
+test_retry_after_failed_core_uses_original_binding_then_persists (tests.test_startup_hotkey_persistence.StartupPersistence.test_retry_after_failed_core_uses_original_binding_then_persists) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+UI received fatal Core error: Core konnte nicht gestartet werden
+Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+ok
+test_save_failure_stops_started_core_and_restores_hotkeys (tests.test_startup_hotkey_persistence.StartupPersistence.test_save_failure_stops_started_core_and_restores_hotkeys) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+Could not persist the working fallback hotkey.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\application.py", line 255, in start
+    self.config.save_user()
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+PermissionError: read-only profile
+ok
+test_success_persists_after_core_start_and_preserves_preferences (tests.test_startup_hotkey_persistence.StartupPersistence.test_success_persists_after_core_start_and_preserves_preferences) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+ok
+test_actual_repeated_package_prefix_breaks_relative_link (tests.test_v2_work_records.WorkRecords.test_actual_repeated_package_prefix_breaks_relative_link) ... ok
+test_actual_stale_manifest_review_ready_after_changes_required (tests.test_v2_work_records.WorkRecords.test_actual_stale_manifest_review_ready_after_changes_required) ... ok
+test_encoded_relative_link_and_code_examples (tests.test_v2_work_records.WorkRecords.test_encoded_relative_link_and_code_examples) ... ok
+test_missing_referenced_original_prompt_fails (tests.test_v2_work_records.WorkRecords.test_missing_referenced_original_prompt_fails) ... ok
+test_optional_pr_summary_must_match (tests.test_v2_work_records.WorkRecords.test_optional_pr_summary_must_match) ... ok
+test_package_header_and_index_must_match_active_state (tests.test_v2_work_records.WorkRecords.test_package_header_and_index_must_match_active_state) ... ok
+test_valid_different_packages_and_statuses_preserve_historical_verdict (tests.test_v2_work_records.WorkRecords.test_valid_different_packages_and_statuses_preserve_historical_verdict) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.949s
+
+OK

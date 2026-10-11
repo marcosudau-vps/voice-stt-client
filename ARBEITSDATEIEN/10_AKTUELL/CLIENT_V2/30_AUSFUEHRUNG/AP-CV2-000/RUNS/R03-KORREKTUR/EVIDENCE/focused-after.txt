@@ -1,0 +1,129 @@
+test_disabled_and_wake_only_never_register_or_rewrite_profile (tests.test_startup_hotkey_persistence.StartupPersistence.test_disabled_and_wake_only_never_register_or_rewrite_profile) ... UI received fatal Core error: Core konnte nicht gestartet werden
+UI received fatal Core error: Core konnte nicht gestartet werden
+ok
+test_failed_core_preserves_profile_and_restores_in_memory_hotkeys (tests.test_startup_hotkey_persistence.StartupPersistence.test_failed_core_preserves_profile_and_restores_in_memory_hotkeys) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 23, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+UI received fatal Core error: Core konnte nicht gestartet werden
+ok
+test_retry_after_failed_core_uses_original_binding_then_persists (tests.test_startup_hotkey_persistence.StartupPersistence.test_retry_after_failed_core_uses_original_binding_then_persists) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 23, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+UI received fatal Core error: Core konnte nicht gestartet werden
+Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 23, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+ok
+test_save_failure_stops_started_core_and_restores_hotkeys (tests.test_startup_hotkey_persistence.StartupPersistence.test_save_failure_stops_started_core_and_restores_hotkeys) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 23, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+Could not persist the working fallback hotkey.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\application.py", line 255, in start
+    self.config.save_user()
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+PermissionError: read-only profile
+ok
+test_success_persists_after_core_start_and_preserves_preferences (tests.test_startup_hotkey_persistence.StartupPersistence.test_success_persists_after_core_start_and_preserves_preferences) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 23, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+ok
+test_argument_parser_preserves_explicit_headless_mode (tests.test_ui_application.TestDesktopApplication.test_argument_parser_preserves_explicit_headless_mode) ... ok
+test_core_start_failure_rolls_back_hotkeys_and_tray (tests.test_ui_application.TestDesktopApplication.test_core_start_failure_rolls_back_hotkeys_and_tray) ... UI received fatal Core error: Core konnte nicht gestartet werden
+ok
+test_hotkey_conflict_without_fallback_aborts_before_core_start (tests.test_ui_application.TestDesktopApplication.test_hotkey_conflict_without_fallback_aborts_before_core_start) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_ui_application.py", line 112, in register
+    raise OSError("conflict")
+OSError: conflict
+Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_ui_application.py", line 112, in register
+    raise OSError("conflict")
+OSError: conflict
+No working global hotkey combination found: Windows konnte die Tastenkombination nicht registrieren.
+ok
+test_led_failure_returns_as_canonical_local_fact (tests.test_ui_application.TestDesktopApplication.test_led_failure_returns_as_canonical_local_fact) ... ok
+test_legacy_command_completion_no_longer_triggers_sound (tests.test_ui_application.TestDesktopApplication.test_legacy_command_completion_no_longer_triggers_sound) ... ok
+test_live_local_lifecycle_fact_keeps_led_event_and_state (tests.test_ui_application.TestDesktopApplication.test_live_local_lifecycle_fact_keeps_led_event_and_state) ... ok
+test_mapped_feedback_decision_updates_ui_and_enqueues_one_sound (tests.test_ui_application.TestDesktopApplication.test_mapped_feedback_decision_updates_ui_and_enqueues_one_sound) ... ok
+test_missing_system_tray_is_controlled_and_releases_mutex (tests.test_ui_application.TestDesktopApplication.test_missing_system_tray_is_controlled_and_releases_mutex) ... No system tray is available.
+ok
+test_replay_or_unpublished_decision_never_reaches_ui_adapters (tests.test_ui_application.TestDesktopApplication.test_replay_or_unpublished_decision_never_reaches_ui_adapters) ... ok
+test_second_instance_exits_before_ui_start (tests.test_ui_application.TestDesktopApplication.test_second_instance_exits_before_ui_start) ... ok
+test_sound_failure_returns_as_canonical_local_fact (tests.test_ui_application.TestDesktopApplication.test_sound_failure_returns_as_canonical_local_fact) ... ok
+test_start_wires_native_hotkeys_to_core_and_shutdown_releases_all (tests.test_ui_application.TestDesktopApplication.test_start_wires_native_hotkeys_to_core_and_shutdown_releases_all) ... ok
+test_startup_replaces_conflicting_key_only_after_real_registration (tests.test_ui_application.TestDesktopApplication.test_startup_replaces_conflicting_key_only_after_real_registration) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 280, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_ui_application.py", line 262, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+ok
+test_text_signal_adapts_segment_text_and_final_for_overlay (tests.test_ui_application.TestDesktopApplication.test_text_signal_adapts_segment_text_and_final_for_overlay) ... ok
+test_ui_initialization_exception_releases_mutex (tests.test_ui_application.TestDesktopApplication.test_ui_initialization_exception_releases_mutex) ... Qt UI initialization failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\application.py", line 1017, in run_gui
+    desktop = DesktopApplication(
+              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+RuntimeError: simulated UI construction failure
+ok
+test_a_mute_the_device_never_saw_is_labelled_honestly (tests.test_ui_application.TestMuteAndReconnect.test_a_mute_the_device_never_saw_is_labelled_honestly)
+The mute LED stays dark, so the menu must not imply otherwise. ... ok
+test_device_reconnect_rebuilds_the_led_output (tests.test_ui_application.TestMuteAndReconnect.test_device_reconnect_rebuilds_the_led_output) ... ok
+test_muting_reaches_both_the_client_and_the_device (tests.test_ui_application.TestMuteAndReconnect.test_muting_reaches_both_the_client_and_the_device) ... ok
+test_server_reconnect_goes_to_the_core (tests.test_ui_application.TestMuteAndReconnect.test_server_reconnect_goes_to_the_core) ... ok
+test_the_tray_entry_toggles_the_mute (tests.test_ui_application.TestMuteAndReconnect.test_the_tray_entry_toggles_the_mute) ... ok
+test_unmuting_clears_the_label (tests.test_ui_application.TestMuteAndReconnect.test_unmuting_clears_the_label) ... ok
+test_cli_profile_argument_reaches_loader_without_touching_runtime (tests.test_cv2_000_integration.IntegratedPreferences.test_cli_profile_argument_reaches_loader_without_touching_runtime) ... ok
+test_disabled_hotkeys_remain_disabled_and_do_not_block_startup (tests.test_cv2_000_integration.IntegratedPreferences.test_disabled_hotkeys_remain_disabled_and_do_not_block_startup) ... ok
+test_editor_sync_keeps_effective_legacy_trigger_flags (tests.test_cv2_000_integration.IntegratedPreferences.test_editor_sync_keeps_effective_legacy_trigger_flags) ... ok
+test_environment_profile_never_silently_falls_back_to_legacy (tests.test_cv2_000_integration.IntegratedPreferences.test_environment_profile_never_silently_falls_back_to_legacy) ... ok
+test_existing_legacy_history_is_read_in_place_without_loss (tests.test_cv2_000_integration.IntegratedPreferences.test_existing_legacy_history_is_read_in_place_without_loss) ... ok
+test_explicit_profile_keeps_feature_flags_and_preferences_on_roundtrip (tests.test_cv2_000_integration.IntegratedPreferences.test_explicit_profile_keeps_feature_flags_and_preferences_on_roundtrip) ... ok
+test_feature_pr_ci_tests_namespace_build_and_installed_wheel (tests.test_cv2_000_integration.IntegratedPreferences.test_feature_pr_ci_tests_namespace_build_and_installed_wheel) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 1.025s
+
+OK

@@ -46,3 +46,12 @@ Weitere Details nur bei Bedarf: [Regelwerksreferenz](../../../REFERENZ/GOVERNANC
 
 - [ ] Ausgewählte Kandidatenlinie mit tatsächlicher Auswahlquelle belegt; bei Wiederaufnahme Übergabe/WIP-Ausgang gesichert. Serverblocker mit FIX-Verweis und gehaltenem Clientstand dokumentiert.
 - [ ] Zugeordnete reale Plattformfälle vollständig nach [Nachweisregeln](../../../REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md) belegt; bei fehlendem Zugriff nötige Durchführung organisiert, kein Fake-PASS.
+
+## Aktenprüfung vor jeder Abgabe
+
+- [ ] WORKFLOW_STATUS, Manifest, Paketkopf und Index mit der tatsächlich aktuellen PR-Kurzfassung synchronisiert; Originalprompts, Reports und Evidenz vollständig bereitgestellt. Neue/geänderte relative Links aus dem Quelldokument aufgelöst; historische Belege erhalten. Auch Review-Dokumentcommits strukturell prüfen.
+- [ ] [Gemeinsamen read-only-Aktenprüfer](../../GEMEINSAM/scripts/pruefe_arbeitsakten.py) aus dem Repository ausgeführt; geänderte weitere Markdownunterlagen über `--paths` ergänzen und aktuelle PR-Kurzfassung gemäß [Übergabereferenz](../../GEMEINSAM/references/PR_UND_REVIEW_UEBERGABE.md) abgleichen:
+
+```powershell
+.\venv\Scripts\python.exe ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/scripts/pruefe_arbeitsakten.py
+```

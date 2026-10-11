@@ -51,6 +51,17 @@
           "Gitfall: source-identities.txt und Start-/Endrefabgleich"
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/source-identities.txt"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
+        ]
       }
     },
     {
@@ -106,6 +117,17 @@
           "qualify_sources.py: namespace-only controller/stt_session/Featuretests"
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/source-preservation.txt"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
+        ]
       }
     },
     {
@@ -159,6 +181,17 @@
           "IntegratedPreferences.test_explicit_profile_keeps_feature_flags_and_preferences_on_roundtrip"
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-unittest.txt"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
+        ]
       }
     },
     {
@@ -197,6 +230,17 @@
           "Baseline Feature: pytest 1192; Release: unittest 1147; kombiniert: pytest und unittest je 1221"
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-pytest.txt"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
+        ]
       }
     },
     {
@@ -237,6 +281,21 @@
           "Gitfall: sauberer Start, fremde Worktrees nur inventarisiert"
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/start-status.txt"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_startup_hotkey_persistence.StartupPersistence.test_failed_core_preserves_profile_and_restores_in_memory_hotkeys",
+          "tests.test_startup_hotkey_persistence.StartupPersistence.test_success_persists_after_core_start_and_preserves_preferences",
+          "tests.test_startup_hotkey_persistence.StartupPersistence.test_disabled_and_wake_only_never_register_or_rewrite_profile",
+          "tests.test_startup_hotkey_persistence.StartupPersistence.test_save_failure_stops_started_core_and_restores_hotkeys",
+          "tests.test_startup_hotkey_persistence.StartupPersistence.test_retry_after_failed_core_uses_original_binding_then_persists"
+        ]
       }
     },
     {
@@ -275,6 +334,17 @@
           "Gitfall: unveränderte Remote-Refs, keine Serveraktionen; workAuthorization verbietet Promotion"
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/start-remote.txt"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
+        ]
       }
     },
     {
@@ -7014,6 +7084,17 @@
           "Gitfall: source-identities.txt; UEBERNAHMEMATRIX.md; namespace-normalisierter Vergleich qualify_sources.py"
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/UEBERNAHMEMATRIX.md"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
+        ]
       }
     },
     {
@@ -7063,6 +7144,21 @@
           "tests.test_client_release_guard, test_client_release_workflow"
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-unittest.txt"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "tests.test_startup_hotkey_persistence.StartupPersistence.test_failed_core_preserves_profile_and_restores_in_memory_hotkeys",
+          "tests.test_startup_hotkey_persistence.StartupPersistence.test_success_persists_after_core_start_and_preserves_preferences",
+          "tests.test_startup_hotkey_persistence.StartupPersistence.test_disabled_and_wake_only_never_register_or_rewrite_profile",
+          "tests.test_startup_hotkey_persistence.StartupPersistence.test_save_failure_stops_started_core_and_restores_hotkeys",
+          "tests.test_startup_hotkey_persistence.StartupPersistence.test_retry_after_failed_core_uses_original_binding_then_persists"
+        ]
       }
     },
     {
@@ -7108,6 +7204,17 @@
           "installed_smoke.py: Wheel UND sdist außerhalb Source; compileall; twine check; vollständige Regression"
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/wheel-smoke.txt"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
+        ]
       }
     },
     {
@@ -7146,6 +7253,17 @@
           "Gitfall: Paketbranch Parent 050e776cf316eb332177294db0c0a2719c2b4415; Featurebranch unverändert; PR Base feat/client-v2"
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/start-status.txt"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
+        ]
       }
     },
     {
@@ -7184,6 +7302,17 @@
           "Administrativer Fall: REVIEW_READY, reviewedCommit/humanApproval null; Schreibrecht abgegeben; kein Folgepaketstart"
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
+        ]
       }
     },
     {
@@ -7222,6 +7351,17 @@
           "assertion-inventory.json; UEBERNAHMEMATRIX.md mit allen fünf Assertionnachfolgern; getrennte Baselines und vollständige Regression"
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/assertion-inventory.json"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-000",
+        "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+        "methods": [
+          "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
+        ]
       }
     }
   ]

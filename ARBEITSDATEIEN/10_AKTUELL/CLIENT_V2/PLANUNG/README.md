@@ -1,6 +1,6 @@
 # Voice-STT Client V2 – Einstieg
 
-Stand **2026-10-11, Revision 10**. Eigenständige Planungs- und Arbeitsgrundlage; AP-CV2-000 auf Paketbranch nach R02-Review CHANGES_REQUIRED, Finding CV2-R02-F01 offen ([Paketakte](../30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md)). Revision 10 bildet den aktuellen Unterlagenstand auf `feat/client-v2`. Der veröffentlichte Revision-9-Start bleibt erhalten; die Korrektur folgt als ein eigener Dokumentcommit vor AP-CV2-000 gemäß [ausdrücklicher Freigabe](EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md).
+Stand **2026-10-11, Revision 10**. Eigenständige Planungs- und Arbeitsgrundlage; AP-CV2-000 auf Paketbranch nach R03-Korrektur REVIEW_READY, F01 unabhängig erneut zu prüfen ([Paketakte](../30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md)). Revision 10 bildet den aktuellen Unterlagenstand auf `feat/client-v2`. Der veröffentlichte Revision-9-Start bleibt erhalten; die Korrektur folgt als ein eigener Dokumentcommit vor AP-CV2-000 gemäß [ausdrücklicher Freigabe](EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md).
 
 ## Dein Einstieg als Auftraggeber
 
@@ -57,3 +57,5 @@ Paketweise Funktionsmessung und früher Serverkontakt: [Inkrementelle Checkpoint
 ## Bedarfsgerechte Ausnahme-Referenzen
 
 [Wiederaufnahme, Kandidatenwahl, Serverfix-Routing und Endabschluss](SKILLS/GEMEINSAM/references/SONDERFAELLE_UND_WIEDERAUFNAHME.md) sowie [unabhängig geprüfte Windows-/Hardwarebelege](REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md) nur beim betreffenden Fall laden. [Bewertung des externen Prüfberichts](EVIDENCE/BEWERTUNG_PRUEFBEFUNDE_REV10.md). Aktuelle Dokumentrevision/roleSkillVersion stimmen in Baseline und Paketmanifest überein; schemaVersion, Aktenstruktur und Aufwandsmodellversion sind eigenständige Versionen.
+
+Rollenmetadaten Version 6 ergänzen in R03 die Übergabe-/Aktenprüfung und den unabhängigen Testweg; fachlicher Plan und Revision 10 bleiben erhalten. [R03-Report](../30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md).

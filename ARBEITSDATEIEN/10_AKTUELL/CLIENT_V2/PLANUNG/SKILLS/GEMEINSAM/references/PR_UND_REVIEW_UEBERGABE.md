@@ -8,6 +8,18 @@ Ziel ist `marcosudau-vps/voice-stt-client`, Base `feat/client-v2`, Head der beau
 
 Ein Draft-PR ist bei erteilter PR-Freigabe schon während der Umsetzung möglich; zur unabhängigen Abnahme erst den vollständigen Kandidaten als REVIEW_READY melden. Korrekturen aktualisieren denselben PR. Titel enthält AP-ID und Ergebnis; Beschreibung nennt Scope, Parent, Server-SHA, aktuellen Kandidaten und Links auf Paket-/Runakten. Findings und Testdetails stehen maßgeblich im versionierten Report; im PR nur Urteil/Kurzfassung und Links pflegen. PR-Anlage/Updates oder Kommentare sind nur im tatsächlich erlaubten Scope zulässig. In Codex den erstellten oder zur Bearbeitung beauftragten PR an die Aufgabe anhängen.
 
+## Strukturprüfung vor jeder Übergabe
+
+Vor jeder Abgabe aktive Statusangaben in WORKFLOW_STATUS, Manifest, Paketkopf und Index mit der aktuellen PR-Kurzfassung synchronisieren. Neue oder geänderte relative Aktenlinks vom tatsächlichen Quelldokument aus auflösen; referenzierte Originalprompts, Reports und Evidenz müssen im veröffentlichten Kandidaten verfügbar sein. Historische Reports und Belege bleiben erhalten. Auch ein Reviewer prüft seinen ausschließlich administrativen Docs-Commit strukturell vor der Rückgabe.
+
+Gemeinsamer read-only-Prüfer: [pruefe_arbeitsakten.py](../scripts/pruefe_arbeitsakten.py). Aufruf aus dem Repository:
+
+```powershell
+.\venv\Scripts\python.exe ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/scripts/pruefe_arbeitsakten.py
+```
+
+Er prüft aktive Paket-/Manifest-/Kopf-/Indexzustände, referenzierte Dateipfade und relative Links der Paketakte. `--paths <Dateien>` ergänzt neue/geänderte Markdownunterlagen außerhalb der Akte. `--pr-summary <lokal gespeicherte aktuelle PR-Beschreibung>` prüft zusätzlich deren AP/Status. PR-Inhalt vorher tatsächlich abrufen, keine alte Kopie verwenden. Der Prüfer liest lokal, ändert nichts und ersetzt weder fachlichen Review noch die Prüfung der tatsächlichen Remote-Bereitstellung. Kein alter allgemeiner Blockvalidator darf eine abweichende V2-Struktur erzwingen.
+
 ## Schreibübergabe an den Reviewer
 
 1. Umsetzer meldet PR-URL und **exakten eingereichten SHA**; Workingtree sauber, alle erforderlichen Unterlagen und Belege bereits im Kandidaten. Ab diesem Punkt pausiert er Änderungen und Pushes auf diesem Paketbranch.

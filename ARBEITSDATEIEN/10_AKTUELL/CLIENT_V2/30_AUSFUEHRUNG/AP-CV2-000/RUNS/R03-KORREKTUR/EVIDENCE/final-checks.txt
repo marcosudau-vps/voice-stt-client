@@ -1,0 +1,5 @@
+
+PASS: compileall and git diff --check; all historical R01/R02 hashes unchanged; 41 new/changed relative links resolve from their source document.
+PASS: final full unittest regression 1233 / 92.752s. New EXE folder retained and locally excluded via git info/exclude; no cleanup.
+Full stdout tests-unittest.txt: trailing line whitespace normalized for git diff --check, all test content retained; original local raw SHA256 cf9b42e5e8774b2693b725574cff8768596542848706862e85f5bced6847e710.
+Full stdout tests-unittest-final.txt: trailing line whitespace normalized for git diff --check, all test content retained; original local raw SHA256 d9ee6583a00c604a54694b82738ab8bd51bfd54917f486a33559bdc74e84505b.

@@ -31,3 +31,8 @@ Integrierter Paketkandidat REVIEW_READY. Maßgeblicher Meilenstein AP-CV2-000-R0
 ## AP-CV2-000 / R02 – 2026-10-11
 
 Unabhängige statische Paketprüfung von `8b1c4c157b6b431dac6af69e2e264d0c37579bef` mit CI-Provenienz: **CHANGES_REQUIRED**, Finding `CV2-R02-F01` (Hotkey-Fallback persistiert schon vor bestätigtem Corestart), eigene vollständige Windows-Regression `NOT_RUN`. [Versionierter Reviewreport](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md). Kein Produktfix, kein Merge, kein Folgepaketstart. Meilenstein AP-CV2-000-R02 im Steuerungslog.
+
+
+## R03-KORREKTUR – 2026-10-11
+
+Einreichung REVIEW_READY; [Korrekturreport](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md). Meilenstein AP-CV2-000-R03 im Steuerungslog. Unabhängiger Vollreview offen, keine Übernahme.
