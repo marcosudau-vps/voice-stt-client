@@ -26,10 +26,18 @@ def main():
     root = Path(subprocess.check_output(["git", "rev-parse", "--show-toplevel"], text=True).strip())
     block = root / "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2"
     bundle = block / "PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11"
-    manifest = json.loads((bundle / "IMPORT_MANIFEST.json").read_text(encoding="utf-8-sig"))
+    def committed_bytes(path):
+        relative = path.relative_to(root).as_posix()
+        return subprocess.check_output(["git", "show", f"{args.commit}:{relative}"])
+
+    manifest = json.loads(committed_bytes(bundle / "IMPORT_MANIFEST.json").decode("utf-8-sig"))
     paths = {bundle / "IMPORT_MANIFEST.json"}
     paths.update(bundle / item["path"] for item in manifest["files"])
-    paths.update(p for p in (block / "30_AUSFUEHRUNG/AP-CV2-000").rglob("*") if p.is_file())
+    record_tree = subprocess.check_output([
+        "git", "ls-tree", "-r", "--name-only", "-z", args.commit, "--",
+        (block / "30_AUSFUEHRUNG/AP-CV2-000").relative_to(root).as_posix(),
+    ]).decode("utf-8")
+    paths.update(root / p for p in record_tree.split("\0") if p)
     changed = subprocess.check_output(["git", "diff", "--name-only", "-z", "2dc251df959f97e2a0bb37b10a1a77486ae6eb5a", args.commit]).decode("utf-8")
     paths.update(root / p for p in changed.split("\0") if p and (root / p).is_file())
     paths.discard(args.output.resolve())  # Output cannot prove its own future publication.
@@ -37,7 +45,7 @@ def main():
     def verify(path):
         relative = path.relative_to(root).as_posix()
         binary = bool(re.search(r"\.zip\.\d{3}$", relative))
-        local = path.read_bytes()
+        local = committed_bytes(path)
         expected = hashlib.sha256(local if binary else local.replace(b"\r\n", b"\n")).hexdigest()
         url = f"https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/{args.commit}/{quote(relative, safe='/')}"
         for attempt in range(3):

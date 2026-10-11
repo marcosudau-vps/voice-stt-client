@@ -1,0 +1,1062 @@
+{
+  "commit": "210c2ae14355d22e9b25172cf47a1bcf94860300",
+  "result": "PASS",
+  "files": 117,
+  "bundleFiles": 22,
+  "archiveParts": 3,
+  "results": [
+    {
+      "path": "ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 14503,
+      "expectedSha256": "76f3dca0ee0355bb291356f51e9e6a80a2db400f846329f31ca81dff0d1e5108",
+      "remoteSha256": "76f3dca0ee0355bb291356f51e9e6a80a2db400f846329f31ca81dff0d1e5108",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/00_STEUERUNG/LOG_VERLAUF.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/00_STEUERUNG/LOG_VERLAUF.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 146620,
+      "expectedSha256": "c9e96584b4800eb4e62d526bd07030d6891c91f57170e182f8cd3d09ff85782d",
+      "remoteSha256": "c9e96584b4800eb4e62d526bd07030d6891c91f57170e182f8cd3d09ff85782d",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/00_STEUERUNG/MASTERPLAN.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/00_STEUERUNG/MASTERPLAN.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 4400,
+      "expectedSha256": "56951131255c271f43ee7b0c51a18918a436fa6dc584120bea170f94f3d1e1cf",
+      "remoteSha256": "56951131255c271f43ee7b0c51a18918a436fa6dc584120bea170f94f3d1e1cf",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 2879,
+      "expectedSha256": "75b6f6092887263da40b1a2e34e070edebf36e29ed2e09f255d3a0b767694f8c",
+      "remoteSha256": "75b6f6092887263da40b1a2e34e070edebf36e29ed2e09f255d3a0b767694f8c",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 2647,
+      "expectedSha256": "43d9c56fe8ae8825ec4e12b1a7cec1663343d6ad30caf23177665e7c27346149",
+      "remoteSha256": "43d9c56fe8ae8825ec4e12b1a7cec1663343d6ad30caf23177665e7c27346149",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 16819,
+      "expectedSha256": "c151a8977df801419a4b092948984858da7609dabb03c8eb22a1da570609e787",
+      "remoteSha256": "c151a8977df801419a4b092948984858da7609dabb03c8eb22a1da570609e787",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/artifact-hashes.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/artifact-hashes.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 657,
+      "expectedSha256": "c98b74929c60b3a1f9baee20a3e0f7ae4709158865a96aa443cd361d4517b758",
+      "remoteSha256": "c98b74929c60b3a1f9baee20a3e0f7ae4709158865a96aa443cd361d4517b758",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/assertion-inventory.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/assertion-inventory.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 844,
+      "expectedSha256": "ef51804c8477678f540449332900ca09b97c6c0e66e75c1a33bf7208d9fe0486",
+      "remoteSha256": "ef51804c8477678f540449332900ca09b97c6c0e66e75c1a33bf7208d9fe0486",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/baseline-feature.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/baseline-feature.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 1392,
+      "expectedSha256": "2f58c62f4e9471fa858451602fe079f4fb869cf9a23e6c262da1bd7422923697",
+      "remoteSha256": "2f58c62f4e9471fa858451602fe079f4fb869cf9a23e6c262da1bd7422923697",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/baseline-release-unittest.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/baseline-release-unittest.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 30984,
+      "expectedSha256": "7d597a49bf125282e42c53c3419b82e8384c3b2db9dc56f02866fd279b019345",
+      "remoteSha256": "7d597a49bf125282e42c53c3419b82e8384c3b2db9dc56f02866fd279b019345",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/baseline-release.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/baseline-release.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 975,
+      "expectedSha256": "5500b75e0fef137db1399edbee8efe0d184d01609289c341b22490dd82c7171d",
+      "remoteSha256": "5500b75e0fef137db1399edbee8efe0d184d01609289c341b22490dd82c7171d",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/block-check-baseline.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/block-check-baseline.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 1346,
+      "expectedSha256": "adfd5d9ec937f2d935fe2a4c7243d8e71643a42c150898ae14460215de9d1d47",
+      "remoteSha256": "adfd5d9ec937f2d935fe2a4c7243d8e71643a42c150898ae14460215de9d1d47",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/block-check.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/block-check.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 1444,
+      "expectedSha256": "9dc40c7d11cbe8ca0a3eb59787696b2fd75acd4c3e577bbf3fac3f4a1da18eb0",
+      "remoteSha256": "9dc40c7d11cbe8ca0a3eb59787696b2fd75acd4c3e577bbf3fac3f4a1da18eb0",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/candidate-identity.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/candidate-identity.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 961,
+      "expectedSha256": "a75723bd0d3cf225c720e08d7fc87c7ac9004349395391a4b5a0163fb46c78cc",
+      "remoteSha256": "a75723bd0d3cf225c720e08d7fc87c7ac9004349395391a4b5a0163fb46c78cc",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/check_records.py",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/check_records.py",
+      "mode": "LF-normalized",
+      "remoteBytes": 2175,
+      "expectedSha256": "29db77e0cbb748eecb17ad4cbe10a739bb47d921f795eedc0589a48a3ff2b21d",
+      "remoteSha256": "29db77e0cbb748eecb17ad4cbe10a739bb47d921f795eedc0589a48a3ff2b21d",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/ci-initial-failure.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/ci-initial-failure.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 134348,
+      "expectedSha256": "96089db17a74e059a8710bf6d2bf687f142390d9fe61f4152b5ec633990992f8",
+      "remoteSha256": "96089db17a74e059a8710bf6d2bf687f142390d9fe61f4152b5ec633990992f8",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/final-checks.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/final-checks.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 42,
+      "expectedSha256": "30d46080d67bd27b88c4e69487a073ff0dc957903fc5969b5d40b7f8819c4f3e",
+      "remoteSha256": "30d46080d67bd27b88c4e69487a073ff0dc957903fc5969b5d40b7f8819c4f3e",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/focused-tests.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/focused-tests.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 260,
+      "expectedSha256": "308bb8d9d6a75e1872bd262a60dd6a4a46f3a828de9749bbc1925464615342a2",
+      "remoteSha256": "308bb8d9d6a75e1872bd262a60dd6a4a46f3a828de9749bbc1925464615342a2",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/frozen-build.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/frozen-build.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 16159,
+      "expectedSha256": "749cf8ab618cfb062f1f238f74a5fd3bb18fe6c3f872c48896b6c1f6a28063e8",
+      "remoteSha256": "749cf8ab618cfb062f1f238f74a5fd3bb18fe6c3f872c48896b6c1f6a28063e8",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 7749,
+      "expectedSha256": "0cb529f66af8069436c791398e06aa9e43a23a22866504d14642453c848422f5",
+      "remoteSha256": "0cb529f66af8069436c791398e06aa9e43a23a22866504d14642453c848422f5",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/installed_smoke.py",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/installed_smoke.py",
+      "mode": "LF-normalized",
+      "remoteBytes": 1977,
+      "expectedSha256": "48e40a4cfb23dbab8ab9cd672d6706ebf04b977d3afcfa988a50faccc3297686",
+      "remoteSha256": "48e40a4cfb23dbab8ab9cd672d6706ebf04b977d3afcfa988a50faccc3297686",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/integration-first.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/integration-first.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 4857,
+      "expectedSha256": "662026f00bd41916120e42efc0b19b3646f8b93b4996f9fdd9720423af12cb4a",
+      "remoteSha256": "662026f00bd41916120e42efc0b19b3646f8b93b4996f9fdd9720423af12cb4a",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/integration-repros.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/integration-repros.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 3455,
+      "expectedSha256": "0696151cfa32e027bfeb17691381bd6288dc069f0633eebb364c5be12b02cab8",
+      "remoteSha256": "0696151cfa32e027bfeb17691381bd6288dc069f0633eebb364c5be12b02cab8",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/packaging-build.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/packaging-build.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 32323,
+      "expectedSha256": "9816e2b6cd291e7a6e5bc582098268245112ee68cd5c2ffbd04e03125a86bc12",
+      "remoteSha256": "9816e2b6cd291e7a6e5bc582098268245112ee68cd5c2ffbd04e03125a86bc12",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/packaging-check.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/packaging-check.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 114,
+      "expectedSha256": "cdcb84c21aa384f11c4f9b885add5175f38398a675cde1d6e39458d5e6346f79",
+      "remoteSha256": "cdcb84c21aa384f11c4f9b885add5175f38398a675cde1d6e39458d5e6346f79",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/plan-hashes.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/plan-hashes.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 502,
+      "expectedSha256": "9989db5088ecd42dec69d8d35d4dd416747158fb3a089969d73d08628bc9d3cd",
+      "remoteSha256": "9989db5088ecd42dec69d8d35d4dd416747158fb3a089969d73d08628bc9d3cd",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/qualify_sources.py",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/qualify_sources.py",
+      "mode": "LF-normalized",
+      "remoteBytes": 2676,
+      "expectedSha256": "672ea0dbe642e5a288003e81dca08d3238f737f08e71a5d98d846919bdefa94d",
+      "remoteSha256": "672ea0dbe642e5a288003e81dca08d3238f737f08e71a5d98d846919bdefa94d",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/record-check.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/record-check.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 106,
+      "expectedSha256": "cc9db669de16b216dcd4b24047e7a381eebd303d7e93d67e3eb2e78f80a5bd87",
+      "remoteSha256": "cc9db669de16b216dcd4b24047e7a381eebd303d7e93d67e3eb2e78f80a5bd87",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/sdist-install.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/sdist-install.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 1288,
+      "expectedSha256": "3bac8c89da214ee5e1e19843a21b4110c3e1e84d0754becc5d2ce520c93d0a7d",
+      "remoteSha256": "3bac8c89da214ee5e1e19843a21b4110c3e1e84d0754becc5d2ce520c93d0a7d",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/sdist-smoke.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/sdist-smoke.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 7004,
+      "expectedSha256": "2edc5cf039915b478aa2af30567ea647a62116857368a3afe0cf8dd19c5c849d",
+      "remoteSha256": "2edc5cf039915b478aa2af30567ea647a62116857368a3afe0cf8dd19c5c849d",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/source-identities.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/source-identities.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 492,
+      "expectedSha256": "2a4af7c8039fbc68074dd95ee68844bdb560c39e7182006818517175c167a3b3",
+      "remoteSha256": "2a4af7c8039fbc68074dd95ee68844bdb560c39e7182006818517175c167a3b3",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/source-preservation.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/source-preservation.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 1589,
+      "expectedSha256": "53a9fc6be1979ae12f7ffbf330fa9375b8c6547e8b4830d044193e6ee8a3a43f",
+      "remoteSha256": "53a9fc6be1979ae12f7ffbf330fa9375b8c6547e8b4830d044193e6ee8a3a43f",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/start-remote.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/start-remote.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 404,
+      "expectedSha256": "3d8da6b00949686c675ab9bb7d50166f273a94d58af33a9a36907050f43ed3c6",
+      "remoteSha256": "3d8da6b00949686c675ab9bb7d50166f273a94d58af33a9a36907050f43ed3c6",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/start-status.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/start-status.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 144,
+      "expectedSha256": "68c8f285331f21cb011137d7a2e5e965cab27d193ffcf5665183909a6ee4aca2",
+      "remoteSha256": "68c8f285331f21cb011137d7a2e5e965cab27d193ffcf5665183909a6ee4aca2",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/structure-check.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/structure-check.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 374,
+      "expectedSha256": "78fcf40c97f4c46634d94091e191749d2c26abfc40ef1f448f4cb64bd69bbcd7",
+      "remoteSha256": "78fcf40c97f4c46634d94091e191749d2c26abfc40ef1f448f4cb64bd69bbcd7",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-pytest-ci-fix.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-pytest-ci-fix.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 1392,
+      "expectedSha256": "79436ba93b0271ce109f11b51e3e10b81c9adb60672b426edd34c58bf63bacfd",
+      "remoteSha256": "79436ba93b0271ce109f11b51e3e10b81c9adb60672b426edd34c58bf63bacfd",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-pytest.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-pytest.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 1392,
+      "expectedSha256": "fe7f9d01b6f4e40faebcc6f0e389ee638864553a68ce76cd26924ebdc7a7033e",
+      "remoteSha256": "fe7f9d01b6f4e40faebcc6f0e389ee638864553a68ce76cd26924ebdc7a7033e",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-unittest-ci-fix.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-unittest-ci-fix.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 226916,
+      "expectedSha256": "7d1baf6daa28a67602a683fbacfb604aa49671483a6202dfdd6c8814caef3ab6",
+      "remoteSha256": "7d1baf6daa28a67602a683fbacfb604aa49671483a6202dfdd6c8814caef3ab6",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-unittest.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/tests-unittest.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 227260,
+      "expectedSha256": "dd82ef43c511b15337db682f83eb7e7a2180c18896fb0b7e6b6d116a336108e9",
+      "remoteSha256": "dd82ef43c511b15337db682f83eb7e7a2180c18896fb0b7e6b6d116a336108e9",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/UEBERNAHMEMATRIX.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/UEBERNAHMEMATRIX.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 25391,
+      "expectedSha256": "754ec2828c68fe3d2e108edc8d69eb3463d7e494a49bd59388dd9f7e14e9f3fa",
+      "remoteSha256": "754ec2828c68fe3d2e108edc8d69eb3463d7e494a49bd59388dd9f7e14e9f3fa",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/wheel-install.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/wheel-install.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 426,
+      "expectedSha256": "894aa26a9a43791fbe8599cf0db2c1290b46ef9f0484717783ca05828b90c7f9",
+      "remoteSha256": "894aa26a9a43791fbe8599cf0db2c1290b46ef9f0484717783ca05828b90c7f9",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/wheel-smoke.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/EVIDENCE/wheel-smoke.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 7004,
+      "expectedSha256": "2edc5cf039915b478aa2af30567ea647a62116857368a3afe0cf8dd19c5c849d",
+      "remoteSha256": "2edc5cf039915b478aa2af30567ea647a62116857368a3afe0cf8dd19c5c849d",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/00_PROMPT_ORIGINAL.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/00_PROMPT_ORIGINAL.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 826,
+      "expectedSha256": "04ebe714067a1a47d27c46756ff968ab70060619161168ac33f194ed33545ab5",
+      "remoteSha256": "04ebe714067a1a47d27c46756ff968ab70060619161168ac33f194ed33545ab5",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 8374,
+      "expectedSha256": "7476a472efc5d73aae3c3488d99a0955624db6b54bed1b63f7180dfe739799dd",
+      "remoteSha256": "7476a472efc5d73aae3c3488d99a0955624db6b54bed1b63f7180dfe739799dd",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 3363,
+      "expectedSha256": "de1441fb269edd7a06604e16144566678fdf3b4cdda76d77d285d7be84106cbb",
+      "remoteSha256": "de1441fb269edd7a06604e16144566678fdf3b4cdda76d77d285d7be84106cbb",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 1732,
+      "expectedSha256": "ba478ba19b85fde0dc63ec8a9dcee3c37e29788072df66afe031ac85ef057882",
+      "remoteSha256": "ba478ba19b85fde0dc63ec8a9dcee3c37e29788072df66afe031ac85ef057882",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 7980,
+      "expectedSha256": "307b767042ab0272d4481aa02301237050a70c2c2bb828c5fa96c01e2be9789a",
+      "remoteSha256": "307b767042ab0272d4481aa02301237050a70c2c2bb828c5fa96c01e2be9789a",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/artifact-hashes.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/artifact-hashes.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 516,
+      "expectedSha256": "2ac60715da36fc29bca8e2035c4eefb53b37a0bb928bac88d4445a3096d564a5",
+      "remoteSha256": "2ac60715da36fc29bca8e2035c4eefb53b37a0bb928bac88d4445a3096d564a5",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/baseline.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/baseline.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 14468,
+      "expectedSha256": "40ad223c4104b207f58c98a97ed7834ee9421cadfd1fe71e5d3e0d7f1d7ef133",
+      "remoteSha256": "40ad223c4104b207f58c98a97ed7834ee9421cadfd1fe71e5d3e0d7f1d7ef133",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/bundle-check.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/bundle-check.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 211,
+      "expectedSha256": "7d0cb20a8e164177f630de6a6d5fcf09368126e4f57cc865a84c73e2393c2f9a",
+      "remoteSha256": "7d0cb20a8e164177f630de6a6d5fcf09368126e4f57cc865a84c73e2393c2f9a",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/bundle-preparation.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/bundle-preparation.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 9145,
+      "expectedSha256": "d3cb7a6b644353bd9f41b21166e2f2ab0902f6599947e4f825b086c59ea30e01",
+      "remoteSha256": "d3cb7a6b644353bd9f41b21166e2f2ab0902f6599947e4f825b086c59ea30e01",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/final-checks.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/final-checks.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 703,
+      "expectedSha256": "4a35c38ca83772932acb330382b10caff09a19ee0b89923b60bd6b65b91bdd06",
+      "remoteSha256": "4a35c38ca83772932acb330382b10caff09a19ee0b89923b60bd6b65b91bdd06",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/focused-after.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/focused-after.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 11408,
+      "expectedSha256": "04b0a9effc09525d71609a79aef2d1cc852a624e5ad4371efa4685eb6cf3e748",
+      "remoteSha256": "04b0a9effc09525d71609a79aef2d1cc852a624e5ad4371efa4685eb6cf3e748",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/frozen-build.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/frozen-build.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 16163,
+      "expectedSha256": "3c99a6314a15d62c34bc48d68da8a3cbc1ed06f1f3e08f1a130cd4a6f24592f8",
+      "remoteSha256": "3c99a6314a15d62c34bc48d68da8a3cbc1ed06f1f3e08f1a130cd4a6f24592f8",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 5872,
+      "expectedSha256": "cc21bda9a54992f617d12e2d0fa3fe8be279e4d8d25d9eb88949fadcd5f25bb8",
+      "remoteSha256": "cc21bda9a54992f617d12e2d0fa3fe8be279e4d8d25d9eb88949fadcd5f25bb8",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/installation-identity.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/installation-identity.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 332,
+      "expectedSha256": "ea63ac0bf232fe25a4ec67847f43c5a2fce8e709b256da9b6a1a3bad815bae9a",
+      "remoteSha256": "ea63ac0bf232fe25a4ec67847f43c5a2fce8e709b256da9b6a1a3bad815bae9a",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/packaging-build.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/packaging-build.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 32555,
+      "expectedSha256": "bc3405ad0e9b254b53f0622b9efd4a9b021b37c8de48bb342e37dd0d3f2a0299",
+      "remoteSha256": "bc3405ad0e9b254b53f0622b9efd4a9b021b37c8de48bb342e37dd0d3f2a0299",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/packaging-check.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/packaging-check.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 122,
+      "expectedSha256": "f8ddb3443166d446f39c457c079b453fea584890a5f6a16b3fbdea03893d830c",
+      "remoteSha256": "f8ddb3443166d446f39c457c079b453fea584890a5f6a16b3fbdea03893d830c",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/records-baseline-replay.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/records-baseline-replay.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 1641,
+      "expectedSha256": "b3ce4935c35f39b476344959bc029d371a711787bfcf2406a6ede3c9e0c9bbfe",
+      "remoteSha256": "b3ce4935c35f39b476344959bc029d371a711787bfcf2406a6ede3c9e0c9bbfe",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/records-before.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/records-before.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 1510,
+      "expectedSha256": "d71792247d2808bd23945d621164256e819ffbbe8da825238e8a530a916c6f0c",
+      "remoteSha256": "d71792247d2808bd23945d621164256e819ffbbe8da825238e8a530a916c6f0c",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/records-final.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/records-final.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 173,
+      "expectedSha256": "3329c919ecd3edb6914f6bb1cdb977c9e55db52935d8372d197f35e24e24b47d",
+      "remoteSha256": "3329c919ecd3edb6914f6bb1cdb977c9e55db52935d8372d197f35e24e24b47d",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/repro-before.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/repro-before.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 7244,
+      "expectedSha256": "655a9ea247a880a2e1c2740d40dd36851c1d7600ebbd030ef3df5a85b45d0d30",
+      "remoteSha256": "655a9ea247a880a2e1c2740d40dd36851c1d7600ebbd030ef3df5a85b45d0d30",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/sdist-install.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/sdist-install.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 1276,
+      "expectedSha256": "80d33ec256227cdf629756ee5d2cba8a334d1a12b7833c776d187017f7fcfbf6",
+      "remoteSha256": "80d33ec256227cdf629756ee5d2cba8a334d1a12b7833c776d187017f7fcfbf6",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/sdist-smoke.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/sdist-smoke.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 7004,
+      "expectedSha256": "aa25d6ad3cec8b2a233761cb5eccc57ffbe9dc37e6c25103d0f3de66905d7330",
+      "remoteSha256": "aa25d6ad3cec8b2a233761cb5eccc57ffbe9dc37e6c25103d0f3de66905d7330",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/start-state.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/start-state.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 34446,
+      "expectedSha256": "f7fb0f91a1c8d3af2c0683a6eec4d4103c542a9da015b1dffd111434ae7eb8cd",
+      "remoteSha256": "f7fb0f91a1c8d3af2c0683a6eec4d4103c542a9da015b1dffd111434ae7eb8cd",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/targeted-final.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/targeted-final.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 5406,
+      "expectedSha256": "bda2bc4113808bca2f45922de996172276c83b20366a21589cc494f2ea154299",
+      "remoteSha256": "bda2bc4113808bca2f45922de996172276c83b20366a21589cc494f2ea154299",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/tests-pytest.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/tests-pytest.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 1473,
+      "expectedSha256": "7dc8ddc75b67cfed4fd99b09a2335940086ad401af5ec5a0f3770b0046dc6a33",
+      "remoteSha256": "7dc8ddc75b67cfed4fd99b09a2335940086ad401af5ec5a0f3770b0046dc6a33",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/tests-unittest-final.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/tests-unittest-final.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 260391,
+      "expectedSha256": "d3c5e32fa6c9f6d2c0f82ec0edfa75082f9c1fc44c5007079234089c424ca65a",
+      "remoteSha256": "d3c5e32fa6c9f6d2c0f82ec0edfa75082f9c1fc44c5007079234089c424ca65a",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/tests-unittest.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/tests-unittest.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 261462,
+      "expectedSha256": "d6b1337fe959b1c9412ade2918b9e2c9f20f7bcabecf92d34a3333f274b64ce7",
+      "remoteSha256": "d6b1337fe959b1c9412ade2918b9e2c9f20f7bcabecf92d34a3333f274b64ce7",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/verifiziere_remote.py",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/verifiziere_remote.py",
+      "mode": "LF-normalized",
+      "remoteBytes": 4056,
+      "expectedSha256": "7a76a379b99b6cffc6b704baf0f8a7f76ac367130cb4e145a3d34351e3f5c7a4",
+      "remoteSha256": "7a76a379b99b6cffc6b704baf0f8a7f76ac367130cb4e145a3d34351e3f5c7a4",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/wheel-install.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/wheel-install.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 414,
+      "expectedSha256": "aa1d3d6e3aa745b641f771b80623a771cfe79875a0053de0ef8bbbfed2b26e76",
+      "remoteSha256": "aa1d3d6e3aa745b641f771b80623a771cfe79875a0053de0ef8bbbfed2b26e76",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/wheel-smoke.txt",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/wheel-smoke.txt",
+      "mode": "LF-normalized",
+      "remoteBytes": 7004,
+      "expectedSha256": "aa25d6ad3cec8b2a233761cb5eccc57ffbe9dc37e6c25103d0f3de66905d7330",
+      "remoteSha256": "aa25d6ad3cec8b2a233761cb5eccc57ffbe9dc37e6c25103d0f3de66905d7330",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/AP-CV2-000.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/AP-CV2-000.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 14193,
+      "expectedSha256": "78b7b262e3bb5d179b275f7b3d6f1ad0b109b0e9f1a04073d16836216b094b05",
+      "remoteSha256": "78b7b262e3bb5d179b275f7b3d6f1ad0b109b0e9f1a04073d16836216b094b05",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/package-manifest.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/package-manifest.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 18954,
+      "expectedSha256": "5e3f4f0498b8b7c2968b5f9433f4e80ee1ec048e77358bd83dd2879173c35261",
+      "remoteSha256": "5e3f4f0498b8b7c2968b5f9433f4e80ee1ec048e77358bd83dd2879173c35261",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/planning-baseline.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/planning-baseline.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 4732,
+      "expectedSha256": "98a2f5e6007c0e090a6403ffca605673bc3bfb4d98895adf6ea9fe9cc29b6b01",
+      "remoteSha256": "98a2f5e6007c0e090a6403ffca605673bc3bfb4d98895adf6ea9fe9cc29b6b01",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/audit_workflow.py",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/audit_workflow.py",
+      "mode": "LF-normalized",
+      "remoteBytes": 8877,
+      "expectedSha256": "af5bd73a7a88350f00564fa5d05c0e7070795dcc1ddcfbc1b4f9dd4113891253",
+      "remoteSha256": "af5bd73a7a88350f00564fa5d05c0e7070795dcc1ddcfbc1b4f9dd4113891253",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/BEREITSTELLUNG.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/BEREITSTELLUNG.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 2710,
+      "expectedSha256": "1636ec4b368e61d802eccf4ed27adb32d6cff538f94020a0be8faaf154666487",
+      "remoteSha256": "1636ec4b368e61d802eccf4ed27adb32d6cff538f94020a0be8faaf154666487",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/BEWERTUNG_UND_EMPFEHLUNG.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/BEWERTUNG_UND_EMPFEHLUNG.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 8567,
+      "expectedSha256": "822bc764d495ba7b9add27266f604650027297c17e74e8d04a228ba560851114",
+      "remoteSha256": "822bc764d495ba7b9add27266f604650027297c17e74e8d04a228ba560851114",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/finalisiere_bewertung.py",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/finalisiere_bewertung.py",
+      "mode": "LF-normalized",
+      "remoteBytes": 2862,
+      "expectedSha256": "eda93b6a0d07aea9983d273b64db851b3fc271e8d1894eac28db72041af0c203",
+      "remoteSha256": "eda93b6a0d07aea9983d273b64db851b3fc271e8d1894eac28db72041af0c203",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/HISTORIE/.gitignore",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/HISTORIE/.gitignore",
+      "mode": "LF-normalized",
+      "remoteBytes": 168,
+      "expectedSha256": "c0920902449cd4eb1958d13a3640df18a1f005387470c02ec63ed76b4e76035f",
+      "remoteSha256": "c0920902449cd4eb1958d13a3640df18a1f005387470c02ec63ed76b4e76035f",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/HISTORIE/QUELLBESTAND_MANIFEST.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/HISTORIE/QUELLBESTAND_MANIFEST.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 1640108,
+      "expectedSha256": "a05c53578954922003338ae9c3cb217867d8c11893d2fcff09019323848dee31",
+      "remoteSha256": "a05c53578954922003338ae9c3cb217867d8c11893d2fcff09019323848dee31",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/HISTORIE/WORKFLOW_TOOLS_THEMENSTAND_2026-10-11.zip.001",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/HISTORIE/WORKFLOW_TOOLS_THEMENSTAND_2026-10-11.zip.001",
+      "mode": "byte-exact",
+      "remoteBytes": 83886080,
+      "expectedSha256": "b82dae0eae23957e6cd0f0dbb753d303f9d48f592a8b66b60d03093deb1107e6",
+      "remoteSha256": "b82dae0eae23957e6cd0f0dbb753d303f9d48f592a8b66b60d03093deb1107e6",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/HISTORIE/WORKFLOW_TOOLS_THEMENSTAND_2026-10-11.zip.002",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/HISTORIE/WORKFLOW_TOOLS_THEMENSTAND_2026-10-11.zip.002",
+      "mode": "byte-exact",
+      "remoteBytes": 83886080,
+      "expectedSha256": "6eeee8ab049242dee2706e082a20a0f77169e20d6fd2b22a0fe1b943ca460488",
+      "remoteSha256": "6eeee8ab049242dee2706e082a20a0f77169e20d6fd2b22a0fe1b943ca460488",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/HISTORIE/WORKFLOW_TOOLS_THEMENSTAND_2026-10-11.zip.003",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/HISTORIE/WORKFLOW_TOOLS_THEMENSTAND_2026-10-11.zip.003",
+      "mode": "byte-exact",
+      "remoteBytes": 39374403,
+      "expectedSha256": "dd869e06a1353b692a90b917fdbeab285a1f8956fafe9bd58ea3aece0d8d5d3b",
+      "remoteSha256": "dd869e06a1353b692a90b917fdbeab285a1f8956fafe9bd58ea3aece0d8d5d3b",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/IMPORT_HINWEISE.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/IMPORT_HINWEISE.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 4086,
+      "expectedSha256": "259a7192fdb31f05ef4c92730d87b81771f4ed76b7bcc9e6e755f08725abc061",
+      "remoteSha256": "259a7192fdb31f05ef4c92730d87b81771f4ed76b7bcc9e6e755f08725abc061",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/IMPORT_MANIFEST.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/IMPORT_MANIFEST.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 6068,
+      "expectedSha256": "2fc08cfd328b0c62fe864b298b46bab89c2348f2aec96c92eb5c04cf2b93bf98",
+      "remoteSha256": "2fc08cfd328b0c62fe864b298b46bab89c2348f2aec96c92eb5c04cf2b93bf98",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/KORREKTURPROMPT_AP_CV2_000.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/KORREKTURPROMPT_AP_CV2_000.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 9856,
+      "expectedSha256": "987e2b21cd1f1fdc809cda1c9e3704c96ecb16ff40fdeb05a44db0ff45ddbdda",
+      "remoteSha256": "987e2b21cd1f1fdc809cda1c9e3704c96ecb16ff40fdeb05a44db0ff45ddbdda",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/pr-body-snapshot.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/pr-body-snapshot.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 2810,
+      "expectedSha256": "1a106099589f2d2b09991f3660fe9ca7420ffa27e6471630396e716193feb8d6",
+      "remoteSha256": "1a106099589f2d2b09991f3660fe9ca7420ffa27e6471630396e716193feb8d6",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/pr-snapshot.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/pr-snapshot.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 8808,
+      "expectedSha256": "d58f5cb0246bff4ed3794f2fbbeaaf981ac67f866f131cb91367901c4845dce8",
+      "remoteSha256": "d58f5cb0246bff4ed3794f2fbbeaaf981ac67f866f131cb91367901c4845dce8",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/pruefe_bereitstellung.py",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/pruefe_bereitstellung.py",
+      "mode": "LF-normalized",
+      "remoteBytes": 3069,
+      "expectedSha256": "ccb57469872055c36170de8aebdd0095991dca74e0aad2b1153ddec56bea3a02",
+      "remoteSha256": "ccb57469872055c36170de8aebdd0095991dca74e0aad2b1153ddec56bea3a02",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/README.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/README.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 4107,
+      "expectedSha256": "79a1a133515057ce3b9f9c1dfd8d275dd8c9f8d8e63f73f7d1313d20da136ba0",
+      "remoteSha256": "79a1a133515057ce3b9f9c1dfd8d275dd8c9f8d8e63f73f7d1313d20da136ba0",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/sichere_quellbestand.py",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/sichere_quellbestand.py",
+      "mode": "LF-normalized",
+      "remoteBytes": 5015,
+      "expectedSha256": "7ee650ece1406e930a942e9f2d531f6c6cf77739871125fc9c91ecea1c502af0",
+      "remoteSha256": "7ee650ece1406e930a942e9f2d531f6c6cf77739871125fc9c91ecea1c502af0",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/SYNTHETISCHE_PROFILE/core-failure-v2.yaml",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/SYNTHETISCHE_PROFILE/core-failure-v2.yaml",
+      "mode": "LF-normalized",
+      "remoteBytes": 8484,
+      "expectedSha256": "e1f8e2cf7eaad2b0e54eafde42da83705c7b833939cb898a60324f4d50c6207e",
+      "remoteSha256": "e1f8e2cf7eaad2b0e54eafde42da83705c7b833939cb898a60324f4d50c6207e",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/SYNTHETISCHE_PROFILE/core-failure.yaml",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/SYNTHETISCHE_PROFILE/core-failure.yaml",
+      "mode": "LF-normalized",
+      "remoteBytes": 109,
+      "expectedSha256": "1dca1bfc5e2ea8cfa7403c34ce91cc0cd9f8e9c266cab5acb0ab312a30b6cdea",
+      "remoteSha256": "1dca1bfc5e2ea8cfa7403c34ce91cc0cd9f8e9c266cab5acb0ab312a30b6cdea",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/SYNTHETISCHE_PROFILE/core-success-v2.yaml",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/SYNTHETISCHE_PROFILE/core-success-v2.yaml",
+      "mode": "LF-normalized",
+      "remoteBytes": 8484,
+      "expectedSha256": "e1f8e2cf7eaad2b0e54eafde42da83705c7b833939cb898a60324f4d50c6207e",
+      "remoteSha256": "e1f8e2cf7eaad2b0e54eafde42da83705c7b833939cb898a60324f4d50c6207e",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/VERLAUFSEINTRAG_VORBEREITET.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/VERLAUFSEINTRAG_VORBEREITET.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 1423,
+      "expectedSha256": "762b6cdf82382f34321fda3e5097dcf628d99499a5263050788b6efd0c2ff85b",
+      "remoteSha256": "762b6cdf82382f34321fda3e5097dcf628d99499a5263050788b6efd0c2ff85b",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/workflow-audit.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/workflow-audit.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 3752,
+      "expectedSha256": "4d022eff75ed313477e15d53afa342f014ce187cf54bcc6b4dfe7ae456fa4177",
+      "remoteSha256": "4d022eff75ed313477e15d53afa342f014ce187cf54bcc6b4dfe7ae456fa4177",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 6674,
+      "expectedSha256": "5bfc7b8c506efe35a28963a1f80cde4565a7d59e23d96e9c9c94bf8db2d0b5ba",
+      "remoteSha256": "5bfc7b8c506efe35a28963a1f80cde4565a7d59e23d96e9c9c94bf8db2d0b5ba",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/TRACEABILITY/requirements.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/TRACEABILITY/requirements.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 415452,
+      "expectedSha256": "d15028965fa2b695c5400d3a463cfeca25d30449d9be3f2e7a1613ec5173c785",
+      "remoteSha256": "d15028965fa2b695c5400d3a463cfeca25d30449d9be3f2e7a1613ec5173c785",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/TRACEABILITY/TRACEABILITY_MATRIX.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/TRACEABILITY/TRACEABILITY_MATRIX.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 176990,
+      "expectedSha256": "ac2cba9e30ea0e914b281c63ca010f724353d7564b1e06491210e5ba9669890f",
+      "remoteSha256": "ac2cba9e30ea0e914b281c63ca010f724353d7564b1e06491210e5ba9669890f",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/references/PR_UND_REVIEW_UEBERGABE.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/references/PR_UND_REVIEW_UEBERGABE.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 9924,
+      "expectedSha256": "1de7d5ce7c9ebe3909d72f5cd07fddd3640c98d17ad3eee3a658f77541b72dcf",
+      "remoteSha256": "1de7d5ce7c9ebe3909d72f5cd07fddd3640c98d17ad3eee3a658f77541b72dcf",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/references/ZUSTAENDE_UND_NAECHSTER_SCHRITT.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/references/ZUSTAENDE_UND_NAECHSTER_SCHRITT.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 14391,
+      "expectedSha256": "a7499c5a39199c3d84f446bddd69c8093dfca1218d3fbe82aa72c1dbe2e86021",
+      "remoteSha256": "a7499c5a39199c3d84f446bddd69c8093dfca1218d3fbe82aa72c1dbe2e86021",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/scripts/pruefe_arbeitsakten.py",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/scripts/pruefe_arbeitsakten.py",
+      "mode": "LF-normalized",
+      "remoteBytes": 5413,
+      "expectedSha256": "4fecbd6d97cf23c159e4d3f60d4eb1ff88eecd99fd0e0f98308952772f9b1fd9",
+      "remoteSha256": "4fecbd6d97cf23c159e4d3f60d4eb1ff88eecd99fd0e0f98308952772f9b1fd9",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-abnehmen/references/ABNAHMECHECKLISTE.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-abnehmen/references/ABNAHMECHECKLISTE.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 7602,
+      "expectedSha256": "76bfea617c2daf258951fd9e731896053ac62f8024332b395200a9bda1ec8340",
+      "remoteSha256": "76bfea617c2daf258951fd9e731896053ac62f8024332b395200a9bda1ec8340",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-umsetzen/references/ABGABECHECKLISTE.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-umsetzen/references/ABGABECHECKLISTE.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 6486,
+      "expectedSha256": "8d46f6df7340b9b1f584eb42176c3e762c096994fa1b0b49b3ec434c2a4ce9c8",
+      "remoteSha256": "8d46f6df7340b9b1f584eb42176c3e762c096994fa1b0b49b3ec434c2a4ce9c8",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/README.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/README.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 1120,
+      "expectedSha256": "121ed415c0c4e270998cec15a2e4d60fc8603eb0af5a514efec2f169ae1d44cc",
+      "remoteSha256": "121ed415c0c4e270998cec15a2e4d60fc8603eb0af5a514efec2f169ae1d44cc",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/STATUS.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/STATUS.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 2651,
+      "expectedSha256": "18dce63373701b624f6a31d38815d54a5cc6b2edb015d4cf789e08303737ae3c",
+      "remoteSha256": "18dce63373701b624f6a31d38815d54a5cc6b2edb015d4cf789e08303737ae3c",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/VERLAUF.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/VERLAUF.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 5473,
+      "expectedSha256": "bf618202411cff191946bf8c3d2bb0e503ac3f02436ea950fbdc721f49aa09c1",
+      "remoteSha256": "bf618202411cff191946bf8c3d2bb0e503ac3f02436ea950fbdc721f49aa09c1",
+      "result": "PASS"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json",
+      "mode": "LF-normalized",
+      "remoteBytes": 2766,
+      "expectedSha256": "cf0df852f78ab55f89692db964b2ba3d7df755c1b55743f6fc9531354e87ed92",
+      "remoteSha256": "cf0df852f78ab55f89692db964b2ba3d7df755c1b55743f6fc9531354e87ed92",
+      "result": "PASS"
+    },
+    {
+      "path": "docs/compatibility.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/docs/compatibility.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 5082,
+      "expectedSha256": "07913c59e75ff1a787a13fbfdc48f935ea84771946653ca104e5f662b80deb4d",
+      "remoteSha256": "07913c59e75ff1a787a13fbfdc48f935ea84771946653ca104e5f662b80deb4d",
+      "result": "PASS"
+    },
+    {
+      "path": "docs/PROJEKTUEBERSICHT.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/docs/PROJEKTUEBERSICHT.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 35834,
+      "expectedSha256": "29fb4bce77303c4a2034bfbb58a13e49baa76ca454899f6dbcd6d641abe15280",
+      "remoteSha256": "29fb4bce77303c4a2034bfbb58a13e49baa76ca454899f6dbcd6d641abe15280",
+      "result": "PASS"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/README.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 9413,
+      "expectedSha256": "973b721cf0fc6c9c2c60f4cfed81eecc60fb4c8972ce05adf50dd45488fadaa9",
+      "remoteSha256": "973b721cf0fc6c9c2c60f4cfed81eecc60fb4c8972ce05adf50dd45488fadaa9",
+      "result": "PASS"
+    },
+    {
+      "path": "task.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/task.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 29057,
+      "expectedSha256": "84094f40ce210b1c3f11f952df0b9310c2d55563539697bdf2e627d72f38f9ed",
+      "remoteSha256": "84094f40ce210b1c3f11f952df0b9310c2d55563539697bdf2e627d72f38f9ed",
+      "result": "PASS"
+    },
+    {
+      "path": "tests/test_startup_hotkey_persistence.py",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/tests/test_startup_hotkey_persistence.py",
+      "mode": "LF-normalized",
+      "remoteBytes": 6128,
+      "expectedSha256": "b09b649dddd282837c40ab391d4e35e9ab04a946d16973f6bc0194537513a6e1",
+      "remoteSha256": "b09b649dddd282837c40ab391d4e35e9ab04a946d16973f6bc0194537513a6e1",
+      "result": "PASS"
+    },
+    {
+      "path": "tests/test_v2_work_records.py",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/tests/test_v2_work_records.py",
+      "mode": "LF-normalized",
+      "remoteBytes": 4501,
+      "expectedSha256": "fcefc41ea2b273691de1be50cd3950642f643cefdccd3dc68c5d7dafae9131f4",
+      "remoteSha256": "fcefc41ea2b273691de1be50cd3950642f643cefdccd3dc68c5d7dafae9131f4",
+      "result": "PASS"
+    },
+    {
+      "path": "voice_stt_client/ui/application.py",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/voice_stt_client/ui/application.py",
+      "mode": "LF-normalized",
+      "remoteBytes": 45125,
+      "expectedSha256": "2f5c5e5688b5afe24d810e37139cfc511e8df4d282bfe868de32d1c8270e1be9",
+      "remoteSha256": "2f5c5e5688b5afe24d810e37139cfc511e8df4d282bfe868de32d1c8270e1be9",
+      "result": "PASS"
+    },
+    {
+      "path": "ÜBERGABE.md",
+      "url": "https://raw.githubusercontent.com/marcosudau-vps/voice-stt-client/210c2ae14355d22e9b25172cf47a1bcf94860300/%C3%9CBERGABE.md",
+      "mode": "LF-normalized",
+      "remoteBytes": 21618,
+      "expectedSha256": "6c72a68300de348eecd7580d7d0e7bda0d110f0648a765ae85a9d11457ad0efe",
+      "remoteSha256": "6c72a68300de348eecd7580d7d0e7bda0d110f0648a765ae85a9d11457ad0efe",
+      "result": "PASS"
+    }
+  ]
+}

@@ -40,12 +40,13 @@
   },
   "recovery": null,
   "relatedServerFix": null,
-  "qualifiedImplementationCommit": "e0cfd85445c87302dc3dc24dbab6b0dd9cda5b00",
-  "qualifiedImplementationTree": "e6da645f8092fbf6faa5c5a4fe3540a23441d992",
+  "qualifiedImplementationCommit": "210c2ae14355d22e9b25172cf47a1bcf94860300",
+  "qualifiedImplementationTree": "94c11320c44bef32cd59f2b65d7aaa70857de72d",
   "findingDisposition": {
     "CV2-R02-F01": {
       "state": "CORRECTED_AWAITING_INDEPENDENT_RECHECK",
       "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md"
     }
-  }
+  },
+  "qualifiedImplementationMeaning": "R03 product/test-qualified first publication; final candidate includes only subsequent handoff/evidence metadata and remote verifier scope correction. Resolve exact final HEAD from package PR."
 }

@@ -28,3 +28,5 @@ Geprüft: `8b1c4c157b6b431dac6af69e2e264d0c37579bef`, Tree `cc099b87c450b91ad4ee
 [Originalauftrag](RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md), [Report](RUNS/R03-KORREKTUR/01_REPORT.md), [Evidenz](RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md), [vollständiger vorbereiteter Belegsatz](../../PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11/README.md).
 
 R03: F01 selbst korrigiert, unabhängige Schließung offen; 1233 Gesamttests, Builds/Smokes und gemeinsamer Aktenprüfer selbst bestanden. Frühere Reviewurteile und Belege unverändert.
+
+R03 qualifizierter Erstpublikationscommit `210c2ae14355d22e9b25172cf47a1bcf94860300`, Tree `94c11320c44bef32cd59f2b65d7aaa70857de72d`. [117 Online-Pfade PASS](RUNS/R03-KORREKTUR/EVIDENCE/remote-first-publication.json); anschließend ausschließlich administrativer Bereitstellungsnachtrag, finalen Reviewhead aus Git/PR-Übergabe ermitteln.

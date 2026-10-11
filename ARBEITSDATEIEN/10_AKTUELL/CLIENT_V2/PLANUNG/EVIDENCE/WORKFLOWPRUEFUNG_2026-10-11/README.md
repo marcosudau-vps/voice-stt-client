@@ -1,6 +1,8 @@
 # Belegsatz im Korrekturkandidaten R03
 
-Der vollständige Satz (22 Dateien, drei Archivteile, 6355 historische Quelldateien) wird zusammen mit R03 auf dem bestehenden Paketbranch in PR #2 aufgenommen. Remote-Bereitstellung wird nach Push mit dem [R03-Remoteprüfer](../../../30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/verifiziere_remote.py) am tatsächlichen Commit geprüft; derzeit noch kein Online-Nachweis. Bewertung, Rohbelege, synthetische Profile und Archive sind erhalten. Historische Skripte werden nicht ausgeführt.
+Der vollständige Satz (22 Dateien, drei Archivteile, 6355 historische Quelldateien) ist mit R03 im bestehenden Paketbranch/PR #2 veröffentlicht. Tatsächliche Erstpublikation am Commit `210c2ae14355d22e9b25172cf47a1bcf94860300`: alle 117 erforderlichen Pfade online abgerufen und SHA256-geprüft, Texte LF-normalisiert und Archivteile bytegenau. [Versionierter Erstnachweis](../../../30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/remote-first-publication.json), [Remoteprüfer](../../../30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/verifiziere_remote.py).
+
+Dieser administrative Nachtrag aktualisiert README/BEREITSTELLUNG/Manifest und sichert den tatsächlich erzeugten Erstnachweis. Seine endgültige Spitze wird nach Push nochmals vollständig überprüft; tatsächliche finale SHA/Tree, Remoteprüfung und CI in der PR-Übergabe. Kein selbst behaupteter zukünftiger Nachweis. Bewertung, Rohbelege, synthetische Profile und Archive sind erhalten; historische Skripte werden nicht ausgeführt.
 
 ## Historischer Vorbereitungsstand
 

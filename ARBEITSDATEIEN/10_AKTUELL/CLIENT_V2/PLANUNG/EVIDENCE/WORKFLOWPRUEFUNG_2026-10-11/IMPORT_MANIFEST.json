@@ -6,7 +6,7 @@
   "targetBranch": "work/client-v2/ap-cv2-000",
   "targetRelativeFolder": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/WORKFLOWPRUEFUNG_2026-10-11",
   "externalSourceAccessRequired": false,
-  "publicationStatus": "R03_CANDIDATE_READY_PENDING_REMOTE_VERIFICATION",
+  "publicationStatus": "REMOTE_FIRST_PUBLICATION_HASH_VERIFIED",
   "payloadFiles": 21,
   "manifestExcludedFromOwnHashes": true,
   "files": [
@@ -18,9 +18,9 @@
     },
     {
       "path": "BEREITSTELLUNG.json",
-      "bytes": 2761,
-      "sha256": "f0b0997c4c95cf98801ba860bc018deb2dfb50b0a7c21716fbb5ffcbf92ab0fb",
-      "sha256NormalizedLF": "1636ec4b368e61d802eccf4ed27adb32d6cff538f94020a0be8faaf154666487"
+      "bytes": 3903,
+      "sha256": "a41abd75e4565af5ca7a53a76a7e9e2d26fc2bc02999bb8fa599dde2b2f68ef0",
+      "sha256NormalizedLF": "824b6be6d0effc022ed93a3ed68fc7ae8d513d54473dd3c9f1c44ca97a3c43ae"
     },
     {
       "path": "BEWERTUNG_UND_EMPFEHLUNG.md",
@@ -96,9 +96,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 4134,
-      "sha256": "76811521f43137eea36368de920b0b80d8654b3cdd00f5d3cd77900653568ffc",
-      "sha256NormalizedLF": "79a1a133515057ce3b9f9c1dfd8d275dd8c9f8d8e63f73f7d1313d20da136ba0"
+      "bytes": 4654,
+      "sha256": "e9b6f3bc76e38368a156c723dd9b25e4b52cbc3a161b83975c2ee04b48b564a5",
+      "sha256NormalizedLF": "5201fa0cb3328d5999292d72b982ffe15858180e5956664adbf3c0720a0adfcc"
     },
     {
       "path": "sichere_quellbestand.py",
@@ -136,5 +136,7 @@
       "sha256": "fef61089e07abfedccb002c661dfa03efe7970ae7948de1dde1821b1f506fa1a",
       "sha256NormalizedLF": "4d022eff75ed313477e15d53afa342f014ce187cf54bcc6b4dfe7ae456fa4177"
     }
-  ]
+  ],
+  "verifiedFirstPublicationCommit": "210c2ae14355d22e9b25172cf47a1bcf94860300",
+  "verificationMeaning": "First publication verified at this immutable SHA; current handoff metadata secured afterwards and final candidate reverified in PR handoff."
 }
