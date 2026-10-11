@@ -36,3 +36,7 @@ Unabhängige statische Paketprüfung von `8b1c4c157b6b431dac6af69e2e264d0c37579b
 ## R03-KORREKTUR – 2026-10-11
 
 Einreichung REVIEW_READY; [Korrekturreport](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md). Meilenstein AP-CV2-000-R03 im Steuerungslog. Unabhängiger Vollreview offen, keine Übernahme.
+
+## AP-CV2-000 / R04 – 2026-10-11
+
+Unabhängige fachliche Folgesichtung von `cd872d4bfa8eccd0167337cbab16a572ca70bfd4`: F01 anhand Codekontrollfluss und neuer Regressionstests geschlossen; externe Windows-CI 1233 PASS für kandidatenidentischen Tree überprüft. **BLOCKED** nur wegen eigenem unabhängigem Windows-Gesamttest NOT_RUN (`R04-T01`); kein weiterer Produktfinding. Arbeits-/Workflowkorrekturen ausdrücklich von Bewertung ausgenommen. [R04-Report](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/01_REPORT.md). Keine Produktänderung, kein ROOT_PASS oder Merge.

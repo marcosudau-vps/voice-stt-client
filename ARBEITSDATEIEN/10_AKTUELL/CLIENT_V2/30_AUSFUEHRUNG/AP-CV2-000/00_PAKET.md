@@ -1,6 +1,6 @@
 # AP-CV2-000 – Paketakte
 
-Stand 2026-10-11. Status **REVIEW_READY**, R03-KORREKTUR selbstqualifiziert auf der übernommenen R02-Spitze; kein PASS und keine Übernahmefreigabe.
+Stand 2026-10-11. Status **BLOCKED** nach R04-ABNAHME (fehlender unabhängiger Windows-Volltest), R03-KORREKTUR zuvor selbstqualifiziert auf der übernommenen R02-Spitze; kein PASS und keine Übernahmefreigabe.
 
 Ziel/Scope: [Revision-10-Paketvertrag](../../PLANUNG/ARBEITSPAKETE/AP-CV2-000.md), Feature-/Releaseintegration, namespace-only Kernmigration und V1-Polish, kein V2-Lifecycle. Relevante Auftragshashes: [plan-hashes.txt](RUNS/R01-UMSETZUNG/EVIDENCE/plan-hashes.txt).
 
@@ -10,7 +10,7 @@ Kanonischer Parent `050e776cf316eb332177294db0c0a2719c2b4415`; Bearbeitung `work
 | --- | --- | --- | --- |
 | R01-UMSETZUNG | implementation / REVIEW_READY | [Original](RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md) | [Report](RUNS/R01-UMSETZUNG/01_REPORT.md), [EVIDENCE](RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md) |
 
-Nächste Aktion: frischer unabhängiger Vollreview des kumulativen Kandidaten einschließlich F01-Recheck und eigener Windows-Gesamtregression. Schreibrecht zurückgegeben; kein AP-CV2-010 vor PASS, menschlichem Prompt und kanonischer Übernahme.
+Nächste Aktion: unabhängige, vom Reviewer durchgeführte/veranlasste Windows-Gesamtregression auf dem geprüften Kandidaten; F01 statisch geschlossen. Schreibrecht zurückgegeben; kein AP-CV2-010 vor PASS, menschlichem Prompt und kanonischer Übernahme.
 
 Historischer R01-Nachtrag: Vor damaliger endgültiger Übergabe CI-Kurz-/Langpfadassertion im neuen Historientest auf samefile präzisiert; Produktcode unverändert. Beide vollständigen Gesamtsuiten erneut1221 PASS, Belege im selben R01. Finaler Reviewhead ist die nach dieser Testpräzisierung eingereichte PR-Spitze; b9c90f8 bleibt Vorgängerprovenienz.
 
@@ -30,3 +30,11 @@ Geprüft: `8b1c4c157b6b431dac6af69e2e264d0c37579bef`, Tree `cc099b87c450b91ad4ee
 R03: F01 selbst korrigiert, unabhängige Schließung offen; 1233 Gesamttests, Builds/Smokes und gemeinsamer Aktenprüfer selbst bestanden. Frühere Reviewurteile und Belege unverändert.
 
 R03 qualifizierter Erstpublikationscommit `210c2ae14355d22e9b25172cf47a1bcf94860300`, Tree `94c11320c44bef32cd59f2b65d7aaa70857de72d`. [117 Online-Pfade PASS](RUNS/R03-KORREKTUR/EVIDENCE/remote-first-publication.json); anschließend ausschließlich administrativer Bereitstellungsnachtrag, finalen Reviewhead aus Git/PR-Übergabe ermitteln.
+
+## Unabhängige Folgesichtung R04 – 2026-10-11
+
+| Run | Rolle / Urteil | Originalauftrag | Report / Evidenz |
+| --- | --- | --- | --- |
+| R04-ABNAHME | Reviewer / **BLOCKED** nur wegen fehlendem unabhängigen Windows-Prüflauf; F01 fachlich geschlossen | [Original](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/00_PROMPT_ORIGINAL.md) | [Report](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/01_REPORT.md), [Evidenz](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md) |
+
+Geprüft: `cd872d4bfa8eccd0167337cbab16a572ca70bfd4`, Tree `6aff2fa629b0c01fde502c345e7e31035cee0926`. Bekannte Windows-CI PASS (1233 Tests), eigenes Windows-Test-Gate `NOT_RUN`; keine neuen Produktfindings, keine fachliche Bewertung der vom Auftraggeber ausgeklammerten Workflow-/Unterlagenänderungen. Kein technischer ROOT_PASS, Merge oder Folgepaketstart.

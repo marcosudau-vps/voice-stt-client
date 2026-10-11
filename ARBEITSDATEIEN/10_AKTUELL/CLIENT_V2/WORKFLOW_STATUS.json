@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "REVIEW_READY",
-  "packageStatus": "REVIEW_READY",
+  "workflowPhase": "BLOCKED",
+  "packageStatus": "BLOCKED",
   "activePackage": "AP-CV2-000",
   "nextPackage": "AP-CV2-010",
   "canonicalBranch": "feat/client-v2",
@@ -10,26 +10,24 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/2",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R03-KORREKTUR",
-    "role": "correction",
-    "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md"
+    "id": "R04-ABNAHME",
+    "role": "review",
+    "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "8b1c4c157b6b431dac6af69e2e264d0c37579bef",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md",
-  "openFindingIds": [
-    "CV2-R02-F01"
-  ],
+  "reviewedCommit": "cd872d4bfa8eccd0167337cbab16a572ca70bfd4",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/01_REPORT.md",
+  "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": null,
-  "blockingReason": null,
-  "nextAction": "Frischer unabhängiger Vollreview des gesamten PR #2 auf seiner tatsächlichen Spitze; F01 und eigene Windows-Gesamtregression prüfen. Kein Merge oder Folgepaketstart.",
+  "blockingReason": "R04-T01: kein unabhängig durch Reviewer ausgeführter/veranlasster vollständiger Windows-Clientsuite-Lauf; vorhandene CI 38163179818 extern erfolgreich, F01 fachlich geschlossen.",
+  "nextAction": "Unabhängige vollständige Windows-Clientsuite auf reviewed_sha cd872d4bfa8eccd0167337cbab16a572ca70bfd4 mit kompletter Runtime-/Testspur durchführen/veranlassen; erst danach ROOT_PASS prüfen. Kein Merge.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
-  "context": "R03 korrigiert R02-F01 mit echtem isoliertem Benutzerprofil; vollständige lokale Selbstregression 1233 PASS, keine unabhängige Abnahme. R02 bleibt historisch CHANGES_REQUIRED mit eigenem Volltest NOT_RUN.",
+  "context": "R04-F01 statisch geschlossen; bestehende externe CI 38163179818 1233 PASS auf Tree 6aff2fa629b0c01fde502c345e7e31035cee0926. Selbstständiger Windows-Volltest NOT_RUN. Workflow- und Arbeitsunterlagenänderungen auf Auftraggeberwunsch nicht bewertet.",
   "canonicalParentRef": "feat/client-v2",
   "canonicalParentResolution": "Lokaler und veröffentlichter Revision-10-HEAD am Paketstart aus Git verifiziert; vollständiger SHA in canonicalParent.",
   "repository": "marcosudau-vps/voice-stt-client",
@@ -44,8 +42,8 @@
   "qualifiedImplementationTree": "94c11320c44bef32cd59f2b65d7aaa70857de72d",
   "findingDisposition": {
     "CV2-R02-F01": {
-      "state": "CORRECTED_AWAITING_INDEPENDENT_RECHECK",
-      "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/01_REPORT.md"
+      "state": "CLOSED_STATIC_RECHECK_WITH_EXTERNAL_CI",
+      "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/01_REPORT.md"
     }
   },
   "qualifiedImplementationMeaning": "R03 product/test-qualified first publication; final candidate includes only subsequent handoff/evidence metadata and remote verifier scope correction. Resolve exact final HEAD from package PR."
