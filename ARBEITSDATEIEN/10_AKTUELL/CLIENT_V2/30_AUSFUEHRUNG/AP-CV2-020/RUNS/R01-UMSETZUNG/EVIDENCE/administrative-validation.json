@@ -1,0 +1,85 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-11T22:18:14.706115+00:00",
+  "qualifiedImplementationCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+  "qualifiedImplementationTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+  "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+  "candidateRef": "work/client-v2/ap-cv2-020",
+  "scope": "Pre-publication administrative validation; final submitted commit/tree and remote CI are recorded in the PR handoff comment. No self-SHA claimed.",
+  "productTestRelevantConfigurationDiff": [],
+  "administrativeChangedFiles": [
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/administrative-validation.json"
+  ],
+  "diffCheck": {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+      "--check"
+    ],
+    "exitCode": 0
+  },
+  "requirementCount": 28,
+  "actualMethodsVerified": true,
+  "specificationFieldsPreserved": true,
+  "completeLogHashesVerifiedInIndex": [
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/targeted-transport-codec-unittest.txt",
+      "sha256": "362bf24594cc760b92d5e2dab5bc04b34a80280acdd417d9402ac1e55ecdfbbf"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-transport-checkpoint.json",
+      "sha256": "a86e31c4e77e00c3677cefa69f1651f684a5ccaae60c394ede7cce9e3c2303f0"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/compileall.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/windows-full-unittest.txt",
+      "sha256": "25b64436e265be89c5bececc8c2aacd387887ada65ae482323c8c6dd2caf7810"
+    }
+  ],
+  "structureCommand": [
+    "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\PLANUNG\\SKILLS\\GEMEINSAM\\scripts\\pruefe_arbeitsakten.py",
+    "--paths",
+    "docs/protocol-v2-transport.md",
+    "docs/compatibility.md",
+    "--pr-summary",
+    "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-020-pr-actual.md"
+  ],
+  "structureValidation": {
+    "result": "PASS",
+    "package": "AP-CV2-020",
+    "packageStatus": "REVIEW_READY",
+    "referencedFiles": 12,
+    "markdownFiles": 7,
+    "relativeLinks": 51,
+    "errors": []
+  },
+  "actualPr": {
+    "baseRefName": "feat/client-v2",
+    "headRefName": "work/client-v2/ap-cv2-020",
+    "headRefOid": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-11T22:15:45Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38179389361/job/114588520604",
+        "name": "Test and build release candidates",
+        "startedAt": "2026-10-11T22:11:04Z",
+        "status": "COMPLETED",
+        "workflowName": "CI"
+      }
+    ],
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/4"
+  },
+  "prBodySha256": "afec96b1f198064f5ce762cde865ee70136e787f3f94aae115717157166dd7b3",
+  "prBodyCapturePhase": "REVIEW_READY before final administrative publication; final description is rebound to the final head before handoff",
+  "independentReview": "OPEN",
+  "writeOwnerAfterHandoff": null
+}

@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 und AP-CV2-010: ACCEPTED (AP010 kanonisch `91065f5f7715aa6653ec5335d9e757b6ef97a067`, PR #3). AP-CV2-020: IN_PROGRESS ([Paketakte](../../30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md)); spätere Pakete: PLANNED. CV2-000 bis CV2-110: zwölf Clientpakete; IV2-010/020: zwei Qualifikationspakete.
+AP-CV2-000 und AP-CV2-010: ACCEPTED (AP010 kanonisch `91065f5f7715aa6653ec5335d9e757b6ef97a067`, PR #3). AP-CV2-020: REVIEW_READY ([Paketakte](../../30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md)); spätere Pakete: PLANNED. CV2-000 bis CV2-110: zwölf Clientpakete; IV2-010/020: zwei Qualifikationspakete.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |
@@ -25,3 +25,6 @@ AP-CV2-000 und AP-CV2-010: ACCEPTED (AP010 kanonisch `91065f5f7715aa6653ec5335d9
 Jede Paketdatei enthält Ziel, fachliche Ownership, Eingangsvoraussetzungen, einen Umsetzungsvorschlag, Lieferergebnisse, messbare Akzeptanz, Testauftrag, Definition of Done und Übergabe-/Gitregeln. Geplante Datei-/Testnamen sind Vorschläge; [Umsetzungsspielraum](../SKILLS/GEMEINSAM/references/PLANUNGSSPIELRAUM.md) und [Paketablage/Vorlagen](../SKILLS/GEMEINSAM/references/PAKETABLAGE_UND_VORLAGEN.md) gelten paketübergreifend. Die Paket-ID wird im Ausführungsreport und bei jedem Traceabilitybeleg geführt.
 
 Die Ausführung erfolgt streng seriell. Fachlaufzahlen und Teilung stehen in jeder AP-Datei sowie im [Umfangsmodell](../REFERENZ/PLANUNG/UMFANG_UND_AGENTENLAEUFE.md). Jedes Paket wird unabhängig geprüft; erst ROOT PASS und die gesicherte kanonische Aggregateübernahme geben den nächsten Start frei. [Agentenregelwerk](../REFERENZ/GOVERNANCE/AGENTEN_REGELWERK.md).
+
+
+[PR #4](https://github.com/marcosudau-vps/voice-stt-client/pull/4); vollständige Selbstchecks bestanden, unabhängiges Urteil offen.

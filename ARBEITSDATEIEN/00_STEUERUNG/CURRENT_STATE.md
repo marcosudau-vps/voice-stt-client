@@ -1,7 +1,10 @@
 # Aktueller Arbeitsblock – AP-CV2-020
 
-CLIENT_V2 ist aktiv. AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067` (PR #3); AP-CV2-020 IN_PROGRESS auf `work/client-v2/ap-cv2-020`. [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Paketakte](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md). Nächste Aktion: beauftragte Umsetzung und Qualifikation abschließen.
+CLIENT_V2 ist aktiv. AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067` (PR #3); AP-CV2-020 REVIEW_READY auf `work/client-v2/ap-cv2-020`. [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Paketakte](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md). Nächste Aktion: unabhängige Abnahme in frischer Session; Schreibhoheit pausiert.
 
+
+
+[PR #4](https://github.com/marcosudau-vps/voice-stt-client/pull/4); vollständige Selbstchecks bestanden, unabhängiges Urteil offen.
 ## Historischer Stand vor AP-CV2-020
 
 # CURRENT_STATE – AP-CV2-010

@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "IMPLEMENTATION_IN_PROGRESS",
-  "packageStatus": "IN_PROGRESS",
+  "workflowPhase": "REVIEW_READY",
+  "packageStatus": "REVIEW_READY",
   "activePackage": "AP-CV2-020",
   "nextPackage": "AP-CV2-030",
   "canonicalBranch": "feat/client-v2",
   "canonicalParent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
   "candidateBranch": "work/client-v2/ap-cv2-020",
-  "pullRequest": null,
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/4",
   "selectedCandidate": true,
   "lastRun": {
     "id": "R01-UMSETZUNG",
@@ -19,9 +19,9 @@
   "reviewReport": null,
   "openFindingIds": [],
   "humanApproval": null,
-  "writeOwner": "Codex AP-CV2-020 R01 implementation",
+  "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Beauftragte AP-CV2-020 Umsetzung und vollständige Qualifikation abschließen.",
+  "nextAction": "Frische unabhängige Session prüft AP-CV2-020 PR #4 vom Parent bis zum eingereichten Head samt Code und kandidatengebundenen Windows-/Servernachweisen. Keine eigene unabhängige Abnahme, Übernahme oder Folgepaket.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -38,8 +38,8 @@
   "recovery": null,
   "relatedServerFix": null,
   "predecessorCanonicalization": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json",
-  "qualifiedImplementationCommit": null,
-  "qualifiedImplementationTree": null,
-  "windowsValidation": null,
+  "qualifiedImplementationCommit": "7546298f26e00b83ad4c9510a9b8c1e7e6726fc3",
+  "qualifiedImplementationTree": "7bd496ef70a192781ff999b31695b3ef3fd72210",
+  "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
   "reviewedTree": null
 }

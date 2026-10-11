@@ -2091,3 +2091,12 @@ Aus tatsächlicher kanonischer AP000-Basis1cf076b: immutable V2-Wirecodec, byteg
 ## AP-CV2-010-R02 – 2026-10-11 – unabhängige technische Abnahme ROOT_PASS
 
 Unabhängiger commitgebundener Vollreview des PR #3: `7124e5629e24817dd711b2e2b697b9c07aa11dd7`, Tree `37b61ff4cab90c18abf8e5bfae920f2e265ad3ab`, Parent `1cf076bd2ed56929b1a3780bc140da51348a8295`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`. Produkt-/Testdiff, WIRE-01..17, 30 Codec-Tests, 1263 Windowsvollsuite, 188 gepinnte Serverchecks, Originalvektoren und finale GitHub-CI unabhängig validiert; keine Pflichtfindings. Windows/HW durch Reviewer selbst NOT_RUN (gültige Fremdevidenz). [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md). Paketstatus ROOT_PASS, Workflow WAITING_FOR_APPROVAL; keine Übernahmefreigabe und kein Merge, AP020 nicht gestartet.
+
+## 2026-10-12 – AP-CV2-020 R01 / REVIEW_READY
+
+V2-Transport/Hello/Commandkorrelation auf Paketbranch vom AP010-Aggregat91065f5.
+Windows1290, targeted57, echter Servercheckpoint21/46 bytegeprüfte Quellen,
+compileall PASS auf `7546298f26e00b83ad4c9510a9b8c1e7e6726fc3`. PR #4 nach feat/client-v2; Originalauftrag,
+Report/Traceability/Belege vollständig. Frische unabhängige Abnahme folgt;
+Schreibhoheit pausiert, keine Paketpromotion oder Folgepaketimplementierung.
+[Runreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md).

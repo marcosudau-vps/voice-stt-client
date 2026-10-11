@@ -1,7 +1,10 @@
 # Aktueller Client-V2-Stand – AP-CV2-020, 2026-10-12
 
-AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067` (PR #3). AP-CV2-020 IN_PROGRESS auf `work/client-v2/ap-cv2-020`; [Paketakte](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md). Headless V2-Transport, Commandkorrelation und Bootstrapguards; [API](docs/protocol-v2-transport.md). Bisherige Appkomposition bis CV2-100 erhalten. Baseline1263 PASS; finale kandidativen Windows-/Serverprüfungen laufen. Keine reale ASR-/Hardwareabnahme.
+AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067` (PR #3). AP-CV2-020 REVIEW_READY auf `work/client-v2/ap-cv2-020`; [Paketakte](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md). Headless V2-Transport, Commandkorrelation und Bootstrapguards; [API](docs/protocol-v2-transport.md). Bisherige Appkomposition bis CV2-100 erhalten. Windowsvollsuite1290, gezielte57 Tests, echter Servercheckpoint21 und compileall PASS auf `7546298f26e00b83ad4c9510a9b8c1e7e6726fc3`. PR #4, unabhängiger Review als nächste Aktion; Schreibhoheit pausiert. Keine reale ASR-/Hardwareabnahme.
 
+
+
+[PR #4](https://github.com/marcosudau-vps/voice-stt-client/pull/4); vollständige Selbstchecks bestanden, unabhängiges Urteil offen.
 ## Historischer Stand vor AP-CV2-020
 
 # Aktueller Client-V2-Stand – AP-CV2-010, 2026-10-11

@@ -1,7 +1,10 @@
 # Client V2 – AP-CV2-020
 
-AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067`, PR #3. AP-CV2-020 IN_PROGRESS auf `work/client-v2/ap-cv2-020`; [Paketakte](30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md), [Workflowstatus](WORKFLOW_STATUS.json). Serverbaseline ada13b0, spätere App-/Hardwaregates offen.
+AP-CV2-010 ACCEPTED auf `91065f5f7715aa6653ec5335d9e757b6ef97a067`, PR #3. AP-CV2-020 REVIEW_READY auf `work/client-v2/ap-cv2-020`; [Paketakte](30_AUSFUEHRUNG/AP-CV2-020/00_PAKET.md), [Workflowstatus](WORKFLOW_STATUS.json). Serverbaseline ada13b0, spätere App-/Hardwaregates offen.
 
+
+
+[PR #4](https://github.com/marcosudau-vps/voice-stt-client/pull/4); vollständige Selbstchecks bestanden, unabhängiges Urteil offen.
 ## Historischer Stand vor AP-CV2-020
 
 # Client V2 – AP-CV2-010
