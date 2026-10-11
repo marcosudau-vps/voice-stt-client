@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "CHANGES_REQUIRED",
-  "packageStatus": "CHANGES_REQUIRED",
+  "workflowPhase": "CORRECTION_IN_PROGRESS",
+  "packageStatus": "IN_PROGRESS",
   "activePackage": "AP-CV2-020",
   "nextPackage": "AP-CV2-030",
   "canonicalBranch": "feat/client-v2",
@@ -10,10 +10,10 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/4",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R02-ABNAHME",
-    "role": "review",
-    "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+    "id": "R03-KORREKTUR",
+    "role": "correction",
+    "report": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md"
   },
   "reviewedCommit": "2b79a9a23a6be554a2a2a05ff3256a63ccf022d4",
   "reviewReport": "30_AUSFUEHRUNG/AP-CV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
@@ -22,9 +22,9 @@
     "CV2-020-R02-F02"
   ],
   "humanApproval": null,
-  "writeOwner": null,
+  "writeOwner": "R03-KORREKTUR",
   "blockingReason": "F01: ungefangener WebSocket-HTTP-Upgrade-Fehler beendet Reconnectloop; F02: 4408-Zähler kumuliert über erfolgreiche Session.",
-  "nextAction": "Korrektur von F01/F02 im bestehenden PR #4; danach neue kandidatengebundene Windowsvollsuite/Servercheckpoint und frische unabhängige Abnahme. Kein Merge/kein Folgepaket.",
+  "nextAction": "F01/F02 reproduzieren und gezielt korrigieren; neue Qualifikation und erneute REVIEW_READY-Abgabe in PR #4.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

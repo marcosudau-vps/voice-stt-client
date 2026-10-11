@@ -97,11 +97,23 @@ Keine ready/start/stop/Domainping-Nachrichten. WebSocketbibliothek übernimmt
 Ping/Pong (20 s Interval/Timeout); lange Finalinferenz hat keinen lokalen Timer.
 
 4400/4406/4409-Konfiguration blockieren. 4408 erlaubt genau einen neuen Versuch;
-wiederholte Stille blockiert. `session_limit_reached` bzw. 1013: mindestens 10 s
+wiederholte Stille ohne erfolgreiches READY dazwischen blockiert. Der
+4408-Episodenzähler wird erst nach vollständigem Bootstrap zurückgesetzt,
+nicht bereits bei Admission. `session_limit_reached` bzw. 1013: mindestens 10 s
 mit Jitter; 1011/Netzverlust: exponentiell .5–30 s, ±30% Jitter, Deckel 30 s.
 Nach erfolgreichem Bootstrap wird der Backoff zurückgesetzt. Connect 15 s,
 Admission 30 s, Bootstrap 30 s, Close 3 s sind konfigurierbare lokale Bounds.
 Keine automatische Activation, Ergebnisnachladung oder Finalinjektion.
+
+HTTP-Upgradeablehnungen werden vor Sessionbindung eingeordnet: 408 und 5xx
+verwenden den normalen begrenzten Backoff; 429 verwendet mindestens 10 s.
+Andere Statuscodes (einschließlich 401/403 und Endpoint-/Protokollfehlern)
+blockieren als `http_upgrade_<code>`, ohne identische Wiederholungsschleife.
+Ein anderweitig ungültiger WebSocket-Handshake blockiert als
+`invalid_websocket_handshake`, eine von der Bibliothek abgelehnte URI als
+`invalid_endpoint`. Nur die feste Fehlerklasse bzw. der HTTP-Status wird
+veröffentlicht; Responseheader, Bodies und Exceptiontexte bleiben außerhalb
+der Status-/Diagnosecallbacks. Es wird kein Admin-Key an `/ws/v2` gesendet.
 
 Bestehender `ClientEventEmitter` erhält nur State-/Result-/Guard-/IDdiagnose;
 keine Tokens, Texte, PCM oder vollständigen Wireobjekte. Loggingfehler bleiben

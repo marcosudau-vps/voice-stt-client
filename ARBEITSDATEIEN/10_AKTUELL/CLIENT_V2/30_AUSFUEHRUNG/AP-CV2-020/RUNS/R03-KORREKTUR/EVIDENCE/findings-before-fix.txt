@@ -1,0 +1,281 @@
+test_http_upgrade_transient_errors_backoff_then_ready (tests.test_v2_transport.Transport.test_http_upgrade_transient_errors_backoff_then_ready) ...
+  test_http_upgrade_transient_errors_backoff_then_ready (tests.test_v2_transport.Transport.test_http_upgrade_transient_errors_backoff_then_ready) (code=408) ... FAIL
+  test_http_upgrade_transient_errors_backoff_then_ready (tests.test_v2_transport.Transport.test_http_upgrade_transient_errors_backoff_then_ready) (code=500) ... FAIL
+  test_http_upgrade_transient_errors_backoff_then_ready (tests.test_v2_transport.Transport.test_http_upgrade_transient_errors_backoff_then_ready) (code=502) ... FAIL
+  test_http_upgrade_transient_errors_backoff_then_ready (tests.test_v2_transport.Transport.test_http_upgrade_transient_errors_backoff_then_ready) (code=503) ... FAIL
+  test_http_upgrade_transient_errors_backoff_then_ready (tests.test_v2_transport.Transport.test_http_upgrade_transient_errors_backoff_then_ready) (code=504) ... FAIL
+test_http_upgrade_rate_limit_has_capacity_backoff_and_bounded_stop (tests.test_v2_transport.Transport.test_http_upgrade_rate_limit_has_capacity_backoff_and_bounded_stop) ... FAIL
+test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) ...
+  test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_301') ... ERROR
+  test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_400') ... ERROR
+  test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_401') ... ERROR
+  test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_403') ... ERROR
+  test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_404') ... ERROR
+  test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_405') ... ERROR
+  test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_426') ... ERROR
+  test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='invalid_websocket_handshake') ... ERROR
+  test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='invalid_endpoint') ... ERROR
+test_4408_retry_budget_resets_only_after_ready_between_episodes (tests.test_v2_transport.Transport.test_4408_retry_budget_resets_only_after_ready_between_episodes) ... FAIL
+test_4408_only_one_retry_with_stable_process_run_id (tests.test_v2_transport.Transport.test_4408_only_one_retry_with_stable_process_run_id) ... ok
+
+======================================================================
+ERROR: test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_301')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 408, in test_http_upgrade_auth_configuration_and_invalid_handshake_block_once
+    await asyncio.wait_for(session.run(), 1)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 184, in run
+    await self._connection()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 237, in _connection
+    self._ws = await asyncio.wait_for(self._connector(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 405, in connector
+    raise failure
+websockets.exceptions.InvalidStatus: server rejected WebSocket connection: HTTP 301
+
+======================================================================
+ERROR: test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_400')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 408, in test_http_upgrade_auth_configuration_and_invalid_handshake_block_once
+    await asyncio.wait_for(session.run(), 1)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 184, in run
+    await self._connection()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 237, in _connection
+    self._ws = await asyncio.wait_for(self._connector(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 405, in connector
+    raise failure
+websockets.exceptions.InvalidStatus: server rejected WebSocket connection: HTTP 400
+
+======================================================================
+ERROR: test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_401')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 408, in test_http_upgrade_auth_configuration_and_invalid_handshake_block_once
+    await asyncio.wait_for(session.run(), 1)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 184, in run
+    await self._connection()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 237, in _connection
+    self._ws = await asyncio.wait_for(self._connector(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 405, in connector
+    raise failure
+websockets.exceptions.InvalidStatus: server rejected WebSocket connection: HTTP 401
+
+======================================================================
+ERROR: test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_403')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 408, in test_http_upgrade_auth_configuration_and_invalid_handshake_block_once
+    await asyncio.wait_for(session.run(), 1)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 184, in run
+    await self._connection()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 237, in _connection
+    self._ws = await asyncio.wait_for(self._connector(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 405, in connector
+    raise failure
+websockets.exceptions.InvalidStatus: server rejected WebSocket connection: HTTP 403
+
+======================================================================
+ERROR: test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_404')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 408, in test_http_upgrade_auth_configuration_and_invalid_handshake_block_once
+    await asyncio.wait_for(session.run(), 1)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 184, in run
+    await self._connection()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 237, in _connection
+    self._ws = await asyncio.wait_for(self._connector(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 405, in connector
+    raise failure
+websockets.exceptions.InvalidStatus: server rejected WebSocket connection: HTTP 404
+
+======================================================================
+ERROR: test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_405')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 408, in test_http_upgrade_auth_configuration_and_invalid_handshake_block_once
+    await asyncio.wait_for(session.run(), 1)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 184, in run
+    await self._connection()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 237, in _connection
+    self._ws = await asyncio.wait_for(self._connector(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 405, in connector
+    raise failure
+websockets.exceptions.InvalidStatus: server rejected WebSocket connection: HTTP 405
+
+======================================================================
+ERROR: test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='http_upgrade_426')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 408, in test_http_upgrade_auth_configuration_and_invalid_handshake_block_once
+    await asyncio.wait_for(session.run(), 1)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 184, in run
+    await self._connection()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 237, in _connection
+    self._ws = await asyncio.wait_for(self._connector(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 405, in connector
+    raise failure
+websockets.exceptions.InvalidStatus: server rejected WebSocket connection: HTTP 426
+
+======================================================================
+ERROR: test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='invalid_websocket_handshake')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 408, in test_http_upgrade_auth_configuration_and_invalid_handshake_block_once
+    await asyncio.wait_for(session.run(), 1)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 184, in run
+    await self._connection()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 237, in _connection
+    self._ws = await asyncio.wait_for(self._connector(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 405, in connector
+    raise failure
+websockets.exceptions.InvalidHandshake: synthetic credential must not leak
+
+======================================================================
+ERROR: test_http_upgrade_auth_configuration_and_invalid_handshake_block_once (tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once) (reason='invalid_endpoint')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 408, in test_http_upgrade_auth_configuration_and_invalid_handshake_block_once
+    await asyncio.wait_for(session.run(), 1)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 184, in run
+    await self._connection()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\v2_transport.py", line 237, in _connection
+    self._ws = await asyncio.wait_for(self._connector(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 405, in connector
+    raise failure
+websockets.exceptions.InvalidURI: wss://example.test:bad/ws/v2 isn't a valid URI: synthetic
+
+======================================================================
+FAIL: test_http_upgrade_transient_errors_backoff_then_ready (tests.test_v2_transport.Transport.test_http_upgrade_transient_errors_backoff_then_ready) (code=408)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 362, in test_http_upgrade_transient_errors_backoff_then_ready
+    self.assertEqual(session.status.state, V2TransportState.BACKOFF)
+AssertionError: <V2TransportState.CLOSED: 'closed'> != <V2TransportState.BACKOFF: 'backoff'>
+
+======================================================================
+FAIL: test_http_upgrade_transient_errors_backoff_then_ready (tests.test_v2_transport.Transport.test_http_upgrade_transient_errors_backoff_then_ready) (code=500)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 362, in test_http_upgrade_transient_errors_backoff_then_ready
+    self.assertEqual(session.status.state, V2TransportState.BACKOFF)
+AssertionError: <V2TransportState.CLOSED: 'closed'> != <V2TransportState.BACKOFF: 'backoff'>
+
+======================================================================
+FAIL: test_http_upgrade_transient_errors_backoff_then_ready (tests.test_v2_transport.Transport.test_http_upgrade_transient_errors_backoff_then_ready) (code=502)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 362, in test_http_upgrade_transient_errors_backoff_then_ready
+    self.assertEqual(session.status.state, V2TransportState.BACKOFF)
+AssertionError: <V2TransportState.CLOSED: 'closed'> != <V2TransportState.BACKOFF: 'backoff'>
+
+======================================================================
+FAIL: test_http_upgrade_transient_errors_backoff_then_ready (tests.test_v2_transport.Transport.test_http_upgrade_transient_errors_backoff_then_ready) (code=503)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 362, in test_http_upgrade_transient_errors_backoff_then_ready
+    self.assertEqual(session.status.state, V2TransportState.BACKOFF)
+AssertionError: <V2TransportState.CLOSED: 'closed'> != <V2TransportState.BACKOFF: 'backoff'>
+
+======================================================================
+FAIL: test_http_upgrade_transient_errors_backoff_then_ready (tests.test_v2_transport.Transport.test_http_upgrade_transient_errors_backoff_then_ready) (code=504)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 362, in test_http_upgrade_transient_errors_backoff_then_ready
+    self.assertEqual(session.status.state, V2TransportState.BACKOFF)
+AssertionError: <V2TransportState.CLOSED: 'closed'> != <V2TransportState.BACKOFF: 'backoff'>
+
+======================================================================
+FAIL: test_http_upgrade_rate_limit_has_capacity_backoff_and_bounded_stop (tests.test_v2_transport.Transport.test_http_upgrade_rate_limit_has_capacity_backoff_and_bounded_stop)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 386, in test_http_upgrade_rate_limit_has_capacity_backoff_and_bounded_stop
+    self.assertEqual(session.status.state, V2TransportState.BACKOFF)
+AssertionError: <V2TransportState.CLOSED: 'closed'> != <V2TransportState.BACKOFF: 'backoff'>
+
+======================================================================
+FAIL: test_4408_retry_budget_resets_only_after_ready_between_episodes (tests.test_v2_transport.Transport.test_4408_retry_budget_resets_only_after_ready_between_episodes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_transport.py", line 453, in test_4408_retry_budget_resets_only_after_ready_between_episodes
+    self.assertTrue(session.is_ready)
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.441s
+
+FAILED (failures=7, errors=9)

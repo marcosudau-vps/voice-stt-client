@@ -15,7 +15,7 @@ import random
 from urllib.parse import urlsplit
 
 from websockets.asyncio.client import connect
-from websockets.exceptions import ConnectionClosed
+from websockets.exceptions import ConnectionClosed, InvalidHandshake, InvalidStatus, InvalidURI
 
 from . import protocol_v2 as p
 from .command_tracker import CommandCompletion, CommandTracker, CommandTimeout, TransportLost
@@ -190,6 +190,19 @@ class V2STTSession:
                     if exc.message.payload["reason"] != "session_limit_reached":
                         raise _Blocked("session_configuration_rejected") from None
                     reason, delay = "session_limit_reached", self._delay(capacity=True)
+                except InvalidStatus as exc:
+                    # Upgrade failures happen before a WebSocket/session exists.
+                    # Publish only the status code, never response bodies/headers.
+                    code = exc.response.status_code
+                    reason = f"http_upgrade_{code}"
+                    if code == 429:
+                        delay = self._delay(capacity=True)
+                    elif code != 408 and not 500 <= code < 600:
+                        raise _Blocked(reason) from None
+                except InvalidHandshake:
+                    raise _Blocked("invalid_websocket_handshake") from None
+                except InvalidURI:
+                    raise _Blocked("invalid_endpoint") from None
                 except ConnectionClosed as exc:
                     code = exc.rcvd.code if exc.rcvd is not None else None
                     if code in (4400, 4406, 4409):
@@ -270,6 +283,9 @@ class V2STTSession:
             if not self._current(binding):
                 raise TransportLost("transport_lost")
             self._attempt = 0
+            # Admission alone isn't success: only a completed bootstrap separates
+            # hello-timeout episodes and grants a fresh single 4408 retry.
+            self._silent_failures = 0
             self._state(V2TransportState.READY)
             await self._receiver
         finally:

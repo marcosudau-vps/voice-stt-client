@@ -6,8 +6,10 @@ import json
 import unittest
 from unittest.mock import patch
 
-from websockets.exceptions import ConnectionClosedError
+from websockets.exceptions import ConnectionClosedError, InvalidHandshake, InvalidStatus, InvalidURI
 from websockets.frames import Close
+from websockets.datastructures import Headers
+from websockets.http11 import Response
 
 from voice_stt_client.core import protocol_v2 as p
 from voice_stt_client.core.command_tracker import (
@@ -339,6 +341,127 @@ class Transport(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(calls, 2)
         self.assertEqual(session.status.reason, "repeated_hello_timeout")
         self.assertEqual({json.loads(s.sent[0])["clientRunId"] for s in sockets}, {CLIENT_RUN_ID})
+
+    async def test_http_upgrade_transient_errors_backoff_then_ready(self):
+        for code in (408, 500, 502, 503, 504):
+            with self.subTest(code=code):
+                calls, statuses = [], []
+                socket = FakeWebSocket()
+                async def connector(*args, **kwargs):
+                    calls.append(1)
+                    if len(calls) == 1:
+                        raise InvalidStatus(Response(code, "synthetic", Headers()))
+                    return socket
+                session = V2STTSession(V2TransportConfig(backoff_initial=.02),
+                                       bootstrap=no_settings, connector=connector, jitter=lambda a, b: 1)
+                session.on_status = statuses.append
+                runner = asyncio.create_task(session.run())
+                self.addAsyncCleanup(self.finish_task, runner)
+                self.addAsyncCleanup(session.stop)
+                await until(lambda: session.status.state == V2TransportState.BACKOFF or runner.done())
+                self.assertEqual(session.status.state, V2TransportState.BACKOFF)
+                self.assertEqual(len(calls), 1)
+                self.assertEqual(session.status.retry_delay, .02)
+                await until(lambda: session.is_ready or runner.done())
+                self.assertTrue(session.is_ready)
+                self.assertEqual(len(calls), 2)
+                self.assertTrue(any(s.reason == f"http_upgrade_{code}" for s in statuses))
+                await session.request(p.CommandType.SNAPSHOT_REQUEST)
+                await session.stop()
+                self.assertTrue(runner.done())
+                self.assertTrue(socket.closed)
+                self.assertEqual(session.pending_count, 0)
+                self.assertIsNone(session._receiver)
+
+    async def test_http_upgrade_rate_limit_has_capacity_backoff_and_bounded_stop(self):
+        calls = []
+        async def connector(*args, **kwargs):
+            calls.append(1)
+            raise InvalidStatus(Response(429, "synthetic", Headers()))
+        session = V2STTSession(bootstrap=no_settings, connector=connector, jitter=lambda a, b: 1)
+        runner = asyncio.create_task(session.run())
+        self.addAsyncCleanup(self.finish_task, runner)
+        self.addAsyncCleanup(session.stop)
+        await until(lambda: session.status.state == V2TransportState.BACKOFF or runner.done())
+        self.assertEqual(session.status.state, V2TransportState.BACKOFF)
+        self.assertGreaterEqual(session.status.retry_delay, 10)
+        self.assertEqual(calls, [1])
+        await asyncio.wait_for(session.stop(), 1)
+        self.assertTrue(runner.done())
+        self.assertIsNone(session.binding)
+        self.assertIsNone(session._ws)
+        self.assertEqual(session.pending_count, 0)
+
+    async def test_http_upgrade_auth_configuration_and_invalid_handshake_block_once(self):
+        failures = [(InvalidStatus(Response(code, "synthetic", Headers())), f"http_upgrade_{code}")
+                    for code in (301, 400, 401, 403, 404, 405, 426)]
+        failures += [(InvalidHandshake("synthetic credential must not leak"), "invalid_websocket_handshake"),
+                     (InvalidURI("wss://example.test:bad/ws/v2", "synthetic"), "invalid_endpoint")]
+        for failure, reason in failures:
+            with self.subTest(reason=reason):
+                calls, statuses = [], []
+                async def connector(*args, **kwargs):
+                    calls.append(1)
+                    raise failure
+                session = V2STTSession(bootstrap=no_settings, connector=connector)
+                session.on_status = statuses.append
+                await asyncio.wait_for(session.run(), 1)
+                self.assertEqual(calls, [1])
+                self.assertEqual(session.status.state, V2TransportState.BLOCKED)
+                self.assertEqual(session.status.reason, reason)
+                self.assertNotIn(V2TransportState.BACKOFF, [s.state for s in statuses])
+                self.assertNotIn("credential", repr(statuses))
+                self.assertEqual(session.pending_count, 0)
+                self.assertIsNone(session._runner)
+                self.assertIsNone(session._receiver)
+                self.assertIsNone(session.binding)
+
+    async def test_4408_retry_budget_resets_only_after_ready_between_episodes(self):
+        sockets = [FakeWebSocket(admission=False), FakeWebSocket(),
+                   FakeWebSocket(admission=False), FakeWebSocket(session_id=p.new_id())]
+        sockets[0].inbox.put_nowait(close_error(4408))
+        sockets[2].inbox.put_nowait(close_error(4408))
+        calls, bindings, lost = [], [], []
+        release = asyncio.Event()
+        async def bootstrap(session, binding):
+            if len(calls) == 2:
+                await release.wait()
+        async def connector(*args, **kwargs):
+            socket = sockets[len(calls)]
+            calls.append(1)
+            return socket
+        session = V2STTSession(V2TransportConfig(backoff_initial=.01), bootstrap=bootstrap,
+                               connector=connector, jitter=lambda a, b: 1)
+        session.on_accepted = bindings.append
+        session.on_lost = lost.append
+        runner = asyncio.create_task(session.run())
+        self.addAsyncCleanup(self.finish_task, runner)
+        self.addAsyncCleanup(session.stop)
+        await until(lambda: session.status.state == V2TransportState.CONFIGURING or runner.done())
+        self.assertEqual(session._silent_failures, 1)  # admission alone isn't success
+        release.set()
+        await until(lambda: session.is_ready or runner.done())
+        self.assertTrue(session.is_ready)
+        old = session.binding
+        sockets[1].on_send = lambda message: asyncio.sleep(0)
+        pending = asyncio.create_task(session.request(p.CommandType.SNAPSHOT_REQUEST))
+        await until(lambda: session.pending_count == 1)
+        sockets[1].inbox.put_nowait(close_error(1011))
+        with self.assertRaises(TransportLost):
+            await asyncio.wait_for(pending, 1)
+        await until(lambda: (session.is_ready and session.generation == 4) or runner.done())
+        self.assertTrue(session.is_ready)
+        self.assertEqual(len(calls), 4)
+        self.assertEqual(session._silent_failures, 0)
+        self.assertNotEqual(old.session_id, session.binding.session_id)
+        self.assertEqual(lost, [old])
+        self.assertFalse(session.dispatch(p.decode_server_message(event("transcription.completed")), old))
+        self.assertEqual({json.loads(s.sent[0])["clientRunId"] for s in sockets}, {CLIENT_RUN_ID})
+        self.assertEqual(session.pending_count, 0)
+        await session.request(p.CommandType.SNAPSHOT_REQUEST)
+        await session.stop()
+        self.assertEqual(lost, bindings)
+        self.assertTrue(all(s.closed for s in sockets))
 
     async def test_handshake_refusal_config_capacity_and_incompatible(self):
         for kind, reason in (("protocol.incompatible", "unsupported"), ("session.rejected", "bad_config"),
