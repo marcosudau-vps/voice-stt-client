@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "BLOCKED",
-  "packageStatus": "BLOCKED",
+  "workflowPhase": "READY_FOR_CANONICALIZATION",
+  "packageStatus": "ROOT_PASS",
   "activePackage": "AP-CV2-000",
   "nextPackage": "AP-CV2-010",
   "canonicalBranch": "feat/client-v2",
@@ -10,24 +10,35 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/2",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R04-ABNAHME",
+    "id": "R05-WINDOWS-NACHWEIS",
     "role": "review",
-    "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md"
+    "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "cd872d4bfa8eccd0167337cbab16a572ca70bfd4",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/01_REPORT.md",
+  "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
   "openFindingIds": [],
-  "humanApproval": null,
-  "writeOwner": null,
-  "blockingReason": "R04-T01: kein unabhängig durch Reviewer ausgeführter/veranlasster vollständiger Windows-Clientsuite-Lauf; vorhandene CI 38163179818 extern erfolgreich, F01 fachlich geschlossen.",
-  "nextAction": "Unabhängige vollständige Windows-Clientsuite auf reviewed_sha cd872d4bfa8eccd0167337cbab16a572ca70bfd4 mit kompletter Runtime-/Testspur durchführen/veranlassen; erst danach ROOT_PASS prüfen. Kein Merge.",
+  "humanApproval": {
+    "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/00_PROMPT_ORIGINAL.md",
+    "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/2",
+    "headAtApproval": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+    "canonicalParent": "050e776cf316eb332177294db0c0a2719c2b4415",
+    "condition": "Eigener Windows-Volltest bestanden; finale PR-CI grün; Base unverändert.",
+    "authorizedFollowUp": "Beauftragte Rollenregelpflege und Abnahme-/Freigabenachweise im selben PR; keine Produkt-/Teständerung."
+  },
+  "writeOwner": {
+    "id": "R05-WINDOWS-NACHWEIS",
+    "role": "closure",
+    "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/00_PROMPT_ORIGINAL.md"
+  },
+  "blockingReason": null,
+  "nextAction": "Finale CI/Head/Base prüfen; gemäß gesichertem Nutzerauftrag PR #2 als genau einen Squash-Commit auf feat/client-v2 übernehmen. Kein automatischer Folgepaketstart.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
-  "context": "R04-F01 statisch geschlossen; bestehende externe CI 38163179818 1233 PASS auf Tree 6aff2fa629b0c01fde502c345e7e31035cee0926. Selbstständiger Windows-Volltest NOT_RUN. Workflow- und Arbeitsunterlagenänderungen auf Auftraggeberwunsch nicht bewertet.",
+  "context": "R04 schließt F01 fachlich, R05 ergänzt den fehlenden unabhängigen Windows-Volltest: 1233 PASS und 5 gezielte PASS. R04 bleibt erhalten. Nutzerauftrag erlaubt Regelpflege und anschließenden Einzel-Squash nach finaler grüner CI.",
   "canonicalParentRef": "feat/client-v2",
   "canonicalParentResolution": "Lokaler und veröffentlichter Revision-10-HEAD am Paketstart aus Git verifiziert; vollständiger SHA in canonicalParent.",
   "repository": "marcosudau-vps/voice-stt-client",
@@ -42,9 +53,15 @@
   "qualifiedImplementationTree": "94c11320c44bef32cd59f2b65d7aaa70857de72d",
   "findingDisposition": {
     "CV2-R02-F01": {
-      "state": "CLOSED_STATIC_RECHECK_WITH_EXTERNAL_CI",
-      "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/01_REPORT.md"
+      "state": "CLOSED_VERIFIED_WINDOWS",
+      "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md"
     }
   },
-  "qualifiedImplementationMeaning": "R03 product/test-qualified first publication; final candidate includes only subsequent handoff/evidence metadata and remote verifier scope correction. Resolve exact final HEAD from package PR."
+  "qualifiedImplementationMeaning": "R03 product/test-qualified first publication; final candidate includes only subsequent handoff/evidence metadata and remote verifier scope correction. Resolve exact final HEAD from package PR.",
+  "windowsValidation": {
+    "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/windows-validation.json",
+    "testedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+    "result": "PASS"
+  }
 }

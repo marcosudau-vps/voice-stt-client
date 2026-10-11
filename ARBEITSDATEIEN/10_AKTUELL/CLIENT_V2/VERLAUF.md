@@ -40,3 +40,7 @@ Einreichung REVIEW_READY; [Korrekturreport](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-K
 ## AP-CV2-000 / R04 – 2026-10-11
 
 Unabhängige fachliche Folgesichtung von `cd872d4bfa8eccd0167337cbab16a572ca70bfd4`: F01 anhand Codekontrollfluss und neuer Regressionstests geschlossen; externe Windows-CI 1233 PASS für kandidatenidentischen Tree überprüft. **BLOCKED** nur wegen eigenem unabhängigem Windows-Gesamttest NOT_RUN (`R04-T01`); kein weiterer Produktfinding. Arbeits-/Workflowkorrekturen ausdrücklich von Bewertung ausgenommen. [R04-Report](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/01_REPORT.md). Keine Produktänderung, kein ROOT_PASS oder Merge.
+
+## 2026-10-11 – R05 Windows-Nachweis und Nutzerfreigabe
+
+R04-T01 durch tatsächliche unabhängige Windows-Ausführung geschlossen (1233 PASS plus5 Startup-PASS); ROOT_PASS aus R04-Produktreview und R05-Ausführung. Auf ausdrücklichen Nutzerauftrag Testverantwortung vereinfacht, Rollenregelversion7. Nutzerfreigabe für Beleg-/Regelpush und anschließenden Einzel-Squash nach grüner finaler CI gesichert. Kein vorweggenommener Merge. [Report](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md).

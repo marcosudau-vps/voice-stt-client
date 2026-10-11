@@ -1,6 +1,6 @@
 # AP-CV2-000 – Paketakte
 
-Stand 2026-10-11. Status **BLOCKED** nach R04-ABNAHME (fehlender unabhängiger Windows-Volltest), R03-KORREKTUR zuvor selbstqualifiziert auf der übernommenen R02-Spitze; kein PASS und keine Übernahmefreigabe.
+Stand 2026-10-11. Status **ROOT_PASS** nach R04-Produktreview und unabhängigem R05-Windows-Volltest1233 PASS. Menschliche bedingte Übernahmefreigabe gesichert; finale CI und tatsächlicher Einzel-Squash noch auszuführen.
 
 Ziel/Scope: [Revision-10-Paketvertrag](../../PLANUNG/ARBEITSPAKETE/AP-CV2-000.md), Feature-/Releaseintegration, namespace-only Kernmigration und V1-Polish, kein V2-Lifecycle. Relevante Auftragshashes: [plan-hashes.txt](RUNS/R01-UMSETZUNG/EVIDENCE/plan-hashes.txt).
 
@@ -35,6 +35,10 @@ R03 qualifizierter Erstpublikationscommit `210c2ae14355d22e9b25172cf47a1bcf94860
 
 | Run | Rolle / Urteil | Originalauftrag | Report / Evidenz |
 | --- | --- | --- | --- |
-| R04-ABNAHME | Reviewer / **BLOCKED** nur wegen fehlendem unabhängigen Windows-Prüflauf; F01 fachlich geschlossen | [Original](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/00_PROMPT_ORIGINAL.md) | [Report](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/01_REPORT.md), [Evidenz](30_AUSFUEHRUNG/AP-CV2-000/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md) |
+| R04-ABNAHME | Reviewer / **BLOCKED** nur wegen fehlendem unabhängigen Windows-Prüflauf; F01 fachlich geschlossen | [Original](RUNS/R04-ABNAHME/00_PROMPT_ORIGINAL.md) | [Report](RUNS/R04-ABNAHME/01_REPORT.md), [Evidenz](RUNS/R04-ABNAHME/EVIDENCE/INDEX.md) |
 
 Geprüft: `cd872d4bfa8eccd0167337cbab16a572ca70bfd4`, Tree `6aff2fa629b0c01fde502c345e7e31035cee0926`. Bekannte Windows-CI PASS (1233 Tests), eigenes Windows-Test-Gate `NOT_RUN`; keine neuen Produktfindings, keine fachliche Bewertung der vom Auftraggeber ausgeklammerten Workflow-/Unterlagenänderungen. Kein technischer ROOT_PASS, Merge oder Folgepaketstart.
+
+## Aktueller R05-Nachweis und freigegebener Abschluss
+
+[R05-Report](RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md), [Originalauftrag/Freigabe](RUNS/R05-WINDOWS-NACHWEIS/00_PROMPT_ORIGINAL.md), [Evidenz](RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md). 1233 Windows-PASS und5 Startup-PASS; R04-T01 geschlossen, keine offenen Produktfindings. R04 bleibt als damalige BLOCKED-Akte erhalten. Nutzerauftrag erlaubt Rollenregelpflege und nach grüner finaler CI den Einzel-Squash auf feat/client-v2. Kein vorweggenommener CANONICALIZED-Status oder Folgepaketstart.

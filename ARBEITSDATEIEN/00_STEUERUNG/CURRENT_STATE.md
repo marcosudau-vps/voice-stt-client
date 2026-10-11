@@ -1,23 +1,12 @@
 # CURRENT STATE
 
-**Aktueller Unterlagenstand:** Revision 10 auf `feat/client-v2`, nach dem unveränderten Revision-9-Start bfade9d als ein ausdrücklich freigegebener Dokumentkorrekturcommit. [Freigabe und Ausnahmeumfang](../10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/VEROEFFENTLICHUNGSAUFTRAG_REV10.md), [Befundbewertung](../10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/BEWERTUNG_PRUEFBEFUNDE_REV10.md). AP-CV2-000 nach R03-Korrektur erneut REVIEW_READY; R02 CHANGES_REQUIRED bleibt historische Reviewprovenienz auf work/client-v2/ap-cv2-000, Parent 050e776cf316eb332177294db0c0a2719c2b4415. [Paketakte](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/00_PAKET.md). Nächste Aktion: frischer unabhängiger Vollreview einschließlich CV2-R02-F01-Recheck und eigener Windows-Gesamtregression; keine kanonische Übernahme oder Folgepaketfreigabe.
+Stand 2026-10-11. [Aktiver Client-V2-Block](../10_AKTUELL/CLIENT_V2/README.md). **AP-CV2-000 ROOT_PASS / READY_FOR_CANONICALIZATION** nach R04-Produktreview und R05-Windows-Volltest (1233 PASS). [Abnahme/Freigabe](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md), [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json).
 
-Stand 2026-10-11. Aktiver Clientworkstream: **Client V2**.
+Nächste Aktion: finale CI/Base050e776 prüfen und gemäß gesichertem Nutzerauftrag genau einen AP-CV2-000-Squash auf feat/client-v2 ausführen. Erst tatsächlicher Git-/PR-Nachweis gibt AP-CV2-010 frei; keine automatische Umsetzung. Der versionierte Stand bleibt vor Merge ROOT_PASS. Nach Merge kanonischen Abschluss aus Git/PR ableiten und auf dem nächsten Paketbranch nachführen.
 
-- Aktiver Block: [CLIENT_V2](../10_AKTUELL/CLIENT_V2/README.md).
-- Vollständige Unterlagen Revision 10 auf `feat/client-v2`; Revision-9-Start bleibt erhalten: [Auftraggeber](../10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/GOVERNANCE/AUFTRAGGEBER.md). Kein Import aus einer Vorbereitungsablage erforderlich.
-- Planung/Agenteneinstiege: [PLANUNG](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md).
-- Abschlusslinie: `feat/client-v2`, begonnen bei Clientcanonical 8bab1b3; erster neuer Commit enthält nur Unterlagen.
-- AP-CV2-000 auf eigenem Paketbranch technisch qualifiziert; nächste Aktion unabhängiger Vollreview des R03-Korrekturkandidaten. AP-CV2-010 bleibt ohne Vorgänger-PASS, menschliche Freigabe und kanonische Übernahme gesperrt.
-- Serverreferenz ada13b0 bleibt auf Server-Distributed; finales Serverrestaggregat später nach gemeinsamer Qualifikation und eigener Freigabe.
-- Logging/Observability Teil A bleibt vorhandene Foundation; Teil B bleibt bis nach Trigger-/V2-Migration deferred. Historische offene Formal-/Hardwaregates sind durch diesen Dokumentstart nicht bestanden.
-- Aktuellen Checkout/HEAD stets mit Git prüfen; alte absolute Session-/Workspaceangaben nicht ungeprüft übernehmen.
+[Planung/Rollen](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md), [Nächster-Schritt-Skill](../10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md). Planrevision10, Rollenregelversion7: Windows-Vollsuite im Umsetzungslauf, ChatGPT-Reviewer prüft Code und gültige Belege ohne Pflichtwiederholung. Serverada13b0 bleibt Distributedreferenz; Logging/Feedback-Bestand und spätere reale Hardwaregates bleiben erhalten. Keine externe Arbeitsablage erforderlich.
 
-Die folgende vollständig erhaltene Vorfassung beschreibt den früheren Stand 2026-08-29 und ist historische Provenienz. Ihre Next-/Freeze-/Branch-/Warteanweisungen steuern die neue Client-V2-Arbeit nicht.
-
-Gemeinsamer Kurzauftrag: [Nächster Schritt](../10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md). Rolle/AP aus dokumentiertem Stand selbst ermitteln; [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json) mit offenen Paketlinien abgleichen. Zusätzliches unabhängiges Review bleibt ausdrücklich beauftragbar. AP-CV2-000 REVIEW_READY nach R03; Umsetzer-Schreibrecht nach Übergabe pausiert. Kein PASS oder Übernahmeprompt vorhanden; R02-Report: CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-000/RUNS/R02-ABNAHME/01_REPORT.md.
-
----
+Die folgende Vorfassung ist historische Provenienz, keine aktuelle Arbeitsanweisung.
 
 ## Historische Vorfassung – 2026-08-29
 

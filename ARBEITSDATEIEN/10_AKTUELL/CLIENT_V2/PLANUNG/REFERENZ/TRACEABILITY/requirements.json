@@ -9,7 +9,7 @@
       "test": "test_*.py (bestehend)",
       "source": "Client core/config.py @ a80a6b1; Client core/controller.py @ a80a6b1; Client core/stt_session.py @ a80a6b1; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -62,6 +62,15 @@
         "methods": [
           "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
         ]
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R05-WINDOWS-NACHWEIS",
+        "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+        "priorProductReview": "R04-ABNAHME",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md",
+        "scope": "R04 independent product review plus R05 actual independent full Windows regression; user-directed document scope. Canonical adoption pending."
       }
     },
     {
@@ -72,7 +81,7 @@
       "test": "test_*.py (bestehend)",
       "source": "Client core/config.py @ a80a6b1; Client core/controller.py @ a80a6b1; Client core/stt_session.py @ a80a6b1; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -128,6 +137,15 @@
         "methods": [
           "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
         ]
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R05-WINDOWS-NACHWEIS",
+        "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+        "priorProductReview": "R04-ABNAHME",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md",
+        "scope": "R04 independent product review plus R05 actual independent full Windows regression; user-directed document scope. Canonical adoption pending."
       }
     },
     {
@@ -138,7 +156,7 @@
       "test": "test_*.py (bestehend)",
       "source": "Client voice_stt_client/ui/core_bridge.py @ f625904; Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Client voice_stt_client/core/history.py @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -192,6 +210,15 @@
         "methods": [
           "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
         ]
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R05-WINDOWS-NACHWEIS",
+        "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+        "priorProductReview": "R04-ABNAHME",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md",
+        "scope": "R04 independent product review plus R05 actual independent full Windows regression; user-directed document scope. Canonical adoption pending."
       }
     },
     {
@@ -202,7 +229,7 @@
       "test": "test_*.py (bestehend)",
       "source": "Client pyproject.toml @ f625904; Client .github/workflows/ci.yml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -241,6 +268,15 @@
         "methods": [
           "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
         ]
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R05-WINDOWS-NACHWEIS",
+        "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+        "priorProductReview": "R04-ABNAHME",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md",
+        "scope": "R04 independent product review plus R05 actual independent full Windows regression; user-directed document scope. Canonical adoption pending."
       }
     },
     {
@@ -251,7 +287,7 @@
       "test": "test_*.py (bestehend)",
       "source": "Client pyproject.toml @ f625904; Client .github/workflows/ci.yml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -296,6 +332,15 @@
           "tests.test_startup_hotkey_persistence.StartupPersistence.test_save_failure_stops_started_core_and_restores_hotkeys",
           "tests.test_startup_hotkey_persistence.StartupPersistence.test_retry_after_failed_core_uses_original_binding_then_persists"
         ]
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R05-WINDOWS-NACHWEIS",
+        "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+        "priorProductReview": "R04-ABNAHME",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md",
+        "scope": "R04 independent product review plus R05 actual independent full Windows regression; user-directed document scope. Canonical adoption pending."
       }
     },
     {
@@ -306,7 +351,7 @@
       "test": "test_*.py (bestehend)",
       "source": "Client pyproject.toml @ f625904; Client .github/workflows/ci.yml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -345,6 +390,15 @@
         "methods": [
           "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
         ]
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R05-WINDOWS-NACHWEIS",
+        "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+        "priorProductReview": "R04-ABNAHME",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md",
+        "scope": "R04 independent product review plus R05 actual independent full Windows regression; user-directed document scope. Canonical adoption pending."
       }
     },
     {
@@ -7072,7 +7126,7 @@
         }
       ],
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
         "state": "SELF_CHECK_PASS_REVIEW_READY",
@@ -7095,6 +7149,15 @@
         "methods": [
           "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
         ]
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R05-WINDOWS-NACHWEIS",
+        "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+        "priorProductReview": "R04-ABNAHME",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md",
+        "scope": "R04 independent product review plus R05 actual independent full Windows regression; user-directed document scope. Canonical adoption pending."
       }
     },
     {
@@ -7128,7 +7191,7 @@
         }
       ],
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
         "state": "SELF_CHECK_PASS_REVIEW_READY",
@@ -7159,6 +7222,15 @@
           "tests.test_startup_hotkey_persistence.StartupPersistence.test_save_failure_stops_started_core_and_restores_hotkeys",
           "tests.test_startup_hotkey_persistence.StartupPersistence.test_retry_after_failed_core_uses_original_binding_then_persists"
         ]
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R05-WINDOWS-NACHWEIS",
+        "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+        "priorProductReview": "R04-ABNAHME",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md",
+        "scope": "R04 independent product review plus R05 actual independent full Windows regression; user-directed document scope. Canonical adoption pending."
       }
     },
     {
@@ -7192,7 +7264,7 @@
         }
       ],
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
         "state": "SELF_CHECK_PASS_REVIEW_READY",
@@ -7215,6 +7287,15 @@
         "methods": [
           "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
         ]
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R05-WINDOWS-NACHWEIS",
+        "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+        "priorProductReview": "R04-ABNAHME",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md",
+        "scope": "R04 independent product review plus R05 actual independent full Windows regression; user-directed document scope. Canonical adoption pending."
       }
     },
     {
@@ -7241,7 +7322,7 @@
         }
       ],
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
         "state": "SELF_CHECK_PASS_REVIEW_READY",
@@ -7264,6 +7345,15 @@
         "methods": [
           "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
         ]
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R05-WINDOWS-NACHWEIS",
+        "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+        "priorProductReview": "R04-ABNAHME",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md",
+        "scope": "R04 independent product review plus R05 actual independent full Windows regression; user-directed document scope. Canonical adoption pending."
       }
     },
     {
@@ -7290,7 +7380,7 @@
         }
       ],
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
         "state": "SELF_CHECK_PASS_REVIEW_READY",
@@ -7313,6 +7403,15 @@
         "methods": [
           "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
         ]
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R05-WINDOWS-NACHWEIS",
+        "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+        "priorProductReview": "R04-ABNAHME",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md",
+        "scope": "R04 independent product review plus R05 actual independent full Windows regression; user-directed document scope. Canonical adoption pending."
       }
     },
     {
@@ -7339,7 +7438,7 @@
         }
       ],
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
         "state": "SELF_CHECK_PASS_REVIEW_READY",
@@ -7362,6 +7461,15 @@
         "methods": [
           "Complete client regression: 1233 tests; existing R01 requirement coverage retained"
         ]
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R05-WINDOWS-NACHWEIS",
+        "reviewedCommit": "7c4bb2f7d3f3a79d0b2f0beae5bdbae27795d0fe",
+        "priorProductReview": "R04-ABNAHME",
+        "report": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R05-WINDOWS-NACHWEIS/EVIDENCE/INDEX.md",
+        "scope": "R04 independent product review plus R05 actual independent full Windows regression; user-directed document scope. Canonical adoption pending."
       }
     }
   ]
