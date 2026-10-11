@@ -1,0 +1,61 @@
+{
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "protocolVersion": 2,
+  "commands": [
+    "activation.command",
+    "audio_availability.set",
+    "session.snapshot.request",
+    "session_settings.patch",
+    "trigger_suppression.set"
+  ],
+  "events": [
+    "activation.started",
+    "activation.phase_changed",
+    "activation.input_closed",
+    "activation.completed",
+    "activation.cancelled",
+    "activation.failed",
+    "activation.trigger_suppressed",
+    "segment.recording_started",
+    "segment.recording_ended",
+    "transcription.accepted",
+    "transcription.interim",
+    "transcription.completed",
+    "transcription.discarded",
+    "transcription.failed",
+    "watchdog.warning",
+    "wakeword.detected",
+    "wakeword.availability_changed",
+    "settings.changed"
+  ],
+  "resultCodes": [
+    "applied",
+    "no_change",
+    "activation_locked",
+    "not_active",
+    "invalid_phase",
+    "closing_input",
+    "stale_session",
+    "stale_activation",
+    "command_id_conflict",
+    "invalid_payload",
+    "trigger_suppressed",
+    "audio_unavailable",
+    "settings_revision_conflict",
+    "settings_rejected",
+    "internal_error"
+  ],
+  "inputPhases": [
+    "idle",
+    "waiting_first_speech",
+    "segment_active",
+    "followup_wait",
+    "closing_input"
+  ],
+  "nonStateEvents": [
+    "activation.trigger_suppressed",
+    "transcription.interim",
+    "watchdog.warning"
+  ],
+  "handshakeTimeoutSeconds": 10.0
+}

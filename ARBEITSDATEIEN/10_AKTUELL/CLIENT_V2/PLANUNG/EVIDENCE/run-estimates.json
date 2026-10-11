@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "revision": 3,
+  "checkedAt": "2026-10-04",
+  "unit": "agent_sessions",
+  "correctionsExcluded": true,
+  "totals": {
+    "min": 14,
+    "max": 16,
+    "reviews": 14,
+    "totalMin": 28,
+    "totalMax": 30,
+    "default": 28
+  },
+  "packages": [
+    {
+      "id": "AP-CV2-000",
+      "min": 1,
+      "max": 1,
+      "phases": [
+        "Feature-/Releaseinventar und Übernahmematrix",
+        "Namespace, Releasepolish und Triggererhalt integrieren",
+        "Vollständige Baseline-/Packagingqualifikation"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    },
+    {
+      "id": "AP-CV2-010",
+      "min": 1,
+      "max": 1,
+      "phases": [
+        "Datentypen, Decoder und Commands/Acks/Events",
+        "Audioencoder, Vertragsvektoren und Negativfixtures"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    },
+    {
+      "id": "AP-CV2-020",
+      "min": 1,
+      "max": 2,
+      "phases": [
+        "Verbindung, Hello, Bootstrapzustände und Close-/Backoffregeln",
+        "Commandtracker, Ack-/Retry-/Generationguards und Transporttests"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    },
+    {
+      "id": "AP-CV2-030",
+      "min": 1,
+      "max": 2,
+      "phases": [
+        "Foreground-/Activation-/Segmentreducer",
+        "Snapshot, Resyncpuffer, Verluststatus und Tombstones",
+        "Race-/Interim-/Versionspermutationen"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    },
+    {
+      "id": "AP-CV2-040",
+      "min": 1,
+      "max": 1,
+      "phases": [
+        "Continuous-Audio und Device-/Mute-/LEDtrennung",
+        "V2-Logbootstrap und unabhängige Cursor-/Recoverypfade",
+        "Integrations-/Fehlerfälle Audio plus Hintergrundfinal"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "existing infrastructure retained; adapt protocol input/bootstrap only"
+    },
+    {
+      "id": "AP-CV2-050",
+      "min": 1,
+      "max": 1,
+      "phases": [
+        "Hotkeyrollen, Controlrouting und atomare Registrierung",
+        "Run-Suppression und Phasen-/Restartmatrix"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    },
+    {
+      "id": "AP-CV2-060",
+      "min": 1,
+      "max": 1,
+      "phases": [
+        "UUID-Historymigration und Finalresult-/Dedupservice",
+        "Injectionattempts, Crashunklarheit und Queue-/Reinsertintegration"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    },
+    {
+      "id": "AP-CV2-070",
+      "min": 1,
+      "max": 1,
+      "phases": [
+        "Persistierte Configmigration und HTTP-/Katalogservice",
+        "Settingsrevisionen, Patch/Applypolicies und Bootstrap",
+        "Wake-/NS-/Konflikt-/Reconnectfälle"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    },
+    {
+      "id": "AP-CV2-080",
+      "min": 1,
+      "max": 1,
+      "phases": [
+        "Settings-/Katalog-/Requested-effective-Oberfläche",
+        "Credential Manager, Adminprüfung und Apply-/Drainentscheidungen"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    },
+    {
+      "id": "AP-CV2-090",
+      "min": 1,
+      "max": 1,
+      "phases": [
+        "Bestehende Feedbackeingänge und UI/Overlayprojektion an V2-Herkunft und Phasen anschließen",
+        "Sound-/LED-/OBS-Dedup und Ausfallfälle"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "existing infrastructure retained; adapt protocol input/bootstrap only"
+    },
+    {
+      "id": "AP-CV2-100",
+      "min": 1,
+      "max": 1,
+      "phases": [
+        "Tatsächliche App/Core/Qtverdrahtung und Readymarkierung",
+        "Integrierte Fehler-/Shutdown-/Rollbacktests mit realen Klassen"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    },
+    {
+      "id": "AP-CV2-110",
+      "min": 1,
+      "max": 1,
+      "phases": [
+        "Gezielter Legacyabbau, Version-/Ressourcen-/Kompatibilitätsabgleich",
+        "Executable/wheel/sdist und Installations-/GUIsmokes"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    },
+    {
+      "id": "AP-IV2-010",
+      "min": 1,
+      "max": 1,
+      "phases": [
+        "Echte Client-/Serverprozessintegration mit WS/HTTP/Logs",
+        "Komplette Race-/Settings-/Recoverymatrix und Paarqualifikation"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    },
+    {
+      "id": "AP-IV2-020",
+      "min": 1,
+      "max": 1,
+      "phases": [
+        "Reale Windows-/ASR-/Bedien-/Clipboard-/Credential-Prüfung",
+        "ReSpeaker/USB/Wakepositive-/Negativ-/Nutzsprachgrenze",
+        "Dauerprüfung und Abschluss der realen Belegmatrix"
+      ],
+      "independentAcceptanceRuns": 1,
+      "correctionsExcluded": true,
+      "defaultRuns": 1,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    },
+    {
+      "id": "AP-SV2-FIX",
+      "min": null,
+      "max": null,
+      "phases": [
+        "Nur bei einem konkreten reproduzierbaren Serverbefund separat schätzen"
+      ],
+      "independentAcceptanceRuns": null,
+      "correctionsExcluded": true,
+      "defaultRuns": null,
+      "scopeNote": "one complete package session; steps are not separate runs"
+    }
+  ]
+}

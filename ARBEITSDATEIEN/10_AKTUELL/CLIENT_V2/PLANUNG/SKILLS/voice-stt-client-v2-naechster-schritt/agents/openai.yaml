@@ -1,0 +1,4 @@
+interface:
+  display_name: "Voice-STT V2: Nächster Schritt"
+  short_description: "Arbeitsstand erkennen und passende nächste Rolle ausführen"
+  default_prompt: "Nutze $voice-stt-client-v2-naechster-schritt und führe den nächsten dokumentierten Arbeitsschritt aus."

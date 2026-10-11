@@ -1,0 +1,263 @@
+{
+  "protocolVersion": 2,
+  "serverVersion": "unknown",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "secretsExposed": false,
+  "settings": [
+    {
+      "key": "activation.closingRecoveryTimeoutMs",
+      "scope": "session",
+      "auth": "session",
+      "type": "int",
+      "constraints": {
+        "min": 1000,
+        "max": 30000,
+        "unit": "ms"
+      },
+      "defaultValue": 5000,
+      "applyPolicy": "next_activation",
+      "description": "Recoveryfrist in `closing_input`."
+    },
+    {
+      "key": "activation.followupTimeoutMs",
+      "scope": "session",
+      "auth": "session",
+      "type": "int",
+      "constraints": {
+        "min": 100,
+        "max": 60000,
+        "unit": "ms"
+      },
+      "defaultValue": 3000,
+      "applyPolicy": "next_activation",
+      "description": "Nachfragefenster nach einem beendeten Segment derselben Activation."
+    },
+    {
+      "key": "activation.initialSpeechTimeoutMs",
+      "scope": "session",
+      "auth": "session",
+      "type": "int",
+      "constraints": {
+        "min": 100,
+        "max": 3600000,
+        "unit": "ms"
+      },
+      "defaultValue": 15000,
+      "applyPolicy": "next_activation",
+      "description": "Wartezeit auf die erste Sprache einer neuen Activation."
+    },
+    {
+      "key": "activation.segmentWatchdogInitialMs",
+      "scope": "session",
+      "auth": "session",
+      "type": "int",
+      "constraints": {
+        "min": 60000,
+        "max": 3600000,
+        "unit": "ms"
+      },
+      "defaultValue": 600000,
+      "applyPolicy": "next_activation",
+      "description": "Segment-Watchdog-Deadline beim Segmentstart."
+    },
+    {
+      "key": "activation.segmentWatchdogRefreshMs",
+      "scope": "session",
+      "auth": "session",
+      "type": "int",
+      "constraints": {
+        "min": 30000,
+        "max": 600000,
+        "unit": "ms"
+      },
+      "defaultValue": 180000,
+      "applyPolicy": "next_activation",
+      "description": "Mindest-Restzeit, die ein Refresh in `segment_active` sichert."
+    },
+    {
+      "key": "activation.segmentWatchdogWarningMs",
+      "scope": "session",
+      "auth": "session",
+      "type": "int",
+      "constraints": {
+        "min": 5000,
+        "unit": "ms",
+        "lessThanKeys": [
+          "activation.segmentWatchdogInitialMs",
+          "activation.segmentWatchdogRefreshMs"
+        ]
+      },
+      "defaultValue": 30000,
+      "applyPolicy": "next_activation",
+      "description": "Vorwarnzeit vor dem Watchdog-Ablauf. Muss kleiner sein als die jeweils wirksame Watchdog-Frist."
+    },
+    {
+      "key": "runtimeSuppression.manual",
+      "scope": "session",
+      "auth": "session",
+      "type": "bool",
+      "constraints": {},
+      "defaultValue": false,
+      "applyPolicy": "live",
+      "description": "Laufzeit-Unterdrückung der manuellen Triggerquelle. Die Schreibautorität bleibt `trigger_suppression.set`."
+    },
+    {
+      "key": "runtimeSuppression.wakeWord",
+      "scope": "session",
+      "auth": "session",
+      "type": "bool",
+      "constraints": {},
+      "defaultValue": false,
+      "applyPolicy": "live",
+      "description": "Laufzeit-Unterdrückung der Wake-Word-Quelle. Die Schreibautorität bleibt `trigger_suppression.set`."
+    },
+    {
+      "key": "wakeWord.cooldownMs",
+      "scope": "session",
+      "auth": "session",
+      "type": "int",
+      "constraints": {
+        "min": 0,
+        "unit": "ms",
+        "calibration": "pending",
+        "calibrationTraceabilityIds": [
+          "WW-18"
+        ]
+      },
+      "defaultValue": 0,
+      "applyPolicy": "next_activation",
+      "description": "Expliziter Operator-Cooldown nach einem akzeptierten Wake-Hit. Er ist NICHT die interne Gruppierung desselben Trefferbereichs - die leistet der WakeHitTracker ohne Timer - und bleibt bewusst auch nach dem sicheren Eingabeschluss wirksam. Default 0 = kein zusaetzlicher Cooldown. ACHTUNG: Der kalibrierte Betriebswert (WW-18) erfordert reale positive Wake-Word-Aufnahmen und ist derzeit EVIDENCE_BLOCKED."
+    },
+    {
+      "key": "wakeWord.detectorGain",
+      "scope": "session",
+      "auth": "session",
+      "type": "float",
+      "constraints": {
+        "min": 0.0,
+        "max": 3.0,
+        "calibration": "pending",
+        "calibrationTraceabilityIds": [
+          "WW-18"
+        ]
+      },
+      "defaultValue": 1.0,
+      "applyPolicy": "next_activation",
+      "description": "Linearer Gain ausschliesslich auf einer PCM-Kopie fuer die Wake-Inferenz. Das Originalaudio fuer Aufnahme, Transkription und Audiohistorie bleibt unveraendert; die Kopie wird saettigend auf int16 geclippt."
+    },
+    {
+      "key": "wakeWord.globalDisabledIds",
+      "scope": "server",
+      "auth": "admin",
+      "type": "string_list",
+      "constraints": {
+        "minItems": 0
+      },
+      "defaultValue": [],
+      "applyPolicy": "next_session",
+      "description": "Global deaktivierte Wake-Word-Katalog-IDs. Wirkt auf neue Sessions; der Katalog selbst gehört AP-SRV-060."
+    },
+    {
+      "key": "wakeWord.inferenceBackend",
+      "scope": "server",
+      "auth": "admin",
+      "type": "string",
+      "constraints": {
+        "allowedValues": [
+          "auto",
+          "onnx",
+          "tflite"
+        ]
+      },
+      "defaultValue": "auto",
+      "applyPolicy": "next_session",
+      "description": "Gemeinsames Inference-Backend der Wake-Engine. 'auto' bevorzugt ONNX unter Windows und TFLite/LiteRT unter Linux und faellt fuer die GESAMTE ausgewaehlte Wake-Word-Menge auf das jeweils andere Backend zurueck. 'onnx' und 'tflite' erlauben ausschliesslich dieses Backend - ohne stillen Wechsel. Eine Live-Engine verwendet immer genau ein gemeinsames Backend fuer alle ausgewaehlten Wake Words."
+    },
+    {
+      "key": "wakeWord.minConsecutivePredictionFrames",
+      "scope": "session",
+      "auth": "session",
+      "type": "int",
+      "constraints": {
+        "min": 1,
+        "unit": "predictionFrames",
+        "calibration": "pending",
+        "calibrationTraceabilityIds": [
+          "WW-18"
+        ]
+      },
+      "defaultValue": 1,
+      "applyPolicy": "next_activation",
+      "description": "Mindestanzahl aufeinanderfolgender OpenWakeWord-Prediction-Frames mit Score >= wakeWord.sensitivity, bevor ein Trefferbereich qualifiziert. Gezaehlt werden nur echte neue Prediction-Frames, keine Recorderchunks und kein intern wiederholter Score. Default 1 ist ein neutraler Startwert, KEINE Aussage, dass 1 empirisch optimal ist; die Kalibrierung (WW-18) erfordert reale positive Wake-Word-Aufnahmen und ist derzeit EVIDENCE_BLOCKED."
+    },
+    {
+      "key": "wakeWord.noiseSuppressionEnabled",
+      "scope": "session",
+      "auth": "session",
+      "type": "bool",
+      "constraints": {},
+      "defaultValue": false,
+      "applyPolicy": "next_session",
+      "description": "Aktiviert die vorhandene OpenWakeWord/Speex-Rauschunterdrueckung der Wake-Inferenz. Sie wirkt beim Aufbau der Engine und damit auf neu aufgebaute Sessions."
+    },
+    {
+      "key": "wakeWord.preRollMs",
+      "scope": "session",
+      "auth": "session",
+      "type": "int",
+      "constraints": {
+        "min": 0,
+        "unit": "ms",
+        "calibration": "pending",
+        "calibrationTraceabilityIds": [
+          "WW-19"
+        ]
+      },
+      "defaultValue": 0,
+      "applyPolicy": "next_activation",
+      "description": "Nutzsprachen-Pre-Roll vor dem operationalen Nullpunkt. Der Nullpunkt ist die Trailing Edge des gewonnenen qualifizierten Wake-Hits und eine bewusste serverseitige Produktdefinition. 0 ms gibt das Audio genau am Nullpunkt frei. Es gibt keine aus dem Classifier-Receptive-Field abgeleitete Obergrenze; die tatsaechliche Grenze ist die real vorgehaltene Audiohistorie, gegen die zur Laufzeit geclampt wird. Der kalibrierte Betriebswert (WW-19) erfordert reale positive Wake-Word-Aufnahmen und ist derzeit EVIDENCE_BLOCKED."
+    },
+    {
+      "key": "wakeWord.selection",
+      "scope": "session",
+      "auth": "session",
+      "type": "string_list",
+      "constraints": {
+        "minItems": 0
+      },
+      "defaultValue": [],
+      "applyPolicy": "next_session",
+      "description": "Kanonische IDs der für die Session gewählten Wake Words. Wirkt auf neu aufgebaute Sessions; die atomare Admission gehört AP-SRV-060."
+    },
+    {
+      "key": "wakeWord.sensitivity",
+      "scope": "session",
+      "auth": "session",
+      "type": "float",
+      "constraints": {
+        "min": 0.0,
+        "max": 1.0
+      },
+      "defaultValue": 0.5,
+      "applyPolicy": "next_activation",
+      "description": "Gemeinsame Wake-Word-Empfindlichkeit der Session. Der Server validiert und veröffentlicht den tatsächlich aufgelösten Wert; die Detection selbst gehört AP-SRV-060."
+    },
+    {
+      "key": "wakeWord.vadThreshold",
+      "scope": "session",
+      "auth": "session",
+      "type": "float",
+      "constraints": {
+        "min": 0.0,
+        "max": 1.0,
+        "calibration": "pending",
+        "calibrationTraceabilityIds": [
+          "WW-18"
+        ]
+      },
+      "defaultValue": 0.0,
+      "applyPolicy": "next_session",
+      "description": "Schwelle des OpenWakeWord-internen VAD-Gates vor der Wake-Inferenz; 0.0 deaktiviert es. Das ist der dem Detector vorgeschaltete Wake-VAD ausserhalb einer Activation und eroeffnet keinen zweiten Betriebsstrang: innerhalb einer Activation gilt weiterhin die bestehende Speech-/Transkriptionslogik."
+    }
+  ]
+}

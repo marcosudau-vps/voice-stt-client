@@ -1,0 +1,644 @@
+{
+  "schemaVersion": 1,
+  "kind": "acceptance_scenarios_not_executable_tests",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "clientBaseline": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+  "description": "Szenariospezifikation; Steps sind menschlich lesbare Aktionen, keine erfundenen Wiretypen. Testbindung an reale UUIDs bei Harnessausführung.",
+  "scenarios": [
+    {
+      "id": "SC-01",
+      "title": "Manual-Diktat mit zwei Segmenten",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "FG-04",
+        "WIRE-07"
+      ],
+      "precondition": "Session bereit, nur Manual konfiguriert",
+      "steps": [
+        "activate(manual)",
+        "S1 recording/interim/ended/accepted/completed",
+        "followup_wait",
+        "S2 recording/ended/accepted/completed",
+        "finish"
+      ],
+      "expected": [
+        "eine Activation, zwei verschiedene segmentIds",
+        "zwei Finals, keine Interiminjektion",
+        "Vordergrund nach input_closed idle"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-02",
+      "title": "Wake-only mit Controlhotkeys",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "CONTROL-03",
+        "WAKE-08"
+      ],
+      "precondition": "manual=false, wakeWord=true, gültige Auswahl",
+      "steps": [
+        "kontinuierliches Audio",
+        "Server wakeHit→activation.started→wakeword.detected",
+        "secondary finish"
+      ],
+      "expected": [
+        "kein clientseitiges activate(source=wake_word)",
+        "Control auch ohne Manual nutzbar"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-03",
+      "title": "Nahezu simultanes Manual und Wake",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "FG-02",
+        "FG-03"
+      ],
+      "precondition": "beide Quellen effektiv",
+      "steps": [
+        "manual activate und serverwake zeitnah",
+        "zweiter Trigger trifft offene Activation"
+      ],
+      "expected": [
+        "eine Gewinneractivation",
+        "keine Quellenaggregation",
+        "kein zweiter Final für denselben Segmentabschluss"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-04",
+      "title": "A-Final während Aufnahme B",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "FG-06",
+        "RESULT-06"
+      ],
+      "precondition": "Ainput geschlossen, S_A inference verzögert",
+      "steps": [
+        "Bstart, Bsegment_active",
+        "Acompleted text",
+        "Aactivation.completed"
+      ],
+      "expected": [
+        "History/Injection gehört A",
+        "Bphase bleibt segment_active",
+        "Backgroundfeedback überschreibt B nicht"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-05",
+      "title": "Activation-Terminal vor Close",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "FG-07"
+      ],
+      "precondition": "Aoffen, alle Segmente bereits terminal",
+      "steps": [
+        "activation.completed(A)",
+        "activation.input_closed(A)",
+        "command.ack altclosing"
+      ],
+      "expected": [
+        "Foreground erst bei IDpassendem Close idle",
+        "kein rollback durch Ack"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-06",
+      "title": "B-Start vor A-Close",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "FG-08"
+      ],
+      "precondition": "Aserverintern geschlossen, Publikation verzögert",
+      "steps": [
+        "activation.started(B)",
+        "activation.input_closed(A)"
+      ],
+      "expected": [
+        "input=B, keine ID/Phase von A überschreibt B"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-07",
+      "title": "Discard vor Aufnahmeende",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "FG-09"
+      ],
+      "precondition": "Asegment active",
+      "steps": [
+        "cancel(A)",
+        "transcription.discarded(S)",
+        "segment.recording_ended(S)",
+        "transcription.accepted(S)"
+      ],
+      "expected": [
+        "Segment bleibt terminal discarded",
+        "keine Injektion, keine Wiederöffnung"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-08",
+      "title": "Interim ohne Stateversionanstieg",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "FG-13",
+        "RESULT-03"
+      ],
+      "precondition": "Srecording",
+      "steps": [
+        "interim(S,text1,eventSeq n,stateVersion v)",
+        "interim(S,text2,eventSeq n+1,stateVersion v)",
+        "completed(S,final)",
+        "synthetischer lateinterim"
+      ],
+      "expected": [
+        "Preview ersetzt sich pro Segment",
+        "Final einmal",
+        "Lateinterim ohne Änderung"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-09",
+      "title": "Event-vor-Ack und Replay",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "ACK-16",
+        "ACK-17"
+      ],
+      "precondition": "Aoffen",
+      "steps": [
+        "finish command C",
+        "Closeevents höhere Version",
+        "Ack C mit closingVersion",
+        "bytegleicher Retry C"
+      ],
+      "expected": [
+        "Pending einmal beendet",
+        "Spiegel bleibt aktuell",
+        "keine neue Wirkung/Events durch Replay"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-10",
+      "title": "Eventlose Commands",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "ACK-19"
+      ],
+      "precondition": "idle",
+      "steps": [
+        "suppression.set(manual=true,wakeWord=true)",
+        "Ack applied, kein Event",
+        "audioAvailability false",
+        "Ack applied, kein eigenes Event"
+      ],
+      "expected": [
+        "Spiegel bestätigt Werte oder liest Snapshot",
+        "kein endloses Warten auf nicht vorhandenes Event"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-11",
+      "title": "Resync mit gepuffertem Final",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "SYNC-05",
+        "SYNC-12"
+      ],
+      "precondition": "Client überspringt absichtlich ein Lifecycleevent",
+      "steps": [
+        "Final empfangen und im Resyncpuffer",
+        "Snapshotcursor umfasst Final",
+        "Puffer nachtragen"
+      ],
+      "expected": [
+        "Finaltext erhalten und einmal verarbeitet",
+        "kein Phasenrollback"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-12",
+      "title": "Resync mit wirklich verlorenem Final",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "SYNC-10",
+        "SYNC-13",
+        "LOG-11"
+      ],
+      "precondition": "Client verwirft absichtlich ein Finalevent",
+      "steps": [
+        "nächstes Event erzeugt Gap",
+        "Snapshot ohne Segmenttexte",
+        "Loghistory enthält eventuell Text"
+      ],
+      "expected": [
+        "incomplete sichtbar",
+        "kein erfundener Text",
+        "kein automatischer Historypaste aus Log"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-13",
+      "title": "Gültiges unbekanntes Event",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "SYNC-04"
+      ],
+      "precondition": "Session bereit",
+      "steps": [
+        "future.domain_event mit valider Hülle als next seq",
+        "bekanntes Event nächste seq"
+      ],
+      "expected": [
+        "Cursor schreitet fort",
+        "keine bekannte Wirkung des unknown event",
+        "kein fiktiver Gap"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-14",
+      "title": "NA-Settings während Activation",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "SET-07",
+        "SET-08"
+      ],
+      "precondition": "Aactive mit alten followupsettings",
+      "steps": [
+        "sessionpatch followupTimeoutMs",
+        "Snapshot requestedneu/effectivealt",
+        "Aclose",
+        "Bstart"
+      ],
+      "expected": [
+        "Aalte Werte",
+        "Bneue Werte",
+        "nach Reconnect Wünsche erneut gesetzt"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-15",
+      "title": "NS-Settings ohne individuellen Startpfad",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "SET-10"
+      ],
+      "precondition": "Session mit Wake-Engine aus Serverdefaults",
+      "steps": [
+        "patch noiseSuppressionEnabled/vadThreshold",
+        "applied und requestedneu",
+        "Reconnect und erneut Sessionpatch"
+      ],
+      "expected": [
+        "effective bleibt Defaultenginekonfig",
+        "UI meldet keinen effektiven individuellen Applyerfolg"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-16",
+      "title": "Bootstrap ohne Wakefenster",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "SET-17"
+      ],
+      "precondition": "Runwakepaused, gewünschte NAsettings",
+      "steps": [
+        "Hello beide suppressed",
+        "Helloaccept",
+        "availability + settingspatch",
+        "desiredSuppression wiederherstellen",
+        "Audiostart"
+      ],
+      "expected": [
+        "vor settingsAck null PCM/Manualcommands",
+        "Wakepause bleibt durchgehend wirksam"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-17",
+      "title": "Deviceverlust mit Backgrounddrain",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "AUDIO-06"
+      ],
+      "precondition": "Aforeground, Bclosed draining",
+      "steps": [
+        "lokaler Audiogerätverlust",
+        "audioAvailability false",
+        "BcFinal",
+        "Gerät wieder verfügbar"
+      ],
+      "expected": [
+        "Acancel, Session unverändert",
+        "Bfinal darf kommen",
+        "kein Autoactivation nach true"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-18",
+      "title": "LED-Verlust bei gesundem Audio",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "AUDIO-08"
+      ],
+      "precondition": "aufnehmende Session, LED erreichbar",
+      "steps": [
+        "LEDadapterausfall",
+        "Audio weiter",
+        "LEDrecovery"
+      ],
+      "expected": [
+        "kein Availabilityfalse/cancel",
+        "STT/Text weiter",
+        "degradiertes LEDfeedback"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-19",
+      "title": "Netzverlust und stale Callbacks",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "AUDIO-10",
+        "RECONNECT-05"
+      ],
+      "precondition": "alte Session mit Preview/Pending",
+      "steps": [
+        "Disconnect",
+        "alte Audio-/Ack-/UIcallbackeinlieferung",
+        "neuesHello"
+      ],
+      "expected": [
+        "Altgeneration ignoriert",
+        "Pending beendet",
+        "neue sessionId und keine Altqueue"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-20",
+      "title": "Terminalrecovery ohne weitere Clientmessage",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "GATE-04"
+      ],
+      "precondition": "angenommene Session",
+      "steps": [
+        "Serverrecovery terminalisieren",
+        "Client sendet nichts",
+        "Serverclose1011",
+        "neuesHello"
+      ],
+      "expected": [
+        "aktive Verbindung schließt autonom",
+        "Slot freigegeben",
+        "neue Session nimmt auf"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-21",
+      "title": "Wakeadmissionfehler",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "WAKE-04",
+        "WAKE-05",
+        "WAKE-06"
+      ],
+      "precondition": "geladenes Katalogfixture",
+      "steps": [
+        "alias/unknown/disabled/unloadable/mixedbackend IDs einzeln und kombiniert senden"
+      ],
+      "expected": [
+        "4409 mit Fehlergründen",
+        "keine halbe Session",
+        "keine unveränderte Reconnectschleife"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-22",
+      "title": "Settings-Konflikt und Atomarität",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "SET-05",
+        "SET-12",
+        "SET-13"
+      ],
+      "precondition": "Session-/Serverrevision bekannt",
+      "steps": [
+        "stale baseRevision",
+        "gemischter valider+invalid Patch",
+        "Warning=Refresh",
+        "Serverpersistenzfehler"
+      ],
+      "expected": [
+        "kein Teilapply",
+        "feldbezogene Fehler",
+        "Revisionen getrennt, neu lesen"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-23",
+      "title": "Logbootstrap und gefilterte Cursor",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "LOG-01",
+        "LOG-06",
+        "LOG-08"
+      ],
+      "precondition": "Logstore aktiv/alternativ unavailable",
+      "steps": [
+        "Helloaccept bootstrap",
+        "subscribe eigeneSession",
+        "globaler Cursorjump",
+        "retentiongap",
+        "Storeausfall"
+      ],
+      "expected": [
+        "Token nur bei available",
+        "kein Domainresync für Cursorjump",
+        "Historyverlust sichtbar, survivinglogs erhalten"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-24",
+      "title": "Domain-/Logfinal doppelt",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "FB-04",
+        "LOG-11"
+      ],
+      "precondition": "V2domain und Logsocket gebunden",
+      "steps": [
+        "transcription.completed Domain",
+        "log.event final",
+        "Logreplay desselben Final"
+      ],
+      "expected": [
+        "ein Paste/Historyeintrag",
+        "ein fachlicher Completeimpuls"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-25",
+      "title": "Historymigration und Crashunklarheit",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "RESULT-07",
+        "RESULT-08",
+        "RESULT-11"
+      ],
+      "precondition": "echte temporäre V1DB mit Injectionattempts",
+      "steps": [
+        "Migration",
+        "erneuter Start",
+        "V2final reservieren",
+        "simulierter Crash nach Paste vor Commit",
+        "erneuter Start"
+      ],
+      "expected": [
+        "V1daten erhalten",
+        "Schema idempotent",
+        "unklarer Attempt ohne Autoretry"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-26",
+      "title": "Hotkey- und Configmigration",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "CONTROL-09",
+        "CONTROL-14",
+        "SET-15"
+      ],
+      "precondition": "V1profile hotkey/wake und widersprüchliche Belegungen",
+      "steps": [
+        "Configmigration",
+        "RegisterKeykonflikt",
+        "Fehler mitten in Neuregistrierung"
+      ],
+      "expected": [
+        "Sekunden→ms exakt",
+        "kein Verlust expliziter Controls",
+        "alte Registrierung vollständig restauriert"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-27",
+      "title": "SettingsApply mit offenem Drain",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "UI-08",
+        "UI-09"
+      ],
+      "precondition": "Aforeground und/oder Bdrain, Änderung reconnectpflichtig",
+      "steps": [
+        "Applydialog",
+        "cancel / finish / vormerken getrennt prüfen",
+        "Drainwarten oder expliziter Verlust"
+      ],
+      "expected": [
+        "keine ungewählte Cancelwirkung",
+        "Verlustzahl sichtbar",
+        "Finaltext vorheriger A bleibt erhalten"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-28",
+      "title": "Adminprüfung und sichere Credentials",
+      "owner": "AP-IV2-010",
+      "requirements": [
+        "UI-04",
+        "UI-05",
+        "UI-06",
+        "UI-07"
+      ],
+      "precondition": "Serverkey gesetzt, geladenes Defaultfeld",
+      "steps": [
+        "publicGET",
+        "falscherKey NochangePATCH",
+        "richtigerKey NochangePATCH",
+        "Credentialfakecreate/replace/delete/storefail"
+      ],
+      "expected": [
+        "GET entsperrt nicht",
+        "nur Guarderfolg entsperrt",
+        "keine Defaultmutation",
+        "kein Klartextfallback"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-29",
+      "title": "Reale Wakegrenze und Hardware",
+      "owner": "AP-IV2-020",
+      "requirements": [
+        "REAL-02",
+        "REAL-03"
+      ],
+      "precondition": "realer Windowsclient mit kompatiblem Server/Modell/USB",
+      "steps": [
+        "Wakepositive und negative Samples",
+        "unmittelbar folgende Nutzsprache",
+        "USB/Mute/LEDverlust"
+      ],
+      "expected": [
+        "Grenz-/Scoretraces vorhanden",
+        "Kalibrierung nur mit realem Beleg",
+        "M-02/M-03/M-06/M-12 protokolliert"
+      ],
+      "status": "PLANNED"
+    },
+    {
+      "id": "SC-30",
+      "title": "Frozen Produkt und Dauerprüfung",
+      "owner": "AP-IV2-020",
+      "requirements": [
+        "REAL-04",
+        "REAL-05",
+        "REAL-06"
+      ],
+      "precondition": "frozen Build aus CV2-110 und CommitpaarIV2-010",
+      "steps": [
+        "Win32/Credential/Clipboard/Tray/Overlay/Sound/LED",
+        "30min mindestens100Activations und Recovery"
+      ],
+      "expected": [
+        "M-01..M-12 tatsächlich gelaufen",
+        "kein unerklärtes Pending/Task/Memorywachstum",
+        "NOT_RUN bleibt offen"
+      ],
+      "status": "PLANNED"
+    }
+  ],
+  "clientCanonicalBaseline": "8bab1b3f4aa070d0756c305908def4d9ebc52582",
+  "clientReleaseReference": "f625904795880ce71acec216e43678f9ec1656d0",
+  "integratedClientBaseline": null,
+  "clientBaselineRole": "feature lineage; integrated start commit pending AP-CV2-000"
+}

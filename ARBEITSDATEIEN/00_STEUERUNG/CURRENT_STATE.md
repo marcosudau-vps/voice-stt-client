@@ -1,5 +1,24 @@
 # CURRENT STATE
 
+Stand 2026-10-11. Aktiver Clientworkstream: **Client V2**.
+
+- Aktiver Block: [CLIENT_V2](../10_AKTUELL/CLIENT_V2/README.md).
+- Vollständig konsolidierter Unterlagenstart Revision 9 auf `feat/client-v2`: [Auftraggeber](../10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/GOVERNANCE/AUFTRAGGEBER.md). Kein Import aus einer Vorbereitungsablage erforderlich.
+- Planung/Agenteneinstiege: [PLANUNG](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md).
+- Abschlusslinie: `feat/client-v2`, begonnen bei Clientcanonical 8bab1b3; erster neuer Commit enthält nur Unterlagen.
+- Nächster Implementierungsauftrag: AP-CV2-000 auf eigenem Paketbranch vom Planungsstartcommit. Noch keine neue Implementierung oder Paketabnahme.
+- Serverreferenz ada13b0 bleibt auf Server-Distributed; finales Serverrestaggregat später nach gemeinsamer Qualifikation und eigener Freigabe.
+- Logging/Observability Teil A bleibt vorhandene Foundation; Teil B bleibt bis nach Trigger-/V2-Migration deferred. Historische offene Formal-/Hardwaregates sind durch diesen Dokumentstart nicht bestanden.
+- Aktuellen Checkout/HEAD stets mit Git prüfen; alte absolute Session-/Workspaceangaben nicht ungeprüft übernehmen.
+
+Die folgende vollständig erhaltene Vorfassung beschreibt den früheren Stand 2026-08-29 und ist historische Provenienz. Ihre Next-/Freeze-/Branch-/Warteanweisungen steuern die neue Client-V2-Arbeit nicht.
+
+Gemeinsamer Kurzauftrag: [Nächster Schritt](../10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md). Rolle/AP aus dokumentiertem Stand selbst ermitteln; [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json) mit offenen Paketlinien abgleichen. Zusätzliches unabhängiges Review bleibt ausdrücklich beauftragbar. Noch kein AP begonnen.
+
+---
+
+## Historische Vorfassung – 2026-08-29
+
 Active Workstream:
 Einheitliche Triggerarchitektur
 

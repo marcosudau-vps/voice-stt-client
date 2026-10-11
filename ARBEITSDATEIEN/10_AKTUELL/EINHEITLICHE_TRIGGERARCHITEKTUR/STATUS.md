@@ -1,5 +1,7 @@
 # Status – Einheitliche Triggerarchitektur
 
+**Einordnung ab 2026-10-11:** Der hier erhaltene Stand gehört zur bisherigen Triggerphase. Aktuelle Client-V2-Planung, Agenteneinstiege und Paketfolge stehen im [neuen Arbeitsblock](../CLIENT_V2/README.md). Frühere Next-/Freeze-/Defer-Angaben unten sind historisch; Serverreferenz für die neue Cliententwicklung ist ada13b0 auf Distributed.
+
 <!-- ARBEITSBLOCK-META
 schema: 1
 name: EINHEITLICHE_TRIGGERARCHITEKTUR

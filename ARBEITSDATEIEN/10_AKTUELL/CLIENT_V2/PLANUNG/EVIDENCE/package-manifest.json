@@ -1,0 +1,654 @@
+{
+  "schemaVersion": 1,
+  "packages": [
+    {
+      "id": "AP-CV2-000",
+      "title": "Feature-/Releaseintegration und qualifizierte Clientstartbasis",
+      "dependencies": [],
+      "path": "ARBEITSPAKETE/AP-CV2-000.md",
+      "status": "PLANNED",
+      "testModules": [],
+      "requirements": [
+        "BASE-01",
+        "BASE-02",
+        "BASE-03",
+        "BASE-04",
+        "BASE-05",
+        "BASE-06",
+        "BASE-07",
+        "BASE-08",
+        "BASE-09",
+        "BASE-10",
+        "BASE-11",
+        "BASE-12"
+      ],
+      "runEstimate": {
+        "id": "AP-CV2-000",
+        "min": 1,
+        "max": 1,
+        "phases": [
+          "Feature-/Releaseinventar und Übernahmematrix",
+          "Namespace, Releasepolish und Triggererhalt integrieren",
+          "Vollständige Baseline-/Packagingqualifikation"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-CV2-010",
+      "title": "V2-Wiredatentypen, Parser, Encoder und Contractfixtures",
+      "dependencies": [
+        "AP-CV2-000"
+      ],
+      "path": "ARBEITSPAKETE/AP-CV2-010.md",
+      "status": "PLANNED",
+      "testModules": [
+        "test_v2_protocol"
+      ],
+      "requirements": [
+        "WIRE-01",
+        "WIRE-02",
+        "WIRE-03",
+        "WIRE-04",
+        "WIRE-05",
+        "WIRE-06",
+        "WIRE-07",
+        "WIRE-08",
+        "WIRE-09",
+        "WIRE-10",
+        "WIRE-11",
+        "WIRE-12",
+        "WIRE-13",
+        "WIRE-14",
+        "WIRE-15",
+        "WIRE-16",
+        "WIRE-17"
+      ],
+      "runEstimate": {
+        "id": "AP-CV2-010",
+        "min": 1,
+        "max": 1,
+        "phases": [
+          "Datentypen, Decoder und Commands/Acks/Events",
+          "Audioencoder, Vertragsvektoren und Negativfixtures"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-CV2-020",
+      "title": "V2transport, Hello und korrelierte Commands",
+      "dependencies": [
+        "AP-CV2-010"
+      ],
+      "path": "ARBEITSPAKETE/AP-CV2-020.md",
+      "status": "PLANNED",
+      "testModules": [
+        "test_v2_transport"
+      ],
+      "requirements": [
+        "ACK-01",
+        "ACK-02",
+        "ACK-03",
+        "ACK-04",
+        "ACK-05",
+        "ACK-06",
+        "ACK-07",
+        "ACK-08",
+        "ACK-09",
+        "ACK-10",
+        "ACK-11",
+        "ACK-12",
+        "ACK-13",
+        "ACK-14",
+        "ACK-15",
+        "ACK-16",
+        "ACK-17",
+        "ACK-18",
+        "ACK-19",
+        "ACK-20",
+        "ACK-21",
+        "RECONNECT-01",
+        "RECONNECT-02",
+        "RECONNECT-03",
+        "RECONNECT-04",
+        "RECONNECT-05",
+        "RECONNECT-06",
+        "RECONNECT-07"
+      ],
+      "runEstimate": {
+        "id": "AP-CV2-020",
+        "min": 1,
+        "max": 2,
+        "phases": [
+          "Verbindung, Hello, Bootstrapzustände und Close-/Backoffregeln",
+          "Commandtracker, Ack-/Retry-/Generationguards und Transporttests"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-CV2-030",
+      "title": "ActivationMirror, Hintergrundledger und Resync",
+      "dependencies": [
+        "AP-CV2-010",
+        "AP-CV2-020"
+      ],
+      "path": "ARBEITSPAKETE/AP-CV2-030.md",
+      "status": "PLANNED",
+      "testModules": [
+        "test_v2_mirror"
+      ],
+      "requirements": [
+        "FG-01",
+        "FG-02",
+        "FG-03",
+        "FG-04",
+        "FG-05",
+        "FG-06",
+        "FG-07",
+        "FG-08",
+        "FG-09",
+        "FG-10",
+        "FG-11",
+        "FG-12",
+        "FG-13",
+        "FG-14",
+        "FG-15",
+        "FG-16",
+        "FG-17",
+        "FG-18",
+        "SYNC-01",
+        "SYNC-02",
+        "SYNC-03",
+        "SYNC-04",
+        "SYNC-05",
+        "SYNC-06",
+        "SYNC-07",
+        "SYNC-08",
+        "SYNC-09",
+        "SYNC-10",
+        "SYNC-11",
+        "SYNC-12",
+        "SYNC-13",
+        "SYNC-14",
+        "SYNC-15",
+        "SYNC-16",
+        "SYNC-17"
+      ],
+      "runEstimate": {
+        "id": "AP-CV2-030",
+        "min": 1,
+        "max": 2,
+        "phases": [
+          "Foreground-/Activation-/Segmentreducer",
+          "Snapshot, Resyncpuffer, Verluststatus und Tombstones",
+          "Race-/Interim-/Versionspermutationen"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-CV2-040",
+      "title": "Continuous-Audio, Geräte-Recovery und Logbootstrap",
+      "dependencies": [
+        "AP-CV2-020",
+        "AP-CV2-030"
+      ],
+      "path": "ARBEITSPAKETE/AP-CV2-040.md",
+      "status": "PLANNED",
+      "testModules": [
+        "test_v2_audio_recovery"
+      ],
+      "requirements": [
+        "AUDIO-01",
+        "AUDIO-02",
+        "AUDIO-03",
+        "AUDIO-04",
+        "AUDIO-05",
+        "AUDIO-06",
+        "AUDIO-07",
+        "AUDIO-08",
+        "AUDIO-09",
+        "AUDIO-10",
+        "AUDIO-11",
+        "AUDIO-12",
+        "LOG-01",
+        "LOG-02",
+        "LOG-03",
+        "LOG-04",
+        "LOG-05",
+        "LOG-06",
+        "LOG-07",
+        "LOG-08",
+        "LOG-09",
+        "LOG-10",
+        "LOG-11"
+      ],
+      "runEstimate": {
+        "id": "AP-CV2-040",
+        "min": 1,
+        "max": 1,
+        "phases": [
+          "Continuous-Audio und Device-/Mute-/LEDtrennung",
+          "V2-Logbootstrap und unabhängige Cursor-/Recoverypfade",
+          "Integrations-/Fehlerfälle Audio plus Hintergrundfinal"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "existing infrastructure retained; adapt protocol input/bootstrap only"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-CV2-050",
+      "title": "Hotkeyrollen, Trigger-Suppression und manuelle Controls",
+      "dependencies": [
+        "AP-CV2-030",
+        "AP-CV2-040"
+      ],
+      "path": "ARBEITSPAKETE/AP-CV2-050.md",
+      "status": "PLANNED",
+      "testModules": [
+        "test_v2_controls"
+      ],
+      "requirements": [
+        "CONTROL-01",
+        "CONTROL-02",
+        "CONTROL-03",
+        "CONTROL-04",
+        "CONTROL-05",
+        "CONTROL-06",
+        "CONTROL-07",
+        "CONTROL-08",
+        "CONTROL-09",
+        "CONTROL-10",
+        "CONTROL-11",
+        "CONTROL-12",
+        "CONTROL-13",
+        "CONTROL-14"
+      ],
+      "runEstimate": {
+        "id": "AP-CV2-050",
+        "min": 1,
+        "max": 1,
+        "phases": [
+          "Hotkeyrollen, Controlrouting und atomare Registrierung",
+          "Run-Suppression und Phasen-/Restartmatrix"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-CV2-060",
+      "title": "Final-Pipeline, UUID-Historie und sichere Textinjektion",
+      "dependencies": [
+        "AP-CV2-030"
+      ],
+      "path": "ARBEITSPAKETE/AP-CV2-060.md",
+      "status": "PLANNED",
+      "testModules": [
+        "test_v2_results"
+      ],
+      "requirements": [
+        "RESULT-01",
+        "RESULT-02",
+        "RESULT-03",
+        "RESULT-04",
+        "RESULT-05",
+        "RESULT-06",
+        "RESULT-07",
+        "RESULT-08",
+        "RESULT-09",
+        "RESULT-10",
+        "RESULT-11",
+        "RESULT-12",
+        "RESULT-13"
+      ],
+      "runEstimate": {
+        "id": "AP-CV2-060",
+        "min": 1,
+        "max": 1,
+        "phases": [
+          "UUID-Historymigration und Finalresult-/Dedupservice",
+          "Injectionattempts, Crashunklarheit und Queue-/Reinsertintegration"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-CV2-070",
+      "title": "Konfigurationsmigration und serverautoritativer Settingsservice",
+      "dependencies": [
+        "AP-CV2-020",
+        "AP-CV2-030"
+      ],
+      "path": "ARBEITSPAKETE/AP-CV2-070.md",
+      "status": "PLANNED",
+      "testModules": [
+        "test_v2_settings_service"
+      ],
+      "requirements": [
+        "SET-01",
+        "SET-02",
+        "SET-03",
+        "SET-04",
+        "SET-05",
+        "SET-06",
+        "SET-07",
+        "SET-08",
+        "SET-09",
+        "SET-10",
+        "SET-11",
+        "SET-12",
+        "SET-13",
+        "SET-14",
+        "SET-15",
+        "SET-16",
+        "SET-17",
+        "SET-18",
+        "SET-19",
+        "WAKE-01",
+        "WAKE-02",
+        "WAKE-03",
+        "WAKE-04",
+        "WAKE-05",
+        "WAKE-06",
+        "WAKE-07",
+        "WAKE-08",
+        "WAKE-09",
+        "WAKE-10"
+      ],
+      "runEstimate": {
+        "id": "AP-CV2-070",
+        "min": 1,
+        "max": 1,
+        "phases": [
+          "Persistierte Configmigration und HTTP-/Katalogservice",
+          "Settingsrevisionen, Patch/Applypolicies und Bootstrap",
+          "Wake-/NS-/Konflikt-/Reconnectfälle"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-CV2-080",
+      "title": "Trigger-/Server-Settings-UI, Applyentscheidungen und Credential Manager",
+      "dependencies": [
+        "AP-CV2-050",
+        "AP-CV2-060",
+        "AP-CV2-070"
+      ],
+      "path": "ARBEITSPAKETE/AP-CV2-080.md",
+      "status": "PLANNED",
+      "testModules": [
+        "test_v2_settings_ui"
+      ],
+      "requirements": [
+        "UI-01",
+        "UI-02",
+        "UI-03",
+        "UI-04",
+        "UI-05",
+        "UI-06",
+        "UI-07",
+        "UI-08",
+        "UI-09",
+        "UI-10"
+      ],
+      "runEstimate": {
+        "id": "AP-CV2-080",
+        "min": 1,
+        "max": 1,
+        "phases": [
+          "Settings-/Katalog-/Requested-effective-Oberfläche",
+          "Credential Manager, Adminprüfung und Apply-/Drainentscheidungen"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-CV2-090",
+      "title": "Quellenneutrales Feedback, Overlay und lokale Observability",
+      "dependencies": [
+        "AP-CV2-030",
+        "AP-CV2-050",
+        "AP-CV2-060"
+      ],
+      "path": "ARBEITSPAKETE/AP-CV2-090.md",
+      "status": "PLANNED",
+      "testModules": [
+        "test_v2_feedback"
+      ],
+      "requirements": [
+        "FB-01",
+        "FB-02",
+        "FB-03",
+        "FB-04",
+        "FB-05",
+        "FB-06",
+        "FB-07",
+        "FB-08",
+        "FB-09"
+      ],
+      "runEstimate": {
+        "id": "AP-CV2-090",
+        "min": 1,
+        "max": 1,
+        "phases": [
+          "Bestehende Feedbackeingänge und UI/Overlayprojektion an V2-Herkunft und Phasen anschließen",
+          "Sound-/LED-/OBS-Dedup und Ausfallfälle"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "existing infrastructure retained; adapt protocol input/bootstrap only"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-CV2-100",
+      "title": "Vollständige Runtimeintegration und Lifecycleverdrahtung",
+      "dependencies": [
+        "AP-CV2-040",
+        "AP-CV2-050",
+        "AP-CV2-060",
+        "AP-CV2-070",
+        "AP-CV2-080",
+        "AP-CV2-090"
+      ],
+      "path": "ARBEITSPAKETE/AP-CV2-100.md",
+      "status": "PLANNED",
+      "testModules": [
+        "test_v2_runtime_integration"
+      ],
+      "requirements": [
+        "FINAL-01",
+        "FINAL-02",
+        "RUNTIME-01",
+        "RUNTIME-02",
+        "RUNTIME-03",
+        "RUNTIME-04"
+      ],
+      "runEstimate": {
+        "id": "AP-CV2-100",
+        "min": 1,
+        "max": 1,
+        "phases": [
+          "Tatsächliche App/Core/Qtverdrahtung und Readymarkierung",
+          "Integrierte Fehler-/Shutdown-/Rollbacktests mit realen Klassen"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-CV2-110",
+      "title": "Legacyabbau, Paketressourcen, Kompatibilität und Build",
+      "dependencies": [
+        "AP-CV2-100"
+      ],
+      "path": "ARBEITSPAKETE/AP-CV2-110.md",
+      "status": "PLANNED",
+      "testModules": [
+        "test_v2_release"
+      ],
+      "requirements": [
+        "FINAL-03",
+        "FINAL-04",
+        "FINAL-05",
+        "FINAL-06",
+        "FINAL-07",
+        "FINAL-08",
+        "FINAL-09"
+      ],
+      "runEstimate": {
+        "id": "AP-CV2-110",
+        "min": 1,
+        "max": 1,
+        "phases": [
+          "Gezielter Legacyabbau, Version-/Ressourcen-/Kompatibilitätsabgleich",
+          "Executable/wheel/sdist und Installations-/GUIsmokes"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-IV2-010",
+      "title": "Integration der festgeschriebenen Client- und Servercommits",
+      "dependencies": [
+        "AP-CV2-110"
+      ],
+      "path": "ARBEITSPAKETE/AP-IV2-010.md",
+      "status": "PLANNED",
+      "testModules": [
+        "test_v2_cross_repository"
+      ],
+      "requirements": [
+        "GATE-01",
+        "GATE-02",
+        "GATE-03",
+        "GATE-04",
+        "GATE-05",
+        "GATE-06",
+        "GATE-07"
+      ],
+      "runEstimate": {
+        "id": "AP-IV2-010",
+        "min": 1,
+        "max": 1,
+        "phases": [
+          "Echte Client-/Serverprozessintegration mit WS/HTTP/Logs",
+          "Komplette Race-/Settings-/Recoverymatrix und Paarqualifikation"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-IV2-020",
+      "title": "Reale Windows-, ASR-, Hardware- und Produktabnahme",
+      "dependencies": [
+        "AP-IV2-010"
+      ],
+      "path": "ARBEITSPAKETE/AP-IV2-020.md",
+      "status": "PLANNED",
+      "testModules": [],
+      "requirements": [
+        "REAL-01",
+        "REAL-02",
+        "REAL-03",
+        "REAL-04",
+        "REAL-05",
+        "REAL-06"
+      ],
+      "runEstimate": {
+        "id": "AP-IV2-020",
+        "min": 1,
+        "max": 1,
+        "phases": [
+          "Reale Windows-/ASR-/Bedien-/Clipboard-/Credential-Prüfung",
+          "ReSpeaker/USB/Wakepositive-/Negativ-/Nutzsprachgrenze",
+          "Dauerprüfung und Abschluss der realen Belegmatrix"
+        ],
+        "independentAcceptanceRuns": 1,
+        "correctionsExcluded": true,
+        "defaultRuns": 1,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    },
+    {
+      "id": "AP-SV2-FIX",
+      "title": "Bedingtes Serverkorrekturpaket während der Cliententwicklung",
+      "dependencies": [],
+      "path": "ARBEITSPAKETE/AP-SV2-FIX.md",
+      "status": "CONDITIONAL",
+      "testModules": [],
+      "requirements": [],
+      "runEstimate": {
+        "id": "AP-SV2-FIX",
+        "min": null,
+        "max": null,
+        "phases": [
+          "Nur bei einem konkreten reproduzierbaren Serverbefund separat schätzen"
+        ],
+        "independentAcceptanceRuns": null,
+        "correctionsExcluded": true,
+        "defaultRuns": null,
+        "scopeNote": "one complete package session; steps are not separate runs"
+      },
+      "testModulesRole": "suggested locations; actual coverage and methods required"
+    }
+  ],
+  "revision": 6,
+  "implementationGuidance": "SKILLS/GEMEINSAM/references/PLANUNGSSPIELRAUM.md",
+  "workRecordStructure": "SKILLS/GEMEINSAM/references/PAKETABLAGE_UND_VORLAGEN.md",
+  "implementationSkill": "SKILLS/voice-stt-client-v2-umsetzen/SKILL.md",
+  "acceptanceSkill": "SKILLS/voice-stt-client-v2-abnehmen/SKILL.md",
+  "roleSkillVersion": 2,
+  "branchGuidance": "REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md"
+}

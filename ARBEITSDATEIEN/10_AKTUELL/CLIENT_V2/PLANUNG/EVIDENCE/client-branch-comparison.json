@@ -1,0 +1,343 @@
+{
+  "checkedAt": "2026-10-04",
+  "shas": {
+    "feature": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+    "canonical": "8bab1b3f4aa070d0756c305908def4d9ebc52582",
+    "release": "f625904795880ce71acec216e43678f9ec1656d0"
+  },
+  "trees": {
+    "feature": "471197bc6473b8fb10e908c3313093edd96b2253",
+    "canonical": "471197bc6473b8fb10e908c3313093edd96b2253",
+    "release": "767120e4706439194a97654e1ab61c940805ab34"
+  },
+  "commonAncestor": "1b432c97e0be2985fc23e9e9a36b51cfeba7631b",
+  "featureDeltaAgainstCommonAncestor": [
+    "M\tconfig.yaml",
+    "M\tcore/config.py",
+    "M\tcore/controller.py",
+    "M\tcore/settings_metadata.py",
+    "M\tcore/stt_session.py",
+    "M\ttests/test_ap06_followup.py",
+    "A\ttests/test_ap_cli_000_baseline_characterization.py",
+    "M\ttests/test_config.py",
+    "M\ttests/test_obs010_normalizer_server.py",
+    "M\ttests/test_obs040_client_hooks.py",
+    "M\ttests/test_obs040_contracts.py",
+    "M\ttests/test_obs040_failure_isolation.py",
+    "M\ttests/test_stt_session.py",
+    "A\ttests/test_trigger_feedback_contract.py",
+    "A\ttests/test_trigger_lifecycle.py",
+    "M\tui/application.py",
+    "M\tui/settings_dialog.py"
+  ],
+  "featureAffectedFiles": [
+    {
+      "path": "config.yaml",
+      "testMethods": []
+    },
+    {
+      "path": "core/config.py",
+      "testMethods": []
+    },
+    {
+      "path": "core/controller.py",
+      "testMethods": []
+    },
+    {
+      "path": "core/settings_metadata.py",
+      "testMethods": []
+    },
+    {
+      "path": "core/stt_session.py",
+      "testMethods": []
+    },
+    {
+      "path": "tests/test_ap06_followup.py",
+      "testMethods": [
+        "test_url_generation_replaces_each_public_key_exactly_once",
+        "test_effective_mode_mismatch_is_rejected",
+        "test_fallback_metadata_is_recorded_after_valid_confirmation",
+        "test_every_metadata_path_targets_typed_config",
+        "test_candidate_validation_does_not_mutate_current_config",
+        "test_project_and_user_files_are_layered_and_save_is_atomic",
+        "test_unknown_user_field_rejects_complete_override",
+        "test_initial_timeout_stops_accidental_start",
+        "test_timeline_and_extension_are_bound_to_current_window",
+        "test_stale_timeline_event_does_not_cancel_initial_timer",
+        "test_hotkey_followup_warns_then_new_speech_clears_warning",
+        "test_wake_word_followup_uses_server_duration_and_clears_on_speech",
+        "test_unavailable_audio_candidate_does_not_change_runtime",
+        "test_server_recorder_state_change_publishes_snapshot_for_tray",
+        "test_configuration_block_stops_connection_attempts_until_change",
+        "test_hotkey_wake_hotkey_switch_arms_stream_and_keeps_core_alive",
+        "test_failed_wake_stream_activation_restores_hotkey_runtime",
+        "test_switched_wake_mode_rearms_after_recoverable_reconnect",
+        "test_delete_and_clear_keep_dedupe_semantics",
+        "test_optional_actions_are_registered_and_dispatched",
+        "test_five_tabs_and_standard_editor_types",
+        "test_standard_editor_builds_typed_candidate",
+        "test_dependency_visibility_tracks_mode_and_sound_toggle",
+        "test_failed_runtime_submit_rolls_hotkeys_and_file_back"
+      ]
+    },
+    {
+      "path": "tests/test_ap_cli_000_baseline_characterization.py",
+      "testMethods": [
+        "test_a_second_activation_resends_start_despite_the_finish_comment"
+      ]
+    },
+    {
+      "path": "tests/test_config.py",
+      "testMethods": [
+        "test_default_config_valid",
+        "test_invalid_reconnect_min_delay",
+        "test_invalid_reconnect_max_delay",
+        "test_invalid_server_busy_min_delay",
+        "test_invalid_reconnect_jitter",
+        "test_invalid_ping_timeout_count",
+        "test_invalid_start_confirmation_timeout",
+        "test_non_numeric_and_non_finite_values_are_rejected_cleanly",
+        "test_handshake_timeouts_must_be_positive",
+        "test_event_stream_limits_and_safe_url_building",
+        "test_load_yaml_with_ap05_keys",
+        "test_hotkey_normalization_accepts_legacy_and_canonical_format",
+        "test_hotkey_normalization_rejects_ambiguous_or_unsupported_specs",
+        "test_hotkey_config_rejects_invalid_modes_types_and_duplicates",
+        "test_legacy_hotkey_key_overrides_toggle_key",
+        "test_overlay_config_validation",
+        "test_feedback_supports_every_declared_sound_cue_asset",
+        "test_shipped_debug_feedback_assets_and_mapping_are_complete",
+        "test_led_config_validates_output_and_worker_limits",
+        "test_brightness_keeps_its_scale_and_is_offered_as_a_fraction",
+        "test_load_yaml_with_ap06_hotkeys",
+        "test_non_mapping_yaml_root_falls_back_to_valid_defaults",
+        "test_save_migrates_legacy_hotkey_without_parallel_key",
+        "test_legacy_hotkey_mode_migrates_to_manual_only",
+        "test_legacy_wake_word_mode_migrates_to_wake_word_only",
+        "test_no_legacy_mode_ever_migrates_to_both_triggers",
+        "test_explicit_flags_override_the_legacy_mode",
+        "test_a_single_explicit_flag_still_reads_the_other_from_the_mode",
+        "test_a_missing_mode_field_keeps_the_hotkey_default",
+        "test_an_invalid_legacy_mode_value_is_rejected",
+        "test_disabling_all_triggers_raises_validation_error",
+        "test_disabling_all_triggers_is_rejected_for_every_legacy_mode",
+        "test_a_non_boolean_trigger_flag_is_rejected",
+        "test_wake_word_details_are_only_sent_when_the_wake_word_is_on",
+        "test_activation_timings_reach_the_query_when_configured"
+      ]
+    },
+    {
+      "path": "tests/test_obs010_normalizer_server.py",
+      "testMethods": [
+        "test_real_log_event_frame_fields",
+        "test_live_event_is_not_replayed",
+        "test_meldung_from_rest_payload_becomes_message",
+        "test_activation_id_from_data",
+        "test_envelope_without_data_has_empty_details",
+        "test_severity_critical_maps_to_critical_level",
+        "test_unknown_severity_falls_back_to_info_with_source_severity",
+        "test_store_raw_payload_false_sets_raw_to_none",
+        "test_performance_channel_never_keeps_raw",
+        "test_raw_reference_is_not_copied_eagerly",
+        "test_scope_is_global_for_server_event_without_session",
+        "test_context_with_none_session_does_not_crash",
+        "test_gap_controlframe_maps_to_client_eventstream_gap",
+        "test_hello_controlframe_is_whitelist_only_no_token",
+        "test_error_controlframe_is_warning",
+        "test_subscribed_and_pong_controls_are_info",
+        "test_control_scope_is_instance_without_session",
+        "test_duplicate_event_is_mapped_as_control",
+        "test_event_without_envelope_yields_none",
+        "test_garbage_result_yields_none",
+        "test_unknown_kind_yields_none",
+        "test_control_without_client_instance_id_yields_none",
+        "test_hello_without_client_instance_id_yields_none"
+      ]
+    },
+    {
+      "path": "tests/test_obs040_client_hooks.py",
+      "testMethods": [
+        "test_a_throwing_ingress_never_reaches_the_call_site",
+        "test_cancellation_still_propagates",
+        "test_the_component_default_is_applied_and_overridable",
+        "test_each_wrapper_sets_its_own_channel",
+        "test_null_ingress_produces_nothing_and_raises_nothing",
+        "test_transport_transitions_produce_connecting_and_connected",
+        "test_every_failed_connection_produces_one_disconnected_record",
+        "test_server_busy_is_visible_in_the_disconnect_record",
+        "test_trigger_send_and_ack_share_one_command_id",
+        "test_a_repeated_ack_is_recorded_as_dropped_not_as_received",
+        "test_an_ack_without_a_command_id_is_dropped_and_correlation_stays_empty",
+        "test_stream_start_sent_is_recorded_after_the_send",
+        "test_a_failed_send_produces_no_start_record",
+        "test_reconnect_scheduled_carries_the_computed_delay",
+        "test_session_admitted_reports_the_effective_handshake_contract",
+        "test_no_session_hook_leaks_the_access_token",
+        "test_the_controller_stores_the_ingress_under_the_frozen_name",
+        "test_a_default_controller_observes_nothing",
+        "test_the_fan_out_hook_is_installed_on_the_coordinator",
+        "test_action_blocked_is_an_audit_record",
+        "test_dictation_failed_and_interrupted_use_their_own_types",
+        "test_error_classification_is_recorded_with_its_count",
+        "test_final_deduplication_records_the_length_but_never_the_text",
+        "test_injection_enqueued_and_rejected",
+        "test_runtime_apply_carries_the_three_flags_and_the_correlation",
+        "test_an_invalid_candidate_produces_a_validation_failed_record",
+        "test_start_attempt_and_confirmation_share_a_correlation_id",
+        "test_run_started_is_recorded_after_the_queue_started",
+        "test_the_counter_source_is_registered_and_removed_again",
+        "test_stream_stopped_reports_the_final_counters",
+        "test_capture_counters_snapshot_is_a_plain_int_mapping",
+        "test_queue_state_is_aggregated_and_rate_limited",
+        "test_realtime_events_produce_no_structured_record",
+        "test_pure_modules_import_no_observability",
+        "test_headless_prints_are_untouched"
+      ]
+    },
+    {
+      "path": "tests/test_obs040_contracts.py",
+      "testMethods": [
+        "test_the_two_new_adapters_exist_where_arch_51_puts_them",
+        "test_both_are_re_exported_from_the_package",
+        "test_v1_still_does_not_create_the_modules_arch_51_excludes",
+        "test_the_adapters_do_not_import_upwards",
+        "test_no_observability_module_imports_pyside",
+        "test_the_logging_core_never_reads_the_session_log_token",
+        "test_the_logging_core_never_reaches_the_feedback_domain",
+        "test_the_health_snapshot_has_exactly_the_frozen_fields",
+        "test_normative_documents_are_untouched_by_this_run",
+        "test_the_ingress_keyword_is_optional_everywhere",
+        "test_the_controller_factory_stays_single_argument",
+        "test_the_default_factory_hands_the_ingress_to_the_controller",
+        "test_null_ingress_answers_the_full_obs040_surface",
+        "test_every_implemented_type_appears_in_its_module",
+        "test_the_worker_produced_types_of_obs030_are_still_there",
+        "test_p_only_hooks_keep_their_existing_logger_lines"
+      ]
+    },
+    {
+      "path": "tests/test_obs040_failure_isolation.py",
+      "testMethods": [
+        "test_a_broken_ingress_does_not_stop_a_dictation_start",
+        "test_a_broken_ingress_does_not_stop_feedback_publication",
+        "test_a_broken_ingress_does_not_stop_error_classification",
+        "test_a_broken_ingress_does_not_stop_the_session_transport",
+        "test_a_broken_ingress_does_not_stop_a_trigger",
+        "test_a_broken_ingress_does_not_stop_the_coordinator",
+        "test_a_broken_ingress_does_not_stop_the_injection_queue",
+        "test_a_failed_worker_makes_submit_return_false_but_nothing_else",
+        "test_a_full_queue_never_blocks_a_producer",
+        "test_feedback_decisions_are_identical_with_and_without_observer"
+      ]
+    },
+    {
+      "path": "tests/test_stt_session.py",
+      "testMethods": [
+        "test_client_state_generation_is_preserved_by_reducer",
+        "test_first_failure_uses_minimum_and_growth_is_exponential",
+        "test_backoff_is_capped_including_jitter",
+        "test_backoff_does_not_overflow_after_extreme_failure_count",
+        "test_server_busy_uses_long_minimum_but_remains_capped",
+        "test_successful_admission_clears_busy_label_not_failure_count",
+        "test_ready_and_unsolicited_pong_do_not_reset_backoff",
+        "test_only_matching_pending_pong_resets_backoff",
+        "test_close_code_extraction_supports_both_websockets_shapes",
+        "test_send_ping_never_overlaps",
+        "test_ready_requires_both_protocol_state_and_open_socket",
+        "test_ping_loop_keeps_one_ping_pending_until_threshold",
+        "test_ping_send_failure_recycles_connection",
+        "test_invalidate_connection_keeps_reconnect_loop_enabled",
+        "test_stop_cancels_backoff_sleep",
+        "test_run_retries_until_explicit_stop",
+        "test_repeated_connection_attempts_cleanup_ping_state_and_tasks",
+        "test_admission_error_before_hello_is_classified_server_busy",
+        "test_ready_false_is_classified_server_unavailable",
+        "test_send_trigger_sends_json_payload",
+        "test_a_sent_trigger_is_pending_until_it_is_acknowledged",
+        "test_request_trigger_returns_the_matching_ack",
+        "test_a_rejected_trigger_is_reported_as_rejected",
+        "test_a_duplicate_ack_is_dropped_and_reaches_no_consumer",
+        "test_an_ack_for_an_unknown_command_is_ignored",
+        "test_an_ack_without_a_command_id_is_ignored",
+        "test_an_ack_from_an_older_generation_is_dropped",
+        "test_a_disconnect_resolves_pending_commands_as_rejected",
+        "test_request_trigger_times_out_without_an_ack",
+        "test_sending_a_trigger_on_a_closed_socket_raises",
+        "test_capability_detection_reads_the_server_announcement"
+      ]
+    },
+    {
+      "path": "tests/test_trigger_feedback_contract.py",
+      "testMethods": [
+        "test_an_accepted_trigger_produces_exactly_one_manual_impulse",
+        "test_a_rejected_trigger_produces_no_manual_impulse",
+        "test_a_legacy_server_still_produces_the_manual_impulse",
+        "test_the_same_correlation_id_is_only_published_once",
+        "test_a_different_command_id_is_a_new_impulse",
+        "test_the_events_of_the_trigger_path_all_have_a_rule",
+        "test_the_countdown_and_the_timeout_sound_are_still_configured",
+        "test_manual_accepted_still_produces_a_sound_and_an_led_effect",
+        "test_every_named_led_target_is_a_non_empty_name",
+        "test_every_cue_named_by_a_mapping_has_a_sound_file",
+        "test_every_declared_cue_has_a_sound_file",
+        "test_the_trigger_path_cues_are_actually_wired",
+        "test_a_manual_trigger_inside_a_wake_word_turn_adds_no_second_sequence",
+        "test_one_activation_yields_one_recording_sequence"
+      ]
+    },
+    {
+      "path": "tests/test_trigger_lifecycle.py",
+      "testMethods": [
+        "test_start_is_still_sent_when_the_server_supports_triggers",
+        "test_a_trigger_is_never_mapped_onto_start_or_stop",
+        "test_stop_remains_available_as_a_stream_command",
+        "test_a_server_without_the_capability_is_detected",
+        "test_a_server_with_the_capability_is_detected",
+        "test_a_malformed_capability_block_is_not_trusted",
+        "test_a_trigger_before_the_socket_is_open_is_refused_locally",
+        "test_a_trigger_after_disconnect_is_refused_locally",
+        "test_a_pending_command_does_not_survive_a_reconnect",
+        "test_manual_only_registers_hotkeys",
+        "test_wake_word_only_does_not_register_hotkeys",
+        "test_both_triggers_register_hotkeys",
+        "test_explicitly_disabled_manual_trigger_does_not_register",
+        "test_start_dictation_sends_start_and_the_trigger",
+        "test_a_rejected_trigger_does_not_confirm_the_dictation",
+        "test_without_the_capability_only_start_is_sent",
+        "test_two_activations_share_one_continuous_stream",
+        "test_cancel_ends_the_activation_and_not_the_session",
+        "test_extending_the_window_creates_no_second_stream",
+        "test_a_follow_up_round_creates_no_second_stream",
+        "test_a_server_driven_activation_does_not_restart_the_stream",
+        "test_the_stream_only_stops_when_the_session_ends",
+        "test_a_legacy_server_keeps_the_old_start_stop_pairing",
+        "test_the_ack_carries_everything_needed_for_correlation"
+      ]
+    },
+    {
+      "path": "ui/application.py",
+      "testMethods": []
+    },
+    {
+      "path": "ui/settings_dialog.py",
+      "testMethods": []
+    }
+  ],
+  "releaseToFeatureProductDiffStat": "core/version.py                                    |  22 -\n pyproject.toml                                     |  48 ++\n requirements-dev.txt                               |   4 +-\n scripts/build.py                                   | 111 +++-\n scripts/client_release_guard.py                    | 114 ++++\n scripts/release.py                                 |  40 +-\n tests/manual_test_ap06_modes.py                    |   2 +-\n tests/manual_test_ap06_runtime_mode_switch.py      |   6 +-\n tests/manual_test_ap07_adapter_failures.py         |   8 +-\n tests/manual_test_ap07_device_mute.py              |   8 +-\n tests/manual_test_ap07_end_to_end.py               |   8 +-\n tests/manual_test_ap07_event_stream.py             |   6 +-\n tests/manual_test_ap07_led_disconnect.py           |   6 +-\n tests/manual_test_ap07_led_endurance.py            |   6 +-\n tests/manual_test_ap07_led_hardware.py             |   6 +-\n tests/manual_test_ap07_mute_button.py              |   8 +-\n tests/manual_test_text_injector.py                 |   6 +-\n tests/obs050_apply_support.py                      |   8 +-\n tests/test_ap06_followup.py                        | 173 ++++--\n tests/test_ap_cli_000_baseline_characterization.py | 100 ----\n tests/test_app.py                                  |  12 +-\n tests/test_audio_capture.py                        |   4 +-\n tests/test_build_script.py                         |  53 ++\n tests/test_client_release_guard.py                 |  66 +++\n tests/test_client_release_workflow.py              |  27 +\n tests/test_config.py                               | 190 ++-----\n tests/test_controller.py                           |  16 +-\n tests/test_core_bridge.py                          |  16 +-\n tests/test_event_cursor_store.py                   |   4 +-\n tests/test_event_models.py                         |   2 +-\n tests/test_event_normalizer.py                     |   6 +-\n tests/test_event_protocol.py                       |   6 +-\n tests/test_event_stream.py                         |  16 +-\n tests/test_feedback_integration.py                 |  12 +-\n tests/test_feedback_mapping.py                     |   6 +-\n tests/test_feedback_reducer.py                     |   6 +-\n tests/test_feedback_ui.py                          |  18 +-\n tests/test_history.py                              |   6 +-\n tests/test_hotkeys.py                              |  20 +-\n tests/test_led_feedback.py                         |   8 +-\n tests/test_obs010_contracts.py                     |  26 +-\n tests/test_obs010_models.py                        |   2 +-\n tests/test_obs010_normalizer_client.py             |   2 +-\n tests/test_obs010_normalizer_python.py             |   2 +-\n tests/test_obs010_normalizer_server.py             |  14 +-\n tests/test_obs010_query_contracts.py               |   2 +-\n tests/test_obs010_redaction.py                     |   2 +-\n tests/test_obs020_contracts.py                     |  24 +-\n tests/test_obs020_health.py                        |   8 +-\n tests/test_obs020_ingress.py                       |   8 +-\n tests/test_obs020_logging_setup_integration.py     |  10 +-\n tests/test_obs020_python_logging_handler.py        |   8 +-\n tests/test_obs020_redaction_end_to_end.py          |  12 +-\n tests/test_obs030_app_wiring.py                    |   6 +-\n tests/test_obs030_config.py                        |   2 +-\n tests/test_obs030_contracts.py                     |  20 +-\n tests/test_obs030_gate_corrections.py              |  18 +-\n tests/test_obs030_jsonl_sink.py                    |   4 +-\n tests/test_obs030_manager.py                       |   8 +-\n tests/test_obs030_path_boundaries.py               |   4 +-\n tests/test_obs030_sqlite_store.py                  |  10 +-\n tests/test_obs030_worker.py                        |  14 +-\n tests/test_obs030_worker_fault_injection.py        |  10 +-\n tests/test_obs040_client_hooks.py                  |  99 +---\n tests/test_obs040_contracts.py                     | 153 +++---\n tests/test_obs040_failure_isolation.py             |  36 +-\n tests/test_obs040_fanout_hook.py                   |  28 +-\n tests/test_obs040_hot_path.py                      |  34 +-\n tests/test_obs040_server_live_adapter.py           |  16 +-\n tests/test_obs050_contracts.py                     |  74 +--\n tests/test_obs050_local_provider.py                |  10 +-\n tests/test_obs050_query_service.py                 |   6 +-\n tests/test_obs050_settings.py                      |  27 +-\n tests/test_obs050_ui.py                            |  34 +-\n tests/test_obs060_v1_hardening.py                  |  24 +-\n tests/test_reinsertion.py                          |   8 +-\n tests/test_release.py                              |   7 +-\n tests/test_session_coordinator.py                  |   8 +-\n tests/test_single_instance.py                      |   2 +-\n tests/test_stt_session.py                          | 184 +------\n tests/test_text_injector.py                        |   8 +-\n tests/test_trigger_feedback_contract.py            | 387 --------------\n tests/test_trigger_lifecycle.py                    | 590 ---------------------\n tests/test_ui_application.py                       |  62 ++-\n tests/test_ui_widgets.py                           |  20 +-\n voice-stt-client.spec                              |  44 +-\n voice_stt_client/__init__.py                       |   5 +\n voice_stt_client/__main__.py                       |   7 +\n app.py => voice_stt_client/app.py                  |  47 +-\n .../assets/feedback_sounds/debug/ATTRIBUTION.md    |  25 +\n .../assets/feedback_sounds/debug/cancel.wav        | Bin 0 -> 129048 bytes\n .../assets/feedback_sounds/debug/complete.wav      | Bin 0 -> 220878 bytes\n .../assets/feedback_sounds/debug/error.wav         | Bin 0 -> 192078 bytes\n .../assets/feedback_sounds/debug/start.wav         | Bin 0 -> 86478 bytes\n .../assets/feedback_sounds/debug/stop.wav          | Bin 0 -> 63548 bytes\n .../assets/feedback_sounds/debug/timeout_tick.wav  | Bin 0 -> 288078 bytes\n .../assets/feedback_sounds/debug/wake_word.wav     | Bin 0 -> 76878 bytes\n .../assets/feedback_sounds/debug/warning.wav       | Bin 0 -> 126272 bytes\n config.yaml => voice_stt_client/config.yaml        |  28 +-\n {core => voice_stt_client/core}/__init__.py        |   0\n {core => voice_stt_client/core}/actions.py         |   0\n {core => voice_stt_client/core}/audio_capture.py   |   4 +-\n {core => voice_stt_client/core}/config.py          | 179 +++----\n {core => voice_stt_client/core}/controller.py      | 227 ++------\n .../core}/event_cursor_store.py                    |   0\n {core => voice_stt_client/core}/event_models.py    |   0\n .../core}/event_normalizer.py                      |   4 +-\n {core => voice_stt_client/core}/event_protocol.py  |   4 +-\n {core => voice_stt_client/core}/event_stream.py    |  10 +-\n .../core}/feedback_mapping.py                      |   2 +-\n .../core}/feedback_reducer.py                      |   8 +-\n {core => voice_stt_client/core}/history.py         |  23 +-\n {core => voice_stt_client/core}/led_controller.py  |   0\n .../core}/logging_settings_metadata.py             |   2 +-\n {core => voice_stt_client/core}/logging_setup.py   |   6 +-\n .../core}/observability/__init__.py                |   0\n .../core}/observability/adapters/__init__.py       |   0\n .../core}/observability/adapters/client_events.py  |   0\n .../core}/observability/adapters/python_logging.py |   0\n .../core}/observability/adapters/server_live.py    |   0\n .../core}/observability/health.py                  |   0\n .../core}/observability/ingress.py                 |   0\n .../core}/observability/manager.py                 |   2 +-\n .../core}/observability/models.py                  |   0\n .../core}/observability/normalizer.py              |   4 +-\n .../core}/observability/query/__init__.py          |   0\n .../core}/observability/query/base.py              |   0\n .../core}/observability/query/local.py             |   0\n .../core}/observability/query/service.py           |   0\n .../core}/observability/redaction.py               |   0\n .../core}/observability/sinks/__init__.py          |   0\n .../core}/observability/sinks/base.py              |   0\n .../core}/observability/sinks/jsonl_file.py        |   0\n .../core}/observability/storage/__init__.py        |   0\n .../core}/observability/storage/base.py            |   0\n .../core}/observability/storage/sqlite.py          |   0\n .../core}/observability/worker.py                  |   0\n {core => voice_stt_client/core}/reinsertion.py     |   4 +-\n .../core}/session_coordinator.py                   |  14 +-\n .../core}/settings_metadata.py                     |  23 +-\n {core => voice_stt_client/core}/stt_session.py     | 257 +--------\n {core => voice_stt_client/core}/text_injector.py   |   8 +-\n voice_stt_client/core/version.py                   |  46 ++\n {ui => voice_stt_client/ui}/__init__.py            |   0\n {ui => voice_stt_client/ui}/application.py         | 138 +++--\n {ui => voice_stt_client/ui}/core_bridge.py         |  12 +-\n {ui => voice_stt_client/ui}/feedback.py            |  10 +-\n {ui => voice_stt_client/ui}/hotkeys.py             |  70 ++-\n {ui => voice_stt_client/ui}/led_feedback.py        |  10 +-\n {ui => voice_stt_client/ui}/logs/__init__.py       |   0\n .../ui}/logs/log_detail_view.py                    |   0\n {ui => voice_stt_client/ui}/logs/log_filter_bar.py |   2 +-\n {ui => voice_stt_client/ui}/logs/log_page.py       |  10 +-\n .../ui}/logs/log_query_controller.py               |   2 +-\n .../ui}/logs/log_table_model.py                    |   0\n {ui => voice_stt_client/ui}/logs/log_window.py     |   4 +-\n {ui => voice_stt_client/ui}/overlay.py             |   4 +-\n {ui => voice_stt_client/ui}/presentation.py        |  12 +-\n {ui => voice_stt_client/ui}/settings_dialog.py     | 302 +++++++++--\n {ui => voice_stt_client/ui}/single_instance.py     |   0\n {ui => voice_stt_client/ui}/tray.py                |  10 +-\n 161 files changed, 1990 insertions(+), 2796 deletions(-)",
+  "featureTestResult": {
+    "status": "PASS",
+    "tests": 1192,
+    "seconds": 84.649,
+    "command": "python -m unittest discover -s tests -p test_*.py",
+    "scope": "immutable feature export; pre-V2 compatibility not asserted"
+  },
+  "releaseTestResult": {
+    "status": "PASS",
+    "tests": 1147,
+    "seconds": 84.729,
+    "scope": "prior release baseline run"
+  },
+  "recommendedLineage": "feature",
+  "integratedBaselineSha": null,
+  "reason": "Preserve real trigger preparation and accepted history; separately retain release namespace and polish. Neither existing stand implements final server V2."
+}

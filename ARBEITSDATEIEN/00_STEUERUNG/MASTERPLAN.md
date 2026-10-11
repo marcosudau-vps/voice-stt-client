@@ -1,5 +1,15 @@
 # MASTERPLAN
 
+Stand 2026-10-11. Aktuell wird der Client anhand des vorläufigen Serverfinales auf V2 nachgezogen. Der vollständige eigenständige [Clientplan](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md) und seine Paketfolge sind maßgeblich: CV2-000 bis CV2-110, dann IV2-010/020; Serverfixes nur bei belegtem Bedarf. Gemeinsame Abschlusslinie `feat/client-v2`: erster Commit nur Unterlagen, später ein Aggregat je Paket. Untergeordnete Paketbranches führen Bearbeitung, Planpflege und beauftragte Reviewunterlagen. Der vollständig konsolidierte Planungsstart Revision 9 enthält alle Rollen-/Zustandsregeln. Paket-PRs und menschlich freigegebene Einzel-Squash-Merges führen die weitere Entwicklung; AP-CV2-000 bleibt offen.
+
+Logging Teil A bleibt Foundation, Teil B bleibt nachgelagert. Server-Distributed bleibt bis zur gemeinsamen Qualifikation offen; keine automatische Serverfeature-/Main-/Releasepromotion. Die folgende frühere Reihenfolge bleibt als historischer Kontext erhalten.
+
+Gemeinsamer Kurzauftrag: [Nächster Schritt](../10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md). Rolle/AP aus dokumentiertem Stand selbst ermitteln; [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json) mit offenen Paketlinien abgleichen. Zusätzliches unabhängiges Review bleibt ausdrücklich beauftragbar. Noch kein AP begonnen.
+
+---
+
+## Historischer Masterplan
+
 Aktuelle Reihenfolge:
 
 1. Logging / Observability Teil A – Pre-Trigger Foundation

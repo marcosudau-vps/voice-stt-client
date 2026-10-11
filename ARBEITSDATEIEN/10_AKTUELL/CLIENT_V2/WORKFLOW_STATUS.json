@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "workflowPhase": "READY_FOR_IMPLEMENTATION",
+  "packageStatus": "PLANNED",
+  "activePackage": null,
+  "nextPackage": "AP-CV2-000",
+  "canonicalBranch": "feat/client-v2",
+  "canonicalParent": null,
+  "candidateBranch": null,
+  "pullRequest": null,
+  "selectedCandidate": false,
+  "lastRun": null,
+  "reviewedCommit": null,
+  "reviewReport": null,
+  "openFindingIds": [],
+  "humanApproval": null,
+  "writeOwner": null,
+  "blockingReason": null,
+  "nextAction": "AP-CV2-000 auf eigenem Paketbranch vom tatsächlich aktuellen feat/client-v2-HEAD umsetzen; Rechte aus dem tatsächlichen Umsetzungsauftrag prüfen. Unterlagen bereits vollständig in der Startbasis.",
+  "workAuthorization": {
+    "source": null,
+    "scope": "Keine Kandidaten-Gitrechte durch diese Initialdatei erteilt; tatsächlichen menschlichen Auftrag oder gesicherte fortgeltende Arbeitsfreigabe verwenden."
+  },
+  "context": "Konsolidierter Unterlagenstart Revision 9; kein AP begonnen, kein Produkt-PASS, keine zukünftige Übernahmefreigabe.",
+  "canonicalParentRef": "feat/client-v2",
+  "canonicalParentResolution": "Initial planning state only: resolve actual canonical HEAD from Git before AP-CV2-000 starts and persist its full SHA on the package branch. No self-SHA in the planning commit."
+}

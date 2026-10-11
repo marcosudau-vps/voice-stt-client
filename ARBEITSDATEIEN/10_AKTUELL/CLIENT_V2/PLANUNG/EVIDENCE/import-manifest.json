@@ -1,0 +1,292 @@
+{
+  "importedAt": "2026-10-11",
+  "sourceRevision": 5,
+  "sourceRole": "unchanged historical planning export; no longer the maintained V2 plan",
+  "sourceLocation": "P:\\GithubRepos\\marcosudau-vps\\_workflow-tools\\ARBEITSDATEIEN\\10_AKTUELL\\EINHEITLICHE_TRIGGERARCHITEKTUR\\20_PLANUNG_CLIENT_V2_2026-10-04",
+  "files": [
+    {
+      "path": "ARBEITSPAKETE/AP-CV2-000.md",
+      "sha256": "65abd2559eb5d62c4a96d2261a5fa548df908268e2697bfe222983c55bd3b4de"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-CV2-010.md",
+      "sha256": "7aab1e3b32ab951325a52df663560b9d8f305a61baf98787bd2cebbb2f73900a"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-CV2-020.md",
+      "sha256": "1d35a80f415061b8c02d2590ebb600f7d62a9ae25846435945eab3d3a8198f1c"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-CV2-030.md",
+      "sha256": "eaa749d0e879bbf0dfadc489f02837956000a16ea09d97297b3d8ffd480fc67e"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-CV2-040.md",
+      "sha256": "63101091fec1d92ff528d757a05a304375475a8a7e2eb22a745b4fc855c65d35"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-CV2-050.md",
+      "sha256": "1ab44b9b5812ab0ec90e34935663a9aec3d022201bc802c667661a944621dc00"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-CV2-060.md",
+      "sha256": "18864dcb25d0d2cdc15e352fb3d6fbe7da5d3e557d648a2e3a5d0edd685cc234"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-CV2-070.md",
+      "sha256": "ae955bef021692e2d19b23e9c6287fdd81aaf6a25ba5c11bb716412277681e86"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-CV2-080.md",
+      "sha256": "34f70da2213fa48448ed8880ef14e10f79ceaae4829ea95fe68e562f6356b9a7"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-CV2-090.md",
+      "sha256": "3c283283edbda6cd5a167b75f97b46a4e61da7404896788ad4361395374310ae"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-CV2-100.md",
+      "sha256": "3063b944cdd6b03dc1d5074f827f446654471a3a63a1a8794b964eebdc579d45"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-CV2-110.md",
+      "sha256": "1b9a5ff9316673ea1bd366d8173129180304a19a9474d87cb9ec19354db09f17"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-IV2-010.md",
+      "sha256": "e1e7c23d346a1e89dee0f221b46bc6f597e5353bac798ac077455b45da04deb0"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-IV2-020.md",
+      "sha256": "68560953429414b42e482127ffb0aeee0f7c35cf09776b0ef7c1859ac207dd4d"
+    },
+    {
+      "path": "ARBEITSPAKETE/AP-SV2-FIX.md",
+      "sha256": "4e7d696fff59617003ce9f5ab29b51fae084a88f4f656d62d338c6a33a981506"
+    },
+    {
+      "path": "ARBEITSPAKETE/README.md",
+      "sha256": "1db43f699bb4a10966308457ca7949d9f2b589a4b827bb98b7917de1d1aac9b4"
+    },
+    {
+      "path": "EVIDENCE/client-branch-comparison.json",
+      "sha256": "05aa4e342394636ff6ea569f3d471ead8966cb7f220edf3f5a94163557b66518"
+    },
+    {
+      "path": "EVIDENCE/package-manifest.json",
+      "sha256": "1d34cb07ba6e1ff840066ceb9ef1a857d80a5127a0365516cf4dbf62426c56e6"
+    },
+    {
+      "path": "EVIDENCE/planning-baseline.json",
+      "sha256": "c4cd67bab0607bdee4e9b284922e1d8e4dba5dbb5f8885033d085a5bc0e4c84d"
+    },
+    {
+      "path": "EVIDENCE/PRUEFBERICHT.md",
+      "sha256": "ad2533e9e4ad8c8b4c39a34856e3b340f49ae0208f3ddbe6e95c5441508632af"
+    },
+    {
+      "path": "EVIDENCE/reorganisation.json",
+      "sha256": "81a412d00d5202003d0e4c8bf2d424939a6d21c3faf2210c5a0f63022eb8ff84"
+    },
+    {
+      "path": "EVIDENCE/run-estimates.json",
+      "sha256": "48f83432920a8f0ea0ecb6e7cbdb16c0dc37e48e52c741ad8a22d09a0a00c4c6"
+    },
+    {
+      "path": "EVIDENCE/server-test-catalog.json",
+      "sha256": "dac968cb09270e80fbabab3aa1353b650e2d015e62aa7b2f1aa8ebb979d64ec2"
+    },
+    {
+      "path": "EVIDENCE/source-manifest.json",
+      "sha256": "126bdf8bbfc52e24076ac7785325906bbea7ea5efe9097d221e807a9d5c7d050"
+    },
+    {
+      "path": "EVIDENCE/validation-results.json",
+      "sha256": "3de983dfbe8528f20e549acb605616d684954ebbcca75961c07e2ee0311d688f"
+    },
+    {
+      "path": "README.md",
+      "sha256": "abb78bcbaacc8a34588cd5d9dcf112d73afbb1044fad54532344262af00e2552"
+    },
+    {
+      "path": "REFERENZ/GOVERNANCE/AGENTEN_REGELWERK.md",
+      "sha256": "f4a4da79eecc5836380480b06289b07c93369ca2cb225d61bad5b042caf6d235"
+    },
+    {
+      "path": "REFERENZ/GOVERNANCE/AUSFUEHRUNGS_WORKFLOW.md",
+      "sha256": "b5f681f5124ac2ebcb5dd13cf2c7b677972eadf18d2bb3debd7b8c95bc0f50d7"
+    },
+    {
+      "path": "REFERENZ/KONTRAKTE/K-01_WIRE_AUDIO_COMMANDS.md",
+      "sha256": "850d4070f6df37e9b078be9cc26055e980137304cfdf93d4e6c2edf32a628e49"
+    },
+    {
+      "path": "REFERENZ/KONTRAKTE/K-02_EVENTS_MIRROR_ERGEBNISSE.md",
+      "sha256": "495ebd2298996d041647f0ba8e78b58895fcdccffae2ca71f01f514e46583678"
+    },
+    {
+      "path": "REFERENZ/KONTRAKTE/K-03_SETTINGS_WAKE_WORDS.md",
+      "sha256": "49a2e8f33b2b210c181e5af0005ea1ac9ca002cda587a52a4766271062ab3420"
+    },
+    {
+      "path": "REFERENZ/KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md",
+      "sha256": "1451bed0fb504f96bc6c4e392edffd08c48c9e3107ee040697611ce0ab713cae"
+    },
+    {
+      "path": "REFERENZ/KONTRAKTE/README.md",
+      "sha256": "5af207bb05fad602f82e0a5524e962b1ef4c9c55ddbded8139cb108824ce8eb9"
+    },
+    {
+      "path": "REFERENZ/KONTRAKTE/VEKTOREN/client-scenarios.json",
+      "sha256": "14b041f7898a7b61ce232e3c9475bba3c602bd1f46540ffab186f42320576167"
+    },
+    {
+      "path": "REFERENZ/KONTRAKTE/VEKTOREN/protocol-v2-vectors.json",
+      "sha256": "694971cea437ca57c207620fac7f169d0397987d7fe1ee02fd276eb8b941de34"
+    },
+    {
+      "path": "REFERENZ/KONTRAKTE/VEKTOREN/protocol-vocabulary.json",
+      "sha256": "7a8b5e2565fe09a373c919c287f0412c46367c2e2c2e1522aa886ad647c00997"
+    },
+    {
+      "path": "REFERENZ/KONTRAKTE/VEKTOREN/settings-schema.json",
+      "sha256": "fa446f6d5f0271578164a1b6927fa2b3b57bc20671f7d610f76f48c76fce566e"
+    },
+    {
+      "path": "REFERENZ/KONTRAKTE/VEKTOREN/settings-server-defaults.json",
+      "sha256": "e40e4aadea0e73a7135fd579b8a273dec0d49d8821f65cd1a30ffa3b397fbd9c"
+    },
+    {
+      "path": "REFERENZ/PLANUNG/ANALYSEN/BASELINE_UND_MIGRATION.md",
+      "sha256": "7d08dc9be654ac4af14835555adc3d7ab2cae28132d6d22e41ec9a7428c030d0"
+    },
+    {
+      "path": "REFERENZ/PLANUNG/ANALYSEN/BESTAND_UND_UMBAU.md",
+      "sha256": "806273d873987326794b86d1b101c96a9f11e809e00eecae16a6791360e049d6"
+    },
+    {
+      "path": "REFERENZ/PLANUNG/ANALYSEN/CLIENT_BRANCH_BEWERTUNG.md",
+      "sha256": "92d2dfad10892358c1cc8333ef4c0a51990573157868d8920dd5fb9f236992ab"
+    },
+    {
+      "path": "REFERENZ/PLANUNG/ANALYSEN/SERVER_IST_UND_GRENZEN.md",
+      "sha256": "ed581b25ed0fe9edcc51146385dea8effc60c2625366895426d66e2d31e40ecb"
+    },
+    {
+      "path": "REFERENZ/PLANUNG/ENTSCHEIDUNGEN_UND_RISIKEN.md",
+      "sha256": "57882fd5413163a39b3d24079497322a71a2ecdd975b1806d726cb552df94724"
+    },
+    {
+      "path": "REFERENZ/PLANUNG/IMPLEMENTIERUNGSPLAN.md",
+      "sha256": "3397fe85f90d8b5f00874e3c419ae64003577527df337a53de163eaa96d573ee"
+    },
+    {
+      "path": "REFERENZ/PLANUNG/UMFANG_UND_AGENTENLAEUFE.md",
+      "sha256": "da69bc297bb4a3fee9beeb7f1c98ab4d50be5f03bab02b8a1e6f6d9c9189f978"
+    },
+    {
+      "path": "REFERENZ/PLANUNG/ZIELBILD.md",
+      "sha256": "648ebd2c8f9b0777282fd5b57f138400990a15fa0c7ef6037b3b4b34d76acd62"
+    },
+    {
+      "path": "REFERENZ/QUALIFIKATION/TEST_UND_ABNAHMEPLAN.md",
+      "sha256": "f3e66640a835dc2a42fb23742c510525dcaaf17a40d4756dd6c1c0e4f3a61aa1"
+    },
+    {
+      "path": "REFERENZ/TRACEABILITY/requirements.json",
+      "sha256": "129b72a9cc72531be629152f204a9c2640e8c7a35e6b7bddf20879f87c094624"
+    },
+    {
+      "path": "REFERENZ/TRACEABILITY/TRACEABILITY_MATRIX.md",
+      "sha256": "bbb1b4636b754b22f0e247cfb98377f395b36d85633a587e943f4c83db860096"
+    },
+    {
+      "path": "SKILLS/GEMEINSAM/assets/PAKETAKTE/00_PAKET.md",
+      "sha256": "af649b0085bce36b6b6f4def10daf8deb223d7c2a4fe846be8b53b620df20b5f"
+    },
+    {
+      "path": "SKILLS/GEMEINSAM/assets/PAKETAKTE/01_ENTSCHEIDUNGEN.md",
+      "sha256": "6fa8a103150437911e5b739a5b0484851bd34528b830201ca282e8971e326999"
+    },
+    {
+      "path": "SKILLS/GEMEINSAM/assets/README.md",
+      "sha256": "3a2490373e0cfbc0e1bdbba0f32c66b4f52612e01b751d276887ab21415ef047"
+    },
+    {
+      "path": "SKILLS/GEMEINSAM/assets/RUN/00_PROMPT_ORIGINAL.md",
+      "sha256": "5e62bdfa96900271821817425200818fbdd24674bc8e89eb96da49ceab479fa3"
+    },
+    {
+      "path": "SKILLS/GEMEINSAM/assets/RUN/01_REPORT.md",
+      "sha256": "a3ed9caf07f4804b211ea2d26100657e78e74a8c182c057b99936ea303fced02"
+    },
+    {
+      "path": "SKILLS/GEMEINSAM/assets/RUN/EVIDENCE/INDEX.md",
+      "sha256": "cf27394e3328bd52321b2361987f6b55efa1907f1fab44496bec52c578c36ce7"
+    },
+    {
+      "path": "SKILLS/GEMEINSAM/references/PAKETABLAGE_UND_VORLAGEN.md",
+      "sha256": "c9466fef5749c691fc42e6feb11950a939216467b847529b0245f92705756569"
+    },
+    {
+      "path": "SKILLS/GEMEINSAM/references/PLANUNGSSPIELRAUM.md",
+      "sha256": "3f746f9fd121477f261734bb79ba57bf8124ca629a740f2803f3f9998de189c2"
+    },
+    {
+      "path": "SKILLS/GEMEINSAM/references/PROMPT_BAUSTEINE.md",
+      "sha256": "d2656e4940b229db10106458c7e72647892969a381c9c19323f56342917f890f"
+    },
+    {
+      "path": "SKILLS/GEMEINSAM/references/START_UND_GRENZEN.md",
+      "sha256": "67eb756023aa7721714e835d70d2aff5843ca92fddc76a98089cea974c1c2d24"
+    },
+    {
+      "path": "SKILLS/voice-stt-client-v2-abnehmen/agents/openai.yaml",
+      "sha256": "db646da3846efb603d45d207549824f43d0fe8722c5121d5a70a63f5594b37a0"
+    },
+    {
+      "path": "SKILLS/voice-stt-client-v2-abnehmen/assets/PROMPT_ABNAHME.md",
+      "sha256": "69ce0f11676944bf394b066b6865f5c399d5ab8cedf4dc09fb8b3d4d2c978821"
+    },
+    {
+      "path": "SKILLS/voice-stt-client-v2-abnehmen/assets/PROMPT_UEBERNAHME.md",
+      "sha256": "049340e69fa4b366957d39f545b9ca91fa88d12bee5c1bac3f297cc5ea02f3d5"
+    },
+    {
+      "path": "SKILLS/voice-stt-client-v2-abnehmen/references/ABNAHMECHECKLISTE.md",
+      "sha256": "565bf376dfaeeb855da31abf33b527e9bcb7d64610f910cc03b684c4f42cf9cc"
+    },
+    {
+      "path": "SKILLS/voice-stt-client-v2-abnehmen/references/UEBERNAHME.md",
+      "sha256": "6fef51989fffbc843a6ae39f57fbb0fa963ed598855902a229179c3706057f58"
+    },
+    {
+      "path": "SKILLS/voice-stt-client-v2-abnehmen/SKILL.md",
+      "sha256": "648b55edf428f56ae81d43c6101e21226e4c64b78a5fac0c3ba5a6a2dd52fc7b"
+    },
+    {
+      "path": "SKILLS/voice-stt-client-v2-umsetzen/agents/openai.yaml",
+      "sha256": "8b5111b78086621378e15a1eded1b7395639926a64ee61063959cbe2872371c7"
+    },
+    {
+      "path": "SKILLS/voice-stt-client-v2-umsetzen/assets/PROMPT_KORREKTUR.md",
+      "sha256": "86fe64958d5f2781231857acf97cc2c1cdfca3d3dbe24507f9b0ae78fe067056"
+    },
+    {
+      "path": "SKILLS/voice-stt-client-v2-umsetzen/assets/PROMPT_UMSETZUNG.md",
+      "sha256": "bb9aeed96d9e893fa03a7135b14bf1fff244b945e1784c15fa64e81aad35036b"
+    },
+    {
+      "path": "SKILLS/voice-stt-client-v2-umsetzen/references/ABGABECHECKLISTE.md",
+      "sha256": "67cc68ab3cefc6f4fbff871f6d1b2aa0ee1714ba816568f9da6dc0203691e9e3"
+    },
+    {
+      "path": "SKILLS/voice-stt-client-v2-umsetzen/references/KORREKTUR.md",
+      "sha256": "f5430239a829b6dd4d068a674b4f67422ec5e7a658e9ae6edff8c2bd0315df35"
+    },
+    {
+      "path": "SKILLS/voice-stt-client-v2-umsetzen/SKILL.md",
+      "sha256": "d34199337fc912f2a726df4aa770bac4e23553a30a17ac967820bce0f92571cc"
+    }
+  ]
+}

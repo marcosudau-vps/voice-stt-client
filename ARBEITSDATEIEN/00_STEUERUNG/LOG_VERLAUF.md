@@ -10,7 +10,7 @@
 - Zeiten sind teilweise Schätzungen oder Rekonstruiert und können deshalb ungenau sein.
 
 ## Verlauf
-  
+
 - 14.08.2026 02:18, 001_VerbindlicherAusführungsauftrag_EinheitlicheServerseitigeTriggerarchitektur_UrsprünglicherAgyPrompt.md, 001_2026-08-14_Prompt.md
   - Beschreibung: Hier hat Claude das Übernommen und ausführliche Anweisungen zu der Vorgeschichte mit Anti-Gravity erhalten. Daraufhin Begann er mit der  Haupt-Implmentierungs-Phase.
 
@@ -41,9 +41,9 @@
     Nach Auswertung der Informationen zum Istzustand des Codes wurde analysiert, wo die Missverständnisse und falschen Interpretationen des Ziel-Zustandes aufgetreten sein könnten und welche Formulierungen gegebenenfalls nicht deutlich oder scharf genug waren.
     Es wurde daraufhin eine neue Fassung der Gesamtspezifikation und des Endgültigen Zielmodell's formuliert, In der die Aspekte, die mutmaßlich zum Missverständnissen geführt haben, nochmal deutlich hervorgehoben und klargestellt wurden.
     Es wurde begonnen einen grundlegenden Plan zur Migration aufzustellen. Dabei stand zuerst nicht der inhaltliche Teil im Fokus, sondern eher das methodische Vorgehen. Dazu wurden einige Planungsdateien erstellt, z.B. Checklisten.
-  
+
 - 14.08.2026 23:26, 005_2026-08-14_Prompt_LetzteGezielteArchitekturklarungVorPlanFreeze.md
-  - Beschreibung:  
+  - Beschreibung:
     Nach Sichtung der letzten Analyseergebnisse und einigen Beratungen wurden die Migrations-Schwerpunkte genauer untersucht.
     Es wurde dann herausgearbeitet, welche Informationen aus dem Code konkret noch fehlen.
     In diesem Auftrag ging es darum die letzten benötigten spezifischen Detailinformationen.Zu den Schwerpunkten zu erhalten.
@@ -2024,3 +2024,27 @@ Parent         c901cda3f2c19eeb78c468524161728498b6e27e
   mit Parent `c901cda…` und Tree `de6fe364545b508a47a87ead67a01c5732477e71`
   (identisch zum Root-Source-Stand `2b08e37…`).
 - **AP-SRV-070 NEXT** auf `c82923f…`; `AP-CLI-010` bleibt bewusst deferred.
+
+## 2026-10-11 – CLIENT-V2-START-001: gemeinsame Planungs-/Umsetzungslinie
+
+- Auftrag: eigener Branch für vollständige Planung und Umsetzung, erster Commit nur Unterlagen, danach genau ein Code-/Unterlagencommit je AP; Bearbeitungen auf untergeordneten Branches.
+- Basis/Ziel: `feat/client-v2` von `8bab1b3f4aa070d0756c305908def4d9ebc52582`; derselbe Baum wie Distributed a80a6b1. Vorhandene Vorarbeit und alte Branches bleiben erhalten.
+- Unterlagen: vollständige eigenständige Planrevision 6 im aktiven Clientarbeitsblock, aktualisierte Rollen-Skills/Checklisten, Branch-/Planpflege, Matrix/Requirements und aktuelle Steuerungseinstiege. Herkunft über Importmanifest, Originalpräzisierung über BRANCHSTART belegt.
+- Abgrenzung: kein Produktcode, keine CV2-000-Integration/-Abnahme, kein Server-/Mainmerge, kein Push. Serverada13b0 bleibt vorläufiges Finale auf Distributed, Restaggregation später gesondert.
+- Prüfung: Dokument-/Quellen-/Vektoren-/Matrix-/Skillkonsistenz und Git-Diff/Scope gemäß Planungsprüfergebnis. Start-SHA aus dem ersten neuen Commit nach der angegebenen Basis ableiten; kein zusätzlicher SHA-Dokumentcommit.
+
+## 2026-10-11 – CLIENT-V2-ROLLEN-001: klare Rollen und Paket-PR-Übergaben
+
+- Auftrag: konkrete Lese-/Arbeitsanweisungen je Auftraggeber, Umsetzer und Reviewer aktualisieren.
+- Vorbereitung auf work/client-v2/rollenworkflow vom Planungsstart b0525e6; feat/client-v2 unverändert.
+- Inhalt: eigene Rollen-Einstiege, Checklisten, tatsächliche Gitrechte in Promptvorlagen, unabhängiger Reviewreport auf Paketbranch, Head-/PASS-Abgleich, serieller Vorgängercheck und menschlich freigegebener Einzel-Squash.
+- Abgrenzung: keine Produkt-/Serveränderung, keine AP-Umsetzung/-Abnahme und kein Commit/Push/PR/Merge.
+- Dokumentprüfung: siehe PLANUNG/EVIDENCE/ROLLENWORKFLOW_REV7.md und zugehöriges Prüfergebnis.
+
+## 2026-10-11 – CLIENT-V2-ZUSTAENDE-001: nächster Schritt aus dokumentiertem Stand
+
+Gemeinsamen Einstieg und Workflowrevision 8 ergänzt. Neuer Agent ermittelt AP/Rolle/Kandidat aus offenen Paketlinien, Status-/Runakten und kanonischem Gitverlauf. Festgelegte Workflowphasen mit Pflichtpflege in WORKFLOW_STATUS.json; initial nur AP-CV2-000-Planungsbereitschaft, kein Run/PASS/Freigabeprompt erfunden. Ein ausdrückliches Zusatzreview startet frisch, behält alte Berichte und berücksichtigt alle offenen Pflichtfindings. Menschliche Übernahmefreigabe bleibt getrennt. Unterlagen auf work/client-v2/rollenworkflow vorbereitet, feat/client-v2 unverändert; keine Produktimplementierung oder Git-Veröffentlichung.
+
+## PLAN-CLIENT-V2-009 – 2026-10-11 – vollständiger Unterlagenstart zur Veröffentlichung
+
+Auf ausdrücklichen Auftrag aktuellen vollständigen Unterlagensatz als Revision 9 im noch unveröffentlichten Startcommit von feat/client-v2 konsolidiert und dessen erstmaligen Push vorbereitet. Aktive Vorbereitungsbranch-/Importhinweise ersetzt, historische Prüfstände gekennzeichnet, erste Auftragsvorlage innerhalb des Plans ergänzt und initiale Selbst-SHA durch Gitauflösung ersetzt. Keine Produktänderung und keine AP-Abnahme. Alle Client-/Integrationspakete bleiben offen; Serverada13b0 bleibt gepinnte Distributedreferenz. Prüfdetails: PLANUNG/EVIDENCE/PRUEFBERICHT.md im aktiven Client-V2-Arbeitsblock. Tatsächliche Commit-/Remoteidentität wird nach Transport aus Git ermittelt.

@@ -1,5 +1,13 @@
 # RealtimeSTT Client – Verbindliche Agent-Regeln
 
+## Aktiver Client-V2-Arbeitsblock – Vorrang der aktuellen Nutzerfestlegung
+
+Für AP-CV2-*, AP-IV2-* und die zugehörige Planpflege ist `ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md` der aktuelle Einstieg. Die dortigen Rollen-Skills, Paketdateien und auf Serverada13b0 gepinnten Ist-Kontrakte sind maßgeblich. Historische Triggerpläne und `server-docs-for-client-development/` dürfen diese aktuellen V2-Kontrakte nicht überschreiben; frühere Readme-/Übergabe-/Taskstände bleiben ihrem Datum zugeordnet. Gesamtplan nur bei Bedarf, nicht vollständig bei jedem Run lesen. CURRENT_STATE und MASTERPLAN führen zum aktiven Arbeitsblock.
+
+`feat/client-v2` ist die gemeinsame Abschlusslinie: erster Commit nur Planung/Agenten-/Dokumenteinstiege, danach genau ein Commit je angenommenem Paket mit Code und Unterlagen. Alle Umsetzung, Planpflege, Korrekturen und Reviewakten auf untergeordneten Paketbranches. Unabhängiger PASS und anschließend ausdrücklicher menschlicher Übernahmeprompt sind erforderlich; ältere automatische Commitregeln erlauben keine Paketpromotion. Paket-PRs zielen auf feat/client-v2; Reviewer sichern im beauftragten Scope ausschließlich ihre Reviewunterlagen/administrativen Verweise auf dem pausierten Paketbranch. Nach menschlichem Prompt vorzugsweise PR-Squash, alternativ ausdrücklich gewählte lokale Einzelaggregation. Exakten Parent, genau einen neuen Single-Parent-Commit und Baumgleichheit nachweisen. Vorgänger-PASS, menschliche Freigabe und tatsächliche kanonische Übernahme vor Folgepaketstart prüfen; Status allein reicht nicht. Gittransport nur im ausdrücklich erteilten Scope. Einzelheiten stehen in der verlinkten Branchreferenz der Planung. Server-Distributed bleibt bis zum gemeinsamen Abschluss offen. Diese V2-spezifische Festlegung konkretisiert bzw. ersetzt die widersprechenden historischen Quellen-/Lese-/Commitvorgaben unten; übrige Technologie-, Test- und Datenschutzregeln gelten weiter.
+
+Bei „Mach den nächsten Schritt“ zuerst ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md lesen. Paket und Rolle anhand offener Paketlinien, WORKFLOW_STATUS.json und tatsächlicher Git-/PR-Provenienz selbst ermitteln; Zustandsdatei vor Abgabe pflegen. ROOT_PASS wartet ohne menschliche Übernahmefreigabe. Ausdrücklich weiteres unabhängiges Review ist optional möglich und hat Vorrang.
+
 ## Projektziel
 
 Dieses Repository enthält einen Windows-Desktop-Client für einen bereits vorhandenen RealtimeSTT-Server.

@@ -1,0 +1,1426 @@
+{
+  "checkedAt": "2026-10-04",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "clientCommit": "f625904795880ce71acec216e43678f9ec1656d0",
+  "method": "git archive of immutable commits; no working-tree content",
+  "files": [
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": ".github/workflows/ci.yml",
+      "sha256": "3bc7dd072b71bccc69a7d150c5e6f1d2e7c4d25ec2e5a1f07a5e0d17f4d6f41a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/.github/workflows/ci.yml"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/__init__.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/activation.py",
+      "sha256": "3109b2ae10cc8da7e54e9972e4c1851f33cb3eeb6efa4e10403569635945d8c7",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/activation.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/activation_commands.py",
+      "sha256": "c1fedcc28761c51046cee28184fab5085f2184f7755e0a34a83fceaf481410e1",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/activation_commands.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/protocol.py",
+      "sha256": "0599ea7333c95091e6acdd491c4376d988b22365f2f486f60420e9a8953b6902",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/protocol.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/protocol_v2/__init__.py",
+      "sha256": "3e90ba51a9b1a6afab17a3dcc2a5b20e8d9db21401c4315cf201cb1a3db345fc",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/protocol_v2/__init__.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/protocol_v2/commands.py",
+      "sha256": "dbe344efa77197a20ac1dd2f776f4ea9b551c3d51b8b3ec110a7e7ab83b356f7",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/protocol_v2/commands.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/protocol_v2/connection.py",
+      "sha256": "cefccdbff0e3d029a9d7026940687694addb54b2d0dc6b3880c553f46e610cab",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/protocol_v2/connection.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/protocol_v2/events.py",
+      "sha256": "1c528ab364eea0dd1657f3a7a7b86d9c0eef4e5d714729583ed0c283eb41308b",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/protocol_v2/events.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/protocol_v2/handshake.py",
+      "sha256": "7f61ff1b51549a38cbd497a1b8bd4c20173c4a5545af685953b9f5325694a9cd",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/protocol_v2/handshake.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/protocol_v2/identity.py",
+      "sha256": "4720a83040d878662c7a9d40701dea751cae0c12760f9d8024b9b9c99d89f60f",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/protocol_v2/identity.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/protocol_v2/ports.py",
+      "sha256": "39e05ca39f59a6c1de0c90b9fc086b7fba5d66ec1a812c7792e0c49e7a654ebe",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/protocol_v2/ports.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/protocol_v2/schema.py",
+      "sha256": "4733064ecedf5e629e1fd3d474c4e549afc555d08020c25accd3fdd941119990",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/protocol_v2/schema.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/protocol_v2/session.py",
+      "sha256": "35d0f1ba04be4e04b6f33154c3bf9d71802fb3bb44ae2297ab1648b84a1706cd",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/protocol_v2/session.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/protocol_v2/snapshot.py",
+      "sha256": "7e9123cf78ec5c004b6ff0a917260f8905c8341c70618089ac1d68ef18a778df",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/protocol_v2/snapshot.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/segment_ledger.py",
+      "sha256": "b7f3bad6d82b629ee0f8e9e33604449e6214a2b79ec761d2cb202f7f90bfdb85",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/server.py",
+      "sha256": "39aa3233c72d26b3d22c67bc7f78666c74d17a6b8be09117f45ac6f02f69fe22",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/server.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/settings_control.py",
+      "sha256": "4bd89ba5422a48cf8d76733f869ede6b47464353e3887962f35d9506f0210bbd",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/settings_control.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "api_fastapi_server/wake_admission.py",
+      "sha256": "eddad2412ee86c1b498f9e43af65b95c34d9053dc111b4076196e6e9fa9c1348",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/wake_admission.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "docs/client-development/01-session-und-server-scope.md",
+      "sha256": "327f1a91b8c64c614a674be629fd7a2c2d28ed938e3999604410d8f1e722d1a6",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/docs/client-development/01-session-und-server-scope.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "docs/client-development/02-websocket-protokoll.md",
+      "sha256": "729aa7aa168ff53672606677c8ddb6cbe835ea83ab0617eebfd2dce3e161a0e9",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/docs/client-development/02-websocket-protokoll.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "docs/client-development/03-server-events-kurzreferenz.md",
+      "sha256": "bf3b0eded2930fcb9f181c7c7d7f4a782cb9f40f4e6feca88126f9474a8c3136",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/docs/client-development/03-server-events-kurzreferenz.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "docs/client-development/04-server-events-katalog-und-chronologie.md",
+      "sha256": "d52800337035ce444cd13aadbc0b588b720fc4d0f519142fcb2594439c495d6a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/docs/client-development/04-server-events-katalog-und-chronologie.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "docs/client-development/05-client-zustandsmodell.md",
+      "sha256": "824f9b08845d19f5ec28fc1a225a0591e5bf71b10b13dab11dfd2e28e4447213",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/docs/client-development/05-client-zustandsmodell.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "docs/client-development/06-http-api-und-authentifizierung.md",
+      "sha256": "a5683e00753b22b2801c7b9ece45928bb212905c3733c9825a0fecfcfd6bd8fb",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/docs/client-development/06-http-api-und-authentifizierung.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "docs/client-development/07-robustheit-grenzen-und-sicherheit.md",
+      "sha256": "f5bd0aad673317a848d79b1ba5363ba26a7a0c0662c29de93269574f1be81183",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/docs/client-development/07-robustheit-grenzen-und-sicherheit.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "docs/client-development/08-protokollabgrenzung.md",
+      "sha256": "6ca308ebe07897ba936d2b0ee84ce588effc78ac52fb290890d04cb2bd5075b9",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/docs/client-development/08-protokollabgrenzung.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "docs/client-development/09-betriebsmodi-und-serverkonfiguration.md",
+      "sha256": "84b95b6ae7502e4dbfc20c49def4a9b439e48eafe0cba4fda526b9257be85fac",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/docs/client-development/09-betriebsmodi-und-serverkonfiguration.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "docs/client-development/README.md",
+      "sha256": "092eebea1ecb08b0e4943c333fd9ba8ab7a8ccc7e2684b706f8bce9a485948ed",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/docs/client-development/README.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "docs/structured-logging.md",
+      "sha256": "6f600ed202ae2186b586a277ab77d69243d8ace78521e5f92f1183d6227f339c",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/docs/structured-logging.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "docs/testing.md",
+      "sha256": "9d4292edcbd8d8683dd855d3f1d32ed0ca24da8c06d9937bec33fb12f7aac870",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/docs/testing.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/contracts/protocol-v2-vectors.json",
+      "sha256": "694971cea437ca57c207620fac7f169d0397987d7fe1ee02fd276eb8b941de34",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/contracts/protocol-v2-vectors.json"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_protocol_v1_v2_boundary.py",
+      "sha256": "b51e11136857b047a904b212de744ed966483277eb2e92d2634c4661555066bd",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v1_v2_boundary.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_protocol_v2_contract.py",
+      "sha256": "1fc7a8bbe80b345a7ff5d1cc8e417eef7e17c889c501e28e794aa85446e17ec2",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_contract.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_protocol_v2_e2e.py",
+      "sha256": "32ec877d0271353be828d6e6aa0e6ee031cb5fc1e647741b5eb2a6ca5b33e4f0",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_e2e.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_protocol_v2_races.py",
+      "sha256": "836c3799935db13a038968e242a53d64f57824bd3414a51fa3a9ad827b246d5b",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_races.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_protocol_v2_settings.py",
+      "sha256": "c5782d94714f19f023bcbd68bdaa0b5ce200ef1e36d3bddf904de7bf6abc6bfe",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_settings.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_protocol_v2_state_version.py",
+      "sha256": "5d17e947ee6e185011e95190fc2cdc9eb2f526fc71ec679ed35cabeae75ab586",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_state_version.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_protocol_v2_terminal_recovery.py",
+      "sha256": "f8830862b479deaa7bc00bb85e3a15aec2e32441e14b23c9bb80e2e3d7aae239",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_protocol_v2_terminal_recovery.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_realtime_boundary_detector.py",
+      "sha256": "3b5ed6eeed4c801feea6239dc71ea2ec4f0bef37427f210d3601c60c0d63915b",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_realtime_boundary_detector.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_realtime_streaming_transcription.py",
+      "sha256": "7fdb2afc34983a9aae337db8abee0c7bc541c00cea96ba5ef2738074ce186b0a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_realtime_streaming_transcription.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_realtime_text_stabilizer.py",
+      "sha256": "304ca279835c8bab7cf64119c683e4039b69f7bcaff9f4ef9e9530764fcdc5e4",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_realtime_text_stabilizer.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_realtime_text_stabilizer_eval.py",
+      "sha256": "9991750d935c1553a495b9dafbf18dcf3e4728081ca4563d3b76606d52b2248a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_realtime_text_stabilizer_eval.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_server_activation_commands.py",
+      "sha256": "8574299dc31db2f487e45bb19f85b98d7bd24facead7303124aab01883cd0438",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_server_activation_commands.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_server_activation_controller.py",
+      "sha256": "3b9f0e00ee68fc6924f598afe5482ba149b4c7e0127dcf2366e080af2f26c672",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_server_activation_controller.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_server_controlled_e2e.py",
+      "sha256": "7c46f64d811299c4047ded6d55019f525df62515478bac6e5f57f03101a477b0",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_server_controlled_e2e.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_server_segment_ledger.py",
+      "sha256": "a6668e968e1805d1fac7d710990dd4333e4f4392d86fdbd998357b070d4db88c",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_server_segment_ledger.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_settings_control_plane.py",
+      "sha256": "9304426ac000f3236a5202706f8b0bb5ed3bef98d44a6a667880dabcfeaaa5c4",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_settings_runtime_persistence.py",
+      "sha256": "c1706526f8f4350a98d8b64426dd2dfa53513dd03579d12026a5baa288222ac0",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_runtime_persistence.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_wakeword.py",
+      "sha256": "c9bc962f34aa990ad2365c3b5ad0ef34cfecdfe538521597ec034a3859e59755",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_wakeword_asset_integrity.py",
+      "sha256": "699efe23921d52424e2ce7f2dbaa4ca4ff12912c82fc0d73e777a1dd167fdf48",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_asset_integrity.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_wakeword_catalog.py",
+      "sha256": "3fec6db22bb14d8ddf8fe8ae1cdaeaa80de88f6fd311c546ab0c73ec977cf849",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_catalog.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_wakeword_catalog_api.py",
+      "sha256": "1f0e2a4bd068762747ab1d501d0bdc4bba70824cdd37f4f9441a5f8b6c599b7a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_catalog_api.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_wakeword_package_resources.py",
+      "sha256": "22e711db24200375ca05eae6280f6ed0e859255f2a45ba09380f4ca16b4069d7",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_package_resources.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_wakeword_recording_path.py",
+      "sha256": "1a87094431c4b2fe37998b8d0e96ecd4e8bd97739fb34e34b5e883ae01674136",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_recording_path.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_wakeword_root_findings_c2.py",
+      "sha256": "3990df4e88d1a6619ebe4d3b83899bc4a618fd31b30cf22b0c51d4722c84b8d3",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_root_findings_c2.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_wakeword_root_findings_c3.py",
+      "sha256": "6ffc0df4fc9473fa6320219d00bae08baf608491313071b027234d6141e92bd7",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_root_findings_c3.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_wakeword_selected_only.py",
+      "sha256": "d5c135c26b0298ada725a6d87dd1c6cbd911737f393762f1ba0845040bd3b22a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_selected_only.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "tests/unit/test_wakeword_session_e2e.py",
+      "sha256": "041c363ccd77fae6fee0721062965c73be89025a335481473d7b40815ea06060",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_session_e2e.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "VoiceSTT/core/activation_control.py",
+      "sha256": "f2801178f1e21b02627b9f48e1e510d55803c163abedc4dd117a095d8178a2d6",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/VoiceSTT/core/activation_control.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "VoiceSTT/core/realtime_callbacks.py",
+      "sha256": "bd04221c7a4ead5f434d4d71002ecc98443cfbb96b7a17be53f59268fede615a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/VoiceSTT/core/realtime_callbacks.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "VoiceSTT/core/transcription.py",
+      "sha256": "3f190cf940ebe0b244e9b9b15bb5b9a07afefef2089d77767e6a9a97f393f6e2",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/VoiceSTT/core/transcription.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "VoiceSTT/core/wake_audio_boundary.py",
+      "sha256": "e27a57a3b79708e480e733e2a093c1d18fc29460d4b372716d870fee6b00331f",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/VoiceSTT/core/wake_audio_boundary.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "VoiceSTT/core/wake_backend.py",
+      "sha256": "6a8faed497e4894fdfdd4834a05944f58bd9d9dd95eaf091a7892e16ee086554",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/VoiceSTT/core/wake_backend.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "VoiceSTT/core/wake_detection.py",
+      "sha256": "3986034c05c1f4dbf7a5a889e2530983b5b31de29ae011884f3ceb3d36ea48fa",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/VoiceSTT/core/wake_detection.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "VoiceSTT/core/wakeword.py",
+      "sha256": "3857cd673a95c7fdbcf9033769dc0b0fa6b39674352b47802368bf4f89a78d1e",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/VoiceSTT/core/wakeword.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "VoiceSTT/core/wakeword_catalog.py",
+      "sha256": "693f4ba8330bcb859334d844ffd27e4feeec35f28568fd0d64f513f45d337351",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/VoiceSTT/core/wakeword_catalog.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "VoiceSTT_server/event_logging.py",
+      "sha256": "c842bd93be650a890bf12422d8f2d7b803628ef1c30a92c2acc996497fee43ed",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/VoiceSTT_server/event_logging.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-server",
+      "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "path": "VoiceSTT_server/operations.py",
+      "sha256": "e50d541e73d2b71f606011b02df50735e334d146e1187bb731b27e2e5d5f53da",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/VoiceSTT_server/operations.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": ".github/workflows/ci.yml",
+      "sha256": "60135f3ef8f499244ee52b63527fa868a44627d557cd4ce41748e5d70aa575f3",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/.github/workflows/ci.yml"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "AGENTS.md",
+      "sha256": "046ea0fa4a44ab23867cd81954966f2ee7fdbba174811580c73978b786be986b",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/AGENTS.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "pyproject.toml",
+      "sha256": "2f62df57f0125a203d65f115f5551a9585f043527037c6b099643652de98df51",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/pyproject.toml"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "requirements-dev.txt",
+      "sha256": "81ff9ff08aae244ea284d648e8ef8c3ae7dd040f1be47cce942b452b3c0b69dd",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/requirements-dev.txt"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "requirements.txt",
+      "sha256": "d9beb148ce36ad1d8ec1adc1344e02582999d0023ce873534bf9aba88f0f2895",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/requirements.txt"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "scripts/build.py",
+      "sha256": "f756f2ae78a38d2947da1dacca9da9dde8098abde641e1add3863d2d207becaf",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/scripts/build.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "scripts/client_release_guard.py",
+      "sha256": "2d7a4ec4ab649f47a104ad69d136e99ee5f487cf6a1465c22e8fe45948365a6e",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/scripts/client_release_guard.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_ap06_followup.py",
+      "sha256": "050998d3e59147a44cff0b20f2940bee6d7c12a8aaf2e971ffd51a8c8067f3ea",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_ap06_followup.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_app.py",
+      "sha256": "61fb31031b7997af97a3f0ddf627ba9aab07012d71cc9c4dce3cdf83fbf12a4d",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_app.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_audio_capture.py",
+      "sha256": "b1d7d9b1e78d2ec35dfacd2843a371ae848cfddb58781a91381fe01021d28e81",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_audio_capture.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_build_script.py",
+      "sha256": "181e0ca34f3df72526097eb662e4473fad5b0801997d635a6433251b7a91bc44",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_build_script.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_client_release_guard.py",
+      "sha256": "583544cae83ab95ce9ed08adb8fcec1049d65017dc9fe3289340fe6023e2949a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_client_release_guard.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_client_release_workflow.py",
+      "sha256": "822458d6f37fe0a0902b4e8d11eb6f09f43fcba06b5652073e754e0fa9f5abee",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_client_release_workflow.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_config.py",
+      "sha256": "5229a6124726aac508d52ac48ac35fc81357562127eb1b49dc514439b64c9045",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_config.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_controller.py",
+      "sha256": "dc2b5cf511aa7eeeda360f33b8840c4a169bdbb6f1df8f04301617e6dd2b40c3",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_controller.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_core_bridge.py",
+      "sha256": "d21bef7cdbbd2f446b1584de15fb0473e34a085bc5b615564c4ff8f6ddcf58e9",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_core_bridge.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_event_cursor_store.py",
+      "sha256": "2c2e1c70b9e540f5bff7674b0c69c060a0a87c601598dedfd2407237b21afc3b",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_event_cursor_store.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_event_models.py",
+      "sha256": "00c59882d8d6637cd2e8d0b1871d44dbc3c34948000f468fb5358ad1c2225a78",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_event_models.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_event_normalizer.py",
+      "sha256": "726cd32f54dd6d2103a225e5d511970cc75717503d7642f70acc394a3611c7ef",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_event_normalizer.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_event_protocol.py",
+      "sha256": "aad3ceaec217514f717e5d4c236517dd30713b0e17e95b1cfd4b6a3f0e546191",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_event_protocol.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_event_stream.py",
+      "sha256": "bbd6f1007bd95527ce5e8dcb7c48462713f7ea188e7250f304dfa7a58f34b2ac",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_event_stream.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_feedback_integration.py",
+      "sha256": "18bf648815a17078ab6513c09dd75e005faaf21fbe6893ed52d7ed443619c90c",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_feedback_integration.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_feedback_mapping.py",
+      "sha256": "d8f199dcb10f13f62546d8ac831704f883ae2b3d8875602f5a7075f370bc394b",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_feedback_mapping.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_feedback_reducer.py",
+      "sha256": "5f0e5cd521cf2a2d134c2e26607905aea54f277f6230dcd773a6732fe658f7ad",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_feedback_reducer.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_feedback_ui.py",
+      "sha256": "65766329bb3fcb44f0e7b1d1ddcb8a5f39ed6c0d928a9b2dc17ce5ccc93090be",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_feedback_ui.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_history.py",
+      "sha256": "d07cd49080175e500b8f9b4f6be373a1922c2dae8309839f593dd1ee3afaba4a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_history.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_hotkeys.py",
+      "sha256": "fefb6ced4fe2a82a325ee05c4c4b2c5810fb0e81c4a77977296a832f61c9b3f4",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_hotkeys.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_led_feedback.py",
+      "sha256": "d9a863c8684d2d130a61a3a4e358c08bf005352fae10c3197620408c52f63a83",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_led_feedback.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs010_contracts.py",
+      "sha256": "33dc5b6f227465809bc756e8184fee9b0bbea10480e24530b0c9979fb445865d",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs010_contracts.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs010_models.py",
+      "sha256": "da6dd17ffe367e678c2845aa904bbb685a020cbb4ffa1a484f6598fe644527d1",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs010_models.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs010_normalizer_client.py",
+      "sha256": "2cfefeea3a94c457fa5d3c9875ca561b5dd6777f148395c56be36e2746a07bae",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs010_normalizer_client.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs010_normalizer_python.py",
+      "sha256": "c54c8cae122b1889487f4a89ee6fda471d404f6fd8770006e23b82fbe7f0b06d",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs010_normalizer_python.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs010_normalizer_server.py",
+      "sha256": "b4e26b4016b729aa6f5b126877a8ce5cf2aeacf0ff4a76da03cf8c9011509635",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs010_normalizer_server.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs010_query_contracts.py",
+      "sha256": "b0c2c3bd895732357ceacde39dfa1b0a4b69631bcc9739806e19af64db4984ff",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs010_query_contracts.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs010_redaction.py",
+      "sha256": "c44000dbcbaa7d702686d3a3a5864dec5abe76551b02882e18b6c403f774611b",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs010_redaction.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs020_contracts.py",
+      "sha256": "61c73c25afd2b0a8c080ebf992fa25cb5fbe9e0747673f89d277ae6b4d92c550",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs020_contracts.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs020_health.py",
+      "sha256": "126dcadfa5a8bb039b8a8ad2238668d82f33ae33085cea6322316da5e1acc059",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs020_health.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs020_ingress.py",
+      "sha256": "1be575fe187fb1ad0342919e9d810a9c4007ee644c322dd75ca2497e1499b67a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs020_ingress.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs020_logging_setup_integration.py",
+      "sha256": "1aae98e2c9338d53ea631834ac8d4f6f4757431cfece6a54c072fb8751991a34",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs020_logging_setup_integration.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs020_python_logging_handler.py",
+      "sha256": "86364699d1f0c781c56c2ccf38699b992793c87523a5038f471dc8c65bb4d7b6",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs020_python_logging_handler.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs020_redaction_end_to_end.py",
+      "sha256": "2a782d85f52adc0579f41f3d6bc16290543db10116cfd643ffb72ef0d21a62f8",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs020_redaction_end_to_end.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs030_app_wiring.py",
+      "sha256": "62fe0720cc433332146373f1f84dcc4f30a11fd60426c56c3185b4270eeba28f",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs030_app_wiring.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs030_config.py",
+      "sha256": "c5160559e8a73bbc01976b6330992bc3edefb4070a415b4a3d577bbf499d6117",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs030_config.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs030_contracts.py",
+      "sha256": "3609fe83bf95665079d617b8b899c38d5acdeda5b99ceb2ba8495d7ba7556122",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs030_contracts.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs030_gate_corrections.py",
+      "sha256": "523d4e7468b7d256aa508ea4944d347794cd0b0d71b1123b1e9802b1509afd31",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs030_gate_corrections.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs030_jsonl_sink.py",
+      "sha256": "42eeda942fc6503bdd8054b9616c0a854a1308af5126c6fb96dd1e8659f74a2b",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs030_jsonl_sink.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs030_manager.py",
+      "sha256": "f3b162ef353f937e1e85cdafb1ee18af1c88440f3df55444221693c0c866dab3",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs030_manager.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs030_path_boundaries.py",
+      "sha256": "d93b6ec5020da2694b0d3e160e704b1df307486c8bda250ece3ad2e755200a73",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs030_path_boundaries.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs030_sqlite_store.py",
+      "sha256": "9d7666f1db520460aab5c478fc27a8076a87554a0026dc6f86f5f26d0d11d263",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs030_sqlite_store.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs030_worker.py",
+      "sha256": "ab1a875f5f550db82cf236cff48ece64d633d10e424b1590c40cce31cea2e318",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs030_worker.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs030_worker_fault_injection.py",
+      "sha256": "cf5ef3752a671a421b3019c0d4810a21e25ebb5a88d5b4618ce998314b0f682c",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs030_worker_fault_injection.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs040_client_hooks.py",
+      "sha256": "1f324a3b6ff2a73a490d721c78266d6d1b459394c4d14ac50e43b20f7230acf1",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs040_client_hooks.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs040_contracts.py",
+      "sha256": "ab85e817115efee48651c220c8dc7559155f7e08f0b7e67f1dc894f7425d42a6",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs040_contracts.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs040_failure_isolation.py",
+      "sha256": "86ea4fa847df9f87eb3e8bb1ec2f6d721b14e5c0ef0f95ee80e96ca4225c00d8",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs040_failure_isolation.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs040_fanout_hook.py",
+      "sha256": "89beaa2157b41c3cae38134a3f1b58f6548807c76bd67727c648f4d9b1d2ecb7",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs040_fanout_hook.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs040_hot_path.py",
+      "sha256": "5339162e31ac533d0dec15def669f407b0d6d2f8763c89e49fb6b38325f93f52",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs040_hot_path.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs040_server_live_adapter.py",
+      "sha256": "adb46dbd83f72d777017f1838fdde737e9bcf2b026dbdc9ae41dd1d5dc2097ac",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs040_server_live_adapter.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs050_contracts.py",
+      "sha256": "cc97fa1766b353bf4a57a87b442900e8f1b28342488cbd3d5a4956bf023f5ff3",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs050_contracts.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs050_local_provider.py",
+      "sha256": "46f8a2845db5f139ad06e6114283415d56ffeb8376bce0b27693b1fe834793cd",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs050_local_provider.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs050_query_service.py",
+      "sha256": "c4f06aab2f047caddce55a72221d043f665c54b1b1cc7601a2284650a3c4df11",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs050_query_service.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs050_settings.py",
+      "sha256": "74689da8f426def5e284d7029136487448e954ba42cc6d59732f9ac31571b19d",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs050_settings.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs050_ui.py",
+      "sha256": "18d4ec72891b45a6fe30215d08e171c9c7c7220f63379faf720d09e9a18f9f30",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs050_ui.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_obs060_v1_hardening.py",
+      "sha256": "f2fef319b854cfdbc1c57d43d5edc04d7f9726da72301fbc702c062e1aeb2e48",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_obs060_v1_hardening.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_reinsertion.py",
+      "sha256": "aa84d05235336c5920e48b4d4e4e5d15ae1e310b17cc7c0336cdaa89e2c7dccc",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_reinsertion.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_release.py",
+      "sha256": "9cbabaa74c7dba2a0eed1a51f9c16467b92e551df650b0e153628a166e103320",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_release.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_session_coordinator.py",
+      "sha256": "42a4d586a06143dabf7ee1fba79ff00c32f19b0184bdeb4a17ab0bbb778f993d",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_session_coordinator.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_single_instance.py",
+      "sha256": "cf23b91f9431b6470c429aea6367ee5f284348c85a7187667f033023e1836761",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_single_instance.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_stt_session.py",
+      "sha256": "9001c773b18b8ca1ebf024b7995c80b7e0691dca471104aa3e61095ee4676aff",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_stt_session.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_text_injector.py",
+      "sha256": "6d853bd6b0b949029a117aee267235e24e51e640dadcf7f698220b42b5c52077",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_text_injector.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_ui_application.py",
+      "sha256": "bb31f55644cc7ca5200d21d7cc65d4db55f428c7d2fe1086292cf53e123df0a3",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_ui_application.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "tests/test_ui_widgets.py",
+      "sha256": "ead964143a6f9b83a027b9194025fabdb10e9318f409b6dab8383eff9189a796",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/tests/test_ui_widgets.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice-stt-client.spec",
+      "sha256": "c6333c5b64341a94076760d95c1e075d13dce38a03c130c495e999dbc5c0dfc0",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice-stt-client.spec"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/app.py",
+      "sha256": "10e606a132d952b3cb0a8414c330ba9d2c15ee55172121968c290f6d0168b069",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/app.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/config.yaml",
+      "sha256": "ba509434f6b5e749770cd62dcea5368f2ec7a15a734bfae65ebbacef1f070b0a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/config.yaml"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/__init__.py",
+      "sha256": "1dde029b94bc7d68e4ca6bc5b0d6b9373ee02d7ba17afa6b5ad38870d6142ddb",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/__init__.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/actions.py",
+      "sha256": "1d25b805280e42743f535b03ea2be084a5b3d37fbd21ebc3266b9e6b0b194d30",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/actions.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/audio_capture.py",
+      "sha256": "2afceca5c665b53f5f398f8f99fa789d9fa1ce8dc4d673943bb1b6d9fc6441e1",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/audio_capture.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/config.py",
+      "sha256": "3bf02fa01a44d6bf11e1deda20a4cc7a1263b252904a8503017440a161312521",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/config.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/controller.py",
+      "sha256": "3eeb4559b945959154747ba3367e844402b29745f4877ce1249eb1f6e814f748",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/controller.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/event_cursor_store.py",
+      "sha256": "95e7776a5fb6bcaff1b25e37ff7cb89c6a6de290d72fd7e51dca1ae0ef88c29f",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/event_cursor_store.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/event_models.py",
+      "sha256": "5bfb53f50cb13b5260a5af20eeb96a7c9e6213274eb28e7a142e6b91b91eb48e",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/event_models.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/event_normalizer.py",
+      "sha256": "53ceef92fb61a489fe12b4df60230692be2c27ce621aa81368be9ba66ba609c2",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/event_normalizer.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/event_protocol.py",
+      "sha256": "43df058159b953d9e5e159e53c837f73f706b93a215ab895c008ec12f0dec785",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/event_protocol.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/event_stream.py",
+      "sha256": "13438b5f0eb8b4eb1f6a669073eec56909ce376ebe6e0e244ce475fd2c5b906c",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/event_stream.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/feedback_mapping.py",
+      "sha256": "1174bef99c7f38c57ca2caf435622d7b3137d85437aeb3ad03e3d7e929163ec9",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/feedback_mapping.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/feedback_reducer.py",
+      "sha256": "6ccad9f4ed93541f5d9238ec0aedaa372f4dd184689504d0d01de9a803d5d531",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/feedback_reducer.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/history.py",
+      "sha256": "78565b018d58f2961179b7af75872a944ef9f4dcb35ccb257c657f66ea3740db",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/history.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/led_controller.py",
+      "sha256": "b58f673d0724f69e0cb7643b8f5a558b807d297a17ae9c4be77a3dcdffaedd28",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/led_controller.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/logging_settings_metadata.py",
+      "sha256": "61dff4f5751903778a2b8a86c1b1b04e4f6f10b2ba3cde0106cdebaac49e41a6",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/logging_settings_metadata.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/logging_setup.py",
+      "sha256": "c7eab563ffb7dc1c2eb2af768f88d0c9fe17c28a0f3e13a17ed52152e373dde0",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/logging_setup.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/observability/adapters/__init__.py",
+      "sha256": "4ca72fa7f5283aa3bc4956b912c00ea44a861a97b9fdf3955f33c0ccc2de08c9",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/observability/adapters/__init__.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/observability/adapters/client_events.py",
+      "sha256": "1cdfd41c9978ed924230ea9015814a578ffdc7a933c9457e7809267ffcf4747b",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/observability/adapters/client_events.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/observability/adapters/python_logging.py",
+      "sha256": "a4e1df90e54949dfa9f1ae8d29d24f2f193b81323b6ae523d81a08c9233a9289",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/observability/adapters/python_logging.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/observability/adapters/server_live.py",
+      "sha256": "99d53cfc3c0dd4e15ebc0d37b46a98896f4dfa92f080a8eb638d839576c6b6ed",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/observability/adapters/server_live.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/reinsertion.py",
+      "sha256": "918e893bc68cd11c82a75a3bd94e0890b48b8836ed148709f3b29d87a18f8175",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/reinsertion.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/session_coordinator.py",
+      "sha256": "32e9926445708701f607262077fe21103bde45b34b5f68f220e18ba5add6323f",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/session_coordinator.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/settings_metadata.py",
+      "sha256": "7f8dc00b291439a1a96c584e8b7f9a09e287c947518a6ff30e89173005761256",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/settings_metadata.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/stt_session.py",
+      "sha256": "07d8e94bae3506911e848f67246ce59f6cf9eabbdc1486df2e2fedad7ce78bac",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/stt_session.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/text_injector.py",
+      "sha256": "618c969d489ceaefe07701121dbcd63c0da606c542f5f1bb81c6f8bee60cbb9f",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/text_injector.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/core/version.py",
+      "sha256": "51e745c1c45de7470719fa2d6bcd07134719d6d79fb4bd5d006aecb610d1f9b5",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/core/version.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/ui/__init__.py",
+      "sha256": "54dfde596a96db8f235421d5884d66ded461b3673fe95991d58656746a77947b",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/ui/__init__.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/ui/application.py",
+      "sha256": "31bb21241675be7ae878e96e0b282f994332cbdbdc5b68244d10ea941dd859ac",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/ui/application.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/ui/core_bridge.py",
+      "sha256": "dc42b6414039cad1a82ead53d633cb40992ddb81458b914294571b90ed9a3add",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/ui/core_bridge.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/ui/feedback.py",
+      "sha256": "c010dfa8c36e29fe71e65532d6cfa1efcf468fefa0f72f30c694e8adae28afd7",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/ui/feedback.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/ui/hotkeys.py",
+      "sha256": "626a7257a0d9f3ddba780ac8ecd4629113353a95f549dd0dfce04f7a426c0a5a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/ui/hotkeys.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/ui/led_feedback.py",
+      "sha256": "b7b14260818b209309f4202e0fa54fc63f75c96cf9764db96b679d10096bc0e5",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/ui/led_feedback.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/ui/overlay.py",
+      "sha256": "6de6d5f951946cf86078e3f2cc6f5c59cebabf841ad0aafd4fbb935a08f75f4f",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/ui/overlay.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/ui/presentation.py",
+      "sha256": "942e3ed70d812ed3ed51550f171ff34c739a9a8d947738a9097b60ca4e25a12c",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/ui/presentation.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/ui/settings_dialog.py",
+      "sha256": "f0ea88b5415a8126c5765d4d34e9c89c0833bc1c961c0eb641e158e6b5f8d9ea",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/ui/settings_dialog.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/ui/single_instance.py",
+      "sha256": "83c15c0cfaefafbea86879ccc11c6a3b115210d579413b79000d845804056630",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/ui/single_instance.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "voice_stt_client/ui/tray.py",
+      "sha256": "6517f452561aabc98532c46888de34471fb415abe39ee299d9fb215892164b7e",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/voice_stt_client/ui/tray.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "docs/PROJEKTUEBERSICHT.md",
+      "sha256": "d7c3721dfbe10a7a8f274a86f0219c640ea1f36b95a1a95409a507767ce29245",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/docs/PROJEKTUEBERSICHT.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "AGENTS.md",
+      "sha256": "a1dd4d45d87d16ce35c79a497b02df2db37aeb5aed5597551c5ef9362d052a11",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/AGENTS.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "config.yaml",
+      "sha256": "6f918721cd6e943c46f6d6476f43f1ec3518ba67e449ca33ceadcd1bc7374e6a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/config.yaml"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "core/config.py",
+      "sha256": "ed740ba281cc38ef7339fab91ee1f4539292fe6db691311a856e2c4714bbfbcd",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/core/config.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "core/controller.py",
+      "sha256": "e2517c3db6d97fc8c3064ed11d80548ff247fc40674c59e0f7144006e0178d8d",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/core/controller.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "core/settings_metadata.py",
+      "sha256": "88c07b81ca6c656845d48a1d261922b3ed7ebb6f20c0953a3bc1f19866aa61cd",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/core/settings_metadata.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "core/stt_session.py",
+      "sha256": "6cf0b5e1d9805e10120e5208d04d2de1cc8586ddf0de92dc2daeb1a78b22fc13",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/core/stt_session.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "tests/test_ap06_followup.py",
+      "sha256": "8362eea037fd14c3d33d9e2c0e82810cbc499b11a21bb36ea8bf2cf388b93c92",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/tests/test_ap06_followup.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "tests/test_ap_cli_000_baseline_characterization.py",
+      "sha256": "4feee1386dda637190e9163b09034d0b8c535726ccc42b4fa19e3ef9c92dbd48",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/tests/test_ap_cli_000_baseline_characterization.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "tests/test_config.py",
+      "sha256": "6e9f1182ffe7c99a2af0614673e93ae46c35c941a1fe7128d5cbcdd576c53c07",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/tests/test_config.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "tests/test_obs010_normalizer_server.py",
+      "sha256": "552dce60a6a7a2ae3846f23c7436994594d4faa8eb549c164261f012c610a55d",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/tests/test_obs010_normalizer_server.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "tests/test_obs040_client_hooks.py",
+      "sha256": "0c1f1d671f92968b8ba2aebf438236803b25cb3cf6d57420b0331966bec104ad",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/tests/test_obs040_client_hooks.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "tests/test_obs040_contracts.py",
+      "sha256": "888df814b0aea5cd332fd0bcda8e5dfff84639b6694ece0db28688240ced89f7",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/tests/test_obs040_contracts.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "tests/test_obs040_failure_isolation.py",
+      "sha256": "34ae705e000e52ee50b0b11bff15ab22657f1edfb715faba98e33ea62bcf76e8",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/tests/test_obs040_failure_isolation.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "tests/test_stt_session.py",
+      "sha256": "d398e6298519faeddd53aab8b80883de78a161fe93997342ffdcf98f0ebd9a1a",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/tests/test_stt_session.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "tests/test_trigger_feedback_contract.py",
+      "sha256": "1c68db6838ba073d311cab787ebfd70ae741afc2fd50cb75fb9c1d0a1da08c32",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/tests/test_trigger_feedback_contract.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "tests/test_trigger_lifecycle.py",
+      "sha256": "7307cf926059b42aff3e96964e71d896b5f3d14d2f0f928873f2cb93beb829d2",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/tests/test_trigger_lifecycle.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "ui/application.py",
+      "sha256": "995d5181c301dd6600e954dd112f80d66351efc1852f08f5412fa65eb4490994",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/ui/application.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+      "path": "ui/settings_dialog.py",
+      "sha256": "d76024a20bacb762ab675656bb59b0adde51ee6c34ead27bae24bff28ceb741e",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/a80a6b17b40751740f9c9d2aef9cad32b0470c0c/ui/settings_dialog.py"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "docs/COMPATIBILITY.md",
+      "sha256": "d2320b5c7fd6a745ee65c46b06180010a6e516687c8c39a6a6f004187532f8fb",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/docs/COMPATIBILITY.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "docs/RELEASE.md",
+      "sha256": "4c7bec1bc6b65b305c8fb0fd02e9bfb1ff9ff2ff8d6b9ee716296122d8a6b8a4",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/docs/RELEASE.md"
+    },
+    {
+      "repository": "marcosudau-vps/voice-stt-client",
+      "commit": "f625904795880ce71acec216e43678f9ec1656d0",
+      "path": "docs/work-packages/AP08_V1_RELEASE_POLISH.md",
+      "sha256": "5378ee037f3fe15d2ba3a2813eb2c05ea59f4e2676c8772142d66ab19405585c",
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/docs/work-packages/AP08_V1_RELEASE_POLISH.md"
+    }
+  ],
+  "clientCommitRole": "release_reference_not_V2_start",
+  "clientFeatureCommit": "a80a6b17b40751740f9c9d2aef9cad32b0470c0c",
+  "clientCanonicalCommit": "8bab1b3f4aa070d0756c305908def4d9ebc52582",
+  "clientRecommendation": "continue feature lineage; qualify release improvements in AP-CV2-000; integrated SHA not yet created"
+}

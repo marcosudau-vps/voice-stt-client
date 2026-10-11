@@ -1,0 +1,317 @@
+{
+  "revision": 5,
+  "date": "2026-10-05",
+  "organizationVersion": 2,
+  "mapping": [
+    {
+      "old": "AGENTEN_REGELWERK.md",
+      "new": "REFERENZ/GOVERNANCE/AGENTEN_REGELWERK.md",
+      "beforeSha256": "5ed8201f5447a65afa9e7f4d15445d533688a269894b4ac1be66189d1216180e"
+    },
+    {
+      "old": "AUSFUEHRUNGS_WORKFLOW.md",
+      "new": "REFERENZ/GOVERNANCE/AUSFUEHRUNGS_WORKFLOW.md",
+      "beforeSha256": "40c28dc6a2334fc1eb19f9dc28888bcb970416c459067dda43463a0e34674b05"
+    },
+    {
+      "old": "ENTSCHEIDUNGEN_UND_RISIKEN.md",
+      "new": "REFERENZ/PLANUNG/ENTSCHEIDUNGEN_UND_RISIKEN.md",
+      "beforeSha256": "be5771776765b769fcc1a4bbda471b147389eff4db3024dfbd65b560920596ee"
+    },
+    {
+      "old": "IMPLEMENTIERUNGSPLAN.md",
+      "new": "REFERENZ/PLANUNG/IMPLEMENTIERUNGSPLAN.md",
+      "beforeSha256": "cbe8897e4cdd7abba3fd8cfdd6a678365b13d0c7b159cd6a4fe57d80b0dc93b0"
+    },
+    {
+      "old": "PAKETABLAGE_UND_VORLAGEN.md",
+      "new": "SKILLS/GEMEINSAM/references/PAKETABLAGE_UND_VORLAGEN.md",
+      "beforeSha256": "18fded2512748ba755c1db87fa8b896571596dc62976bcc713c05902a4467c0f"
+    },
+    {
+      "old": "PLANUNGSSPIELRAUM.md",
+      "new": "SKILLS/GEMEINSAM/references/PLANUNGSSPIELRAUM.md",
+      "beforeSha256": "9e699393da33dd0a6e12966fd9cf1531d210a18882931e4da700ed4269688bd5"
+    },
+    {
+      "old": "PRUEFBERICHT.md",
+      "new": "EVIDENCE/PRUEFBERICHT.md",
+      "beforeSha256": "2540941e6e2071218f3d4ed00c2b376b1181d63d7e2f1b6a804a7942f4f04a3d"
+    },
+    {
+      "old": "README.md",
+      "new": "README.md",
+      "beforeSha256": "c21864d7d8a7193d36dc0de3b027fae88bba253da61e8a9e06d4b7976862f41b"
+    },
+    {
+      "old": "TEST_UND_ABNAHMEPLAN.md",
+      "new": "REFERENZ/QUALIFIKATION/TEST_UND_ABNAHMEPLAN.md",
+      "beforeSha256": "116a093808f1cf8e65751c1407a7f39e48d9925b6ebcd91bca212e7a7c178239"
+    },
+    {
+      "old": "TRACEABILITY_MATRIX.md",
+      "new": "REFERENZ/TRACEABILITY/TRACEABILITY_MATRIX.md",
+      "beforeSha256": "16124498faefb1f43d9dbd8b3ca608b4bdfa7f3a3f07838031e98e42567c4e30"
+    },
+    {
+      "old": "UMFANG_UND_AGENTENLAEUFE.md",
+      "new": "REFERENZ/PLANUNG/UMFANG_UND_AGENTENLAEUFE.md",
+      "beforeSha256": "a4a94b6c6fa6ad6ac5be889936e232d1f2e7f2b37204f5c010e57659ca98c52c"
+    },
+    {
+      "old": "ZIELBILD.md",
+      "new": "REFERENZ/PLANUNG/ZIELBILD.md",
+      "beforeSha256": "e89e91afc85a1eb2a343dfefb893a06ffecdf5625bbd1da1b1738be05e106710"
+    },
+    {
+      "old": "ANALYSEN/BASELINE_UND_MIGRATION.md",
+      "new": "REFERENZ/PLANUNG/ANALYSEN/BASELINE_UND_MIGRATION.md",
+      "beforeSha256": "5e87f2fb7c4206f50ef122a4a1510b539df96c3ab592c0755d64d7431d4bd6b3"
+    },
+    {
+      "old": "ANALYSEN/BESTAND_UND_UMBAU.md",
+      "new": "REFERENZ/PLANUNG/ANALYSEN/BESTAND_UND_UMBAU.md",
+      "beforeSha256": "3ce05b81ce424fc1a0531a9a08acbbab5663e000678b5cab837516508e5be291"
+    },
+    {
+      "old": "ANALYSEN/CLIENT_BRANCH_BEWERTUNG.md",
+      "new": "REFERENZ/PLANUNG/ANALYSEN/CLIENT_BRANCH_BEWERTUNG.md",
+      "beforeSha256": "24e43196fd9d341105ba2fae15899daef4d1597c6c33e6826657d9232ce402eb"
+    },
+    {
+      "old": "ANALYSEN/SERVER_IST_UND_GRENZEN.md",
+      "new": "REFERENZ/PLANUNG/ANALYSEN/SERVER_IST_UND_GRENZEN.md",
+      "beforeSha256": "81b850b5375c01a7d965c1bb80c5ec64b46ff401e4a7bd0a022f1208e1d459d4"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-CV2-000.md",
+      "new": "ARBEITSPAKETE/AP-CV2-000.md",
+      "beforeSha256": "b0dac7d5ae9c15c825298ddd150657abed11e026a43b8346df6d0959bbff3c1f"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-CV2-010.md",
+      "new": "ARBEITSPAKETE/AP-CV2-010.md",
+      "beforeSha256": "1e7522040dceed71a2e6c358321e96c4152a9f5bd682a4f607290b9cfb4916f9"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-CV2-020.md",
+      "new": "ARBEITSPAKETE/AP-CV2-020.md",
+      "beforeSha256": "6ee775251484a4587c21a948600d3001883019e607bddc63d40958efda89bf4b"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-CV2-030.md",
+      "new": "ARBEITSPAKETE/AP-CV2-030.md",
+      "beforeSha256": "9d6268b9cc4278f40d01b6ed0f8dbcefbbefcb1039be33416b036371e75f35b1"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-CV2-040.md",
+      "new": "ARBEITSPAKETE/AP-CV2-040.md",
+      "beforeSha256": "bb5cb6f90100af08ff07ebdff46b08a538761c71e1b06727c512e62a4e5a0483"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-CV2-050.md",
+      "new": "ARBEITSPAKETE/AP-CV2-050.md",
+      "beforeSha256": "b80ae8672b07f4b0fc7613871dd08cf60927c87ca2ef1965f81ed24dab95a358"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-CV2-060.md",
+      "new": "ARBEITSPAKETE/AP-CV2-060.md",
+      "beforeSha256": "34d7bd60d5a0b2c27c90686f043ff3a7ef6247fc431c42a0a46726deb18b6300"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-CV2-070.md",
+      "new": "ARBEITSPAKETE/AP-CV2-070.md",
+      "beforeSha256": "766f4be323a61b5c8b0c35d2967c28334eec4acbb725953558fd66849a8633fb"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-CV2-080.md",
+      "new": "ARBEITSPAKETE/AP-CV2-080.md",
+      "beforeSha256": "fd34ec477fc3adf896480e99e132819d9fad96415edefe58b92d9da07f60a2b9"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-CV2-090.md",
+      "new": "ARBEITSPAKETE/AP-CV2-090.md",
+      "beforeSha256": "b0dca4eaaa81a2496553c2025c0c2122fcf3bd13d4302f991d626b58a52de92f"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-CV2-100.md",
+      "new": "ARBEITSPAKETE/AP-CV2-100.md",
+      "beforeSha256": "92cadc60ab9042935698451bfcd57b3c354b2e6eebe2c2a3cd603615519a4c6e"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-CV2-110.md",
+      "new": "ARBEITSPAKETE/AP-CV2-110.md",
+      "beforeSha256": "31c7ccca31aeb6d18b29f4022e5612039ac37fd0fe88ad914d1f6b7776601607"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-IV2-010.md",
+      "new": "ARBEITSPAKETE/AP-IV2-010.md",
+      "beforeSha256": "165de0fff9c56a75c11598fefc03486dd6012d24c840a088be622b411a6be1eb"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-IV2-020.md",
+      "new": "ARBEITSPAKETE/AP-IV2-020.md",
+      "beforeSha256": "6e2998d143f21b3fa9f6038f296b48dc60e645a4d221c9b0501eca15b2205dc3"
+    },
+    {
+      "old": "ARBEITSPAKETE/AP-SV2-FIX.md",
+      "new": "ARBEITSPAKETE/AP-SV2-FIX.md",
+      "beforeSha256": "3b61421bbef8e5b29b295c1a69c88b2c5f2466e08c26ca31c29638b85b3cbb5c"
+    },
+    {
+      "old": "ARBEITSPAKETE/README.md",
+      "new": "ARBEITSPAKETE/README.md",
+      "beforeSha256": "8ff88b26fa2a2eb25c9189787fab47ce621342e5121d93e2d16e9d6a11856f3c"
+    },
+    {
+      "old": "EVIDENCE/client-branch-comparison.json",
+      "new": "EVIDENCE/client-branch-comparison.json",
+      "beforeSha256": "05aa4e342394636ff6ea569f3d471ead8966cb7f220edf3f5a94163557b66518"
+    },
+    {
+      "old": "EVIDENCE/package-manifest.json",
+      "new": "EVIDENCE/package-manifest.json",
+      "beforeSha256": "30aa5998d0ae9304074740f7c7c17767356ab50ef4dedaacddba01ec8978bb78"
+    },
+    {
+      "old": "EVIDENCE/planning-baseline.json",
+      "new": "EVIDENCE/planning-baseline.json",
+      "beforeSha256": "48780b495a09b266617fee1b5da2a31619a219e013e3b8a9cbbc07bf41655af6"
+    },
+    {
+      "old": "EVIDENCE/requirements.json",
+      "new": "REFERENZ/TRACEABILITY/requirements.json",
+      "beforeSha256": "129b72a9cc72531be629152f204a9c2640e8c7a35e6b7bddf20879f87c094624"
+    },
+    {
+      "old": "EVIDENCE/run-estimates.json",
+      "new": "EVIDENCE/run-estimates.json",
+      "beforeSha256": "48f83432920a8f0ea0ecb6e7cbdb16c0dc37e48e52c741ad8a22d09a0a00c4c6"
+    },
+    {
+      "old": "EVIDENCE/server-test-catalog.json",
+      "new": "EVIDENCE/server-test-catalog.json",
+      "beforeSha256": "dac968cb09270e80fbabab3aa1353b650e2d015e62aa7b2f1aa8ebb979d64ec2"
+    },
+    {
+      "old": "EVIDENCE/source-manifest.json",
+      "new": "EVIDENCE/source-manifest.json",
+      "beforeSha256": "126bdf8bbfc52e24076ac7785325906bbea7ea5efe9097d221e807a9d5c7d050"
+    },
+    {
+      "old": "EVIDENCE/validation-results.json",
+      "new": "EVIDENCE/validation-results.json",
+      "beforeSha256": "f8fb2efb3488c77274b5052274ee8f45573a521d653f7d614267fa8e8f98055b"
+    },
+    {
+      "old": "KONTRAKTE/K-01_WIRE_AUDIO_COMMANDS.md",
+      "new": "REFERENZ/KONTRAKTE/K-01_WIRE_AUDIO_COMMANDS.md",
+      "beforeSha256": "419f0a0b317f4ad8cc602bb4e53b728967b69541597ac0a573e77e6031a9579e"
+    },
+    {
+      "old": "KONTRAKTE/K-02_EVENTS_MIRROR_ERGEBNISSE.md",
+      "new": "REFERENZ/KONTRAKTE/K-02_EVENTS_MIRROR_ERGEBNISSE.md",
+      "beforeSha256": "32db1b38079880c8ec6fdc732fa333762bab65458c0abf3e6e2fe4dca67ba9dc"
+    },
+    {
+      "old": "KONTRAKTE/K-03_SETTINGS_WAKE_WORDS.md",
+      "new": "REFERENZ/KONTRAKTE/K-03_SETTINGS_WAKE_WORDS.md",
+      "beforeSha256": "d2f8753a4336eaf97c57d8ff4fac5af607af28b0955eb239794fb87ce82574c8"
+    },
+    {
+      "old": "KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md",
+      "new": "REFERENZ/KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md",
+      "beforeSha256": "7cabb91d4efd0127a861236b997e808c948ec88bf9eb3c21cce409c0014a11e9"
+    },
+    {
+      "old": "KONTRAKTE/README.md",
+      "new": "REFERENZ/KONTRAKTE/README.md",
+      "beforeSha256": "ba9efc9706d615d87df3f1f18af6840339adf161ded5040357e8799a13321ef9"
+    },
+    {
+      "old": "VERTRAGSVEKTOREN/client-scenarios.json",
+      "new": "REFERENZ/KONTRAKTE/VEKTOREN/client-scenarios.json",
+      "beforeSha256": "14b041f7898a7b61ce232e3c9475bba3c602bd1f46540ffab186f42320576167"
+    },
+    {
+      "old": "VERTRAGSVEKTOREN/protocol-v2-vectors.json",
+      "new": "REFERENZ/KONTRAKTE/VEKTOREN/protocol-v2-vectors.json",
+      "beforeSha256": "694971cea437ca57c207620fac7f169d0397987d7fe1ee02fd276eb8b941de34"
+    },
+    {
+      "old": "VERTRAGSVEKTOREN/protocol-vocabulary.json",
+      "new": "REFERENZ/KONTRAKTE/VEKTOREN/protocol-vocabulary.json",
+      "beforeSha256": "7a8b5e2565fe09a373c919c287f0412c46367c2e2c2e1522aa886ad647c00997"
+    },
+    {
+      "old": "VERTRAGSVEKTOREN/settings-schema.json",
+      "new": "REFERENZ/KONTRAKTE/VEKTOREN/settings-schema.json",
+      "beforeSha256": "fa446f6d5f0271578164a1b6927fa2b3b57bc20671f7d610f76f48c76fce566e"
+    },
+    {
+      "old": "VERTRAGSVEKTOREN/settings-server-defaults.json",
+      "new": "REFERENZ/KONTRAKTE/VEKTOREN/settings-server-defaults.json",
+      "beforeSha256": "e40e4aadea0e73a7135fd579b8a273dec0d49d8821f65cd1a30ffa3b397fbd9c"
+    },
+    {
+      "old": "VORLAGEN/PROMPT_ABNAHME.md",
+      "new": "SKILLS/voice-stt-client-v2-abnehmen/assets/PROMPT_ABNAHME.md",
+      "beforeSha256": "fb91c5b3f49dc20cbedbe80fbeb877b2afae4ca18c98011cc3130c392b3eed90"
+    },
+    {
+      "old": "VORLAGEN/PROMPT_BAUSTEINE.md",
+      "new": "SKILLS/GEMEINSAM/references/PROMPT_BAUSTEINE.md",
+      "beforeSha256": "76a3bf691a27f57333f00c094d0194e83e57ff9b8fc28ad19d3e54e98b0d5f88"
+    },
+    {
+      "old": "VORLAGEN/PROMPT_KORREKTUR.md",
+      "new": "SKILLS/voice-stt-client-v2-umsetzen/assets/PROMPT_KORREKTUR.md",
+      "beforeSha256": "3487c30d13923c117e744b96bd5081401d199cba3a060d592aa8a3e2f99e7f6d"
+    },
+    {
+      "old": "VORLAGEN/PROMPT_UEBERNAHME.md",
+      "new": "SKILLS/voice-stt-client-v2-abnehmen/assets/PROMPT_UEBERNAHME.md",
+      "beforeSha256": "9a14afcdd09de3aa4c72ffd066c6e36df4cf054f829dcbd0338ad7a063d73ebf"
+    },
+    {
+      "old": "VORLAGEN/PROMPT_UMSETZUNG.md",
+      "new": "SKILLS/voice-stt-client-v2-umsetzen/assets/PROMPT_UMSETZUNG.md",
+      "beforeSha256": "2a50088ae020ccd209e672b855d60a1b4353c6720536fae9dc182886249e7292"
+    },
+    {
+      "old": "VORLAGEN/README.md",
+      "new": "SKILLS/GEMEINSAM/assets/README.md",
+      "beforeSha256": "0e7d7e3c8b7896f1fc24d4e82df427d6bcff92665806564658551ddd327af9c5"
+    },
+    {
+      "old": "VORLAGEN/PAKETAKTE/00_PAKET.md",
+      "new": "SKILLS/GEMEINSAM/assets/PAKETAKTE/00_PAKET.md",
+      "beforeSha256": "ab61d1199a3d598225d5728f9392796d2591ec2906869f3c883bf24e65e9be31"
+    },
+    {
+      "old": "VORLAGEN/PAKETAKTE/01_ENTSCHEIDUNGEN.md",
+      "new": "SKILLS/GEMEINSAM/assets/PAKETAKTE/01_ENTSCHEIDUNGEN.md",
+      "beforeSha256": "cb302ae33c8b9037108ce8d0f778b43d84b5c4d793e27aeb20c3d61ffe719989"
+    },
+    {
+      "old": "VORLAGEN/RUN/00_PROMPT_ORIGINAL.md",
+      "new": "SKILLS/GEMEINSAM/assets/RUN/00_PROMPT_ORIGINAL.md",
+      "beforeSha256": "0f8b5a7d81294ed166523a9683e820b1ecc32a920c2a05819e85747e37b658b2"
+    },
+    {
+      "old": "VORLAGEN/RUN/01_REPORT.md",
+      "new": "SKILLS/GEMEINSAM/assets/RUN/01_REPORT.md",
+      "beforeSha256": "dc6da4dd23f8ef796c6e7bf673487c3a946273be7938b59985d34a5a8b3f6d1d"
+    },
+    {
+      "old": "VORLAGEN/RUN/EVIDENCE/INDEX.md",
+      "new": "SKILLS/GEMEINSAM/assets/RUN/EVIDENCE/INDEX.md",
+      "beforeSha256": "9c4c17b6c8ddd018365e81cbb537258d22f9cac7b51b63240ada2af3fcb45fac"
+    }
+  ],
+  "implementationSkill": "SKILLS/voice-stt-client-v2-umsetzen/SKILL.md",
+  "acceptanceSkill": "SKILLS/voice-stt-client-v2-abnehmen/SKILL.md",
+  "pinnedSourcesAndVectorsChanged": false,
+  "productCodeChanged": false,
+  "originalPlanningDirectoryTouched": false
+}

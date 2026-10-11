@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-11",
+  "revision": 8,
+  "scope": "documentation and state-based agent instructions; no product/agent-execution PASS",
+  "verdict": "PASS",
+  "canonicalBranchUnchanged": true,
+  "baseline": "b0525e6b730ce3ed8a0f84cad02305103b59ce5c",
+  "relativeLinksChecked": 956,
+  "jsonFilesParsed": 18,
+  "immutableDocumentFilesCompared": 18,
+  "requirementsPreserved": 216,
+  "packagesPreserved": 15,
+  "initialStatusHasNoFictitiousExecutionOrApproval": true,
+  "nextStepRoleAndChecklistReachability": "PASS",
+  "filesInCandidate": 40,
+  "validationMethod": "Git diff scope, parsed JSON, resolved Markdown graph, baseline content comparison and initial-state assertions",
+  "historicalOnly": true,
+  "currentPlanningValidation": "publication-validation.json"
+}

@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-11",
+  "revision": 9,
+  "status": "PASS",
+  "scope": "Current planning/source/link/skill integrity; no V2 product acceptance, no fabricated approval or Git transport result.",
+  "checks": 2873,
+  "counts": {
+    "localMarkdownLinks": 983,
+    "markdownFiles": 71,
+    "jsonFiles": 19,
+    "validatedRoleSkills": 3,
+    "requirements": 216,
+    "packages": 15,
+    "sourceBindings": 612,
+    "sourceFiles": 202,
+    "protectedPlanningFiles": 17,
+    "docsOnlyChangedPaths": 99,
+    "productFilesChanged": 0
+  },
+  "errors": [],
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "clientDevelopmentBase": "8bab1b3f4aa070d0756c305908def4d9ebc52582",
+  "integratedClientCommit": null,
+  "validatorSha256": "5756ef68ca77c22b3ef3d46e3a2cd3f34f06fc4395bfd3240b274605a07c7968"
+}
