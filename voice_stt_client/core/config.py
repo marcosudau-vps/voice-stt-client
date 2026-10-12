@@ -102,7 +102,7 @@ def normalize_hotkey_spec(value: str) -> str:
 
         if key is not None:
             raise ValueError("hotkey must contain exactly one non-modifier key")
-        if len(raw_token) == 1 and raw_token.isalnum():
+        if len(raw_token) == 1 and raw_token.isascii() and raw_token.isalnum():
             key = raw_token.upper()
         elif re.fullmatch(r"f(?:[1-9]|1[0-9]|2[0-4])", token):
             key = token.upper()

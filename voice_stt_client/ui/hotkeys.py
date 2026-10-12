@@ -13,6 +13,7 @@ from typing import Callable, Optional, Protocol
 from PySide6.QtCore import QAbstractNativeEventFilter, QCoreApplication
 
 from voice_stt_client.core.config import normalize_hotkey_spec
+from voice_stt_client.core.v2_controls import ControlConfig, ControlSlot
 from voice_stt_client.core.observability.adapters.client_events import ClientEventEmitter
 from voice_stt_client.core.observability.ingress import NULL_INGRESS
 
@@ -73,6 +74,10 @@ HOTKEY_FIELDS = {
     HOTKEY_ID_CANCEL: "cancel_key",
     HOTKEY_ID_OVERLAY_TOGGLE: "overlay_toggle_key",
 }
+
+# New IDs on every successful/attempted replacement invalidate queued messages
+# from a previous role assignment. IDs are process-wide, never reused.
+_V2_IDS = iter(range(0x6000, 0xBFFF))
 
 
 def fallback_hotkeys(excluded: set[str] | None = None) -> list[str]:
@@ -225,6 +230,7 @@ class GlobalHotkeyManager(QAbstractNativeEventFilter):
     ) -> None:
         super().__init__()
         self._observe = ClientEventEmitter(observability, component="ui.hotkeys")
+        self._action_names = HOTKEY_ACTION_NAMES
         self.enabled = enabled
         self.toggle_spec = parse_hotkey(toggle_key)
         self.reinsert_last_spec = parse_hotkey(reinsert_last_key)
@@ -305,17 +311,22 @@ class GlobalHotkeyManager(QAbstractNativeEventFilter):
             self._application.removeNativeEventFilter(self)
         self._installed = False
 
-    def dispatch_hotkey_id(self, hotkey_id: int) -> bool:
+    def dispatch_hotkey_id(self, hotkey_id: int, lparam: int | None = None) -> bool:
         """Dispatch an ID; public for deterministic native-event tests."""
         callback = self._callbacks.get(hotkey_id)
         if callback is None or hotkey_id not in self._registered_ids:
             return False
+        if lparam is not None:
+            spec = self._specs[hotkey_id]
+            # Windows lParam contains modifiers (without MOD_NOREPEAT) and VK.
+            if (lparam & 0xFFFF) != (spec.modifiers & ~MOD_NOREPEAT) or (lparam >> 16) & 0xFFFF != spec.virtual_key:
+                return False
         # CONTRACTS §12.2: "ui/hotkeys.py -- heute voellig ungeloggt". Emitted
         # BEFORE the callback, so a press stays visible even if the command it
         # triggers fails; the callback's own outcome is a separate record.
         self._observe.audit(
             "client.hotkey.pressed",
-            details={"action": HOTKEY_ACTION_NAMES.get(hotkey_id, "unknown")},
+            details={"action": self._action_names.get(hotkey_id, "unknown")},
         )
         try:
             callback()
@@ -329,8 +340,96 @@ class GlobalHotkeyManager(QAbstractNativeEventFilter):
         try:
             msg = wintypes.MSG.from_address(int(message))
             if msg.message == WM_HOTKEY:
-                handled = self.dispatch_hotkey_id(int(msg.wParam))
+                handled = self.dispatch_hotkey_id(int(msg.wParam), int(msg.lParam))
                 return handled, 0
         except Exception:
             logger.exception("Failed to decode native Windows message.")
         return False, 0
+
+
+class V2HotkeyManager(GlobalHotkeyManager):
+    """Qt-side role adapter with transactional Apply on the Qt/Win32 thread.
+
+    on_control forwards ONE slot to the core bridge, which uses the published
+    MirrorView to bind the intent. Utilities have their independent callbacks.
+    Registration is independent of configured/effective trigger sources.
+    """
+
+    def __init__(self, config: ControlConfig, *, on_control, on_reinsert_last=None,
+                 on_overlay_toggle=None, backend=None, application=None, observability=NULL_INGRESS):
+        # Reuse the established checked backend, native filter and lifecycle.
+        super().__init__(toggle_key="Ctrl+Shift+Space", reinsert_last_key="Ctrl+Alt+Space",
+                         on_toggle=lambda: None, on_reinsert_last=lambda: None,
+                         enabled=config.enabled, backend=backend, application=application,
+                         observability=observability)
+        self._on_control = on_control
+        self._utilities = {"reinsert_last": on_reinsert_last, "overlay_toggle": on_overlay_toggle}
+        self._applying = False
+        self.rollback_failure = None
+        self.config = config
+        self._specs, self._callbacks, self._action_names = self._bindings(config)
+
+    def _bindings(self, config):
+        specs, callbacks, names = {}, {}, {}
+        for role, key in ((ControlSlot.PRIMARY, config.primary_key),
+                          (ControlSlot.SECONDARY, config.secondary_key),
+                          (ControlSlot.WAKE_PAUSE, config.wake_pause_key),
+                          ("reinsert_last", config.reinsert_last_key),
+                          ("overlay_toggle", config.overlay_toggle_key)):
+            if not key:
+                continue
+            callback = (lambda slot=role: self._on_control(slot)) if isinstance(role, ControlSlot) else self._utilities[role]
+            if callback is None:
+                raise ValueError(f"callback missing for {role}")
+            hotkey_id = next(_V2_IDS)
+            specs[hotkey_id], callbacks[hotkey_id], names[hotkey_id] = parse_hotkey(key), callback, str(role)
+        return specs, callbacks, names
+
+    @property
+    def role_ids(self):
+        return {role: hotkey_id for hotkey_id, role in self._action_names.items()}
+
+    @property
+    def is_registered(self):
+        return super().is_registered or not self._specs
+
+    def register(self):
+        if not self._specs:
+            # An all-unbound profile is legitimate; there is no filter to install.
+            return True
+        return super().register()
+
+    def dispatch_hotkey_id(self, hotkey_id, lparam=None):
+        if self._applying:
+            return False
+        return super().dispatch_hotkey_id(hotkey_id, lparam)
+
+    def apply(self, config: ControlConfig) -> bool:
+        """Return true only after all actual registrations succeed.
+
+        Prevalidation has no side effects. Partial failure restores the exact old
+        bindings. A rare rollback OS failure disables dispatch and is reported;
+        it is never presented as a successfully applied/rolled-back profile.
+        Caller saves preferences only after this method returns true.
+        """
+        new = self._bindings(config)
+        old = (self._specs, self._callbacks, self._action_names)
+        old_config, was_active = self.config, bool(self._registered_ids) or not self.enabled
+        self.rollback_failure = None
+        self._applying = True
+        try:
+            self.unregister()
+            self._specs, self._callbacks, self._action_names = new
+            self.enabled = config.enabled
+            if self.register():
+                self.config = config
+                return True
+            failure = self.last_failure
+            self._specs, self._callbacks, self._action_names = old
+            self.enabled = old_config.enabled
+            if was_active and not self.register():
+                self.rollback_failure = self.last_failure
+            self.last_failure = failure
+            return False
+        finally:
+            self._applying = False

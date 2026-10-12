@@ -2121,3 +2121,7 @@ Review auf `6d74c1ae06643e026834bc9164028bec908e26df` (Tree `f8a57f79c6bf61d7b07
 ## AP-CV2-030-R01 – 2026-10-12 – Mirror und Resync / REVIEW_READY
 
 Von AP020-Aggregat8fa0f82 nach belegtem unabhängigen PASS, menschlicher Freigabe und Baumgleichheit: reiner Mirror, sichere Segment-/Terminal-/Settingsprojektionen und tatsächliche V2-Transport-/Snapshotanbindung. Alle35 Requirements einzeln verknüpft.1339 Windowsgesamttests,106 gezielte Tests,35 echte Serverchecks/46 Quellblobs und compileall PASS; exakte Basis/Produktdiff/Gitblobs und vollständige Logs gesichert. [R01-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md). Keine eigene Abnahme, Promotion oder Folgepaketimplementierung; Schreiben ab Übergabe pausiert.
+
+## AP-CV2-050-R01 – 2026-10-12 – Controls/Runpausen/Win32 / REVIEW_READY
+
+Nach tatsächlicher AP040-Übernahme (PR6, PASS/Freigabe/Singleparent/Baumgleichheit belegt) von 4eb1161 umgesetzt: quellenneutraler Controlservice, ursprüngliche IDbindung, vollständige getrennte Runpausen und atomare Win32rollenregistrierung.1397 Windowsgesamttests,297 gezielte Tests,79 echte Serverchecks/46 Quellblobs,16 native Windowschecks, compileall/diffcheck PASS. Alle14 Requirements einzeln belegt. [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/01_REPORT.md). Unabhängige Abnahme offen; Schreiben ab Übergabe pausiert, keine kanonische Übernahme oder Folgepaketimplementierung.

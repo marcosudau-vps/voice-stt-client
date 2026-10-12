@@ -1,0 +1,7 @@
+Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 194, in register
+    raise OSError(
+OSError: [Errno 1409] RegisterHotKey failed for id=24582

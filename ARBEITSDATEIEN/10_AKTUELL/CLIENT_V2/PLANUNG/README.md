@@ -1,9 +1,10 @@
-# Client V2 – AP-CV2-040 / R06-ABNAHME / ROOT_PASS, 2026-10-12
+# Client V2 – AP-CV2-050 / R01-UMSETZUNG / REVIEW_READY, 2026-10-12
 
-AP-CV2-030 ist ACCEPTED auf `3df342c3a7cacaa1226743c4d9bee674e94d33db`. AP-CV2-040 ist **technisch ROOT_PASS**, Workflow **WAITING_FOR_APPROVAL** nach unabhängiger Abnahme des fachlichen Kandidaten `4ef7a13672bf7c50665e08f5eff837fb5d687419` (Tree `f670a6fce6557ff657644037964025e9f7f1ee1e`). [R06-ROOT_PASS](../30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md); F01 und F02 vollständig geschlossen. 1378 Windows-Tests, 233 gezielte Tests, 52 echte Serverfälle/46 Serverquellen, 188/188 Git-Blobs und CI auf Kandidaten-SHA SUCCESS wurden als Fremdbelege unabhängig validiert. [PR #6](https://github.com/marcosudau-vps/voice-stt-client/pull/6) bleibt offen.
+AP-CV2-000 bis AP-CV2-040 sind **ACCEPTED**. AP040 wurde nach R06-PASS und menschlicher Freigabe tatsächlich in PR6 übernommen: kanonischer Parent `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`. [Abschlussprovenienz](../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP-CV2-050 ist **REVIEW_READY**: quellenneutrale Controls, getrennte Runpausen mit sicherem Reconnectbootstrap und atomare Win32-Hotkeyrollen. [R01-Report](../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/01_REPORT.md), [Workflowstatus](../WORKFLOW_STATUS.json), [öffentliche API](../../../../docs/protocol-v2-controls.md).
 
-Nächste Aktion: ausdrücklicher menschlicher Übernahmeprompt mit aktuellem Docs-Head, canonical_parent und R06-PASS-Bericht; bis dahin **kein Merge und kein Start AP-CV2-050**. Reale Hardware-/ASR-Gates und Qt-/Settingskomposition bleiben späteren Paketen zugeordnet.
+**1397 Windowsgesamttests,297 gezielte Tests,79 tatsächliche Serverchecks/46 unveränderte Serverquellblobs und16 native Win32checks**, compileall/diffcheck PASS. Vollständige Logs/Runtime-/Gitblobbindung in der [Evidenz](../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md). Alle14 Requirements einzeln belegt, bis unabhängiger Abnahme CLIENT OPEN.
 
+Nächste Aktion: frischer unabhängiger Review von AP050 auf dem vollständig veröffentlichten Paketbranch work/client-v2/ap-cv2-050, Base feat/client-v2. Umsetzer pausiert Änderungen/Pushes ab Übergabe. Kein eigener ROOT_PASS, Merge oder AP060-Start. Settingspersistenz/Dialog AP070/080, Appkomposition AP100 und reale Hardware/ASR AP-IV2-020 bleiben ihre geplanten Gates; Server-Distributed bleibt offen. Start `.\venv\Scripts\python.exe -m voice_stt_client` führt weiterhin die bisherige Appkomposition aus.
 
 ## Historischer Stand vor AP-CV2-020
 

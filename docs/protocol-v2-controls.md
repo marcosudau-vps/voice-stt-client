@@ -1,0 +1,37 @@
+# V2 Controls und Hotkeyrollen – AP-CV2-050
+
+Stand 2026-10-12. Implementierte öffentliche Schnittstellen für Settings, Qt und Runtimekomposition. [Paketvertrag](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/AP-CV2-050.md), [Runreport](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/01_REPORT.md).
+
+## Konfiguration und Migration
+
+`core.v2_controls.ControlConfig` ist unveränderlich. Primary standardmäßig `Ctrl+Shift+Space`/refresh, Secondary ungebunden/finish, Wakepause ungebunden; Reinsert `Ctrl+Alt+Space`, Overlay ungebunden. Die Aktionen beider Controlslots sind unabhängig refresh/finish/cancel/none. Alle belegten Rollen einschließlich Utilities werden vor Registrierung normalisiert und auf Kollision geprüft. Win32 unterstützt einzelne alphanumerische ASCII-Tasten; Nicht-ASCII-Zeichen werden bereits in der gemeinsamen Normalisierung abgelehnt.
+
+`migrate_hotkeys(HotkeyConfig)` ist eine reine, verlustfreie Konversion ohne Dateischreibzugriff. Der historische Primaryalias, genau ein expliziter Finish- oder Cancelkey, Utilities und enabled bleiben erhalten. Sind Finish **und** Cancel explizit belegt, wirft die Funktion `ControlMigrationConflict`; dessen `legacy` enthält das unveränderte Profil. Der Settingsadapter muss den Slotkonflikt sichtbar auflösen und darf vorher nichts speichern oder löschen. Persistentes V2-Profil und Dialog gehören AP-CV2-070/080; diese Schnittstelle ersetzt keine vollständige Profilmigration.
+
+## Coreloop und Intentbindung
+
+`V2ControlService(session, mirror_connection, config=..., audio_ready=...)` wird genau einmal **vor** `V2STTSession.run()` an Transport und Mirror angeschlossen. Alle mutierenden Methoden laufen im asyncio-Corethread. `audio_ready` ist die lokale AP040-Barriere; ohne explizite Anbindung ist sie sicherheitshalber false. Der Service erzeugt ausschließlich Activation-/Suppressioncommands, keine lokalen Deadlines, VAD-Refreshes, Capturestopps oder Text-/Clipboardaktionen.
+
+Qt verwendet ausschließlich publizierte unveränderliche MirrorViews: im Hotkey-/Buttoncallback `plan_control(view, slot, config)` beziehungsweise `ControlIntent(generation, session_id, action, activation_id)` bilden und diesen Intent über die Bridge auf den Coreloop zu `execute(intent)` stellen. So bleibt die beim Nutzerimpuls offene ID erhalten, selbst wenn inzwischen Activation B erschienen ist. `press(slot)` ist die entsprechende Komfortfunktion für **Coreloop-Aufrufer**; ein Qt-Callback darf nicht nur den Slot zeitversetzt zu press weiterreichen. Dedicated Buttons verwenden `control(action, intent=...)` und geben ebenfalls den zuvor gebundenen Intent weiter.
+
+`plan_control` bildet Primary im Idle nur bei effective.manual auf activate ab, Secondary auf nichts. Offene Phasen sind quellenneutral. Refresh ist in waiting_first_speech und closing_input lokal wirkungslos; Finish/Cancel werden auch in closing_input mit der ursprünglichen ID gesendet, damit der Server no_change bestätigt. `execute` prüft READY, Generation/Session, Resync/Snapshot und einen gemeinsamen Activation-Pendingguard. Activate erfordert zusätzlich lokalen Audio-ready und keinen gewünschten Manualpausezustand. Ein alter A-Intent wird als A gesendet; stale_activation/invalid_phase werden einmal zurückgegeben, niemals auf B umgelenkt oder automatisch wiederholt. Ein neuer Physicalimpuls kann nach Abschluss des vorherigen Commands erneut geprüft werden.
+
+## Getrennte Runpausen
+
+`set_pause("manual"|"wakeWord", bool)` und `toggle_pause(source)` besitzen zwei unabhängige Runwünsche. Der dritte Slot ruft ausschließlich Wakepause auf. Trayaktionen verwenden dieselbe API mit jeweils einem Sourcewert; es gibt keine zusätzliche Pause-all-Aktion. Beide pausiert ist im laufenden Prozess gültig; die persistierte SessionConfig verlangt weiterhin mindestens eine konfigurierte Quelle.
+
+Der Wunsch wird **vor I/O** im Service und Transport gespeichert. Eine einzelne mitlaufende Task sendet vollständige Masken und fasst zwischenzeitliche Änderungen zusammen. `pause_view` liefert desired_manual/wake_word, confirmed_manual/wake_word und pending; bestätigt wird nur aus einer aktuellen autoritativen Mirrorsnapshotprojektion der READY-Session ohne ausstehendes Snapshot. Ein Ack ohne Snapshot, verlorener Ack, Configuring/Resync oder Netzwerkverlust ergibt keine optimistische Bestätigung; unbekannte Bestätigungen sind None.
+
+Hello bleibt zunächst mit beiden Quellen unterdrückt. Nach dem AP040-Bootstrap stellt der Transport die zuletzt gewünschte vollständige Maske wieder her; ein während Ackwartens geänderter Wunsch wird vor READY erneut gesendet. Alte Acks überschreiben keine neueren Wünsche. Dasselbe Serviceobjekt behält Pausen bei Geräteverlust und Reconnect. Ein neuer Prozess erzeugt einen neuen Transport mit neuer runId und neuen Service mit beiden Wünschen false. `close()` cancelt und joint die Pause-Task; die transportseitige Cleanup-/Uncertaintybehandlung bleibt maßgeblich. AP100 schließt Service und Transport in der Runtime-Lifecycleverdrahtung.
+
+## Native Registrierung und Apply
+
+`ui.hotkeys.V2HotkeyManager(config, on_control, on_reinsert_last, on_overlay_toggle, ...)` lebt auf dem Qt-/Win32thread. `on_control(ControlSlot)` löst genau eine Rolle aus; die Qt-Bridge bindet den Intent wie oben beschrieben. Utilities besitzen getrennte Callbacks. Das Vorhandensein der Hotkeys hängt von Bindings/enabled ab, nicht von Manual/Wakekonfiguration oder Pausen. `register`, `unregister`, `role_ids`, `is_registered` verwenden den bewährten Win32-Backend-/Qtfilterpfad.
+
+`apply(ControlConfig) -> bool` validiert alle Kombinationen vor Mutation, sperrt Dispatch während Registrierung und ersetzt das ganze Set. Windowskonflikte werden anhand tatsächlicher RegisterHotKey-Aufrufe erkannt; bei Teilfehler werden neue Registrierungen entfernt und die exakten alten Bindings/IDs wiederhergestellt. Preferences erst nach true speichern. `last_failure` bezeichnet den Applyfehler; verweigert das Betriebssystem auch die Wiederherstellung, beschreibt `rollback_failure` diese Ausnahme und es gibt kein teilweise dispatchendes Set. Der Aufrufer muss den Fehler anzeigen, darf kein erfolgreiches Apply/Rollback behaupten. Neue IDs werden pro Versuch prozessweit nicht wiederverwendet; verspätete Nachrichten einer alten erfolgreichen Belegung sind damit unwirksam. Native Nachrichten werden zusätzlich auf Modifier/VK geprüft, MOD_NOREPEAT und Core-Pendingguard begrenzen Wiederholungen.
+
+## Runtimegrenze und Nachweise
+
+Die V2-Module sind auf dem Paketparent lauffähig und gegen echten TCP/WebSocket-Server sowie tatsächliches Win32/Qt geprüft. Die bisherige V1-Appkomposition wird erst AP100 umgestellt, der Legacyabbau erfolgt AP110. Ihre Timer werden vom V2-Service nicht verwendet; es gibt keine zweite V2-Lifecycleautorität. Das normale Startkommando bleibt `.\venv\Scripts\python.exe -m voice_stt_client` und aktiviert noch die bestehende Appkomposition.
+
+Die [Evidenz](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md) enthält vollständige Windowslogs, 160 Phasenmatrix-Unterfälle, 79 echte Serverchecks und 16 native Hotkeychecks. Recorder/Scheduler/Wakehit/Artifactprobe ersetzen Modelausgaben; Serverzeit ist für Fristenprüfungen kontrolliert. SendInput erzeugt echte WM_HOTKEY-Nachrichten, ersetzt aber die menschliche Tastaturbetätigung. Keine Endprodukt-, reale ASR-, Mikrofon- oder Clipboard-Gesamtabnahme daraus ableiten.
