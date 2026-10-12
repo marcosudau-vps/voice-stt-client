@@ -39,9 +39,9 @@
         "min": 1,
         "max": 1,
         "phases": [
-          "Feature-/Releaseinventar und Ãœbernahmematrix",
+          "Feature-/Releaseinventar und Übernahmematrix",
           "Namespace, Releasepolish und Triggererhalt integrieren",
-          "VollstÃ¤ndige Baseline-/Packagingqualifikation"
+          "Vollständige Baseline-/Packagingqualifikation"
         ],
         "independentAcceptanceRuns": 1,
         "correctionsExcluded": true,
@@ -160,7 +160,7 @@
         "min": 1,
         "max": 2,
         "phases": [
-          "Verbindung, Hello, BootstrapzustÃ¤nde und Close-/Backoffregeln",
+          "Verbindung, Hello, Bootstrapzustände und Close-/Backoffregeln",
           "Commandtracker, Ack-/Retry-/Generationguards und Transporttests"
         ],
         "independentAcceptanceRuns": 1,
@@ -277,7 +277,7 @@
     },
     {
       "id": "AP-CV2-040",
-      "title": "Continuous-Audio, GerÃ¤te-Recovery und Logbootstrap",
+      "title": "Continuous-Audio, Geräte-Recovery und Logbootstrap",
       "dependencies": [
         "AP-CV2-020",
         "AP-CV2-030"
@@ -325,8 +325,8 @@
         "max": 1,
         "phases": [
           "Continuous-Audio und Device-/Mute-/LEDtrennung",
-          "V2-Logbootstrap und unabhÃ¤ngige Cursor-/Recoverypfade",
-          "Integrations-/FehlerfÃ¤lle Audio plus Hintergrundfinal"
+          "V2-Logbootstrap und unabhängige Cursor-/Recoverypfade",
+          "Integrations-/Fehlerfälle Audio plus Hintergrundfinal"
         ],
         "independentAcceptanceRuns": 1,
         "correctionsExcluded": true,
@@ -496,7 +496,7 @@
         "phases": [
           "Persistierte Configmigration und HTTP-/Katalogservice",
           "Settingsrevisionen, Patch/Applypolicies und Bootstrap",
-          "Wake-/NS-/Konflikt-/ReconnectfÃ¤lle"
+          "Wake-/NS-/Konflikt-/Reconnectfälle"
         ],
         "independentAcceptanceRuns": 1,
         "correctionsExcluded": true,
@@ -535,8 +535,8 @@
         "min": 1,
         "max": 1,
         "phases": [
-          "Settings-/Katalog-/Requested-effective-OberflÃ¤che",
-          "Credential Manager, AdminprÃ¼fung und Apply-/Drainentscheidungen"
+          "Settings-/Katalog-/Requested-effective-Oberfläche",
+          "Credential Manager, Adminprüfung und Apply-/Drainentscheidungen"
         ],
         "independentAcceptanceRuns": 1,
         "correctionsExcluded": true,
@@ -574,8 +574,8 @@
         "min": 1,
         "max": 1,
         "phases": [
-          "Bestehende FeedbackeingÃ¤nge und UI/Overlayprojektion an V2-Herkunft und Phasen anschlieÃŸen",
-          "Sound-/LED-/OBS-Dedup und AusfallfÃ¤lle"
+          "Bestehende Feedbackeingänge und UI/Overlayprojektion an V2-Herkunft und Phasen anschließen",
+          "Sound-/LED-/OBS-Dedup und Ausfallfälle"
         ],
         "independentAcceptanceRuns": 1,
         "correctionsExcluded": true,
@@ -586,7 +586,7 @@
     },
     {
       "id": "AP-CV2-100",
-      "title": "VollstÃ¤ndige Runtimeintegration und Lifecycleverdrahtung",
+      "title": "Vollständige Runtimeintegration und Lifecycleverdrahtung",
       "dependencies": [
         "AP-CV2-040",
         "AP-CV2-050",
@@ -613,7 +613,7 @@
         "min": 1,
         "max": 1,
         "phases": [
-          "TatsÃ¤chliche App/Core/Qtverdrahtung und Readymarkierung",
+          "Tatsächliche App/Core/Qtverdrahtung und Readymarkierung",
           "Integrierte Fehler-/Shutdown-/Rollbacktests mit realen Klassen"
         ],
         "independentAcceptanceRuns": 1,
@@ -625,7 +625,7 @@
     },
     {
       "id": "AP-CV2-110",
-      "title": "Legacyabbau, Paketressourcen, KompatibilitÃ¤t und Build",
+      "title": "Legacyabbau, Paketressourcen, Kompatibilität und Build",
       "dependencies": [
         "AP-CV2-100"
       ],
@@ -648,7 +648,7 @@
         "min": 1,
         "max": 1,
         "phases": [
-          "Gezielter Legacyabbau, Version-/Ressourcen-/KompatibilitÃ¤tsabgleich",
+          "Gezielter Legacyabbau, Version-/Ressourcen-/Kompatibilitätsabgleich",
           "Executable/wheel/sdist und Installations-/GUIsmokes"
         ],
         "independentAcceptanceRuns": 1,
@@ -715,9 +715,9 @@
         "min": 1,
         "max": 1,
         "phases": [
-          "Reale Windows-/ASR-/Bedien-/Clipboard-/Credential-PrÃ¼fung",
+          "Reale Windows-/ASR-/Bedien-/Clipboard-/Credential-Prüfung",
           "ReSpeaker/USB/Wakepositive-/Negativ-/Nutzsprachgrenze",
-          "DauerprÃ¼fung und Abschluss der realen Belegmatrix"
+          "Dauerprüfung und Abschluss der realen Belegmatrix"
         ],
         "independentAcceptanceRuns": 1,
         "correctionsExcluded": true,
@@ -728,7 +728,7 @@
     },
     {
       "id": "AP-SV2-FIX",
-      "title": "Bedingtes Serverkorrekturpaket wÃ¤hrend der Cliententwicklung",
+      "title": "Bedingtes Serverkorrekturpaket während der Cliententwicklung",
       "dependencies": [],
       "path": "ARBEITSPAKETE/AP-SV2-FIX.md",
       "status": "CONDITIONAL",
@@ -739,7 +739,7 @@
         "min": null,
         "max": null,
         "phases": [
-          "Nur bei einem konkreten reproduzierbaren Serverbefund separat schÃ¤tzen"
+          "Nur bei einem konkreten reproduzierbaren Serverbefund separat schätzen"
         ],
         "independentAcceptanceRuns": null,
         "correctionsExcluded": true,
