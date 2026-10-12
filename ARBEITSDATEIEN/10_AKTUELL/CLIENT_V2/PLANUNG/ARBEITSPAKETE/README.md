@@ -28,3 +28,6 @@ Die Ausführung erfolgt streng seriell. Fachlaufzahlen und Teilung stehen in jed
 
 
 Aktuelle AP060-Kandidatenidentität und PR werden bei vollständiger Abgabe in Paketakte und PR-Beschreibung angegeben.
+
+
+[PR #8](https://github.com/marcosudau-vps/voice-stt-client/pull/8) gegen feat/client-v2. Vollständiger qualifizierter Umsetzungscommit `66b6e39daa86855ae1314025bc06344eb55f7d39`, Tree `fbe3931c3b68efa510bee1e35db4b77ad7a83f27`. Nachfolgende Veröffentlichungsverweise sind rein administrativ; endgültige eingereichte SHA/Tree stehen in aktueller PR-Beschreibung und finaler Übergabe.

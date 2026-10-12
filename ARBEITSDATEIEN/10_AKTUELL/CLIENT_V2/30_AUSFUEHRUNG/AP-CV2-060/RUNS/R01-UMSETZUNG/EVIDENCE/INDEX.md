@@ -26,3 +26,6 @@ Weitere Dateien baseline/first-regression/results-*/server-results-*/targeted-pr
 
 
 Der exakte Produktpatch wird verlustfrei als Base64 transportiert, weil enthaltene entfernte Legacyzeilen nachgestellte Leerzeichen besitzen. productDiffSha256 bezieht sich auf decodierte Patchbytes, productDiffArtifactSha256 auf das veröffentlichte Artefakt. Decode: `base64.decodebytes(Path(artifact).read_bytes())`; keine getestete Quelle wurde verändert.
+
+
+[PR #8](https://github.com/marcosudau-vps/voice-stt-client/pull/8) gegen feat/client-v2. Vollständiger qualifizierter Umsetzungscommit `66b6e39daa86855ae1314025bc06344eb55f7d39`, Tree `fbe3931c3b68efa510bee1e35db4b77ad7a83f27`. Nachfolgende Veröffentlichungsverweise sind rein administrativ; endgültige eingereichte SHA/Tree stehen in aktueller PR-Beschreibung und finaler Übergabe.

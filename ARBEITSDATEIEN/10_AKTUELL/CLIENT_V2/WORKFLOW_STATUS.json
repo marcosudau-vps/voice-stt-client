@@ -8,7 +8,7 @@
   "nextPackage": "AP-CV2-070",
   "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
   "candidateBranch": "work/client-v2/ap-cv2-060",
-  "pullRequest": null,
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/8",
   "selectedCandidate": true,
   "lastRun": {
     "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
@@ -41,7 +41,9 @@
     "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
     "productDiffSha256": "005599f06ffdfa804fbaea0d487185fb976864a76323ed5d95d865b706b72d6f",
     "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
-    "scope": "Exact staged product diff and qualifiedGitBlobs; publication references administrative only."
+    "scope": "Exact staged product diff and qualifiedGitBlobs; publication references administrative only.",
+    "commit": "66b6e39daa86855ae1314025bc06344eb55f7d39",
+    "tree": "fbe3931c3b68efa510bee1e35db4b77ad7a83f27"
   },
   "reviewedTree": null
 }
