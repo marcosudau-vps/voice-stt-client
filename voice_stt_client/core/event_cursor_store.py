@@ -42,6 +42,8 @@ class CursorRecord:
     protocol_version: int
     cursor: int
     updated_at: str
+    session_id: str = ""
+    channels: tuple[str, ...] = ()
 
 
 class EventCursorStore:
@@ -56,6 +58,8 @@ class EventCursorStore:
         server_instance_id: str,
         protocol_version: int,
         latest_cursor: Optional[int] = None,
+        session_id: str = "",
+        channels: tuple[str, ...] = (),
     ) -> Optional[CursorRecord]:
         binding = self._validate_binding(
             endpoint, server_instance_id, protocol_version, latest_cursor
@@ -74,6 +78,8 @@ class EventCursorStore:
                 record.endpoint != expected_endpoint
                 or record.server_instance_id != expected_instance
                 or record.protocol_version != expected_protocol
+                or record.session_id != session_id
+                or record.channels != tuple(sorted(channels))
             ):
                 logger.info("Ignoring event cursor with a different server binding")
                 return None
@@ -93,6 +99,8 @@ class EventCursorStore:
         endpoint: str,
         server_instance_id: str,
         protocol_version: int,
+        session_id: str = "",
+        channels: tuple[str, ...] = (),
     ) -> CursorRecord:
         normalized_endpoint, instance, protocol, _ = self._validate_binding(
             endpoint, server_instance_id, protocol_version, None
@@ -106,6 +114,8 @@ class EventCursorStore:
             protocol_version=protocol,
             cursor=cursor,
             updated_at=datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+            session_id=session_id,
+            channels=tuple(sorted(channels)),
         )
         with self._lock:
             self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -167,7 +177,7 @@ class EventCursorStore:
             "schema_version", "endpoint", "server_instance_id",
             "protocol_version", "cursor", "updated_at",
         }
-        if set(raw) != expected:
+        if set(raw) not in (expected, expected | {"session_id", "channels"}):
             raise ValueError("cursor fields do not match schema version 1")
         if raw["schema_version"] != CURSOR_SCHEMA_VERSION:
             raise ValueError("unsupported cursor schema version")
@@ -176,6 +186,10 @@ class EventCursorStore:
         updated_at = raw["updated_at"]
         protocol = raw["protocol_version"]
         cursor = raw["cursor"]
+        session_id = raw.get("session_id", "")
+        channels = raw.get("channels", [])
+        if not isinstance(session_id, str) or not isinstance(channels, list) or any(not isinstance(c, str) for c in channels):
+            raise ValueError("invalid session/filter binding")
         if not isinstance(instance, str) or not instance.strip():
             raise ValueError("invalid server_instance_id")
         if not isinstance(updated_at, str) or not updated_at.strip():
@@ -191,4 +205,6 @@ class EventCursorStore:
             protocol_version=protocol,
             cursor=cursor,
             updated_at=updated_at,
+            session_id=session_id,
+            channels=tuple(sorted(channels)),
         )

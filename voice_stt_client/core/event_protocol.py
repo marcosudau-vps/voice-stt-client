@@ -231,6 +231,8 @@ class EventProtocolProcessor:
                 endpoint=self._access.endpoint,
                 server_instance_id=self._access.server_instance_id,
                 protocol_version=self._access.protocol_version,
+                session_id=self._access.session_id,
+                channels=self._access.channels,
             )
             if record is not None:
                 self._resume_cursor = record.cursor
@@ -296,6 +298,8 @@ class EventProtocolProcessor:
                 endpoint=self._access.endpoint,
                 server_instance_id=self._access.server_instance_id,
                 protocol_version=self._access.protocol_version,
+                session_id=self._access.session_id,
+                channels=self._access.channels,
             )
         self._resume_cursor = max(self._resume_cursor, cursor)
         self._pending_events.pop(event_id, None)

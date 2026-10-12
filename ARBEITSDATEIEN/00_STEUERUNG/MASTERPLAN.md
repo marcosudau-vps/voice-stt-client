@@ -1,8 +1,10 @@
-# Client V2 – AP-CV2-030 / REVIEW_READY, 2026-10-12
+# Client V2 – AP-CV2-040 / REVIEW_READY, 2026-10-12
 
-AP-CV2-020 ist tatsächlich ACCEPTED auf `8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0` (PR #4, R04-PASS, menschliche Freigabe und Baumgleichheit belegt). AP-CV2-030 **REVIEW_READY** auf `work/client-v2/ap-cv2-030`, Parent unverändert. [R01-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md), [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json). Reiner Activation-/Segmentmirror und tatsächliche Transport-/Resyncanbindung;1339 Windows-Tests,106 gezielte Tests,35 Serverfälle/46 bytegeprüfte Quellen und compileall PASS. Alle35 Requirements einzeln belegt.
+AP-CV2-030 ist tatsächlich ACCEPTED auf `3df342c3a7cacaa1226743c4d9bee674e94d33db` (PR #5, unabhängiger R02-PASS, menschliche Freigabe und Single-Parent-/Baumgleichheit: [Übernahmebeleg](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json)). AP-CV2-040 **REVIEW_READY** auf `work/client-v2/ap-cv2-040`, Parent `3df342c3a7cacaa1226743c4d9bee674e94d33db`. [R01-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/01_REPORT.md), [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [aktive Planung](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md).
 
-Nächste Aktion: frische unabhängige Abnahme des vollständigen Paket-PR. Schreibhoheit nach Übergabe pausiert. Appkomposition CV2-100, Audio-/Settingsservices CV2-040/070 und reale ASR-/Hardwarefälle später; Serverbaseline ada13b0 unverändert und Server-Distributed offen. Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`. Kein eigener ROOT_PASS, Merge oder Folgepaketstart.
+Sessionlanger Audioflow, begrenzte PCMqueue, getrennte Audio-/LEDavailability und V2-Logbootstrap am bestehenden Capture-/Logpfad. 1367 Windows-Tests, 222 gezielte Tests, 41 echte Serverfälle mit 46 bytegeprüften Quellen sowie compileall/diffcheck PASS. Alle 23 Anforderungen einzeln belegt; unabhängige Abnahme offen.
+
+Nächste Aktion: frische unabhängige Abnahme des Paket-PR; Schreibhoheit ab Übergabe pausiert. Appkomposition CV2-100, Settingsbootstrap CV2-070 und reale Mikrofon-/ASR-/Hardwarefälle bleiben ihren späteren Paketen zugeordnet. Serverbaseline ada13b0 unverändert, Server-Distributed offen. Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`. Kein eigener ROOT_PASS, Merge oder Folgepaketstart.
 
 ## Historischer Stand vor AP-CV2-020
 

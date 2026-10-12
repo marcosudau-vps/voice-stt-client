@@ -154,7 +154,7 @@ class EventEnvelope:
     session_id: Optional[str] = None
     request_id: Optional[str] = None
     transcription_id: Optional[str] = None
-    segment_id: Optional[int] = None
+    segment_id: Optional[int | str] = None
     extra: Mapping[str, Any] = field(default_factory=dict)
 
     @classmethod
@@ -165,12 +165,11 @@ class EventEnvelope:
         if schema_version < 1:
             raise ValueError("schemaVersion must be >= 1")
         segment_id = raw.get("segmentId")
-        if segment_id is not None and (
-            isinstance(segment_id, bool)
-            or not isinstance(segment_id, int)
-            or segment_id < 0
+        if segment_id is not None and not (
+            type(segment_id) is int and segment_id >= 0
+            or isinstance(segment_id, str) and bool(segment_id.strip())
         ):
-            raise ValueError("segmentId must be null or an integer >= 0")
+            raise ValueError("segmentId must be null, an integer >= 0 or an opaque string")
         event_data = raw.get("data", {})
         if not isinstance(event_data, Mapping):
             raise ValueError("data must be a mapping")

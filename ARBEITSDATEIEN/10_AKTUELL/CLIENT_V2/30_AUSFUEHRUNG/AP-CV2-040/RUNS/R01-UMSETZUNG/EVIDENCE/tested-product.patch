@@ -1,0 +1,1402 @@
+diff --git a/scripts/check_v2_server_audio.py b/scripts/check_v2_server_audio.py
+new file mode 100644
+index 0000000..4fe57b5
+--- /dev/null
++++ b/scripts/check_v2_server_audio.py
+@@ -0,0 +1,320 @@
++"""AP040 production capture/codec/media/WS/log contract at pinned ada13b0.
++
++Only PortAudio hardware and recorder/model/scheduler boundaries are controlled.
++No live service, private audio, real ASR, or server product change is involved.
++"""
++
++import argparse
++import asyncio
++from dataclasses import replace
++import hashlib
++import json
++import os
++from pathlib import Path
++import platform
++import socket
++import subprocess
++import sys
++import tempfile
++import threading
++from unittest.mock import patch
++
++CLIENT_ROOT = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(CLIENT_ROOT))
++from scripts.check_v2_server_transport import SERVER_SHA, verify_sources, until
++from voice_stt_client.core import protocol_v2 as p
++from voice_stt_client.core.audio_capture import AudioCapture
++from voice_stt_client.core.config import AudioConfig, ServerConfig, EventStreamConfig
++from voice_stt_client.core.event_cursor_store import EventCursorStore
++from voice_stt_client.core.event_models import EventConnectionState
++from voice_stt_client.core.event_protocol import EventProtocolProcessor, EventProtocolIssue
++from voice_stt_client.core.event_stream import EventStreamTransport
++from voice_stt_client.core.session_coordinator import DualSessionCoordinator
++from voice_stt_client.core.v2_transport import V2STTSession, V2TransportConfig
++from voice_stt_client.core.v2_mirror import V2MirrorConnection
++from voice_stt_client.core.v2_media import V2MediaConnection
++
++
++async def run(root, repository):
++    sys.path.insert(0, str(root))
++    import numpy as np
++    import uvicorn
++    from api_fastapi_server.server import create_app, ServerSettings
++    from tests.unit.test_server_controlled_e2e import GateAwareRecorder
++    from tests.unit.test_fastapi_server_multi_user import ManualScheduler
++    from websockets.asyncio.client import connect
++    from websockets.exceptions import ConnectionClosed
++
++    verify_sources(root, repository)
++    checks, measurements, observations = [], [], []
++    def check(name, condition):
++        if not condition:
++            raise AssertionError(name)
++        checks.append(name)
++
++    class Recorder(GateAwareRecorder):
++        def __init__(self, **kwargs):
++            super().__init__(**kwargs)
++            self.received = []
++
++        def feed_audio(self, samples, original_sample_rate=16000):
++            # Aggregate identity/format, no retained raw audio.
++            self.received.append((len(samples), original_sample_rate))
++            super().feed_audio(samples, original_sample_rate)
++
++        def abort(self):
++            # GateAwareRecorder's single final_text FIFO inserts an empty item
++            # on abort: that would wake the older, held model job, attributing
++            # B's cancel to A. Model the production boundary's independent
++            # background result instead; no mutation of server product code.
++            self.abort_controlled_activation()
++            self.is_recording = False
++            self._active_recording_context = None
++
++        def flush_buffered_audio(self, min_abs_level=50):
++            if not self.is_recording:
++                return False
++            self.has_audio=False; self.is_recording=False; self.recording_stops+=1
++            if self.on_recording_stop: self.on_recording_stop()
++            context=self._current_transcription_context
++            def final():
++                aborted=self.on_transcription_start(None) if self.on_transcription_start else False
++                try:
++                    text="" if aborted else self.transcription_executor.transcribe(np.ones(32,dtype=np.float32),language="en",use_prompt=True).text
++                except RuntimeError:
++                    text=""
++                self.final_text.put((text,context))
++            threading.Thread(target=final,daemon=True).start()
++            return True
++
++        def text(self):
++            item=self.final_text.get()
++            if item is None: return ""
++            text,context=item
++            # This model boundary returns the immutable job provenance with
++            # its delayed result, rather than GateAwareRecorder's shared FIFO
++            # context. The production text worker/ledger/publication is real.
++            with self.owner.lock:
++                self.owner._active_text_context=context
++            return text
++
++    class Stream:
++        def __init__(self, **kwargs):
++            self.active = True
++        def start(self): pass
++        def stop(self): self.active = False
++        def close(self): pass
++
++    with tempfile.TemporaryDirectory(prefix="cv2-040-server-") as data, patch.dict(os.environ, {"VOICESTT_SERVER_COMMIT":SERVER_SHA}), patch(
++            "sounddevice.query_devices", return_value={"name":"deterministic PCM", "default_samplerate":48000}), patch(
++            "sounddevice.check_input_settings"), patch("sounddevice.InputStream",Stream):
++        settings = ServerSettings(data_root_path=data, model_warmup=False, admin_api_key="synthetic-harness-admin",
++                                  request_logging_enabled=False, performance_logging_enabled=False,
++                                  performance_log_mirror_enabled=False, transcription_logging_enabled=False,
++                                  system_event_logging_enabled=False, event_store_enabled=True, log_live_enabled=True)
++        app = create_app(settings, recorder_factory=Recorder, scheduler_factory=ManualScheduler)
++        tcp = socket.socket(); tcp.bind(("127.0.0.1",0)); tcp.listen(16)
++        url = f"ws://127.0.0.1:{tcp.getsockname()[1]}/ws/v2"
++        server = uvicorn.Server(uvicorn.Config(app,log_level="error",access_log=False))
++        serving = asyncio.create_task(server.serve(sockets=[tcp]))
++        service = app.state.voicestt_service
++        clients, tasks, log_transports, log_tasks = [], [], [], []
++        try:
++            await until(lambda:server.started or serving.done())
++            if serving.done():
++                await serving
++                raise AssertionError("server startup failed")
++
++            async def start(manual=True,wake=False):
++                session = V2STTSession(V2TransportConfig(url=url,manual=manual,wake_word=wake,
++                                      wake_word_ids=("hey_jarvis",) if wake else (), backoff_initial=.05))
++                mirror = V2MirrorConnection(session)
++                reductions=[]; mirror.on_reduction=reductions.append
++                config = AudioConfig()
++                capture = AudioCapture(config)
++                logs = DualSessionCoordinator(ServerConfig(url=url),EventStreamConfig(cursor_path=str(Path(data)/"client-cursor.json")))
++                async def observe(context,result):
++                    observations.append((context.session_id,result.event.cursor,result.origin.value,result.event.event))
++                    return True
++                logs.on_event=observe
++                media=V2MediaConnection(session,capture,logs=logs,recovery_interval=.02)
++                clients.append((media,mirror)); tasks.append(asyncio.create_task(session.run()))
++                await until(lambda:session.is_ready or session.status.state.value=="blocked")
++                check(f"admission/{manual}/{wake}",session.is_ready)
++                await until(lambda:media._gate and not mirror.mirror.view.snapshot_pending)
++                domain=service.sessions.get(session.binding.session_id)
++                domain.recorder.owner=domain
++                return media,mirror,reductions,config,domain
++
++            def feed(media,config):
++                frames=media.capture.sample_rate//25
++                media.capture._audio_callback(np.full((frames,config.channels),10000,dtype=np.int16),frames,None,None)
++
++            media,mirror,reductions,config,domain=await start()
++            binding=media.session.binding; recorder=domain.recorder
++            check("capture/no_pre_ready_frames",not recorder.received)
++            feed(media,config)
++            await until(lambda:len(recorder.received)==1)
++            check("audio/idle_received_no_local_gate",recorder.received[-1]==(640,16000) and not recorder.is_recording)
++            await until(lambda:media.logs.context.event_state==EventConnectionState.LIVE)
++            access=media.logs.context.log_access
++            check("logs/bootstrap_session_and_channels",access.session_id==binding.session_id and set(access.channels)=={"audit","transcription","performance"})
++            check("logs/memory_only_redacted",access.access_token not in repr(media.logs.context) and access.access_token not in access.endpoint)
++
++            first=await media.session.request(p.CommandType.ACTIVATION,action="activate",source="manual")
++            await until(lambda:not mirror.mirror.view.snapshot_pending)
++            feed(media,config)
++            await until(lambda:bool(mirror.mirror.view.segments))
++            segment=next(iter(mirror.mirror.view.segments.values()))
++            check("audio/waiting_to_recording",mirror.mirror.view.input.phase==p.InputPhase.SEGMENT_ACTIVE)
++            domain._on_realtime_text("synthetic audio preview")
++            await until(lambda:mirror.mirror.view.segments[segment.segment_id].preview is not None)
++            await media.session.request(p.CommandType.ACTIVATION,action="finish",activationId=first.ack.activationId)
++            await until(lambda:mirror.mirror.view.input.phase==p.InputPhase.IDLE and not mirror.mirror.view.snapshot_pending)
++            await until(lambda:any(job.kind=="final" for job in service.scheduler.jobs))
++            check("background/older_activation_draining",mirror.mirror.view.activations[first.ack.activationId].status=="draining")
++            count=len(recorder.received); feed(media,config)
++            await until(lambda:len(recorder.received)>count)
++            check("audio/draining_idle_still_received",not recorder.is_recording)
++            second=await media.session.request(p.CommandType.ACTIVATION,action="activate",source="manual")
++            await until(lambda:not mirror.mirror.view.snapshot_pending)
++            feed(media,config)
++            await until(lambda:len(mirror.mirror.view.segments)==2)
++            media.set_led_available(False)
++            await asyncio.sleep(.05)
++            check("devices/led_only_preserves_foreground",mirror.mirror.view.input.activation_id==second.ack.activationId and media.audio_available)
++            old_callback=media.capture.on_audio_packet
++            media.set_device_available(False)
++            old_callback(b"\x10\0"*640,16000,1,640)
++            await until(lambda:mirror.mirror.view.input.phase==p.InputPhase.IDLE and not mirror.mirror.view.audio_available)
++            check("devices/open_activation_cancelled",mirror.mirror.view.activations[second.ack.activationId].input_closed and
++                  mirror.mirror.view.activations[second.ack.activationId].close_reason in ("cancelled", "audio_unavailable"))
++            check("devices/session_and_older_drain_preserved",media.session.binding is binding and mirror.mirror.view.activations[first.ack.activationId].status=="draining")
++            count=len(recorder.received); feed(media,config); await asyncio.sleep(.05)
++            check("devices/lost_input_sends_no_pcm",len(recorder.received)==count)
++            config.sample_rate=48000; config.channels=2
++            media.set_device_available(True)
++            await until(lambda:media._gate and mirror.mirror.view.audio_available)
++            feed(media,config); await until(lambda:len(recorder.received)>count)
++            check("devices/rebound_48k_stereo_resampled_at_server",recorder.received[-1]==(640,16000))
++            check("devices/rebind_no_auto_activation",mirror.mirror.view.input.phase==p.InputPhase.IDLE)
++            for job in list(service.scheduler.jobs):
++                if job.kind=="final" and job.session_id==binding.session_id:
++                    service.scheduler.complete(job,text="synthetic delayed final")
++            await until(lambda:any(r.finals for r in reductions))
++            check("background/older_final_after_device_cancel",len([f for r in reductions for f in r.finals])==1 and mirror.mirror.view.segments[segment.segment_id].text is not None)
++
++            # Session-filtered global cursor jumps, genuine SQLite-first replay.
++            service.events.emit("audit","synthetic.own.one",sessionId=binding.session_id)
++            service.events.emit("audit","synthetic.foreign",sessionId="foreign-session")
++            service.events.emit("audit","synthetic.own.two",sessionId=binding.session_id)
++            await until(lambda:any(x[3]=="synthetic.own.two" for x in observations))
++            own=[x[1] for x in observations if x[3].startswith("synthetic.own.")]
++            check("logs/filtered_cursor_jump",len(own)==2 and own[1]>own[0]+1)
++            check("logs/no_foreign_session",all(x[0]==binding.session_id for x in observations))
++            view_before=mirror.mirror.view; final_count=sum(len(r.finals) for r in reductions)
++            replay,controls=[],[]
++            async def accept(result): replay.append(result); return True
++            replay_transport=EventStreamTransport(EventStreamConfig(cursor_persistence_enabled=False),access,
++                    EventProtocolProcessor(access),on_event=accept,on_control=controls.append)
++            log_transports.append(replay_transport); log_tasks.append(asyncio.create_task(replay_transport.run()))
++            await until(lambda:replay_transport.state==EventConnectionState.LIVE)
++            check("logs/actual_hello_subscribe_replay_completed",all(any(x.kind.value==kind for x in controls) for kind in ("hello","subscribed","replay_completed")))
++            check("logs/replay_no_domain_effect",mirror.mirror.view==view_before and sum(len(r.finals) for r in reductions)==final_count)
++            check("logs/opaque_segment_metadata_not_domain_uuid",any(x.event.segment_id is not None for x in replay) and
++                  mirror.mirror.view==view_before)
++            await replay_transport.stop()
++
++            # Isolated synthetic SQLite timestamp advance; production pruning
++            # and filtered watermark computation are unchanged.
++            service.events.emit("audit","synthetic.retained.lost",sessionId=binding.session_id)
++            store=service.events._store
++            with store._lock:
++                store._connection.execute("UPDATE events SET timestamp='2000-01-01T00:00:00.000Z' WHERE event_name='synthetic.retained.lost'")
++                store._connection.commit()
++                store.set_retention({"audit":1})
++                store._prune_if_due()
++            service.events.emit("audit","synthetic.retained.survivor",sessionId=binding.session_id)
++            replay.clear(); controls.clear()
++            retention=EventStreamTransport(EventStreamConfig(cursor_persistence_enabled=False),access,
++                    EventProtocolProcessor(access),on_event=accept,on_control=controls.append)
++            log_transports.append(retention); log_tasks.append(asyncio.create_task(retention.run()))
++            await until(lambda:retention.state==EventConnectionState.LIVE)
++            check("logs/real_retention_gap",any(x.issue==EventProtocolIssue.RETENTION_GAP for x in controls))
++            check("logs/retention_survivors_delivered",any(x.event.event=="synthetic.retained.survivor" for x in replay))
++            await retention.stop()
++
++            async def error_probe(name,probe_access,processor=None):
++                failed=EventStreamTransport(EventStreamConfig(reconnect_min_delay=.05),probe_access,
++                                           processor or EventProtocolProcessor(probe_access),on_event=accept,on_control=controls.append)
++                log_transports.append(failed); log_tasks.append(asyncio.create_task(failed.run()))
++                await until(lambda:failed.state==EventConnectionState.UNAVAILABLE if name!="store_unavailable" else failed.last_error is not None)
++                if name=="store_unavailable":
++                    check("logs/"+name,failed.last_error==name or "1011" in failed.last_error)
++                else:
++                    check("logs/"+name,failed.last_error==name)
++                check("logs/"+name+"_domain_ready",media.session.is_ready and media.session.binding is binding)
++                await failed.stop()
++
++            await error_probe("authorization",replace(access,access_token="synthetic-invalid-token"))
++            ahead_store=EventCursorStore(Path(data)/"ahead.json")
++            ahead_store.commit(service.events.latest_cursor()+100,endpoint=access.endpoint,server_instance_id=access.server_instance_id,
++                               protocol_version=2,session_id=access.session_id,channels=access.channels)
++            await error_probe("cursor_ahead",access,EventProtocolProcessor(access,cursor_store=ahead_store))
++            with patch.object(service.events,"store_available",return_value=False):
++                await error_probe("store_unavailable",access)
++            count=len(recorder.received); feed(media,config); await until(lambda:len(recorder.received)>count)
++            check("logs/faults_audio_continues",media._gate)
++            check("logs/replay_keeps_published_final",sum(len(r.finals) for r in reductions)==final_count)
++
++            # Network loss: real socket recycle, old audio discarded, new ID.
++            await media.session.request(p.CommandType.SUPPRESSION,manual=True,wakeWord=True)
++            await media.session.reconnect(binding,"synthetic_network_loss")
++            await until(lambda:media.session.binding is not None and media.session.binding is not binding and media._gate)
++            new=media.session.binding
++            check("reconnect/new_session_and_generation",new.session_id!=binding.session_id and new.generation>binding.generation)
++            old_callback(b"\x10\0"*640,16000,1,640)
++            check("reconnect/empty_old_queue",media.queue.duration_ms==0)
++            check("reconnect/desired_suppression_retained",media.session._desired_suppression==(True,True))
++            await until(lambda:media.logs.context.session_id==new.session_id and media.logs.context.log_access is not None)
++            check("reconnect/new_log_token",media.logs.context.log_access.access_token!=access.access_token)
++            measurements.append(media.counters())
++            await media.close(); await mirror.close()
++            check("shutdown/media_tasks_and_queue_clean",media._task is None and media._sender is None and not media.capture.is_running and media.queue.duration_ms==0)
++
++            for manual,wake in ((False,True),(True,True)):
++                # Model-free boundary, same as pinned wake_catalog_support:
++                # real manifest/resolver, no ONNX/TFLite engine loaded.
++                service.wakeword_catalog.set_artifact_prober(lambda path:None)
++                media,mirror,rs,config,domain=await start(manual,wake)
++                feed(media,config); await until(lambda:bool(domain.recorder.received))
++                check(f"audio/idle_trigger_mode/{manual}/{wake}",domain.recorder.received[-1]==(640,16000))
++                await media.session.request(p.CommandType.SUPPRESSION,manual=True,wakeWord=True)
++                count=len(domain.recorder.received); feed(media,config)
++                await until(lambda:len(domain.recorder.received)>count)
++                check(f"audio/wakepause_trigger_mode/{manual}/{wake}",not domain.recorder.is_recording)
++                await media.close(); await mirror.close()
++            hashes=verify_sources(root,repository)
++            return {"result":"PASS","serverCommit":SERVER_SHA,"clientHead":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),
++                    "runtime":{"python":sys.version,"executable":sys.executable,"platform":platform.platform(),"uvicorn":uvicorn.__version__},
++                    "sourceHashes":hashes,"checks":checks,"checkCount":len(checks),"audioCounters":measurements,
++                    "boundaries":"Real AudioCapture callback/process thread -> bounded V2MediaConnection -> actual V2STTSession TCP/WS -> production FastAPI PCM decoder/resampler/gate/controller/ledger. Real SQLite/log WS/subscribe/filter/replay/pruning/auth routes. PortAudio device substituted; GateAwareRecorder extended with immutable final-job context handoff and held ManualScheduler substitute models; catalog engine probe replaced by permissive model-free probe; isolated synthetic retention timestamps/store availability. Settings and Qt composition remain AP070/100. No real hardware or ASR claim."}
++        finally:
++            for transport in log_transports: await transport.stop()
++            await asyncio.gather(*log_tasks,return_exceptions=True)
++            for media,mirror in clients: await media.close(); await mirror.close()
++            await asyncio.gather(*tasks,return_exceptions=True)
++            server.should_exit=True
++            try: await asyncio.wait_for(serving,10)
++            finally: tcp.close()
++
++
++def main():
++    parser=argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--server-root",required=True,type=Path)
++    parser.add_argument("--server-repository",required=True,type=Path)
++    args=parser.parse_args()
++    print(json.dumps(asyncio.run(run(args.server_root.resolve(),args.server_repository.resolve())),indent=2))
++
++
++if __name__=="__main__": main()
+diff --git a/tests/test_event_protocol.py b/tests/test_event_protocol.py
+index 7ce3a6c..6f60531 100644
+--- a/tests/test_event_protocol.py
++++ b/tests/test_event_protocol.py
+@@ -149,0 +150,2 @@ class TestEventProtocolProcessor(unittest.TestCase):
++                session_id="session-1",
++                channels=("transcription",),
+diff --git a/tests/test_event_stream.py b/tests/test_event_stream.py
+index 90bcc2d..ee38b5a 100644
+--- a/tests/test_event_stream.py
++++ b/tests/test_event_stream.py
+@@ -143,0 +144,2 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
++                session_id="session-1",
++                channels=("transcription",),
+@@ -440,0 +443,2 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
++                session_id="session-1",
++                channels=("transcription",),
+diff --git a/tests/test_v2_audio_recovery.py b/tests/test_v2_audio_recovery.py
+new file mode 100644
+index 0000000..642ea0a
+--- /dev/null
++++ b/tests/test_v2_audio_recovery.py
+@@ -0,0 +1,496 @@
++"""Actual V2 transport/media with controlled device and log boundaries."""
++
++import asyncio
++from copy import deepcopy
++from datetime import datetime, timedelta, timezone
++import json
++from pathlib import Path
++import tempfile
++import threading
++import unittest
++from unittest.mock import patch
++
++import numpy as np
++
++from voice_stt_client.core import protocol_v2 as p
++from voice_stt_client.core.audio_capture import AudioCapture
++from voice_stt_client.core.config import AudioConfig, ServerConfig, EventStreamConfig
++from voice_stt_client.core.event_cursor_store import EventCursorStore
++from voice_stt_client.core.event_protocol import EventProtocolProcessor, EventStreamAccess
++from voice_stt_client.core.event_models import EventConnectionState
++from voice_stt_client.core.event_models import EventEnvelope
++from voice_stt_client.core.event_stream import EventStreamTransport
++from voice_stt_client.core.session_coordinator import DualSessionCoordinator
++from voice_stt_client.core.v2_media import BoundedAudioQueue, V2MediaConnection
++from voice_stt_client.core.v2_transport import V2STTSession, V2TransportConfig, V2TransportState
++from tests.test_event_protocol import access, enter_replay, event_message
++from tests.test_session_coordinator import FakeEventTransport, hello, event_result, future_expiry
++from tests.test_v2_transport import FakeWebSocket, until, close_error
++
++
++class Capture:
++    """Device boundary; production transport/codec/queue/coordinator stay real."""
++    is_running = False
++    device_active = True
++    on_audio_packet = None
++    fail = False
++    starts = stops = 0
++
++    def probe(self):
++        if self.fail:
++            raise OSError("synthetic device unavailable")
++
++    def start(self):
++        self.probe()
++        self.is_running = True
++        self.device_active = True
++        self.starts += 1
++
++    def stop(self):
++        self.is_running = False
++        self.stops += 1
++
++    def emit(self, rate=16000, channels=1, marker=1):
++        frames = rate // 25
++        self.on_audio_packet(bytes([marker, 0]) * frames * channels, rate, channels, frames)
++
++
++class Socket(FakeWebSocket):
++    available = True
++
++    def push(self, value):
++        if isinstance(value, dict) and value.get("type") == "hello.accepted":
++            value = deepcopy(value)
++            if self.available:
++                value["logAccess"]["expiresAt"] = future_expiry()
++            else:
++                value["logAccess"] = {"available": False, "code": "disabled", "reason": "disabled"}
++        super().push(value)
++
++
++class AudioQueue(unittest.TestCase):
++    def test_duration_overflow_drops_oldest_and_retains_latest(self):
++        q = BoundedAudioQueue()
++        for n in range(20):
++            q.put(bytes([n, 0]) * 640, 16000, 1, 640, 7)
++        self.assertLessEqual(q.duration_ms, 500)
++        self.assertEqual(q.overflow, 8)
++        self.assertEqual(q.pop(7).pcm[0], 8)
++
++    def test_age_and_generation_are_rejected(self):
++        now = [0.]
++        q = BoundedAudioQueue(clock=lambda: now[0])
++        q.put(b"\0\0" * 640, 16000, 1, 640, 1)
++        self.assertIsNone(q.pop(2))
++        q.put(b"\0\0" * 640, 16000, 1, 640, 2)
++        now[0] = .501
++        self.assertIsNone(q.pop(2))
++        self.assertEqual(q.stale, 2)
++
++    def test_formats_and_metrics_reject_misalignment_and_oversize(self):
++        q = BoundedAudioQueue()
++        for values in ((b"x", 16000, 1, 1), (b"\0\0", 0, 1, 1),
++                       (b"\0\0", 16000, 1, 2), (b"\0\0", True, 1, 1),
++                       (b"\0\0", 16000, 1, None), (b"x" * 524290, 16000, 1, 262145)):
++            self.assertFalse(q.put(*values, 1))
++        self.assertEqual(q.invalid, 6)
++        self.assertFalse(q.put(b"\0\0" * 16000, 16000, 1, 16000, 1))
++        self.assertEqual(q.overflow, 1)
++
++    def test_extreme_rate_has_packet_count_and_byte_bounds(self):
++        q = BoundedAudioQueue()
++        for n in range(1000):
++            q.put(b"\0\0" * 640, 10**9, 1, 640, 1)
++        self.assertEqual(len(q._items), 128)
++        self.assertLessEqual(q._bytes, 4 * 1024 * 1024)
++        q.clear()
++        self.assertEqual(q.duration_ms, 0)
++
++    def test_float_capture_clamps_and_encodes_little_endian(self):
++        capture = AudioCapture(AudioConfig(), queue_duration_ms=500)
++        capture._running = True
++        samples = np.array([-2., -1., 0., 1., 2., np.nan, np.inf], dtype=np.float32)
++        capture._audio_callback(samples, len(samples), None, None)
++        values = np.frombuffer(capture._audio_queue.get_nowait(), dtype="<i2")
++        self.assertEqual(values.tolist(), [-32767, -32767, 0, 32767, 32767, 0, 32767])
++        self.assertEqual(capture._audio_queue.maxsize, 12)
++        capture.set_muted(True)
++        capture._audio_callback(samples, len(samples), None, None)
++        self.assertTrue(capture._audio_queue.empty())
++
++
++class Media(unittest.IsolatedAsyncioTestCase):
++    async def start(self, *, capture=None, sockets=None, settings=None, **config):
++        sockets = sockets or [Socket()]
++        count = [0]
++        async def connector(*args, **kwargs):
++            socket = sockets[min(count[0], len(sockets) - 1)]
++            count[0] += 1
++            return socket
++        session = V2STTSession(V2TransportConfig(backoff_initial=.01, ack_timeout=.05,
++                              command_retries=0, **config), connector=connector, jitter=lambda a,b:1)
++        logs = DualSessionCoordinator(ServerConfig(), EventStreamConfig(cursor_persistence_enabled=False),
++                                      transport_factory=FakeEventTransport)
++        media = V2MediaConnection(session, capture or Capture(), logs=logs, settings_bootstrap=settings,
++                                  recovery_interval=.01)
++        task = asyncio.create_task(session.run())
++        self.addAsyncCleanup(self.join, task)
++        self.addAsyncCleanup(media.close)
++        await until(lambda: session.is_ready or session.status.state == V2TransportState.BLOCKED)
++        if session.is_ready:
++            await until(lambda: media.capture.is_running or media._reported_available == (session.binding, False))
++            await until(lambda: media._gate or media._reported_available == (session.binding, False))
++        return media, sockets[0]
++
++    async def join(self, task):
++        await asyncio.gather(task, return_exceptions=True)
++
++    async def test_continuous_manual_wake_and_combined_across_commands(self):
++        for manual, wake in ((True, False), (False, True), (True, True)):
++            media, socket = await self.start(manual=manual, wake_word=wake, wake_word_ids=("hey_jarvis",) if wake else ())
++            media.capture.emit()
++            await until(lambda: media.sent == 1)
++            await media.session.request(p.CommandType.ACTIVATION, action="activate", source="manual")
++            media.capture.emit(48000, 2)
++            await until(lambda: media.sent == 2)
++            await media.session.request(p.CommandType.ACTIVATION, action="finish", activationId=p.new_id())
++            media.capture.emit()
++            await until(lambda: media.sent == 3)
++            await media.session.request(p.CommandType.ACTIVATION, action="cancel", activationId=p.new_id())
++            await media.session.request(p.CommandType.SUPPRESSION, manual=True, wakeWord=True)
++            media.capture.emit()
++            await until(lambda: media.sent == 4)
++            self.assertEqual(media.capture.starts, 1)
++            decoded = [p.decode_audio_packet(x) for x in socket.sent if isinstance(x, bytes)]
++            self.assertEqual([x.metadata["sampleRate"] for x in decoded], [16000,48000,16000,16000])
++            self.assertEqual(decoded[1].metadata["channels"], 2)
++            await media.close()
++
++    async def test_config_ready_gates_capture_and_sending(self):
++        entered, release = asyncio.Event(), asyncio.Event()
++        capture = Capture()
++        async def settings(client, binding):
++            entered.set()
++            self.assertFalse(capture.is_running)
++            self.assertFalse(await client.send_audio(b"\0\0", 16000))
++            await release.wait()
++        starting = asyncio.create_task(self.start(capture=capture, settings=settings))
++        await entered.wait()
++        self.assertFalse(capture.is_running)
++        release.set()
++        media, socket = await starting
++        self.assertTrue(media._gate)
++
++    async def test_device_loss_mute_recovery_and_led_are_separate(self):
++        media, socket = await self.start(suppress_wake_word=True)
++        binding = media.session.binding
++        before = len(socket.commands)
++        media.set_led_available(False)
++        self.assertEqual(len(socket.commands), before)
++        self.assertTrue(media.audio_available)
++        old_callback = media.capture.on_audio_packet
++        media.set_device_available(False)
++        old_callback(b"\0\0" * 640,16000,1,640)
++        self.assertFalse(media._gate)
++        await until(lambda: media._reported_available == (binding, False))
++        self.assertIs(media.session.binding, binding)
++        self.assertEqual(media.queue.duration_ms, 0)
++        media.set_device_available(True)
++        await until(lambda: media._gate)
++        media.set_hardware_muted(True)
++        await until(lambda: media._reported_available == (binding, False))
++        media.set_hardware_muted(False)
++        await until(lambda: media._gate)
++        self.assertEqual(media.session._desired_suppression, (False,True))
++        old_callback(b"\0\0" * 640,16000,1,640)
++        self.assertEqual(media.queue.duration_ms, 0)
++        self.assertFalse(any(c["type"] == "activation.command" for c in socket.commands))
++
++    async def test_dead_capture_reports_false_then_reopens(self):
++        media, socket = await self.start()
++        media.capture.device_active = False
++        await until(lambda: media.capture.starts == 2 and media._gate)
++        available = [c["audioAvailable"] for c in socket.commands if c["type"] == "audio_availability.set"]
++        self.assertEqual(available, [False,True])
++
++    async def test_failed_start_remains_session_bound_and_recovers(self):
++        capture = Capture()
++        capture.fail = True
++        media, socket = await self.start(capture=capture)
++        binding = media.session.binding
++        self.assertFalse(media._gate)
++        self.assertGreater(media.capture_failures, 0)
++        capture.fail = False
++        await until(lambda: media._gate)
++        self.assertIs(media.session.binding, binding)
++
++    async def test_network_reconnect_clears_samples_and_uses_new_ids(self):
++        first, second = Socket(), Socket(session_id=p.new_id())
++        media, socket = await self.start(sockets=[first, second], suppress_manual=True)
++        old = media.session.binding
++        callback = media.capture.on_audio_packet
++        media.capture.emit(marker=9)
++        first.push(close_error(1011))
++        await until(lambda: media.session.binding is not None and media.session.binding is not old and media._gate)
++        callback(b"\x09\0" * 640,16000,1,640)
++        media.capture.emit(marker=4)
++        await until(lambda: any(isinstance(x,bytes) for x in second.sent))
++        packets = [p.decode_audio_packet(x).pcm[0] for x in second.sent if isinstance(x,bytes)]
++        self.assertEqual(packets, [4])
++        self.assertEqual(media.session._desired_suppression, (True,False))
++        self.assertFalse(media.set_device_available(False, binding=old))
++        a = {c["commandId"] for c in first.commands}
++        b = {c["commandId"] for c in second.commands}
++        self.assertFalse(a & b)
++        self.assertNotEqual(old.session_id, media.session.binding.session_id)
++
++    async def test_log_unavailable_and_expired_access_do_not_block_audio(self):
++        for invalid in (False,True):
++            socket = Socket()
++            socket.available = invalid
++            if invalid:
++                def push(value):
++                    if isinstance(value,dict) and value.get("type") == "hello.accepted":
++                        value["logAccess"]["expiresAt"] = future_expiry(-1)
++                    FakeWebSocket.push(socket, value)
++                socket.push = push
++            media, _ = await self.start(sockets=[socket])
++            await until(lambda: media._binding is media.session.binding)
++            media.capture.emit()
++            await until(lambda: media.sent == 1)
++            self.assertEqual(media.logs.active_transport_count, 0)
++            self.assertTrue(media.session.is_ready)
++            await media.close()
++
++    async def test_log_final_is_observation_only_and_snapshot_keeps_token(self):
++        media, socket = await self.start()
++        await until(lambda: media.logs.context.log_access is not None)
++        access = media.logs.context.log_access
++        before = len(socket.commands)
++        result = event_result(media.session.binding.session_id)
++        self.assertTrue(await media.logs._handle_event(media.logs._binding, result))
++        self.assertEqual(len(socket.commands), before)
++        await media.session.request(p.CommandType.SNAPSHOT_REQUEST)
++        self.assertIs(media.logs.context.log_access, access)
++        self.assertNotIn(access.access_token, repr(media.logs.context))
++        self.assertNotIn(access.access_token, access.endpoint)
++        media.logs._handle_state(media.logs._binding, EventConnectionState.BACKOFF)
++        media.capture.emit()
++        await until(lambda: media.sent == 1)
++        self.assertEqual(media.session.generation, 1)
++
++    async def test_audio_availability_rejection_recycles_without_resuming_samples(self):
++        media, socket = await self.start()
++        async def reject(command):
++            socket.reply(command, "invalid_payload")
++        socket.on_send = reject
++        media.set_device_available(False)
++        await until(lambda: not media.session.is_ready)
++        self.assertFalse(media._gate)
++
++    async def test_shutdown_is_idempotent_and_joins_all_media_tasks(self):
++        media, socket = await self.start()
++        tasks = (media._task, media._sender)
++        await asyncio.wait_for(media.close(), 1)
++        await media.close()
++        self.assertTrue(all(t.done() for t in tasks))
++        self.assertFalse(media.capture.is_running)
++        self.assertEqual(media.logs.active_transport_count, 0)
++        self.assertIsNone(media.session.binding)
++        self.assertEqual(media.queue.duration_ms, 0)
++
++    async def test_shutdown_joins_native_start_before_stopping_device(self):
++        media, socket = await self.start()
++        await until(lambda: media._gate)
++        entered, release = threading.Event(), threading.Event()
++        order = []
++        def native_start():
++            entered.set()
++            release.wait(2)
++            order.append("started")
++        original_stop = media.capture.stop
++        def stop():
++            order.append("stopped")
++            original_stop()
++        media.capture.stop = stop
++        operation = asyncio.create_task(media._capture_call(native_start))
++        await until(entered.is_set)
++        operation.cancel()
++        await asyncio.gather(operation, return_exceptions=True)
++        closing = asyncio.create_task(media.close())
++        await asyncio.sleep(.02)
++        self.assertFalse(closing.done())
++        self.assertEqual(order, [])
++        release.set()
++        await asyncio.wait_for(closing, 1)
++        self.assertEqual(order, ["started", "stopped"])
++        self.assertIsNone(media._capture_operation)
++
++    async def test_real_capture_callback_processing_and_packet_flow(self):
++        capture = AudioCapture(AudioConfig())
++        class Stream:
++            active = True
++            def __init__(self, **kwargs): pass
++            def start(self): pass
++            def stop(self): self.active = False
++            def close(self): pass
++        with patch("sounddevice.query_devices", return_value={"name":"synthetic", "default_samplerate":16000}), patch("sounddevice.check_input_settings"), patch("sounddevice.InputStream", Stream):
++            media, socket = await self.start(capture=capture)
++            capture._audio_callback(np.full((640,1),123,dtype=np.int16),640,None,None)
++            await until(lambda: media.sent == 1)
++            packet = next(p.decode_audio_packet(x) for x in socket.sent if isinstance(x,bytes))
++            self.assertEqual(packet.pcm,b"{\0" * 640)
++            self.assertEqual(packet.metadata["frames"],640)
++            await media.close()
++
++    async def test_thread_burst_coalesces_handles_and_bounds_pcm(self):
++        media, socket = await self.start()
++        callback = media.capture.on_audio_packet
++        def burst():
++            for n in range(2000):
++                callback(b"\0\0" * 640,16000,1,640)
++        # Block the core loop deliberately while producer runs.
++        with patch.object(media._loop,"call_soon_threadsafe",wraps=media._loop.call_soon_threadsafe) as wake:
++            thread = threading.Thread(target=burst)
++            thread.start()
++            thread.join(2)
++            self.assertFalse(thread.is_alive())
++            self.assertEqual(wake.call_count,1)
++            self.assertLessEqual(media.queue.duration_ms,500)
++        await until(lambda: media.sent > 0)
++        self.assertGreater(media.counters()["overflow"],0)
++
++    async def test_sustained_slow_socket_overflow_recycles_transport(self):
++        media, socket = await self.start()
++        old = media.session.binding
++        original = socket.send
++        async def slow(wire):
++            if isinstance(wire, bytes):
++                # While one bounded send is pending, simulate capture backlog.
++                for _ in range(20):
++                    media.capture.emit()
++                await asyncio.sleep(.002)
++            await original(wire)
++        socket.send = slow
++        media.capture.emit()
++        await until(lambda: media.session.status.reason == "sustained_audio_overflow" or media.session.binding is not old)
++        self.assertFalse(media._gate)
++        self.assertGreater(media.queue.overflow,0)
++
++    async def test_mute_during_bootstrap_is_acked_before_desired_suppression(self):
++        entered, release = asyncio.Event(), asyncio.Event()
++        holder = {}
++        async def settings(session, binding):
++            holder["session"] = session
++            entered.set()
++            await release.wait()
++        # Attach explicitly so the hardware input is available during bootstrap.
++        socket = Socket()
++        async def connector(*args, **kwargs): return socket
++        session = V2STTSession(connector=connector)
++        logs = DualSessionCoordinator(ServerConfig(),EventStreamConfig(enabled=False))
++        media = V2MediaConnection(session,Capture(),logs=logs,settings_bootstrap=settings,recovery_interval=.01)
++        task = asyncio.create_task(session.run())
++        self.addAsyncCleanup(self.join,task)
++        self.addAsyncCleanup(media.close)
++        await entered.wait()
++        media.set_hardware_muted(True)
++        release.set()
++        await until(lambda: session.is_ready)
++        commands = socket.commands
++        self.assertEqual([c["type"] for c in commands[:2]],["audio_availability.set","trigger_suppression.set"])
++        self.assertFalse(commands[0]["audioAvailable"])
++        self.assertFalse(media.capture.is_running)
++
++
++class ScopedCursor(unittest.TestCase):
++    def test_integer_and_opaque_log_ids_are_diagnostic_only(self):
++        for value in (7,"recording-7",p.new_id()):
++            raw=event_message(3,"e3",replay=True)["event"]
++            raw["segmentId"]=value
++            envelope=EventEnvelope.from_mapping(raw)
++            self.assertEqual(envelope.segment_id,value)
++            self.assertNotIn("activationId",envelope.extra)
++    def test_cursor_is_bound_to_session_filter_origin_and_instance(self):
++        with tempfile.TemporaryDirectory() as directory:
++            store = EventCursorStore(Path(directory)/"cursor.json")
++            processor = EventProtocolProcessor(access(), cursor_store=store)
++            enter_replay(processor)
++            result = processor.process_mapping(event_message(3,"e3",replay=True))
++            processor.confirm_event(result)
++            self.assertEqual(processor.begin_subscription(),3)
++            for change in ({"session_id":"other"}, {"channels":("audit",)},
++                           {"server_instance_id":"other"}, {"endpoint":"wss://other.example/ws/logs"}):
++                changed = EventProtocolProcessor(access(**change),cursor_store=store)
++                self.assertEqual(changed.begin_subscription(),0)
++
++    def test_legacy_unscoped_cursor_is_preserved_but_not_reused(self):
++        with tempfile.TemporaryDirectory() as directory:
++            store = EventCursorStore(Path(directory)/"cursor.json")
++            old = store.commit(10,endpoint=access().endpoint,server_instance_id="server-1",protocol_version=2)
++            self.assertEqual(EventProtocolProcessor(access(),cursor_store=store).begin_subscription(),0)
++            self.assertEqual(store.load(endpoint=access().endpoint,server_instance_id="server-1",protocol_version=2),old)
++
++    def test_retention_gap_does_not_jump_confirmation_cursor(self):
++        processor = EventProtocolProcessor(access())
++        enter_replay(processor)
++        processor.process_mapping({"type":"log.gap","reason":"retention","lostFromCursor":1,
++                                  "lostToCursor":8,"oldestCursor":9,"latestCursor":20})
++        self.assertEqual(processor.resume_cursor,0)
++        result = processor.process_mapping(event_message(15,"survivor",replay=True))
++        processor.confirm_event(result)
++        self.assertEqual(processor.resume_cursor,15)
++
++
++class LogBootstrap(unittest.IsolatedAsyncioTestCase):
++    async def test_log_connection_error_redacts_token_and_keeps_diagnostics(self):
++        current = access()
++        async def connector(*args, **kwargs):
++            raise OSError("synthetic failure for " + current.access_token)
++        transport = EventStreamTransport(EventStreamConfig(), current, EventProtocolProcessor(current),
++                                         on_event=lambda result: True, connect_factory=connector)
++        task = asyncio.create_task(transport.run())
++        try:
++            with self.assertLogs("eventstream", level="WARNING") as captured:
++                await until(lambda: transport.last_error is not None)
++            self.assertNotIn(current.access_token, " ".join(captured.output))
++            self.assertNotIn(current.access_token, transport.last_error)
++            self.assertIn("synthetic failure", transport.last_error)
++        finally:
++            await transport.stop()
++            await task
++
++    async def test_unavailable_without_capability_fields_or_token(self):
++        logs = DualSessionCoordinator(ServerConfig(),EventStreamConfig(cursor_persistence_enabled=False))
++        self.addAsyncCleanup(logs.shutdown)
++        await logs.begin_generation(1)
++        self.assertFalse(await logs.adopt_hello(1,{"sessionId":"s1","logAccess":{"available":False,"code":"disabled"}}))
++        self.assertIsNone(logs.context.log_access)
++
++    async def test_both_paths_reject_foreign_origin_before_token_transport(self):
++        for field in ("websocketPath","historyPath"):
++            logs = DualSessionCoordinator(ServerConfig(),EventStreamConfig(cursor_persistence_enabled=False),transport_factory=FakeEventTransport)
++            self.addAsyncCleanup(logs.shutdown)
++            await logs.begin_generation(1)
++            payload = hello("s1")
++            payload["logAccess"][field] = "//attacker.example/path"
++            with self.assertRaises(ValueError):
++                await logs.adopt_hello(1,payload)
++            self.assertEqual(logs.transport_start_count,0)
++
++    async def test_stale_runtime_delivery_rejected_with_diagnostics_preserved(self):
++        logs = DualSessionCoordinator(ServerConfig(),EventStreamConfig(cursor_persistence_enabled=False),transport_factory=FakeEventTransport)
++        self.addAsyncCleanup(logs.shutdown)
++        await logs.begin_generation(1)
++        await logs.adopt_hello(1,hello("s1"))
++        old = logs._binding
++        await logs.begin_generation(2)
++        seen = []
++        logs.on_observation = lambda *args: seen.append(args)
++        self.assertFalse(await logs._handle_event(old,event_result("s1")))
++        logs._handle_control(old,event_result("s1"))
++        self.assertEqual(len(seen),2)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/voice_stt_client/core/audio_capture.py b/voice_stt_client/core/audio_capture.py
+index 062b997..92d1d46 100644
+--- a/voice_stt_client/core/audio_capture.py
++++ b/voice_stt_client/core/audio_capture.py
+@@ -18,0 +19 @@ import threading
++import math
+@@ -43 +44 @@ class AudioCapture:
+-    def __init__(self, audio_config, *, observability=NULL_INGRESS):
++    def __init__(self, audio_config, *, observability=NULL_INGRESS, queue_duration_ms=None):
+@@ -63 +64,4 @@ class AudioCapture:
+-        self._audio_queue: queue.Queue[Optional[bytes]] = queue.Queue(maxsize=200)
++        if queue_duration_ms is not None and (isinstance(queue_duration_ms, bool) or not 0 < queue_duration_ms <= 2000):
++            raise ValueError("invalid capture queue duration")
++        queue_size = 200 if queue_duration_ms is None else max(1, math.floor(queue_duration_ms / audio_config.chunk_duration_ms))
++        self._audio_queue: queue.Queue[Optional[bytes]] = queue.Queue(maxsize=queue_size)
+@@ -79,0 +84,22 @@ class AudioCapture:
++    @property
++    def device_active(self) -> bool:
++        return self._stream is not None and bool(self._stream.active)
++
++    def probe(self) -> None:
++        """Check the selected input before V2 readiness without opening capture."""
++        info = sd.query_devices(self._config.device, kind="input")
++        try:
++            sd.check_input_settings(device=self._config.device, channels=self._config.channels,
++                                    dtype=self._config.dtype, samplerate=self._config.sample_rate)
++        except sd.PortAudioError:
++            sd.check_input_settings(device=self._config.device, channels=self._config.channels,
++                                    dtype=self._config.dtype, samplerate=int(info["default_samplerate"]))
++
++    def bound_queue(self, duration_ms: float) -> None:
++        """V2 handoff: bound the existing capture queue before first start."""
++        if self.is_running:
++            raise RuntimeError("configure capture buffer before start")
++        if isinstance(duration_ms, bool) or not 0 < duration_ms <= 2000:
++            raise ValueError("invalid capture queue duration")
++        self._audio_queue = queue.Queue(maxsize=max(1, math.floor(duration_ms / self._config.chunk_duration_ms)))
++
+@@ -318,2 +344,9 @@ class AudioCapture:
+-        # Convert to bytes (already int16 due to dtype="int16")
+-        pcm_bytes = indata.tobytes()
++        if self._muted:
++            return
++        # int16 is the configured default; keep explicit endian/float clamping
++        # for adapters handing in float samples, without integer wraparound.
++        if np.issubdtype(indata.dtype, np.floating):
++            samples = np.nan_to_num(indata, nan=0., posinf=1., neginf=-1.)
++            pcm_bytes = (np.clip(samples, -1., 1.) * 32767).astype("<i2").tobytes()
++        else:
++            pcm_bytes = indata.astype("<i2", copy=False).tobytes()
+diff --git a/voice_stt_client/core/event_cursor_store.py b/voice_stt_client/core/event_cursor_store.py
+index 9a1317e..d8d9b3b 100644
+--- a/voice_stt_client/core/event_cursor_store.py
++++ b/voice_stt_client/core/event_cursor_store.py
+@@ -44,0 +45,2 @@ class CursorRecord:
++    session_id: str = ""
++    channels: tuple[str, ...] = ()
+@@ -58,0 +61,2 @@ class EventCursorStore:
++        session_id: str = "",
++        channels: tuple[str, ...] = (),
+@@ -76,0 +81,2 @@ class EventCursorStore:
++                or record.session_id != session_id
++                or record.channels != tuple(sorted(channels))
+@@ -95,0 +102,2 @@ class EventCursorStore:
++        session_id: str = "",
++        channels: tuple[str, ...] = (),
+@@ -108,0 +117,2 @@ class EventCursorStore:
++            session_id=session_id,
++            channels=tuple(sorted(channels)),
+@@ -170 +180 @@ class EventCursorStore:
+-        if set(raw) != expected:
++        if set(raw) not in (expected, expected | {"session_id", "channels"}):
+@@ -178,0 +189,4 @@ class EventCursorStore:
++        session_id = raw.get("session_id", "")
++        channels = raw.get("channels", [])
++        if not isinstance(session_id, str) or not isinstance(channels, list) or any(not isinstance(c, str) for c in channels):
++            raise ValueError("invalid session/filter binding")
+@@ -193,0 +208,2 @@ class EventCursorStore:
++            session_id=session_id,
++            channels=tuple(sorted(channels)),
+diff --git a/voice_stt_client/core/event_models.py b/voice_stt_client/core/event_models.py
+index 5a29a53..6dc0866 100644
+--- a/voice_stt_client/core/event_models.py
++++ b/voice_stt_client/core/event_models.py
+@@ -157 +157 @@ class EventEnvelope:
+-    segment_id: Optional[int] = None
++    segment_id: Optional[int | str] = None
+@@ -168,4 +168,3 @@ class EventEnvelope:
+-        if segment_id is not None and (
+-            isinstance(segment_id, bool)
+-            or not isinstance(segment_id, int)
+-            or segment_id < 0
++        if segment_id is not None and not (
++            type(segment_id) is int and segment_id >= 0
++            or isinstance(segment_id, str) and bool(segment_id.strip())
+@@ -173 +172 @@ class EventEnvelope:
+-            raise ValueError("segmentId must be null or an integer >= 0")
++            raise ValueError("segmentId must be null, an integer >= 0 or an opaque string")
+diff --git a/voice_stt_client/core/event_protocol.py b/voice_stt_client/core/event_protocol.py
+index c2d6e43..03cdd71 100644
+--- a/voice_stt_client/core/event_protocol.py
++++ b/voice_stt_client/core/event_protocol.py
+@@ -233,0 +234,2 @@ class EventProtocolProcessor:
++                session_id=self._access.session_id,
++                channels=self._access.channels,
+@@ -298,0 +301,2 @@ class EventProtocolProcessor:
++                session_id=self._access.session_id,
++                channels=self._access.channels,
+diff --git a/voice_stt_client/core/event_stream.py b/voice_stt_client/core/event_stream.py
+index 386b199..d5409b1 100644
+--- a/voice_stt_client/core/event_stream.py
++++ b/voice_stt_client/core/event_stream.py
+@@ -131,2 +131,2 @@ class EventStreamTransport:
+-                    self._last_error = str(exc)
+-                    logger.warning("Event stream attempt failed: %s", exc)
++                    self._last_error = self._safe_error(exc)
++                    logger.warning("Event stream attempt failed: %s", self._safe_error(exc))
+@@ -170 +170 @@ class EventStreamTransport:
+-            details={"error_type": type(exc).__name__, "message": str(exc)},
++            details={"error_type": type(exc).__name__, "message": self._safe_error(exc)},
+@@ -173,0 +174,3 @@ class EventStreamTransport:
++    def _safe_error(self, exc: BaseException) -> str:
++        return str(exc).replace(self._access.access_token, "[redacted]")
++
+@@ -344 +347,5 @@ class EventStreamTransport:
+-            await ws.close(code=code, reason=reason)
++            await asyncio.wait_for(ws.close(code=code, reason=reason), 3)
++        except TimeoutError:
++            transport = getattr(ws, "transport", None)
++            if transport is not None:
++                transport.abort()
+diff --git a/voice_stt_client/core/session_coordinator.py b/voice_stt_client/core/session_coordinator.py
+index 06a8103..7752800 100644
+--- a/voice_stt_client/core/session_coordinator.py
++++ b/voice_stt_client/core/session_coordinator.py
+@@ -211,3 +210,0 @@ class DualSessionCoordinator:
+-            access_session_id = self._required_string(raw_access, "sessionId")
+-            if access_session_id != session_id:
+-                raise ValueError("logAccess session does not match STT hello session")
+@@ -223,0 +221,4 @@ class DualSessionCoordinator:
++            access_session_id = self._required_string(raw_access, "sessionId")
++            if access_session_id != session_id:
++                raise ValueError("logAccess session does not match STT hello session")
++
+@@ -309,0 +311,3 @@ class DualSessionCoordinator:
++        # V2 supplies a history path too; validate both before handling a token.
++        if "historyPath" in raw:
++            EventStreamConfig.build_url(self._server_config.url, self._required_string(raw, "historyPath"))
+@@ -433 +437 @@ class DualSessionCoordinator:
+-                logger.warning("Event stream task ended: %s", error)
++                logger.warning("Event stream task ended: %s", type(error).__name__)
+@@ -487 +491,5 @@ class DualSessionCoordinator:
+-            await detached.transport.stop()
++            try:
++                await asyncio.wait_for(detached.transport.stop(), 3)
++            except TimeoutError:
++                if detached.run_task is not None:
++                    detached.run_task.cancel()
+@@ -493,0 +502,2 @@ class DualSessionCoordinator:
++            for task in waiters:
++                task.cancel()
+diff --git a/voice_stt_client/core/v2_media.py b/voice_stt_client/core/v2_media.py
+new file mode 100644
+index 0000000..5fe11e9
+--- /dev/null
++++ b/voice_stt_client/core/v2_media.py
+@@ -0,0 +1,390 @@
++"""Continuous V2 audio and observation-only log lifecycle (headless).
++
++Attach before run, alongside V2MirrorConnection. Settings bootstrap and the Qt
++composition are supplied by their owners. Audio callbacks use one bounded
++thread-safe queue, never one asyncio handle/future per microphone packet.
++"""
++
++from __future__ import annotations
++
++import asyncio
++from collections import deque
++from dataclasses import dataclass, field
++import math
++import threading
++import time
++from websockets.exceptions import ConnectionClosed
++
++from . import protocol_v2 as p
++from .command_tracker import CommandFailure
++from .config import ServerConfig, EventStreamConfig
++from .session_coordinator import DualSessionCoordinator
++from .v2_transport import V2TransportState
++
++
++@dataclass(frozen=True)
++class AudioChunk:
++    pcm: bytes = field(repr=False)
++    rate: int
++    channels: int
++    frames: int
++    created: float
++    epoch: int
++
++
++class BoundedAudioQueue:
++    """Duration AND age bounded PCM handoff; format checked before admission."""
++
++    def __init__(self, duration_ms=500, *, clock=time.monotonic):
++        if isinstance(duration_ms, bool) or not isinstance(duration_ms, (int, float)) or not 0 < duration_ms <= 2000:
++            raise ValueError("audio queue duration must be in (0, 2000] ms")
++        self.limit = duration_ms / 1000
++        self.clock = clock
++        self._lock = threading.Lock()
++        self._items = deque()
++        self._duration = 0.
++        self._bytes = 0
++        self.overflow = self.stale = self.invalid = 0
++
++    def put(self, pcm, rate, channels, frames, epoch):
++        try:
++            p.encode_audio_packet(pcm, rate, channels, frames)
++            if type(frames) is not int or frames <= 0:
++                raise p.ProtocolError("positive frames required")
++        except (p.ProtocolError, TypeError, ValueError):
++            self.invalid += 1
++            return False
++        duration = frames / rate
++        with self._lock:
++            if duration > self.limit:
++                self.overflow += 1
++                return False
++            while self._items and (self._duration + duration > self.limit + 1e-9 or len(self._items) >= 128
++                                   or self._bytes + len(pcm) > 4 * 1024 * 1024):
++                old = self._items.popleft()
++                self._duration -= old.frames / old.rate
++                self._bytes -= len(old.pcm)
++                self.overflow += 1
++            self._items.append(AudioChunk(bytes(pcm), rate, channels, frames, self.clock(), epoch))
++            self._duration += duration
++            self._bytes += len(pcm)
++        return True
++
++    def pop(self, epoch):
++        with self._lock:
++            while self._items:
++                item = self._items.popleft()
++                self._duration -= item.frames / item.rate
++                self._bytes -= len(item.pcm)
++                if item.epoch == epoch and self.clock() - item.created <= self.limit:
++                    return item
++                self.stale += 1
++            self._duration = 0.
++            self._bytes = 0
++        return None
++
++    def clear(self):
++        with self._lock:
++            self.stale += len(self._items)
++            self._items.clear()
++            self._duration = 0.
++            self._bytes = 0
++
++    @property
++    def duration_ms(self):
++        with self._lock:
++            return max(0., self._duration * 1000)
++
++
++class V2MediaConnection:
++    """Own capture/send/log tasks for exactly the transport's current binding.
++
++    Device and mute inputs run on the core loop, with optional binding guards.
++    LED availability has no audio/domain side effect. Audio failure sends only
++    audio_availability.set; the server owns cancellation of the open input.
++    Log callbacks are observation-only; never connect them to a V2 reducer or
++    text injection. A failed log bootstrap cannot prevent audio readiness.
++    """
++
++    def __init__(self, session, capture, *, logs=None, settings_bootstrap=None,
++                 queue_ms=500, recovery_interval=.25, shutdown_timeout=3):
++        if session.binding is not None or session.bootstrap is not None:
++            raise RuntimeError("attach media before run; pass settings_bootstrap here")
++        if not all(isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v) and v > 0
++                   for v in (recovery_interval, shutdown_timeout)):
++            raise ValueError("invalid media timeout")
++        self.session, self.capture = session, capture
++        self.logs = logs or DualSessionCoordinator(ServerConfig(url=session.config.url), EventStreamConfig())
++        self.settings_bootstrap = settings_bootstrap
++        self.queue = BoundedAudioQueue(queue_ms)
++        bound_capture = getattr(capture, "bound_queue", None)
++        if bound_capture is not None:
++            bound_capture(queue_ms)
++        self.recovery_interval, self.shutdown_timeout = recovery_interval, shutdown_timeout
++        self.device_available = True
++        self.hardware_muted = False
++        self.led_available = True
++        self.capture_available = False
++        self.sent = self.gated = self.capture_failures = 0
++        self.log_failure = None
++        self._binding = None
++        self._epoch = 0
++        self._gate = False
++        self._closed = False
++        self._wake = asyncio.Event()
++        self._audio_wake = asyncio.Event()
++        self._notify_lock = threading.Lock()
++        self._notification_pending = False
++        self._loop = None
++        self._task = self._sender = None
++        self._capture_operation = None
++        self._reported_available = None
++        self._overflow_at_last_send = 0
++        self._overflow_streak = 0
++        old_status, old_accepted, old_lost = session.on_status, session.on_accepted, session.on_lost
++
++        def status(value):
++            if value.state != V2TransportState.READY:
++                self._block()
++            self._ensure_tasks()
++            self._wake.set()
++            if old_status:
++                old_status(value)
++
++        def accepted(binding):
++            self._wake.set()
++            if old_accepted:
++                old_accepted(binding)
++
++        def lost(binding):
++            self._block()
++            self._wake.set()
++            if old_lost:
++                old_lost(binding)
++
++        session.on_status, session.on_accepted, session.on_lost = status, accepted, lost
++        session.bootstrap = self.bootstrap
++
++    @property
++    def audio_available(self):
++        return self.device_available and self.capture_available and not self.hardware_muted
++
++    def _block(self):
++        self._gate = False
++        self._epoch += 1
++        self.queue.clear()
++
++    def _ensure_tasks(self):
++        if self._closed or self._task is not None:
++            return
++        self._loop = asyncio.get_running_loop()
++        self._task = asyncio.create_task(self._lifecycle(), name="v2-media-lifecycle")
++        self._sender = asyncio.create_task(self._send(), name="v2-audio-send")
++
++    async def bootstrap(self, session, binding):
++        # Probe without capture: no microphone frames before config-ready.
++        try:
++            probe = getattr(self.capture, "probe", None)
++            if probe is not None and self.device_available and not self.hardware_muted:
++                await self._capture_call(probe)
++            available = self.device_available and not self.hardware_muted
++        except Exception:
++            available = False
++            self.capture_failures += 1
++        if not available:
++            await session.bootstrap_command(binding, p.CommandType.AUDIO_AVAILABILITY, audioAvailable=False)
++        self._reported_available = (binding, available)
++        if self.settings_bootstrap:
++            await self.settings_bootstrap(session, binding)
++        # A mute/device change while settings awaited must be acknowledged
++        # before the transport restores desired suppression and becomes ready.
++        available = available and self.device_available and not self.hardware_muted
++        if self._reported_available != (binding, available):
++            await session.bootstrap_command(binding, p.CommandType.AUDIO_AVAILABILITY, audioAvailable=available)
++            self._reported_available = (binding, available)
++
++    def set_device_available(self, available, *, binding=None):
++        return self._set_audio_input("device_available", available, binding)
++
++    def set_hardware_muted(self, muted, *, binding=None):
++        return self._set_audio_input("hardware_muted", muted, binding)
++
++    def _set_audio_input(self, name, value, binding):
++        if type(value) is not bool:
++            raise ValueError("availability/mute must be boolean")
++        if self._closed or binding is not None and binding is not self.session.binding:
++            return False
++        if getattr(self, name) != value:
++            # Immediate local barrier, before any command await or device stop.
++            self._block()
++            setattr(self, name, value)
++            self._wake.set()
++        return True
++
++    def set_led_available(self, available):
++        if type(available) is not bool:
++            raise ValueError("LED availability must be boolean")
++        self.led_available = available
++
++    def _packet_callback(self, binding, epoch):
++        def packet(pcm, rate, channels, frames):
++            if not self._gate or epoch != self._epoch or binding is not self.session.binding:
++                self.gated += 1
++                return
++            if not self.queue.put(pcm, rate, channels, frames, epoch):
++                return
++            # At most one pending loop handle, even if the core loop stalls.
++            with self._notify_lock:
++                if self._notification_pending or self._closed:
++                    return
++                self._notification_pending = True
++            try:
++                self._loop.call_soon_threadsafe(self._notify_audio)
++            except RuntimeError:
++                with self._notify_lock:
++                    self._notification_pending = False
++        return packet
++
++    def _notify_audio(self):
++        with self._notify_lock:
++            self._notification_pending = False
++        self._audio_wake.set()
++
++    async def _stop_capture(self):
++        self._block()
++        self.capture_available = False
++        await self._capture_call(self.capture.stop)
++
++    async def _capture_call(self, operation):
++        # Cancelling the asyncio owner doesn't cancel a native PortAudio call.
++        # Keep its task so close can join it before calling stop on the device.
++        previous = self._capture_operation
++        if previous is not None:
++            await asyncio.shield(previous)
++        task = self._capture_operation = asyncio.create_task(asyncio.to_thread(operation))
++        try:
++            return await asyncio.shield(task)
++        finally:
++            if task.done() and self._capture_operation is task:
++                self._capture_operation = None
++
++    async def _lifecycle(self):
++        try:
++            while not self._closed:
++                self._wake.clear()
++                binding = self.session.binding
++                if binding is not self._binding:
++                    await self._stop_capture()
++                    previous = self._binding
++                    self._binding = binding
++                    try:
++                        if previous:
++                            await self.logs.invalidate_generation(previous.generation)
++                        if binding:
++                            await self.logs.begin_generation(binding.generation)
++                            hello = binding.accepted.to_mapping()
++                            if not binding.accepted.logAccess.available:
++                                hello["logAccess"] = {"available": False, "code": "log_unavailable", "reason": "Log access unavailable"}
++                            await self.logs.adopt_hello(binding.generation, hello)
++                            self.log_failure = None
++                    except Exception:
++                        # No exception/raw credential is published.
++                        self.log_failure = "log_bootstrap_invalid"
++                if binding and self.session.is_ready:
++                    if self.device_available and not self.hardware_muted:
++                        if not self.capture.is_running or not getattr(self.capture, "device_active", True):
++                            was_available = self.capture_available
++                            await self._stop_capture()
++                            if was_available:
++                                await self._report_availability(binding, False)
++                            try:
++                                await self._capture_call(self.capture.start)
++                                self.capture_available = True
++                            except Exception:
++                                self.capture_failures += 1
++                        available = self.audio_available
++                    else:
++                        await self._stop_capture()
++                        available = False
++                    if self._reported_available != (binding, available):
++                        await self._report_availability(binding, available)
++                    if available and self.session.binding is binding and self.session.is_ready:
++                        # Reinstall after every local barrier; old callback epochs
++                        # stay stale across mute, device and network recovery.
++                        self.capture.on_audio_packet = self._packet_callback(binding, self._epoch)
++                        self._gate = True
++                elif self.capture.is_running:
++                    await self._stop_capture()
++                try:
++                    await asyncio.wait_for(self._wake.wait(), self.recovery_interval)
++                except TimeoutError:
++                    pass
++        except (CommandFailure, OSError, TimeoutError, ConnectionClosed):
++            self._block()
++            if not self._closed:
++                await asyncio.sleep(self.recovery_interval)
++                self._task = None
++                self._ensure_tasks_after_failure()
++        finally:
++            self._block()
++
++    def _ensure_tasks_after_failure(self):
++        # Receiver/transport cleanup owns reconnect; restart only lifecycle.
++        self._task = asyncio.create_task(self._lifecycle(), name="v2-media-lifecycle")
++
++    async def _report_availability(self, binding, available):
++        result = await self.session.request(p.CommandType.AUDIO_AVAILABILITY, binding=binding, audioAvailable=available)
++        if not result.ack.accepted:
++            self._block()
++            await self.session.reconnect(binding, "audio_availability_rejected")
++            raise CommandFailure("audio availability rejected")
++        self._reported_available = (binding, available)
++
++    def counters(self):
++        return {"sent": self.sent, "gated": self.gated, "overflow": self.queue.overflow,
++                "stale": self.queue.stale, "invalid": self.queue.invalid,
++                "queue_ms": self.queue.duration_ms, "capture_failures": self.capture_failures,
++                "audio_available": self.audio_available, "led_available": self.led_available,
++                "log_failure": self.log_failure}
++
++    async def _send(self):
++        while not self._closed:
++            await self._audio_wake.wait()
++            self._audio_wake.clear()
++            while self._gate and self.session.is_ready:
++                item = self.queue.pop(self._epoch)
++                if item is None:
++                    break
++                binding = self._binding
++                try:
++                    if await self.session.send_audio(item.pcm, item.rate, item.channels, item.frames, binding=binding):
++                        self.sent += 1
++                except (OSError, TimeoutError, CommandFailure, ConnectionClosed):
++                    self._block()
++                    break
++                overflow = self.queue.overflow
++                self._overflow_streak = self._overflow_streak + 1 if overflow > self._overflow_at_last_send else 0
++                self._overflow_at_last_send = overflow
++                if self._overflow_streak >= 3:
++                    self._block()
++                    await self.session.reconnect(binding, "sustained_audio_overflow")
++                    break
++
++    async def close(self):
++        """Bounded shutdown; caller then joins V2MirrorConnection if attached."""
++        if self._closed:
++            return
++        self._closed = True
++        self._block()
++        self.capture.on_audio_packet = None
++        await self.session.stop()
++        tasks = [task for task in (self._task, self._sender) if task]
++        for task in tasks:
++            task.cancel()
++        await asyncio.gather(*tasks, return_exceptions=True)
++        if self._capture_operation is not None:
++            await asyncio.wait_for(asyncio.shield(self._capture_operation), self.shutdown_timeout)
++            self._capture_operation = None
++        await asyncio.wait_for(self._stop_capture(), self.shutdown_timeout)
++        await asyncio.wait_for(self.logs.shutdown(), self.shutdown_timeout + 3)
++        self._task = self._sender = None

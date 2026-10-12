@@ -57,3 +57,16 @@ Unabhängiger commitgebundener Vollreview des PR #3: `7124e5629e24817dd711b2e2b6
 ## AP-CV2-030-R01 – 2026-10-12 – Mirror und Resync / REVIEW_READY
 
 Von AP020-Aggregat8fa0f82 nach belegtem unabhängigen PASS, menschlicher Freigabe und Baumgleichheit: reiner Mirror, sichere Segment-/Terminal-/Settingsprojektionen und tatsächliche V2-Transport-/Snapshotanbindung. Alle35 Requirements einzeln verknüpft.1339 Windowsgesamttests,106 gezielte Tests,35 echte Serverchecks/46 Quellblobs und compileall PASS; exakte Basis/Produktdiff/Gitblobs und vollständige Logs gesichert. [R01-Report](30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md). Keine eigene Abnahme, Promotion oder Folgepaketimplementierung; Schreiben ab Übergabe pausiert.
+
+## AP-CV2-040-R01 – 2026-10-12 – Continuous-Audio und Logbootstrap / REVIEW_READY
+
+Vom tatsächlichen AP030-Aggregat3df342c nach geprüfter unabhängiger Abnahme,
+menschlicher Freigabe und Single-Parent-/Baumgleichheit: sessionlanger Capture/
+PCMflow, begrenzte Epochqueue, getrennte Device-/Mute-/LEDports und separater
+V2-Logbootstrap am Bestand. Alle23 Requirements einzeln belegt. 1367 Windows-,
+222 gezielte Tests und41 echte Serverfälle/46 bytegeprüfte Quellen PASS;
+compileall/diffcheck PASS, vollständige Logs samt Basis/Diff/Blobbindung.
+[Report](30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/01_REPORT.md).
+Unabhängige Abnahme offen; Paketbranch ab Übergabe pausiert. Kein eigener
+ROOT_PASS, Merge oder Folgepaketstart. Serverada13b0/Distributed und spätere
+ASR-/Hardwaregates offen.

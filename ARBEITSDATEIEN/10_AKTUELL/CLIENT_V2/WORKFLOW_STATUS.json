@@ -1,46 +1,48 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "WAITING_FOR_APPROVAL",
-  "packageStatus": "ROOT_PASS",
-  "activePackage": "AP-CV2-030",
-  "nextPackage": "AP-CV2-040",
+  "workflowPhase": "REVIEW_READY",
+  "packageStatus": "REVIEW_READY",
+  "activePackage": "AP-CV2-040",
+  "nextPackage": "AP-CV2-050",
   "canonicalBranch": "feat/client-v2",
-  "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
-  "candidateBranch": "work/client-v2/ap-cv2-030",
-  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/5",
+  "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+  "candidateBranch": "work/client-v2/ap-cv2-040",
+  "pullRequest": null,
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R02-ABNAHME",
-    "role": "review",
-    "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+    "id": "R01-UMSETZUNG",
+    "role": "implementation",
+    "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+  "reviewedCommit": null,
+  "reviewReport": null,
   "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "R02 technischer ROOT_PASS für AP-CV2-030; ausdrücklichen menschlichen Übernahmeprompt für PR #5 mit R02-Report und finalem Head/Parent abwarten. Kein eigenmächtiger Merge oder AP-CV2-040-Start.",
+  "nextAction": "Frische unabhängige Abnahme des vollständigen AP-CV2-040-Kandidaten; Paketbranch ab Übergabe pausiert.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
   "canonicalParentRef": "feat/client-v2",
-  "canonicalParentResolution": "Fetched origin and local feat/client-v2 match AP020 aggregate 8fa0f82",
+  "canonicalParentResolution": "Fetched local HEAD equals origin/feat/client-v2; merged PR #5 and exact parent/tree/approval checked.",
   "repository": "marcosudau-vps/voice-stt-client",
   "candidateSelection": {
-    "candidateId": "AP-CV2-030",
-    "source": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "Ausdrücklicher AP030-Auftrag nach belegter AP020-Übernahme."
+    "candidateId": "AP-CV2-040",
+    "source": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "reason": "Ausdrücklicher Auftrag für AP040 nach tatsächlicher AP030-Übernahme."
   },
   "recovery": null,
   "relatedServerFix": null,
-  "predecessorCanonicalization": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json",
-  "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
-  "qualificationBase": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
-  "qualificationProductDiff": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/tested-product.patch",
-  "qualifiedImplementationCommit": "93acd2e6a589e04b266019f69e2bcad2998b8904",
-  "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29"
+  "predecessorCanonicalization": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json",
+  "reviewedTree": null,
+  "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+  "qualificationBasis": {
+    "base": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+    "diff": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/tested-product.patch",
+    "sha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+  }
 }

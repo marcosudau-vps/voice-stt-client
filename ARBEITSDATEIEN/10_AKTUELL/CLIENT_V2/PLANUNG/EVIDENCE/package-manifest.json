@@ -201,7 +201,7 @@
         "AP-CV2-020"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-030.md",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "testModules": [
         "test_v2_mirror",
         "test_v2_transport",
@@ -270,7 +270,10 @@
       "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
       "reviewReport": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
       "openFindingIds": [],
-      "humanApproval": null
+      "humanApproval": null,
+      "canonicalCommit": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+      "canonicalTree": "466c29196ffb4f5017a8caba028d1806279aba03",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "AP-CV2-040",
@@ -280,9 +283,16 @@
         "AP-CV2-030"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-040.md",
-      "status": "PLANNED",
+      "status": "REVIEW_READY",
       "testModules": [
-        "test_v2_audio_recovery"
+        "test_v2_audio_recovery",
+        "test_audio_capture",
+        "test_event_protocol",
+        "test_event_stream",
+        "test_event_cursor_store",
+        "test_session_coordinator",
+        "test_v2_mirror",
+        "test_v2_transport"
       ],
       "requirements": [
         "AUDIO-01",
@@ -323,7 +333,11 @@
         "defaultRuns": 1,
         "scopeNote": "existing infrastructure retained; adapt protocol input/bootstrap only"
       },
-      "testModulesRole": "suggested locations; actual coverage and methods required"
+      "testModulesRole": "suggested locations; actual coverage and methods required",
+      "candidateBranch": "work/client-v2/ap-cv2-040",
+      "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
     },
     {
       "id": "AP-CV2-050",

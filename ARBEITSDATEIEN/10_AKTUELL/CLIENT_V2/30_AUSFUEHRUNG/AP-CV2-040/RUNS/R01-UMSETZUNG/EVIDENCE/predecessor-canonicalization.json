@@ -1,0 +1,45 @@
+{
+  "package": "AP-CV2-030",
+  "state": "ACCEPTED",
+  "aggregate": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+  "parent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+  "tree": "466c29196ffb4f5017a8caba028d1806279aba03",
+  "approvedHead": "6dd7fef723f1e940badde4cbc876916ec26b193e",
+  "reviewedHead": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+  "singleParent": true,
+  "singleNewCommit": true,
+  "treeEquality": true,
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/5",
+  "mergedAt": "2026-10-12T02:25:04Z",
+  "approvalOriginal": {
+    "id": "IC_kwDOTy--dM8AAAABbJRduQ",
+    "author": {
+      "login": "marcosudau-vps"
+    },
+    "authorAssociation": "OWNER",
+    "body": "## Menschliche Freigabe und grobe Abschlussprüfung\r\n\r\nAP-CV2-030: ActivationMirror, background activation/segment ledger and bounded snapshot resync. Independent R02 ROOT_PASS, no mandatory findings.\r\n\r\nHigh-level closing assessment PASS; no detailed technical rereview. Package scope and evidence limits appropriate. All35 FG/SYNC IDs retained with actual test methods and R02 review references, matrix/report aligned. Requirement texts, owners, contracts and source refs unchanged from canonical parent; acceptance criteria not weakened. Complete qualification log hashes4/4, tested product patch hash and185 qualified Gitblob identities verified. Windows1339/targeted106/real pinned server35 PASS. After reviewed SHA only administrative review/docs; product/tests/config unchanged. Structure checker PASS. Product and remaining docs diff check PASS excluding two byte-preserved evidence artifacts (tested-product.patch context blanks and unittest progress line have trailing spaces); unfiltered artifact whitespace warnings are explicitly acknowledged, no hash-destroying cleanup.\r\n\r\nCanonical parent: 8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0\r\nApproved PR head: 6dd7fef723f1e940badde4cbc876916ec26b193e\r\nReviewed head: d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61\r\nQualified product commit: 93acd2e6a589e04b266019f69e2bcad2998b8904\r\nApproved tree: 466c29196ffb4f5017a8caba028d1806279aba03\r\nServer baseline: ada13b011e1d3829f78e7f389e3b927795a2b3be\r\nReview report: ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md\r\nPremerge CI38189140779 SUCCESS on exact parent/head testmerge495415072fc41996cb4a052553e000932ba135af:1339 tests, build/install smoke PASS.\r\n\r\nNonblocking editorial follow-up: MASTERPLAN top still REVIEW_READY, AP030 acceptance/DoD checkboxes still unchecked despite explicit35/35 R02 PASS and WORKFLOW_STATUS ROOT_PASS. Refresh these current summaries/checklists with the predecessor canonicalization on next package branch, preserve original historical reports and raw evidence. No open technical obligation inferred from unmaintained checkboxes.\r\n\r\nActual human authorization (verbatim):\r\nDer Reviewer hat ROOT_PASS PR #5, Arbeitspaket AP-CV2-030 erteilt. \r\nBitte prüfe nochmal grob den Umfang, Bewertungsmaßstäbe, Tracabilities, etc...  \r\nKeine fachliche Detailprüfung mehr... \r\nWenn du nichts einzuwenden hast, erteile ich dir die Freigabe, um den Pull Request so zu mergen.\r\n\r\nCondition satisfied: no objection to adoption. Exactly one squash onto feat/client-v2, no extra branch changes/main/server promotion/cleanup or successor implementation. Canonical acceptance comes from verified Git/merged PR; carry forward state on next package branch.\r\n",
+    "createdAt": "2026-10-12T02:24:30Z",
+    "includesCreatedEdit": false,
+    "isMinimized": false,
+    "minimizedReason": "",
+    "reactionGroups": [],
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/5#issuecomment-6116629945",
+    "viewerDidAuthor": true
+  },
+  "closingEvidence": {
+    "id": "IC_kwDOTy--dM8AAAABbJUg-A",
+    "author": {
+      "login": "marcosudau-vps"
+    },
+    "authorAssociation": "OWNER",
+    "body": "## Abschlussnachweis AP-CV2-030: ACCEPTED / CANONICALIZED\r\n\r\nAggregate `3df342c3a7cacaa1226743c4d9bee674e94d33db`, genau ein neuer Single-Parent-Commit auf `8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0`. Tree `466c29196ffb4f5017a8caba028d1806279aba03` gleich freigegebenem Head `6dd7fef723f1e940badde4cbc876916ec26b193e`. R02 unabhängiger ROOT_PASS auf `d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61`; danach ausschließlich Review-/administrative Unterlagen. Alle35 FG/SYNC-Requirements mit tatsächlichen Methoden und Reviewbelegen; Anforderungstexte, Owner, Kontrakte und Quellen unverändert. Keine fachliche Detail-Neuabnahme.\r\n\r\n[Freigabeoriginal und grobe Abschlussbewertung](https://github.com/marcosudau-vps/voice-stt-client/pull/5#issuecomment-6116629945); tatsächlicher Nutzerwortlaut auch in Aggregate-Commitnachricht. Premerge-CI38189140779 SUCCESS auf exact parent/head Testmerge. [Nachmerge-CI38195699725](https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38195699725) SUCCESS auf exakt `3df342c3a7cacaa1226743c4d9bee674e94d33db`:1339 Windows-Tests, compileall, EXE-Smoke, Distributionsbau und Installed-Wheel-Smoke PASS. Clean Workspace auf feat/client-v2. R01-Belege4/4 bytehashidentisch, qualifizierter Patchhash und185 veröffentlichte Quellblobidentitäten stimmen.\r\n\r\nRedaktionelle Folgepflege im nächsten Paketbranch: MASTERPLAN-Kopf von REVIEW_READY auf kanonischen Vorgängerabschluss nachführen; noch unausgefüllte AP030-Akzeptanz-/DoD-Checkboxen anhand R02 und tatsächlicher Belege aktualisieren. Keine offene technische Pflicht wird damit verdeckt: R02/Requirements/WORKFLOW_STATUS eindeutig PASS. Rohe tested-product.patch/unittest-Logs erhalten; deren Kontext-/Progressleerzeichen erklären unfiltered git-diff-whitespace-Warnungen; übriger Diffcheck PASS. Historische Reports unverändert erhalten.\r\n\r\nCommitted WAITING_FOR_APPROVAL/humanApproval=null ist premerge Provenienz, überholt durch tatsächlichen Freigabeprompt, Commitnachricht und Git/mergedPR. Kein zusätzlicher AP030-Statuscommit. Nächster Paketbranch übernimmt Abschlussnachweis und aktualisiert Vorgängerreferenzen. AP-CV2-040 kann separat beauftragt werden, wurde nicht begonnen. Keine Branchlöschung/Main-/Serverpromotion, Tags oder Releases.\r\n",
+    "createdAt": "2026-10-12T02:30:05Z",
+    "includesCreatedEdit": false,
+    "isMinimized": false,
+    "minimizedReason": "",
+    "reactionGroups": [],
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/5#issuecomment-6116679928",
+    "viewerDidAuthor": true
+  }
+}

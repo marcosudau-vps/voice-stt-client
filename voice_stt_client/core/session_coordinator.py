@@ -208,9 +208,6 @@ class DualSessionCoordinator:
             available = raw_access.get("available")
             if not isinstance(available, bool):
                 raise ValueError("logAccess.available must be a boolean")
-            access_session_id = self._required_string(raw_access, "sessionId")
-            if access_session_id != session_id:
-                raise ValueError("logAccess session does not match STT hello session")
             if not available:
                 self._set_unavailable(
                     generation,
@@ -220,6 +217,10 @@ class DualSessionCoordinator:
                     or "Server event stream is unavailable",
                 )
                 return False
+
+            access_session_id = self._required_string(raw_access, "sessionId")
+            if access_session_id != session_id:
+                raise ValueError("logAccess session does not match STT hello session")
 
             expires_at = self._parse_expiry(raw_access.get("expiresAt"))
             if expires_at <= datetime.now(timezone.utc):
@@ -307,6 +308,9 @@ class DualSessionCoordinator:
         session_id: str,
         raw: Mapping[str, Any],
     ) -> EventStreamAccess:
+        # V2 supplies a history path too; validate both before handling a token.
+        if "historyPath" in raw:
+            EventStreamConfig.build_url(self._server_config.url, self._required_string(raw, "historyPath"))
         endpoint = EventStreamConfig.build_url(
             self._server_config.url,
             self._required_string(raw, "websocketPath"),
@@ -430,7 +434,7 @@ class DualSessionCoordinator:
             except asyncio.CancelledError:
                 error = None
             if error is not None:
-                logger.warning("Event stream task ended: %s", error)
+                logger.warning("Event stream task ended: %s", type(error).__name__)
         if binding != self._binding or self._shutdown:
             return
         self._transport = None
@@ -484,13 +488,19 @@ class DualSessionCoordinator:
         if detached.expiry_task is not None and detached.expiry_task is not current:
             detached.expiry_task.cancel()
         if detached.transport is not None:
-            await detached.transport.stop()
+            try:
+                await asyncio.wait_for(detached.transport.stop(), 3)
+            except TimeoutError:
+                if detached.run_task is not None:
+                    detached.run_task.cancel()
         waiters = [
             task
             for task in (detached.run_task, detached.expiry_task)
             if task is not None and task is not current and not task.done()
         ]
         if waiters:
+            for task in waiters:
+                task.cancel()
             await asyncio.gather(*waiters, return_exceptions=True)
 
     def _set_unavailable(
