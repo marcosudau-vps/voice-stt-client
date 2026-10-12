@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-040 sind **ACCEPTED** (AP040 kanonischer Commit `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`, [Abschlussbeleg](../../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json)). AP-CV2-050: **REVIEW_READY**, [R01-Report](../../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/01_REPORT.md),1397 Windows/297 gezielte Tests,79 Server-/16 native Checks PASS. Nächste Aktion frischer unabhängiger Review; Paketbranch ab Übergabe pausiert, kein Merge/AP060-Start. Spätere Pakete PLANNED.
+AP-CV2-000 bis AP-CV2-040 sind **ACCEPTED** (AP040 kanonischer Commit `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`, [Abschlussbeleg](../../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json)). AP-CV2-050: **ROOT_PASS** / WAITING_FOR_APPROVAL nach [unabhängiger R02-Abnahme](../../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md) auf `55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a`; 1397 Windows-/297 gezielte/79 Server-/16 native Prüfungen als Fremdbelege unabhängig kontrolliert. Nächste Aktion ausdrückliche menschliche Übernahmefreigabe zu PR #7; kein Merge/AP060-Start ohne Freigabe. Spätere Pakete PLANNED.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |

@@ -1,3 +1,7 @@
+## 2026-10-12 – AP-CV2-050: unabhängige technische Abnahme R02
+
+PR #7; geprüfter Kandidat `55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a`, Tree `3b0dc469a1a3e577eb4dda0a67e2f3746b9c92cd`, kanonischer Parent `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`: **ROOT_PASS** für CONTROL-01 bis CONTROL-14, keine offenen Pflichtfindings. 1397 Windows-, 297 gezielte, 79 echte lokale TCP/WS-Server- und 16 native Win32-Checks als Fremdbelege geprüft; eigene Windows-Wiederholung NOT_RUN. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md). Workflow WAITING_FOR_APPROVAL; kein Merge und kein AP060 ohne menschliche Übernahmefreigabe.
+
 ## 2026-10-12 – AP-CV2-030: unabhängige Abnahme R02
 
 PR #5, geprüfter Kandidat `d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61`, Tree `7123984bb4b382919e557f4ecef1400de4eced29`, Parent `8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0`: **ROOT_PASS** für 35/35 FG-/SYNC-IDs nach unabhängiger Code- und Fremdevidenzprüfung; 1339 Windows-, 106 Targeted-Tests und 35 gepinnte Serverchecks grün, GitHub-CI grün. Eigene Windows-Suite regelkonform NOT_RUN. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md). Status WAITING_FOR_APPROVAL; menschliche Übernahme noch offen, AP040 nicht begonnen.

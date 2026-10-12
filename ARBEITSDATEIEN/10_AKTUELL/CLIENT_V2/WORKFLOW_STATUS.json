@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "REVIEW_READY",
-  "packageStatus": "REVIEW_READY",
+  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "packageStatus": "ROOT_PASS",
   "activePackage": "AP-CV2-050",
   "nextPackage": "AP-CV2-060",
   "canonicalParent": "4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f",
@@ -11,18 +11,18 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/7",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R01-UMSETZUNG",
-    "role": "implementation",
-    "report": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
+    "id": "R02-ABNAHME",
+    "role": "review",
+    "report": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": null,
-  "reviewReport": null,
+  "reviewedCommit": "55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Frische unabhängige Abnahme des vollständigen AP-CV2-050-Kandidaten; Umsetzer pausiert Änderungen/Pushes. Keine kanonische Übernahme oder Folgepaketstart.",
+  "nextAction": "AP-CV2-050 hat unabhängigen ROOT_PASS (R02). Ausdrücklichen menschlichen Übernahmeprompt für PR #7 abwarten; keine automatische Übernahme und kein AP-CV2-060-Start.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -42,5 +42,6 @@
     "tree": "f1613cb4ecf3292e6442f38c4704162b940c5fea",
     "evidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
     "scope": "Exact tested product diff/192 Gitblobs; subsequent publication refs administrative only."
-  }
+  },
+  "reviewedTree": "3b0dc469a1a3e577eb4dda0a67e2f3746b9c92cd"
 }
