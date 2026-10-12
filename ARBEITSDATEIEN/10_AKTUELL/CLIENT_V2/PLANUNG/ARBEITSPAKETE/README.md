@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-020: ACCEPTED (AP020 `8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0`, [PR #4](https://github.com/marcosudau-vps/voice-stt-client/pull/4), [Nachmergebeleg](../../30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json)). AP-CV2-030: ROOT_PASS / WAITING_FOR_APPROVAL ([Paketakte](../../30_AUSFUEHRUNG/AP-CV2-030/00_PAKET.md), [R02-Bericht](../../30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md)); spätere Pakete PLANNED.
+AP-CV2-000 bis AP-CV2-030 sind **ACCEPTED** (AP030 kanonischer Commit `3df342c3a7cacaa1226743c4d9bee674e94d33db`, PR #5 und gesicherter Vorgängerabschluss). AP-CV2-040: **CHANGES_REQUIRED** nach [R02-Review](../../30_AUSFUEHRUNG/AP-CV2-040/RUNS/R02-ABNAHME/01_REPORT.md), offene Findings `CV2-040-R02-F01`, `CV2-040-R02-F02`; spätere Pakete weiterhin PLANNED.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |
