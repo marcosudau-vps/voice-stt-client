@@ -164,3 +164,5 @@ feat/client-v2; genaue finale Spitze/Tree werden bei Veröffentlichung aus Git
 genannt. Paketbranch ab Übergabe pausiert, writeOwner=null. Kein eigener
 ROOT_PASS, Merge oder Folgepaketstart. Nach unabhängiger Abnahme bleibt eine
 separate ausdrückliche menschliche Übernahmefreigabe erforderlich.
+
+Veröffentlicht in [PR #6](https://github.com/marcosudau-vps/voice-stt-client/pull/6). Qualifizierter vollständiger Umsetzungscommit `efd8362fc63bc8a98fdbc9edccd4b4074c659393`, Tree `dd63a7822a39ca332a2a62a113ad75b16bf9397b`. Nachtrag zu PR-/Gitidentität ausschließlich administrativ; Produkt/Test/Konfigurationsblobs bleiben beim Windowsnachweis. Finale Spitze im Übergabekommentar.

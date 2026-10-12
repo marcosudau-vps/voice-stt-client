@@ -7,7 +7,7 @@
   "canonicalBranch": "feat/client-v2",
   "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
   "candidateBranch": "work/client-v2/ap-cv2-040",
-  "pullRequest": null,
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/6",
   "selectedCandidate": true,
   "lastRun": {
     "id": "R01-UMSETZUNG",
@@ -44,5 +44,7 @@
     "base": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
     "diff": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/tested-product.patch",
     "sha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
-  }
+  },
+  "qualifiedImplementationCommit": "efd8362fc63bc8a98fdbc9edccd4b4074c659393",
+  "qualifiedImplementationTree": "dd63a7822a39ca332a2a62a113ad75b16bf9397b"
 }

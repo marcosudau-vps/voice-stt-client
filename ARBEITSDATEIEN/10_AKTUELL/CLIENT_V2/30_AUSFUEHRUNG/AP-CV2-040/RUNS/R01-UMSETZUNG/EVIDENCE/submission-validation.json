@@ -47,5 +47,18 @@
     "ÜBERGABE.md",
     "--pr-summary",
     "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-040-pr.md"
-  ]
+  ],
+  "publishedInitialCandidateCommit": "efd8362fc63bc8a98fdbc9edccd4b4074c659393",
+  "publishedInitialCandidateTree": "dd63a7822a39ca332a2a62a113ad75b16bf9397b",
+  "pullRequestSnapshot": {
+    "baseRefName": "feat/client-v2",
+    "baseRefOid": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+    "headRefName": "work/client-v2/ap-cv2-040",
+    "headRefOid": "efd8362fc63bc8a98fdbc9edccd4b4074c659393",
+    "isDraft": false,
+    "state": "OPEN",
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/6"
+  },
+  "publicationCheckedAtUtc": "2026-10-12T03:59:25.968149+00:00",
+  "administrativeFollowup": "Only PR identity/status/record references; product/test/config unchanged. Final head is reported externally to avoid a self-SHA."
 }
