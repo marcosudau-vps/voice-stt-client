@@ -1,6 +1,6 @@
 # AP-CV2-060 – Final-Pipeline, UUID-Historie und sichere Textinjektion
 
-Status **ROOT_PASS**, workflowPhase **READY_FOR_CANONICALIZATION**, Stand 2026-10-12. Vollständiger R01-Selbstcheck; R02-F01 in R03 adressiert; erneute unabhängige Abnahme R04 bestanden, technische Freigabe dokumentiert, kanonische Übernahme ausstehend.
+Status **ACCEPTED**, Stand 2026-10-12. Tatsächliche kanonische Übernahme bei AP070-Start belegt; historische R01–R05-Berichte unverändert.
 
 [Paketvertrag](../../PLANUNG/ARBEITSPAKETE/AP-CV2-060.md), [Originalauftrag](RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md), [Report](RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [Produktinterfaces](../../../../../docs/protocol-v2-results.md).
 
@@ -35,3 +35,8 @@ F01 berechtigt und ausschließlich als Dokumentnamen korrigiert: STTController.a
 ## R05 menschliche Freigabe zum Squash-Merge (2026-10-12)
 
 [Originalwortlaut](RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md), [Freigabe-/Prüfakte](RUNS/R05-UEBERNAHME/01_REPORT.md), [Evidenz](RUNS/R05-UEBERNAHME/EVIDENCE/INDEX.md). Bedingte ausdrückliche Mergefreigabe für PR #8 nach erfolgreicher CI38276463113 auf `8eb26bae17b46651014d28183f5a9135f36b72af` liegt vor. **ROOT_PASS / READY_FOR_CANONICALIZATION**. Nach administrativem Nachtrag finale Head-CI und unveränderte Base erneut prüfen; noch kein Merge/ACCEPTED behauptet. Kein AP070.
+
+
+## Nachgewiesene kanonische Übernahme
+
+[PR8](https://github.com/marcosudau-vps/voice-stt-client/pull/8) MERGED, Aggregat `473a75d02fb6d00e5664af4328dadaa44da5191a`, Single-Parent ce95c66 und Treegleichheit zum finalen Kandidaten nachgewiesen. [AP070-Startakte](../AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json).

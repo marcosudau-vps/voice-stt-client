@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-050 sind **ACCEPTED**, zuletzt AP050 ce95c66. AP-CV2-060: **ROOT_PASS / READY_FOR_CANONICALIZATION** nach R04; R02-Finding `CV2-060-R02-F01` unabhängig geschlossen. [R04-Abnahme](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md), [R03-Korrektur](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md). **Nächste Aktion:** nach erneuter Head-CI den ausdrücklich freigegebenen Squash-Merge PR8 ausführen; kein AP070 ohne Folgeauftrag. Spätere Pakete PLANNED.
+AP-CV2-000 bis AP-CV2-060 sind **ACCEPTED**, zuletzt AP060 `473a75d02fb6d00e5664af4328dadaa44da5191a` nach tatsächlichem PR8-Squash. AP-CV2-070 **REVIEW_READY**, [R01-Report](../../30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](../../30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md). Nächste Aktion unabhängige Abnahme; kein Merge/AP080 ohne ROOT_PASS und menschlichen Prompt. Spätere Pakete PLANNED.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |
