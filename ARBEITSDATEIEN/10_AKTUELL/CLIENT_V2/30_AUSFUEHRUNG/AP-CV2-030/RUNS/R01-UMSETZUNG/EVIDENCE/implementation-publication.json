@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-12T00:25:53.902220+00:00",
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/5",
+  "baseRef": "feat/client-v2",
+  "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+  "qualifiedImplementationCommit": "93acd2e6a589e04b266019f69e2bcad2998b8904",
+  "qualifiedImplementationTree": "822b72bfabf0f1e59769d98523b6c6ab784136f0",
+  "qualifiedGitBlobCount": 185,
+  "allQualifiedGitBlobsMatch": true,
+  "productDiffSha256": "0a3c38c4a329eac7e4ccc2becfbfe8bc530ca734cc218e8939a11ba236a4a411",
+  "productDiffIdentical": true,
+  "publishedLogSha256": {
+    "targeted-unittest.txt": "0a0ccb177e209c3cd88aeb775403bccab908d0f9fab2e6d90dfe05c4b4a3a535",
+    "server-mirror-checkpoint.json": "a358a986f91a3c0dcf8191e845309e1da1d40f742bc98ef7bcc5f9325726158c",
+    "compileall.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "windows-full-unittest.txt": "4957c744cb4c89941e3274d85e2360000f4bb4517bf14f23a6493296689d3277"
+  },
+  "note": "Final handoff may add administrative records only. Current final PR head/tree are reported from Git in the PR and human handoff, not self-referenced in this file."
+}

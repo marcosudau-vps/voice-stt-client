@@ -15,3 +15,5 @@ Status REVIEW_READY. Alle Resultate sind Selbstchecks; unabhängige Abnahme offe
 - [Aktenprüfung](records-validation.json), [Abgabekonsistenz](handoff-validation.json): Status, Links, Produkt-/Gitblobgleichheit und unveränderte Requirementtexte.
 
 Alle Testtexte synthetisch; keine Credentials, Nutzeraudios oder Laufzeitdatenbanken. Prüflogs sind bewusst versionierte Qualifikationsevidenz. Finale PR-/Head-/Treeidentität wird in der Git-/PR-Übergabe genannt.
+
+[Veröffentlichter Implementierungsstand: exakter Produktdiff,185 Gitblobs und vier vollständige Loghashes](implementation-publication.json). PR-Verweise folgen im administrativen Abgabecommit.

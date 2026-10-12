@@ -1,6 +1,7 @@
 # AP-CV2-030 – ActivationMirror, Hintergrundledger und Resync
 
 Status **REVIEW_READY**, workflowPhase REVIEW_READY.
+[PR #5](https://github.com/marcosudau-vps/voice-stt-client/pull/5) gegen `feat/client-v2`.
 Branch `work/client-v2/ap-cv2-030`, Base `feat/client-v2`, Parent `8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0`.
 Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`. Planrevision 10, Rollenregelversion 7.
 

@@ -263,7 +263,9 @@
       "candidateBranch": "work/client-v2/ap-cv2-030",
       "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
       "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
-      "actualCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      "actualCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json",
+      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/5",
+      "qualifiedImplementationCommit": "93acd2e6a589e04b266019f69e2bcad2998b8904"
     },
     {
       "id": "AP-CV2-040",
