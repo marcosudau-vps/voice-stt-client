@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "workflowPhase": "READY_FOR_CANONICALIZATION",
   "packageStatus": "ROOT_PASS",
   "activePackage": "AP-CV2-040",
   "nextPackage": "AP-CV2-050",
@@ -18,10 +18,17 @@
   "reviewedCommit": "4ef7a13672bf7c50665e08f5eff837fb5d687419",
   "reviewReport": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
-  "humanApproval": null,
+  "humanApproval": {
+    "source": "30_AUSFUEHRUNG/AP-CV2-040/00_PAKET.md",
+    "originalReply": "Ja, ich erteile dir die Freigabe.",
+    "headAtApproval": "efd60e0cba7272c9b18ca21da7e337c1aa89fba9",
+    "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+    "scope": "Vorbereitete administrative Statuskorrektur committen/pushen; Originalfreigabe sichern; genau ein PR #6 Squash nach grüner finaler CI. Keine Produkt-/Test-/Kontraktänderung.",
+    "condition": "Status-/Traceabilitykonsistenz PASS, administrative Differenz gegenüber R06, unveränderte Base, finale CI SUCCESS."
+  },
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Technischer ROOT_PASS für AP-CV2-040/R06; auf ausdrücklichen menschlichen Übernahmeprompt für PR #6 samt finalem Docs-Head, kanonischem Parent und R06-Bericht warten. Ohne Freigabe kein Merge und kein Folgepaket.",
+  "nextAction": "Finale administrative Kandidatenspitze/CI und unveränderten Parent prüfen; nach gesicherter menschlicher Freigabe PR #6 genau einmal per Squash übernehmen. Kein AP050-Start.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

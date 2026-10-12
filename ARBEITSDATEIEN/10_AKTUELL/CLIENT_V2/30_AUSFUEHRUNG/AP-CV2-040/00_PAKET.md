@@ -1,8 +1,8 @@
 # AP-CV2-040 – Continuous-Audio, Geräte-Recovery und Logbootstrap
 
-**ROOT_PASS / WAITING_FOR_APPROVAL** nach unabhängiger R06-Abnahme am 2026-10-12. Fachlich geprüfter Kandidat `4ef7a13672bf7c50665e08f5eff837fb5d687419`, Tree `f670a6fce6557ff657644037964025e9f7f1ee1e`. [R06-Originalauftrag](RUNS/R06-ABNAHME/00_PROMPT_ORIGINAL.md), [PASS-Bericht](RUNS/R06-ABNAHME/01_REPORT.md), [Evidenzindex](RUNS/R06-ABNAHME/EVIDENCE/INDEX.md). F01 CLOSED_R04, F02 CLOSED_R06, keine offenen Pflichtfindings. 1378 Windows-, 233 gezielte Tests, 52 echte Serverfälle (46 bytegeprüfte Quellen), Git-Blobs 188/188, CI SUCCESS als unabhängig geprüfte Fremdbelege.
+Status **ROOT_PASS**, workflowPhase READY_FOR_CANONICALIZATION. nach unabhängiger R06-Abnahme am 2026-10-12. Fachlich geprüfter Kandidat `4ef7a13672bf7c50665e08f5eff837fb5d687419`, Tree `f670a6fce6557ff657644037964025e9f7f1ee1e`. [R06-Originalauftrag](RUNS/R06-ABNAHME/00_PROMPT_ORIGINAL.md), [PASS-Bericht](RUNS/R06-ABNAHME/01_REPORT.md), [Evidenzindex](RUNS/R06-ABNAHME/EVIDENCE/INDEX.md). F01 CLOSED_R04, F02 CLOSED_R06, keine offenen Pflichtfindings. 1378 Windows-, 233 gezielte Tests, 52 echte Serverfälle (46 bytegeprüfte Quellen), Git-Blobs 188/188, CI SUCCESS als unabhängig geprüfte Fremdbelege.
 
-PR [#6](https://github.com/marcosudau-vps/voice-stt-client/pull/6) bleibt offen; Base `feat/client-v2` und Parent `3df342c3a7cacaa1226743c4d9bee674e94d33db` unverändert. Menschliche Übernahmefreigabe fehlt: **kein Merge, kein AP050, kein Release**.
+PR [#6](https://github.com/marcosudau-vps/voice-stt-client/pull/6) bleibt offen; Base `feat/client-v2` und Parent `3df342c3a7cacaa1226743c4d9bee674e94d33db` unverändert. Menschliche Übernahmefreigabe einschließlich der vorbereiteten Statuskorrektur liegt vor (siehe unten). Noch nicht übernommen; finale Kandidaten-CI und eindeutiger Squash sind erforderlich. Kein AP050-Start oder Release.
 
 ## Historischer R05-Korrekturstand
 
@@ -43,3 +43,24 @@ Genau ein vollständiger Umsetzungslauf R01; kein eigener ROOT_PASS, kein Merge 
 ## R04 – Unabhängige Abnahme (2026-10-12)
 
 **CHANGES_REQUIRED** auf fachlich geprüftem `7461577b1316ff113bac1c08ea7a836cf4b5023a` / Tree `83dd48d0ccd9110668c23732e3cd4933a50d03c3`. [Originalauftrag](RUNS/R04-ABNAHME/00_PROMPT_ORIGINAL.md), [Bericht](RUNS/R04-ABNAHME/01_REPORT.md), [Evidenz](RUNS/R04-ABNAHME/EVIDENCE/INDEX.md). R02-F01 ist unabhängig geschlossen; nativer Timeout-Teil von F02 behoben, aber bei Abbruch während `gather()` kann Logcleanup ausfallen (F02 bleibt OPEN). Kein Merge, nächste Aktion nur Korrektur im bestehenden PR.
+
+## Menschliche Dokumentkorrektur- und Übernahmefreigabe
+
+Die grobe Abschlussprüfung ist [online mit dem vorbereiteten Dokumentpatch](https://github.com/marcosudau-vps/voice-stt-client/pull/6#issuecomment-6124596439) dokumentiert; [Patchteil2](https://github.com/marcosudau-vps/voice-stt-client/pull/6#issuecomment-6124597129). Aktueller Head bei Freigabe `efd60e0cba7272c9b18ca21da7e337c1aa89fba9`, kanonischer Parent `3df342c3a7cacaa1226743c4d9bee674e94d33db`, technisch geprüfter R06-Kandidat `4ef7a13672bf7c50665e08f5eff837fb5d687419`.
+
+Tatsächlicher ursprünglicher Nutzerauftrag:
+
+> Der Reviewer hat ROOT_PASS PR #6, Arbeitspaket AP-CV2-040 erteilt.
+> Bitte prüfe nochmal grob den Umfang, Bewertungsmaßstäbe, Tracabilities, etc...
+> Keine fachliche Detailprüfung mehr...
+> Wenn du nichts einzuwenden hast, erteile ich dir die Freigabe, um den Pull Request so zu mergen.
+
+Konkrete Rückfrage nach der vorbereiteten Statuskorrektur:
+
+> Gibst du diese Dokumentkorrektur zum Committen und Pushen frei, anschließend den Squash-Merge nach grüner CI?
+
+Tatsächliche Antwort des Auftraggebers:
+
+> Ja, ich erteile dir die Freigabe.
+
+Erlaubt sind die vorbereitete administrative Statuskorrektur, Sicherung dieser Freigabe und genau ein PR-Squash auf feat/client-v2 nach grüner finaler CI. Kein Produkt-/Test-/Kontraktfix und keine zusätzliche fachliche Abnahme. Historische R01–R06-Berichte unverändert erhalten. Noch kein ACCEPTED; nach Merge ergibt sich die Übernahme aus Git/PR, und der nächste Paketbranch führt diesen Nachweis nach.

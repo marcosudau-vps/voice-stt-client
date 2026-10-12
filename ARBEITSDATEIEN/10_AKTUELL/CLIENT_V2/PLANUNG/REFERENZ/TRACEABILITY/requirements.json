@@ -5421,7 +5421,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server api_fastapi_server/protocol.py @ ada13b0; Client voice_stt_client/core/audio_capture.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -5523,7 +5523,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server api_fastapi_server/protocol.py @ ada13b0; Client voice_stt_client/core/audio_capture.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -5610,7 +5610,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server api_fastapi_server/protocol.py @ ada13b0; Client voice_stt_client/core/audio_capture.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -5697,7 +5697,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server api_fastapi_server/protocol.py @ ada13b0; Client voice_stt_client/core/audio_capture.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -5787,7 +5787,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server api_fastapi_server/protocol.py @ ada13b0; Client voice_stt_client/core/audio_capture.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -5875,7 +5875,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server api_fastapi_server/protocol.py @ ada13b0; Client voice_stt_client/core/audio_capture.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -5978,7 +5978,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server api_fastapi_server/protocol.py @ ada13b0; Client voice_stt_client/core/audio_capture.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -6077,7 +6077,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server api_fastapi_server/protocol.py @ ada13b0; Client voice_stt_client/core/audio_capture.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -6161,7 +6161,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server api_fastapi_server/protocol.py @ ada13b0; Client voice_stt_client/core/audio_capture.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -6283,7 +6283,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server api_fastapi_server/protocol.py @ ada13b0; Client voice_stt_client/core/audio_capture.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -6373,7 +6373,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server api_fastapi_server/protocol.py @ ada13b0; Client voice_stt_client/core/audio_capture.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -6457,7 +6457,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server api_fastapi_server/protocol.py @ ada13b0; Client voice_stt_client/core/audio_capture.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9255,7 +9255,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server VoiceSTT_server/event_logging.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Client voice_stt_client/core/event_protocol.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9342,7 +9342,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server VoiceSTT_server/event_logging.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Client voice_stt_client/core/event_protocol.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9432,7 +9432,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server VoiceSTT_server/event_logging.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Client voice_stt_client/core/event_protocol.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9522,7 +9522,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server VoiceSTT_server/event_logging.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Client voice_stt_client/core/event_protocol.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9612,7 +9612,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server VoiceSTT_server/event_logging.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Client voice_stt_client/core/event_protocol.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9696,7 +9696,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server VoiceSTT_server/event_logging.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Client voice_stt_client/core/event_protocol.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9780,7 +9780,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server VoiceSTT_server/event_logging.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Client voice_stt_client/core/event_protocol.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9864,7 +9864,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server VoiceSTT_server/event_logging.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Client voice_stt_client/core/event_protocol.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9951,7 +9951,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server VoiceSTT_server/event_logging.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Client voice_stt_client/core/event_protocol.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -10070,7 +10070,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server VoiceSTT_server/event_logging.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Client voice_stt_client/core/event_protocol.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -10154,7 +10154,7 @@
       "test": "test_v2_audio_recovery",
       "source": "Server VoiceSTT_server/event_logging.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Client voice_stt_client/core/event_protocol.py @ f625904",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
