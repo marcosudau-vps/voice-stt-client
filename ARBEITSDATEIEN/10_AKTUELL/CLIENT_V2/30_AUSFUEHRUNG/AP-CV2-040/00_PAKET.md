@@ -1,5 +1,13 @@
 # AP-CV2-040 – Continuous-Audio, Geräte-Recovery und Logbootstrap
 
+Status **REVIEW_READY**, workflowPhase REVIEW_READY. Aktueller Run R05-KORREKTUR.
+[R05-Report](RUNS/R05-KORREKTUR/01_REPORT.md), [Evidenz](RUNS/R05-KORREKTUR/EVIDENCE/INDEX.md), [Originalauftrag](RUNS/R05-KORREKTUR/00_PROMPT_ORIGINAL.md).
+F01 unabhängig CLOSED_R04; F02 Task-Join-/Logclose-Cancellation anerkannt, reproduziert und technisch korrigiert. Unabhängige Bestätigung offen.
+1378 Windows-/233 gezielte Tests,52 echte Serverfälle/46 Quellen, compileall/diffcheck PASS. Paketbranch ab Übergabe pausiert.
+[R04-Abnahme](RUNS/R04-ABNAHME/01_REPORT.md), [PR #6](https://github.com/marcosudau-vps/voice-stt-client/pull/6).
+
+## Historischer R03-/R04-Kopf
+
 Status **CHANGES_REQUIRED**, workflowPhase CHANGES_REQUIRED.
 Aktiver Kandidat R03 wurde in R04 unabhängig geprüft: R02-F01 CLOSED, R02-F02 wegen Cancellation während Task-Join weiter OPEN.
 [R03-Report](RUNS/R03-KORREKTUR/01_REPORT.md), [Evidenz](RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md), [Originalauftrag](RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md).

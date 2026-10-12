@@ -1,10 +1,10 @@
-# Client V2 – AP-CV2-040 / R04-ABNAHME / CHANGES_REQUIRED, 2026-10-12
+# Client V2 – AP-CV2-040 / R05-KORREKTUR / REVIEW_READY, 2026-10-12
 
-AP-CV2-030 ist ACCEPTED auf `3df342c3a7cacaa1226743c4d9bee674e94d33db` (kanonischer Parent). AP-CV2-040 ist **CHANGES_REQUIRED** nach unabhängigem R04-Review des R03-Korrekturkandidaten `7461577b1316ff113bac1c08ea7a836cf4b5023a`: [R04-Bericht](30_AUSFUEHRUNG/AP-CV2-040/RUNS/R04-ABNAHME/01_REPORT.md). R02-F01 wurde geschlossen; der native Timeoutteil von R02-F02 wurde korrigiert, der Cancellation-Fall während des Task-Joins ist weiterhin offen. [PR #6](https://github.com/marcosudau-vps/voice-stt-client/pull/6).
+AP-CV2-030 ist tatsächlich ACCEPTED auf `3df342c3a7cacaa1226743c4d9bee674e94d33db`, dem unveränderten kanonischen Parent. AP-CV2-040 **REVIEW_READY** nach Korrektur des R04-Restbefunds F02. [R05-Report](30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/01_REPORT.md), [R04-Abnahme](30_AUSFUEHRUNG/AP-CV2-040/RUNS/R04-ABNAHME/01_REPORT.md), [Workflowstatus](WORKFLOW_STATUS.json).
 
-Die R03-Qualifikation bleibt anerkannt: **1373 Windows-Tests, 228 gezielte Tests, 46 Serverfälle / 46 bytegeprüfte Quellen**, sämtliche 188 qualifikationsgebundenen Gitblobs identisch, CI Attempt 2 SUCCESS. Diese grünen Tests umfassen noch keinen Abbruch während des Task-Joins; es gibt daher keinen ROOT_PASS. Keine fachliche Planänderung oder neue Serverbaseline.
+F01 ist unabhängig CLOSED_R04. F02 wurde mit Cancellation beim Sender-/Lifecycle-Join und beim Logclose reproduziert. Logcleanup umfasst jetzt alle Shutdown-Awaits; ausstehende Task-/Logjoins bleiben begrenzt und retrybar. Neue Qualifikation: **1378 Windows-Tests, 233 gezielte Tests, 52 echte Serverfälle / 46 bytegeprüfte Quellen**, compileall/diffcheck PASS. Alle 23 Requirements neu belegt; R01–R04-Akten unverändert erhalten. [PR #6](https://github.com/marcosudau-vps/voice-stt-client/pull/6).
 
-Nächste Aktion: **Korrektur von `CV2-040-R02-F02` im bestehenden Paket-PR**, gezielte Regression bei Cancellation während Task-Join, neue gültige Windows-/betroffene Serverqualifikation und erneute unabhängige Abnahme. `feat/client-v2`, Server-Distributed, Main, Tags und Releases bleiben unverändert. Kein Merge oder Start AP-CV2-050.
+Nächste Aktion: frische unabhängige Abnahme des gesamten R05-Kandidaten mit F02-Recheck. Kein eigener ROOT_PASS oder eigene Findingschließung. Paketbranch `work/client-v2/ap-cv2-040` ab Übergabe pausiert. Qt-/Settingskomposition CV2-100/070 und echte Hardware/ASR bleiben spätere Gates; Serverada13b0/Distributed unverändert. Start `.\venv\Scripts\python.exe -m voice_stt_client`. Kein Merge oder Folgepaketstart.
 
 ## Historischer Stand vor AP-CV2-020
 

@@ -79,15 +79,25 @@ SQLite, Registry oder Credentialspeicher. Ein neues Subscribe beginnt bei
 abweichender Bindung mit Cursor 0. Gefilterte globale Cursorsprünge sind erlaubt;
 Retentiongap überspringt keinen Cursor blind und erhält surviving Events.
 
-`close()` ist nach vollständig erfolgreichem Cleanup idempotent. Zuerst Transport stoppen und lokale Gates schließen,
-dann Sender/Lifecycle joinen, laufenden nativen Geräteaufruf joinen, Capture
-stoppen und Logs herunterfahren. Geräteoperationen haben beim Shutdown ein
-3-s-Budget, Logclose 3 s plus Koordinatorbudget. Ein festhängender nativer
-Treiber kann nicht durch asyncio hart abgebrochen werden; Timeout wird an den
-Owner weitergegeben. Das unabhängige Logcleanup wird auch bei Capture-Timeout, Transportfehler oder Abbruch des Close-Aufrufs im finally ausgeführt. Unvollständiges natives Cleanup bleibt gehalten; erneutes `close()` joint zunächst diesen Vorgang und versucht den Stop erneut. Parallele Close-Aufrufe werden serialisiert. Kein erfolgreiches Shutdown behaupten, wenn er auftritt.
+`close()` ist nach vollständig erfolgreichem Cleanup idempotent. Lokale Gates
+schließen sofort; Transport stoppen, Sender/Lifecycle joinen, laufenden nativen
+Geräteaufruf joinen und Capture stoppen. Taskjoins und native Operationen haben
+je das Shutdownbudget (Default 3 s). Der unabhängige Logshutdown liegt im
+äußersten finally, sodass auch Cancellation während des Task-Joins ihn erreicht.
 
-Nachweise: [Runreport](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md)
-und [Windowsqualifikation](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json).
+Logclose läuft in einem eigenen geschützten Task. Owner-Cancellation, auch
+wiederholte, wird bis zu dessen Abschluss aufgeschoben und danach weitergegeben;
+sie kann nicht die bereits vom Koordinator abgetrennten Ressourcen verlieren.
+Das feste Logbudget beträgt Shutdownbudget plus 3 s und wird durch Cancellation
+nicht verlängert. Timeout wird sichtbar gemeldet; ausstehende Media-/Native-/
+Logtasks bleiben für erneutes `close()` erreichbar. Ein Logretry joint denselben
+Shutdowntask und ruft nicht den bereits als shutdown markierten Koordinator
+neu auf. Erfolgsstatus entsteht erst bei vollständig erfolgreichem Cleanup.
+Parallele Close-Aufrufe sind serialisiert. Nativer Treiberhang bleibt nicht hart
+durch asyncio abbrechbar; unvollständiges Cleanup erfordert Retry durch den Owner.
+
+Nachweise: [Runreport](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/01_REPORT.md)
+und [Windowsqualifikation](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/EVIDENCE/windows-validation.json).
 Der echte Servercheckpoint nutzt ada13b0, reale FastAPI/WebSockets/SQLite/
 PCM-Decodierung/Resampling/Controller, synthetische PortAudioeingabe und einen
 modellfreien Recorder. Reales Mikrofon, Wake-Engine, ASRqualität und physische

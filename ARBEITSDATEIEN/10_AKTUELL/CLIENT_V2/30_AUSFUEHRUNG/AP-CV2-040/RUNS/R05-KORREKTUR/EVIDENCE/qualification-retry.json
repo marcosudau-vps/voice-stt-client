@@ -1,0 +1,30 @@
+{
+  "testedBase": "1289991613d4577e535eb6067ca332240488c790",
+  "attempt1": {
+    "result": "HARNESS_TIMEOUT_NOT_PASS",
+    "timeoutSeconds": 240,
+    "completeFullLogAvailable": false,
+    "note": "The original subprocess harness raised TimeoutExpired before persisting partial output. Specific blocking test/root cause not established; never counted as PASS."
+  },
+  "diagnosticRetry": {
+    "result": "PASS",
+    "command": [
+      "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+      "-c",
+      "import faulthandler,unittest; faulthandler.dump_traceback_later(60,repeat=True); unittest.main(module=None,argv=['unittest','discover','-s','tests','-p','test_*.py','-v'])"
+    ],
+    "exitCode": 0,
+    "testCount": 1378,
+    "testSeconds": 109.42,
+    "log": "windows-full-diagnostic.txt",
+    "sha256": "7ddcbb89c14a5343c86653540b1c32246d9551e91c0bfee3b4af47ad468dd9ae",
+    "note": "60s faulthandler snapshots are diagnostics, not failing test results. Entire suite completed. Same product/test/config source bytes as final qualification."
+  },
+  "finalQualification": {
+    "result": "PASS",
+    "manifest": "windows-validation.json",
+    "testCount": 1378,
+    "note": "Standard qualification rerun passed with 240s unchanged limit. Harness now preserves timeout output for future diagnostics."
+  },
+  "sourceChangedForRetry": false
+}

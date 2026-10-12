@@ -332,14 +332,65 @@ async def run(root, repository):
                 # Model-free boundary, same as pinned wake_catalog_support:
                 # real manifest/resolver, no ONNX/TFLite engine loaded.
                 service.wakeword_catalog.set_artifact_prober(lambda path:None)
-                media,mirror,rs,config,domain=await start(manual,wake)
+                entered,release=asyncio.Event(),asyncio.Event()
+                original_sender=V2MediaConnection._send
+                async def held_sender(instance):
+                    try:
+                        await original_sender(instance)
+                    finally:
+                        entered.set()
+                        await release.wait()
+                if not manual:
+                    with patch.object(V2MediaConnection,"_send",held_sender):
+                        media,mirror,rs,config,domain=await start(manual,wake)
+                else:
+                    media,mirror,rs,config,domain=await start(manual,wake)
                 feed(media,config); await until(lambda:bool(domain.recorder.received))
                 check(f"audio/idle_trigger_mode/{manual}/{wake}",domain.recorder.received[-1]==(640,16000))
                 await media.session.request(p.CommandType.SUPPRESSION,manual=True,wakeWord=True)
                 count=len(domain.recorder.received); feed(media,config)
                 await until(lambda:len(domain.recorder.received)>count)
                 check(f"audio/wakepause_trigger_mode/{manual}/{wake}",not domain.recorder.is_recording)
-                await media.close(); await mirror.close()
+                await until(lambda:media.logs.context.event_state==EventConnectionState.LIVE)
+                log_transport=media.logs._transport
+                log_task,expiry_task=media.logs._transport_task,media.logs._expiry_task
+                stopped=asyncio.Event()
+                original_session_stop=media.session.stop
+                async def stop_session():
+                    await original_session_stop()
+                    stopped.set()
+                media.session.stop=stop_session
+                if manual:
+                    original_log_stop=log_transport.stop
+                    async def held_log_stop():
+                        entered.set()
+                        await release.wait()
+                        await original_log_stop()
+                    log_transport.stop=held_log_stop
+                case="logclose_cancel" if manual else "task_join_cancel"
+                closing=asyncio.create_task(media.close())
+                try:
+                    await asyncio.wait_for(stopped.wait(),3)
+                    await asyncio.wait_for(entered.wait(),3)
+                    closing.cancel()
+                    if manual:
+                        await asyncio.sleep(0)
+                        closing.cancel()
+                    release.set()
+                    try:
+                        await asyncio.wait_for(closing,3)
+                    except asyncio.CancelledError:
+                        check("shutdown/"+case+"_reported",not media._cleanup_complete)
+                    else:
+                        raise AssertionError(case+" was hidden")
+                    check("shutdown/"+case+"_real_logs_clean",media.logs.active_transport_count==0 and
+                          log_task.done() and expiry_task.done() and log_transport.state==EventConnectionState.STOPPED)
+                finally:
+                    release.set()
+                    await asyncio.gather(closing,return_exceptions=True)
+                    await media.close(); await mirror.close()
+                check("shutdown/"+case+"_retry_complete",media._cleanup_complete and
+                      media._task is None and media._sender is None and media._log_shutdown_task.done() and not media.capture.is_running)
             hashes=verify_sources(root,repository)
             return {"result":"PASS","serverCommit":SERVER_SHA,"clientHead":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),
                     "runtime":{"python":sys.version,"executable":sys.executable,"platform":platform.platform(),"uvicorn":uvicorn.__version__},

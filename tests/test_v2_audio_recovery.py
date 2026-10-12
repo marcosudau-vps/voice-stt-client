@@ -454,6 +454,153 @@ class Media(unittest.IsolatedAsyncioTestCase):
                 await asyncio.gather(closing, return_exceptions=True)
             await media.close()
 
+    async def assert_cancel_during_task_join_cleans_logs(self, method):
+        entered, release = asyncio.Event(), asyncio.Event()
+        original = getattr(V2MediaConnection, method)
+        async def held_cleanup(instance):
+            try:
+                await original(instance)
+            finally:
+                entered.set()
+                await release.wait()
+        with patch.object(V2MediaConnection, method, held_cleanup):
+            media, socket = await self.start()
+        await until(lambda: media.logs.active_transport_count == 1)
+        log_task, expiry_task = media.logs._transport_task, media.logs._expiry_task
+        stopped = asyncio.Event()
+        original_stop = media.session.stop
+        async def stop():
+            await original_stop()
+            stopped.set()
+        media.session.stop = stop
+        closing = asyncio.create_task(media.close())
+        try:
+            await asyncio.wait_for(stopped.wait(), 1)
+            await asyncio.wait_for(entered.wait(), 1)
+            self.assertFalse(closing.done())
+            closing.cancel()
+            release.set()
+            with self.assertRaises(asyncio.CancelledError):
+                await asyncio.wait_for(closing, 1)
+            self.assertEqual(media.logs.active_transport_count, 0)
+            self.assertTrue(log_task.done() and expiry_task.done())
+            self.assertFalse(media._cleanup_complete)
+            self.assertFalse(media._gate)
+            await media.close()
+            self.assertTrue(media._cleanup_complete)
+            self.assertFalse(media.capture.is_running)
+        finally:
+            release.set()
+            await asyncio.gather(closing, return_exceptions=True)
+            await media.logs.shutdown()
+            await media.close()
+
+    async def test_cancel_during_sender_join_cleans_logs_and_retries(self):
+        await self.assert_cancel_during_task_join_cleans_logs("_send")
+
+    async def test_cancel_during_lifecycle_join_cleans_logs_and_retries(self):
+        await self.assert_cancel_during_task_join_cleans_logs("_lifecycle")
+
+    async def test_repeated_cancel_during_logclose_joins_cleanup_before_raising(self):
+        media, socket = await self.start()
+        await until(lambda: media.logs.active_transport_count == 1)
+        log_task, expiry_task = media.logs._transport_task, media.logs._expiry_task
+        transport = media.logs._transport
+        entered, release = asyncio.Event(), asyncio.Event()
+        original = transport.stop
+        async def held_stop():
+            entered.set()
+            await release.wait()
+            await original()
+        transport.stop = held_stop
+        closing = asyncio.create_task(media.close())
+        try:
+            await asyncio.wait_for(entered.wait(), 1)
+            closing.cancel()
+            await asyncio.sleep(0)
+            closing.cancel()
+            release.set()
+            with self.assertRaises(asyncio.CancelledError):
+                await asyncio.wait_for(closing, 1)
+            # Detaching a log transport is not sufficient: its tasks must exit.
+            self.assertTrue(log_task.done() and expiry_task.done())
+            self.assertEqual(transport.stop_calls, 1)
+            self.assertEqual(media.logs.active_transport_count, 0)
+            self.assertFalse(media._cleanup_complete)
+            await media.close()
+            self.assertTrue(media._cleanup_complete)
+        finally:
+            release.set()
+            await asyncio.gather(closing, return_exceptions=True)
+            # Explicitly clean captured detached resources on the old baseline.
+            await original()
+            for task in (log_task, expiry_task):
+                task.cancel()
+            await asyncio.gather(log_task, expiry_task, return_exceptions=True)
+            await media.close()
+
+    async def test_task_join_timeout_cleans_logs_and_retains_task_for_retry(self):
+        entered, release = asyncio.Event(), asyncio.Event()
+        original = V2MediaConnection._send
+        async def held_cleanup(instance):
+            try:
+                await original(instance)
+            finally:
+                entered.set()
+                await release.wait()
+        with patch.object(V2MediaConnection, "_send", held_cleanup):
+            media, socket = await self.start()
+        await until(lambda: media.logs.active_transport_count == 1)
+        sender = media._sender
+        media.shutdown_timeout = .1
+        try:
+            with self.assertRaises(TimeoutError):
+                await asyncio.wait_for(media.close(), 1)
+            self.assertTrue(entered.is_set())
+            self.assertFalse(sender.done())
+            self.assertIs(media._sender, sender)
+            self.assertEqual(media.logs.active_transport_count, 0)
+            self.assertFalse(media._cleanup_complete)
+            release.set()
+            media.shutdown_timeout = 1
+            await media.close()
+            self.assertTrue(sender.done())
+            self.assertTrue(media._cleanup_complete)
+        finally:
+            release.set()
+            media.shutdown_timeout = 1
+            await media.close()
+
+    async def test_logclose_timeout_retains_pending_cleanup_for_retry(self):
+        media, socket = await self.start()
+        await until(lambda: media.logs.active_transport_count == 1)
+        log_task, expiry_task = media.logs._transport_task, media.logs._expiry_task
+        entered, release = asyncio.Event(), asyncio.Event()
+        original = media.logs.shutdown
+        async def held_shutdown():
+            entered.set()
+            await release.wait()
+            await original()
+        media.logs.shutdown = held_shutdown
+        media.shutdown_timeout = .1
+        try:
+            with self.assertRaises(TimeoutError):
+                await asyncio.wait_for(media.close(), 4)
+            self.assertTrue(entered.is_set())
+            pending = media._log_shutdown_task
+            self.assertFalse(pending.done())
+            self.assertFalse(media._cleanup_complete)
+            release.set()
+            await media.close()
+            self.assertIs(media._log_shutdown_task, pending)
+            self.assertTrue(pending.done() and log_task.done() and expiry_task.done())
+            self.assertEqual(media.logs.active_transport_count, 0)
+            self.assertTrue(media._cleanup_complete)
+        finally:
+            release.set()
+            media.shutdown_timeout = 1
+            await media.close()
+
     async def test_real_capture_callback_processing_and_packet_flow(self):
         capture = AudioCapture(AudioConfig())
         class Stream:

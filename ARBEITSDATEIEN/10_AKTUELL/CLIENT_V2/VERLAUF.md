@@ -74,3 +74,7 @@ ASR-/Hardwaregates offen.
 ## AP-CV2-040-R03 – 2026-10-12 – Availability-/Shutdownkorrektur / REVIEW_READY
 
 R02-Unterlagen per Fast-forward übernommen; F01/F02 in fünf Fehlerfällen reproduziert und anerkannt. Negative Availability vor nativem Stop, unabhängiges finally-Logcleanup und wiederholbares natives Shutdowncleanup korrigiert. 1373 Windows-/228 gezielte Tests,46 echte Serverfälle/46 Quellen sowie compileall/diffcheck PASS. [R03-Report](30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md). Historische Belege erhalten, alle23 IDs aktualisiert. Neue unabhängige Abnahme offen; Branch ab Übergabe pausiert. Keine Promotion oder Folgepaketimplementierung.
+
+## AP-CV2-040-R05 – 2026-10-12 – Task-Join-/Logclose-Cancellation / REVIEW_READY
+
+R04-Unterlagen per Fast-forward übernommen, einziger offener F02-Rest anerkannt und in drei Fenstern reproduziert. Äußerstes Log-finally, begrenzter geschützter Task-Join und gehaltener Logshutdowntask schützen Cancellation samt Retry. Fünf neue Regressionen; 1378 Windows-/233 gezielte Tests,52 reale Serverfälle/46 bytegeprüfte Quellen, compileall/diffcheck PASS. [R05-Report](30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/01_REPORT.md). Alle23 IDs neu belegt, R01–R04 erhalten. F01 CLOSED_R04, F02 technisch selbstkorrigiert mit unabhängigem Recheck offen; Branch ab Übergabe pausiert, keine Promotion/kein Folgepaket.

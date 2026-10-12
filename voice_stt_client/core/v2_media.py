@@ -140,6 +140,7 @@ class V2MediaConnection:
         self._loop = None
         self._task = self._sender = None
         self._capture_operation = None
+        self._log_shutdown_task = None
         self._reported_available = None
         self._overflow_at_last_send = 0
         self._overflow_streak = 0
@@ -395,14 +396,22 @@ class V2MediaConnection:
             self.capture_available = False
             self.capture.on_audio_packet = None
             try:
-                await self.session.stop()
-            finally:
-                tasks = [task for task in (self._task, self._sender) if task]
-                for task in tasks:
-                    task.cancel()
-                await asyncio.gather(*tasks, return_exceptions=True)
-                self._task = self._sender = None
                 try:
+                    await self.session.stop()
+                finally:
+                    tasks = [task for task in (self._task, self._sender) if task]
+                    for task in tasks:
+                        if not task.done() and not task.cancelling():
+                            task.cancel()
+                    try:
+                        await asyncio.wait_for(asyncio.shield(
+                            asyncio.gather(*tasks, return_exceptions=True)), self.shutdown_timeout)
+                    finally:
+                        # Interrupted joins retain pending tasks for a later close.
+                        if self._task is not None and self._task.done():
+                            self._task = None
+                        if self._sender is not None and self._sender.done():
+                            self._sender = None
                     pending = self._capture_operation
                     if pending is not None:
                         try:
@@ -411,7 +420,35 @@ class V2MediaConnection:
                             if pending.done() and self._capture_operation is pending:
                                 self._capture_operation = None
                     await asyncio.wait_for(self._stop_capture(), self.shutdown_timeout)
-                finally:
-                    # Audio/driver failure never skips the separate logdomain.
-                    await asyncio.wait_for(self.logs.shutdown(), self.shutdown_timeout + 3)
+            finally:
+                # Every await above, including the task join, reaches log cleanup.
+                await self._shutdown_logs()
             self._cleanup_complete = True
+
+    async def _shutdown_logs(self):
+        """Defer owner cancellation until bounded independent cleanup finishes.
+
+        Shield the actual coordinator shutdown: it detaches resources before
+        awaiting socket/task cleanup, so cancelling it would lose those handles.
+        A timeout retains this same task for retry, rather than invoking the
+        coordinator's already-marked-shutdown fast path a second time.
+        """
+        if self._log_shutdown_task is None:
+            self._log_shutdown_task = asyncio.create_task(
+                self.logs.shutdown(), name="v2-media-log-shutdown")
+        pending = self._log_shutdown_task
+        deadline = asyncio.get_running_loop().time() + self.shutdown_timeout + 3
+        cancelled = None
+        while True:
+            try:
+                remaining = max(0, deadline - asyncio.get_running_loop().time())
+                await asyncio.wait_for(asyncio.shield(pending), remaining)
+                break
+            except asyncio.CancelledError as error:
+                if pending.cancelled():
+                    raise
+                cancelled = error
+                # Further owner cancellations cannot cancel the log task or
+                # extend its fixed cleanup budget.
+        if cancelled is not None:
+            raise cancelled
