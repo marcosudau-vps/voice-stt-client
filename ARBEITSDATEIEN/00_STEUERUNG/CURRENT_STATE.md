@@ -1,9 +1,8 @@
-# Client V2 – AP-CV2-040 / R06-ABNAHME / ROOT_PASS, 2026-10-12
+# Client V2 – AP-CV2-050 / R02-ABNAHME / ROOT_PASS, 2026-10-12
 
-AP-CV2-030 ist ACCEPTED auf `3df342c3a7cacaa1226743c4d9bee674e94d33db`. AP-CV2-040 ist **technisch ROOT_PASS**, Workflow **WAITING_FOR_APPROVAL** nach unabhängiger Abnahme des fachlichen Kandidaten `4ef7a13672bf7c50665e08f5eff837fb5d687419` (Tree `f670a6fce6557ff657644037964025e9f7f1ee1e`). [R06-ROOT_PASS](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md); F01 und F02 vollständig geschlossen. 1378 Windows-Tests, 233 gezielte Tests, 52 echte Serverfälle/46 Serverquellen, 188/188 Git-Blobs und CI auf Kandidaten-SHA SUCCESS wurden als Fremdbelege unabhängig validiert. [PR #6](https://github.com/marcosudau-vps/voice-stt-client/pull/6) bleibt offen.
+AP-CV2-000 bis AP-CV2-040 sind **ACCEPTED**, zuletzt AP040 auf `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`. AP-CV2-050 hat nach unabhängigem Review **ROOT_PASS** für den Kandidaten `55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a` (Tree `3b0dc469a1a3e577eb4dda0a67e2f3746b9c92cd`). [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md), [R01-Windowsbelege](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md). 1397 Windows-, 297 gezielte, 79 lokale Server-/WebSocket- und 16 native Win32-Checks PASS als unabhängig geprüfte Fremdbelege; eigene Windows-Wiederholung NOT_RUN.
 
-Nächste Aktion: ausdrücklicher menschlicher Übernahmeprompt mit aktuellem Docs-Head, canonical_parent und R06-PASS-Bericht; bis dahin **kein Merge und kein Start AP-CV2-050**. Reale Hardware-/ASR-Gates und Qt-/Settingskomposition bleiben späteren Paketen zugeordnet.
-
+**Nächste Aktion:** ausdrückliche menschliche Übernahmefreigabe für [PR #7](https://github.com/marcosudau-vps/voice-stt-client/pull/7) abwarten. Kein automatischer Merge, kein AP060-Start. Settingspersistenz/Dialog AP070/080, Anwendungskomposition AP100 und reale ASR-/Hardwaregesamtabnahme AP-IV2-020 bleiben separate Gates. Die aktuell gestartete App nutzt weiterhin die bisherige Komposition.
 
 ## Historischer Stand vor AP-CV2-020
 

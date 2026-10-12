@@ -283,7 +283,7 @@
         "AP-CV2-030"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-040.md",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "testModules": [
         "test_v2_audio_recovery",
         "test_audio_capture",
@@ -346,7 +346,10 @@
       "findingDispositions": {
         "CV2-040-R02-F01": "CLOSED_R04",
         "CV2-040-R02-F02": "CLOSED_R06"
-      }
+      },
+      "canonicalCommit": "4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f",
+      "canonicalTree": "fde6009d3d9c699a92f7cc0ef8a6452e4903c1e0",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "AP-CV2-050",
@@ -356,9 +359,13 @@
         "AP-CV2-040"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-050.md",
-      "status": "PLANNED",
+      "status": "ROOT_PASS",
       "testModules": [
-        "test_v2_controls"
+        "test_v2_controls",
+        "test_hotkeys",
+        "test_config",
+        "test_v2_transport",
+        "test_v2_mirror"
       ],
       "requirements": [
         "CONTROL-01",
@@ -389,7 +396,18 @@
         "defaultRuns": 1,
         "scopeNote": "one complete package session; steps are not separate runs"
       },
-      "testModulesRole": "suggested locations; actual coverage and methods required"
+      "testModulesRole": "suggested locations; actual coverage and methods required",
+      "candidateBranch": "work/client-v2/ap-cv2-050",
+      "canonicalParent": "4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f",
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/7",
+      "qualifiedCommit": "ee1f1a7bb0a55112b61a3cab9c34be561aae274e",
+      "qualifiedTree": "f1613cb4ecf3292e6442f38c4704162b940c5fea",
+      "reviewedCommit": "55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a",
+      "reviewedTree": "3b0dc469a1a3e577eb4dda0a67e2f3746b9c92cd",
+      "reviewReport": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "openFindingIds": []
     },
     {
       "id": "AP-CV2-060",

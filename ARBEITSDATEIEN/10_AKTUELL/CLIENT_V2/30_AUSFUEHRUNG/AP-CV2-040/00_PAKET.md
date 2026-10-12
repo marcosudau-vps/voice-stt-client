@@ -1,5 +1,10 @@
 # AP-CV2-040 – Continuous-Audio, Geräte-Recovery und Logbootstrap
 
+Status **ACCEPTED**, tatsächliche kanonische Übernahme am 2026-10-12 durch PR6 nach R06-PASS und menschlicher Freigabe. Aggregate `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`, Tree `fde6009d3d9c699a92f7cc0ef8a6452e4903c1e0`, genau ein Parent/Commit; Baumgleichheit zum finalen PR6-Head. [Gesicherter Abschlussnachweis](../AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). Vorgängerabschluss auf AP050-Branch fortgeschrieben, kein weiterer AP040-Aggregatecommit.
+
+## Historischer Kopf vor tatsächlicher Übernahme
+
+
 Status **ROOT_PASS**, workflowPhase READY_FOR_CANONICALIZATION. nach unabhängiger R06-Abnahme am 2026-10-12. Fachlich geprüfter Kandidat `4ef7a13672bf7c50665e08f5eff837fb5d687419`, Tree `f670a6fce6557ff657644037964025e9f7f1ee1e`. [R06-Originalauftrag](RUNS/R06-ABNAHME/00_PROMPT_ORIGINAL.md), [PASS-Bericht](RUNS/R06-ABNAHME/01_REPORT.md), [Evidenzindex](RUNS/R06-ABNAHME/EVIDENCE/INDEX.md). F01 CLOSED_R04, F02 CLOSED_R06, keine offenen Pflichtfindings. 1378 Windows-, 233 gezielte Tests, 52 echte Serverfälle (46 bytegeprüfte Quellen), Git-Blobs 188/188, CI SUCCESS als unabhängig geprüfte Fremdbelege.
 
 PR [#6](https://github.com/marcosudau-vps/voice-stt-client/pull/6) bleibt offen; Base `feat/client-v2` und Parent `3df342c3a7cacaa1226743c4d9bee674e94d33db` unverändert. Menschliche Übernahmefreigabe einschließlich der vorbereiteten Statuskorrektur liegt vor (siehe unten). Noch nicht übernommen; finale Kandidaten-CI und eindeutiger Squash sind erforderlich. Kein AP050-Start oder Release.

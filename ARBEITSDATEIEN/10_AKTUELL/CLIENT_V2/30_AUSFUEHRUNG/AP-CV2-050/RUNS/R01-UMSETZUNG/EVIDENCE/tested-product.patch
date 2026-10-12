@@ -1,0 +1,1139 @@
+diff --git a/scripts/check_v2_server_controls.py b/scripts/check_v2_server_controls.py
+new file mode 100644
+index 0000000..a5a33e5
+--- /dev/null
++++ b/scripts/check_v2_server_controls.py
+@@ -0,0 +1,211 @@
++"""AP050 actual controls -> transport/mirror -> pinned production server.
++
++Loopback only. Recorder/models, catalog engine probing and timer clock are
++explicit model-free boundaries; no production service or user audio involved.
++"""
++
++import argparse
++import asyncio
++import json
++import os
++from pathlib import Path
++import platform
++import socket
++import subprocess
++import sys
++import tempfile
++import time
++from unittest.mock import patch
++
++ROOT = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(ROOT))
++from scripts.check_v2_server_transport import SERVER_SHA, verify_sources, until
++from voice_stt_client.core import protocol_v2 as p
++from voice_stt_client.core.v2_controls import ControlConfig, ControlIntent, V2ControlService
++from voice_stt_client.core.v2_mirror import V2MirrorConnection
++from voice_stt_client.core.v2_transport import V2STTSession, V2TransportConfig
++
++
++async def run(root, repository):
++    sys.path.insert(0, str(root))
++    import uvicorn
++    from api_fastapi_server.server import create_app, ServerSettings
++    from tests.unit.test_server_controlled_e2e import GateAwareRecorder
++    from tests.unit.test_fastapi_server_multi_user import AutoScheduler
++    from VoiceSTT.core.wake_detection import WakeHit, WakeAttemptPolicy
++    verify_sources(root, repository)
++    checks, wire = [], []
++    def check(name, condition):
++        if not condition: raise AssertionError(name)
++        checks.append(name)
++
++    with tempfile.TemporaryDirectory(prefix='cv2-050-server-') as data, patch.dict(os.environ, {'VOICESTT_SERVER_COMMIT': SERVER_SHA}):
++        settings = ServerSettings(data_root_path=data, model_warmup=False, request_logging_enabled=False,
++                                  performance_logging_enabled=False, performance_log_mirror_enabled=False,
++                                  transcription_logging_enabled=False, system_event_logging_enabled=False,
++                                  event_store_enabled=False, log_live_enabled=False)
++        app = create_app(settings, recorder_factory=GateAwareRecorder, scheduler_factory=AutoScheduler)
++        service = app.state.voicestt_service
++        service.wakeword_catalog.set_artifact_prober(lambda path: None)
++        tcp = socket.socket(); tcp.bind(('127.0.0.1', 0)); tcp.listen(16)
++        server = uvicorn.Server(uvicorn.Config(app, log_level='error', access_log=False))
++        serving = asyncio.create_task(server.serve(sockets=[tcp]))
++        url = f'ws://127.0.0.1:{tcp.getsockname()[1]}/ws/v2'
++        clients, runners = [], []
++        try:
++            await until(lambda: server.started or serving.done())
++            async def start(manual=True, wake=True):
++                async def settings_audio_boundary(client, binding):
++                    await client.bootstrap_command(binding, p.CommandType.AUDIO_AVAILABILITY, audioAvailable=True)
++                client = V2STTSession(V2TransportConfig(url=url, manual=manual, wake_word=wake,
++                                      wake_word_ids=('hey_jarvis',) if wake else (), backoff_initial=.02),
++                                      bootstrap=settings_audio_boundary)
++                client.on_completion = lambda c: wire.append(dict(sessionId=c.ack.sessionId, generation=c.generation,
++                    type=str(c.command.type), action=c.command.payload.get('action'),
++                    activationId=c.command.payload.get('activationId'), result=str(c.ack.result)))
++                mirror = V2MirrorConnection(client)
++                controls = V2ControlService(client, mirror, audio_ready=lambda: True)
++                clients.append((controls, mirror)); runners.append(asyncio.create_task(client.run()))
++                await until(lambda: client.is_ready and not mirror.mirror.view.snapshot_pending)
++                check(f'admission/{manual}/{wake}', client.binding.accepted.payload['serverCommit'] == SERVER_SHA)
++                return client, mirror, controls
++
++            async def settled(client, mirror):
++                await until(lambda: client.is_ready and not mirror.mirror.view.snapshot_pending)
++
++            def wake_hit(domain):
++                domain._on_wakeword_detection_start()
++                hit = WakeHit(canonical_wake_word_id='hey_jarvis', peak_score=.91, start_frame_index=0,
++                    start_sample=1280, qualification_frame_index=0, qualification_sample=1280,
++                    finalization_frame_index=1, operational_zero_point_sample=32000, prediction_frame_count=1,
++                    policy=WakeAttemptPolicy(sensitivity=.5))
++                return domain._on_wakeword_detected(hit)
++
++            for manual, wake in ((True, False), (False, True), (True, True)):
++                client, mirror, controls = await start(manual, wake)
++                domain = service.sessions.get(client.binding.session_id)
++                controller = domain.activation_controller()
++                clock = [time.monotonic()]; controller._clock = lambda: clock[0]
++                check(f'idle/secondary_noop/{manual}/{wake}', await controls.press('secondary') is None)
++                if not manual:
++                    check('wake_only/primary_idle_noop', await controls.press('primary') is None)
++                    check('wake_only/admission_hit', wake_hit(domain) is not None)
++                else:
++                    activated = await controls.press('primary')
++                    check(f'manual/activate/{wake}', activated.ack.accepted)
++                await until(lambda: mirror.mirror.view.input.phase == p.InputPhase.WAITING_FIRST_SPEECH)
++                await settled(client, mirror)
++                aid = mirror.mirror.view.input.activation_id
++                before = len(wire)
++                check(f'waiting/refresh_no_wire/{manual}/{wake}', await controls.press('primary') is None and len(wire) == before)
++                forced = await client.request(p.CommandType.ACTIVATION, action='refresh', activationId=aid)
++                check(f'waiting/forced_invalid_phase/{manual}/{wake}', forced.ack.result == p.AckResult.INVALID_PHASE)
++                await asyncio.sleep(.03)
++                check(f'waiting/no_warn_retry/{manual}/{wake}', len(wire) == before + 1)
++                await controls.set_pause('manual', True); await settled(client, mirror)
++                await controls.press('wake_pause'); await settled(client, mirror)
++                check(f'pause/open_activation_survives/{manual}/{wake}', mirror.mirror.view.input.activation_id == aid)
++                check(f'pause/both_confirmed/{manual}/{wake}', not controls.pause_view.pending and
++                      controls.pause_view.confirmed_manual and controls.pause_view.confirmed_wake_word)
++                check(f'pause/no_effective_source/{manual}/{wake}', not any(mirror.mirror.view.trigger['effective'].values()))
++                await client.send_audio(b'\0\x40' * 640, 16000, frames=640)
++                await until(lambda: mirror.mirror.view.input.phase == p.InputPhase.SEGMENT_ACTIVE)
++                await settled(client, mirror)
++                old_deadline = controller.snapshot()['deadline']
++                before = len(wire)
++                await client.send_audio(b'\0\x40' * 640, 16000, frames=640)
++                await asyncio.sleep(.03)
++                check(f'vad/no_watchdog_or_presence_refresh/{manual}/{wake}',
++                      controller.snapshot()['deadline'] == old_deadline and len(wire) == before)
++                await controls.press('primary'); await settled(client, mirror)
++                check(f'segment/no_cumulative_refresh/{manual}/{wake}', controller.snapshot()['deadline'] == old_deadline)
++                clock[0] += 580
++                await controls.press('primary'); await settled(client, mirror)
++                advanced = controller.snapshot()['deadline']
++                check(f'segment/minimum_restored/{manual}/{wake}', advanced > old_deadline)
++                await controls.press('primary'); await settled(client, mirror)
++                check(f'segment/repeat_non_cumulative/{manual}/{wake}', controller.snapshot()['deadline'] == advanced)
++                # Actual recorder VAD boundary completes the segment, without a
++                # client finish. The production server owns the followup deadline.
++                domain.recorder.flush_buffered_audio()
++                await until(lambda: mirror.mirror.view.input.phase == p.InputPhase.FOLLOWUP_WAIT)
++                await settled(client, mirror)
++                followup = controller.snapshot()['deadline']
++                clock[0] += .5
++                await controls.press('primary'); await settled(client, mirror)
++                refreshed = controller.snapshot()['deadline']
++                check(f'followup/now_plus_timeout/{manual}/{wake}', abs(refreshed - followup - .5) < .001)
++                await controls.press('primary'); await settled(client, mirror)
++                check(f'followup/repeat_non_cumulative/{manual}/{wake}', controller.snapshot()['deadline'] == refreshed)
++                await until(lambda: any(s.text for s in mirror.mirror.view.segments.values()))
++                preserved = {sid: s.text for sid, s in mirror.mirror.view.segments.items() if s.text}
++                done = await controls.press('secondary')
++                check(f'finish/applied/{manual}/{wake}', done.ack.accepted)
++                await until(lambda: mirror.mirror.view.input.phase == p.InputPhase.IDLE)
++                await settled(client, mirror)
++                await controls.set_pause('manual', False); await controls.set_pause('wakeWord', False)
++                await settled(client, mirror)
++                if not manual: check('wake_only/second_hit', wake_hit(domain) is not None)
++                else: await controls.press('primary')
++                await until(lambda: mirror.mirror.view.input.activation_id is not None)
++                await settled(client, mirror)
++                new_aid = mirror.mirror.view.input.activation_id
++                stale = await controls.execute(ControlIntent(client.generation, client.binding.session_id, 'cancel', aid))
++                check(f'stale/original_id/{manual}/{wake}', stale.command.payload['activationId'] == aid and stale.ack.result == p.AckResult.STALE_ACTIVATION)
++                await settled(client, mirror)
++                check(f'stale/new_activation_untouched/{manual}/{wake}', mirror.mirror.view.input.activation_id == new_aid)
++                cancelled = await controls.control('cancel')
++                check(f'cancel/applied/{manual}/{wake}', cancelled.ack.accepted)
++                await until(lambda: mirror.mirror.view.input.phase == p.InputPhase.IDLE)
++                check(f'cancel/published_text_preserved/{manual}/{wake}', all(mirror.mirror.view.segments[sid].text == text for sid, text in preserved.items()))
++                await settled(client, mirror)
++                if not manual: check('wake_only/third_hit', wake_hit(domain) is not None)
++                else: await controls.press('primary')
++                await until(lambda: mirror.mirror.view.input.activation_id is not None)
++                await settled(client, mirror)
++                await client.send_audio(b'\0\x40' * 640, 16000, frames=640)
++                await until(lambda: mirror.mirror.view.input.phase == p.InputPhase.SEGMENT_ACTIVE)
++                await settled(client, mirror)
++                finished_recording = await controls.control('finish')
++                check(f'finish/recorded_audio_processed/{manual}/{wake}', finished_recording.ack.accepted)
++                await until(lambda: mirror.mirror.view.input.phase == p.InputPhase.IDLE and
++                            len([s for s in mirror.mirror.view.segments.values() if s.text]) == len(preserved) + 1)
++                check(f'finish/new_final_without_deleting_old/{manual}/{wake}', all(
++                      mirror.mirror.view.segments[sid].text == text for sid, text in preserved.items()))
++                await settled(client, mirror)
++                await controls.set_pause('manual', True); await controls.set_pause('wakeWord', True)
++                await settled(client, mirror)
++                await client.request(p.CommandType.AUDIO_AVAILABILITY, audioAvailable=False)
++                await settled(client, mirror)
++                check(f'device/pause_preserved/{manual}/{wake}', not controls.pause_view.pending)
++                old = client.binding; run_id = client.client_run_id
++                await client.reconnect(old, 'synthetic_network_loss')
++                await until(lambda: client.binding is not None and client.binding is not old and client.is_ready)
++                await settled(client, mirror)
++                check(f'reconnect/no_active_gap/{manual}/{wake}', not any(mirror.mirror.view.trigger['effective'].values()) and not controls.pause_view.pending)
++                check(f'reconnect/new_session_same_run/{manual}/{wake}', client.binding.session_id != old.session_id and client.client_run_id == run_id)
++                await controls.close(); await mirror.close()
++            # Genuine independent interpreter gives process-new run ID and
++            # unpaused intent; this is not a second service in the same process.
++            output = subprocess.check_output([sys.executable, '-c',
++                'from voice_stt_client.core.v2_transport import V2STTSession; s=V2STTSession(); print(s.client_run_id, *s._desired_suppression)'],
++                cwd=ROOT, text=True).strip().split()
++            check('restart/new_run_id_unpaused', output[0] != run_id and output[1:] == ['False', 'False'])
++            return dict(result='PASS', serverCommit=SERVER_SHA, clientHead=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
++                        checks=checks, checkCount=len(checks), sourceHashes=verify_sources(root, repository), wireTrace=wire,
++                        runtime=dict(python=sys.version, executable=sys.executable, platform=platform.platform()),
++                        boundaries='Real V2ControlService/V2STTSession/V2MirrorConnection through TCP/WS production server. Pinned GateAwareRecorder/AutoScheduler and synthetic WakeHit replace model/VAD outputs; permissive artifact probe replaces inference engine; server monotonic clock held/advanced for non-cumulative timing. Named settings/audio bootstrap, no Qt/app composition (AP070/100), hardware or ASR claim. Separate actual Win32 smoke.')
++        finally:
++            for controls, mirror in clients: await controls.close(); await mirror.close()
++            await asyncio.gather(*runners, return_exceptions=True)
++            server.should_exit = True
++            try: await asyncio.wait_for(serving, 10)
++            finally: tcp.close()
++
++
++if __name__ == '__main__':
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--server-root', required=True, type=Path)
++    parser.add_argument('--server-repository', required=True, type=Path)
++    args = parser.parse_args()
++    print(json.dumps(asyncio.run(run(args.server_root.resolve(), args.server_repository.resolve())), indent=2))
+diff --git a/scripts/check_v2_windows_hotkeys.py b/scripts/check_v2_windows_hotkeys.py
+new file mode 100644
+index 0000000..6f09d9c
+--- /dev/null
++++ b/scripts/check_v2_windows_hotkeys.py
+@@ -0,0 +1,125 @@
++"""Real Windows RegisterHotKey/WM_HOTKEY/SendInput and Apply rollback smoke.
++
++Uses temporarily reserved Ctrl+Alt+Shift+function keys, releases every key and
++registration. No text, clipboard, microphone or production server operation.
++"""
++
++import ctypes
++from ctypes import wintypes as w
++from dataclasses import replace
++import json
++import os
++from pathlib import Path
++import platform
++import sys
++import threading
++import time
++
++ROOT = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(ROOT))
++os.environ.setdefault('QT_QPA_PLATFORM', 'offscreen')
++from PySide6.QtWidgets import QApplication
++from voice_stt_client.core.v2_controls import ControlConfig, ControlSlot
++from voice_stt_client.ui.hotkeys import CtypesHotkeyBackend, V2HotkeyManager, parse_hotkey
++
++
++def run():
++    if sys.platform != 'win32': raise RuntimeError('Windows is required')
++    app = QApplication.instance() or QApplication([])
++    backend = CtypesHotkeyBackend()
++    checks, calls = [], []
++    def check(name, condition):
++        if not condition: raise AssertionError(name)
++        checks.append(name)
++    keys = []
++    for number in range(12, 4, -1):
++        key = f'Ctrl+Alt+Shift+F{number}'
++        spec = parse_hotkey(key)
++        try: backend.register(0, 0x5F00, spec.modifiers, spec.virtual_key)
++        except OSError: continue
++        backend.unregister(0, 0x5F00); keys.append(key)
++    if len(keys) < 6: raise RuntimeError('Not enough available smoke hotkeys')
++    config = ControlConfig(primary_key=keys[0], secondary_key=keys[1], wake_pause_key=keys[2],
++                           reinsert_last_key=keys[3], overlay_toggle_key=keys[4])
++    manager = V2HotkeyManager(config, on_control=lambda role: calls.append(str(role)),
++                             on_reinsert_last=lambda: calls.append('reinsert_last'),
++                             on_overlay_toggle=lambda: calls.append('overlay_toggle'), backend=backend, application=app)
++    user32 = ctypes.WinDLL('user32', use_last_error=True)
++    ptr = ctypes.c_size_t
++    class Keyboard(ctypes.Structure):
++        _fields_ = [('vk', w.WORD), ('scan', w.WORD), ('flags', w.DWORD), ('time', w.DWORD), ('extra', ptr)]
++    class Mouse(ctypes.Structure):
++        _fields_ = [('dx', w.LONG), ('dy', w.LONG), ('data', w.DWORD), ('flags', w.DWORD), ('time', w.DWORD), ('extra', ptr)]
++    class Hardware(ctypes.Structure):
++        _fields_ = [('message', w.DWORD), ('low', w.WORD), ('high', w.WORD)]
++    class Payload(ctypes.Union):
++        _fields_ = [('keyboard', Keyboard), ('mouse', Mouse), ('hardware', Hardware)]
++    class Input(ctypes.Structure):
++        _fields_ = [('type', w.DWORD), ('payload', Payload)]
++    user32.SendInput.argtypes = [w.UINT, ctypes.POINTER(Input), ctypes.c_int]
++    user32.SendInput.restype = w.UINT
++    def send(vk, up=False):
++        item = Input(type=1, payload=Payload(keyboard=Keyboard(vk, 0, 2 if up else 0, 0, 0)))
++        if user32.SendInput(1, ctypes.byref(item), ctypes.sizeof(Input)) != 1:
++            raise ctypes.WinError(ctypes.get_last_error())
++    def pump(duration=.15):
++        end = time.monotonic() + duration
++        while time.monotonic() < end:
++            app.processEvents(); time.sleep(.005)
++    def impulse(key, repeat=False):
++        vk = parse_hotkey(key).virtual_key
++        held = [0x11, 0x12, 0x10, vk]
++        try:
++            for value in held: send(value)
++            if repeat: send(vk)  # same held key; MOD_NOREPEAT must suppress this
++            pump()
++        finally:
++            for value in reversed(held): send(value, True)
++            pump(.05)
++    try:
++        check('native/all_roles_registered', manager.register())
++        for role, key in zip([*map(str, ControlSlot), 'reinsert_last', 'overlay_toggle'], keys):
++            before = len(calls)
++            impulse(key, repeat=True)
++            check('native/WM_HOTKEY_exactly_once/' + role, calls[before:] == [role])
++        old_ids = manager.role_ids
++        entered, release = threading.Event(), threading.Event()
++        owner_result = []
++        def occupy():
++            owner = CtypesHotkeyBackend(); spec = parse_hotkey(keys[5])
++            try:
++                owner.register(0, 0x5F01, spec.modifiers, spec.virtual_key)
++                owner_result.append('registered'); entered.set(); release.wait(10)
++            except Exception as exc:
++                owner_result.append(type(exc).__name__); entered.set()
++            finally: owner.unregister(0, 0x5F01)
++        thread = threading.Thread(target=occupy, name='AP050-foreign-hotkey-owner')
++        thread.start()
++        try:
++            check('native/foreign_thread_owns_key', entered.wait(3) and owner_result == ['registered'])
++            replacement = replace(config, secondary_key=keys[5])
++            check('native/occupied_apply_rejected', not manager.apply(replacement))
++            check('native/Win32_1409_recorded', manager.last_failure[1].errno == 1409)
++            check('native/atomic_rollback', manager.config == config and manager.role_ids == old_ids and manager.rollback_failure is None)
++            before = len(calls); impulse(keys[0])
++            check('native/old_key_operates_after_rollback', calls[before:] == ['primary'])
++        finally:
++            release.set(); thread.join(3)
++        check('native/foreign_owner_released', not thread.is_alive())
++        check('native/apply_after_release', manager.apply(replacement))
++        check('native/old_ids_invalid', not manager.dispatch_hotkey_id(old_ids['secondary']))
++        before = len(calls); impulse(keys[5])
++        check('native/new_key_routes_secondary', calls[before:] == ['secondary'])
++        manager.unregister()
++        before = len(calls); impulse(keys[0])
++        check('native/unregister_stops_dispatch', len(calls) == before)
++        return dict(result='PASS', checks=checks, checkCount=len(checks), calls=calls,
++                    runtime=dict(python=sys.version, executable=sys.executable, platform=platform.platform(),
++                                 tester='Codex on local Windows desktop', qt='offscreen',
++                                 timeUtc=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())),
++                    boundaries='Real Win32 backend and Qt native filter; actual WM_HOTKEY generated by SendInput, including held repeated key, foreign thread collision and rollback. Synthetic OS input rather than human keyboard; no app/core/ASR or final-text injection.')
++    finally:
++        manager.unregister()
++
++
++if __name__ == '__main__': print(json.dumps(run(), indent=2))
+diff --git a/tests/test_v2_controls.py b/tests/test_v2_controls.py
+new file mode 100644
+index 0000000..48c4269
+--- /dev/null
++++ b/tests/test_v2_controls.py
+@@ -0,0 +1,386 @@
++"""AP050 phase/source matrix, actual transport guards and native rollback."""
++
++import asyncio
++from copy import deepcopy
++from dataclasses import replace
++import os
++from types import SimpleNamespace
++import unittest
++
++os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
++from PySide6.QtWidgets import QApplication
++
++from voice_stt_client.core import protocol_v2 as p
++from voice_stt_client.core.activation_mirror import ActivationMirror, MirrorState
++from voice_stt_client.core.config import HotkeyConfig, SessionConfig
++from voice_stt_client.core.v2_controls import (
++    ActiveAction, ControlConfig, ControlIntent, ControlMigrationConflict,
++    ControlSlot, V2ControlService, migrate_hotkeys, plan_control,
++)
++from voice_stt_client.core.v2_mirror import V2MirrorConnection
++from voice_stt_client.core.v2_transport import V2STTSession, V2TransportConfig, V2TransportState
++from voice_stt_client.core.command_tracker import CommandTimeout
++from voice_stt_client.ui.hotkeys import V2HotkeyManager, MOD_NOREPEAT
++from tests.test_v2_mirror import snapshot, A, B
++from tests.test_v2_transport import FakeWebSocket, no_settings, until
++
++
++class PhaseMatrix(unittest.IsolatedAsyncioTestCase):
++    async def test_all_5_phases_4_actions_2_slots_2_sources(self):
++        seen = []
++        class Session:
++            binding = None
++            is_ready = True
++            def set_desired_suppression(self, *mask): pass
++            async def request(self, kind, **fields):
++                seen.append((kind, fields))
++                return "actual request boundary"
++        session, mirror = Session(), ActivationMirror()
++        service = V2ControlService(session, SimpleNamespace(mirror=mirror), audio_ready=lambda: True)
++        session.binding = SimpleNamespace(generation=1, session_id=snapshot().sessionId)
++        for source in ("manual", "wake_word"):
++            for phase in p.InputPhase:
++                for action in ActiveAction:
++                    for slot in (ControlSlot.PRIMARY, ControlSlot.SECONDARY):
++                        with self.subTest(source=source, phase=phase, action=action, slot=slot):
++                            raw = snapshot(active=None if phase == p.InputPhase.IDLE else A, phase=phase).to_mapping()
++                            raw['input']['primarySource'] = None if phase == p.InputPhase.IDLE else source
++                            mirror = ActivationMirror()
++                            mirror.begin(1, p.parse_snapshot(raw), 0)
++                            service.mirror_connection.mirror = mirror
++                            service.config = ControlConfig(primary_action=action, secondary_action=action)
++                            before = len(seen)
++                            result = await service.press(slot)
++                            if phase == p.InputPhase.IDLE:
++                                expected = 'activate' if slot == ControlSlot.PRIMARY else None
++                            elif action == ActiveAction.NONE or (action == ActiveAction.REFRESH and phase in (
++                                    p.InputPhase.WAITING_FIRST_SPEECH, p.InputPhase.CLOSING_INPUT)):
++                                expected = None
++                            else:
++                                expected = str(action)
++                            self.assertEqual(len(seen) - before, int(expected is not None))
++                            if expected:
++                                self.assertEqual(seen[-1][1]['action'], expected)
++                                if expected == 'activate':
++                                    self.assertEqual(seen[-1][1]['source'], 'manual')
++                                    self.assertNotIn('activationId', seen[-1][1])
++                                else:
++                                    self.assertEqual(seen[-1][1]['activationId'], A)
++                                    self.assertNotIn('source', seen[-1][1])
++                            else:
++                                self.assertIsNone(result)
++
++    async def test_idle_effective_manual_and_local_audio_barriers(self):
++        m = ActivationMirror(); m.begin(1, snapshot(), 0)
++        self.assertIsNotNone(plan_control(m.view, 'primary', ControlConfig()))
++        for effective, audio in ((False, True), (True, False), (False, False)):
++            data = snapshot().to_mapping()
++            data['trigger']['effective']['manual'], data['audioAvailable'] = effective, audio
++            m = ActivationMirror()
++            m.begin(1, p.parse_snapshot(data), 0)
++            self.assertIsNone(plan_control(m.view, 'primary', ControlConfig()))
++        m = ActivationMirror(); m.begin(1, snapshot(), 0)
++        m.protocol_fault(1, 0)
++        self.assertIsNone(plan_control(m.view, 'primary', ControlConfig()))
++
++    async def test_no_local_deadline_or_vad_side_effect(self):
++        m = ActivationMirror(); m.begin(1, snapshot(active=A, phase='segment_active'), 0)
++        deadline = m.view.input.deadline
++        for now in (10, 100, 10000):
++            m.tick(1, now)
++            self.assertEqual(m.view.input.phase, p.InputPhase.SEGMENT_ACTIVE)
++            self.assertEqual(m.view.input.deadline, deadline)
++        intent = plan_control(m.view, 'primary', ControlConfig())
++        self.assertEqual(intent, ControlIntent(1, m.view.session_id, 'refresh', A))
++        self.assertFalse(hasattr(intent, 'deadline'))
++
++
++class Controls(unittest.IsolatedAsyncioTestCase):
++    async def start(self, *, bootstrap=no_settings, **config):
++        class FreshSocket(FakeWebSocket):
++            def push(self, value):
++                if isinstance(value, dict) and value.get('type') == 'hello.accepted':
++                    value['snapshot']['lastEventSeq'] = 0
++                    value['snapshot']['settingsRevision'] = 0
++                super().push(value)
++        sockets = []
++        state = {'version': 0, 'mask': (False, False)}
++        async def connect(*args, **kwargs):
++            socket = FreshSocket(session_id=p.new_id()); sockets.append(socket)
++            async def reply(command):
++                if command['type'] == p.CommandType.SUPPRESSION:
++                    state['version'] += 1
++                    state['mask'] = command['manual'], command['wakeWord']
++                elif command['type'] == p.CommandType.SNAPSHOT_REQUEST:
++                    data = snapshot(version=state['version']).to_mapping()
++                    data['sessionId'] = socket.session_id
++                    data['trigger']['suppressed'] = dict(manual=state['mask'][0], wakeWord=state['mask'][1])
++                    data['trigger']['effective'] = dict(manual=not state['mask'][0], wakeWord=not state['mask'][1])
++                    socket.push(data)
++                socket.reply(command, revision=0, version=state['version'])
++            socket.on_send = reply
++            return socket
++        session = V2STTSession(V2TransportConfig(ack_timeout=.1, command_retries=0, backoff_initial=.01, **config),
++                               bootstrap=bootstrap, connector=connect)
++        mirror = V2MirrorConnection(session)
++        audio = [True]
++        controls = V2ControlService(session, mirror, audio_ready=lambda: audio[0])
++        runner = asyncio.create_task(session.run())
++        self.addAsyncCleanup(self.cleanup, controls, mirror, runner)
++        await until(lambda: session.is_ready and not mirror.mirror.view.snapshot_pending)
++        return session, mirror, controls, sockets, state, audio
++
++    async def cleanup(self, controls, mirror, runner):
++        await controls.close(); await mirror.close()
++        await asyncio.gather(runner, return_exceptions=True)
++
++    async def test_duplicate_pending_and_audio_desired_pause_guards(self):
++        session, mirror, controls, sockets, state, audio = await self.start()
++        socket = sockets[-1]; held = asyncio.Event(); release = asyncio.Event(); original = socket.on_send
++        async def hold(command):
++            if command['type'] == p.CommandType.ACTIVATION:
++                held.set(); await release.wait()
++            await original(command)
++        socket.on_send = hold
++        first = asyncio.create_task(controls.press('primary'))
++        await held.wait()
++        self.assertIsNone(await controls.press('primary'))
++        self.assertIsNone(await controls.control('finish'))
++        release.set(); await first
++        self.assertEqual(len([c for c in socket.commands if c['type'] == p.CommandType.ACTIVATION]), 1)
++        audio[0] = False
++        self.assertIsNone(await controls.press('primary'))
++        audio[0] = True
++        await controls.set_pause('manual', True)
++        self.assertIsNone(await controls.press('primary'))
++
++    async def test_configuring_and_resync_send_no_activation(self):
++        session, mirror, controls, sockets, _, _ = await self.start()
++        intent = plan_control(mirror.mirror.view, 'primary', controls.config)
++        count = len(sockets[-1].commands)
++        session._state(V2TransportState.CONFIGURING)
++        self.assertIsNone(await controls.execute(intent))
++        session._state(V2TransportState.READY)
++        mirror.mirror.protocol_fault(session.generation, 0)
++        self.assertEqual(mirror.mirror.view.state, MirrorState.RESYNCING)
++        self.assertIsNone(await controls.execute(intent))
++        self.assertEqual(len(sockets[-1].commands), count)
++
++    async def test_old_activation_intent_never_retargeted_and_invalid_phase_no_retry(self):
++        session, mirror, controls, sockets, _, _ = await self.start()
++        socket = sockets[-1]
++        def foreground(aid, phase, version):
++            data = snapshot(version=version, active=aid, phase=phase).to_mapping()
++            data['sessionId'] = session.binding.session_id
++            session.dispatch(p.parse_snapshot(data), session.binding)
++        foreground(A, 'segment_active', 2)
++        intent = plan_control(mirror.mirror.view, 'primary', controls.config)
++        foreground(B, 'segment_active', 3)
++        original = socket.on_send
++        async def reply(command):
++            if command['type'] == p.CommandType.ACTIVATION:
++                socket.reply(command, 'stale_activation', version=3, revision=0, phase='segment_active')
++            else:
++                # Keep B authoritative during stale-A snapshot clarification.
++                if command['type'] == p.CommandType.SNAPSHOT_REQUEST:
++                    data = snapshot(version=3, active=B, phase='segment_active').to_mapping()
++                    data['sessionId'] = session.binding.session_id; socket.push(data)
++                    socket.reply(command, version=3, revision=0)
++                else: await original(command)
++        socket.on_send = reply
++        result = await controls.execute(intent)
++        self.assertEqual(result.command.payload['activationId'], A)
++        self.assertEqual(result.ack.result, p.AckResult.STALE_ACTIVATION)
++        await until(lambda: not mirror.mirror.view.snapshot_pending)
++        self.assertEqual(mirror.mirror.view.input.activation_id, B)
++        async def invalid(command): socket.reply(command, 'invalid_phase', version=3, revision=0, phase='waiting_first_speech')
++        socket.on_send = invalid
++        count = len(socket.commands)
++        await controls.execute(ControlIntent(session.generation, session.binding.session_id, 'refresh', B))
++        await asyncio.sleep(.02)
++        self.assertEqual(len(socket.commands), count + 1)
++
++    async def test_complete_mask_coalesces_and_confirmation_waits_for_snapshot(self):
++        session, mirror, controls, sockets, _, _ = await self.start()
++        socket = sockets[-1]; entered, release = asyncio.Event(), asyncio.Event(); original = socket.on_send
++        async def held(command):
++            if command['type'] == p.CommandType.SUPPRESSION:
++                entered.set(); await release.wait()
++            await original(command)
++        socket.on_send = held
++        first = asyncio.create_task(controls.set_pause('manual', True))
++        await entered.wait()
++        view = controls.pause_view
++        self.assertTrue(view.desired_manual)
++        self.assertFalse(view.confirmed_manual)
++        self.assertTrue(view.pending)
++        second = asyncio.create_task(controls.set_pause('wakeWord', True))
++        await asyncio.sleep(0)
++        release.set(); await asyncio.gather(first, second)
++        await until(lambda: not controls.pause_view.pending)
++        self.assertEqual(session._desired_suppression, (True, True))
++        self.assertEqual(controls.pause_view.confirmed_wake_word, True)
++        masks = [(c['manual'], c['wakeWord']) for c in socket.commands if c['type'] == p.CommandType.SUPPRESSION]
++        self.assertEqual(masks[-2:], [(True, False), (True, True)])
++        self.assertFalse(mirror.mirror.view.trigger['effective']['manual'])
++
++    async def test_lost_ack_reconnect_keeps_intent_without_false_confirmation(self):
++        session, mirror, controls, sockets, _, _ = await self.start()
++        binding = session.binding; socket = sockets[-1]
++        socket.on_send = lambda command: asyncio.sleep(0)
++        with self.assertRaises(CommandTimeout): await controls.set_pause('manual', True)
++        self.assertEqual(session._desired_suppression, (True, False))
++        self.assertIsNone(controls.pause_view.confirmed_manual)
++        await until(lambda: session.is_ready and session.binding is not binding and not controls.pause_view.pending)
++        self.assertTrue(controls.pause_view.confirmed_manual)
++        self.assertIsNone(await controls.execute(ControlIntent(binding.generation, binding.session_id, 'finish', A)))
++
++    async def test_pause_during_bootstrap_ack_restored_before_ready(self):
++        session, mirror, controls, sockets, _, _ = await self.start()
++        old = session.binding
++        original_connector = session._connector
++        held, release = asyncio.Event(), asyncio.Event()
++        async def connector(*args, **kwargs):
++            socket = await original_connector(*args, **kwargs); original = socket.on_send
++            async def reply(command):
++                if command['type'] == p.CommandType.SUPPRESSION and not held.is_set():
++                    held.set(); await release.wait()
++                await original(command)
++            socket.on_send = reply
++            return socket
++        session._connector = connector
++        await session.reconnect(old, 'test')
++        await held.wait()
++        self.assertFalse(session.is_ready)
++        await controls.set_pause('wakeWord', True)
++        release.set()
++        await until(lambda: session.is_ready and session.binding is not old and not controls.pause_view.pending)
++        masks = [(c['manual'], c['wakeWord']) for c in sockets[-1].commands if c['type'] == p.CommandType.SUPPRESSION]
++        self.assertEqual(masks, [(False, False), (False, True)])
++        self.assertTrue(controls.pause_view.confirmed_wake_word)
++
++    async def test_run_restart_pause_reset_and_persisted_base_has_trigger(self):
++        _, _, controls, _, _, _ = await self.start()
++        await controls.set_pause('manual', True); await controls.set_pause('wakeWord', True)
++        fresh, _, fresh_controls, _, _, _ = await self.start()
++        self.assertFalse(fresh_controls.pause_view.desired_manual)
++        self.assertEqual(fresh._desired_suppression, (False, False))
++        # Process identity is established once at import; a real restart test
++        # additionally runs an independent interpreter in the server checkpoint.
++        self.assertTrue(p.is_canonical_uuid(fresh.client_run_id))
++        with self.assertRaises(ValueError):
++            SessionConfig(manual_trigger_enabled=False, wake_word_trigger_enabled=False).validate()
++
++    async def test_closing_input_finish_cancel_no_change_and_refresh_blocked(self):
++        session, mirror, controls, sockets, _, _ = await self.start()
++        data = snapshot(version=2, active=A, phase='closing_input').to_mapping()
++        data['sessionId'] = session.binding.session_id
++        session.dispatch(p.parse_snapshot(data), session.binding)
++        socket = sockets[-1]
++        async def reply(command): socket.reply(command, 'no_change', version=2, revision=0, phase='closing_input')
++        socket.on_send = reply
++        for action in ('finish', 'cancel'):
++            result = await controls.control(action)
++            self.assertEqual(result.ack.result, p.AckResult.NO_CHANGE)
++            self.assertEqual(result.command.payload['activationId'], A)
++            self.assertEqual(mirror.mirror.view.input.phase, p.InputPhase.CLOSING_INPUT)
++        count = len(socket.commands)
++        self.assertIsNone(await controls.control('refresh'))
++        self.assertEqual(len(socket.commands), count)
++
++
++class Migration(unittest.TestCase):
++    def test_defaults_alias_and_explicit_bindings_preserved(self):
++        cfg = ControlConfig()
++        self.assertEqual((cfg.primary_action, cfg.secondary_action, cfg.secondary_key, cfg.wake_pause_key), ('refresh', 'finish', '', ''))
++        for field, action in (('finish_key', 'finish'), ('cancel_key', 'cancel')):
++            legacy = HotkeyConfig(key='<ctrl>+<shift>+F7', overlay_toggle_key='Alt+F8', **{field: 'Ctrl+F10'})
++            result = migrate_hotkeys(legacy)
++            self.assertEqual(result.primary_key, 'Ctrl+Shift+F7')
++            self.assertEqual(result.secondary_key, 'Ctrl+F10')
++            self.assertEqual(result.secondary_action, action)
++            self.assertEqual(result.reinsert_last_key, legacy.reinsert_last_key)
++            self.assertEqual(result.overlay_toggle_key, legacy.overlay_toggle_key)
++
++    def test_conflict_does_not_mutate_or_delete_profile(self):
++        legacy = HotkeyConfig(finish_key='Ctrl+F7', cancel_key='Ctrl+F8')
++        before = deepcopy(legacy)
++        with self.assertRaises(ControlMigrationConflict) as found: migrate_hotkeys(legacy)
++        self.assertIs(found.exception.legacy, legacy)
++        self.assertEqual(legacy, before)
++
++    def test_normalization_and_collisions_rejected_before_registration(self):
++        self.assertEqual(ControlConfig(primary_key=' shift + control + space ').primary_key, 'Ctrl+Shift+Space')
++        for kwargs in (dict(primary_key='Ctrl+é'), dict(primary_key='Ctrl+²'), dict(primary_key='Ctrl+F25'),
++                       dict(primary_action='extend'), dict(primary_key='Ctrl+F9', wake_pause_key='<ctrl>+f9'),
++                       dict(primary_key='Ctrl+F9', reinsert_last_key='Ctrl+F9'), dict(enabled=1)):
++            with self.subTest(kwargs=kwargs), self.assertRaises(ValueError): ControlConfig(**kwargs)
++
++
++class NativeRegistration(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls): cls.app = QApplication.instance() or QApplication([])
++
++    def start(self, config=None):
++        class Backend:
++            def __init__(self): self.keys = {}; self.fail_key = None; self.fail_restore = False
++            def register(self, hwnd, ident, mods, key):
++                if key == self.fail_key or self.fail_restore and key == 0x20:
++                    raise OSError(1409, 'synthetic occupied key')
++                if (mods, key) in self.keys.values(): raise OSError(1409, 'duplicate')
++                self.keys[ident] = (mods, key)
++            def unregister(self, hwnd, ident): self.keys.pop(ident, None)
++        backend, calls = Backend(), []
++        manager = V2HotkeyManager(config or ControlConfig(secondary_key='Ctrl+F8', wake_pause_key='Ctrl+F9'),
++                                 on_control=calls.append, on_reinsert_last=lambda: calls.append('reinsert'),
++                                 on_overlay_toggle=lambda: calls.append('overlay'), backend=backend, application=self.app)
++        self.addCleanup(manager.unregister)
++        self.assertTrue(manager.register())
++        return manager, backend, calls
++
++    def test_controls_registered_without_manual_source_and_wake_slot_only_pause(self):
++        manager, backend, calls = self.start()
++        for slot in ControlSlot:
++            ident = manager.role_ids[slot]
++            self.assertTrue(backend.keys[ident][0] & MOD_NOREPEAT)
++            self.assertTrue(manager.dispatch_hotkey_id(ident))
++        self.assertEqual(calls, list(ControlSlot))
++        self.assertFalse(manager.dispatch_hotkey_id(123))
++
++    def test_partial_failure_restores_old_and_apply_rebind_invalidates_old_ids(self):
++        manager, backend, calls = self.start()
++        old = manager.role_ids; registrations = dict(backend.keys)
++        backend.fail_key = 0x79  # F10, failure after the new primary registers
++        replacement = replace(manager.config, primary_key='Ctrl+F11', secondary_key='Ctrl+F10')
++        self.assertFalse(manager.apply(replacement))
++        self.assertEqual(backend.keys, registrations)
++        self.assertEqual(manager.role_ids, old)
++        self.assertIsNone(manager.rollback_failure)
++        self.assertTrue(manager.dispatch_hotkey_id(old['primary']))
++        backend.fail_key = None
++        self.assertTrue(manager.apply(replacement))
++        self.assertFalse(manager.dispatch_hotkey_id(old['primary']))
++        self.assertTrue(manager.dispatch_hotkey_id(manager.role_ids['primary']))
++        self.assertEqual(calls, [ControlSlot.PRIMARY, ControlSlot.PRIMARY])
++
++    def test_wrong_physical_lparam_rejected_and_utilities_separate(self):
++        manager, backend, calls = self.start()
++        ident = manager.role_ids['primary']; mods, key = backend.keys[ident]
++        self.assertFalse(manager.dispatch_hotkey_id(ident, ((key + 1) << 16) | (mods & ~MOD_NOREPEAT)))
++        self.assertTrue(manager.dispatch_hotkey_id(ident, (key << 16) | (mods & ~MOD_NOREPEAT)))
++        manager.dispatch_hotkey_id(manager.role_ids['reinsert_last'])
++        self.assertEqual(calls, [ControlSlot.PRIMARY, 'reinsert'])
++
++    def test_rollback_failure_exposed_and_no_partial_dispatch(self):
++        manager, backend, _ = self.start()
++        backend.fail_key, backend.fail_restore = 0x79, True
++        self.assertFalse(manager.apply(replace(manager.config, primary_key='Ctrl+F11', secondary_key='Ctrl+F10')))
++        self.assertIsNotNone(manager.rollback_failure)
++        self.assertFalse(backend.keys)
++        self.assertFalse(manager.dispatch_hotkey_id(manager.role_ids['primary']))
++
++    def test_disabled_and_empty_profiles_no_native_bindings(self):
++        manager, backend, _ = self.start(ControlConfig(enabled=False))
++        self.assertFalse(backend.keys)
++        self.assertTrue(manager.apply(ControlConfig(primary_key='', reinsert_last_key='')))
++        self.assertFalse(backend.keys)
+diff --git a/voice_stt_client/core/config.py b/voice_stt_client/core/config.py
+index fe567cd..a8f2671 100644
+--- a/voice_stt_client/core/config.py
++++ b/voice_stt_client/core/config.py
+@@ -105 +105 @@ def normalize_hotkey_spec(value: str) -> str:
+-        if len(raw_token) == 1 and raw_token.isalnum():
++        if len(raw_token) == 1 and raw_token.isascii() and raw_token.isalnum():
+diff --git a/voice_stt_client/core/v2_controls.py b/voice_stt_client/core/v2_controls.py
+new file mode 100644
+index 0000000..43957d3
+--- /dev/null
++++ b/voice_stt_client/core/v2_controls.py
+@@ -0,0 +1,235 @@
++"""Run-local V2 controls. All mutable entry points belong to the core loop.
++
++No clock, DictationWindow, VAD, capture stop, text or clipboard side effects.
++Qt forwards immutable intents from its published MirrorView; it never reads
++the mutable transport. Runtime composition is supplied by AP-CV2-100.
++"""
++
++from __future__ import annotations
++
++import asyncio
++from dataclasses import dataclass
++from enum import StrEnum
++
++from . import protocol_v2 as p
++from .config import HotkeyConfig, normalize_hotkey_spec
++
++
++class ControlSlot(StrEnum):
++    PRIMARY = "primary"
++    SECONDARY = "secondary"
++    WAKE_PAUSE = "wake_pause"
++
++
++class ActiveAction(StrEnum):
++    REFRESH = "refresh"
++    FINISH = "finish"
++    CANCEL = "cancel"
++    NONE = "none"
++
++
++@dataclass(frozen=True)
++class ControlConfig:
++    primary_key: str = "Ctrl+Shift+Space"
++    primary_action: ActiveAction = ActiveAction.REFRESH
++    secondary_key: str = ""
++    secondary_action: ActiveAction = ActiveAction.FINISH
++    wake_pause_key: str = ""
++    reinsert_last_key: str = "Ctrl+Alt+Space"
++    overlay_toggle_key: str = ""
++    enabled: bool = True
++
++    def __post_init__(self):
++        if type(self.enabled) is not bool:
++            raise ValueError("controls.enabled must be boolean")
++        for name in ("primary_action", "secondary_action"):
++            object.__setattr__(self, name, ActiveAction(getattr(self, name)))
++        keys = []
++        for name in ("primary_key", "secondary_key", "wake_pause_key", "reinsert_last_key", "overlay_toggle_key"):
++            value = getattr(self, name)
++            if not isinstance(value, str):
++                raise ValueError("control keys must be strings")
++            canonical = normalize_hotkey_spec(value) if value.strip() else ""
++            object.__setattr__(self, name, canonical)
++            if canonical:
++                keys.append(canonical)
++        if len(keys) != len(set(keys)):
++            raise ValueError("all control and utility keys must differ")
++
++
++class ControlMigrationConflict(ValueError):
++    """Keep the original profile; UI must resolve slots before saving it."""
++
++    def __init__(self, legacy):
++        self.legacy = legacy
++        super().__init__("Explicit finish and cancel bindings require a user choice of two control slots")
++
++
++def migrate_hotkeys(legacy: HotkeyConfig) -> ControlConfig:
++    """Pure conversion; never save/delete existing bindings on a conflict.
++
++    Full profile persistence/dialog belongs to AP070/080. This adapter preserves
++    explicit controls and utilities, including the legacy primary key alias.
++    """
++    legacy.validate()
++    if legacy.finish_key and legacy.cancel_key:
++        raise ControlMigrationConflict(legacy)
++    return ControlConfig(primary_key=legacy.effective_toggle_key,
++                         secondary_key=legacy.finish_key or legacy.cancel_key or "",
++                         secondary_action=ActiveAction.CANCEL if legacy.cancel_key else ActiveAction.FINISH,
++                         reinsert_last_key=legacy.reinsert_last_key or "",
++                         overlay_toggle_key=legacy.overlay_toggle_key or "", enabled=legacy.enabled)
++
++
++@dataclass(frozen=True)
++class ControlIntent:
++    generation: int
++    session_id: str
++    action: str
++    activation_id: str | None
++
++
++def plan_control(view, slot: ControlSlot, config: ControlConfig) -> ControlIntent | None:
++    """Resolve one physical impulse from an immutable published server view."""
++    slot = ControlSlot(slot)
++    if slot == ControlSlot.WAKE_PAUSE:
++        raise ValueError("wake pause uses the suppression API")
++    if not view.operations_ready or view.session_id is None:
++        return None
++    phase = view.input.phase
++    if phase == p.InputPhase.IDLE:
++        if slot != ControlSlot.PRIMARY or not view.manual_available:
++            return None
++        action = "activate"
++    else:
++        action = config.primary_action if slot == ControlSlot.PRIMARY else config.secondary_action
++        if action == ActiveAction.NONE or view.input.activation_id is None:
++            return None
++        if action == ActiveAction.REFRESH and phase in (p.InputPhase.WAITING_FIRST_SPEECH, p.InputPhase.CLOSING_INPUT):
++            return None
++    return ControlIntent(view.generation, view.session_id, str(action), view.input.activation_id)
++
++
++@dataclass(frozen=True)
++class PauseView:
++    desired_manual: bool
++    desired_wake_word: bool
++    confirmed_manual: bool | None
++    confirmed_wake_word: bool | None
++    pending: bool
++
++
++class V2ControlService:
++    """Use actual transport/mirror; audio_ready supplies AP040's local barrier.
++
++    Desired pauses survive device/network loss on this object, never persist.
++    Confirmation comes from the mirror's authoritative snapshot, not the UI
++    request or an old ack. Bootstrap's both-suppressed mask is independent.
++    """
++
++    def __init__(self, session, mirror_connection, *, config=None, audio_ready=lambda: False):
++        if session.binding is not None or getattr(session, "_control_service", None) is not None:
++            raise RuntimeError("attach one control service before run")
++        session._control_service = self
++        self.session, self.mirror_connection = session, mirror_connection
++        self.config = config or ControlConfig()
++        self.audio_ready = audio_ready
++        self._activation_pending = False
++        self._pause_task = None
++        self._desired = (False, False)
++        session.set_desired_suppression(*self._desired)
++
++    @property
++    def pause_view(self):
++        binding, view = self.session.binding, self.mirror_connection.mirror.view
++        confirmed = (None, None)
++        if (self.session.is_ready and binding and view.operations_ready and not view.snapshot_pending
++                and view.session_id == binding.session_id and view.generation == binding.generation):
++            mask = view.trigger.get("suppressed", {})
++            confirmed = (mask.get("manual"), mask.get("wakeWord"))
++        return PauseView(*self._desired, *confirmed, confirmed != self._desired)
++
++    async def press(self, slot):
++        if ControlSlot(slot) == ControlSlot.WAKE_PAUSE:
++            return await self.toggle_pause("wakeWord")
++        intent = plan_control(self.mirror_connection.mirror.view, slot, self.config)
++        return await self.execute(intent)
++
++    async def control(self, action, *, intent=None):
++        """Dedicated Finish/Cancel buttons may provide an already captured ID."""
++        action = ActiveAction(action)
++        if action not in (ActiveAction.FINISH, ActiveAction.CANCEL, ActiveAction.REFRESH):
++            return None
++        if intent is None:
++            view = self.mirror_connection.mirror.view
++            if view.input.activation_id is None:
++                return None
++            intent = ControlIntent(view.generation, view.session_id, str(action), view.input.activation_id)
++        elif intent.action != action:
++            raise ValueError("intent action mismatch")
++        return await self.execute(intent)
++
++    async def execute(self, intent):
++        binding, view = self.session.binding, self.mirror_connection.mirror.view
++        if (intent is None or self._activation_pending or not self.session.is_ready or binding is None
++                or not view.operations_ready or view.snapshot_pending
++                or intent.generation != binding.generation or intent.session_id != binding.session_id):
++            return None
++        if intent.action not in ("activate", "refresh", "finish", "cancel"):
++            raise ValueError("invalid control action")
++        if intent.action == "activate":
++            if (intent.activation_id is not None or not view.manual_available
++                    or self._desired[0] or not self.audio_ready()):
++                return None
++            fields = dict(action="activate", source="manual")
++        else:
++            if intent.activation_id is None:
++                return None
++            # Never retarget a queued old-A intent to B. Server answers stale_A.
++            if (intent.action == "refresh" and intent.activation_id == view.input.activation_id
++                    and view.input.phase in (p.InputPhase.WAITING_FIRST_SPEECH, p.InputPhase.CLOSING_INPUT)):
++                return None
++            fields = dict(action=intent.action, activationId=intent.activation_id)
++        self._activation_pending = True
++        try:
++            return await self.session.request(p.CommandType.ACTIVATION, binding=binding, **fields)
++        finally:
++            self._activation_pending = False
++
++    async def set_pause(self, source, paused):
++        if source not in ("manual", "wakeWord") or type(paused) is not bool:
++            raise ValueError("pause needs one source and a boolean")
++        mask = list(self._desired)
++        mask[0 if source == "manual" else 1] = paused
++        self._desired = tuple(mask)
++        # Persist the request in run memory before any I/O, including an
++        # uncertain/lost ack. Transport reapplies it before READY on reconnect.
++        self.session.set_desired_suppression(*self._desired)
++        if not self.session.is_ready:
++            return None
++        if self._pause_task is None or self._pause_task.done():
++            self._pause_task = asyncio.create_task(self._flush_pause(), name="v2-run-pause")
++        return await asyncio.shield(self._pause_task)
++
++    async def toggle_pause(self, source):
++        if source not in ("manual", "wakeWord"):
++            raise ValueError("unknown trigger source")
++        return await self.set_pause(source, not self._desired[0 if source == "manual" else 1])
++
++    async def _flush_pause(self):
++        binding = self.session.binding
++        while self.session.is_ready and self.session.binding is binding:
++            desired = self._desired
++            completion = await self.session.request(p.CommandType.SUPPRESSION, binding=binding,
++                                                    manual=desired[0], wakeWord=desired[1])
++            if not completion.ack.accepted or desired == self._desired:
++                return completion
++        return None
++
++    async def close(self):
++        # No orphan suppression task; transport cleanup owns uncertain outcomes.
++        task = self._pause_task
++        if task and not task.done():
++            task.cancel()
++        if task:
++            await asyncio.gather(task, return_exceptions=True)
+diff --git a/voice_stt_client/core/v2_transport.py b/voice_stt_client/core/v2_transport.py
+index 123a058..6d4b215 100644
+--- a/voice_stt_client/core/v2_transport.py
++++ b/voice_stt_client/core/v2_transport.py
+@@ -163,0 +164,6 @@ class V2STTSession:
++    def set_desired_suppression(self, manual: bool, wake_word: bool):
++        """Run-memory intent only; never an optimistic server confirmation."""
++        if type(manual) is not bool or type(wake_word) is not bool:
++            raise ValueError("suppression must be boolean")
++        self._desired_suppression = (manual, wake_word)
++
+@@ -302,4 +308,12 @@ class V2STTSession:
+-            completion = await self._command(binding, p.CommandType.SUPPRESSION,
+-                                             manual=self._desired_suppression[0], wakeWord=self._desired_suppression[1])
+-            if not completion.ack.accepted:
+-                raise _Blocked("suppression_bootstrap_rejected")
++            # A run-pause change during the ack wait must be applied before
++            # READY. Keep bootstrap suppression separate from the desired mask.
++            async def restore():
++                while True:
++                    desired = self._desired_suppression
++                    completion = await self._command(binding, p.CommandType.SUPPRESSION,
++                                                     manual=desired[0], wakeWord=desired[1])
++                    if not completion.ack.accepted:
++                        raise _Blocked("suppression_bootstrap_rejected")
++                    if desired == self._desired_suppression:
++                        return
++            await asyncio.wait_for(restore(), self.config.bootstrap_timeout)
+@@ -399,0 +414 @@ class V2STTSession:
++            desired_at_send = self._desired_suppression
+@@ -401 +416,2 @@ class V2STTSession:
+-            if kind == p.CommandType.SUPPRESSION and completion.ack.accepted:
++            if (kind == p.CommandType.SUPPRESSION and completion.ack.accepted
++                    and self._desired_suppression == desired_at_send):
+diff --git a/voice_stt_client/ui/hotkeys.py b/voice_stt_client/ui/hotkeys.py
+index 0daa95e..a0624d5 100644
+--- a/voice_stt_client/ui/hotkeys.py
++++ b/voice_stt_client/ui/hotkeys.py
+@@ -15,0 +16 @@ from voice_stt_client.core.config import normalize_hotkey_spec
++from voice_stt_client.core.v2_controls import ControlConfig, ControlSlot
+@@ -76,0 +78,4 @@ HOTKEY_FIELDS = {
++# New IDs on every successful/attempted replacement invalidate queued messages
++# from a previous role assignment. IDs are process-wide, never reused.
++_V2_IDS = iter(range(0x6000, 0xBFFF))
++
+@@ -227,0 +233 @@ class GlobalHotkeyManager(QAbstractNativeEventFilter):
++        self._action_names = HOTKEY_ACTION_NAMES
+@@ -308 +314 @@ class GlobalHotkeyManager(QAbstractNativeEventFilter):
+-    def dispatch_hotkey_id(self, hotkey_id: int) -> bool:
++    def dispatch_hotkey_id(self, hotkey_id: int, lparam: int | None = None) -> bool:
+@@ -312,0 +319,5 @@ class GlobalHotkeyManager(QAbstractNativeEventFilter):
++        if lparam is not None:
++            spec = self._specs[hotkey_id]
++            # Windows lParam contains modifiers (without MOD_NOREPEAT) and VK.
++            if (lparam & 0xFFFF) != (spec.modifiers & ~MOD_NOREPEAT) or (lparam >> 16) & 0xFFFF != spec.virtual_key:
++                return False
+@@ -318 +329 @@ class GlobalHotkeyManager(QAbstractNativeEventFilter):
+-            details={"action": HOTKEY_ACTION_NAMES.get(hotkey_id, "unknown")},
++            details={"action": self._action_names.get(hotkey_id, "unknown")},
+@@ -332 +343 @@ class GlobalHotkeyManager(QAbstractNativeEventFilter):
+-                handled = self.dispatch_hotkey_id(int(msg.wParam))
++                handled = self.dispatch_hotkey_id(int(msg.wParam), int(msg.lParam))
+@@ -336,0 +348,88 @@ class GlobalHotkeyManager(QAbstractNativeEventFilter):
++
++
++class V2HotkeyManager(GlobalHotkeyManager):
++    """Qt-side role adapter with transactional Apply on the Qt/Win32 thread.
++
++    on_control forwards ONE slot to the core bridge, which uses the published
++    MirrorView to bind the intent. Utilities have their independent callbacks.
++    Registration is independent of configured/effective trigger sources.
++    """
++
++    def __init__(self, config: ControlConfig, *, on_control, on_reinsert_last=None,
++                 on_overlay_toggle=None, backend=None, application=None, observability=NULL_INGRESS):
++        # Reuse the established checked backend, native filter and lifecycle.
++        super().__init__(toggle_key="Ctrl+Shift+Space", reinsert_last_key="Ctrl+Alt+Space",
++                         on_toggle=lambda: None, on_reinsert_last=lambda: None,
++                         enabled=config.enabled, backend=backend, application=application,
++                         observability=observability)
++        self._on_control = on_control
++        self._utilities = {"reinsert_last": on_reinsert_last, "overlay_toggle": on_overlay_toggle}
++        self._applying = False
++        self.rollback_failure = None
++        self.config = config
++        self._specs, self._callbacks, self._action_names = self._bindings(config)
++
++    def _bindings(self, config):
++        specs, callbacks, names = {}, {}, {}
++        for role, key in ((ControlSlot.PRIMARY, config.primary_key),
++                          (ControlSlot.SECONDARY, config.secondary_key),
++                          (ControlSlot.WAKE_PAUSE, config.wake_pause_key),
++                          ("reinsert_last", config.reinsert_last_key),
++                          ("overlay_toggle", config.overlay_toggle_key)):
++            if not key:
++                continue
++            callback = (lambda slot=role: self._on_control(slot)) if isinstance(role, ControlSlot) else self._utilities[role]
++            if callback is None:
++                raise ValueError(f"callback missing for {role}")
++            hotkey_id = next(_V2_IDS)
++            specs[hotkey_id], callbacks[hotkey_id], names[hotkey_id] = parse_hotkey(key), callback, str(role)
++        return specs, callbacks, names
++
++    @property
++    def role_ids(self):
++        return {role: hotkey_id for hotkey_id, role in self._action_names.items()}
++
++    @property
++    def is_registered(self):
++        return super().is_registered or not self._specs
++
++    def register(self):
++        if not self._specs:
++            # An all-unbound profile is legitimate; there is no filter to install.
++            return True
++        return super().register()
++
++    def dispatch_hotkey_id(self, hotkey_id, lparam=None):
++        if self._applying:
++            return False
++        return super().dispatch_hotkey_id(hotkey_id, lparam)
++
++    def apply(self, config: ControlConfig) -> bool:
++        """Return true only after all actual registrations succeed.
++
++        Prevalidation has no side effects. Partial failure restores the exact old
++        bindings. A rare rollback OS failure disables dispatch and is reported;
++        it is never presented as a successfully applied/rolled-back profile.
++        Caller saves preferences only after this method returns true.
++        """
++        new = self._bindings(config)
++        old = (self._specs, self._callbacks, self._action_names)
++        old_config, was_active = self.config, bool(self._registered_ids) or not self.enabled
++        self.rollback_failure = None
++        self._applying = True
++        try:
++            self.unregister()
++            self._specs, self._callbacks, self._action_names = new
++            self.enabled = config.enabled
++            if self.register():
++                self.config = config
++                return True
++            failure = self.last_failure
++            self._specs, self._callbacks, self._action_names = old
++            self.enabled = old_config.enabled
++            if was_active and not self.register():
++                self.rollback_failure = self.last_failure
++            self.last_failure = failure
++            return False
++        finally:
++            self._applying = False

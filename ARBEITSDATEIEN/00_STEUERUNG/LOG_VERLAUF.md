@@ -1,3 +1,7 @@
+## 2026-10-12 – AP-CV2-050: unabhängige technische Abnahme R02
+
+PR #7; geprüfter Kandidat `55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a`, Tree `3b0dc469a1a3e577eb4dda0a67e2f3746b9c92cd`, kanonischer Parent `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`: **ROOT_PASS** für CONTROL-01 bis CONTROL-14, keine offenen Pflichtfindings. 1397 Windows-, 297 gezielte, 79 echte lokale TCP/WS-Server- und 16 native Win32-Checks als Fremdbelege geprüft; eigene Windows-Wiederholung NOT_RUN. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md). Workflow WAITING_FOR_APPROVAL; kein Merge und kein AP060 ohne menschliche Übernahmefreigabe.
+
 ## 2026-10-12 – AP-CV2-030: unabhängige Abnahme R02
 
 PR #5, geprüfter Kandidat `d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61`, Tree `7123984bb4b382919e557f4ecef1400de4eced29`, Parent `8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0`: **ROOT_PASS** für 35/35 FG-/SYNC-IDs nach unabhängiger Code- und Fremdevidenzprüfung; 1339 Windows-, 106 Targeted-Tests und 35 gepinnte Serverchecks grün, GitHub-CI grün. Eigene Windows-Suite regelkonform NOT_RUN. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md). Status WAITING_FOR_APPROVAL; menschliche Übernahme noch offen, AP040 nicht begonnen.
@@ -2121,3 +2125,7 @@ Review auf `6d74c1ae06643e026834bc9164028bec908e26df` (Tree `f8a57f79c6bf61d7b07
 ## AP-CV2-030-R01 – 2026-10-12 – Mirror und Resync / REVIEW_READY
 
 Von AP020-Aggregat8fa0f82 nach belegtem unabhängigen PASS, menschlicher Freigabe und Baumgleichheit: reiner Mirror, sichere Segment-/Terminal-/Settingsprojektionen und tatsächliche V2-Transport-/Snapshotanbindung. Alle35 Requirements einzeln verknüpft.1339 Windowsgesamttests,106 gezielte Tests,35 echte Serverchecks/46 Quellblobs und compileall PASS; exakte Basis/Produktdiff/Gitblobs und vollständige Logs gesichert. [R01-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md). Keine eigene Abnahme, Promotion oder Folgepaketimplementierung; Schreiben ab Übergabe pausiert.
+
+## AP-CV2-050-R01 – 2026-10-12 – Controls/Runpausen/Win32 / REVIEW_READY
+
+Nach tatsächlicher AP040-Übernahme (PR6, PASS/Freigabe/Singleparent/Baumgleichheit belegt) von 4eb1161 umgesetzt: quellenneutraler Controlservice, ursprüngliche IDbindung, vollständige getrennte Runpausen und atomare Win32rollenregistrierung.1397 Windowsgesamttests,297 gezielte Tests,79 echte Serverchecks/46 Quellblobs,16 native Windowschecks, compileall/diffcheck PASS. Alle14 Requirements einzeln belegt. [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/01_REPORT.md). Unabhängige Abnahme offen; Schreiben ab Übergabe pausiert, keine kanonische Übernahme oder Folgepaketimplementierung.

@@ -161,6 +161,12 @@ class V2STTSession:
     def pending_count(self):
         return self._tracker.pending_count if self._tracker else 0
 
+    def set_desired_suppression(self, manual: bool, wake_word: bool):
+        """Run-memory intent only; never an optimistic server confirmation."""
+        if type(manual) is not bool or type(wake_word) is not bool:
+            raise ValueError("suppression must be boolean")
+        self._desired_suppression = (manual, wake_word)
+
     def _state(self, state, reason="", delay=None):
         self.status = TransportStatus(state, self.generation, reason, delay)
         self._observe.system("client.v2.transport_state", generation=self.generation,
@@ -299,10 +305,18 @@ class V2STTSession:
             await asyncio.wait_for(self.bootstrap(self, binding), self.config.bootstrap_timeout)
             if not self._current(binding):
                 raise TransportLost("transport_lost")
-            completion = await self._command(binding, p.CommandType.SUPPRESSION,
-                                             manual=self._desired_suppression[0], wakeWord=self._desired_suppression[1])
-            if not completion.ack.accepted:
-                raise _Blocked("suppression_bootstrap_rejected")
+            # A run-pause change during the ack wait must be applied before
+            # READY. Keep bootstrap suppression separate from the desired mask.
+            async def restore():
+                while True:
+                    desired = self._desired_suppression
+                    completion = await self._command(binding, p.CommandType.SUPPRESSION,
+                                                     manual=desired[0], wakeWord=desired[1])
+                    if not completion.ack.accepted:
+                        raise _Blocked("suppression_bootstrap_rejected")
+                    if desired == self._desired_suppression:
+                        return
+            await asyncio.wait_for(restore(), self.config.bootstrap_timeout)
         except (CommandTimeout, TimeoutError):
             raise _Blocked("bootstrap_outcome_unknown") from None
         except (p.ProtocolError, ValueError):
@@ -397,8 +411,10 @@ class V2STTSession:
         if any(key in fields for key in ("commandId", "sessionId", "protocolVersion", "type")):
             raise p.ProtocolError("command envelope is owned by transport")
         try:
+            desired_at_send = self._desired_suppression
             completion = await self._command(current, kind, **fields)
-            if kind == p.CommandType.SUPPRESSION and completion.ack.accepted:
+            if (kind == p.CommandType.SUPPRESSION and completion.ack.accepted
+                    and self._desired_suppression == desired_at_send):
                 self._desired_suppression = (fields["manual"], fields["wakeWord"])
             return completion
         except (CommandTimeout, TimeoutError, asyncio.CancelledError, OSError, ConnectionClosed):

@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-030 sind **ACCEPTED** (AP030 kanonischer Commit `3df342c3a7cacaa1226743c4d9bee674e94d33db`). AP-CV2-040: **ROOT_PASS / WAITING_FOR_APPROVAL**, [unabhängige R06-Abnahme](../../30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md) des R05-Korrekturkandidaten `4ef7a13672bf7c50665e08f5eff837fb5d687419`. F01 CLOSED_R04, F02 CLOSED_R06; alle Pflichtfindings geschlossen, kein Merge ohne menschlichen Prompt. Spätere Pakete PLANNED.
+AP-CV2-000 bis AP-CV2-040 sind **ACCEPTED** (AP040 kanonischer Commit `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`, [Abschlussbeleg](../../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json)). AP-CV2-050: **ROOT_PASS** / WAITING_FOR_APPROVAL nach [unabhängiger R02-Abnahme](../../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md) auf `55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a`; 1397 Windows-/297 gezielte/79 Server-/16 native Prüfungen als Fremdbelege unabhängig kontrolliert. Nächste Aktion ausdrückliche menschliche Übernahmefreigabe zu PR #7; kein Merge/AP060-Start ohne Freigabe. Spätere Pakete PLANNED.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |
@@ -25,3 +25,5 @@ AP-CV2-000 bis AP-CV2-030 sind **ACCEPTED** (AP030 kanonischer Commit `3df342c3a
 Jede Paketdatei enthält Ziel, fachliche Ownership, Eingangsvoraussetzungen, einen Umsetzungsvorschlag, Lieferergebnisse, messbare Akzeptanz, Testauftrag, Definition of Done und Übergabe-/Gitregeln. Geplante Datei-/Testnamen sind Vorschläge; [Umsetzungsspielraum](../SKILLS/GEMEINSAM/references/PLANUNGSSPIELRAUM.md) und [Paketablage/Vorlagen](../SKILLS/GEMEINSAM/references/PAKETABLAGE_UND_VORLAGEN.md) gelten paketübergreifend. Die Paket-ID wird im Ausführungsreport und bei jedem Traceabilitybeleg geführt.
 
 Die Ausführung erfolgt streng seriell. Fachlaufzahlen und Teilung stehen in jeder AP-Datei sowie im [Umfangsmodell](../REFERENZ/PLANUNG/UMFANG_UND_AGENTENLAEUFE.md). Jedes Paket wird unabhängig geprüft; erst ROOT PASS und die gesicherte kanonische Aggregateübernahme geben den nächsten Start frei. [Agentenregelwerk](../REFERENZ/GOVERNANCE/AGENTEN_REGELWERK.md).
+
+[PR #7](https://github.com/marcosudau-vps/voice-stt-client/pull/7) gegen feat/client-v2. Vollständiger qualifizierter Umsetzungscommit `ee1f1a7bb0a55112b61a3cab9c34be561aae274e`, Tree `f1613cb4ecf3292e6442f38c4704162b940c5fea`. Nachfolgende PR-Verweise rein administrativ; finale eingereichte Spitze steht SHA-/Tree-genau in aktueller PR-Beschreibung und finaler Übergabe.

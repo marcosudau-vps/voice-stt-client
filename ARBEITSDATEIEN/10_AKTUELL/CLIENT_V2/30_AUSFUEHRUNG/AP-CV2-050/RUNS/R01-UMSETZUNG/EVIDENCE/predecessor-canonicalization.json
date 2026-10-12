@@ -1,0 +1,48 @@
+{
+  "result": "PASS",
+  "pullRequest": {
+    "baseRefName": "feat/client-v2",
+    "headRefOid": "201286b80729f962d9707c83ce9a49614639d4a7",
+    "mergeCommit": {
+      "oid": "4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f"
+    },
+    "mergedAt": "2026-10-12T12:59:53Z",
+    "state": "MERGED",
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/6"
+  },
+  "canonicalCommit": "4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f",
+  "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+  "canonicalTree": "fde6009d3d9c699a92f7cc0ef8a6452e4903c1e0",
+  "reviewedCommit": "4ef7a13672bf7c50665e08f5eff837fb5d687419",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md",
+  "humanApproval": {
+    "source": "30_AUSFUEHRUNG/AP-CV2-040/00_PAKET.md",
+    "originalReply": "Ja, ich erteile dir die Freigabe.",
+    "headAtApproval": "efd60e0cba7272c9b18ca21da7e337c1aa89fba9",
+    "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+    "scope": "Vorbereitete administrative Statuskorrektur committen/pushen; Originalfreigabe sichern; genau ein PR #6 Squash nach grüner finaler CI. Keine Produkt-/Test-/Kontraktänderung.",
+    "condition": "Status-/Traceabilitykonsistenz PASS, administrative Differenz gegenüber R06, unveränderte Base, finale CI SUCCESS."
+  },
+  "singleParent": true,
+  "newCommitCount": 1,
+  "treeEquality": true,
+  "administrativePostReviewFiles": [
+    "ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md",
+    "ARBEITSDATEIEN/00_STEUERUNG/MASTERPLAN.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/00_PAKET.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/00_PROMPT_ORIGINAL.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/EVIDENCE/INDEX.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/AP-CV2-040.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/README.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/package-manifest.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/TRACEABILITY/TRACEABILITY_MATRIX.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/TRACEABILITY/requirements.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/README.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/STATUS.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json",
+    "task.md",
+    "\"\\303\\234BERGABE.md\""
+  ]
+}

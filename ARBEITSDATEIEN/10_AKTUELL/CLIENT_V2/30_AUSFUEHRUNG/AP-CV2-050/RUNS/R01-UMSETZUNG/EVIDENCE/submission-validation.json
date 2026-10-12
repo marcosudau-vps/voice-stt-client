@@ -1,0 +1,39 @@
+{
+  "result": "PASS",
+  "timeUtc": "2026-10-12T13:38:35.099319+00:00",
+  "canonicalParent": "4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f",
+  "qualifiedCommit": "ee1f1a7bb0a55112b61a3cab9c34be561aae274e",
+  "qualifiedTree": "f1613cb4ecf3292e6442f38c4704162b940c5fea",
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/7",
+  "qualifiedSourceBlobCount": 192,
+  "qualifiedProductPatchSha256": "616137611c9b9403ba2f3676a0babeeda181931c99e8636bbbf740d7eaeeaa41",
+  "publishedLogSha256": {
+    "targeted-unittest.txt": "57dcc7d1c0a29bce7e9b84ab2dcd88a818b2523a2ac077bee7f1cc47078c0305",
+    "server-controls-checkpoint.json": "a23388e76bf6b707f7dbcfb674993cd08129e1d781d14c7fac41f668565a0da9",
+    "server-controls-checkpoint.json.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "windows-hotkeys.json": "b11bde5b1448d4d36797cb848d904c57d1863a88ca5aa6038e6856f9085c586a",
+    "windows-hotkeys.json.stderr.txt": "23964a815a6b1565f44ca61d2c81cee3129cf6a2900efba90a695f66bedc728d",
+    "compileall.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "windows-full-unittest.txt": "5c196ce472bc79cded36a804795fa179da4e715f17bd342ff42570c4c1087da4"
+  },
+  "actualRequirementMethodsValidated": 14,
+  "recordValidation": {
+    "result": "PASS",
+    "package": "AP-CV2-050",
+    "packageStatus": "REVIEW_READY",
+    "referencedFiles": 26,
+    "markdownFiles": 20,
+    "relativeLinks": 955,
+    "errors": []
+  },
+  "diffCheck": "PASS",
+  "administrativeDiff": [
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/00_PAKET.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/submission-validation.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/README.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/package-manifest.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json"
+  ],
+  "note": "Staged candidate product/test/test-relevant configuration blobs and exact diff equal the full Windows qualification. Only listed administrative records/evidence differ from qualifiedCommit after qualification. Final commit/tree determined by Git and published PR."
+}
