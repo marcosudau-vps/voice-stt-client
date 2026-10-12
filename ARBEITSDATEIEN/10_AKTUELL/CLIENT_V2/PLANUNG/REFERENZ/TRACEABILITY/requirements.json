@@ -7850,7 +7850,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7906,7 +7906,8 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-02",
@@ -7916,7 +7917,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7965,7 +7966,8 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-03",
@@ -7975,7 +7977,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8024,7 +8026,8 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-04",
@@ -8034,7 +8037,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8084,7 +8087,8 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-05",
@@ -8094,7 +8098,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8144,7 +8148,8 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-06",
@@ -8154,7 +8159,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8205,7 +8210,8 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-07",
@@ -8215,7 +8221,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8263,7 +8269,8 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-08",
@@ -8273,7 +8280,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8322,7 +8329,8 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-09",
@@ -8332,7 +8340,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8379,7 +8387,8 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-10",
@@ -8389,7 +8398,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8438,7 +8447,8 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-11",
@@ -8448,7 +8458,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8500,7 +8510,8 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-12",
@@ -8510,7 +8521,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8564,7 +8575,8 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-13",
@@ -8574,7 +8586,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8626,17 +8638,18 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
         "predecessorFindingClosed": "CV2-060-R02-F01"
-      }
+      },
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "SET-01",
       "requirement": "18 Registrykeys,16 Sessionkeys,15 Serverdefaultfelder exakt; Schemametadaten ohne requested/effective/per-entryRevision.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8660,17 +8673,42 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags"
+        ],
+        "checkpointCases": [
+          "settings/schema18_session16_server15"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-02",
       "requirement": "Sechs Activationtimingkeys mit ms/Defaults/Grenzen; Warning strikt kleiner als Initial und Refresh.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.CatalogAndSchema.test_types_ranges_and_no_coercion; tests.test_v2_settings_service.Service.test_atomic_local_validation_and_scope_authority",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8694,17 +8732,43 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.CatalogAndSchema.test_types_ranges_and_no_coercion",
+          "tests.test_v2_settings_service.Service.test_atomic_local_validation_and_scope_authority"
+        ],
+        "checkpointCases": [
+          "atomic/cross_field_conflict"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-03",
       "requirement": "Wake-Empfindlichkeit 0..1; echteTypen/finiteZahlen; mehrere Wakekeys mit calibration pending.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.CatalogAndSchema.test_types_ranges_and_no_coercion; tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8728,17 +8792,44 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.CatalogAndSchema.test_types_ranges_and_no_coercion",
+          "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags"
+        ],
+        "checkpointCases": [
+          "wake/calibration_pending_visible",
+          "bootstrap/na_effective_confirmed"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-04",
       "requirement": "Schema / Serverread-/Patch-/Snapshotantwortformen und getrennte Revisionsräume korrekt.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_server_revision_patch_no_change_and_unclear_read_no_retry; tests.test_v2_settings_service.Service.test_preflight_then_na_patch_snapshot_suppression_ready",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8762,17 +8853,43 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_server_revision_patch_no_change_and_unclear_read_no_retry",
+          "tests.test_v2_settings_service.Service.test_preflight_then_na_patch_snapshot_suppression_ready"
+        ],
+        "checkpointCases": [
+          "server/independent_revision_confirmed"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-05",
       "requirement": "Sessionpatch atomar; unknown/type/range/crossfield/wrongscope/read_only_fehlertypen.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_atomic_local_validation_and_scope_authority; tests.test_v2_settings_service.Service.test_bootstrap_faults_never_release_suppression",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8796,17 +8913,48 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_atomic_local_validation_and_scope_authority",
+          "tests.test_v2_settings_service.Service.test_bootstrap_faults_never_release_suppression"
+        ],
+        "checkpointCases": [
+          "atomic/unknown_key",
+          "atomic/invalid_type",
+          "atomic/out_of_range",
+          "atomic/cross_field_conflict",
+          "atomic/wrong_scope",
+          "atomic/read_only_runtime_authority"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-06",
       "requirement": "Wirksamer Patch revision+1 und gruppierte Policyevents, no_change ohne neue Revision.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_conflict_reread_new_command_id_exactly_once",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8830,17 +8978,44 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_conflict_reread_new_command_id_exactly_once"
+        ],
+        "checkpointCases": [
+          "revision/session_no_change",
+          "revision/conflict_reload_new_id",
+          "na/requested_new_effective_latched"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-07",
       "requirement": "Laufende Activationstartsettings unveränderlich; requestedneu/effectivealt korrekt sichtbar.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_requested_effective_latched_and_pending_report; tests.test_v2_settings_service.Service.test_input_closed_refreshes_effective_without_explicit_ui_read",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8864,17 +9039,44 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_requested_effective_latched_and_pending_report",
+          "tests.test_v2_settings_service.Service.test_input_closed_refreshes_effective_without_explicit_ui_read"
+        ],
+        "checkpointCases": [
+          "na/activation_start_snapshot_immutable",
+          "na/after_close_effective_confirmed"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-08",
       "requirement": "Wünsche mit next_activation nach jeder neuen Session erneut anwenden.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_preflight_then_na_patch_snapshot_suppression_ready",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8898,17 +9100,42 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_preflight_then_na_patch_snapshot_suppression_ready"
+        ],
+        "checkpointCases": [
+          "reconnect/na_before_audio"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-09",
       "requirement": "Wake-Auswahl mit next_session via neuesHello, kein effektiver Hotreload durch Patch.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_ns_preferences_unsupported_selection_next_hello_no_patch",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8932,17 +9159,43 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_ns_preferences_unsupported_selection_next_hello_no_patch"
+        ],
+        "checkpointCases": [
+          "wake/selection_pending_no_hot_reload",
+          "wake/new_hello_selection_effective"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-10",
       "requirement": "NS-Noise/VADkeine individuelle Startpräferenz; nur Serverdefaultpfad oder read-only.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_ns_preferences_unsupported_selection_next_hello_no_patch",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8966,17 +9219,43 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_ns_preferences_unsupported_selection_next_hello_no_patch"
+        ],
+        "checkpointCases": [
+          "ns/noise_vad_unsupported_no_false_success",
+          "reconnect/ns_preference_still_unsupported"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-11",
       "requirement": "RuntimeSuppressionkeys read-only im Settingspatch, Controlcommand einzige Writeauthority.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_atomic_local_validation_and_scope_authority",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9000,17 +9279,43 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_atomic_local_validation_and_scope_authority"
+        ],
+        "checkpointCases": [
+          "atomic/read_only_runtime_authority",
+          "bootstrap/availability_patch_suppression_order"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-12",
       "requirement": "Serverpatch revision aus Serverread;200/409/422/500 plus authfehler differenzieren.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_server_revision_patch_no_change_and_unclear_read_no_retry; tests.test_v2_settings_service.Service.test_server_error_codes_reload_no_partial_or_retry",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9034,17 +9339,45 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_server_revision_patch_no_change_and_unclear_read_no_retry",
+          "tests.test_v2_settings_service.Service.test_server_error_codes_reload_no_partial_or_retry"
+        ],
+        "checkpointCases": [
+          "admin/unauthorized_guard",
+          "server/validation_failure_atomic_422",
+          "server/persistence_failure_atomic_500"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-13",
       "requirement": "V2-Serverpatch atomar einschließlich Persistenzfehler; unklareHTTPantwort read-before-retry.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_server_revision_patch_no_change_and_unclear_read_no_retry; tests.test_v2_settings_service.HTTP.test_bounded_http_timeout_keeps_one_worker_and_loop_responsive",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9068,17 +9401,44 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_server_revision_patch_no_change_and_unclear_read_no_retry",
+          "tests.test_v2_settings_service.HTTP.test_bounded_http_timeout_keeps_one_worker_and_loop_responsive"
+        ],
+        "checkpointCases": [
+          "server/persistence_failure_atomic_500",
+          "server/validation_failure_atomic_422"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-14",
       "requirement": "Kein existierender server_restartBuiltin; Erweiterungspolicy trotzdem darstellbar.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9102,17 +9462,42 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags"
+        ],
+        "checkpointCases": [
+          "settings/schema18_session16_server15"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-15",
       "requirement": "Versionierte V1configmigration Mode→flags; Seconds→ms; lokale extension/warning nicht falsch übernehmen.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Migration.test_mode_flags_and_explicit_both; tests.test_v2_settings_service.Migration.test_exact_seconds_ms_and_retired_extension_warning; tests.test_v2_settings_service.Migration.test_colliding_session_and_local_timing_remains_unresolved; tests.test_v2_settings_service.Migration.test_versioned_profile_ignores_legacy_mode_extension",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9136,17 +9521,43 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Migration.test_mode_flags_and_explicit_both",
+          "tests.test_v2_settings_service.Migration.test_exact_seconds_ms_and_retired_extension_warning",
+          "tests.test_v2_settings_service.Migration.test_colliding_session_and_local_timing_remains_unresolved",
+          "tests.test_v2_settings_service.Migration.test_versioned_profile_ignores_legacy_mode_extension"
+        ],
+        "checkpointCases": [],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-16",
       "requirement": "Lokale Geräte-/TLS-/Hotkey-/Feedback-/Clipboardwerte bleiben lokale Domäne.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Migration.test_backup_atomic_idempotent_local_fields_preserved; tests.test_v2_settings_service.Migration.test_write_failure_leaves_original_and_backup; tests.test_v2_settings_service.Migration.test_invalid_trigger_and_hotkey_conflicts_are_preserved",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9170,17 +9581,42 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Migration.test_backup_atomic_idempotent_local_fields_preserved",
+          "tests.test_v2_settings_service.Migration.test_write_failure_leaves_original_and_backup",
+          "tests.test_v2_settings_service.Migration.test_invalid_trigger_and_hotkey_conflicts_are_preserved"
+        ],
+        "checkpointCases": [],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-17",
       "requirement": "Bootstraptemporär beide suppressed→availability→NAsettings→desiredSuppression→Audio/ready.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_preflight_then_na_patch_snapshot_suppression_ready; tests.test_v2_settings_service.Service.test_media_availability_rejection_blocks_before_settings_audio; tests.test_v2_settings_service.Service.test_bootstrap_faults_never_release_suppression; tests.test_v2_settings_service.Service.test_bootstrap_new_wish_during_confirmation_cannot_claim_ready",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9204,17 +9640,47 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_preflight_then_na_patch_snapshot_suppression_ready",
+          "tests.test_v2_settings_service.Service.test_media_availability_rejection_blocks_before_settings_audio",
+          "tests.test_v2_settings_service.Service.test_bootstrap_faults_never_release_suppression",
+          "tests.test_v2_settings_service.Service.test_bootstrap_new_wish_during_confirmation_cannot_claim_ready"
+        ],
+        "checkpointCases": [
+          "bootstrap/no_pre_ready_audio",
+          "bootstrap/availability_patch_suppression_order",
+          "audio/real_capture_media_ws_server_pcm"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-18",
       "requirement": "Configmigration offline/unverfügbareID sichtbar reparierbar, kein stiller Profilersatz.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Migration.test_offline_then_online_resolution_unavailable_id_retained; tests.test_v2_settings_service.Service.test_preflight_error_each_read_and_profile_keeps_wire_empty",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9238,17 +9704,44 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Migration.test_offline_then_online_resolution_unavailable_id_retained",
+          "tests.test_v2_settings_service.Service.test_preflight_error_each_read_and_profile_keeps_wire_empty"
+        ],
+        "checkpointCases": [
+          "catalog/availability_change_reload_retains_wish",
+          "catalog/unavailable_whole_selection_blocks"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "SET-19",
       "requirement": "Fachfremde STT-/Logging-/Modelladminrouten nicht als erfundene V2Schemawerte.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_atomic_local_validation_and_scope_authority; tests.test_v2_settings_service.HTTP.test_origin_tls_routes_and_no_secret_errors",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9272,17 +9765,41 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_settings_control_plane.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_atomic_local_validation_and_scope_authority",
+          "tests.test_v2_settings_service.HTTP.test_origin_tls_routes_and_no_secret_errors"
+        ],
+        "checkpointCases": [],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "WAKE-01",
       "requirement": "Katalog vor Admission und bei neuer catalogRevision vollständig laden.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.Service.test_catalog_revision_cache_and_availability_reload; tests.test_v2_settings_service.Service.test_availability_reload_rejects_old_revision_and_retries_bounded; tests.test_v2_settings_service.Service.test_stale_http_generation_rejected_without_publication",
       "source": "Server VoiceSTT/core/wakeword_catalog.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9306,17 +9823,44 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_session_e2e.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.Service.test_catalog_revision_cache_and_availability_reload",
+          "tests.test_v2_settings_service.Service.test_availability_reload_rejects_old_revision_and_retries_bounded",
+          "tests.test_v2_settings_service.Service.test_stale_http_generation_rejected_without_publication"
+        ],
+        "checkpointCases": [
+          "catalog/availability_change_reload_retains_wish"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "WAKE-02",
       "requirement": "Einträge id/displayName/aliases/artifactVersion/available/reason/backends/revision; keine internen Artefaktpfade.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.CatalogAndSchema.test_catalog_metadata_immutable_no_internal_paths",
       "source": "Server VoiceSTT/core/wakeword_catalog.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9340,17 +9884,42 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_session_e2e.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.CatalogAndSchema.test_catalog_metadata_immutable_no_internal_paths"
+        ],
+        "checkpointCases": [
+          "catalog/real_build_dynamic_metadata"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "WAKE-03",
       "requirement": "UI-Mehrfachauswahl nach realem Buildkatalog, keine hardcodierten25IDs.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.CatalogAndSchema.test_alias_resolution_unicode_trim_dedup_and_ambiguity",
       "source": "Server VoiceSTT/core/wakeword_catalog.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9374,17 +9943,42 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_session_e2e.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.CatalogAndSchema.test_alias_resolution_unicode_trim_dedup_and_ambiguity"
+        ],
+        "checkpointCases": [
+          "catalog/real_build_dynamic_metadata"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "WAKE-04",
       "requirement": "Wire ausschließlich kanonische IDs; Aliase/Anzeigenamen nur eindeutige clientseitige Auflösung.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.CatalogAndSchema.test_alias_resolution_unicode_trim_dedup_and_ambiguity",
       "source": "Server VoiceSTT/core/wakeword_catalog.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9408,17 +10002,42 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_session_e2e.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.CatalogAndSchema.test_alias_resolution_unicode_trim_dedup_and_ambiguity"
+        ],
+        "checkpointCases": [
+          "catalog/canonical_ids_only"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "WAKE-05",
       "requirement": "Unbekannte/deaktivierte/unloadableID lehnt gesamte Auswahl ab; keine Teilerfolge.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.CatalogAndSchema.test_whole_selection_no_common_or_explicit_backend_no_fallback; tests.test_v2_settings_service.Migration.test_offline_then_online_resolution_unavailable_id_retained",
       "source": "Server VoiceSTT/core/wakeword_catalog.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9442,17 +10061,43 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_session_e2e.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.CatalogAndSchema.test_whole_selection_no_common_or_explicit_backend_no_fallback",
+          "tests.test_v2_settings_service.Migration.test_offline_then_online_resolution_unavailable_id_retained"
+        ],
+        "checkpointCases": [
+          "catalog/unavailable_whole_selection_blocks"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "WAKE-06",
       "requirement": "Ein gemeinsames gesundesBackend für gesamte Auswahl, explizitesBackend ohne stillen Wechsel.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.CatalogAndSchema.test_whole_selection_no_common_or_explicit_backend_no_fallback",
       "source": "Server VoiceSTT/core/wakeword_catalog.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9476,17 +10121,42 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_session_e2e.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.CatalogAndSchema.test_whole_selection_no_common_or_explicit_backend_no_fallback"
+        ],
+        "checkpointCases": [
+          "wake/selected_only_canonical_snapshot"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "WAKE-07",
       "requirement": "selected-only Modellinitialisierung, genau gewählteWakeIDs, gemeinsame sensitivity.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags; tests.unit.test_wakeword_selected_only.SelectedOnlyLoaderTests.test_three_selected_classifiers_load_exactly_three_models; tests.unit.test_wakeword_selected_only.SessionConfigTests.test_an_admitted_selection_configures_exactly_its_artifacts",
       "source": "Server VoiceSTT/core/wake_backend.py @ ada13b0; Server tests/unit/test_wakeword_selected_only.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9503,17 +10173,46 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_selected_only.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags"
+        ],
+        "checkpointCases": [
+          "wake/selected_only_canonical_snapshot",
+          "bootstrap/na_effective_confirmed"
+        ],
+        "supplementaryServerMethods": [
+          "tests.unit.test_wakeword_selected_only.SelectedOnlyLoaderTests.test_three_selected_classifiers_load_exactly_three_models",
+          "tests.unit.test_wakeword_selected_only.SessionConfigTests.test_an_admitted_selection_configures_exactly_its_artifacts"
+        ],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "WAKE-08",
       "requirement": "Acceptedhit aktiviert gemeinsamenController; detected erst nach started, gelatchteHits keine neue Activation.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.unit.test_wake_detection.EvaluatorTests.test_a_latched_detector_offers_nothing_more",
       "source": "Server VoiceSTT/core/wake_detection.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9537,17 +10236,44 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_session_e2e.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [],
+        "checkpointCases": [
+          "wake/hit_actual_shared_controller",
+          "wake/started_before_detected",
+          "wake/latched_no_second_activation"
+        ],
+        "supplementaryServerMethods": [
+          "tests.unit.test_wake_detection.EvaluatorTests.test_a_latched_detector_offers_nothing_more"
+        ],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "WAKE-09",
       "requirement": "Detectionframes/Cooldown/PreRoll/Gain/WakeVAD calibrationpending nicht als optimal empfehlen.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server VoiceSTT/core/wake_detection.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9564,17 +10290,42 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/VoiceSTT/core/wake_detection.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [
+          "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags"
+        ],
+        "checkpointCases": [
+          "wake/calibration_pending_visible"
+        ],
+        "supplementaryServerMethods": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "WAKE-10",
       "requirement": "Trailing-edgeAudioübergang+Historyclamp, Gain nur Detectorcopy; reale Nutzsprachgrenze separat belegen.",
       "contract": "K-03",
       "ap": "AP-CV2-070",
-      "test": "test_v2_settings_service",
+      "test": "tests.unit.test_wake_detection.HitRegionTests.test_a_qualified_run_finalizes_once_at_its_trailing_edge; tests.unit.test_wake_audio_boundary.BoundaryTests.test_the_history_start_clamps_the_boundary; tests.unit.test_wake_audio_boundary.TrimTests.test_the_wake_word_leaves_and_the_first_user_word_survives; tests.unit.test_wakeword_root_findings_c3.DetectorGainTests.test_the_original_pcm_buffer_is_byte_identical_after_a_gain_pass; tests.unit.test_wakeword_root_findings_c3.DetectorGainTests.test_only_the_inference_copy_carries_the_gain",
       "source": "Server VoiceSTT/core/wake_audio_boundary.py @ ada13b0; Server VoiceSTT/core/wake_detection.py @ ada13b0; Server tests/unit/test_wakeword_recording_path.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9598,7 +10349,35 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/tests/unit/test_wakeword_recording_path.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+        "candidateBranch": "work/client-v2/ap-cv2-070",
+        "testMethods": [],
+        "checkpointCases": [],
+        "supplementaryServerMethods": [
+          "tests.unit.test_wake_detection.HitRegionTests.test_a_qualified_run_finalizes_once_at_its_trailing_edge",
+          "tests.unit.test_wake_audio_boundary.BoundaryTests.test_the_history_start_clamps_the_boundary",
+          "tests.unit.test_wake_audio_boundary.TrimTests.test_the_wake_word_leaves_and_the_first_user_word_survives",
+          "tests.unit.test_wakeword_root_findings_c3.DetectorGainTests.test_the_original_pcm_buffer_is_byte_identical_after_a_gain_pass",
+          "tests.unit.test_wakeword_root_findings_c3.DetectorGainTests.test_only_the_inference_copy_carries_the_gain"
+        ],
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+        "realSpeechBoundary": "NOT_RUN; empirical calibration/real speech boundary belongs AP-IV2-020, not claimed by controlled PCM/model tests."
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "UI-01",

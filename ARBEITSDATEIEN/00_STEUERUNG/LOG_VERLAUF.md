@@ -2154,3 +2154,8 @@ PR #8 am Kandidaten `1d81bb0230cfc5a099b7870488f6b42cd4735d5a` (Tree `f3342625d6
 ## AP-CV2-060-R05 – 2026-10-12 – ausdrückliche konditionierte Mergefreigabe
 
 Menschlicher Originalauftrag sichergestellt: „Nach erfolgreicher CI wird die Freigabe zun Merge von PR #8, Arbeitspaket AP-CV2-060 erteilt. Bitte führe den Merge durch.“ [R05-Original](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md), [R05-Vorprüfung](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R05-UEBERNAHME/01_REPORT.md). Technischer R04-ROOT_PASS, Base ce95c66 und CI38276463113 SUCCESS auf `8eb26bae17b46651014d28183f5a9135f36b72af`. Workflow READY_FOR_CANONICALIZATION. Vor Durchführung des genau einen GitHub-Squash erneute CI/Head/Base-/Admin-Diff-Gates prüfen. Kein bereits erfolgter Merge, kein AP070.
+
+
+## AP-CV2-070-R01 – 2026-10-12 – Settings/Profilmigration / REVIEW_READY
+
+Von tatsächlichem AP060-Aggregat473a75d nach geprüftem PASS/Prompt/Singleparent/Treegleichheit umgesetzt: versioniertes Profil/Backup/Reparatur, dynamischer Katalog, getrennte Revisionsräume und bestätigter NA-Bootstrap vor Audio. 1460 Windowsgesamttests,243 gezielte Tests,38 echte HTTP/WS/Media/PCM-Checks,55 gepinnte Settings/Wake-Supplementtests ohne Skips, compileall/diffcheck PASS. 34 neue Tests;29 Anforderungen einzeln belegt. [R01-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md). Keine eigene Abnahme/Promotion/AP080; Schreiben ab Übergabe pausiert.

@@ -126,9 +126,12 @@ class V2STTSession:
     """
 
     def __init__(self, config: V2TransportConfig | None = None, *, bootstrap: Bootstrap | None = None,
-                 connector=connect, jitter=random.uniform, observability=NULL_INGRESS):
+                 prepare=None, connector=connect, jitter=random.uniform, observability=NULL_INGRESS):
         self.config = config or V2TransportConfig()
         self.bootstrap = bootstrap
+        # AP070 metadata/profile admission runs on the core loop before Hello.
+        # A returned config is per connection; desired run pauses stay separate.
+        self.prepare = prepare
         self._connector, self._jitter = connector, jitter
         self._observe = ClientEventEmitter(observability, component="connection")
         self.client_run_id = CLIENT_RUN_ID
@@ -255,6 +258,13 @@ class V2STTSession:
         self.generation += 1
         self._state(V2TransportState.CONNECTING)
         c = self.config
+        if self.prepare is not None:
+            try:
+                c = await asyncio.wait_for(self.prepare(self), c.bootstrap_timeout)
+                if not isinstance(c, V2TransportConfig) or c.endpoint_issue:
+                    raise ValueError("invalid prepared transport config")
+            except (TimeoutError, ValueError):
+                raise _Blocked("settings_preflight_failed") from None
         self._ws = await asyncio.wait_for(self._connector(
             c.url, open_timeout=c.connect_timeout, close_timeout=c.close_timeout,
             ping_interval=c.ping_interval, ping_timeout=c.ping_timeout,
@@ -393,12 +403,12 @@ class V2STTSession:
         self._state(V2TransportState.BACKOFF, reason)
         await self._close_socket()
 
-    async def bootstrap_command(self, binding, kind, **fields):
+    async def bootstrap_command(self, binding, kind, *, allow_rejection=False, **fields):
         if self.status.state != V2TransportState.CONFIGURING or kind not in (
                 p.CommandType.AUDIO_AVAILABILITY, p.CommandType.SETTINGS_PATCH, p.CommandType.SNAPSHOT_REQUEST):
             raise TransportLost("command is not permitted during bootstrap")
         completion = await self._command(binding, kind, **fields)
-        if not completion.ack.accepted:
+        if not completion.ack.accepted and not (allow_rejection and kind == p.CommandType.SETTINGS_PATCH):
             raise _Blocked("configuration_command_rejected")
         return completion
 

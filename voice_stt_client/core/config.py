@@ -971,6 +971,10 @@ class AppConfig:
     server: ServerConfig = field(default_factory=ServerConfig)
     event_stream: EventStreamConfig = field(default_factory=EventStreamConfig)
     session: SessionConfig = field(default_factory=SessionConfig)
+    # Explicit V2 migration lives in v2_profile.migrate_config_file. V1 fields
+    # remain available until AP100 composes the new runtime. Never derive V2
+    # intent from legacy mode/timers after this versioned profile is present.
+    v2_profile: Optional[dict] = None
     dictation_window: DictationWindowConfig = field(
         default_factory=DictationWindowConfig
     )
@@ -989,6 +993,9 @@ class AppConfig:
 
     def validate(self) -> None:
         """Validate configuration consistency."""
+        if self.v2_profile is not None:
+            from .v2_profile import V2Profile
+            V2Profile(**self.v2_profile)  # Preserve blocked migration diagnostics.
         self.server.validate()
         self.event_stream.validate()
         self.session.validate()
@@ -1167,6 +1174,7 @@ class AppConfig:
             server=_build(ServerConfig, data.get("server", {})),
             event_stream=_build(EventStreamConfig, data.get("event_stream", {})),
             session=_build(SessionConfig, data.get("session", {})),
+            v2_profile=data.get("v2_profile"),
             dictation_window=_build(
                 DictationWindowConfig, data.get("dictation_window", {})
             ),

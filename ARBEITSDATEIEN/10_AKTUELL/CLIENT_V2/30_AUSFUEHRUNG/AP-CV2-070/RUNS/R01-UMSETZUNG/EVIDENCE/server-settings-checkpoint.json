@@ -1,0 +1,614 @@
+{
+  "result": "PASS",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "clientHead": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+  "runtime": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "executable": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "uvicorn": "0.44.0"
+  },
+  "checks": [
+    "bootstrap/ready",
+    "identity/pinned_server",
+    "settings/schema18_session16_server15",
+    "catalog/real_build_dynamic_metadata",
+    "catalog/canonical_ids_only",
+    "bootstrap/no_pre_ready_audio",
+    "bootstrap/availability_patch_suppression_order",
+    "bootstrap/na_effective_confirmed",
+    "ns/noise_vad_unsupported_no_false_success",
+    "audio/real_capture_media_ws_server_pcm",
+    "na/requested_new_effective_latched",
+    "na/activation_start_snapshot_immutable",
+    "na/after_close_effective_confirmed",
+    "atomic/unknown_key",
+    "atomic/invalid_type",
+    "atomic/out_of_range",
+    "atomic/cross_field_conflict",
+    "atomic/wrong_scope",
+    "atomic/read_only_runtime_authority",
+    "revision/session_no_change",
+    "revision/conflict_reload_new_id",
+    "admin/unauthorized_guard",
+    "server/independent_revision_confirmed",
+    "server/no_change_no_revision",
+    "server/persistence_failure_atomic_500",
+    "server/validation_failure_atomic_422",
+    "reconnect/na_before_audio",
+    "reconnect/ns_preference_still_unsupported",
+    "bootstrap/ready",
+    "wake/selected_only_canonical_snapshot",
+    "wake/selection_pending_no_hot_reload",
+    "wake/new_hello_selection_effective",
+    "wake/calibration_pending_visible",
+    "wake/hit_actual_shared_controller",
+    "wake/started_before_detected",
+    "wake/latched_no_second_activation",
+    "catalog/availability_change_reload_retains_wish",
+    "catalog/unavailable_whole_selection_blocks"
+  ],
+  "checkCount": 38,
+  "wire": [
+    {
+      "generation": 1,
+      "type": "audio_availability.set",
+      "commandId": "eb722aec-e9dd-4cda-9618-9aedda9b190d",
+      "result": "applied",
+      "settingsRevision": 0
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "7b18e7b0-376c-4d75-833b-5fbe35acebaa",
+      "result": "applied",
+      "settingsRevision": 0
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "dde6eb01-6dd2-4135-b0dc-89cb9e5ec1d8",
+      "result": "applied",
+      "settingsRevision": 0
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "7efa08bb-3825-4552-ab55-5190dc026f3a",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "a882a523-e387-4530-8baf-33e65f0ac2d2",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "b1966e25-ee92-40c5-955e-982f776d0447",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "83f51ac5-3f2f-44fe-92f3-4aa99b6228b5",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "trigger_suppression.set",
+      "commandId": "f055344e-2156-42dc-bb90-20f198512409",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "5398c698-8f96-4187-abca-901528ed4865",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "audio_availability.set",
+      "commandId": "06aa1cbc-674b-44a7-acb0-f63148858d6c",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "94bbd06a-5ad7-411f-b8fb-67d52538cfce",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "activation.command",
+      "commandId": "2bb1e72b-8f7f-4c46-8e46-da37264fa0dc",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "fe61166e-f53f-4e8a-98ee-d0a97f8079f0",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "7d38347d-6774-48f7-a36e-dae2c248c288",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "d447dd5b-a08d-4ea2-afdf-67cd3b3c232d",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "c411bcb0-8e60-451e-9890-b008c7b506f0",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "1e363e6a-979f-4ffa-a6bc-a81408f4e29e",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "2cda1262-f6d2-49ee-88d5-a204678deef3",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "409a7a30-c204-4a08-8b98-fe9ed3e8b4ae",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "activation.command",
+      "commandId": "aa5bd7e9-1f6b-4846-ba1a-e19bd27d17d3",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "4669bfef-d476-4e0d-94be-9d6c1b5bc78e",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "183cb73c-8f8c-414c-9388-7c0582101345",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "85bdaafd-092f-46fc-9e8a-250270ce827d",
+      "result": "settings_rejected",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "4747efdc-8120-4509-80b6-334ae08c37fc",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "af816ab8-f35e-4b35-81ac-8a6e47f192ca",
+      "result": "settings_rejected",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "6b248842-7446-4736-9e8b-cc2e4c33fecd",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "6e56723b-c271-4e5a-b12c-c2aaafa4ee96",
+      "result": "settings_rejected",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "0da0e36a-b0c1-45f8-9f8e-0a1cefca57f3",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "4a6c1fc0-6478-4eb9-8b30-34497949f189",
+      "result": "settings_rejected",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "3d5da65e-12ea-4a73-8c56-78e75052334b",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "2c6a7157-17d8-4bad-bfc5-c92e49cc5c87",
+      "result": "settings_rejected",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "f2e84b86-9170-4f2b-8018-bb497a001756",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "c62c3299-0391-4fb2-ac58-9e23d01afd8a",
+      "result": "settings_rejected",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "9ba8e811-520a-4490-9f47-f04aaa626c14",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "7c6181f4-73db-4306-aa3f-2349acdecff3",
+      "result": "no_change",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "6bf37005-51a6-40fc-a0e4-e072d372d947",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "6c014cd1-73c6-4e05-a3ff-8e291a1a6b93",
+      "result": "applied",
+      "settingsRevision": 2
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "3b77a0de-941b-4864-b9c0-58c2672bc3b1",
+      "result": "applied",
+      "settingsRevision": 3
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "c822ae4d-dbd6-4b20-9835-9256aef52175",
+      "result": "applied",
+      "settingsRevision": 3
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "0daeaf09-54de-46ca-924f-f1fceb780d3f",
+      "result": "settings_revision_conflict",
+      "settingsRevision": 3
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "84886905-68ad-4473-be35-7d4c695b1f2a",
+      "result": "applied",
+      "settingsRevision": 3
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "22466216-078e-4762-b468-28d8e2b56f47",
+      "result": "applied",
+      "settingsRevision": 3
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "b0f1e6f5-b969-41c6-87c6-b140d43b1ee7",
+      "result": "applied",
+      "settingsRevision": 4
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "2a175fef-38d3-4ec6-97e4-1667cd2bc753",
+      "result": "applied",
+      "settingsRevision": 4
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "254b5714-6beb-4b60-b10f-f1991576efc4",
+      "result": "applied",
+      "settingsRevision": 4
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "78516eb6-1a0c-4384-9327-cb32147c7a3c",
+      "result": "applied",
+      "settingsRevision": 4
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "3307344b-cbe3-4b43-908c-f7eedc648dbe",
+      "result": "applied",
+      "settingsRevision": 0
+    },
+    {
+      "generation": 2,
+      "type": "session_settings.patch",
+      "commandId": "52e35caf-b689-4321-9365-619877b4178b",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "f1ff9257-4d6f-4d61-b986-891123d5d7bc",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "f082dd5b-9edc-4de6-8db6-12326f9afe32",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "8d556cac-26ff-49de-a243-c4459e601f5a",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "trigger_suppression.set",
+      "commandId": "56e4b390-67d0-4def-a054-582df851c797",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "6daae15e-50c1-4789-9b75-c54877bc73c2",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "7b829bea-d95f-458a-bdee-1b10c12c72ce",
+      "result": "applied",
+      "settingsRevision": 0
+    },
+    {
+      "generation": 1,
+      "type": "session_settings.patch",
+      "commandId": "f0eef04c-c478-47ef-920f-8ac6b6dae680",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "32cba352-ce80-4d84-9a54-fc3a05fc15c4",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "ebbc12ed-88b0-47c9-94f8-a4fa8a66440e",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "d2940154-f378-4567-bbfa-c5dd9a6576f3",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "trigger_suppression.set",
+      "commandId": "176356c4-cb6b-42ef-8408-6d884b9db898",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "bdb53823-9cb2-4a49-b4dc-c064ba83a591",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 1,
+      "type": "session.snapshot.request",
+      "commandId": "0a2720db-4348-4ebc-94cc-ddc3fc07770c",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "1920b32d-2119-4be4-a218-eeed26bb42f7",
+      "result": "applied",
+      "settingsRevision": 0
+    },
+    {
+      "generation": 2,
+      "type": "session_settings.patch",
+      "commandId": "03a5efed-8964-458b-a19a-73c40dfbd658",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "970a6344-8188-41a7-b77d-da86cce4eefd",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "b713baaf-8f7f-43b1-8f6f-97943f12421a",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "569282a3-2ecc-47e1-abe1-00d6cb588815",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "trigger_suppression.set",
+      "commandId": "7dc06d4c-1276-4659-99b1-1abdecd3fea8",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "09f03d8a-790f-4047-80c9-5f4ce2921ae9",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "e4636a32-3546-416b-aca9-3f24be76c149",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "activation.command",
+      "commandId": "1e37c01b-a9a5-459e-80e0-0d4cb8de626b",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "0f7cd15b-c2ac-417f-827f-b13176884f9a",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "8641656a-7b51-4e4d-9a32-2d4e8ab4b8f8",
+      "result": "applied",
+      "settingsRevision": 1
+    },
+    {
+      "generation": 2,
+      "type": "session.snapshot.request",
+      "commandId": "d7eee485-4a4a-4d50-a84f-64b7b2a13423",
+      "result": "applied",
+      "settingsRevision": 1
+    }
+  ],
+  "sourceHashes": {
+    "api_fastapi_server/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "api_fastapi_server/activation.py": "3109b2ae10cc8da7e54e9972e4c1851f33cb3eeb6efa4e10403569635945d8c7",
+    "api_fastapi_server/activation_commands.py": "c1fedcc28761c51046cee28184fab5085f2184f7755e0a34a83fceaf481410e1",
+    "api_fastapi_server/protocol.py": "0599ea7333c95091e6acdd491c4376d988b22365f2f486f60420e9a8953b6902",
+    "api_fastapi_server/protocol_v2/__init__.py": "3e90ba51a9b1a6afab17a3dcc2a5b20e8d9db21401c4315cf201cb1a3db345fc",
+    "api_fastapi_server/protocol_v2/commands.py": "dbe344efa77197a20ac1dd2f776f4ea9b551c3d51b8b3ec110a7e7ab83b356f7",
+    "api_fastapi_server/protocol_v2/connection.py": "cefccdbff0e3d029a9d7026940687694addb54b2d0dc6b3880c553f46e610cab",
+    "api_fastapi_server/protocol_v2/events.py": "1c528ab364eea0dd1657f3a7a7b86d9c0eef4e5d714729583ed0c283eb41308b",
+    "api_fastapi_server/protocol_v2/handshake.py": "7f61ff1b51549a38cbd497a1b8bd4c20173c4a5545af685953b9f5325694a9cd",
+    "api_fastapi_server/protocol_v2/identity.py": "4720a83040d878662c7a9d40701dea751cae0c12760f9d8024b9b9c99d89f60f",
+    "api_fastapi_server/protocol_v2/ports.py": "39e05ca39f59a6c1de0c90b9fc086b7fba5d66ec1a812c7792e0c49e7a654ebe",
+    "api_fastapi_server/protocol_v2/schema.py": "4733064ecedf5e629e1fd3d474c4e549afc555d08020c25accd3fdd941119990",
+    "api_fastapi_server/protocol_v2/session.py": "35d0f1ba04be4e04b6f33154c3bf9d71802fb3bb44ae2297ab1648b84a1706cd",
+    "api_fastapi_server/protocol_v2/snapshot.py": "7e9123cf78ec5c004b6ff0a917260f8905c8341c70618089ac1d68ef18a778df",
+    "api_fastapi_server/segment_ledger.py": "b7f3bad6d82b629ee0f8e9e33604449e6214a2b79ec761d2cb202f7f90bfdb85",
+    "api_fastapi_server/server.py": "39aa3233c72d26b3d22c67bc7f78666c74d17a6b8be09117f45ac6f02f69fe22",
+    "api_fastapi_server/settings_control.py": "4bd89ba5422a48cf8d76733f869ede6b47464353e3887962f35d9506f0210bbd",
+    "api_fastapi_server/wake_admission.py": "eddad2412ee86c1b498f9e43af65b95c34d9053dc111b4076196e6e9fa9c1348",
+    "tests/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "tests/unit/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "tests/unit/test_fastapi_server_multi_user.py": "673208e59c0991e31af647040eeb8b01649c926b479e7dc7414d04ea9bfc1752",
+    "tests/unit/test_server_controlled_e2e.py": "7c46f64d811299c4047ded6d55019f525df62515478bac6e5f57f03101a477b0",
+    "VoiceSTT/__init__.py": "af236fd739ccc37dcee097c16fc8ba9d67e1b5cf7304d84856985a89433aa7e6",
+    "VoiceSTT/_version.py": "ee16d3c94d21005899a11ef433607ccc1e37ac7688954b29837b4bcc20d014bc",
+    "VoiceSTT/core/__init__.py": "cf9f455d03de4e5b3400b916cdbd51ed72b268fa0655dd496846e2764c59b197",
+    "VoiceSTT/core/activation_control.py": "f2801178f1e21b02627b9f48e1e510d55803c163abedc4dd117a095d8178a2d6",
+    "VoiceSTT/core/realtime_callbacks.py": "bd04221c7a4ead5f434d4d71002ecc98443cfbb96b7a17be53f59268fede615a",
+    "VoiceSTT/core/realtime_text_stabilizer.py": "efb75c3fb0ea8643da8d3d1f35d1819046d073196f5eb2cf717cd9de104862f2",
+    "VoiceSTT/core/state.py": "90e1cdcf05e99c9d77151c90e9eee3c922d54ce6fb88ce32c7cc7bc162a5ab19",
+    "VoiceSTT/core/wake_backend.py": "6a8faed497e4894fdfdd4834a05944f58bd9d9dd95eaf091a7892e16ee086554",
+    "VoiceSTT/core/wake_detection.py": "3986034c05c1f4dbf7a5a889e2530983b5b31de29ae011884f3ceb3d36ea48fa",
+    "VoiceSTT/core/wakeword_catalog.py": "693f4ba8330bcb859334d844ffd27e4feeec35f28568fd0d64f513f45d337351",
+    "VoiceSTT/kroko/__init__.py": "d5f69328a555203466f2cd58de627e13bf2c242c39841ef86f4d0b3faeabcdf8",
+    "VoiceSTT/kroko/artifacts.py": "c6d70a70343c2edcf9d47f93d5cd5db881d97831f5643abbea9e17b0d3a3d38a",
+    "VoiceSTT/kroko/buildinputs.py": "3308ca870b0540cd5ed1b2a9abd6a9345bfa8bae4fa419f891918227dc34a7e9",
+    "VoiceSTT/kroko/fingerprint.py": "0d299b671de1c74f3736c894f38931eda5a7984246dc57365c8acfab7a5172bb",
+    "VoiceSTT/kroko/models.py": "705e072b6d8dd319d902db8394d936f1d8cd9e96c2837da076868ceee577cbdd",
+    "VoiceSTT/transcription_engines/__init__.py": "6d6ba6d502ccb0d405a9f45cc00ed735c8d0de34d48b2f7668b0ff7bef60dd5f",
+    "VoiceSTT/transcription_engines/base.py": "8f5bd16a81640173e53010f1c132258c3afa7c6a679dbd2d98e83a33bd3dda24",
+    "VoiceSTT/transcription_engines/factory.py": "237f5fcdbe7a1fe9321e7ef5a0ce24cc3bc3525582266e2702f43d5c3ace9b23",
+    "VoiceSTT_server/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "VoiceSTT_server/credential_redaction.py": "009f909da57e1844f117dda8f86e655178d38e754f0c81fe330b79858ac4613a",
+    "VoiceSTT_server/event_logging.py": "c842bd93be650a890bf12422d8f2d7b803628ef1c30a92c2acc996497fee43ed",
+    "VoiceSTT_server/openai_compat.py": "62b9567a87ddede064879ce1cfb8ed55d276b966a025e275c6a3cc53f40899fd",
+    "VoiceSTT_server/operations.py": "e50d541e73d2b71f606011b02df50735e334d146e1187bb731b27e2e5d5f53da",
+    "VoiceSTT_server/stt_model_management.py": "7a60bdb89a2c0137a496bba6c7519ed0387c170d19f728551ec63b891b30979a"
+  },
+  "boundaries": "Actual SettingsHTTP/SettingsService/profile -> TCP HTTP production schema/server/catalog/admin; actual V2STTSession/Mirror/Media/AudioCapture -> TCP WS production settings/controllers/PCM. PortAudio synthetic device, GateAwareRecorder/AutoScheduler and synthetic WakeHit model outputs, permissive artifact engine probe. No Qt/app composition, real ASR/hardware or empirical wake calibration claim. Stale revision injection only between real client read/patch; no server product edit."
+}

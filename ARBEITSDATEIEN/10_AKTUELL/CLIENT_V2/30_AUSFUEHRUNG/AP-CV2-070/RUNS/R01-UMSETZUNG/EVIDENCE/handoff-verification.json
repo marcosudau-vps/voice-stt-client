@@ -1,0 +1,38 @@
+{
+  "result": "PASS",
+  "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+  "candidateBranch": "work/client-v2/ap-cv2-070",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "qualifiedBlobCount": 199,
+  "sourceAndLogHashesMatch": true,
+  "productAndTestsUnchangedSinceQualification": true,
+  "requirementCount": 29,
+  "records": {
+    "result": "PASS",
+    "package": "AP-CV2-070",
+    "packageStatus": "REVIEW_READY",
+    "referencedFiles": 10,
+    "markdownFiles": 8,
+    "relativeLinks": 55,
+    "errors": []
+  },
+  "diffCheck": "PASS",
+  "qualifiedProductCommit": "8b68b4840c7955cd06a2be14736678d83ee729dc",
+  "qualifiedProductTree": "cd46b9047762829e89dd8f5fd95e5f66d0a9032e",
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/9",
+  "publishedPRStructure": {
+    "result": "PASS",
+    "package": "AP-CV2-070",
+    "packageStatus": "REVIEW_READY",
+    "referencedFiles": 10,
+    "markdownFiles": 7,
+    "relativeLinks": 54,
+    "errors": []
+  },
+  "administrativeChanges": [
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-070/00_PAKET.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/package-manifest.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json"
+  ]
+}

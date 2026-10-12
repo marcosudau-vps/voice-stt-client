@@ -39,6 +39,10 @@ event_stream:
 #   mode: hotkey    -> manual=true,  wake_word=false
 #   mode: wake_word -> manual=false, wake_word=true
 # Eine stillschweigende Migration auf true/true findet nicht statt.
+# V2 migration is explicit and backed up via v2_profile.migrate_config_file.
+# The resulting v2_profile is authoritative for SettingsService; these legacy
+# values continue to support the existing application until AP-CV2-100.
+v2_profile: null
 session:
   # Legacy-Feld. Nur noch für die Migration alter Konfigurationen ausgewertet.
   mode: hotkey

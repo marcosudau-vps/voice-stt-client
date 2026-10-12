@@ -1,10 +1,16 @@
-# Client V2 – AP-CV2-060 / R04-ABNAHME / ROOT_PASS, 2026-10-12
+# Client V2 – AP-CV2-070 / R02-ABNAHME / ROOT_PASS, 2026-10-12
 
-AP000 bis AP050 ACCEPTED; kanonischer Parent ce95c66. AP060: R02-CHANGES_REQUIRED wegen einzigem Finding CV2-060-R02-F01; in R03 ausschließlich den dokumentierten öffentlichen Klassennamen zu STTController korrigiert. [Korrekturreport](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md), [Evidenz](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md), [Workflowstatus](WORKFLOW_STATUS.json), [Planungseinstieg](PLANUNG/README.md).
+Aktiver Arbeitsblock CLIENT_V2. AP000 bis AP060 **ACCEPTED**; tatsächliches AP060-Aggregat `473a75d02fb6d00e5664af4328dadaa44da5191a` auf feat/client-v2, Single-Parent und Treegleichheit sowie PASS/menschlicher Prompt [belegt](30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP070 ist unabhängig technisch ROOT_PASS gemäß R02-Abnahme, Branch `work/client-v2/ap-cv2-070`; menschliche Übernahme ausstehend. Spätere Pakete bleiben PLANNED; Server-Distributed bleibt bis zum gemeinsamen Abschluss offen.
 
-Produkt/Test/Config und die unabhängig geprüften 1426 Windows-/323 gezielten/19 Servernachweise unverändert. Neue lokale Vollsuite beim Docfix NOT_RUN, wie R02 ausdrücklich vorsieht. **Aktueller Stand: R04-ROOT_PASS / READY_FOR_CANONICALIZATION.** F01 unabhängig geschlossen; [menschliche R05-Freigabe](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md) liegt nach erfolgreicher CI38276463113 vor. **Nächste Aktion:** nach neuer Head-CI GitHub-Squash PR8; kein automatischer AP070-Start. Appkomposition AP100 und reale Hardware/ASR/Fokusprüfung IV2-020 bleiben offen.
+[Runreport](30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [Workflowstatus](WORKFLOW_STATUS.json), [Planungseinstieg](PLANUNG/README.md), [Produktinterfaces](../../../docs/protocol-v2-settings.md).
 
-**Maßgeblicher aktueller Abnahmenachweis:** [R04-ROOT_PASS](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md) auf `1d81bb0230cfc5a099b7870488f6b42cd4735d5a`. R01-Testbelege und R03-Dokumentkorrektur bleiben unverändert; keine menschliche Übernahmefreigabe.
+Versionierte V1→V2-Migration mit Backup/Reparatur; dynamischer öffentlicher Wake-Katalog; serverautoritativer Settingsservice mit getrennten Wünschen/requested/effective/pending/unsupported und Revisionsräumen. Reconnectbootstrap bestätigt NA-Werte vor Audiofreigabe. NS-Noise/VAD bleibt nicht individuell startbar; Auswahl wirkt erst beim nächsten Hello. Keine Qt-/Credentialpersistenz, Appkomposition AP100.
+
+Qualifikation: 1460 vollständige Windows-Tests, 243 gezielte Regressionstests, 38 echte HTTP/WS/Media/PCM-Checks und 55 gepinnte Settings-/Wake-Supplementtests ohne Skips; compileall/diffcheck PASS. 34 neue Clienttests. Empirische Wake-/ASR-/Hardwarequalifikation weiterhin AP-IV2-020, kein Nachweis optimaler Kalibrierung.
+
+Nächste Aktion: menschlichen Übernahmeprompt für PR #9 abwarten, vorher aktuellen Head/Base, admin-only-Diff und CI prüfen; kein automatischer Merge/AP080. Runtime Python3.12 in Projektvenv; Testreproduktion über den Runner im Evidenzindex. Die reguläre App bleibt bis AP100 auf dem bisherigen Pfad.
+
+[Unabhängiger R02-ROOT_PASS](30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md), [Review-Evidenz](30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md).
 
 ## Historischer Stand vor AP-CV2-020
 
