@@ -2144,3 +2144,8 @@ PR #8 Kandidat `33fef1d892917030100c0583566367f49fff14eb`, Tree `b725d2e467a479d
 ## AP-CV2-060-R03 – 2026-10-12 – API-Dokumentnamen / REVIEW_READY
 
 Reviewunterlagen ad10869 übernommen. Berechtigtes F01 reproduziert und ausschließlich ClientController → STTController in öffentlicher API korrigiert. Alle195 Produkt-/Test-/Configblobs und Pflichtloghashes unverändert, Docdiff/Kriterien-/Aktenprüfung PASS. Neue lokale Vollsuite NOT_RUN gemäß ausdrücklicher R02-Regel. [R03-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md). Erneute unabhängige Nachprüfung, kein Eigen-PASS/Merge/AP070; Schreiben ab Übergabe pausiert.
+
+
+## AP-CV2-060-R04 – 2026-10-12 – unabhängige Nachabnahme ROOT_PASS
+
+PR #8 am Kandidaten `1d81bb0230cfc5a099b7870488f6b42cd4735d5a` (Tree `f3342625d63ec0c296d62d03decb54ea93fd983b`, Parent ce95c66, Server ada13b0) geprüft. R02-Pflichtfinding `CV2-060-R02-F01` zur öffentlichen Controllerklasse durch R03-Einzeilen-Dokumentkorrektur unabhängig geschlossen. Von R02 bis R03 ausschließlich Dokument-/administrative Änderungen, keine Produkt-/Test-/Config-/Vertragsänderungen. R01-Windows 1426 / targeted 323 / gepinnter Servercheckpoint19 sowie alle 195 qualifizierten Produktblobs als gültige externe Belege unabhängig geprüft; eigene Windows-Wiederholung NOT_RUN (regelkonform). GitHub CI38274673106 am exakten Kandidaten mit kompletter Suite, EXE, Wheel und Smokes SUCCESS. Alle13 RESULT-Requirements ROOT_PASS; keine offenen Pflichtfindings. [R04-Bericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md). Workflow WAITING_FOR_APPROVAL; kein Merge oder AP070 ohne menschlichen Prompt.

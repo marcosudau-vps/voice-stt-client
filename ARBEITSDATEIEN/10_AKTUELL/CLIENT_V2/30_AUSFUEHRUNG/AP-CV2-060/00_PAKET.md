@@ -1,6 +1,6 @@
 # AP-CV2-060 – Final-Pipeline, UUID-Historie und sichere Textinjektion
 
-Status **REVIEW_READY**, workflowPhase **REVIEW_READY**, Stand 2026-10-12. Vollständiger R01-Selbstcheck; R02-F01 in R03 adressiert; erneute unabhängige Abnahme offen, Schreiben ab Übergabe pausiert.
+Status **ROOT_PASS**, workflowPhase **WAITING_FOR_APPROVAL**, Stand 2026-10-12. Vollständiger R01-Selbstcheck; R02-F01 in R03 adressiert; erneute unabhängige Abnahme R04 bestanden, technische Freigabe dokumentiert, kanonische Übernahme ausstehend.
 
 [Paketvertrag](../../PLANUNG/ARBEITSPAKETE/AP-CV2-060.md), [Originalauftrag](RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md), [Report](RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [Produktinterfaces](../../../../../docs/protocol-v2-results.md).
 
@@ -25,3 +25,8 @@ Maßgeblich nach CI-Selbstkorrektur: aktuelles Windowsmanifest mit getesteter Ba
 ## Korrektur R03 (2026-10-12)
 
 F01 berechtigt und ausschließlich als Dokumentnamen korrigiert: STTController.attach_v2_results. [Originalprompt](RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md), [Report](RUNS/R03-KORREKTUR/01_REPORT.md), [Evidenz](RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md). Produkt-/Test-/Configblobs und R01-Nachweise unverändert. REVIEW_READY für erneute unabhängige Nachprüfung; kein eigener PASS.
+
+
+## Unabhängige Abnahme R04 (2026-10-12)
+
+**ROOT_PASS / WAITING_FOR_APPROVAL.** R02-Finding `CV2-060-R02-F01` unabhängig geschlossen; keine neuen Pflichtfindings. [R04-Bericht](RUNS/R04-ABNAHME/01_REPORT.md), [R04-Evidenz](RUNS/R04-ABNAHME/EVIDENCE/INDEX.md), geprüfter Kandidat `1d81bb0230cfc5a099b7870488f6b42cd4735d5a` / Tree `f3342625d63ec0c296d62d03decb54ea93fd983b`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`. Die R03-Korrektur ist ein reiner Dokumentfix. R01-Vollsuite 1426, gezielte 323 und Servercheckpoint 19 als gültige Fremdbelege geprüft; finale CI38274673106 auf exaktem Head PASS. Menschliche Übernahmefreigabe ausstehend, kein Merge/AP070.

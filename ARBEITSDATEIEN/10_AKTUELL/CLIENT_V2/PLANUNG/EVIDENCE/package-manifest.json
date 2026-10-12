@@ -419,7 +419,7 @@
         "AP-CV2-030"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-060.md",
-      "status": "REVIEW_READY",
+      "status": "ROOT_PASS",
       "testModules": [
         "test_v2_results"
       ],
@@ -458,11 +458,14 @@
       "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
       "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/8",
       "openFindingIds": [],
-      "reviewReport": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R02-ABNAHME/01_REPORT.md",
-      "reviewedCommit": "33fef1d892917030100c0583566367f49fff14eb",
-      "reviewedTree": "b725d2e467a479de8ce778646eebbe71a4ec67b5",
+      "reviewReport": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+      "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+      "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
       "correctionReport": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md",
       "correctedFindingIds": [
+        "CV2-060-R02-F01"
+      ],
+      "closedFindingIds": [
         "CV2-060-R02-F01"
       ]
     },

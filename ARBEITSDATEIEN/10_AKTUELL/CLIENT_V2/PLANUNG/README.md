@@ -1,8 +1,10 @@
-# Client V2 – AP-CV2-060 / R03-KORREKTUR / REVIEW_READY, 2026-10-12
+# Client V2 – AP-CV2-060 / R04-ABNAHME / ROOT_PASS, 2026-10-12
 
 AP000 bis AP050 ACCEPTED; kanonischer Parent ce95c66. AP060: R02-CHANGES_REQUIRED wegen einzigem Finding CV2-060-R02-F01; in R03 ausschließlich den dokumentierten öffentlichen Klassennamen zu STTController korrigiert. [Korrekturreport](../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md), [Evidenz](../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md), [Workflowstatus](../WORKFLOW_STATUS.json), [Planungseinstieg](README.md).
 
-Produkt/Test/Config und die unabhängig geprüften 1426 Windows-/323 gezielten/19 Servernachweise unverändert. Neue lokale Vollsuite beim Docfix NOT_RUN, wie R02 ausdrücklich vorsieht. **Nächste Aktion:** erneute unabhängige Nachprüfung von PR8. Kein eigener ROOT_PASS/Merge/AP070. Schreiben ab Übergabe pausiert. Appkomposition AP100 und reale Hardware/ASR/Fokusprüfung IV2-020 bleiben offen.
+Produkt/Test/Config und die unabhängig geprüften 1426 Windows-/323 gezielten/19 Servernachweise unverändert. Neue lokale Vollsuite beim Docfix NOT_RUN, wie R02 ausdrücklich vorsieht. **Aktueller Stand: R04-ROOT_PASS / WAITING_FOR_APPROVAL.** F01 unabhängig geschlossen. **Nächste Aktion:** ausdrücklichen menschlichen Übernahmeprompt für PR #8 abwarten; kein Merge/AP070 ohne Freigabe. Appkomposition AP100 und reale Hardware/ASR/Fokusprüfung IV2-020 bleiben offen.
+
+**Maßgeblicher aktueller Abnahmenachweis:** [R04-ROOT_PASS](../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md) auf `1d81bb0230cfc5a099b7870488f6b42cd4735d5a`. R01-Testbelege und R03-Dokumentkorrektur bleiben unverändert; keine menschliche Übernahmefreigabe.
 
 ## Historischer Stand vor AP-CV2-020
 

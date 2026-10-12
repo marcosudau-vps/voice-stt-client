@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "REVIEW_READY",
-  "packageStatus": "REVIEW_READY",
+  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "packageStatus": "ROOT_PASS",
   "activePackage": "AP-CV2-060",
   "nextPackage": "AP-CV2-070",
   "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
@@ -11,18 +11,18 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/8",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R03-KORREKTUR",
-    "role": "correction",
-    "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md"
+    "id": "R04-ABNAHME",
+    "role": "review",
+    "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "33fef1d892917030100c0583566367f49fff14eb",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R02-ABNAHME/01_REPORT.md",
+  "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Erneute unabhängige Nachprüfung von CV2-060-R02-F01 und vollständig eingereichtem AP060-Kandidaten in PR8; kein Merge/AP070.",
+  "nextAction": "Unabhängiger R04-ROOT_PASS für PR #8. Ausdrücklichen menschlichen Übernahmeprompt für aktuellen Paket-PR-Head abwarten; vorher kein Merge und kein AP-CV2-070.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -44,8 +44,11 @@
     "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
     "scope": "Exact staged test correction on testedBase; all 195 qualified product blobs. Prior qualification is retained as superseded before-ci-fix evidence."
   },
-  "reviewedTree": "b725d2e467a479de8ce778646eebbe71a4ec67b5",
+  "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
   "correctedFindingIds": [
+    "CV2-060-R02-F01"
+  ],
+  "closedFindingIds": [
     "CV2-060-R02-F01"
   ]
 }
