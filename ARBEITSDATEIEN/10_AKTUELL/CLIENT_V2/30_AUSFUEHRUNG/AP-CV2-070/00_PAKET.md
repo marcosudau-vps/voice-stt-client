@@ -9,3 +9,5 @@ Base feat/client-v2, Branch `work/client-v2/ap-cv2-070`, Parent `473a75d02fb6d00
 1460 Windowsgesamttests, 243 gezielte Tests, 38 echte Serverchecks und 55 gepinnte Supplementtests/keine Skips, compileall/diffcheck PASS. 34 neue Tests; alle29 SET-/WAKE-Requirements einzeln belegt. CLIENT OPEN bis unabhängiger Abnahme. Kein eigener ROOT_PASS oder Merge/AP080. Reale Kalibrierung und Nutzsprachgrenze AP-IV2-020, Appkomposition AP100.
 
 Der exakte Kandidat ergibt sich aus veröffentlichter Branchspitze/PR-Beschreibung. Produkt-/Teststand über Parent, getesteten staged Diff und qualifizierte Gitblobs im Windowsmanifest identifiziert; finale eigene SHA/Tree außerhalb des erzeugenden Commits. Normale Paketbranch-Pushes/PR/Handoff workflowweit autorisiert gemäß Original AP000, keine kanonische Promotion.
+
+[PR #9](https://github.com/marcosudau-vps/voice-stt-client/pull/9) gegen feat/client-v2. Qualifizierter Produkt-/Unterlagencommit `8b68b4840c7955cd06a2be14736678d83ee729dc`, Tree `cd46b9047762829e89dd8f5fd95e5f66d0a9032e`. Nachfolgender PR-Verweisnachtrag administrativ; finale eingereichte SHA/Tree in aktueller PR-Beschreibung und finaler Handoff.

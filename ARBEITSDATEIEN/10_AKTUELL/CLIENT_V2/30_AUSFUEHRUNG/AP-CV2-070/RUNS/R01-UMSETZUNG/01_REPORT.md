@@ -54,3 +54,8 @@ Während Entwicklung korrigiert: synthetische ServerVersion-/Revisionfixtures de
 ## Übergabe und Stop
 
 Unabhängiges Review gegen den endgültig veröffentlichten PR-Head; sämtliche Produkt-/Test-/Konfigurationsblobs müssen zum Windowsmanifest passen. Reviewer kann commitgebunden die vollständigen Windowsnachweise prüfen; erneute lokale Windowsvollsuite ist keine Pflicht. Pflichtbefunde als CHANGES_REQUIRED zurückgeben. Kein eigener PASS, kein Merge, kein Folgepaketstart. Vollständige technische Abgabecheckliste im Report erfüllt; endgültiger PR-/CI-/Aktenabgleich gehört zur Veröffentlichungsevidenz. Nach Übergabe Umsetzungsbranch-Schreiben pausiert.
+
+
+## PR-Bereitstellung
+
+[PR #9](https://github.com/marcosudau-vps/voice-stt-client/pull/9) gegen feat/client-v2, qualifizierter erster Umsetzungscommit `8b68b4840c7955cd06a2be14736678d83ee729dc` / Tree `cd46b9047762829e89dd8f5fd95e5f66d0a9032e`. Anschließende PR-/Verifikationsverweise sind rein administrativ. Finale SHA/Tree und CI-Ergebnis extern in aktueller PR-Beschreibung/Handoff; keine Selbsteinbettung eines noch zu erzeugenden Commits. Der PR ist der Codex-Aufgabe angehängt.
