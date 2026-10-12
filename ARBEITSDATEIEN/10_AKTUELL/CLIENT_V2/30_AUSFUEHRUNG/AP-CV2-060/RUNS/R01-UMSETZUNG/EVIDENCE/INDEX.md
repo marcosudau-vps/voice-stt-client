@@ -28,4 +28,10 @@ Weitere Dateien baseline/first-regression/results-*/server-results-*/targeted-pr
 Der exakte Produktpatch wird verlustfrei als Base64 transportiert, weil enthaltene entfernte Legacyzeilen nachgestellte Leerzeichen besitzen. productDiffSha256 bezieht sich auf decodierte Patchbytes, productDiffArtifactSha256 auf das veröffentlichte Artefakt. Decode: `base64.decodebytes(Path(artifact).read_bytes())`; keine getestete Quelle wurde verändert.
 
 
-[PR #8](https://github.com/marcosudau-vps/voice-stt-client/pull/8) gegen feat/client-v2. Vollständiger qualifizierter Umsetzungscommit `66b6e39daa86855ae1314025bc06344eb55f7d39`, Tree `fbe3931c3b68efa510bee1e35db4b77ad7a83f27`. Nachfolgende Veröffentlichungsverweise sind rein administrativ; endgültige eingereichte SHA/Tree stehen in aktueller PR-Beschreibung und finaler Übergabe.
+[PR #8](https://github.com/marcosudau-vps/voice-stt-client/pull/8) gegen feat/client-v2. Früherer vor CI-Selbstkorrektur qualifizierter Umsetzungscommit `66b6e39daa86855ae1314025bc06344eb55f7d39`, Tree `fbe3931c3b68efa510bee1e35db4b77ad7a83f27`. Nachfolgende Veröffentlichungsverweise sind rein administrativ; endgültige eingereichte SHA/Tree stehen in aktueller PR-Beschreibung und finaler Übergabe.
+
+
+CI-Selbstkorrektur: [vollständige CI-Failure](ci-first-failure.txt), [lokaler Vorher-Repro](ci-path-repro-before.txt). Alle Pflichtbefehle danach mit neuem Testblob wiederholt; aktuelles Windowsmanifest 2026-10-12T15:10:56.388352+00:00 bis 2026-10-12T15:13:25.899663+00:00. Basis 66f44e0be1ec9485d90ec0b918bffafdab2d57f0 plus staged Testkorrektur; Paketparent unverändert. Frühere Logs/Manifest/Patch liegen unter *.before-ci-fix.txt und sind als frühere Qualifikation superseded. Der finale Test nutzt ausdrücklich einen Pfadalias und bleibt strenger Negativfall.
+
+
+Maßgeblich nach CI-Selbstkorrektur: aktuelles Windowsmanifest mit getesteter Basis 66f44e0 plus staged Pfadalias-Testkorrektur, vollständig neu qualifiziertem Testblob und allen 195 qualifizierten Produktblobs. Finale Kandidaten-SHA/Tree stehen in PR und Übergabe.

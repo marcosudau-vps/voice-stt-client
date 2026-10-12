@@ -1,7 +1,7 @@
 {
   "result": "PASS",
   "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
-  "clientHead": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+  "clientHead": "66f44e0be1ec9485d90ec0b918bffafdab2d57f0",
   "checks": [
     "admission/pinned_server",
     "interim/no_sqlite_or_clipboard",
@@ -75,33 +75,33 @@
   "resultTrace": [
     {
       "status": "queued",
-      "sessionId": "b74a1da6-0c7f-4daf-8243-b063861c8d33",
-      "activationId": "62feba70-e9bc-4052-927f-b1d1532baed9",
-      "segmentId": "22243080-6269-4de4-ab4d-00a44b173d50",
+      "sessionId": "03172198-16b8-41fb-81ad-51c4d8af485c",
+      "activationId": "60ab5b55-5b70-4bbb-965f-0f65aa890d78",
+      "segmentId": "03977437-1590-4629-b987-89c843642102",
       "segmentSequence": 1,
-      "eventId": "c984c393-6b7b-4a8b-b92e-7c37ff1941ce",
+      "eventId": "e7f2362f-dfd8-4db3-911c-afb9073ecc05",
       "eventSeq": 12,
-      "foreground": "afec2c27-b99c-41dd-bd67-57fcb96640ca"
+      "foreground": "5901d6b8-b610-413c-9f8b-559d64e761de"
     },
     {
       "status": "queued",
-      "sessionId": "b74a1da6-0c7f-4daf-8243-b063861c8d33",
-      "activationId": "afec2c27-b99c-41dd-bd67-57fcb96640ca",
-      "segmentId": "f60d1f10-8cad-4f22-9bef-044cb6498ca6",
+      "sessionId": "03172198-16b8-41fb-81ad-51c4d8af485c",
+      "activationId": "5901d6b8-b610-413c-9f8b-559d64e761de",
+      "segmentId": "89e376f0-69b4-435d-a217-3dd00380f483",
       "segmentSequence": 2,
-      "eventId": "a75bc0b9-a712-403c-8eee-689daf339234",
+      "eventId": "907c7916-a882-4059-8ca2-0027b86e4c28",
       "eventSeq": 17,
-      "foreground": "afec2c27-b99c-41dd-bd67-57fcb96640ca"
+      "foreground": "5901d6b8-b610-413c-9f8b-559d64e761de"
     },
     {
       "status": "deduplicated",
-      "sessionId": "b74a1da6-0c7f-4daf-8243-b063861c8d33",
-      "activationId": "62feba70-e9bc-4052-927f-b1d1532baed9",
-      "segmentId": "22243080-6269-4de4-ab4d-00a44b173d50",
+      "sessionId": "03172198-16b8-41fb-81ad-51c4d8af485c",
+      "activationId": "60ab5b55-5b70-4bbb-965f-0f65aa890d78",
+      "segmentId": "03977437-1590-4629-b987-89c843642102",
       "segmentSequence": 1,
-      "eventId": "c984c393-6b7b-4a8b-b92e-7c37ff1941ce",
+      "eventId": "e7f2362f-dfd8-4db3-911c-afb9073ecc05",
       "eventSeq": 12,
-      "foreground": "afec2c27-b99c-41dd-bd67-57fcb96640ca"
+      "foreground": "5901d6b8-b610-413c-9f8b-559d64e761de"
     }
   ],
   "runtime": {

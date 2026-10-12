@@ -22,7 +22,7 @@
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Unabhängige Abnahme des vollständigen AP-CV2-060-Kandidaten; kein Merge oder AP070-Start.",
+  "nextAction": "Unabhängige Abnahme des vollständig neu qualifizierten AP-CV2-060-Kandidaten; kein Merge oder AP070-Start.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -38,12 +38,11 @@
   "predecessorCanonicalization": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json",
   "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
   "qualificationBasis": {
+    "testedBase": "66f44e0be1ec9485d90ec0b918bffafdab2d57f0",
     "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
-    "productDiffSha256": "005599f06ffdfa804fbaea0d487185fb976864a76323ed5d95d865b706b72d6f",
+    "productDiffSha256": "0182f685c645520c6ad2f2194276a720970587bbf45d146dedce2e3d62e389f6",
     "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
-    "scope": "Exact staged product diff and qualifiedGitBlobs; publication references administrative only.",
-    "commit": "66b6e39daa86855ae1314025bc06344eb55f7d39",
-    "tree": "fbe3931c3b68efa510bee1e35db4b77ad7a83f27"
+    "scope": "Exact staged test correction on testedBase; all 195 qualified product blobs. Prior qualification is retained as superseded before-ci-fix evidence."
   },
   "reviewedTree": null
 }

@@ -1,0 +1,17 @@
+test_failed_backup_never_migrates_or_leaves_partial_backup (tests.test_v2_results.Migration.test_failed_backup_never_migrates_or_leaves_partial_backup) ... FAIL
+
+======================================================================
+FAIL: test_failed_backup_never_migrates_or_leaves_partial_backup (tests.test_v2_results.Migration.test_failed_backup_never_migrates_or_leaves_partial_backup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_results.py", line 139, in test_failed_backup_never_migrates_or_leaves_partial_backup
+    with patch('sqlite3.connect',side_effect=connection),self.assertLogs('text',level='ERROR'):
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\_log.py", line 84, in __exit__
+    self._raiseFailure(
+AssertionError: no logs of level ERROR or higher triggered on text
+
+----------------------------------------------------------------------
+Ran 1 test in 0.068s
+
+FAILED (failures=1)

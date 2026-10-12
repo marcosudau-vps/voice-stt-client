@@ -1,10 +1,12 @@
 {
-  "testedBase": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+  "testedBase": "66f44e0be1ec9485d90ec0b918bffafdab2d57f0",
   "candidateBranch": "work/client-v2/ap-cv2-060",
   "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
   "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
   "productDiff": "tested-product.patch.base64",
-  "productDiffSha256": "005599f06ffdfa804fbaea0d487185fb976864a76323ed5d95d865b706b72d6f",
+  "productDiffEncoding": "base64",
+  "productDiffArtifactSha256": "aa8dddd885964d647c435b9487993e42325bd0557f01fa5688822aa68ffe9de2",
+  "productDiffSha256": "0182f685c645520c6ad2f2194276a720970587bbf45d146dedce2e3d62e389f6",
   "sourceHashes": {
     ".github/workflows/ci.yml": "4fa031c6196396808263d21c7bbada44c8282c972b3aa1e92a5b48b8e7e9ae9b",
     ".github/workflows/release.yml": "01924a84e0e36b328d6d185570f10907a3aa97d0203eb5b4d1fd347ba3cd4698",
@@ -115,7 +117,7 @@
     "tests/test_v2_controls.py": "a347f3eef5d06d148c5916cec6c64083af1ecbf13c2e36710595cff4406f8280",
     "tests/test_v2_mirror.py": "542606c02f1be2dd98bb305d32ec10050f55c4dfd792f9702d0196f03a8c9a8d",
     "tests/test_v2_protocol.py": "eabced19e5d78cd2aff0ef7ce29838092a4c674dbc3b8e2533fea84febd62bfe",
-    "tests/test_v2_results.py": "c89ab529a6696728596e87b9108e9049c35f4cbd1f30e020f1342b323c88a032",
+    "tests/test_v2_results.py": "9fd4ba9fca8bd0791f9aa62527b9a42b57d724fc3d17245112c14ffb51d3f9da",
     "tests/test_v2_transport.py": "c0a43a4df97a3d4288b966da9ba192b81a599397d3fc5c5b52d0f8c73973c89b",
     "tests/test_v2_work_records.py": "fcefc41ea2b273691de1be50cd3950642f643cefdccd3dc68c5d7dafae9131f4",
     "voice_stt_client/__init__.py": "1c08db1e7c15dae20df43837a9c26b39d6edc658ae0e21ccbe45727dd8fe1255",
@@ -312,7 +314,7 @@
     "tests/test_v2_controls.py": "48c4269577f1d95d8c4e93b0e9d90587d954e3e6",
     "tests/test_v2_mirror.py": "d6bbe1c542e75c707db1404408faad2bc4c97676",
     "tests/test_v2_protocol.py": "de66709b1df6399091037df0b225dff2ab455fdc",
-    "tests/test_v2_results.py": "20c03f9c921bd4aa9d8fad301f9ebd23df1664ab",
+    "tests/test_v2_results.py": "7c0a232f9c20fd0c0b43accb2bb7e7277f2acdef",
     "tests/test_v2_transport.py": "4f8408875855b25dd3ff5b7f8daec21745627bc3",
     "tests/test_v2_work_records.py": "e7464ff50042f7cb0a6a533c31e2e87ed34617f5",
     "voice_stt_client/__init__.py": "2a807e182397974a1ac44bf430ad80d44e3d488e",
@@ -413,7 +415,7 @@
       "halo": "0.0.31"
     }
   },
-  "startedAtUtc": "2026-10-12T14:53:34.706117+00:00",
+  "startedAtUtc": "2026-10-12T15:10:56.388352+00:00",
   "checks": [
     {
       "command": [
@@ -435,12 +437,12 @@
         "-v"
       ],
       "exitCode": 0,
-      "elapsedSeconds": 20.672,
+      "elapsedSeconds": 20.641,
       "log": "targeted-unittest.txt",
-      "sha256": "4abd862f73c2e77d915f8f7e7c5b820334a5bf298ef133a47e7920b4ec42ded0",
+      "sha256": "dfb2ca8dd535438eaa58847d3e95a1ec4d394549fff1df0ec4202c640e5fb944",
       "result": "PASS",
       "testCount": 323,
-      "testSeconds": 19.556
+      "testSeconds": 19.46
     },
     {
       "command": [
@@ -454,7 +456,7 @@
       "exitCode": 0,
       "elapsedSeconds": 8.812,
       "log": "server-results-checkpoint.json",
-      "sha256": "ed0c131727ae138cf44f78b59271d00142e5ced62440ed07437a432ce42b62b5",
+      "sha256": "d8081616cd9682a30f2f39636310103ea4726e1b3c284ab8b298236aa5f3bff7",
       "result": "PASS",
       "stderrLog": "server-results-checkpoint.json.stderr.txt",
       "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -472,7 +474,7 @@
         "tests"
       ],
       "exitCode": 0,
-      "elapsedSeconds": 0.188,
+      "elapsedSeconds": 0.25,
       "log": "compileall.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "result": "PASS"
@@ -490,18 +492,16 @@
         "-v"
       ],
       "exitCode": 0,
-      "elapsedSeconds": 119.468,
+      "elapsedSeconds": 119.578,
       "log": "windows-full-unittest.txt",
-      "sha256": "0358befe736b1f122accd58ea612a8392aaa92727603411a1fe75b0da2103d75",
+      "sha256": "41926aa1dafe1555b70608a38e3f045b4ab7dede347f930286f6aa5b9a71e331",
       "result": "PASS",
       "testCount": 1426,
-      "testSeconds": 117.86
+      "testSeconds": 117.912
     }
   ],
   "lineEndingNote": "Runtime hashes cover local bytes; Git blobs/exact staged product diff identify normalized published content. All qualification logs are UTF-8 LF before SHA256 and versioning.",
   "diffCheckResult": "PASS",
-  "finishedAtUtc": "2026-10-12T14:56:04.083520+00:00",
-  "result": "PASS",
-  "productDiffEncoding": "base64",
-  "productDiffArtifactSha256": "735b95dcd8cd67bb7bda1bad12658b786295c9c1022f81224ca32e351a10268c"
+  "finishedAtUtc": "2026-10-12T15:13:25.899663+00:00",
+  "result": "PASS"
 }

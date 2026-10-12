@@ -6,7 +6,7 @@
 
 Vorgänger: [R02-PASS](../../../AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md), tatsächlich erteilter menschlicher Prompt im Aggregatecommit, gemergter PR7 und Singleparent/Commitzahl/Baumgleichheit [separat nachgewiesen](EVIDENCE/predecessor-canonicalization.json). Workflowweite Kandidatencommit-/Push-/PR-Rechte stammen aus [AP000-Originalauftrag](../../../AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md). Kein AP060-Übernahmeprompt vorhanden.
 
-Getesteter Kandidat: exakter staged Produktdiff gegen Parent, SHA256 `005599f06ffdfa804fbaea0d487185fb976864a76323ed5d95d865b706b72d6f`, [Patch](EVIDENCE/tested-product.patch.base64), qualifizierte Gitblobs und Runtimebytes in [Windowsmanifest](EVIDENCE/windows-validation.json). Der tatsächliche eingereichte SHA/Tree wird nach Aktencommit aus Git ermittelt und in PR sowie Übergabe genannt; keine unmögliche Selbst-SHA.
+Getesteter Kandidat nach CI-Selbstkorrektur: getestete Gitbasis `66f44e0be1ec9485d90ec0b918bffafdab2d57f0` plus exakter staged Testdiff, SHA256 `0182f685c645520c6ad2f2194276a720970587bbf45d146dedce2e3d62e389f6`, [Base64-Patch](EVIDENCE/tested-product.patch.base64); vollständiger Produkt-/Testbestand mit 195 Gitblobs und Runtimebytes im [aktuellen Windowsmanifest](EVIDENCE/windows-validation.json). Der kanonische Paketparent bleibt ce95c66; der frühere unveränderte Produktstand und seine Qualifikation sind als before-ci-fix-Belege erhalten. Die endgültige Spitze wird nach Aktencommit in PR/Übergabe aus Git genannt.
 
 ## Ergebnis und lokale Entscheidungen
 
@@ -55,4 +55,14 @@ Unmittelbar nächste erlaubte Aktion: unabhängige Abnahme des vollständigen ei
 Der exakte Produktpatch wird verlustfrei als Base64 transportiert, weil enthaltene entfernte Legacyzeilen nachgestellte Leerzeichen besitzen. productDiffSha256 bezieht sich auf decodierte Patchbytes, productDiffArtifactSha256 auf das veröffentlichte Artefakt. Decode: `base64.decodebytes(Path(artifact).read_bytes())`; keine getestete Quelle wurde verändert.
 
 
-[PR #8](https://github.com/marcosudau-vps/voice-stt-client/pull/8) gegen feat/client-v2. Vollständiger qualifizierter Umsetzungscommit `66b6e39daa86855ae1314025bc06344eb55f7d39`, Tree `fbe3931c3b68efa510bee1e35db4b77ad7a83f27`. Nachfolgende Veröffentlichungsverweise sind rein administrativ; endgültige eingereichte SHA/Tree stehen in aktueller PR-Beschreibung und finaler Übergabe.
+[PR #8](https://github.com/marcosudau-vps/voice-stt-client/pull/8) gegen feat/client-v2. Früherer vor CI-Selbstkorrektur qualifizierter Umsetzungscommit `66b6e39daa86855ae1314025bc06344eb55f7d39`, Tree `fbe3931c3b68efa510bee1e35db4b77ad7a83f27`. Nachfolgende Veröffentlichungsverweise sind rein administrativ; endgültige eingereichte SHA/Tree stehen in aktueller PR-Beschreibung und finaler Übergabe.
+
+
+## CI-Selbstkorrektur vor endgültiger Abgabe
+
+CI38267770763 auf dem vorläufigen Kandidaten66f44e0 meldete genau eine Failure in test_failed_backup_never_migrates_or_leaves_partial_backup: Der sqlite.connect-Testhook verglich Pfadstrings, während History db_path.resolve() verwendet. Der GitHub-Tempname RUNNER~1 wurde aufgelöst; der erwartete Backupfehler wurde deshalb nicht injiziert. [Vollständiger CI-Fehlerlog](EVIDENCE/ci-first-failure.txt), [lokaler Vorher-Repro mit äquivalentem alias/../-Pfad](EVIDENCE/ci-path-repro-before.txt).
+
+Kleinste Korrektur ausschließlich im Test: Der Fall verwendet nun absichtlich einen Alias und der Hook vergleicht Path.resolve()-Identität. Produktlogik unverändert. Kein Test entfernt oder abgeschwächt: Backuperror, Rollback/lesbare Legacydaten, kein Teilbackup und erfolgreicher Wiederanlauf bleiben geprüft. Neue vollständige Qualifikation am korrigierten Teststand: 323 targeted, 1426 Windowsgesamttests, 19 echte Serverchecks, compileall/diffcheck PASS. Frühere vollständige PASS-Logs/Manifest/Patch bleiben als *.before-ci-fix.txt erhalten, sie qualifizieren nicht den neuen Testblob. Ursprünglicher Prompt/R01 und ein zentraler Meilenstein bleiben dieselben; noch keine unabhängige Abgabe erfolgt.
+
+
+Maßgeblich nach CI-Selbstkorrektur: aktuelles Windowsmanifest mit getesteter Basis 66f44e0 plus staged Pfadalias-Testkorrektur, vollständig neu qualifiziertem Testblob und allen 195 qualifizierten Produktblobs. Finale Kandidaten-SHA/Tree stehen in PR und Übergabe.

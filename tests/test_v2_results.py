@@ -127,6 +127,9 @@ class Migration(unittest.TestCase):
         self.assertEqual(self.db.read_bytes(),before)
 
     def test_failed_backup_never_migrates_or_leaves_partial_backup(self):
+        # Exercise a path alias: History resolves it, as it does Windows 8.3 temp names.
+        (self.db.parent/'alias').mkdir()
+        self.db = self.db.parent/'alias'/'..'/self.db.name
         make_v1(self.db)
         original=sqlite3.connect
         class BackupFailure:
@@ -135,7 +138,7 @@ class Migration(unittest.TestCase):
             def backup(self,destination): raise sqlite3.OperationalError('synthetic full backup disk')
         def connection(*args,**kwargs):
             conn=original(*args,**kwargs)
-            return BackupFailure(conn) if str(args[0])==str(self.db) else conn
+            return BackupFailure(conn) if Path(args[0]).resolve()==self.db.resolve() else conn
         with patch('sqlite3.connect',side_effect=connection),self.assertLogs('text',level='ERROR'):
             failed=TranscriptHistoryManager(self.config,str(self.db))
         self.assertFalse(failed._db_enabled)

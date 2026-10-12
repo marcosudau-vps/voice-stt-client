@@ -6,11 +6,11 @@
   "matchedProductBlobs": true,
   "matchedRuntimeSources": true,
   "matchedLogSha256": {
-    "targeted-unittest.txt": "4abd862f73c2e77d915f8f7e7c5b820334a5bf298ef133a47e7920b4ec42ded0",
-    "server-results-checkpoint.json": "ed0c131727ae138cf44f78b59271d00142e5ced62440ed07437a432ce42b62b5",
+    "targeted-unittest.txt": "dfb2ca8dd535438eaa58847d3e95a1ec4d394549fff1df0ec4202c640e5fb944",
+    "server-results-checkpoint.json": "d8081616cd9682a30f2f39636310103ea4726e1b3c284ab8b298236aa5f3bff7",
     "server-results-checkpoint.json.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "compileall.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "windows-full-unittest.txt": "0358befe736b1f122accd58ea612a8392aaa92727603411a1fe75b0da2103d75"
+    "windows-full-unittest.txt": "41926aa1dafe1555b70608a38e3f045b4ab7dede347f930286f6aa5b9a71e331"
   },
   "unchangedRequirementCriteria": true,
   "tracedRequirements": 13,
@@ -19,28 +19,16 @@
     "result": "PASS",
     "package": "AP-CV2-060",
     "packageStatus": "REVIEW_READY",
-    "referencedFiles": 27,
-    "markdownFiles": 22,
-    "relativeLinks": 1015,
+    "referencedFiles": 26,
+    "markdownFiles": 21,
+    "relativeLinks": 1019,
     "errors": []
   },
   "diffCheck": "PASS",
   "scope": "Index qualification; final commit SHA/tree reported externally after administrative publication refs. No self-SHA.",
-  "qualifiedCommit": "66b6e39daa86855ae1314025bc06344eb55f7d39",
-  "publishedQualifiedTree": "fbe3931c3b68efa510bee1e35db4b77ad7a83f27",
-  "publishedProductBlobsAndLogHashes": "PASS",
-  "publicationReferencesOnly": true,
-  "administrativeDiffPaths": [
-    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/00_PAKET.md",
-    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
-    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
-    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/pr-submission-snapshot.json",
-    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/pr-summary.md",
-    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/AP-CV2-050.md",
-    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/README.md",
-    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/package-manifest.json",
-    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json"
-  ],
-  "actualPRSnapshot": "pr-submission-snapshot.json",
-  "actualPRSummaryAtVerification": "pr-summary.md"
+  "testedBase": "66f44e0be1ec9485d90ec0b918bffafdab2d57f0",
+  "qualifiedProductDiff": "0182f685c645520c6ad2f2194276a720970587bbf45d146dedce2e3d62e389f6",
+  "stagedProductBlobsAndLogHashes": "PASS",
+  "correction": "CI38267770763 fixture path alias; locally reproduced before correction; complete qualification repeated",
+  "priorQualification": "windows-validation.json.before-ci-fix.txt"
 }

@@ -43,13 +43,13 @@ Traceback (most recent call last):
 sqlite3.DatabaseError: file is not a database
 ok
 test_database_connections_are_closed (tests.test_history.TestTranscriptHistoryManager.test_database_connections_are_closed) ... ok
-test_database_error_handling (tests.test_history.TestTranscriptHistoryManager.test_database_error_handling) ... Failed to initialize SQLite database: [WinError 183] Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmpxoww2wnu\\parent_is_a_file'. Falling back to in-memory mode.
+test_database_error_handling (tests.test_history.TestTranscriptHistoryManager.test_database_error_handling) ... Failed to initialize SQLite database: [WinError 183] Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmp4pd_adsn\\parent_is_a_file'. Falling back to in-memory mode.
 Traceback (most recent call last):
   File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 175, in _init_db
     self.db_path.parent.mkdir(parents=True, exist_ok=True)
   File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1311, in mkdir
     os.mkdir(self, mode)
-FileExistsError: [WinError 183] Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmpxoww2wnu\\parent_is_a_file'
+FileExistsError: [WinError 183] Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmp4pd_adsn\\parent_is_a_file'
 ok
 test_database_path_priorities (tests.test_history.TestTranscriptHistoryManager.test_database_path_priorities) ... ok
 test_db_error_after_init (tests.test_history.TestTranscriptHistoryManager.test_db_error_after_init) ... Failed to fetch entry from DB: Database connection lost
@@ -122,7 +122,7 @@ test_clipboard_open_retry_success (tests.test_text_injector.TestTextInjector.tes
 test_config_nested_deserialization (tests.test_text_injector.TestTextInjector.test_config_nested_deserialization) ... ok
 test_config_save_load_roundtrip (tests.test_text_injector.TestTextInjector.test_config_save_load_roundtrip) ... ok
 test_empty_text_skipped (tests.test_text_injector.TestTextInjector.test_empty_text_skipped) ... ok
-test_enqueue_before_start_rejected (tests.test_text_injector.TestTextInjector.test_enqueue_before_start_rejected) ... Queue is not running (state=NEW). Rejecting entry cc39eee637df474b96d14d38bab4cc13
+test_enqueue_before_start_rejected (tests.test_text_injector.TestTextInjector.test_enqueue_before_start_rejected) ... Queue is not running (state=NEW). Rejecting entry 322e2b0287f14611adc570337cda0aa6
 ok
 test_enqueue_copies_data (tests.test_text_injector.TestTextInjector.test_enqueue_copies_data) ... ok
 test_error_in_job_does_not_kill_worker (tests.test_text_injector.TestTextInjector.test_error_in_job_does_not_kill_worker) ... Failed to write transcript text to clipboard: Clipboard error simulated
@@ -151,19 +151,19 @@ Traceback (most recent call last):
   File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 76, in create_owner_window
     raise RuntimeError("CreateWindowExW exception simulated")
 RuntimeError: CreateWindowExW exception simulated
-Queue is not running (state=STOPPED). Rejecting entry 594a2b4308744f27a0681c3d0705ad45
+Queue is not running (state=STOPPED). Rejecting entry 9d31943cff75432b9b901b55a3aaf97e
 ok
 test_init_owner_window_zero_fails (tests.test_text_injector.TestTextInjector.test_init_owner_window_zero_fails) ... Failed to initialize worker thread: Clipboard owner window creation returned invalid HWND 0.
 Traceback (most recent call last):
   File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\text_injector.py", line 576, in _worker_loop
     raise OSError("Clipboard owner window creation returned invalid HWND 0.")
 OSError: Clipboard owner window creation returned invalid HWND 0.
-Queue is not running (state=STOPPED). Rejecting entry 932e79eaf411473eba8385294f533f0a
+Queue is not running (state=STOPPED). Rejecting entry 59731e61c54a4166a2d9db50811c6c7d
 ok
 test_job_processed_after_failure (tests.test_text_injector.TestTextInjector.test_job_processed_after_failure) ... ok
 test_multiple_start_single_worker (tests.test_text_injector.TestTextInjector.test_multiple_start_single_worker) ... ok
 test_no_forbidden_win32_calls (tests.test_text_injector.TestTextInjector.test_no_forbidden_win32_calls) ... ok
-test_no_new_jobs_accepted_after_stop (tests.test_text_injector.TestTextInjector.test_no_new_jobs_accepted_after_stop) ... Queue is not running (state=STOPPED). Rejecting entry 1c5de5eedbb542a681dc899dd7b5956b
+test_no_new_jobs_accepted_after_stop (tests.test_text_injector.TestTextInjector.test_no_new_jobs_accepted_after_stop) ... Queue is not running (state=STOPPED). Rejecting entry fbe85025946742f597038e577b08a97e
 ok
 test_parallel_start_calls_init_failure (tests.test_text_injector.TestTextInjector.test_parallel_start_calls_init_failure) ... Failed to initialize worker thread: CreateWindowExW exception simulated
 Traceback (most recent call last):
@@ -197,11 +197,11 @@ Traceback (most recent call last):
   File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 76, in create_owner_window
     raise RuntimeError("CreateWindowExW exception simulated")
 RuntimeError: CreateWindowExW exception simulated
-Queue is not running (state=STOPPED). Rejecting entry 131a6404806f4011892ffe73b2bdc460
+Queue is not running (state=STOPPED). Rejecting entry f1dd774c4033408a80c957d631403e2a
 ok
 test_stop_drains_queue (tests.test_text_injector.TestTextInjector.test_stop_drains_queue) ... Worker thread join timed out after 0.05 seconds.
 ok
-test_stop_during_initializing (tests.test_text_injector.TestTextInjector.test_stop_during_initializing) ... Queue is not running (state=STOPPED). Rejecting entry 391876d16cdb4544895609709344bdeb
+test_stop_during_initializing (tests.test_text_injector.TestTextInjector.test_stop_during_initializing) ... Queue is not running (state=STOPPED). Rejecting entry 5069d05331374a23898a5dc01626c82d
 ok
 test_stop_idempotency (tests.test_text_injector.TestTextInjector.test_stop_idempotency) ... ok
 test_unicode_support (tests.test_text_injector.TestTextInjector.test_unicode_support) ... ok
@@ -309,7 +309,7 @@ test_parallel_duplicate_final_events_produce_exactly_one_history_entry (tests.te
 test_disconnect_invalidates_event_session_and_shutdown_is_once (tests.test_controller.TestSTTControllerDualSessionLifecycle.test_disconnect_invalidates_event_session_and_shutdown_is_once) ... ok
 test_transport_and_hello_callbacks_share_generation (tests.test_controller.TestSTTControllerDualSessionLifecycle.test_transport_and_hello_callbacks_share_generation) ... ok
 test_attempt_logging_failure_does_not_crash_controller (tests.test_controller.TestSTTControllerErrorBranches.test_attempt_logging_failure_does_not_crash_controller) ... Injection queue rejected entry for ('s', 1) (not running/stopping)
-Failed to record attempt for 8bd29e905b1044d3bfe9af5816528d04: Record attempt failed
+Failed to record attempt for be8deb08a4274982a7fe6bbc62536b7c: Record attempt failed
 ok
 test_enqueue_exception_returns_failed_and_logs_failed_attempt (tests.test_controller.TestSTTControllerErrorBranches.test_enqueue_exception_returns_failed_and_logs_failed_attempt) ... Enqueue exception for ('s', 1): Simulated enqueue failure
 Traceback (most recent call last):
@@ -322,7 +322,7 @@ RuntimeError: Simulated enqueue failure
 ok
 test_history_disabled_returns_history_unavailable (tests.test_controller.TestSTTControllerErrorBranches.test_history_disabled_returns_history_unavailable) ... HistoryEntry unavailable for ('s', 1). Auto-enqueue skipped.
 ok
-test_queue_not_started_returns_queue_unavailable_and_logs_skipped_attempt (tests.test_controller.TestSTTControllerErrorBranches.test_queue_not_started_returns_queue_unavailable_and_logs_skipped_attempt) ... Queue is not running (state=NEW). Rejecting entry b9575faac99f4b4bbbf5b763276a0c44
+test_queue_not_started_returns_queue_unavailable_and_logs_skipped_attempt (tests.test_controller.TestSTTControllerErrorBranches.test_queue_not_started_returns_queue_unavailable_and_logs_skipped_attempt) ... Queue is not running (state=NEW). Rejecting entry 490107113d6c45d08a4065e615913dac
 Injection queue rejected entry for ('s', 1) (not running/stopping)
 ok
 test_atomic_reservation_race_prevents_duplicate_history_calls (tests.test_controller.TestSTTControllerFinalAndDeduplication.test_atomic_reservation_race_prevents_duplicate_history_calls) ... Failed to add history entry for ('race_sess', 1): History failure simulated
@@ -354,7 +354,7 @@ test_reinsert_entry_by_id (tests.test_controller.TestSTTControllerReinsertion.te
 test_reinsert_last_uses_queue_without_new_history_entry (tests.test_controller.TestSTTControllerReinsertion.test_reinsert_last_uses_queue_without_new_history_entry) ... ok
 test_reinsert_non_existent_id (tests.test_controller.TestSTTControllerReinsertion.test_reinsert_non_existent_id) ... reinsert_entry requested for unknown entry_id: unknown_id
 ok
-test_reinsert_when_queue_unavailable (tests.test_controller.TestSTTControllerReinsertion.test_reinsert_when_queue_unavailable) ... Reinsertion rejected: TextInjectionQueue unavailable for entry 6c4f3cb8819c45bfa21598ae7b07715b
+test_reinsert_when_queue_unavailable (tests.test_controller.TestSTTControllerReinsertion.test_reinsert_when_queue_unavailable) ... Reinsertion rejected: TextInjectionQueue unavailable for entry 23cf9547088b4d6bada714aae82e3626
 ok
 test_auto_start_completion_does_not_terminate_run_loop (tests.test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_auto_start_completion_does_not_terminate_run_loop) ... ok
 test_auto_start_failure_keeps_background_controller_alive (tests.test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_auto_start_failure_keeps_background_controller_alive) ... Initial headless auto-start did not complete: send_start simulated failure
@@ -517,7 +517,7 @@ CONTRACTS §7.1: *"jeweils als ERSTE Anweisung"*. Checked on the ... ok
 test_the_controllers_own_event_stream_slot_stays_free_for_the_ui (tests.test_obs040_fanout_hook.TestHookLocationAndForm.test_the_controllers_own_event_stream_slot_stays_free_for_the_ui)
 §7.4: ``STTController.on_event_stream_event`` is *"vorhanden und ... ok
 test_a_slow_observer_delays_but_does_not_change_the_outcome (tests.test_obs040_fanout_hook.TestIndependentFanOut.test_a_slow_observer_delays_but_does_not_change_the_outcome)
-ARCH §8.5 GRENZE 2: the observer principle guarantees BEHAVIOURAL ... Executing <Task finished name='Task-1010' coro=<TestIndependentFanOut.test_a_slow_observer_delays_but_does_not_change_the_outcome() done, defined at P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_obs040_fanout_hook.py:355> result=None created at C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.203 seconds
+ARCH §8.5 GRENZE 2: the observer principle guarantees BEHAVIOURAL ... Executing <Task finished name='Task-1010' coro=<TestIndependentFanOut.test_a_slow_observer_delays_but_does_not_change_the_outcome() done, defined at P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_obs040_fanout_hook.py:355> result=None created at C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.187 seconds
 ok
 test_both_branches_see_the_same_event (tests.test_obs040_fanout_hook.TestIndependentFanOut.test_both_branches_see_the_same_event) ... ok
 test_events_the_runtime_path_discards_are_still_observed (tests.test_obs040_fanout_hook.TestIndependentFanOut.test_events_the_runtime_path_discards_are_still_observed)
@@ -559,6 +559,6 @@ test_the_interval_is_respected (tests.test_obs040_hot_path.TestWorkerProducesThe
 test_the_worker_reads_the_registered_counters (tests.test_obs040_hot_path.TestWorkerProducesTheAggregate.test_the_worker_reads_the_registered_counters) ... ok
 
 ----------------------------------------------------------------------
-Ran 323 tests in 19.556s
+Ran 323 tests in 19.460s
 
 OK
