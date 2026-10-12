@@ -12,6 +12,7 @@ Eigenprüfung SELF_CHECK_PASS / REVIEW_READY; unabhängige Abnahme offen. Testda
 - [Native Windows-UI/Vault29](windows-credential-ui.json), [stderr](windows-credential-ui.json.stderr.txt), [sichtbarer Dialog](native-dialog.png).
 - [compileall](compileall.txt), [individuelle UI-01…10-Coverage](requirement-coverage.md).
 - [Qualifikationsrunner](qualify_windows.py), [Abgabeverifier](verify_handoff.py), [finale Akten-/Blobprüfung](handoff-verification.json).
+- [PR #10](https://github.com/marcosudau-vps/voice-stt-client/pull/10), [erneute Veröffentlichungsprüfung](publication-verification.json). PR-Verweise sind rein administrativ; Pflichtlog-/Produktblobs bleiben unverändert.
 
 Reproduktion aus Repositoryroot ausschließlich mit `.\venv\Scripts\python.exe`: Runner benötigt den im Manifest genannten SHA-verifizierten lokalen Serverexport, echten Windowsdesktop und die Projektvenv. Er qualifiziert den staged Produktdiff am Parent; nach Kandidatencommit überprüft der read-only Abgabeverifier unveränderte qualifizierte Gitblobs. Neue Qualifikation nach Produktänderungen erforderlich.
 

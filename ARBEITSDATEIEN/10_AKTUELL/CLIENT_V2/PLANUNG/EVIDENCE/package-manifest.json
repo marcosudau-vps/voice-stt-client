@@ -596,7 +596,8 @@
       "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/EVIDENCE/server-ui-checkpoint.json",
       "nativeWindowsEvidence": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/EVIDENCE/windows-credential-ui.json",
       "reviewReport": null,
-      "humanApproval": null
+      "humanApproval": null,
+      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/10"
     },
     {
       "id": "AP-CV2-090",

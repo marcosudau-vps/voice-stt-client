@@ -1,0 +1,31 @@
+{
+  "result": "PASS",
+  "canonicalParent": "0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3",
+  "candidateBranch": "work/client-v2/ap-cv2-080",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "qualifiedBlobCount": 205,
+  "sourceAndLogHashesMatch": true,
+  "productAndTestsUnchangedSinceQualification": true,
+  "requirementCount": 10,
+  "records": {
+    "result": "PASS",
+    "package": "AP-CV2-080",
+    "packageStatus": "REVIEW_READY",
+    "referencedFiles": 11,
+    "markdownFiles": 8,
+    "relativeLinks": 71,
+    "errors": []
+  },
+  "diffCheck": "PASS",
+  "administrativeBase": "3d8cbd3a0893c51af7cad8c7b862c481d8fe08f7",
+  "administrativePaths": [
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/00_PAKET.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/package-manifest.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json"
+  ],
+  "productDeltaFromQualifiedCommit": false,
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/10",
+  "prSummaryValidation": "PASS"
+}

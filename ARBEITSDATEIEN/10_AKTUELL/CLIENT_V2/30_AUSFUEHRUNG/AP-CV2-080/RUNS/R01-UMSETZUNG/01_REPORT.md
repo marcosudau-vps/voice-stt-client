@@ -60,3 +60,7 @@ Windows11, Python3.12 aus Projektvenv; Qt im Mainthread, asyncio separater Threa
 ## Abgabe und Stop
 
 Vollständige Logs und Grenzen im [Evidenzindex](EVIDENCE/INDEX.md). Review auf dem endgültigen veröffentlichten PR-Head gegen genau diese qualifizierten Produktblobs. Reviewer darf commitgebunden Code und Windowsbelege prüfen; erneute Windowsvollsuite ist keine Pflicht. Pflichtbefunde als CHANGES_REQUIRED zurückgeben. Unabhängiger PASS und menschliche Übernahme sind offen; kein Merge, keine Folgepaketimplementierung. Workflowstatus/Manifest/Paketindex/Traceability und operative Einstiege sind auf REVIEW_READY gepflegt.
+
+## PR-Bereitstellung
+
+[PR #10](https://github.com/marcosudau-vps/voice-stt-client/pull/10), Base feat/client-v2. Erster qualifizierter Umsetzungskandidat `3d8cbd3a0893c51af7cad8c7b862c481d8fe08f7`, Tree `a597232834bb4a1ec1688a7f038ed9293f892bb9`, Parent wie oben. Anschließender Nachtrag enthält ausschließlich PR-/Akten-/Verifikationsverweise; [erneute Kandidatenblobprüfung](EVIDENCE/publication-verification.json) bestätigt unveränderte 205 Produkt-/Test-/Konfigurationsblobs und sämtliche Pflichtloghashes. Aktueller finaler Head/Tree und CI-Ergebnis werden außerhalb des erzeugenden Commits in der PR-Beschreibung genannt. PR ist der Codex-Aufgabe angehängt, Arbeitsbaum nach Abgabe sauber; Umsetzungsschreiben pausiert.
