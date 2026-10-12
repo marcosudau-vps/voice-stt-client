@@ -1,0 +1,279 @@
+diff --git a/scripts/check_v2_server_audio.py b/scripts/check_v2_server_audio.py
+index cf2ca67..19f92b6 100644
+--- a/scripts/check_v2_server_audio.py
++++ b/scripts/check_v2_server_audio.py
+@@ -335 +335,13 @@ async def run(root, repository):
+-                media,mirror,rs,config,domain=await start(manual,wake)
++                entered,release=asyncio.Event(),asyncio.Event()
++                original_sender=V2MediaConnection._send
++                async def held_sender(instance):
++                    try:
++                        await original_sender(instance)
++                    finally:
++                        entered.set()
++                        await release.wait()
++                if not manual:
++                    with patch.object(V2MediaConnection,"_send",held_sender):
++                        media,mirror,rs,config,domain=await start(manual,wake)
++                else:
++                    media,mirror,rs,config,domain=await start(manual,wake)
+@@ -342 +354,40 @@ async def run(root, repository):
+-                await media.close(); await mirror.close()
++                await until(lambda:media.logs.context.event_state==EventConnectionState.LIVE)
++                log_transport=media.logs._transport
++                log_task,expiry_task=media.logs._transport_task,media.logs._expiry_task
++                stopped=asyncio.Event()
++                original_session_stop=media.session.stop
++                async def stop_session():
++                    await original_session_stop()
++                    stopped.set()
++                media.session.stop=stop_session
++                if manual:
++                    original_log_stop=log_transport.stop
++                    async def held_log_stop():
++                        entered.set()
++                        await release.wait()
++                        await original_log_stop()
++                    log_transport.stop=held_log_stop
++                case="logclose_cancel" if manual else "task_join_cancel"
++                closing=asyncio.create_task(media.close())
++                try:
++                    await asyncio.wait_for(stopped.wait(),3)
++                    await asyncio.wait_for(entered.wait(),3)
++                    closing.cancel()
++                    if manual:
++                        await asyncio.sleep(0)
++                        closing.cancel()
++                    release.set()
++                    try:
++                        await asyncio.wait_for(closing,3)
++                    except asyncio.CancelledError:
++                        check("shutdown/"+case+"_reported",not media._cleanup_complete)
++                    else:
++                        raise AssertionError(case+" was hidden")
++                    check("shutdown/"+case+"_real_logs_clean",media.logs.active_transport_count==0 and
++                          log_task.done() and expiry_task.done() and log_transport.state==EventConnectionState.STOPPED)
++                finally:
++                    release.set()
++                    await asyncio.gather(closing,return_exceptions=True)
++                    await media.close(); await mirror.close()
++                check("shutdown/"+case+"_retry_complete",media._cleanup_complete and
++                      media._task is None and media._sender is None and media._log_shutdown_task.done() and not media.capture.is_running)
+diff --git a/tests/test_v2_audio_recovery.py b/tests/test_v2_audio_recovery.py
+index 2fd5e1e..ea51510 100644
+--- a/tests/test_v2_audio_recovery.py
++++ b/tests/test_v2_audio_recovery.py
+@@ -456,0 +457,147 @@ class Media(unittest.IsolatedAsyncioTestCase):
++    async def assert_cancel_during_task_join_cleans_logs(self, method):
++        entered, release = asyncio.Event(), asyncio.Event()
++        original = getattr(V2MediaConnection, method)
++        async def held_cleanup(instance):
++            try:
++                await original(instance)
++            finally:
++                entered.set()
++                await release.wait()
++        with patch.object(V2MediaConnection, method, held_cleanup):
++            media, socket = await self.start()
++        await until(lambda: media.logs.active_transport_count == 1)
++        log_task, expiry_task = media.logs._transport_task, media.logs._expiry_task
++        stopped = asyncio.Event()
++        original_stop = media.session.stop
++        async def stop():
++            await original_stop()
++            stopped.set()
++        media.session.stop = stop
++        closing = asyncio.create_task(media.close())
++        try:
++            await asyncio.wait_for(stopped.wait(), 1)
++            await asyncio.wait_for(entered.wait(), 1)
++            self.assertFalse(closing.done())
++            closing.cancel()
++            release.set()
++            with self.assertRaises(asyncio.CancelledError):
++                await asyncio.wait_for(closing, 1)
++            self.assertEqual(media.logs.active_transport_count, 0)
++            self.assertTrue(log_task.done() and expiry_task.done())
++            self.assertFalse(media._cleanup_complete)
++            self.assertFalse(media._gate)
++            await media.close()
++            self.assertTrue(media._cleanup_complete)
++            self.assertFalse(media.capture.is_running)
++        finally:
++            release.set()
++            await asyncio.gather(closing, return_exceptions=True)
++            await media.logs.shutdown()
++            await media.close()
++
++    async def test_cancel_during_sender_join_cleans_logs_and_retries(self):
++        await self.assert_cancel_during_task_join_cleans_logs("_send")
++
++    async def test_cancel_during_lifecycle_join_cleans_logs_and_retries(self):
++        await self.assert_cancel_during_task_join_cleans_logs("_lifecycle")
++
++    async def test_repeated_cancel_during_logclose_joins_cleanup_before_raising(self):
++        media, socket = await self.start()
++        await until(lambda: media.logs.active_transport_count == 1)
++        log_task, expiry_task = media.logs._transport_task, media.logs._expiry_task
++        transport = media.logs._transport
++        entered, release = asyncio.Event(), asyncio.Event()
++        original = transport.stop
++        async def held_stop():
++            entered.set()
++            await release.wait()
++            await original()
++        transport.stop = held_stop
++        closing = asyncio.create_task(media.close())
++        try:
++            await asyncio.wait_for(entered.wait(), 1)
++            closing.cancel()
++            await asyncio.sleep(0)
++            closing.cancel()
++            release.set()
++            with self.assertRaises(asyncio.CancelledError):
++                await asyncio.wait_for(closing, 1)
++            # Detaching a log transport is not sufficient: its tasks must exit.
++            self.assertTrue(log_task.done() and expiry_task.done())
++            self.assertEqual(transport.stop_calls, 1)
++            self.assertEqual(media.logs.active_transport_count, 0)
++            self.assertFalse(media._cleanup_complete)
++            await media.close()
++            self.assertTrue(media._cleanup_complete)
++        finally:
++            release.set()
++            await asyncio.gather(closing, return_exceptions=True)
++            # Explicitly clean captured detached resources on the old baseline.
++            await original()
++            for task in (log_task, expiry_task):
++                task.cancel()
++            await asyncio.gather(log_task, expiry_task, return_exceptions=True)
++            await media.close()
++
++    async def test_task_join_timeout_cleans_logs_and_retains_task_for_retry(self):
++        entered, release = asyncio.Event(), asyncio.Event()
++        original = V2MediaConnection._send
++        async def held_cleanup(instance):
++            try:
++                await original(instance)
++            finally:
++                entered.set()
++                await release.wait()
++        with patch.object(V2MediaConnection, "_send", held_cleanup):
++            media, socket = await self.start()
++        await until(lambda: media.logs.active_transport_count == 1)
++        sender = media._sender
++        media.shutdown_timeout = .1
++        try:
++            with self.assertRaises(TimeoutError):
++                await asyncio.wait_for(media.close(), 1)
++            self.assertTrue(entered.is_set())
++            self.assertFalse(sender.done())
++            self.assertIs(media._sender, sender)
++            self.assertEqual(media.logs.active_transport_count, 0)
++            self.assertFalse(media._cleanup_complete)
++            release.set()
++            media.shutdown_timeout = 1
++            await media.close()
++            self.assertTrue(sender.done())
++            self.assertTrue(media._cleanup_complete)
++        finally:
++            release.set()
++            media.shutdown_timeout = 1
++            await media.close()
++
++    async def test_logclose_timeout_retains_pending_cleanup_for_retry(self):
++        media, socket = await self.start()
++        await until(lambda: media.logs.active_transport_count == 1)
++        log_task, expiry_task = media.logs._transport_task, media.logs._expiry_task
++        entered, release = asyncio.Event(), asyncio.Event()
++        original = media.logs.shutdown
++        async def held_shutdown():
++            entered.set()
++            await release.wait()
++            await original()
++        media.logs.shutdown = held_shutdown
++        media.shutdown_timeout = .1
++        try:
++            with self.assertRaises(TimeoutError):
++                await asyncio.wait_for(media.close(), 4)
++            self.assertTrue(entered.is_set())
++            pending = media._log_shutdown_task
++            self.assertFalse(pending.done())
++            self.assertFalse(media._cleanup_complete)
++            release.set()
++            await media.close()
++            self.assertIs(media._log_shutdown_task, pending)
++            self.assertTrue(pending.done() and log_task.done() and expiry_task.done())
++            self.assertEqual(media.logs.active_transport_count, 0)
++            self.assertTrue(media._cleanup_complete)
++        finally:
++            release.set()
++            media.shutdown_timeout = 1
++            await media.close()
++
+diff --git a/voice_stt_client/core/v2_media.py b/voice_stt_client/core/v2_media.py
+index 78e4b7e..5150285 100644
+--- a/voice_stt_client/core/v2_media.py
++++ b/voice_stt_client/core/v2_media.py
+@@ -142,0 +143 @@ class V2MediaConnection:
++        self._log_shutdown_task = None
+@@ -398,7 +398,0 @@ class V2MediaConnection:
+-                await self.session.stop()
+-            finally:
+-                tasks = [task for task in (self._task, self._sender) if task]
+-                for task in tasks:
+-                    task.cancel()
+-                await asyncio.gather(*tasks, return_exceptions=True)
+-                self._task = self._sender = None
+@@ -405,0 +400,15 @@ class V2MediaConnection:
++                    await self.session.stop()
++                finally:
++                    tasks = [task for task in (self._task, self._sender) if task]
++                    for task in tasks:
++                        if not task.done() and not task.cancelling():
++                            task.cancel()
++                    try:
++                        await asyncio.wait_for(asyncio.shield(
++                            asyncio.gather(*tasks, return_exceptions=True)), self.shutdown_timeout)
++                    finally:
++                        # Interrupted joins retain pending tasks for a later close.
++                        if self._task is not None and self._task.done():
++                            self._task = None
++                        if self._sender is not None and self._sender.done():
++                            self._sender = None
+@@ -414,3 +423,3 @@ class V2MediaConnection:
+-                finally:
+-                    # Audio/driver failure never skips the separate logdomain.
+-                    await asyncio.wait_for(self.logs.shutdown(), self.shutdown_timeout + 3)
++            finally:
++                # Every await above, including the task join, reaches log cleanup.
++                await self._shutdown_logs()
+@@ -417,0 +427,28 @@ class V2MediaConnection:
++
++    async def _shutdown_logs(self):
++        """Defer owner cancellation until bounded independent cleanup finishes.
++
++        Shield the actual coordinator shutdown: it detaches resources before
++        awaiting socket/task cleanup, so cancelling it would lose those handles.
++        A timeout retains this same task for retry, rather than invoking the
++        coordinator's already-marked-shutdown fast path a second time.
++        """
++        if self._log_shutdown_task is None:
++            self._log_shutdown_task = asyncio.create_task(
++                self.logs.shutdown(), name="v2-media-log-shutdown")
++        pending = self._log_shutdown_task
++        deadline = asyncio.get_running_loop().time() + self.shutdown_timeout + 3
++        cancelled = None
++        while True:
++            try:
++                remaining = max(0, deadline - asyncio.get_running_loop().time())
++                await asyncio.wait_for(asyncio.shield(pending), remaining)
++                break
++            except asyncio.CancelledError as error:
++                if pending.cancelled():
++                    raise
++                cancelled = error
++                # Further owner cancellations cannot cancel the log task or
++                # extend its fixed cleanup budget.
++        if cancelled is not None:
++            raise cancelled

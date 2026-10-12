@@ -147,6 +147,8 @@ class TestEventProtocolProcessor(unittest.TestCase):
                 endpoint=ENDPOINT,
                 server_instance_id="server-1",
                 protocol_version=2,
+                session_id="session-1",
+                channels=("transcription",),
             )
             processor = EventProtocolProcessor(access(latest_cursor=20), cursor_store=store)
             self.assertEqual(processor.begin_subscription(), 24)

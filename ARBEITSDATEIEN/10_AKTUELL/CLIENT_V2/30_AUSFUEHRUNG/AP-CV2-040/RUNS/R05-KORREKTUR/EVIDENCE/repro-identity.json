@@ -1,0 +1,18 @@
+{
+  "productBase": "1289991613d4577e535eb6067ca332240488c790",
+  "command": [
+    "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "-W",
+    "error",
+    "-m",
+    "unittest",
+    "tests.test_v2_audio_recovery.Media.test_cancel_during_sender_join_cleans_logs_and_retries",
+    "tests.test_v2_audio_recovery.Media.test_cancel_during_lifecycle_join_cleans_logs_and_retries",
+    "tests.test_v2_audio_recovery.Media.test_repeated_cancel_during_logclose_joins_cleanup_before_raising",
+    "-v"
+  ],
+  "exitCode": 1,
+  "sha256": "be91b4ada5005c5cf2d765a73fb80e4f070b7683274a151b9ddfd0fee286c4de",
+  "productDiffBeforeRepro": "",
+  "expected": "Three failures confirm R04 cancellation windows; only tests changed."
+}

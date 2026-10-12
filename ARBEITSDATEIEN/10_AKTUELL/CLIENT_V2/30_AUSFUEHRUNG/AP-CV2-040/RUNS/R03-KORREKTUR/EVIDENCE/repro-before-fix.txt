@@ -1,0 +1,123 @@
+test_device_loss_reports_false_before_blocked_native_stop (tests.test_v2_audio_recovery.Media.test_device_loss_reports_false_before_blocked_native_stop) ... FAIL
+test_hardware_mute_reports_false_before_blocked_native_stop (tests.test_v2_audio_recovery.Media.test_hardware_mute_reports_false_before_blocked_native_stop) ... FAIL
+test_dead_device_reports_false_before_blocked_native_stop (tests.test_v2_audio_recovery.Media.test_dead_device_reports_false_before_blocked_native_stop) ... FAIL
+test_native_operation_timeout_closes_logs_and_retries_cleanup (tests.test_v2_audio_recovery.Media.test_native_operation_timeout_closes_logs_and_retries_cleanup) ... FAIL
+test_native_stop_timeout_closes_logs_and_retries_cleanup (tests.test_v2_audio_recovery.Media.test_native_stop_timeout_closes_logs_and_retries_cleanup) ... FAIL
+
+======================================================================
+FAIL: test_device_loss_reports_false_before_blocked_native_stop (tests.test_v2_audio_recovery.Media.test_device_loss_reports_false_before_blocked_native_stop)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 362, in test_device_loss_reports_false_before_blocked_native_stop
+    await self.assert_unavailable_before_blocked_stop("device")
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 350, in assert_unavailable_before_blocked_stop
+    self.assertEqual(media._reported_available, (binding, False))
+AssertionError: Tuples differ: (SessionBinding(generation=1), True) != (SessionBinding(generation=1), False)
+
+First differing element 1:
+True
+False
+
+- (SessionBinding(generation=1), True)
+?                                ^^^
+
++ (SessionBinding(generation=1), False)
+?                                ^^^^
+
+
+======================================================================
+FAIL: test_hardware_mute_reports_false_before_blocked_native_stop (tests.test_v2_audio_recovery.Media.test_hardware_mute_reports_false_before_blocked_native_stop)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 365, in test_hardware_mute_reports_false_before_blocked_native_stop
+    await self.assert_unavailable_before_blocked_stop("mute")
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 350, in assert_unavailable_before_blocked_stop
+    self.assertEqual(media._reported_available, (binding, False))
+AssertionError: Tuples differ: (SessionBinding(generation=1), True) != (SessionBinding(generation=1), False)
+
+First differing element 1:
+True
+False
+
+- (SessionBinding(generation=1), True)
+?                                ^^^
+
++ (SessionBinding(generation=1), False)
+?                                ^^^^
+
+
+======================================================================
+FAIL: test_dead_device_reports_false_before_blocked_native_stop (tests.test_v2_audio_recovery.Media.test_dead_device_reports_false_before_blocked_native_stop)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 368, in test_dead_device_reports_false_before_blocked_native_stop
+    await self.assert_unavailable_before_blocked_stop("dead")
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 350, in assert_unavailable_before_blocked_stop
+    self.assertEqual(media._reported_available, (binding, False))
+AssertionError: Tuples differ: (SessionBinding(generation=1), True) != (SessionBinding(generation=1), False)
+
+First differing element 1:
+True
+False
+
+- (SessionBinding(generation=1), True)
+?                                ^^^
+
++ (SessionBinding(generation=1), False)
+?                                ^^^^
+
+
+======================================================================
+FAIL: test_native_operation_timeout_closes_logs_and_retries_cleanup (tests.test_v2_audio_recovery.Media.test_native_operation_timeout_closes_logs_and_retries_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 416, in test_native_operation_timeout_closes_logs_and_retries_cleanup
+    await self.assert_timeout_cleans_logs_and_retry("operation")
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 392, in assert_timeout_cleans_logs_and_retry
+    self.assertEqual(media.logs.active_transport_count, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_native_stop_timeout_closes_logs_and_retries_cleanup (tests.test_v2_audio_recovery.Media.test_native_stop_timeout_closes_logs_and_retries_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 419, in test_native_stop_timeout_closes_logs_and_retries_cleanup
+    await self.assert_timeout_cleans_logs_and_retry("stop")
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 392, in assert_timeout_cleans_logs_and_retry
+    self.assertEqual(media.logs.active_transport_count, 0)
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.367s
+
+FAILED (failures=5)

@@ -15,7 +15,7 @@ await session.run()
 ```
 
 Der Bootstrap ist weiterhin der explizite Audio-/Settingsport aus CV2-020.
-CV2-040/070 liefern diese Services. Die Konstruktion des Mirrors ersetzt ihn
+CV2-040 liefert inzwischen [V2MediaConnection](protocol-v2-media.md); dessen `settings_bootstrap` ist der Port für CV2-070. Bei dieser Komposition den Transport ohne bereits gesetzten Bootstrap erstellen. Die Konstruktion des Mirrors ersetzt ihn
 nicht. Adapter vor Transportstart installieren; genau ein Adapter je Transport.
 Die synchronen Callbackports danach über `connection.on_reduction` bedienen;
 ein erneutes Überschreiben von Transportcallbacks würde die Verdrahtung lösen.

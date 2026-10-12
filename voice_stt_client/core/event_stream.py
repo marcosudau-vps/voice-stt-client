@@ -128,8 +128,8 @@ class EventStreamTransport:
                 except Exception as exc:
                     if not self._running:
                         break
-                    self._last_error = str(exc)
-                    logger.warning("Event stream attempt failed: %s", exc)
+                    self._last_error = self._safe_error(exc)
+                    logger.warning("Event stream attempt failed: %s", self._safe_error(exc))
                     self._observe_protocol_error(exc)
                 if not self._running or self._blocked_for_access:
                     continue
@@ -167,9 +167,12 @@ class EventStreamTransport:
         self._observe.system(
             "client.eventstream.protocol_error",
             level="WARNING",
-            details={"error_type": type(exc).__name__, "message": str(exc)},
+            details={"error_type": type(exc).__name__, "message": self._safe_error(exc)},
             session_id=self._access.session_id,
         )
+
+    def _safe_error(self, exc: BaseException) -> str:
+        return str(exc).replace(self._access.access_token, "[redacted]")
 
     async def stop(self) -> None:
         """Idempotently interrupt connect, receive and backoff waits."""
@@ -341,7 +344,11 @@ class EventStreamTransport:
         if ws is None:
             return
         try:
-            await ws.close(code=code, reason=reason)
+            await asyncio.wait_for(ws.close(code=code, reason=reason), 3)
+        except TimeoutError:
+            transport = getattr(ws, "transport", None)
+            if transport is not None:
+                transport.abort()
         except Exception:
             logger.debug("Failed to close event WebSocket cleanly", exc_info=True)
 

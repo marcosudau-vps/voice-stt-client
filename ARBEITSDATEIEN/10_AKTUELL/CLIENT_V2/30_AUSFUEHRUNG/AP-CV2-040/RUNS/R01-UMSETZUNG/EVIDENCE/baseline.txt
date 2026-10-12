@@ -1,0 +1,13 @@
+..........Event stream task ended: isolated log failure
+.............................Event stream attempt failed: simulated cursor disk failure
+....Event stream attempt failed: disconnect during replay
+...Event stream attempt failed: network down
+...Ignoring invalid event cursor file C:\Users\marco\AppData\Local\Temp\tmpwwkfxuyp\cursor.json: Expecting value: line 1 column 1 (char 0)
+Ignoring invalid event cursor file C:\Users\marco\AppData\Local\Temp\tmpwwkfxuyp\cursor.json: cursor fields do not match schema version 1
+Ignoring invalid event cursor file C:\Users\marco\AppData\Local\Temp\tmpwwkfxuyp\cursor.json: invalid cursor
+Ignoring event cursor 100 ahead of server cursor 99
+...............................................................................
+----------------------------------------------------------------------
+Ran 128 tests in 11.395s
+
+OK

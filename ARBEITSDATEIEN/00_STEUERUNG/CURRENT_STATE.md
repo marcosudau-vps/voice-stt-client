@@ -1,8 +1,9 @@
-# Client V2 – AP-CV2-030 / ROOT_PASS – WAITING_FOR_APPROVAL, 2026-10-12
+# Client V2 – AP-CV2-040 / R06-ABNAHME / ROOT_PASS, 2026-10-12
 
-AP-CV2-020 ist tatsächlich ACCEPTED auf `8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0` (PR #4, R04-PASS, menschliche Freigabe und Baumgleichheit belegt). AP-CV2-030 **ROOT_PASS** auf `work/client-v2/ap-cv2-030`, Parent unverändert. [R02-Review](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md), [R01-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md), [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json). Reiner Activation-/Segmentmirror und tatsächliche Transport-/Resyncanbindung;1339 Windows-Tests,106 gezielte Tests,35 Serverfälle/46 bytegeprüfte Quellen und compileall PASS. Alle35 Requirements einzeln belegt.
+AP-CV2-030 ist ACCEPTED auf `3df342c3a7cacaa1226743c4d9bee674e94d33db`. AP-CV2-040 ist **technisch ROOT_PASS**, Workflow **WAITING_FOR_APPROVAL** nach unabhängiger Abnahme des fachlichen Kandidaten `4ef7a13672bf7c50665e08f5eff837fb5d687419` (Tree `f670a6fce6557ff657644037964025e9f7f1ee1e`). [R06-ROOT_PASS](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md); F01 und F02 vollständig geschlossen. 1378 Windows-Tests, 233 gezielte Tests, 52 echte Serverfälle/46 Serverquellen, 188/188 Git-Blobs und CI auf Kandidaten-SHA SUCCESS wurden als Fremdbelege unabhängig validiert. [PR #6](https://github.com/marcosudau-vps/voice-stt-client/pull/6) bleibt offen.
 
-Nächste Aktion: ausdrücklicher menschlicher Übernahmeprompt zu PR #5 nach unabhängigem R02-ROOT_PASS; Schreibhoheit zurückgegeben. Appkomposition CV2-100, Audio-/Settingsservices CV2-040/070 und reale ASR-/Hardwarefälle später; Serverbaseline ada13b0 unverändert und Server-Distributed offen. Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`. R02-ROOT_PASS gesichert, aber keine menschliche Übernahmefreigabe; kein Merge und kein Folgepaketstart.
+Nächste Aktion: ausdrücklicher menschlicher Übernahmeprompt mit aktuellem Docs-Head, canonical_parent und R06-PASS-Bericht; bis dahin **kein Merge und kein Start AP-CV2-050**. Reale Hardware-/ASR-Gates und Qt-/Settingskomposition bleiben späteren Paketen zugeordnet.
+
 
 ## Historischer Stand vor AP-CV2-020
 

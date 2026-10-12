@@ -141,6 +141,8 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
                 endpoint=access().endpoint,
                 server_instance_id="server-1",
                 protocol_version=2,
+                session_id="session-1",
+                channels=("transcription",),
             )
 
         subscribe = json.loads(socket.sent[0])
@@ -438,6 +440,8 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
                 endpoint=stream_access.endpoint,
                 server_instance_id="server-1",
                 protocol_version=2,
+                session_id="session-1",
+                channels=("transcription",),
             )
 
         visible_completed = [

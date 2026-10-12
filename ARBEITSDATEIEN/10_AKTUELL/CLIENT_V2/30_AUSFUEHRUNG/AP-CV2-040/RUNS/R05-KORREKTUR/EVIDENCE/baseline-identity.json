@@ -1,0 +1,16 @@
+{
+  "base": "1289991613d4577e535eb6067ca332240488c790",
+  "command": [
+    "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "-W",
+    "error",
+    "-m",
+    "unittest",
+    "tests.test_v2_audio_recovery",
+    "tests.test_session_coordinator",
+    "tests.test_event_stream",
+    "-v"
+  ],
+  "exitCode": 0,
+  "sha256": "06c3d4bee88d101fb555b116e314f6be4b1a083d3fa68e4afdf44d0d1d0fc906"
+}

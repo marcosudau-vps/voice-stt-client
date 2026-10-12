@@ -1,0 +1,54 @@
+test_cancel_during_sender_join_cleans_logs_and_retries (tests.test_v2_audio_recovery.Media.test_cancel_during_sender_join_cleans_logs_and_retries) ... FAIL
+test_cancel_during_lifecycle_join_cleans_logs_and_retries (tests.test_v2_audio_recovery.Media.test_cancel_during_lifecycle_join_cleans_logs_and_retries) ... FAIL
+test_repeated_cancel_during_logclose_joins_cleanup_before_raising (tests.test_v2_audio_recovery.Media.test_repeated_cancel_during_logclose_joins_cleanup_before_raising) ... FAIL
+
+======================================================================
+FAIL: test_cancel_during_sender_join_cleans_logs_and_retries (tests.test_v2_audio_recovery.Media.test_cancel_during_sender_join_cleans_logs_and_retries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 499, in test_cancel_during_sender_join_cleans_logs_and_retries
+    await self.assert_cancel_during_task_join_cleans_logs("_send")
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 485, in assert_cancel_during_task_join_cleans_logs
+    self.assertEqual(media.logs.active_transport_count, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_cancel_during_lifecycle_join_cleans_logs_and_retries (tests.test_v2_audio_recovery.Media.test_cancel_during_lifecycle_join_cleans_logs_and_retries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 502, in test_cancel_during_lifecycle_join_cleans_logs_and_retries
+    await self.assert_cancel_during_task_join_cleans_logs("_lifecycle")
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 485, in assert_cancel_during_task_join_cleans_logs
+    self.assertEqual(media.logs.active_transport_count, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_repeated_cancel_during_logclose_joins_cleanup_before_raising (tests.test_v2_audio_recovery.Media.test_repeated_cancel_during_logclose_joins_cleanup_before_raising)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_audio_recovery.py", line 526, in test_repeated_cancel_during_logclose_joins_cleanup_before_raising
+    self.assertTrue(log_task.done() and expiry_task.done())
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.833s
+
+FAILED (failures=3)

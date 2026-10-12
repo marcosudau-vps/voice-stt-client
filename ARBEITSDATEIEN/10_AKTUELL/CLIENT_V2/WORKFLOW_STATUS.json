@@ -1,46 +1,59 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "workflowPhase": "READY_FOR_CANONICALIZATION",
   "packageStatus": "ROOT_PASS",
-  "activePackage": "AP-CV2-030",
-  "nextPackage": "AP-CV2-040",
+  "activePackage": "AP-CV2-040",
+  "nextPackage": "AP-CV2-050",
   "canonicalBranch": "feat/client-v2",
-  "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
-  "candidateBranch": "work/client-v2/ap-cv2-030",
-  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/5",
+  "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+  "candidateBranch": "work/client-v2/ap-cv2-040",
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/6",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R02-ABNAHME",
+    "id": "R06-ABNAHME",
     "role": "review",
-    "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+    "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+  "reviewedCommit": "4ef7a13672bf7c50665e08f5eff837fb5d687419",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
-  "humanApproval": null,
+  "humanApproval": {
+    "source": "30_AUSFUEHRUNG/AP-CV2-040/00_PAKET.md",
+    "originalReply": "Ja, ich erteile dir die Freigabe.",
+    "headAtApproval": "efd60e0cba7272c9b18ca21da7e337c1aa89fba9",
+    "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+    "scope": "Vorbereitete administrative Statuskorrektur committen/pushen; Originalfreigabe sichern; genau ein PR #6 Squash nach grüner finaler CI. Keine Produkt-/Test-/Kontraktänderung.",
+    "condition": "Status-/Traceabilitykonsistenz PASS, administrative Differenz gegenüber R06, unveränderte Base, finale CI SUCCESS."
+  },
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "R02 technischer ROOT_PASS für AP-CV2-030; ausdrücklichen menschlichen Übernahmeprompt für PR #5 mit R02-Report und finalem Head/Parent abwarten. Kein eigenmächtiger Merge oder AP-CV2-040-Start.",
+  "nextAction": "Finale administrative Kandidatenspitze/CI und unveränderten Parent prüfen; nach gesicherter menschlicher Freigabe PR #6 genau einmal per Squash übernehmen. Kein AP050-Start.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
   "canonicalParentRef": "feat/client-v2",
-  "canonicalParentResolution": "Fetched origin and local feat/client-v2 match AP020 aggregate 8fa0f82",
+  "canonicalParentResolution": "Fetched local HEAD equals origin/feat/client-v2; merged PR #5 and exact parent/tree/approval checked.",
   "repository": "marcosudau-vps/voice-stt-client",
   "candidateSelection": {
-    "candidateId": "AP-CV2-030",
-    "source": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "Ausdrücklicher AP030-Auftrag nach belegter AP020-Übernahme."
+    "candidateId": "AP-CV2-040",
+    "source": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "reason": "Ausdrücklicher Auftrag für AP040 nach tatsächlicher AP030-Übernahme."
   },
   "recovery": null,
   "relatedServerFix": null,
-  "predecessorCanonicalization": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json",
-  "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
-  "qualificationBase": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
-  "qualificationProductDiff": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/tested-product.patch",
-  "qualifiedImplementationCommit": "93acd2e6a589e04b266019f69e2bcad2998b8904",
-  "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29"
+  "predecessorCanonicalization": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json",
+  "reviewedTree": "f670a6fce6557ff657644037964025e9f7f1ee1e",
+  "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/EVIDENCE/windows-validation.json",
+  "qualificationBasis": {
+    "base": "1289991613d4577e535eb6067ca332240488c790",
+    "diff": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/EVIDENCE/tested-product.patch",
+    "sha256": "d74675ad1ffea71f812fbfd248c95f0212ff5e308f3ffd606d39995130c658f0"
+  },
+  "correctionDisposition": {
+    "CV2-040-R02-F01": "CLOSED_R04",
+    "CV2-040-R02-F02": "CLOSED_R06"
+  }
 }

@@ -8,7 +8,7 @@ Geltung: exakte Serverfelder und Serverlimits sind verbindlich; interne Clientre
 - `/ws/logs` plus `/api/logs/*`: committed SQLite-Logereignisse, replaybare Diagnosehistory, eigene Autorisierung und Cursor.
 - REST-V2-Settings: öffentliches Schema/Read, adminpflichtige Änderung.
 
-Der V2-Spiegel erhält niemals seine Runtimeautorität aus dem Logstream. Logausfall beeinflusst Audio/Controls nicht; Audioausfall invalidiert die alte Domainsession, unabhängig von einem noch funktionierenden Logsocket. Ein nachgeliefertes Logfinal darf weder Text automatisch injizieren noch eine neue Sessionphase verändern.
+Der V2-Spiegel erhält niemals seine Runtimeautorität aus dem Logstream. Logausfall beeinflusst Audio/Controls nicht; Audio-WebSocket-/Netzverlust invalidiert die alte Domainsession, unabhängig von einem noch funktionierenden Logsocket. Ein nachgeliefertes Logfinal darf weder Text automatisch injizieren noch eine neue Sessionphase verändern.
 
 ## 2. Bootstrap-Logzugriff
 
@@ -48,7 +48,7 @@ Antwortfolge: `log.hello` → `log.subscribed` → 0..n `log.event` im Replay �
 
 HTTP-History mit `X-VoiceSTT-Log-Token`; Filter channels/events/sessionId/transcriptionId/from/to/afterCursor/limit, maximal limit 1000. Antwort sortierte Events, nextCursor, oldestCursor, latestCursor, retentionCursor, authorizationScope, allSessions, deliveryMode. Authscope serverseitig erzwungen. History ist Diagnose, kein Ersatz für fehlende Domainsegmente.
 
-Logschema führt Session-, Transkriptions- und Recordingkorrelation getrennt. Es darf kompakte Recorder-IDs und Integersegmentfelder besitzen. Diese werden nicht als V2-`segmentId`-UUID interpretiert. Bei fehlender expliziter Zuordnung nur Session-/Recordingdiagnose, keine heuristische Übernahme auf die aktuelle Activation.
+Logschema führt Session-, Transkriptions- und Recordingkorrelation getrennt. Es darf kompakte Recorder-IDs sowie Integer- oder opake Stringsegmentfelder besitzen (ada13b0: `api_fastapi_server/VoiceSTT_server/event_logging.py`, `segmentId` wird aus dem Recordingcontext unverändert exportiert). Diese werden nicht als V2-`segmentId`-UUID interpretiert. Bei fehlender expliziter Zuordnung nur Session-/Recordingdiagnose, keine heuristische Übernahme auf die aktuelle Activation.
 
 ## 4. Admin-Auth und Credential-Speicher
 
@@ -93,3 +93,5 @@ Socketconnect 15 s; Hello sofort; Annahmewartezeit 30 s; Commandack 5 s; Snapsho
 ## 8. Quellen
 
 `protocol_v2/connection.py`, `server.py:admin_auth_error`, `/ws/logs` und Loghistoryrouten; `VoiceSTT_server/event_logging.py`, `docs/structured-logging.md`; Clientbaseline `session_coordinator.py`, `event_protocol.py`, `event_stream.py`, `event_cursor_store.py`, `core/observability/`. Pinned Dateien im [Quellenmanifest](../../EVIDENCE/source-manifest.json).
+
+AP-CV2-040 präzisiert ausschließlich Diagnosemetadaten: [realer Logcheckpoint](../../../30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/server-audio-checkpoint.json) (`logs/opaque_segment_metadata_not_domain_uuid`). Domain-UUID-Regeln und LOG-10 bleiben unverändert.

@@ -16,6 +16,7 @@ import queue
 import struct
 import json
 import threading
+import math
 from typing import Callable, Optional
 
 import numpy as np
@@ -40,7 +41,7 @@ class AudioCapture:
         capture.stop()
     """
 
-    def __init__(self, audio_config, *, observability=NULL_INGRESS):
+    def __init__(self, audio_config, *, observability=NULL_INGRESS, queue_duration_ms=None):
         self._config = audio_config
         self._observe = ClientEventEmitter(observability, component="audio")
         self._stream: Optional[sd.InputStream] = None
@@ -60,7 +61,10 @@ class AudioCapture:
         self._device_sample_rate: int = audio_config.sample_rate
 
         # Thread-safe queue for audio chunks
-        self._audio_queue: queue.Queue[Optional[bytes]] = queue.Queue(maxsize=200)
+        if queue_duration_ms is not None and (isinstance(queue_duration_ms, bool) or not 0 < queue_duration_ms <= 2000):
+            raise ValueError("invalid capture queue duration")
+        queue_size = 200 if queue_duration_ms is None else max(1, math.floor(queue_duration_ms / audio_config.chunk_duration_ms))
+        self._audio_queue: queue.Queue[Optional[bytes]] = queue.Queue(maxsize=queue_size)
 
         # Async callback: receives the fully encoded binary packet
         self.on_audio_packet: Optional[Callable[[bytes, int, int, int], None]] = None
@@ -76,6 +80,28 @@ class AudioCapture:
     @property
     def is_running(self) -> bool:
         return self._running
+
+    @property
+    def device_active(self) -> bool:
+        return self._stream is not None and bool(self._stream.active)
+
+    def probe(self) -> None:
+        """Check the selected input before V2 readiness without opening capture."""
+        info = sd.query_devices(self._config.device, kind="input")
+        try:
+            sd.check_input_settings(device=self._config.device, channels=self._config.channels,
+                                    dtype=self._config.dtype, samplerate=self._config.sample_rate)
+        except sd.PortAudioError:
+            sd.check_input_settings(device=self._config.device, channels=self._config.channels,
+                                    dtype=self._config.dtype, samplerate=int(info["default_samplerate"]))
+
+    def bound_queue(self, duration_ms: float) -> None:
+        """V2 handoff: bound the existing capture queue before first start."""
+        if self.is_running:
+            raise RuntimeError("configure capture buffer before start")
+        if isinstance(duration_ms, bool) or not 0 < duration_ms <= 2000:
+            raise ValueError("invalid capture queue duration")
+        self._audio_queue = queue.Queue(maxsize=max(1, math.floor(duration_ms / self._config.chunk_duration_ms)))
 
     @property
     def muted(self) -> bool:
@@ -315,8 +341,15 @@ class AudioCapture:
                 self.underflow_count += 1
                 logger.debug("Audio input underflow.")
 
-        # Convert to bytes (already int16 due to dtype="int16")
-        pcm_bytes = indata.tobytes()
+        if self._muted:
+            return
+        # int16 is the configured default; keep explicit endian/float clamping
+        # for adapters handing in float samples, without integer wraparound.
+        if np.issubdtype(indata.dtype, np.floating):
+            samples = np.nan_to_num(indata, nan=0., posinf=1., neginf=-1.)
+            pcm_bytes = (np.clip(samples, -1., 1.) * 32767).astype("<i2").tobytes()
+        else:
+            pcm_bytes = indata.astype("<i2", copy=False).tobytes()
 
         try:
             self._audio_queue.put_nowait(pcm_bytes)

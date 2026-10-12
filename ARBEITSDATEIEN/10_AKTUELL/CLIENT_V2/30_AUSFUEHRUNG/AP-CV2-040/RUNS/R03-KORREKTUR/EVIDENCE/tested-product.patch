@@ -1,0 +1,277 @@
+diff --git a/scripts/check_v2_server_audio.py b/scripts/check_v2_server_audio.py
+index 4fe57b5..cf2ca67 100644
+--- a/scripts/check_v2_server_audio.py
++++ b/scripts/check_v2_server_audio.py
+@@ -187,8 +187,29 @@ async def run(root, repository):
+-            media.set_device_available(False)
+-            old_callback(b"\x10\0"*640,16000,1,640)
+-            await until(lambda:mirror.mirror.view.input.phase==p.InputPhase.IDLE and not mirror.mirror.view.audio_available)
+-            check("devices/open_activation_cancelled",mirror.mirror.view.activations[second.ack.activationId].input_closed and
+-                  mirror.mirror.view.activations[second.ack.activationId].close_reason in ("cancelled", "audio_unavailable"))
+-            check("devices/session_and_older_drain_preserved",media.session.binding is binding and mirror.mirror.view.activations[first.ack.activationId].status=="draining")
+-            count=len(recorder.received); feed(media,config); await asyncio.sleep(.05)
+-            check("devices/lost_input_sends_no_pcm",len(recorder.received)==count)
++            stopped, release_stop = threading.Event(), threading.Event()
++            original_stop = media.capture.stop
++            def blocked_stop():
++                stopped.set()
++                release_stop.wait(5)
++                original_stop()
++            media.capture.stop = blocked_stop
++            try:
++                media.set_device_available(False)
++                old_callback(b"\x10\0"*640,16000,1,640)
++                await until(stopped.is_set)
++                await until(lambda:mirror.mirror.view.input.phase==p.InputPhase.IDLE and not mirror.mirror.view.audio_available,timeout=2)
++                check("devices/false_acked_before_blocked_native_stop",not release_stop.is_set() and
++                      media._reported_available==(binding,False) and media.capture.is_running)
++                check("devices/open_activation_cancelled",mirror.mirror.view.activations[second.ack.activationId].input_closed and
++                      mirror.mirror.view.activations[second.ack.activationId].close_reason in ("cancelled", "audio_unavailable"))
++                check("devices/session_and_older_drain_preserved",media.session.binding is binding and mirror.mirror.view.activations[first.ack.activationId].status=="draining")
++                count=len(recorder.received); feed(media,config); await asyncio.sleep(.05)
++                check("devices/lost_input_sends_no_pcm",len(recorder.received)==count)
++                for job in list(service.scheduler.jobs):
++                    if job.kind=="final" and job.session_id==binding.session_id:
++                        service.scheduler.complete(job,text="synthetic delayed final")
++                await until(lambda:any(r.finals for r in reductions))
++                check("background/older_final_while_native_stop_blocked",not release_stop.is_set() and
++                      len([f for r in reductions for f in r.finals])==1)
++            finally:
++                release_stop.set()
++                media.capture.stop = original_stop
++            await until(lambda:media._capture_operation is None)
+@@ -281,0 +303,24 @@ async def run(root, repository):
++            await until(lambda:media.logs.context.event_state==EventConnectionState.LIVE)
++            log_transport=media.logs._transport
++            log_task,expiry_task=media.logs._transport_task,media.logs._expiry_task
++            entered_close,release_close=threading.Event(),threading.Event()
++            original_stop=media.capture.stop
++            def blocked_shutdown_stop():
++                entered_close.set()
++                release_close.wait(5)
++                original_stop()
++            media.capture.stop=blocked_shutdown_stop
++            media.shutdown_timeout=.1
++            try:
++                try:
++                    await media.close()
++                except TimeoutError:
++                    check("shutdown/native_stop_timeout_reported",entered_close.is_set() and not release_close.is_set())
++                else:
++                    raise AssertionError("native shutdown timeout missing")
++                check("shutdown/native_timeout_real_logs_clean",media.logs.active_transport_count==0 and
++                      log_task.done() and expiry_task.done() and log_transport.state==EventConnectionState.STOPPED)
++            finally:
++                release_close.set()
++                media.capture.stop=original_stop
++                media.shutdown_timeout=3
+@@ -282,0 +328 @@ async def run(root, repository):
++            check("shutdown/retry_joins_native_stop",media._capture_operation is None and media._cleanup_complete)
+diff --git a/tests/test_v2_audio_recovery.py b/tests/test_v2_audio_recovery.py
+index 642ea0a..2fd5e1e 100644
+--- a/tests/test_v2_audio_recovery.py
++++ b/tests/test_v2_audio_recovery.py
+@@ -328,0 +329,128 @@ class Media(unittest.IsolatedAsyncioTestCase):
++    async def assert_unavailable_before_blocked_stop(self, cause):
++        media, socket = await self.start()
++        binding = media.session.binding
++        entered, release = threading.Event(), threading.Event()
++        original_stop = media.capture.stop
++        def blocked_stop():
++            entered.set()
++            release.wait(3)
++            original_stop()
++        media.capture.stop = blocked_stop
++        callback = media.capture.on_audio_packet
++        try:
++            if cause == "device":
++                media.set_device_available(False)
++            elif cause == "mute":
++                media.set_hardware_muted(True)
++            else:
++                media.capture.device_active = False
++            await until(entered.is_set)
++            # The driver is still blocked: ACK/false must already be known.
++            self.assertFalse(release.is_set())
++            self.assertEqual(media._reported_available, (binding, False))
++            self.assertTrue(any(c["type"] == "audio_availability.set" and
++                                c["audioAvailable"] is False for c in socket.commands))
++            self.assertFalse(media._gate)
++            callback(b"\0\0" * 640, 16000, 1, 640)
++            self.assertEqual(media.queue.duration_ms, 0)
++            self.assertIs(media.session.binding, binding)
++        finally:
++            release.set()
++            await media.close()
++
++    async def test_device_loss_reports_false_before_blocked_native_stop(self):
++        await self.assert_unavailable_before_blocked_stop("device")
++
++    async def test_hardware_mute_reports_false_before_blocked_native_stop(self):
++        await self.assert_unavailable_before_blocked_stop("mute")
++
++    async def test_dead_device_reports_false_before_blocked_native_stop(self):
++        await self.assert_unavailable_before_blocked_stop("dead")
++
++    async def assert_timeout_cleans_logs_and_retry(self, kind):
++        media, socket = await self.start()
++        await until(lambda: media.logs.active_transport_count == 1)
++        log_task, expiry_task = media.logs._transport_task, media.logs._expiry_task
++        log_transport = media.logs._transport
++        entered, release = threading.Event(), threading.Event()
++        original_stop = media.capture.stop
++        pending = None
++        def blocked():
++            entered.set()
++            release.wait(3)
++            if kind == "stop":
++                original_stop()
++        media.shutdown_timeout = .1
++        try:
++            if kind == "stop":
++                media.capture.stop = blocked
++            else:
++                pending = asyncio.create_task(media._capture_call(blocked))
++                await until(entered.is_set)
++            with self.assertRaises(TimeoutError):
++                await asyncio.wait_for(media.close(), 1)
++            self.assertTrue(entered.is_set())
++            self.assertFalse(release.is_set())
++            self.assertEqual(media.logs.active_transport_count, 0)
++            self.assertTrue(log_task.done() and expiry_task.done())
++            self.assertEqual(log_transport.stop_calls, 1)
++            self.assertIsNone(media.session.binding)
++            self.assertFalse(media._gate)
++            self.assertEqual(media.queue.duration_ms, 0)
++            # Repeated close while the driver still hangs must report failure.
++            with self.assertRaises(TimeoutError):
++                await asyncio.wait_for(media.close(), 1)
++            release.set()
++            media.shutdown_timeout = 1
++            if pending:
++                await pending
++            await asyncio.wait_for(media.close(), 1)
++            await media.close()
++            self.assertFalse(media.capture.is_running)
++            self.assertIsNone(media._capture_operation)
++        finally:
++            release.set()
++            media.shutdown_timeout = 1
++            if pending:
++                await pending
++            # Cleanup also on the unfixed baseline, where close skips logs.
++            await media.logs.shutdown()
++            await media.close()
++            original_stop()
++
++    async def test_native_operation_timeout_closes_logs_and_retries_cleanup(self):
++        await self.assert_timeout_cleans_logs_and_retry("operation")
++
++    async def test_native_stop_timeout_closes_logs_and_retries_cleanup(self):
++        await self.assert_timeout_cleans_logs_and_retry("stop")
++
++    async def test_cancelled_close_still_cleans_logs_and_can_retry(self):
++        media, socket = await self.start()
++        await until(lambda: media.logs.active_transport_count == 1)
++        log_task = media.logs._transport_task
++        entered, release = threading.Event(), threading.Event()
++        def blocked():
++            entered.set()
++            release.wait(3)
++        pending = asyncio.create_task(media._capture_call(blocked))
++        closing = None
++        try:
++            await until(entered.is_set)
++            closing = asyncio.create_task(media.close())
++            await until(lambda: media._closed and media._task is None)
++            closing.cancel()
++            with self.assertRaises(asyncio.CancelledError):
++                await closing
++            self.assertEqual(media.logs.active_transport_count, 0)
++            self.assertTrue(log_task.done())
++            release.set()
++            await pending
++            await media.close()
++            self.assertFalse(media.capture.is_running)
++        finally:
++            release.set()
++            await pending
++            if closing:
++                await asyncio.gather(closing, return_exceptions=True)
++            await media.close()
++
+diff --git a/voice_stt_client/core/v2_media.py b/voice_stt_client/core/v2_media.py
+index 5fe11e9..78e4b7e 100644
+--- a/voice_stt_client/core/v2_media.py
++++ b/voice_stt_client/core/v2_media.py
+@@ -133,0 +134,2 @@ class V2MediaConnection:
++        self._cleanup_complete = False
++        self._close_lock = asyncio.Lock()
+@@ -297 +299,2 @@ class V2MediaConnection:
+-                            await self._stop_capture()
++                            self._block()
++                            self.capture_available = False
+@@ -299,0 +303 @@ class V2MediaConnection:
++                            await self._stop_capture()
+@@ -307 +310,0 @@ class V2MediaConnection:
+-                        await self._stop_capture()
+@@ -308,0 +312,7 @@ class V2MediaConnection:
++                        # A native stop can hang. The server must cancel its
++                        # open input before we wait on that independent driver.
++                        self._block()
++                        self.capture_available = False
++                        if self._reported_available != (binding, False):
++                            await self._report_availability(binding, False)
++                        await self._stop_capture()
+@@ -374,17 +384,34 @@ class V2MediaConnection:
+-        """Bounded shutdown; caller then joins V2MirrorConnection if attached."""
+-        if self._closed:
+-            return
+-        self._closed = True
+-        self._block()
+-        self.capture.on_audio_packet = None
+-        await self.session.stop()
+-        tasks = [task for task in (self._task, self._sender) if task]
+-        for task in tasks:
+-            task.cancel()
+-        await asyncio.gather(*tasks, return_exceptions=True)
+-        if self._capture_operation is not None:
+-            await asyncio.wait_for(asyncio.shield(self._capture_operation), self.shutdown_timeout)
+-            self._capture_operation = None
+-        await asyncio.wait_for(self._stop_capture(), self.shutdown_timeout)
+-        await asyncio.wait_for(self.logs.shutdown(), self.shutdown_timeout + 3)
+-        self._task = self._sender = None
++        """Bounded independent cleanup; retry unfinished native shutdown.
++
++        _closed blocks new work immediately; it does not claim cleanup success.
++        A native timeout is propagated after log cleanup, retaining its task so
++        the next close joins it before attempting another driver operation.
++        """
++        async with self._close_lock:
++            if self._cleanup_complete:
++                return
++            self._closed = True
++            self._block()
++            self.capture_available = False
++            self.capture.on_audio_packet = None
++            try:
++                await self.session.stop()
++            finally:
++                tasks = [task for task in (self._task, self._sender) if task]
++                for task in tasks:
++                    task.cancel()
++                await asyncio.gather(*tasks, return_exceptions=True)
++                self._task = self._sender = None
++                try:
++                    pending = self._capture_operation
++                    if pending is not None:
++                        try:
++                            await asyncio.wait_for(asyncio.shield(pending), self.shutdown_timeout)
++                        finally:
++                            if pending.done() and self._capture_operation is pending:
++                                self._capture_operation = None
++                    await asyncio.wait_for(self._stop_capture(), self.shutdown_timeout)
++                finally:
++                    # Audio/driver failure never skips the separate logdomain.
++                    await asyncio.wait_for(self.logs.shutdown(), self.shutdown_timeout + 3)
++            self._cleanup_complete = True
