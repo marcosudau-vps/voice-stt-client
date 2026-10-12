@@ -1,0 +1,34 @@
+{
+  "result": "PASS",
+  "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+  "candidateBranch": "work/client-v2/ap-cv2-060",
+  "qualifiedProductBlobCount": 195,
+  "matchedProductBlobs": true,
+  "matchedRuntimeSources": true,
+  "matchedLogSha256": {
+    "targeted-unittest.txt": "dfb2ca8dd535438eaa58847d3e95a1ec4d394549fff1df0ec4202c640e5fb944",
+    "server-results-checkpoint.json": "d8081616cd9682a30f2f39636310103ea4726e1b3c284ab8b298236aa5f3bff7",
+    "server-results-checkpoint.json.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compileall.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "windows-full-unittest.txt": "41926aa1dafe1555b70608a38e3f045b4ab7dede347f930286f6aa5b9a71e331"
+  },
+  "unchangedRequirementCriteria": true,
+  "tracedRequirements": 13,
+  "actualTestMethodsVerified": true,
+  "records": {
+    "result": "PASS",
+    "package": "AP-CV2-060",
+    "packageStatus": "REVIEW_READY",
+    "referencedFiles": 26,
+    "markdownFiles": 21,
+    "relativeLinks": 1019,
+    "errors": []
+  },
+  "diffCheck": "PASS",
+  "scope": "Index qualification; final commit SHA/tree reported externally after administrative publication refs. No self-SHA.",
+  "testedBase": "66f44e0be1ec9485d90ec0b918bffafdab2d57f0",
+  "qualifiedProductDiff": "0182f685c645520c6ad2f2194276a720970587bbf45d146dedce2e3d62e389f6",
+  "stagedProductBlobsAndLogHashes": "PASS",
+  "correction": "CI38267770763 fixture path alias; locally reproduced before correction; complete qualification repeated",
+  "priorQualification": "windows-validation.json.before-ci-fix.txt"
+}

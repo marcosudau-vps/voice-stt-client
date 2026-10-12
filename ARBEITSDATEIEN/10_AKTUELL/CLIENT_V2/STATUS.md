@@ -1,8 +1,10 @@
-# Client V2 – AP-CV2-050 / R02-ABNAHME / ROOT_PASS, 2026-10-12
+# Client V2 – AP-CV2-060 / R04-ABNAHME / ROOT_PASS, 2026-10-12
 
-AP-CV2-000 bis AP-CV2-040 sind **ACCEPTED**, zuletzt AP040 auf `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`. AP-CV2-050 hat nach unabhängigem Review **ROOT_PASS** für den Kandidaten `55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a` (Tree `3b0dc469a1a3e577eb4dda0a67e2f3746b9c92cd`). [R02-Report](30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md), [R01-Windowsbelege](30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md). 1397 Windows-, 297 gezielte, 79 lokale Server-/WebSocket- und 16 native Win32-Checks PASS als unabhängig geprüfte Fremdbelege; eigene Windows-Wiederholung NOT_RUN.
+AP000 bis AP050 ACCEPTED; kanonischer Parent ce95c66. AP060: R02-CHANGES_REQUIRED wegen einzigem Finding CV2-060-R02-F01; in R03 ausschließlich den dokumentierten öffentlichen Klassennamen zu STTController korrigiert. [Korrekturreport](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md), [Evidenz](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md), [Workflowstatus](WORKFLOW_STATUS.json), [Planungseinstieg](PLANUNG/README.md).
 
-**Nächste Aktion:** ausdrückliche menschliche Übernahmefreigabe für [PR #7](https://github.com/marcosudau-vps/voice-stt-client/pull/7) abwarten. Kein automatischer Merge, kein AP060-Start. Settingspersistenz/Dialog AP070/080, Anwendungskomposition AP100 und reale ASR-/Hardwaregesamtabnahme AP-IV2-020 bleiben separate Gates. Die aktuell gestartete App nutzt weiterhin die bisherige Komposition.
+Produkt/Test/Config und die unabhängig geprüften 1426 Windows-/323 gezielten/19 Servernachweise unverändert. Neue lokale Vollsuite beim Docfix NOT_RUN, wie R02 ausdrücklich vorsieht. **Aktueller Stand: R04-ROOT_PASS / READY_FOR_CANONICALIZATION.** F01 unabhängig geschlossen; [menschliche R05-Freigabe](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md) liegt nach erfolgreicher CI38276463113 vor. **Nächste Aktion:** nach neuer Head-CI GitHub-Squash PR8; kein automatischer AP070-Start. Appkomposition AP100 und reale Hardware/ASR/Fokusprüfung IV2-020 bleiben offen.
+
+**Maßgeblicher aktueller Abnahmenachweis:** [R04-ROOT_PASS](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md) auf `1d81bb0230cfc5a099b7870488f6b42cd4735d5a`. R01-Testbelege und R03-Dokumentkorrektur bleiben unverändert; keine menschliche Übernahmefreigabe.
 
 ## Historischer Stand vor AP-CV2-020
 

@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\scripts\check_v2_server_transport.py", line 37, in poll
+    await asyncio.sleep(.01)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 665, in sleep
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\scripts\check_v2_server_results.py", line 190, in <module>
+    print(json.dumps(asyncio.run(run(args.server_root.resolve(),args.server_repository.resolve())),indent=2))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\scripts\check_v2_server_results.py", line 135, in run
+    await until(lambda: len([o for o in outcomes if o.status=='queued'])==2)
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\scripts\check_v2_server_transport.py", line 38, in until
+    await asyncio.wait_for(poll(), timeout)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 519, in wait_for
+    async with timeouts.timeout(timeout):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError

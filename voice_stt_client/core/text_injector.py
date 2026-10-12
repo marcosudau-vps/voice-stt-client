@@ -120,6 +120,7 @@ class InjectionJob:
     entry_id: str
     text: str
     timestamp: float
+    attempt_id: str | None = None
 
 # -------------------------------------------------------------------
 # Windows Backend Abstraction
@@ -417,6 +418,9 @@ class TextInjectionQueue:
         self._lock = threading.Lock()
         self._init_done_event = threading.Event()
         self._init_error: Optional[Exception] = None
+        # Called on the worker thread; UI integration must queue its publication.
+        self.on_attempt_result = None
+        self.last_error: str | None = None
 
         # CONTRACTS §12.4 aggregate counters. Plain ints, only ever written on
         # the worker thread; ``enqueue`` runs on the core loop and touches none
@@ -493,6 +497,8 @@ class TextInjectionQueue:
         Defensively copies necessary data and enqueues a new injection job.
         Returns True if successfully enqueued, False if rejected because stopped or not running.
         """
+        if entry.protocol_version == 2:
+            return self.enqueue_reserved(entry)
         with self._lock:
             if self._state != QueueState.RUNNING:
                 logger.warning("Queue is not running (state=%s). Rejecting entry %s", self._state.value, entry.id)
@@ -507,6 +513,23 @@ class TextInjectionQueue:
             self._queue.put(job)
             logger.info("Enqueued job %s for entry %s", job.job_id, job.entry_id)
             return True
+
+    def enqueue_reserved(self, entry: HistoryEntry, *, source: str = 'automatic') -> bool:
+        """Serialize reservation and queue admission before any Clipboard I/O."""
+        with self._lock:
+            self.last_error = None
+            if self._state != QueueState.RUNNING:
+                self.last_error = 'queue_unavailable'
+                return False
+            attempt = self.history_manager.reserve_injection(entry, source)
+            if attempt is None:
+                self.last_error = 'injection_reservation_failed'
+                return False
+            self._queue.put(InjectionJob(uuid.uuid4().hex, entry.id, entry.text, time.time(), attempt.id))
+            return True
+
+    def enqueue_manual(self, entry: HistoryEntry) -> bool:
+        return self.enqueue_reserved(entry, source='manual')
 
     def is_running(self) -> bool:
         """Checks if the worker thread is currently running and active."""
@@ -601,9 +624,14 @@ class TextInjectionQueue:
                         error_msg = str(e)
 
                     try:
-                        self.history_manager.record_injection_attempt(
-                            job.entry_id, status=status, error=error_msg
-                        )
+                        if job.attempt_id:
+                            attempt = self.history_manager.finish_injection(job.attempt_id, status, error_msg)
+                            if self.on_attempt_result:
+                                self.on_attempt_result(attempt)
+                        else:
+                            self.history_manager.record_injection_attempt(
+                                job.entry_id, status=status, error=error_msg
+                            )
                     except Exception as ex:
                         logger.exception("Failed to write status to history for entry %s: %s", job.entry_id, ex)
 

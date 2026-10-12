@@ -7085,7 +7085,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7128,7 +7128,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-02",
@@ -7138,7 +7139,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7181,7 +7182,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-03",
@@ -7191,7 +7193,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7235,7 +7237,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-04",
@@ -7245,7 +7248,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7286,7 +7289,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-05",
@@ -7296,7 +7300,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7338,7 +7342,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-06",
@@ -7348,7 +7353,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7389,7 +7394,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-07",
@@ -7399,7 +7405,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7444,7 +7450,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-08",
@@ -7454,7 +7461,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7498,7 +7505,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-09",
@@ -7508,7 +7516,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7555,7 +7563,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-10",
@@ -7565,7 +7574,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7614,7 +7623,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-11",
@@ -7624,7 +7634,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7665,7 +7675,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-12",
@@ -7675,7 +7686,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7719,7 +7730,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-13",
@@ -7729,7 +7741,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7772,7 +7784,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "CONTROL-14",
@@ -7782,7 +7795,7 @@
       "test": "test_v2_controls",
       "source": "Client voice_stt_client/ui/hotkeys.py @ f625904; Client voice_stt_client/core/controller.py @ f625904; Server api_fastapi_server/activation_commands.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7826,7 +7839,8 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
       },
-      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md"
+      "independentAcceptanceEvidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "RESULT-01",
@@ -7836,7 +7850,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7860,7 +7874,39 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.Results.test_delayed_A_final_during_B_keeps_every_origin_and_pastes_once"
+        ],
+        "checkpointCases": [
+          "old_A_while_B/uuid_origin"
+        ],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+        "documentationCorrection": {
+          "finding": "CV2-060-R02-F01",
+          "run": "R03-KORREKTUR",
+          "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md",
+          "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/EVIDENCE/verification.json",
+          "result": "SELF_CHECK_PASS; independent recheck pending"
+        }
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "RESULT-02",
@@ -7870,7 +7916,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7894,7 +7940,32 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.Results.test_first_discard_failed_empty_then_completed_and_late_interim_never_paste"
+        ],
+        "checkpointCases": [
+          "empty_final/discard_no_output"
+        ],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "RESULT-03",
@@ -7904,7 +7975,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7928,7 +7999,32 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.Results.test_interim_stable_fields_have_no_history_reservation_or_clipboard_effect"
+        ],
+        "checkpointCases": [
+          "interim/no_sqlite_or_clipboard"
+        ],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "RESULT-04",
@@ -7938,7 +8034,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7962,7 +8058,33 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.Results.test_first_discard_failed_empty_then_completed_and_late_interim_never_paste",
+          "tests.test_v2_results.Results.test_identical_texts_different_segments_are_not_deduplicated"
+        ],
+        "checkpointCases": [
+          "replay/no_repeat_paste"
+        ],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "RESULT-05",
@@ -7972,7 +8094,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -7996,7 +8118,33 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.Results.test_history_off_keeps_process_dedup_and_outputs",
+          "tests.test_v2_results.Results.test_concurrent_reduction_delivery_and_eviction_do_not_repeat_effect"
+        ],
+        "checkpointCases": [
+          "replay/no_repeat_paste"
+        ],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "RESULT-06",
@@ -8006,7 +8154,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8030,7 +8178,34 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.Results.test_gap_salvage_publication_order_and_snapshot_never_infers_text",
+          "tests.test_v2_results.Results.test_delayed_A_final_during_B_keeps_every_origin_and_pastes_once"
+        ],
+        "checkpointCases": [
+          "old_A_while_B/recording_ongoing",
+          "ordering/server_publication_and_segment_sequence"
+        ],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "RESULT-07",
@@ -8040,7 +8215,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8064,7 +8239,31 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.Migration.test_v1_backup_ids_attempts_origin_and_second_start_idempotent",
+          "tests.test_v2_results.Migration.test_uuid_origin_unique_and_fk_survive_reopen"
+        ],
+        "checkpointCases": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "RESULT-08",
@@ -8074,7 +8273,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8098,7 +8297,32 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.Migration.test_mid_migration_ddl_failure_rolls_back_and_retry_uses_backup",
+          "tests.test_v2_results.Migration.test_v1_backup_ids_attempts_origin_and_second_start_idempotent",
+          "tests.test_v2_results.Migration.test_failed_backup_never_migrates_or_leaves_partial_backup"
+        ],
+        "checkpointCases": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "RESULT-09",
@@ -8108,7 +8332,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8132,7 +8356,30 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.Migration.test_v1_backup_ids_attempts_origin_and_second_start_idempotent"
+        ],
+        "checkpointCases": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "RESULT-10",
@@ -8142,7 +8389,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8166,7 +8413,32 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.Results.test_sqlite_reservation_failure_is_visible_no_paste_mirror_keeps_running",
+          "tests.test_v2_results.Results.test_clipboard_failure_does_not_block_later_segment",
+          "tests.test_v2_results.Results.test_sqlite_outcome_failure_unknown_and_no_retry"
+        ],
+        "checkpointCases": [],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "RESULT-11",
@@ -8176,7 +8448,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8200,7 +8472,35 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.CrashRecovery.test_real_process_crash_at_five_boundaries_never_auto_reinjects",
+          "tests.test_v2_results.Results.test_reservation_committed_before_clipboard_and_send_input",
+          "tests.test_v2_results.Results.test_retention_preserves_pending_attempt_until_outcome",
+          "tests.test_v2_results.Results.test_explicit_history_deletion_during_reserved_job_does_not_resurrect_text"
+        ],
+        "checkpointCases": [
+          "reservation/durable_before_paste"
+        ],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "RESULT-12",
@@ -8210,7 +8510,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8234,7 +8534,37 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.Results.test_reinsert_has_separate_manual_attempt_and_clipboard_restore",
+          "tests.test_v2_results.Results.test_legacy_reinsert_reserves_manual_source",
+          "tests.test_text_injector.TestTextInjector.test_restore_previous_true_success",
+          "tests.test_text_injector.TestTextInjector.test_sequence_number_prevents_restore",
+          "tests.test_text_injector.TestTextInjector.test_send_input_failure"
+        ],
+        "checkpointCases": [
+          "reinsert/separate_manual_attempt",
+          "clipboard/restore_preserved"
+        ],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "RESULT-13",
@@ -8244,7 +8574,7 @@
       "test": "test_v2_results",
       "source": "Client voice_stt_client/core/history.py @ f625904; Client voice_stt_client/core/text_injector.py @ f625904; Server api_fastapi_server/segment_ledger.py @ ada13b0",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -8268,7 +8598,35 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-server/blob/ada13b011e1d3829f78e7f389e3b927795a2b3be/api_fastapi_server/segment_ledger.py"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "run": "R01-UMSETZUNG",
+        "result": "SELF_CHECK_PASS / REVIEW_READY",
+        "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+        "candidateBranch": "work/client-v2/ap-cv2-060",
+        "testMethods": [
+          "tests.test_v2_results.Results.test_cancel_disconnect_and_recovery_preserve_published_text",
+          "tests.test_v2_results.Results.test_disconnected_same_generation_stale_reduction_is_rejected",
+          "tests.test_v2_results.Results.test_controller_port_attaches_once_preserves_legacy_cancel_and_shutdown_guard"
+        ],
+        "checkpointCases": [
+          "cancel/published_history_preserved",
+          "reconnect/history_retained"
+        ],
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+        "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R04-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "1d81bb0230cfc5a099b7870488f6b42cd4735d5a",
+        "reviewedTree": "f3342625d63ec0c296d62d03decb54ea93fd983b",
+        "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
+        "predecessorFindingClosed": "CV2-060-R02-F01"
+      }
     },
     {
       "id": "SET-01",

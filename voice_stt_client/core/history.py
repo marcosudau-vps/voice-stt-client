@@ -14,6 +14,7 @@ import logging
 import os
 import sqlite3
 import threading
+import tempfile
 import time
 import uuid
 from dataclasses import dataclass, field
@@ -24,6 +25,7 @@ from voice_stt_client.core.config import HistoryConfig
 
 class InjectionStatus(str, Enum):
     PENDING = "pending"
+    UNKNOWN = "unknown"
     COMMAND_SENT = "command_sent"
     FAILED = "failed"
     SKIPPED = "skipped"
@@ -50,9 +52,10 @@ class InjectionAttempt:
 
     id: str
     entry_id: str
-    status: str  # "pending", "command_sent", "failed", "skipped"
+    status: str  # pending / unknown / command_sent / failed / skipped
     error: Optional[str] = None
     timestamp: float = field(default_factory=time.time)
+    source: str = "legacy"
 
 
 @dataclass
@@ -61,11 +64,18 @@ class HistoryEntry:
 
     id: str
     session_id: str
-    segment_id: int
+    segment_id: int | str
     timestamp: float
     text: str
     text_length: int
     attempts: List[InjectionAttempt] = field(default_factory=list)
+    protocol_version: int = 1
+    activation_id: str | None = None
+    segment_sequence: int | None = None
+    event_id: str | None = None
+    event_seq: int | None = None
+    primary_source: str | None = None
+    activation_sequence: int | None = None
 
 
 class TranscriptHistoryManager:
@@ -78,9 +88,12 @@ class TranscriptHistoryManager:
     def __init__(self, config: HistoryConfig, db_path: Optional[str] = None):
         self.config = config
         self._memory_entries: List[HistoryEntry] = []
-        self._processed_segments: Set[Tuple[str, int]] = set()
+        self._processed_segments: Set[Tuple[int, str, int | str]] = set()
         self._lock = threading.Lock()
         self._db_enabled = False
+        self.last_error: str | None = None
+        # Reservations outlive visible history rotation, until the queue finishes.
+        self._reservations: dict[str, tuple[HistoryEntry, InjectionAttempt, bool]] = {}
 
         if not self.config.enabled:
             logger.info("Transcript history component is disabled by configuration.")
@@ -157,20 +170,32 @@ class TranscriptHistoryManager:
                 pass
 
     def _init_db(self) -> None:
-        """Initialize DB tables and UNIQUE constraints."""
+        """Back up V1 before a transactional, repeatable schema migration."""
         try:
             self.db_path.parent.mkdir(parents=True, exist_ok=True)
             with self._db_session() as conn:
-                # Create history entries table
+                if conn.execute('PRAGMA user_version').fetchone()[0] > 2:
+                    raise sqlite3.DatabaseError('Unsupported future history schema')
+                columns = {row['name'] for row in conn.execute('PRAGMA table_info(history_entries)')}
+                if columns and 'protocol_version' not in columns:
+                    self._migrate_v1(conn)
+                conn.execute('BEGIN IMMEDIATE')
                 conn.execute("""
                     CREATE TABLE IF NOT EXISTS history_entries (
                         id TEXT PRIMARY KEY,
                         session_id TEXT,
-                        segment_id INTEGER,
+                        segment_id TEXT,
                         timestamp REAL,
                         text TEXT,
                         text_length INTEGER,
-                        UNIQUE(session_id, segment_id)
+                        protocol_version INTEGER NOT NULL DEFAULT 1 CHECK(protocol_version IN (1, 2)),
+                        activation_id TEXT,
+                        segment_sequence INTEGER,
+                        event_id TEXT,
+                        event_seq INTEGER,
+                        primary_source TEXT,
+                        activation_sequence INTEGER,
+                        UNIQUE(protocol_version, session_id, segment_id)
                     )
                 """)
                 # Create injection attempts table
@@ -181,14 +206,81 @@ class TranscriptHistoryManager:
                         status TEXT,
                         error TEXT,
                         timestamp REAL,
+                        source TEXT NOT NULL DEFAULT 'legacy',
                         FOREIGN KEY(entry_id) REFERENCES history_entries(id) ON DELETE CASCADE
                     )
                 """)
+                # A pending external effect cannot safely be replayed after restart.
+                conn.execute("UPDATE injection_attempts SET status='unknown', error=? WHERE status='pending'",
+                             ('Process ended before injection outcome was confirmed',))
+                if conn.execute('PRAGMA user_version').fetchone()[0] != 2:
+                    conn.execute('PRAGMA user_version = 2')
             self._db_enabled = True
             logger.info("SQLite database initialized successfully at %s", self.db_path)
         except Exception as e:
+            self.last_error = 'history_initialization_failed'
             logger.error("Failed to initialize SQLite database: %s. Falling back to in-memory mode.", e, exc_info=True)
             self._db_enabled = False
+
+    def _migrate_v1(self, conn: sqlite3.Connection) -> None:
+        """Rebuild both FK tables in one transaction; failed DDL leaves V1 intact."""
+        self.migration_backup = self.db_path.with_name(self.db_path.name + '.v1-backup.sqlite')
+        # Never overwrite a previous backup. SQLite backup includes a live WAL.
+        if not self.migration_backup.exists():
+            fd, temporary_name = tempfile.mkstemp(prefix=self.db_path.name + '.', suffix='.backup-tmp',
+                                                  dir=self.db_path.parent)
+            os.close(fd)
+            temporary = Path(temporary_name)
+            try:
+                backup = sqlite3.connect(str(temporary))
+                try:
+                    conn.backup(backup)
+                finally:
+                    backup.close()
+                temporary.replace(self.migration_backup)
+            finally:
+                temporary.unlink(missing_ok=True)
+        conn.execute('BEGIN IMMEDIATE')
+        conn.execute('ALTER TABLE history_entries RENAME TO history_entries_v1')
+        conn.execute('ALTER TABLE injection_attempts RENAME TO injection_attempts_v1')
+        conn.execute('''CREATE TABLE history_entries (
+            id TEXT PRIMARY KEY, session_id TEXT, segment_id TEXT,
+            timestamp REAL, text TEXT, text_length INTEGER,
+            protocol_version INTEGER NOT NULL DEFAULT 1 CHECK(protocol_version IN (1,2)),
+            activation_id TEXT, segment_sequence INTEGER, event_id TEXT, event_seq INTEGER,
+            primary_source TEXT, activation_sequence INTEGER,
+            UNIQUE(protocol_version, session_id, segment_id))''')
+        conn.execute('''CREATE TABLE injection_attempts (
+            id TEXT PRIMARY KEY, entry_id TEXT, status TEXT, error TEXT, timestamp REAL,
+            source TEXT NOT NULL DEFAULT 'legacy',
+            FOREIGN KEY(entry_id) REFERENCES history_entries(id) ON DELETE CASCADE)''')
+        conn.execute('''INSERT INTO history_entries (id,session_id,segment_id,timestamp,text,text_length)
+            SELECT id,session_id,CAST(segment_id AS TEXT),timestamp,text,text_length FROM history_entries_v1''')
+        conn.execute('''INSERT INTO injection_attempts (id,entry_id,status,error,timestamp)
+            SELECT id,entry_id,status,error,timestamp FROM injection_attempts_v1''')
+        if conn.execute('PRAGMA foreign_key_check').fetchall():
+            raise sqlite3.IntegrityError('History migration foreign key check failed')
+        conn.execute('DROP TABLE injection_attempts_v1')
+        conn.execute('DROP TABLE history_entries_v1')
+        conn.execute('PRAGMA user_version = 2')
+        conn.commit()
+
+    @staticmethod
+    def _entry_fields(row) -> dict:
+        return dict(segment_id=int(row['segment_id']) if row['protocol_version'] == 1 else row['segment_id'],
+                    protocol_version=row['protocol_version'], activation_id=row['activation_id'],
+                    segment_sequence=row['segment_sequence'], event_id=row['event_id'], event_seq=row['event_seq'],
+                    primary_source=row['primary_source'], activation_sequence=row['activation_sequence'])
+
+    @staticmethod
+    def _insert_entry(conn, entry):
+        return conn.execute('''INSERT INTO history_entries
+            (id,session_id,segment_id,timestamp,text,text_length,protocol_version,activation_id,
+             segment_sequence,event_id,event_seq,primary_source,activation_sequence)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(protocol_version,session_id,segment_id) DO NOTHING''',
+            (entry.id,entry.session_id,str(entry.segment_id),entry.timestamp,entry.text,entry.text_length,
+             entry.protocol_version,entry.activation_id,entry.segment_sequence,entry.event_id,entry.event_seq,
+             entry.primary_source,entry.activation_sequence))
 
     def _load_dedup_cache(self) -> None:
         """Load segment keys from database to populate in-process deduplication cache."""
@@ -197,9 +289,9 @@ class TranscriptHistoryManager:
         try:
             with self._db_session() as conn:
                 cursor = conn.cursor()
-                cursor.execute("SELECT session_id, segment_id FROM history_entries")
+                cursor.execute("SELECT session_id, segment_id, protocol_version FROM history_entries")
                 for row in cursor.fetchall():
-                    self._processed_segments.add((row["session_id"], row["segment_id"]))
+                    self._processed_segments.add((row["protocol_version"], row["session_id"], int(row["segment_id"]) if row["protocol_version"] == 1 else row["segment_id"]))
             logger.debug("Loaded %d segment keys into deduplication cache.", len(self._processed_segments))
         except Exception as e:
             logger.error("Failed to load deduplication cache from DB: %s", e)
@@ -240,12 +332,13 @@ class TranscriptHistoryManager:
                             status=att_row["status"],
                             error=att_row["error"],
                             timestamp=att_row["timestamp"],
+                            source=att_row["source"],
                         ))
 
                     entry = HistoryEntry(
                         id=row["id"],
                         session_id=row["session_id"],
-                        segment_id=row["segment_id"],
+                        **self._entry_fields(row),
                         timestamp=row["timestamp"],
                         text=row["text"],
                         text_length=row["text_length"],
@@ -256,7 +349,7 @@ class TranscriptHistoryManager:
         except Exception as e:
             logger.error("Failed to load history entries from DB: %s", e, exc_info=True)
 
-    def _fetch_entry_from_db(self, session_id: str, segment_id: int) -> Optional[HistoryEntry]:
+    def _fetch_entry_from_db(self, session_id: str, segment_id: int | str, protocol_version: int = 1) -> Optional[HistoryEntry]:
         """Query database for a specific segment and construct its HistoryEntry."""
         if not self._db_enabled:
             return None
@@ -264,8 +357,8 @@ class TranscriptHistoryManager:
             with self._db_session() as conn:
                 cursor = conn.cursor()
                 cursor.execute(
-                    "SELECT * FROM history_entries WHERE session_id = ? AND segment_id = ?",
-                    (session_id, segment_id)
+                    "SELECT * FROM history_entries WHERE protocol_version = ? AND session_id = ? AND segment_id = ?",
+                    (protocol_version, session_id, str(segment_id))
                 )
                 row = cursor.fetchone()
                 if row:
@@ -282,11 +375,12 @@ class TranscriptHistoryManager:
                             status=att_row["status"],
                             error=att_row["error"],
                             timestamp=att_row["timestamp"],
+                            source=att_row["source"],
                         ))
                     return HistoryEntry(
                         id=row["id"],
                         session_id=row["session_id"],
-                        segment_id=row["segment_id"],
+                        **self._entry_fields(row),
                         timestamp=row["timestamp"],
                         text=row["text"],
                         text_length=row["text_length"],
@@ -318,11 +412,12 @@ class TranscriptHistoryManager:
                             status=att_row["status"],
                             error=att_row["error"],
                             timestamp=att_row["timestamp"],
+                            source=att_row["source"],
                         ))
                     return HistoryEntry(
                         id=row["id"],
                         session_id=row["session_id"],
-                        segment_id=row["segment_id"],
+                        **self._entry_fields(row),
                         timestamp=row["timestamp"],
                         text=row["text"],
                         text_length=row["text_length"],
@@ -364,15 +459,11 @@ class TranscriptHistoryManager:
             return
         try:
             with self._db_session() as conn:
-                cursor = conn.execute("""
-                    INSERT INTO history_entries (id, session_id, segment_id, timestamp, text, text_length)
-                    VALUES (?, ?, ?, ?, ?, ?)
-                    ON CONFLICT(session_id, segment_id) DO NOTHING
-                """, (entry.id, entry.session_id, entry.segment_id, entry.timestamp, entry.text, entry.text_length))
+                cursor = self._insert_entry(conn, entry)
                 if cursor.rowcount == 0:
                     cursor = conn.execute(
-                        "SELECT id FROM history_entries WHERE session_id = ? AND segment_id = ?",
-                        (entry.session_id, entry.segment_id)
+                        "SELECT id FROM history_entries WHERE protocol_version = ? AND session_id = ? AND segment_id = ?",
+                        (entry.protocol_version, entry.session_id, str(entry.segment_id))
                     )
                     row = cursor.fetchone()
                     if row:
@@ -384,6 +475,7 @@ class TranscriptHistoryManager:
             except Exception as e:
                 logger.error("Database cleanup error (non-fatal): %s", e)
         except Exception as e:
+            self.last_error = "history_write_failed"
             logger.error("Failed to save history entry to DB: %s", e, exc_info=True)
 
     def _save_attempt_to_db(self, attempt: InjectionAttempt) -> None:
@@ -404,7 +496,10 @@ class TranscriptHistoryManager:
     # -------------------------------------------------------------------
 
     def add_entry_with_status(
-        self, session_id: str, segment_id: int, text: str, timestamp: Optional[float] = None
+        self, session_id: str, segment_id: int | str, text: str, timestamp: Optional[float] = None,
+        *, protocol_version: int = 1, activation_id: str | None = None, segment_sequence: int | None = None,
+        event_id: str | None = None, event_seq: int | None = None, primary_source: str | None = None,
+        activation_sequence: int | None = None,
     ) -> HistoryAddResult:
         """
         Add a final transcript entry and return a HistoryAddResult detailing whether
@@ -418,22 +513,22 @@ class TranscriptHistoryManager:
 
         with self._lock:
             # Deduplication
-            if (session_id, segment_id) in self._processed_segments:
+            if (protocol_version, session_id, segment_id) in self._processed_segments:
                 # Match in memory first
                 for entry in self._memory_entries:
-                    if entry.session_id == session_id and entry.segment_id == segment_id:
+                    if entry.protocol_version == protocol_version and entry.session_id == session_id and entry.segment_id == segment_id:
                         return HistoryAddResult(entry=entry, status=HistoryAddStatus.ALREADY_EXISTS)
                 # Match in DB
-                entry = self._fetch_entry_from_db(session_id, segment_id)
+                entry = self._fetch_entry_from_db(session_id, segment_id, protocol_version)
                 if entry:
                     return HistoryAddResult(entry=entry, status=HistoryAddStatus.ALREADY_EXISTS)
                 # Processed before, but rotated out of memory and not in DB
                 return HistoryAddResult(entry=None, status=HistoryAddStatus.ALREADY_EXISTS)
 
             # Match in DB in case segment pre-exists in persistent DB from previous runs
-            existing_db_entry = self._fetch_entry_from_db(session_id, segment_id)
+            existing_db_entry = self._fetch_entry_from_db(session_id, segment_id, protocol_version)
             if existing_db_entry:
-                self._processed_segments.add((session_id, segment_id))
+                self._processed_segments.add((protocol_version, session_id, segment_id))
                 self._add_to_memory(existing_db_entry)
                 return HistoryAddResult(entry=existing_db_entry, status=HistoryAddStatus.ALREADY_EXISTS)
 
@@ -445,11 +540,13 @@ class TranscriptHistoryManager:
                 timestamp=t,
                 text=text,
                 text_length=len(text),
-                attempts=[]
+                attempts=[], protocol_version=protocol_version, activation_id=activation_id,
+                segment_sequence=segment_sequence, event_id=event_id, event_seq=event_seq,
+                primary_source=primary_source, activation_sequence=activation_sequence,
             )
 
             # Update deduplication cache
-            self._processed_segments.add((session_id, segment_id))
+            self._processed_segments.add((protocol_version, session_id, segment_id))
 
             # Add to memory
             self._add_to_memory(entry)
@@ -472,6 +569,68 @@ class TranscriptHistoryManager:
         """
         res = self.add_entry_with_status(session_id, segment_id, text, timestamp)
         return res.entry
+
+    def reserve_injection(self, entry: HistoryEntry, source: str) -> Optional[InjectionAttempt]:
+        """Commit a pending attempt before any external effect.
+
+        Disabled/filtered history uses an in-memory reservation. An intended
+        durable reservation that cannot be committed fails closed. No retry is
+        made automatically; the already accepted final remains in history.
+        """
+        if source not in ('automatic', 'manual'):
+            raise ValueError('Invalid injection source')
+        with self._lock:
+            managed = next((e for e in self._memory_entries if e.id == entry.id), None)
+            if managed is None:
+                managed = self._fetch_entry_from_db_by_id(entry.id) or entry
+            attempt = InjectionAttempt(uuid.uuid4().hex, managed.id, 'pending', source=source)
+            persisted = False
+            if self.config.enabled and self.config.persistent.enabled:
+                if not self._db_enabled:
+                    self.last_error = 'injection_reservation_failed'
+                    return None
+                try:
+                    with self._db_session() as conn:
+                        parent = conn.execute('SELECT 1 FROM history_entries WHERE id=?', (managed.id,)).fetchone()
+                        if parent or self._should_persist(managed):
+                            self._insert_entry(conn, managed)
+                            conn.execute('''INSERT INTO injection_attempts
+                                (id,entry_id,status,error,timestamp,source) VALUES (?,?,?,?,?,?)''',
+                                (attempt.id,managed.id,attempt.status,None,attempt.timestamp,source))
+                            persisted = True
+                except Exception:
+                    self.last_error = 'injection_reservation_failed'
+                    logger.exception('Could not reserve injection attempt for entry %s', managed.id)
+                    return None
+            managed.attempts.append(attempt)
+            self._reservations[attempt.id] = (managed, attempt, persisted)
+            return copy.deepcopy(attempt)
+
+    def finish_injection(self, attempt_id: str, status: str, error: str | None = None) -> InjectionAttempt:
+        """Update the same reservation; a failed outcome commit is ambiguous."""
+        if status not in ('command_sent', 'failed', 'skipped'):
+            raise ValueError('Invalid injection outcome')
+        with self._lock:
+            entry, attempt, persisted = self._reservations.pop(attempt_id)
+            attempt.status, attempt.error = status, error
+            try:
+                if self._db_enabled and self.config.enabled:
+                    with self._db_session() as conn:
+                        conn.execute('UPDATE injection_attempts SET status=?,error=? WHERE id=?',
+                                     (status,error,attempt_id))
+                        # A filtered short result can become persistent on failure.
+                        if (not persisted and self._should_persist(entry)
+                                and not conn.execute('SELECT 1 FROM injection_attempts WHERE id=?', (attempt_id,)).fetchone()):
+                            self._insert_entry(conn, entry)
+                            conn.execute('''INSERT INTO injection_attempts
+                                (id,entry_id,status,error,timestamp,source) VALUES (?,?,?,?,?,?)''',
+                                (attempt.id,entry.id,status,error,attempt.timestamp,attempt.source))
+                attempt.status, attempt.error = status, error
+            except Exception:
+                attempt.status, attempt.error = 'unknown', 'Injection outcome could not be persisted'
+                self.last_error = 'injection_outcome_unknown'
+                logger.exception('Injection outcome unknown for entry %s', entry.id)
+            return copy.deepcopy(attempt)
 
     def record_injection_attempt(
         self, entry_id: str, status: str, error: Optional[str] = None, timestamp: Optional[float] = None
@@ -535,17 +694,12 @@ class TranscriptHistoryManager:
                         with self._db_session() as conn:
                             # Start joint atomic transaction block
                             if should_persist and not parent_exists:
-                                cursor = conn.execute("""
-                                    INSERT INTO history_entries (id, session_id, segment_id, timestamp, text, text_length)
-                                    VALUES (?, ?, ?, ?, ?, ?)
-                                    ON CONFLICT(session_id, segment_id) DO NOTHING
-                                """, (entry.id, entry.session_id, entry.segment_id, entry.timestamp, entry.text, entry.text_length))
-                                
+                                cursor = self._insert_entry(conn, entry)
                                 if cursor.rowcount == 0:
                                     # Conflict, read existing row's stable ID
                                     cursor = conn.execute(
-                                        "SELECT id FROM history_entries WHERE session_id = ? AND segment_id = ?",
-                                        (entry.session_id, entry.segment_id)
+                                        "SELECT id FROM history_entries WHERE protocol_version = ? AND session_id = ? AND segment_id = ?",
+                                        (entry.protocol_version, entry.session_id, str(entry.segment_id))
                                     )
                                     row = cursor.fetchone()
                                     if row:
@@ -581,7 +735,9 @@ class TranscriptHistoryManager:
             if retention_days > 0:
                 cutoff = time.time() - (retention_days * 86400)
                 with self._db_session() as conn:
-                    cursor = conn.execute("DELETE FROM history_entries WHERE timestamp < ?", (cutoff,))
+                    cursor = conn.execute("""DELETE FROM history_entries WHERE timestamp < ?
+                        AND NOT EXISTS (SELECT 1 FROM injection_attempts
+                            WHERE entry_id=history_entries.id AND status='pending')""", (cutoff,))
                     if cursor.rowcount > 0:
                         logger.info("Deleted %d expired history entries.", cursor.rowcount)
  
@@ -591,7 +747,9 @@ class TranscriptHistoryManager:
                 with self._db_session() as conn:
                     # SQLite delete with subquery
                     cursor = conn.execute("""
-                        DELETE FROM history_entries WHERE id NOT IN (
+                        DELETE FROM history_entries WHERE NOT EXISTS (
+                            SELECT 1 FROM injection_attempts WHERE entry_id=history_entries.id AND status='pending'
+                        ) AND id NOT IN (
                             SELECT id FROM (
                                 SELECT id FROM history_entries ORDER BY timestamp DESC LIMIT ?
                             )
@@ -688,12 +846,13 @@ class TranscriptHistoryManager:
                             status=att_row["status"],
                             error=att_row["error"],
                             timestamp=att_row["timestamp"],
+                            source=att_row["source"],
                         ))
 
                     entries.append(HistoryEntry(
                         id=row["id"],
                         session_id=row["session_id"],
-                        segment_id=row["segment_id"],
+                        **self._entry_fields(row),
                         timestamp=row["timestamp"],
                         text=row["text"],
                         text_length=row["text_length"],

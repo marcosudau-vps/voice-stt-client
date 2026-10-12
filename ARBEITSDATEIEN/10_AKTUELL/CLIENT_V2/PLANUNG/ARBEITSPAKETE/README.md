@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-040 sind **ACCEPTED** (AP040 kanonischer Commit `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`, [Abschlussbeleg](../../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json)). AP-CV2-050: **ROOT_PASS** / WAITING_FOR_APPROVAL nach [unabhängiger R02-Abnahme](../../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md) auf `55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a`; 1397 Windows-/297 gezielte/79 Server-/16 native Prüfungen als Fremdbelege unabhängig kontrolliert. Nächste Aktion ausdrückliche menschliche Übernahmefreigabe zu PR #7; kein Merge/AP060-Start ohne Freigabe. Spätere Pakete PLANNED.
+AP-CV2-000 bis AP-CV2-050 sind **ACCEPTED**, zuletzt AP050 ce95c66. AP-CV2-060: **ROOT_PASS / READY_FOR_CANONICALIZATION** nach R04; R02-Finding `CV2-060-R02-F01` unabhängig geschlossen. [R04-Abnahme](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md), [R03-Korrektur](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md). **Nächste Aktion:** nach erneuter Head-CI den ausdrücklich freigegebenen Squash-Merge PR8 ausführen; kein AP070 ohne Folgeauftrag. Spätere Pakete PLANNED.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |
@@ -26,4 +26,17 @@ Jede Paketdatei enthält Ziel, fachliche Ownership, Eingangsvoraussetzungen, ein
 
 Die Ausführung erfolgt streng seriell. Fachlaufzahlen und Teilung stehen in jeder AP-Datei sowie im [Umfangsmodell](../REFERENZ/PLANUNG/UMFANG_UND_AGENTENLAEUFE.md). Jedes Paket wird unabhängig geprüft; erst ROOT PASS und die gesicherte kanonische Aggregateübernahme geben den nächsten Start frei. [Agentenregelwerk](../REFERENZ/GOVERNANCE/AGENTEN_REGELWERK.md).
 
-[PR #7](https://github.com/marcosudau-vps/voice-stt-client/pull/7) gegen feat/client-v2. Vollständiger qualifizierter Umsetzungscommit `ee1f1a7bb0a55112b61a3cab9c34be561aae274e`, Tree `f1613cb4ecf3292e6442f38c4704162b940c5fea`. Nachfolgende PR-Verweise rein administrativ; finale eingereichte Spitze steht SHA-/Tree-genau in aktueller PR-Beschreibung und finaler Übergabe.
+
+Aktuelle AP060-Kandidatenidentität und PR werden bei vollständiger Abgabe in Paketakte und PR-Beschreibung angegeben.
+
+
+[PR #8](https://github.com/marcosudau-vps/voice-stt-client/pull/8) gegen feat/client-v2. Früherer vor CI-Selbstkorrektur qualifizierter Umsetzungscommit `66b6e39daa86855ae1314025bc06344eb55f7d39`, Tree `fbe3931c3b68efa510bee1e35db4b77ad7a83f27`. Nachfolgende Veröffentlichungsverweise sind rein administrativ; endgültige eingereichte SHA/Tree stehen in aktueller PR-Beschreibung und finaler Übergabe.
+
+
+Maßgeblich nach CI-Selbstkorrektur: aktuelles Windowsmanifest mit getesteter Basis 66f44e0 plus staged Pfadalias-Testkorrektur, vollständig neu qualifiziertem Testblob und allen 195 qualifizierten Produktblobs. Finale Kandidaten-SHA/Tree stehen in PR und Übergabe.
+
+
+Aktuell R03: F01-Dokumentnamen korrigiert; [Korrekturreport](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md). R04-ROOT_PASS erteilt; Produktqualifikation unverändert gültig, Übernahmefreigabe ausstehend.
+
+
+[AP060 R05 Freigabeoriginal und Übernahmeakte](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md): Konditionierte menschliche Mergefreigabe ist nach CI38276463113 gültig; rein administrativer Nachtrag muss vor Squash erneut CI-bestanden sein. Kein CANONICALIZED vor tatsächlichem Merge.

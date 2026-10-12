@@ -1,0 +1,12 @@
+test_actual_repeated_package_prefix_breaks_relative_link (tests.test_v2_work_records.WorkRecords.test_actual_repeated_package_prefix_breaks_relative_link) ... ok
+test_actual_stale_manifest_review_ready_after_changes_required (tests.test_v2_work_records.WorkRecords.test_actual_stale_manifest_review_ready_after_changes_required) ... ok
+test_encoded_relative_link_and_code_examples (tests.test_v2_work_records.WorkRecords.test_encoded_relative_link_and_code_examples) ... ok
+test_missing_referenced_original_prompt_fails (tests.test_v2_work_records.WorkRecords.test_missing_referenced_original_prompt_fails) ... ok
+test_optional_pr_summary_must_match (tests.test_v2_work_records.WorkRecords.test_optional_pr_summary_must_match) ... ok
+test_package_header_and_index_must_match_active_state (tests.test_v2_work_records.WorkRecords.test_package_header_and_index_must_match_active_state) ... ok
+test_valid_different_packages_and_statuses_preserve_historical_verdict (tests.test_v2_work_records.WorkRecords.test_valid_different_packages_and_statuses_preserve_historical_verdict) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.469s
+
+OK

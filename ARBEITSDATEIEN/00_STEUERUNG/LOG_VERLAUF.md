@@ -2129,3 +2129,28 @@ Von AP020-Aggregat8fa0f82 nach belegtem unabhängigen PASS, menschlicher Freigab
 ## AP-CV2-050-R01 – 2026-10-12 – Controls/Runpausen/Win32 / REVIEW_READY
 
 Nach tatsächlicher AP040-Übernahme (PR6, PASS/Freigabe/Singleparent/Baumgleichheit belegt) von 4eb1161 umgesetzt: quellenneutraler Controlservice, ursprüngliche IDbindung, vollständige getrennte Runpausen und atomare Win32rollenregistrierung.1397 Windowsgesamttests,297 gezielte Tests,79 echte Serverchecks/46 Quellblobs,16 native Windowschecks, compileall/diffcheck PASS. Alle14 Requirements einzeln belegt. [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/01_REPORT.md). Unabhängige Abnahme offen; Schreiben ab Übergabe pausiert, keine kanonische Übernahme oder Folgepaketimplementierung.
+
+
+## AP-CV2-060-R01 – 2026-10-12 – Final-Pipeline/Historymigration / REVIEW_READY
+
+Von AP050-Aggregat ce95c66 nach belegtem PASS/Freigabe/Singleparent/Baumgleichheit umgesetzt: UUID-Herkunft, unabhängiger Prozessdedup, transaktionale V1-Migration/Backup/Rollback und reservierte automatische/manuelle Ausgabe mit Crashstatus unknown. 1426 Windowsgesamttests, 323 gezielte Tests, 19 echte Serverchecks/46 Quellblobs, compileall/diffcheck PASS. Alle13 RESULT-Requirements einzeln belegt. CI-Pfadaliasfehler in neuer Backupfixture vor endgültiger Übergabe reproduziert/korrigiert und sämtliche Qualifikationschecks mit neuem Testblob wiederholt. [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md). Unabhängige Abnahme offen; Schreiben ab Übergabe pausiert, keine kanonische Übernahme oder Folgepaketimplementierung.
+
+
+## AP-CV2-060-R02 – 2026-10-12 – unabhängige Abnahme CHANGES_REQUIRED
+
+PR #8 Kandidat `33fef1d892917030100c0583566367f49fff14eb`, Tree `b725d2e467a479de8ce778646eebbe71a4ec67b5`, Parent ce95c66 und Server ada13b0 geprüft. 1426 Windows-Tests, 323 gezielte Tests, 19 echte Serverchecks und finale CI38268881303 als gültige extern durchgeführte Belege bestätigt. Ein Pflichtfinding `CV2-060-R02-F01`: API-Dokumentation nennt `ClientController.attach_v2_results`, tatsächlich implementiert ist `STTController.attach_v2_results`. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R02-ABNAHME/01_REPORT.md). Keine Produktänderung oder Merge; Docfix und unabhängiger Recheck erforderlich.
+
+
+## AP-CV2-060-R03 – 2026-10-12 – API-Dokumentnamen / REVIEW_READY
+
+Reviewunterlagen ad10869 übernommen. Berechtigtes F01 reproduziert und ausschließlich ClientController → STTController in öffentlicher API korrigiert. Alle195 Produkt-/Test-/Configblobs und Pflichtloghashes unverändert, Docdiff/Kriterien-/Aktenprüfung PASS. Neue lokale Vollsuite NOT_RUN gemäß ausdrücklicher R02-Regel. [R03-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md). Erneute unabhängige Nachprüfung, kein Eigen-PASS/Merge/AP070; Schreiben ab Übergabe pausiert.
+
+
+## AP-CV2-060-R04 – 2026-10-12 – unabhängige Nachabnahme ROOT_PASS
+
+PR #8 am Kandidaten `1d81bb0230cfc5a099b7870488f6b42cd4735d5a` (Tree `f3342625d63ec0c296d62d03decb54ea93fd983b`, Parent ce95c66, Server ada13b0) geprüft. R02-Pflichtfinding `CV2-060-R02-F01` zur öffentlichen Controllerklasse durch R03-Einzeilen-Dokumentkorrektur unabhängig geschlossen. Von R02 bis R03 ausschließlich Dokument-/administrative Änderungen, keine Produkt-/Test-/Config-/Vertragsänderungen. R01-Windows 1426 / targeted 323 / gepinnter Servercheckpoint19 sowie alle 195 qualifizierten Produktblobs als gültige externe Belege unabhängig geprüft; eigene Windows-Wiederholung NOT_RUN (regelkonform). GitHub CI38274673106 am exakten Kandidaten mit kompletter Suite, EXE, Wheel und Smokes SUCCESS. Alle13 RESULT-Requirements ROOT_PASS; keine offenen Pflichtfindings. [R04-Bericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md). Workflow WAITING_FOR_APPROVAL; kein Merge oder AP070 ohne menschlichen Prompt.
+
+
+## AP-CV2-060-R05 – 2026-10-12 – ausdrückliche konditionierte Mergefreigabe
+
+Menschlicher Originalauftrag sichergestellt: „Nach erfolgreicher CI wird die Freigabe zun Merge von PR #8, Arbeitspaket AP-CV2-060 erteilt. Bitte führe den Merge durch.“ [R05-Original](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md), [R05-Vorprüfung](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R05-UEBERNAHME/01_REPORT.md). Technischer R04-ROOT_PASS, Base ce95c66 und CI38276463113 SUCCESS auf `8eb26bae17b46651014d28183f5a9135f36b72af`. Workflow READY_FOR_CANONICALIZATION. Vor Durchführung des genau einen GitHub-Squash erneute CI/Head/Base-/Admin-Diff-Gates prüfen. Kein bereits erfolgter Merge, kein AP070.

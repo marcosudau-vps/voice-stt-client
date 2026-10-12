@@ -241,7 +241,9 @@ class TranscriptReinsertionService:
 
         try:
             entry_copy = copy.deepcopy(entry)
-            accepted = self.injection_queue.enqueue(entry_copy)
+            manual_enqueue = getattr(self.injection_queue, 'enqueue_manual', None)
+            accepted = (manual_enqueue(entry_copy) if manual_enqueue
+                        else self.injection_queue.enqueue(entry_copy))
         except Exception as ex:
             logger.exception("Unexpected exception during enqueue for entry %s: %s", entry.id, ex)
             try:

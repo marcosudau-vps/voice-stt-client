@@ -1,3 +1,7 @@
+# Historymigration AP-CV2-060, 2026-10-12
+
+History migriert V1-Integersegmente transaktional nach Schema2 mit TEXT-/Protokoll-/UUID-Herkunft, vorherigem SQLite-Backup und unveränderten Legacy-IDs/Attempts. Pendinginjektion wird nach Crash unknown; keine automatische Wiederholung. [API, Datenmigration und Grenzen](protocol-v2-results.md). Persistierte Konfigurationsmigration bleibt AP070, Appkomposition AP100.
+
 # Transportergänzung AP-CV2-020, 2026-10-12
 
 V2STTSession verwendet `/ws/v2`; explizite Legacy-URLs bleiben erhalten und werden über typed BLOCKED/legacy_endpoint_requires_migration sichtbar. Keine Profilschreiboperation, kein stiller Hostwechsel. [Transportvertrag](protocol-v2-transport.md). Bestehende Appkomposition wird in CV2-100 umgestellt; allgemeine persistierte Konfigmigration bleibt CV2-070.

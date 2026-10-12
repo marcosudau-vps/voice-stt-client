@@ -1,0 +1,143 @@
+test_real_process_crash_at_five_boundaries_never_auto_reinjects (tests.test_v2_results.CrashRecovery.test_real_process_crash_at_five_boundaries_never_auto_reinjects) ... ok
+test_future_schema_is_preserved (tests.test_v2_results.Migration.test_future_schema_is_preserved) ... ERROR
+test_mid_migration_ddl_failure_rolls_back_and_retry_uses_backup (tests.test_v2_results.Migration.test_mid_migration_ddl_failure_rolls_back_and_retry_uses_backup) ... ERROR
+test_uuid_origin_unique_and_fk_survive_reopen (tests.test_v2_results.Migration.test_uuid_origin_unique_and_fk_survive_reopen) ... ERROR
+test_v1_backup_ids_attempts_origin_and_second_start_idempotent (tests.test_v2_results.Migration.test_v1_backup_ids_attempts_origin_and_second_start_idempotent) ... FAIL
+test_v1_backup_ids_attempts_origin_and_second_start_idempotent (tests.test_v2_results.Migration.test_v1_backup_ids_attempts_origin_and_second_start_idempotent) ... ERROR
+test_cancel_disconnect_and_recovery_preserve_published_text (tests.test_v2_results.Results.test_cancel_disconnect_and_recovery_preserve_published_text) ... ok
+test_cancelled_activation_unpublished_final_is_suppressed (tests.test_v2_results.Results.test_cancelled_activation_unpublished_final_is_suppressed) ... ok
+test_clipboard_failure_does_not_block_later_segment (tests.test_v2_results.Results.test_clipboard_failure_does_not_block_later_segment) ... ok
+test_concurrent_reduction_delivery_and_eviction_do_not_repeat_effect (tests.test_v2_results.Results.test_concurrent_reduction_delivery_and_eviction_do_not_repeat_effect) ... ok
+test_delayed_A_final_during_B_keeps_every_origin_and_pastes_once (tests.test_v2_results.Results.test_delayed_A_final_during_B_keeps_every_origin_and_pastes_once) ... ok
+test_first_discard_failed_empty_then_completed_and_late_interim_never_paste (tests.test_v2_results.Results.test_first_discard_failed_empty_then_completed_and_late_interim_never_paste) ... ok
+test_gap_salvage_publication_order_and_snapshot_never_infers_text (tests.test_v2_results.Results.test_gap_salvage_publication_order_and_snapshot_never_infers_text) ... ok
+test_history_off_keeps_process_dedup_and_outputs (tests.test_v2_results.Results.test_history_off_keeps_process_dedup_and_outputs) ... ok
+test_identical_texts_different_segments_are_not_deduplicated (tests.test_v2_results.Results.test_identical_texts_different_segments_are_not_deduplicated) ... ok
+test_interim_stable_fields_have_no_history_reservation_or_clipboard_effect (tests.test_v2_results.Results.test_interim_stable_fields_have_no_history_reservation_or_clipboard_effect) ... ok
+test_queue_unavailable_and_service_close_have_no_external_effect (tests.test_v2_results.Results.test_queue_unavailable_and_service_close_have_no_external_effect) ... ok
+test_reinsert_has_separate_manual_attempt_and_clipboard_restore (tests.test_v2_results.Results.test_reinsert_has_separate_manual_attempt_and_clipboard_restore) ... FAIL
+test_reservation_committed_before_clipboard_and_send_input (tests.test_v2_results.Results.test_reservation_committed_before_clipboard_and_send_input) ... ok
+test_sqlite_outcome_failure_unknown_and_no_retry (tests.test_v2_results.Results.test_sqlite_outcome_failure_unknown_and_no_retry) ... ok
+test_sqlite_reservation_failure_is_visible_no_paste_mirror_keeps_running (tests.test_v2_results.Results.test_sqlite_reservation_failure_is_visible_no_paste_mirror_keeps_running) ... ok
+test_wrong_session_or_forged_identity_cannot_reach_output (tests.test_v2_results.Results.test_wrong_session_or_forged_identity_cannot_reach_output) ... Ignoring final without an authoritative segment identity
+ok
+
+======================================================================
+ERROR: test_future_schema_is_preserved (tests.test_v2_results.Migration.test_future_schema_is_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] Der Prozess kann nicht auf die Datei zugreifen, da sie von einem anderen Prozess verwendet wird: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmp7i7ixbw1\\history.sqlite'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 954, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 909, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] Der Prozess kann nicht auf die Datei zugreifen, da sie von einem anderen Prozess verwendet wird: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmp7i7ixbw1\\history.sqlite'
+
+======================================================================
+ERROR: test_mid_migration_ddl_failure_rolls_back_and_retry_uses_backup (tests.test_v2_results.Migration.test_mid_migration_ddl_failure_rolls_back_and_retry_uses_backup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] Der Prozess kann nicht auf die Datei zugreifen, da sie von einem anderen Prozess verwendet wird: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmphe38ikeu\\history.sqlite'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 954, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 909, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] Der Prozess kann nicht auf die Datei zugreifen, da sie von einem anderen Prozess verwendet wird: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmphe38ikeu\\history.sqlite'
+
+======================================================================
+ERROR: test_uuid_origin_unique_and_fk_survive_reopen (tests.test_v2_results.Migration.test_uuid_origin_unique_and_fk_survive_reopen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] Der Prozess kann nicht auf die Datei zugreifen, da sie von einem anderen Prozess verwendet wird: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmpvp5yku_i\\history.sqlite'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 954, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 909, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] Der Prozess kann nicht auf die Datei zugreifen, da sie von einem anderen Prozess verwendet wird: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmpvp5yku_i\\history.sqlite'
+
+======================================================================
+ERROR: test_v1_backup_ids_attempts_origin_and_second_start_idempotent (tests.test_v2_results.Migration.test_v1_backup_ids_attempts_origin_and_second_start_idempotent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] Der Prozess kann nicht auf die Datei zugreifen, da sie von einem anderen Prozess verwendet wird: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmp8l46hh1e\\history.sqlite'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 954, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 934, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\tempfile.py", line 909, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] Der Prozess kann nicht auf die Datei zugreifen, da sie von einem anderen Prozess verwendet wird: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmp8l46hh1e\\history.sqlite'
+
+======================================================================
+FAIL: test_v1_backup_ids_attempts_origin_and_second_start_idempotent (tests.test_v2_results.Migration.test_v1_backup_ids_attempts_origin_and_second_start_idempotent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_results.py", line 60, in test_v1_backup_ids_attempts_origin_and_second_start_idempotent
+    self.assertEqual(backup.read_bytes(), original)
+AssertionError: b'SQL[49 chars]00\x01\x00\x00\x00\x06\x00\x00\x00\x00\x00\x00[95825 chars]empt' != b'SQL[49 chars]00\x04\x00\x00\x00\x06\x00\x00\x00\x00\x00\x00[95825 chars]empt'
+
+======================================================================
+FAIL: test_reinsert_has_separate_manual_attempt_and_clipboard_restore (tests.test_v2_results.Results.test_reinsert_has_separate_manual_attempt_and_clipboard_restore)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_results.py", line 271, in test_reinsert_has_separate_manual_attempt_and_clipboard_restore
+    self.assertEqual(self.backend.clipboard_data,'backup')
+AssertionError: 'automatic' != 'backup'
+- automatic
++ backup
+
+
+----------------------------------------------------------------------
+Ran 21 tests in 4.331s
+
+FAILED (failures=2, errors=4)

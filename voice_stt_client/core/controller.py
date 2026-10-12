@@ -144,12 +144,17 @@ class FinalProcessingResult:
 
     status: FinalProcessingStatus
     session_id: Optional[str] = None
-    segment_id: Optional[int] = None
+    segment_id: int | str | None = None
     text: Optional[str] = None
     entry_id: Optional[str] = None
     reason: Optional[str] = None
     error: Optional[str] = None
     is_conflict: bool = False
+    activation_id: str | None = None
+    segment_sequence: int | None = None
+    event_id: str | None = None
+    event_seq: int | None = None
+    generation: int | None = None
 
 
 @dataclass(frozen=True)
@@ -1760,6 +1765,8 @@ class STTController:
                 announce_shutdown = True
 
         if announce_shutdown:
+            if getattr(self, 'v2_results', None) is not None:
+                self.v2_results.close()
             self._update_availability(
                 AvailabilityState.SHUTTING_DOWN,
                 "shutting_down",
@@ -1874,6 +1881,31 @@ class STTController:
     # -------------------------------------------------------------------
     # Event Router & Final Processing
     # -------------------------------------------------------------------
+
+    def attach_v2_results(self, connection):
+        """Attach once before V2 admission; app composition belongs to AP100.
+
+        This port bypasses the legacy cancel/final handler. Only authoritative
+        mirror results reach history/output, never event-stream replay.
+        """
+        from voice_stt_client.core.final_results import V2ResultService
+        if getattr(self, 'v2_results', None) is not None:
+            raise RuntimeError('V2 results already attached')
+        service = V2ResultService(self.history, self.queue, connection)
+
+        def publish(outcome):
+            if outcome.status == 'empty':
+                return
+            final = outcome.final
+            self._emit_final_result(FinalProcessingResult(
+                FinalProcessingStatus(outcome.status), final.session_id, final.segment_id,
+                final.text, outcome.entry_id, outcome.reason, is_conflict=outcome.is_conflict,
+                activation_id=final.activation_id, segment_sequence=final.segment_sequence,
+                event_id=final.event_id, event_seq=final.event_seq, generation=outcome.generation))
+
+        service.on_result = publish
+        self.v2_results = service
+        return service
 
     def handle_server_event(self, event_type: str, event_data: dict) -> Optional[FinalProcessingResult]:
         """

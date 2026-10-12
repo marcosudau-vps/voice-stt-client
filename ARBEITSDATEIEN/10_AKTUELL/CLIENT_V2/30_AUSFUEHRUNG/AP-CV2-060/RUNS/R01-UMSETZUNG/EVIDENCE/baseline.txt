@@ -1,0 +1,409 @@
+test_default_values_correctness (tests.test_history.TestHistoryConfig.test_default_values_correctness) ... ok
+test_nested_deserialization_and_defaults (tests.test_history.TestHistoryConfig.test_nested_deserialization_and_defaults) ... ok
+test_save_and_load_roundtrip (tests.test_history.TestHistoryConfig.test_save_and_load_roundtrip) ... ok
+test_add_entry_in_memory (tests.test_history.TestTranscriptHistoryManager.test_add_entry_in_memory) ... ok
+test_add_entry_with_status_new_and_already_exists (tests.test_history.TestTranscriptHistoryManager.test_add_entry_with_status_new_and_already_exists) ... ok
+test_age_based_cleanup (tests.test_history.TestTranscriptHistoryManager.test_age_based_cleanup) ... ok
+test_atomic_joint_persistence (tests.test_history.TestTranscriptHistoryManager.test_atomic_joint_persistence) ... ok
+test_corrupted_db_file_at_start (tests.test_history.TestTranscriptHistoryManager.test_corrupted_db_file_at_start) ... Failed to initialize SQLite database: file is not a database. Falling back to in-memory mode.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 165, in _init_db
+    conn.execute("""
+sqlite3.DatabaseError: file is not a database
+ok
+test_database_connections_are_closed (tests.test_history.TestTranscriptHistoryManager.test_database_connections_are_closed) ... ok
+test_database_error_handling (tests.test_history.TestTranscriptHistoryManager.test_database_error_handling) ... Failed to initialize SQLite database: [WinError 183] Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmp9du399aq\\parent_is_a_file'. Falling back to in-memory mode.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 162, in _init_db
+    self.db_path.parent.mkdir(parents=True, exist_ok=True)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileExistsError: [WinError 183] Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmp9du399aq\\parent_is_a_file'
+ok
+test_database_path_priorities (tests.test_history.TestTranscriptHistoryManager.test_database_path_priorities) ... ok
+test_db_error_after_init (tests.test_history.TestTranscriptHistoryManager.test_db_error_after_init) ... Failed to fetch entry from DB: Database connection lost
+Failed to save history entry to DB: Database connection lost
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 366, in _save_to_db
+    with self._db_session() as conn:
+         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 143, in _db_session
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_history.py", line 564, in faulty_connection
+    raise sqlite3.OperationalError("Database connection lost")
+sqlite3.OperationalError: Database connection lost
+Failed to check if parent exists in DB: Database connection lost
+Failed to save history entry and attempt atomar in DB: Database connection lost
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 535, in record_injection_attempt
+    with self._db_session() as conn:
+         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 143, in _db_session
+    conn = self._get_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_history.py", line 564, in faulty_connection
+    raise sqlite3.OperationalError("Database connection lost")
+sqlite3.OperationalError: Database connection lost
+ok
+test_db_lookup_does_not_modify_memory (tests.test_history.TestTranscriptHistoryManager.test_db_lookup_does_not_modify_memory) ... ok
+test_deduplication (tests.test_history.TestTranscriptHistoryManager.test_deduplication) ... ok
+test_deduplication_after_in_memory_rotation (tests.test_history.TestTranscriptHistoryManager.test_deduplication_after_in_memory_rotation) ... ok
+test_default_db_path_outside_repo (tests.test_history.TestTranscriptHistoryManager.test_default_db_path_outside_repo) ... ok
+test_defensive_copies (tests.test_history.TestTranscriptHistoryManager.test_defensive_copies) ... ok
+test_disabled_history (tests.test_history.TestTranscriptHistoryManager.test_disabled_history) ... ok
+test_failed_injection_triggers_persistence (tests.test_history.TestTranscriptHistoryManager.test_failed_injection_triggers_persistence) ... ok
+test_get_entries_chronological_ordering (tests.test_history.TestTranscriptHistoryManager.test_get_entries_chronological_ordering) ... ok
+test_in_memory_limit (tests.test_history.TestTranscriptHistoryManager.test_in_memory_limit) ... ok
+test_locked_write_operation (tests.test_history.TestTranscriptHistoryManager.test_locked_write_operation) ... Failed to save history entry to DB: database is locked
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 367, in _save_to_db
+    cursor = conn.execute("""
+             ^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_history.py", line 592, in execute
+    raise sqlite3.OperationalError("database is locked")
+sqlite3.OperationalError: database is locked
+ok
+test_persistent_limit (tests.test_history.TestTranscriptHistoryManager.test_persistent_limit) ... ok
+test_persistent_min_characters (tests.test_history.TestTranscriptHistoryManager.test_persistent_min_characters) ... ok
+test_persistent_unlimited_and_no_retention (tests.test_history.TestTranscriptHistoryManager.test_persistent_unlimited_and_no_retention) ... ok
+test_record_injection_attempts (tests.test_history.TestTranscriptHistoryManager.test_record_injection_attempts) ... ok
+test_reloading_on_restart (tests.test_history.TestTranscriptHistoryManager.test_reloading_on_restart) ... ok
+test_stable_id_on_conflict (tests.test_history.TestTranscriptHistoryManager.test_stable_id_on_conflict) ... ok
+test_status_validation (tests.test_history.TestTranscriptHistoryManager.test_status_validation) ... ok
+test_unlimited_in_memory (tests.test_history.TestTranscriptHistoryManager.test_unlimited_in_memory) ... ok
+test_clipboard_close_guarantees_on_exceptions (tests.test_text_injector.TestTextInjector.test_clipboard_close_guarantees_on_exceptions) ... Failed to backup clipboard content (non-fatal): Format check exception simulated
+Failed to write transcript text to clipboard: Empty clipboard exception simulated
+Failed to restore previous clipboard content: Empty exception in restore
+ok
+test_clipboard_open_retry_fail (tests.test_text_injector.TestTextInjector.test_clipboard_open_retry_fail) ... Failed to write transcript text to clipboard: Could not open clipboard after maximum retries.
+ok
+test_clipboard_open_retry_success (tests.test_text_injector.TestTextInjector.test_clipboard_open_retry_success) ... ok
+test_config_nested_deserialization (tests.test_text_injector.TestTextInjector.test_config_nested_deserialization) ... ok
+test_config_save_load_roundtrip (tests.test_text_injector.TestTextInjector.test_config_save_load_roundtrip) ... ok
+test_empty_text_skipped (tests.test_text_injector.TestTextInjector.test_empty_text_skipped) ... ok
+test_enqueue_before_start_rejected (tests.test_text_injector.TestTextInjector.test_enqueue_before_start_rejected) ... Queue is not running (state=NEW). Rejecting entry 46882d6618cc413caf62dc4d3a58d9d1
+ok
+test_enqueue_copies_data (tests.test_text_injector.TestTextInjector.test_enqueue_copies_data) ... ok
+test_error_in_job_does_not_kill_worker (tests.test_text_injector.TestTextInjector.test_error_in_job_does_not_kill_worker) ... Failed to write transcript text to clipboard: Clipboard error simulated
+ok
+test_failed_write_restores_backup (tests.test_text_injector.TestTextInjector.test_failed_write_restores_backup) ... ok
+test_fifo_and_single_active_job (tests.test_text_injector.TestTextInjector.test_fifo_and_single_active_job) ... ok
+test_foreground_and_send_input_order (tests.test_text_injector.TestTextInjector.test_foreground_and_send_input_order) ... ok
+test_foreground_window_timing (tests.test_text_injector.TestTextInjector.test_foreground_window_timing) ... ok
+test_guarantees_exactly_one_history_attempt (tests.test_text_injector.TestTextInjector.test_guarantees_exactly_one_history_attempt) ... Failed to restore previous clipboard content: Sequence number exception simulated
+Failed to restore previous clipboard content: Sequence number exception simulated
+SendInput encountered error: SendInput exception simulated
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\text_injector.py", line 739, in _process_job
+    sent_count = self.backend.send_input_keyboard(events)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 151, in send_input_keyboard
+    raise RuntimeError("SendInput exception simulated")
+RuntimeError: SendInput exception simulated
+Failed to restore previous clipboard content: Sequence number exception simulated
+ok
+test_hwnd_zero_skipped (tests.test_text_injector.TestTextInjector.test_hwnd_zero_skipped) ... ok
+test_init_fail_closed_owner_none (tests.test_text_injector.TestTextInjector.test_init_fail_closed_owner_none) ... Failed to initialize worker thread: CreateWindowExW exception simulated
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\text_injector.py", line 550, in _worker_loop
+    self.backend.create_owner_window()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 76, in create_owner_window
+    raise RuntimeError("CreateWindowExW exception simulated")
+RuntimeError: CreateWindowExW exception simulated
+Queue is not running (state=STOPPED). Rejecting entry ce668a0b9a5e4d7da8911f8b3c9ac55e
+ok
+test_init_owner_window_zero_fails (tests.test_text_injector.TestTextInjector.test_init_owner_window_zero_fails) ... Failed to initialize worker thread: Clipboard owner window creation returned invalid HWND 0.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\text_injector.py", line 553, in _worker_loop
+    raise OSError("Clipboard owner window creation returned invalid HWND 0.")
+OSError: Clipboard owner window creation returned invalid HWND 0.
+Queue is not running (state=STOPPED). Rejecting entry 796559b86d424a4881b7182221c04b39
+ok
+test_job_processed_after_failure (tests.test_text_injector.TestTextInjector.test_job_processed_after_failure) ... ok
+test_multiple_start_single_worker (tests.test_text_injector.TestTextInjector.test_multiple_start_single_worker) ... ok
+test_no_forbidden_win32_calls (tests.test_text_injector.TestTextInjector.test_no_forbidden_win32_calls) ... ok
+test_no_new_jobs_accepted_after_stop (tests.test_text_injector.TestTextInjector.test_no_new_jobs_accepted_after_stop) ... Queue is not running (state=STOPPED). Rejecting entry 96963914d346447cafe688af984a309f
+ok
+test_parallel_start_calls_init_failure (tests.test_text_injector.TestTextInjector.test_parallel_start_calls_init_failure) ... Failed to initialize worker thread: CreateWindowExW exception simulated
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\text_injector.py", line 550, in _worker_loop
+    self.backend.create_owner_window()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 983, in blocking_failing_create
+    original_create()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 76, in create_owner_window
+    raise RuntimeError("CreateWindowExW exception simulated")
+RuntimeError: CreateWindowExW exception simulated
+ok
+test_parallel_start_calls_single_worker (tests.test_text_injector.TestTextInjector.test_parallel_start_calls_single_worker) ... ok
+test_queue_size_excludes_sentinel (tests.test_text_injector.TestTextInjector.test_queue_size_excludes_sentinel) ... Worker thread join timed out after 0.01 seconds.
+ok
+test_queue_state_retains_stopping_until_worker_end (tests.test_text_injector.TestTextInjector.test_queue_state_retains_stopping_until_worker_end) ... Worker thread join timed out after 0.01 seconds.
+ok
+test_restore_failure_does_not_change_status (tests.test_text_injector.TestTextInjector.test_restore_failure_does_not_change_status) ... Failed to restore previous clipboard content: Failed to restore clipboard connection
+ok
+test_restore_max_bytes_exceeded (tests.test_text_injector.TestTextInjector.test_restore_max_bytes_exceeded) ... ok
+test_restore_previous_false (tests.test_text_injector.TestTextInjector.test_restore_previous_false) ... ok
+test_restore_previous_true_success (tests.test_text_injector.TestTextInjector.test_restore_previous_true_success) ... ok
+test_send_input_failure (tests.test_text_injector.TestTextInjector.test_send_input_failure) ... ok
+test_send_input_success_attempt (tests.test_text_injector.TestTextInjector.test_send_input_success_attempt) ... ok
+test_sequence_number_prevents_restore (tests.test_text_injector.TestTextInjector.test_sequence_number_prevents_restore) ... ok
+test_sequential_start_idempotent (tests.test_text_injector.TestTextInjector.test_sequential_start_idempotent) ... ok
+test_start_idempotency (tests.test_text_injector.TestTextInjector.test_start_idempotency) ... ok
+test_start_waits_for_init_cleanup_completion (tests.test_text_injector.TestTextInjector.test_start_waits_for_init_cleanup_completion) ... Failed to initialize worker thread: CreateWindowExW exception simulated
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\text_injector.py", line 550, in _worker_loop
+    self.backend.create_owner_window()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 76, in create_owner_window
+    raise RuntimeError("CreateWindowExW exception simulated")
+RuntimeError: CreateWindowExW exception simulated
+Queue is not running (state=STOPPED). Rejecting entry 30f0a04e204b4b6a9bcea94701c92a5a
+ok
+test_stop_drains_queue (tests.test_text_injector.TestTextInjector.test_stop_drains_queue) ... Worker thread join timed out after 0.05 seconds.
+ok
+test_stop_during_initializing (tests.test_text_injector.TestTextInjector.test_stop_during_initializing) ... Queue is not running (state=STOPPED). Rejecting entry 19c113f8542341858fcb6b4bd58a2e62
+ok
+test_stop_idempotency (tests.test_text_injector.TestTextInjector.test_stop_idempotency) ... ok
+test_unicode_support (tests.test_text_injector.TestTextInjector.test_unicode_support) ... ok
+test_valid_clipboard_owner (tests.test_text_injector.TestTextInjector.test_valid_clipboard_owner) ... ok
+test_win32_structure_sizes (tests.test_text_injector.TestTextInjector.test_win32_structure_sizes) ... ok
+test_both_sources_failing_returns_failed (tests.test_reinsertion.TestTranscriptReinsertionService.test_both_sources_failing_returns_failed) ... Failed to read memory history entries (will try persistent fallback): Simulated memory history failure
+Failed to query persistent transcript history: Simulated persistent history failure
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\reinsertion.py", line 142, in reinsert_last
+    persistent_entries = self.history_manager.get_persistent_entries()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_reinsertion.py", line 50, in get_persistent_entries
+    raise RuntimeError("Simulated persistent history failure")
+RuntimeError: Simulated persistent history failure
+ok
+test_concurrent_reinsert_calls_no_duplicate_entries (tests.test_reinsertion.TestTranscriptReinsertionService.test_concurrent_reinsert_calls_no_duplicate_entries) ... ok
+test_empty_memory_reinsert_last_calls_persistent_fallback (tests.test_reinsertion.TestTranscriptReinsertionService.test_empty_memory_reinsert_last_calls_persistent_fallback) ... ok
+test_get_recent_entries_deduplication_and_memory_preference (tests.test_reinsertion.TestTranscriptReinsertionService.test_get_recent_entries_deduplication_and_memory_preference) ... ok
+test_get_recent_entries_limits_and_defensive_copies (tests.test_reinsertion.TestTranscriptReinsertionService.test_get_recent_entries_limits_and_defensive_copies) ... ok
+test_get_recent_entries_returns_immutable_tuple (tests.test_reinsertion.TestTranscriptReinsertionService.test_get_recent_entries_returns_immutable_tuple) ... ok
+test_get_recent_entries_single_source_failure_resilience (tests.test_reinsertion.TestTranscriptReinsertionService.test_get_recent_entries_single_source_failure_resilience) ... Failed to read memory entries in get_recent_entries: Simulated memory history failure
+Failed to read persistent entries in get_recent_entries: Simulated persistent history failure
+Failed to read memory entries in get_recent_entries: Simulated memory history failure
+Failed to read persistent entries in get_recent_entries: Simulated persistent history failure
+Both memory and persistent history queries failed in get_recent_entries.
+ok
+test_history_attempt_logging_failure_non_fatal (tests.test_reinsertion.TestTranscriptReinsertionService.test_history_attempt_logging_failure_non_fatal) ... Reinsertion rejected: TextInjectionQueue unavailable for entry id_1
+Failed to log injection attempt for entry id_1: Simulated record attempt failure
+ok
+test_identical_timestamps_deterministic_selection (tests.test_reinsertion.TestTranscriptReinsertionService.test_identical_timestamps_deterministic_selection) ... ok
+test_integration_multiple_attempts_accumulate_with_real_components (tests.test_reinsertion.TestTranscriptReinsertionService.test_integration_multiple_attempts_accumulate_with_real_components) ... ok
+test_invalid_entry_id_rejected (tests.test_reinsertion.TestTranscriptReinsertionService.test_invalid_entry_id_rejected) ... reinsert_entry called with invalid entry_id: ''
+reinsert_entry called with invalid entry_id: '   '
+ok
+test_memory_error_uses_persistent_fallback (tests.test_reinsertion.TestTranscriptReinsertionService.test_memory_error_uses_persistent_fallback) ... Failed to read memory history entries (will try persistent fallback): Simulated memory history failure
+ok
+test_memory_first_reinsert_entry_does_not_call_persistent (tests.test_reinsertion.TestTranscriptReinsertionService.test_memory_first_reinsert_entry_does_not_call_persistent) ... ok
+test_memory_first_reinsert_last_does_not_call_persistent (tests.test_reinsertion.TestTranscriptReinsertionService.test_memory_first_reinsert_last_does_not_call_persistent) ... ok
+test_missing_memory_reinsert_entry_calls_persistent_fallback (tests.test_reinsertion.TestTranscriptReinsertionService.test_missing_memory_reinsert_entry_calls_persistent_fallback) ... ok
+test_no_transcript_text_logged (tests.test_reinsertion.TestTranscriptReinsertionService.test_no_transcript_text_logged) ... ok
+test_persistent_error_does_not_affect_memory_hit (tests.test_reinsertion.TestTranscriptReinsertionService.test_persistent_error_does_not_affect_memory_hit) ... ok
+test_queue_exception_returns_failed_failed_attempt (tests.test_reinsertion.TestTranscriptReinsertionService.test_queue_exception_returns_failed_failed_attempt) ... Unexpected exception during enqueue for entry id_1: Enqueue exception simulated
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\reinsertion.py", line 244, in _enqueue_entry
+    accepted = self.injection_queue.enqueue(entry_copy)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_reinsertion.py", line 86, in enqueue
+    raise RuntimeError("Enqueue exception simulated")
+RuntimeError: Enqueue exception simulated
+ok
+test_queue_rejected_returns_queue_unavailable_skipped_attempt (tests.test_reinsertion.TestTranscriptReinsertionService.test_queue_rejected_returns_queue_unavailable_skipped_attempt) ... Reinsertion rejected: TextInjectionQueue unavailable for entry id_1
+ok
+test_reinsert_does_not_create_new_history_entry (tests.test_reinsertion.TestTranscriptReinsertionService.test_reinsert_does_not_create_new_history_entry) ... ok
+test_reinsert_entry_memory_error_persistent_has_other_entry_returns_failed (tests.test_reinsertion.TestTranscriptReinsertionService.test_reinsert_entry_memory_error_persistent_has_other_entry_returns_failed) ... Failed to read memory history entries: Simulated memory history failure
+ok
+test_reinsert_last_empty_history (tests.test_reinsertion.TestTranscriptReinsertionService.test_reinsert_last_empty_history) ... ok
+test_reinsert_last_memory_error_persistent_empty_returns_failed (tests.test_reinsertion.TestTranscriptReinsertionService.test_reinsert_last_memory_error_persistent_empty_returns_failed) ... Failed to read memory history entries (will try persistent fallback): Simulated memory history failure
+ok
+test_reinsert_last_selects_youngest_entry (tests.test_reinsertion.TestTranscriptReinsertionService.test_reinsert_last_selects_youngest_entry) ... ok
+test_successful_enqueue_returns_queued_no_attempt_logged (tests.test_reinsertion.TestTranscriptReinsertionService.test_successful_enqueue_returns_queued_no_attempt_logged) ... ok
+test_unknown_entry_id_returns_not_found (tests.test_reinsertion.TestTranscriptReinsertionService.test_unknown_entry_id_returns_not_found) ... reinsert_entry requested for unknown entry_id: non_existent_id
+ok
+test_a_failing_reconnect_is_reported_rather_than_raised (tests.test_controller.TestMicrophoneMuteAndManualReconnect.test_a_failing_reconnect_is_reported_rather_than_raised) ... Manual server reconnect failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\controller.py", line 1260, in reconnect_server
+    await self.session.invalidate_connection("manual_reconnect")
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_controller.py", line 1968, in boom
+    raise OSError("no route to host")
+OSError: no route to host
+ok
+test_manual_reconnect_drops_the_connection_now (tests.test_controller.TestMicrophoneMuteAndManualReconnect.test_manual_reconnect_drops_the_connection_now) ... ok
+test_muting_stops_audio_leaving_the_client (tests.test_controller.TestMicrophoneMuteAndManualReconnect.test_muting_stops_audio_leaving_the_client) ... ok
+test_unmuting_returns_the_microphone (tests.test_controller.TestMicrophoneMuteAndManualReconnect.test_unmuting_returns_the_microphone) ... ok
+test_disconnect_while_starting_cannot_reactivate_dictation (tests.test_controller.TestSTTControllerAP05Hardening.test_disconnect_while_starting_cannot_reactivate_dictation) ... Dictation interrupted (reason: transport_loss).
+ok
+test_error_classes_produce_distinct_persistent_states (tests.test_controller.TestSTTControllerAP05Hardening.test_error_classes_produce_distinct_persistent_states) ... ok
+test_final_identity_cache_is_bounded (tests.test_controller.TestSTTControllerAP05Hardening.test_final_identity_cache_is_bounded) ... ok
+test_hello_prunes_old_session_reservations (tests.test_controller.TestSTTControllerAP05Hardening.test_hello_prunes_old_session_reservations) ... ok
+test_local_start_send_error_emits_specific_feedback (tests.test_controller.TestSTTControllerAP05Hardening.test_local_start_send_error_emits_specific_feedback) ... ok
+test_preexisting_listening_state_does_not_confirm_new_start (tests.test_controller.TestSTTControllerAP05Hardening.test_preexisting_listening_state_does_not_confirm_new_start) ... ok
+test_server_command_error_fails_start_without_reconnect_storm (tests.test_controller.TestSTTControllerAP05Hardening.test_server_command_error_fails_start_without_reconnect_storm) ... ok
+test_shutdown_publishes_shutting_down_then_stopped (tests.test_controller.TestSTTControllerAP05Hardening.test_shutdown_publishes_shutting_down_then_stopped) ... ok
+test_snapshot_revisions_cover_dictation_transitions (tests.test_controller.TestSTTControllerAP05Hardening.test_snapshot_revisions_cover_dictation_transitions) ... Dictation interrupted (reason: transport_loss).
+ok
+test_start_timeout_recycles_connection_without_stopping_loop (tests.test_controller.TestSTTControllerAP05Hardening.test_start_timeout_recycles_connection_without_stopping_loop) ... ok
+test_status_and_feedback_callback_errors_are_non_fatal (tests.test_controller.TestSTTControllerAP05Hardening.test_status_and_feedback_callback_errors_are_non_fatal) ... Error in on_snapshot_change callback.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\controller.py", line 548, in _publish_snapshot
+    self.on_snapshot_change(snapshot)
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_controller.py", line 1600, in fail_callback
+    raise RuntimeError("simulated UI callback failure")
+RuntimeError: simulated UI callback failure
+Error in on_feedback_event callback.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\controller.py", line 581, in _emit_feedback_event
+    self.on_feedback_event(event)
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_controller.py", line 1600, in fail_callback
+    raise RuntimeError("simulated UI callback failure")
+RuntimeError: simulated UI callback failure
+ok
+test_status_must_match_generation_and_session (tests.test_controller.TestSTTControllerAP05Hardening.test_status_must_match_generation_and_session) ... ok
+test_stop_while_reconnecting_is_idempotent_and_local (tests.test_controller.TestSTTControllerAP05Hardening.test_stop_while_reconnecting_is_idempotent_and_local) ... ok
+test_callback_querying_controller_status_does_not_deadlock (tests.test_controller.TestSTTControllerConcurrencyAndLockSafety.test_callback_querying_controller_status_does_not_deadlock) ... ok
+test_parallel_duplicate_final_events_produce_exactly_one_history_entry (tests.test_controller.TestSTTControllerConcurrencyAndLockSafety.test_parallel_duplicate_final_events_produce_exactly_one_history_entry) ... ok
+test_disconnect_invalidates_event_session_and_shutdown_is_once (tests.test_controller.TestSTTControllerDualSessionLifecycle.test_disconnect_invalidates_event_session_and_shutdown_is_once) ... ok
+test_transport_and_hello_callbacks_share_generation (tests.test_controller.TestSTTControllerDualSessionLifecycle.test_transport_and_hello_callbacks_share_generation) ... ok
+test_attempt_logging_failure_does_not_crash_controller (tests.test_controller.TestSTTControllerErrorBranches.test_attempt_logging_failure_does_not_crash_controller) ... Injection queue rejected entry for ('s', 1) (not running/stopping)
+Failed to record attempt for 1ad9bb04ef5148788ed9c237382762b4: Record attempt failed
+ok
+test_enqueue_exception_returns_failed_and_logs_failed_attempt (tests.test_controller.TestSTTControllerErrorBranches.test_enqueue_exception_returns_failed_and_logs_failed_attempt) ... Enqueue exception for ('s', 1): Simulated enqueue failure
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\controller.py", line 2407, in process_raw_final_event
+    enqueued = self.queue.enqueue(entry)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_controller.py", line 1857, in failing_enqueue
+    raise RuntimeError("Simulated enqueue failure")
+RuntimeError: Simulated enqueue failure
+ok
+test_history_disabled_returns_history_unavailable (tests.test_controller.TestSTTControllerErrorBranches.test_history_disabled_returns_history_unavailable) ... HistoryEntry unavailable for ('s', 1). Auto-enqueue skipped.
+ok
+test_queue_not_started_returns_queue_unavailable_and_logs_skipped_attempt (tests.test_controller.TestSTTControllerErrorBranches.test_queue_not_started_returns_queue_unavailable_and_logs_skipped_attempt) ... Queue is not running (state=NEW). Rejecting entry 43c97124466a416fb0df76f89bd5fcdd
+Injection queue rejected entry for ('s', 1) (not running/stopping)
+ok
+test_atomic_reservation_race_prevents_duplicate_history_calls (tests.test_controller.TestSTTControllerFinalAndDeduplication.test_atomic_reservation_race_prevents_duplicate_history_calls) ... Failed to add history entry for ('race_sess', 1): History failure simulated
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\controller.py", line 2344, in process_raw_final_event
+    hist_res = self.history.add_entry_with_status(clean_session_id, segment_id, clean_text)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_controller.py", line 931, in add_entry_with_status
+    raise RuntimeError("History failure simulated")
+RuntimeError: History failure simulated
+HistoryEntry unavailable for ('race_sess', 1). Auto-enqueue skipped.
+ok
+test_contradictory_duplicate_final_reports_conflict_without_second_enqueue (tests.test_controller.TestSTTControllerFinalAndDeduplication.test_contradictory_duplicate_final_reports_conflict_without_second_enqueue) ... Contradictory duplicate final event for ('sess_1', 10): existing='Text version A', new='Text version B'
+ok
+test_evicted_history_duplicate_classified_as_deduplicated (tests.test_controller.TestSTTControllerFinalAndDeduplication.test_evicted_history_duplicate_classified_as_deduplicated) ... ok
+test_identical_duplicate_final_is_deduplicated_without_second_enqueue (tests.test_controller.TestSTTControllerFinalAndDeduplication.test_identical_duplicate_final_is_deduplicated_without_second_enqueue) ... ok
+test_invalid_final_fields_are_rejected (tests.test_controller.TestSTTControllerFinalAndDeduplication.test_invalid_final_fields_are_rejected) ... Invalid final event fields: sessionId='', segmentId=1, text='T'
+Invalid final event fields: sessionId='s', segmentId=True, text='T'
+Invalid final event fields: sessionId='s', segmentId=-1, text='T'
+Invalid final event fields: sessionId='s', segmentId=1, text='   '
+ok
+test_non_final_events_do_not_produce_history_or_enqueue (tests.test_controller.TestSTTControllerFinalAndDeduplication.test_non_final_events_do_not_produce_history_or_enqueue) ... ok
+test_preexisting_db_history_duplicate_is_not_auto_enqueued (tests.test_controller.TestSTTControllerFinalAndDeduplication.test_preexisting_db_history_duplicate_is_not_auto_enqueued) ... ok
+test_same_segment_id_in_different_session_is_processed_separately (tests.test_controller.TestSTTControllerFinalAndDeduplication.test_same_segment_id_in_different_session_is_processed_separately) ... ok
+test_shutdown_starting_during_validation_prevents_final_reservation (tests.test_controller.TestSTTControllerFinalAndDeduplication.test_shutdown_starting_during_validation_prevents_final_reservation) ... ok
+test_valid_final_creates_history_entry_and_enqueues (tests.test_controller.TestSTTControllerFinalAndDeduplication.test_valid_final_creates_history_entry_and_enqueues) ... ok
+test_reinsert_empty_history (tests.test_controller.TestSTTControllerReinsertion.test_reinsert_empty_history) ... ok
+test_reinsert_entry_by_id (tests.test_controller.TestSTTControllerReinsertion.test_reinsert_entry_by_id) ... ok
+test_reinsert_last_uses_queue_without_new_history_entry (tests.test_controller.TestSTTControllerReinsertion.test_reinsert_last_uses_queue_without_new_history_entry) ... ok
+test_reinsert_non_existent_id (tests.test_controller.TestSTTControllerReinsertion.test_reinsert_non_existent_id) ... reinsert_entry requested for unknown entry_id: unknown_id
+ok
+test_reinsert_when_queue_unavailable (tests.test_controller.TestSTTControllerReinsertion.test_reinsert_when_queue_unavailable) ... Queue is not running (state=STOPPED). Rejecting entry 8186f09645b84515950659f9ccdfcb70
+Reinsertion rejected: TextInjectionQueue unavailable for entry 8186f09645b84515950659f9ccdfcb70
+ok
+test_auto_start_completion_does_not_terminate_run_loop (tests.test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_auto_start_completion_does_not_terminate_run_loop) ... ok
+test_auto_start_failure_keeps_background_controller_alive (tests.test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_auto_start_failure_keeps_background_controller_alive) ... Initial headless auto-start did not complete: send_start simulated failure
+ok
+test_partial_task_creation_failure_cleans_up_created_tasks_and_loop (tests.test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_partial_task_creation_failure_cleans_up_created_tasks_and_loop) ... ok
+test_queue_start_failure_resets_loop_to_none (tests.test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_queue_start_failure_resets_loop_to_none) ... ok
+test_second_task_creation_failure_cleans_up_first_task (tests.test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_second_task_creation_failure_cleans_up_first_task) ... ok
+test_shutdown_serializes_with_inflight_start_transition (tests.test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_shutdown_serializes_with_inflight_start_transition) ... ok
+test_shutdown_shield_cancellation_preserves_cleanup_for_other_waiters (tests.test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_shutdown_shield_cancellation_preserves_cleanup_for_other_waiters) ... ok
+test_unexpected_helper_cancellation_is_reported (tests.test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_unexpected_helper_cancellation_is_reported) ... ok
+test_wake_word_run_loop_does_not_treat_background_start_as_initial_auto_start (tests.test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_wake_word_run_loop_does_not_treat_background_start_as_initial_auto_start) ... ok
+test_auto_start_and_manual_stop_are_serialized (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_auto_start_and_manual_stop_are_serialized) ... Initial headless auto-start did not complete: Dictation start was stopped
+ok
+test_dictation_transition_race_serialized (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_dictation_transition_race_serialized) ... ok
+test_disconnect_during_dictation_emits_interrupted_event (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_disconnect_during_dictation_emits_interrupted_event) ... Dictation interrupted (reason: transport_loss).
+ok
+test_parallel_toggle_decision_is_atomic (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_parallel_toggle_decision_is_atomic) ... ok
+test_snapshot_status_and_revision (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_snapshot_status_and_revision) ... ok
+test_start_and_stop_dictation_success (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_start_and_stop_dictation_success) ... ok
+test_start_confirmation_timeout_fails_dictation (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_start_confirmation_timeout_fails_dictation) ... ok
+test_start_dictation_failure_rolls_back_audio (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_start_dictation_failure_rolls_back_audio) ... ok
+test_start_dictation_rejects_silent_non_streaming_result (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_start_dictation_rejects_silent_non_streaming_result) ... ok
+test_start_dictation_when_transport_not_ready (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_start_dictation_when_transport_not_ready) ... ok
+test_stop_before_ready_clears_explicit_initial_auto_start (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_stop_before_ready_clears_explicit_initial_auto_start) ... ok
+test_stop_before_ready_prevents_auto_start (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_stop_before_ready_prevents_auto_start) ... ok
+test_stop_dictation_rejects_silent_streaming_result (tests.test_controller.TestSTTControllerSemanticAPIAsync.test_stop_dictation_rejects_silent_streaming_result) ... ok
+test_no_new_finals_accepted_during_closing (tests.test_controller.TestSTTControllerWiringAndLifecycle.test_no_new_finals_accepted_during_closing) ... ok
+test_queue_and_reinsertion_share_same_history_instance (tests.test_controller.TestSTTControllerWiringAndLifecycle.test_queue_and_reinsertion_share_same_history_instance) ... ok
+test_rejects_injected_queue_with_different_history_instance (tests.test_controller.TestSTTControllerWiringAndLifecycle.test_rejects_injected_queue_with_different_history_instance) ... ok
+test_rejects_injected_reinsertion_with_different_dependencies (tests.test_controller.TestSTTControllerWiringAndLifecycle.test_rejects_injected_reinsertion_with_different_dependencies) ... ok
+test_shutdown_is_idempotent_and_stops_components_exactly_once (tests.test_controller.TestSTTControllerWiringAndLifecycle.test_shutdown_is_idempotent_and_stops_components_exactly_once) ... ok
+test_shutdown_raises_queue_stop_timeout_with_fake (tests.test_controller.TestSTTControllerWiringAndLifecycle.test_shutdown_raises_queue_stop_timeout_with_fake) ... TextInjectionQueue worker did not stop within timeout.
+ok
+test_start_partial_failure_cleans_up_already_started_components (tests.test_controller.TestSTTControllerWiringAndLifecycle.test_start_partial_failure_cleans_up_already_started_components) ... ok
+test_start_queue_activates_worker_and_prevents_double_start (tests.test_controller.TestSTTControllerWiringAndLifecycle.test_start_queue_activates_worker_and_prevents_double_start) ... ok
+test_1011_recovery_new_session_and_stale_binding_guard (tests.test_v2_mirror.Connection.test_1011_recovery_new_session_and_stale_binding_guard) ... ok
+test_closing_ack_clarifies_never_overwrites_foreground (tests.test_v2_mirror.Connection.test_closing_ack_clarifies_never_overwrites_foreground) ... ok
+test_eventless_bootstrap_ack_reads_actual_snapshot (tests.test_v2_mirror.Connection.test_eventless_bootstrap_ack_reads_actual_snapshot) ... ok
+test_gap_gates_actual_transport_and_resync_before_ack (tests.test_v2_mirror.Connection.test_gap_gates_actual_transport_and_resync_before_ack) ... ok
+test_malformed_known_event_degrades_without_guessing_identity (tests.test_v2_mirror.Connection.test_malformed_known_event_degrades_without_guessing_identity) ... ok
+test_missing_snapshot_even_with_ack_reconnects_bounded (tests.test_v2_mirror.Connection.test_missing_snapshot_even_with_ack_reconnects_bounded) ... ok
+test_queued_activation_rechecks_resync_guard_before_send (tests.test_v2_mirror.Connection.test_queued_activation_rechecks_resync_guard_before_send) ... ok
+test_activation_settings_frozen_across_snapshot_and_settings_events (tests.test_v2_mirror.Mirror.test_activation_settings_frozen_across_snapshot_and_settings_events) ... ok
+test_all_eighteen_events_have_actual_reduction (tests.test_v2_mirror.Mirror.test_all_eighteen_events_have_actual_reduction) ... ok
+test_all_terminal_cancel_permutations_first_terminal_wins (tests.test_v2_mirror.Mirror.test_all_terminal_cancel_permutations_first_terminal_wins) ... ok
+test_b_start_before_a_close_and_old_final_during_b (tests.test_v2_mirror.Mirror.test_b_start_before_a_close_and_old_final_during_b) ... ok
+test_buffered_cancel_failed_tombstones_suppress_unpublished_only (tests.test_v2_mirror.Mirror.test_buffered_cancel_failed_tombstones_suppress_unpublished_only) ... ok
+test_buffered_final_at_or_behind_cursor_salvaged_once (tests.test_v2_mirror.Mirror.test_buffered_final_at_or_behind_cursor_salvaged_once) ... ok
+test_buffered_final_before_cancel_remains_published (tests.test_v2_mirror.Mirror.test_buffered_final_before_cancel_remains_published) ... ok
+test_buffered_lifecycle_not_applied_backwards (tests.test_v2_mirror.Mirror.test_buffered_lifecycle_not_applied_backwards) ... ok
+test_close_reason_command_identity_and_unknown_reasons (tests.test_v2_mirror.Mirror.test_close_reason_command_identity_and_unknown_reasons) ... ok
+test_conflicting_event_id_never_republishes (tests.test_v2_mirror.Mirror.test_conflicting_event_id_never_republishes) ... ok
+test_countdown_uses_receipt_not_wallclock_and_nulls (tests.test_v2_mirror.Mirror.test_countdown_uses_receipt_not_wallclock_and_nulls) ... ok
+test_default_512_event_buffer_bound_and_no_duplicate_budget_use (tests.test_v2_mirror.Mirror.test_default_512_event_buffer_bound_and_no_duplicate_budget_use) ... ok
+test_discard_and_failure_before_ended_accepted_interim (tests.test_v2_mirror.Mirror.test_discard_and_failure_before_ended_accepted_interim) ... ok
+test_disconnect_retains_text_and_rebind_isolated (tests.test_v2_mirror.Mirror.test_disconnect_retains_text_and_rebind_isolated) ... ok
+test_empty_completed_is_terminal_final_and_repr_has_no_text (tests.test_v2_mirror.Mirror.test_empty_completed_is_terminal_final_and_repr_has_no_text) ... ok
+test_gap_requests_once_and_buffers_until_snapshot (tests.test_v2_mirror.Mirror.test_gap_requests_once_and_buffers_until_snapshot) ... ok
+test_generated_races_have_id_and_terminal_invariants_each_step (tests.test_v2_mirror.Mirror.test_generated_races_have_id_and_terminal_invariants_each_step) ... ok
+test_generation_session_duplicate_and_unknown_sequence (tests.test_v2_mirror.Mirror.test_generation_session_duplicate_and_unknown_sequence) ... ok
+test_idle_with_multiple_drains_allows_manual (tests.test_v2_mirror.Mirror.test_idle_with_multiple_drains_allows_manual) ... ok
+test_interims_equal_versions_segment_owned_display_fallback (tests.test_v2_mirror.Mirror.test_interims_equal_versions_segment_owned_display_fallback) ... ok
+test_invalid_local_limits (tests.test_v2_mirror.Mirror.test_invalid_local_limits) ... ok
+test_known_additive_fields_cannot_cross_domain_boundaries (tests.test_v2_mirror.Mirror.test_known_additive_fields_cannot_cross_domain_boundaries) ... ok
+test_lost_final_and_disappeared_pending_are_incomplete_no_text (tests.test_v2_mirror.Mirror.test_lost_final_and_disappeared_pending_are_incomplete_no_text) ... ok
+test_manual_and_wake_share_one_foreground (tests.test_v2_mirror.Mirror.test_manual_and_wake_share_one_foreground) ... ok
+test_multiple_segments_and_terminal_holes_do_not_block_final (tests.test_v2_mirror.Mirror.test_multiple_segments_and_terminal_holes_do_not_block_final) ... ok
+test_new_gap_during_replay_stays_gated_with_new_request (tests.test_v2_mirror.Mirror.test_new_gap_during_replay_stays_gated_with_new_request) ... ok
+test_resync_event_and_byte_overflow_is_incomplete_reconnect (tests.test_v2_mirror.Mirror.test_resync_event_and_byte_overflow_is_incomplete_reconnect) ... ok
+test_segment_identity_and_sequence_collision_degrade (tests.test_v2_mirror.Mirror.test_segment_identity_and_sequence_collision_degrade) ... ok
+test_server_foreground_phases_and_countdown (tests.test_v2_mirror.Mirror.test_server_foreground_phases_and_countdown) ... ok
+test_snapshot_all_domains_and_safe_immutable_projection (tests.test_v2_mirror.Mirror.test_snapshot_all_domains_and_safe_immutable_projection) ... ok
+test_snapshot_cannot_change_activation_identity_or_regress_settings (tests.test_v2_mirror.Mirror.test_snapshot_cannot_change_activation_identity_or_regress_settings) ... ok
+test_snapshot_equal_version_higher_seq_and_stale_bounds (tests.test_v2_mirror.Mirror.test_snapshot_equal_version_higher_seq_and_stale_bounds) ... ok
+test_snapshot_preserves_received_final_and_terminal_dedup (tests.test_v2_mirror.Mirror.test_snapshot_preserves_received_final_and_terminal_dedup) ... ok
+test_start_missing_deadline_clarification_does_not_timeout_activation (tests.test_v2_mirror.Mirror.test_start_missing_deadline_clarification_does_not_timeout_activation) ... ok
+test_state_version_jump_without_sequence_gap (tests.test_v2_mirror.Mirror.test_state_version_jump_without_sequence_gap) ... ok
+test_terminal_before_close_does_not_release_foreground (tests.test_v2_mirror.Mirror.test_terminal_before_close_does_not_release_foreground) ... ok
+test_timeout_two_attempts_stale_snapshot_does_not_extend_budget (tests.test_v2_mirror.Mirror.test_timeout_two_attempts_stale_snapshot_does_not_extend_budget) ... ok
+test_unseen_buffered_segment_missing_lifecycle_is_unknown (tests.test_v2_mirror.Mirror.test_unseen_buffered_segment_missing_lifecycle_is_unknown) ... ok
+
+----------------------------------------------------------------------
+Ran 212 tests in 11.238s
+
+OK
