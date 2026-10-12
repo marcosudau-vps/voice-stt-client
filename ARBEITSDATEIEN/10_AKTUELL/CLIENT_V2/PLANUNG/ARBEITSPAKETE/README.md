@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-030 sind **ACCEPTED** (AP030 kanonischer Commit `3df342c3a7cacaa1226743c4d9bee674e94d33db`, PR #5 und gesicherter Vorgängerabschluss). AP-CV2-040: **REVIEW_READY** nach R03-Korrektur ([Report](../../30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md)); historischer Befund aus [R02-Review](../../30_AUSFUEHRUNG/AP-CV2-040/RUNS/R02-ABNAHME/01_REPORT.md), beide Findings `CV2-040-R02-F01`, `CV2-040-R02-F02` durch Selbstchecks behoben, unabhängiger Recheck offen; spätere Pakete weiterhin PLANNED.
+AP-CV2-000 bis AP-CV2-030 sind **ACCEPTED** (AP030 kanonischer Commit `3df342c3a7cacaa1226743c4d9bee674e94d33db`). AP-CV2-040: **CHANGES_REQUIRED**, [R04-Review](../../30_AUSFUEHRUNG/AP-CV2-040/RUNS/R04-ABNAHME/01_REPORT.md) auf R03-Kandidat; R02-F01 unabhängig geschlossen, R02-F02-Timeoutkorrektur bestätigt, Cancellation beim Task-Join noch offen. Historische [R02-Findings](../../30_AUSFUEHRUNG/AP-CV2-040/RUNS/R02-ABNAHME/01_REPORT.md), [R03-Korrektur](../../30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md). Spätere Pakete PLANNED.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |

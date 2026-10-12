@@ -1,10 +1,10 @@
-# Client V2 – AP-CV2-040 / R03-KORREKTUR / REVIEW_READY, 2026-10-12
+# Client V2 – AP-CV2-040 / R04-ABNAHME / CHANGES_REQUIRED, 2026-10-12
 
-AP-CV2-030 tatsächlich ACCEPTED auf `3df342c3a7cacaa1226743c4d9bee674e94d33db`, der unveränderte kanonische Parent. AP-CV2-040 **REVIEW_READY** nach Korrektur beider anerkannten R02-Findings; [R03-Report](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md), [R02-Review](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R02-ABNAHME/01_REPORT.md), [Workflowstatus](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Planung](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md).
+AP-CV2-030 ist ACCEPTED auf `3df342c3a7cacaa1226743c4d9bee674e94d33db` (kanonischer Parent). AP-CV2-040 ist **CHANGES_REQUIRED** nach unabhängigem R04-Review des R03-Korrekturkandidaten `7461577b1316ff113bac1c08ea7a836cf4b5023a`: [R04-Bericht](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R04-ABNAHME/01_REPORT.md). R02-F01 wurde geschlossen; der native Timeoutteil von R02-F02 wurde korrigiert, der Cancellation-Fall während des Task-Joins ist weiterhin offen. [PR #6](https://github.com/marcosudau-vps/voice-stt-client/pull/6).
 
-Negative Audioavailability wird vor nativem Stop bestätigt. Unabhängiges Logcleanup erfolgt auch bei Timeout/Cancellation; unvollständiger Shutdown bleibt wiederholbar. Neue Qualifikation: 1373 Windows-,228 gezielte Tests,46 echte Serverfälle/46 bytegeprüfte Quellen, compileall/diffcheck PASS. Alle23 Requirements mit R03-Belegen; historische R01/R02-Belege erhalten. [PR #6](https://github.com/marcosudau-vps/voice-stt-client/pull/6).
+Die R03-Qualifikation bleibt anerkannt: **1373 Windows-Tests, 228 gezielte Tests, 46 Serverfälle / 46 bytegeprüfte Quellen**, sämtliche 188 qualifikationsgebundenen Gitblobs identisch, CI Attempt 2 SUCCESS. Diese grünen Tests umfassen noch keinen Abbruch während des Task-Joins; es gibt daher keinen ROOT_PASS. Keine fachliche Planänderung oder neue Serverbaseline.
 
-Nächste Aktion: frische unabhängige Abnahme des gesamten korrigierten Kandidaten mit F01/F02-Recheck. Kein eigener ROOT_PASS oder selbstständige Findingschließung. Paketbranch `work/client-v2/ap-cv2-040` ab Übergabe pausiert. Appkomposition CV2-100, Settings CV2-070 und reale Hardware/ASR bleiben spätere Gates. Serverada13b0/Distributed unverändert; Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`. Kein Merge oder Folgepaketstart.
+Nächste Aktion: **Korrektur von `CV2-040-R02-F02` im bestehenden Paket-PR**, gezielte Regression bei Cancellation während Task-Join, neue gültige Windows-/betroffene Serverqualifikation und erneute unabhängige Abnahme. `feat/client-v2`, Server-Distributed, Main, Tags und Releases bleiben unverändert. Kein Merge oder Start AP-CV2-050.
 
 ## Historischer Stand vor AP-CV2-020
 

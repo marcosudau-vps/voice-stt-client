@@ -1,7 +1,7 @@
 # AP-CV2-040 – Continuous-Audio, Geräte-Recovery und Logbootstrap
 
-Status **REVIEW_READY**, workflowPhase REVIEW_READY.
-Aktiver Kandidat: R03-KORREKTUR, F01/F02 durch Selbstchecks behoben; unabhängiger Recheck offen.
+Status **CHANGES_REQUIRED**, workflowPhase CHANGES_REQUIRED.
+Aktiver Kandidat R03 wurde in R04 unabhängig geprüft: R02-F01 CLOSED, R02-F02 wegen Cancellation während Task-Join weiter OPEN.
 [R03-Report](RUNS/R03-KORREKTUR/01_REPORT.md), [Evidenz](RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md), [Originalauftrag](RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md).
 1373 Windows,228 gezielte Tests,46 echte Serverfälle/46 Quellen und compileall/diffcheck PASS.
 
@@ -24,3 +24,7 @@ Genau ein vollständiger Umsetzungslauf R01; kein eigener ROOT_PASS, kein Merge 
 ## R03 – Korrektur (2026-10-12)
 
 [Report](RUNS/R03-KORREKTUR/01_REPORT.md), [Belegindex](RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md), [Windowsmanifest](RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json). Beide Findings anerkannt/reproduziert; Verweis auf unabhängiges R02-Urteil bleibt erhalten. Neue Prüfung entscheidet über Schließung; kein eigener ROOT_PASS.
+
+## R04 – Unabhängige Abnahme (2026-10-12)
+
+**CHANGES_REQUIRED** auf fachlich geprüftem `7461577b1316ff113bac1c08ea7a836cf4b5023a` / Tree `83dd48d0ccd9110668c23732e3cd4933a50d03c3`. [Originalauftrag](RUNS/R04-ABNAHME/00_PROMPT_ORIGINAL.md), [Bericht](RUNS/R04-ABNAHME/01_REPORT.md), [Evidenz](RUNS/R04-ABNAHME/EVIDENCE/INDEX.md). R02-F01 ist unabhängig geschlossen; nativer Timeout-Teil von F02 behoben, aber bei Abbruch während `gather()` kann Logcleanup ausfallen (F02 bleibt OPEN). Kein Merge, nächste Aktion nur Korrektur im bestehenden PR.
