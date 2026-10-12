@@ -131,6 +131,8 @@ class V2MediaConnection:
         self._epoch = 0
         self._gate = False
         self._closed = False
+        self._cleanup_complete = False
+        self._close_lock = asyncio.Lock()
         self._wake = asyncio.Event()
         self._audio_wake = asyncio.Event()
         self._notify_lock = threading.Lock()
@@ -294,9 +296,11 @@ class V2MediaConnection:
                     if self.device_available and not self.hardware_muted:
                         if not self.capture.is_running or not getattr(self.capture, "device_active", True):
                             was_available = self.capture_available
-                            await self._stop_capture()
+                            self._block()
+                            self.capture_available = False
                             if was_available:
                                 await self._report_availability(binding, False)
+                            await self._stop_capture()
                             try:
                                 await self._capture_call(self.capture.start)
                                 self.capture_available = True
@@ -304,8 +308,14 @@ class V2MediaConnection:
                                 self.capture_failures += 1
                         available = self.audio_available
                     else:
-                        await self._stop_capture()
                         available = False
+                        # A native stop can hang. The server must cancel its
+                        # open input before we wait on that independent driver.
+                        self._block()
+                        self.capture_available = False
+                        if self._reported_available != (binding, False):
+                            await self._report_availability(binding, False)
+                        await self._stop_capture()
                     if self._reported_available != (binding, available):
                         await self._report_availability(binding, available)
                     if available and self.session.binding is binding and self.session.is_ready:
@@ -371,20 +381,37 @@ class V2MediaConnection:
                     break
 
     async def close(self):
-        """Bounded shutdown; caller then joins V2MirrorConnection if attached."""
-        if self._closed:
-            return
-        self._closed = True
-        self._block()
-        self.capture.on_audio_packet = None
-        await self.session.stop()
-        tasks = [task for task in (self._task, self._sender) if task]
-        for task in tasks:
-            task.cancel()
-        await asyncio.gather(*tasks, return_exceptions=True)
-        if self._capture_operation is not None:
-            await asyncio.wait_for(asyncio.shield(self._capture_operation), self.shutdown_timeout)
-            self._capture_operation = None
-        await asyncio.wait_for(self._stop_capture(), self.shutdown_timeout)
-        await asyncio.wait_for(self.logs.shutdown(), self.shutdown_timeout + 3)
-        self._task = self._sender = None
+        """Bounded independent cleanup; retry unfinished native shutdown.
+
+        _closed blocks new work immediately; it does not claim cleanup success.
+        A native timeout is propagated after log cleanup, retaining its task so
+        the next close joins it before attempting another driver operation.
+        """
+        async with self._close_lock:
+            if self._cleanup_complete:
+                return
+            self._closed = True
+            self._block()
+            self.capture_available = False
+            self.capture.on_audio_packet = None
+            try:
+                await self.session.stop()
+            finally:
+                tasks = [task for task in (self._task, self._sender) if task]
+                for task in tasks:
+                    task.cancel()
+                await asyncio.gather(*tasks, return_exceptions=True)
+                self._task = self._sender = None
+                try:
+                    pending = self._capture_operation
+                    if pending is not None:
+                        try:
+                            await asyncio.wait_for(asyncio.shield(pending), self.shutdown_timeout)
+                        finally:
+                            if pending.done() and self._capture_operation is pending:
+                                self._capture_operation = None
+                    await asyncio.wait_for(self._stop_capture(), self.shutdown_timeout)
+                finally:
+                    # Audio/driver failure never skips the separate logdomain.
+                    await asyncio.wait_for(self.logs.shutdown(), self.shutdown_timeout + 3)
+            self._cleanup_complete = True

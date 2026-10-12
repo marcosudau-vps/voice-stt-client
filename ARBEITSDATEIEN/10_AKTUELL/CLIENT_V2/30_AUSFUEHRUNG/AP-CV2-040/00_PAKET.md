@@ -1,6 +1,11 @@
 # AP-CV2-040 – Continuous-Audio, Geräte-Recovery und Logbootstrap
 
-Status **CHANGES_REQUIRED**, workflowPhase CHANGES_REQUIRED.
+Status **REVIEW_READY**, workflowPhase REVIEW_READY.
+Aktiver Kandidat: R03-KORREKTUR, F01/F02 durch Selbstchecks behoben; unabhängiger Recheck offen.
+[R03-Report](RUNS/R03-KORREKTUR/01_REPORT.md), [Evidenz](RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md), [Originalauftrag](RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md).
+1373 Windows,228 gezielte Tests,46 echte Serverfälle/46 Quellen und compileall/diffcheck PASS.
+
+## Historischer R01-/R02-Stand
 Branch `work/client-v2/ap-cv2-040`, Parent `3df342c3a7cacaa1226743c4d9bee674e94d33db`, Base `feat/client-v2`.
 Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`. Planrevision 10, Rollenregelversion 7.
 
@@ -15,3 +20,7 @@ Genau ein vollständiger Umsetzungslauf R01; kein eigener ROOT_PASS, kein Merge 
 ## R02 – unabhängige Abnahme (2026-10-12)
 
 **CHANGES_REQUIRED** auf fachlich geprüftem SHA `79cffe19b103cfcc325f5c15a7532da763ff3f9c`, Tree `1449c1b71015d978349826891644565b3711e17a`. [Originalauftrag](RUNS/R02-ABNAHME/00_PROMPT_ORIGINAL.md), [Reviewbericht](RUNS/R02-ABNAHME/01_REPORT.md), [Evidenzindex](RUNS/R02-ABNAHME/EVIDENCE/INDEX.md). Pflichtfindings `CV2-040-R02-F01`, `CV2-040-R02-F02`. Die 1367er-Windows-Vollsuite und der 41er-Servercheckpoint gelten als im Umsetzungslauf durchgeführt und unabhängig geprüfte Fremdbelege; die beiden negativen Fehlerpfade sind nachzutesten. Keine Übernahme; nächster Schritt Korrektur im selben PR.
+
+## R03 – Korrektur (2026-10-12)
+
+[Report](RUNS/R03-KORREKTUR/01_REPORT.md), [Belegindex](RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md), [Windowsmanifest](RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json). Beide Findings anerkannt/reproduziert; Verweis auf unabhängiges R02-Urteil bleibt erhalten. Neue Prüfung entscheidet über Schließung; kein eigener ROOT_PASS.

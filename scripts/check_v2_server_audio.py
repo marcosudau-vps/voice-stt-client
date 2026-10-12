@@ -184,14 +184,35 @@ async def run(root, repository):
             await asyncio.sleep(.05)
             check("devices/led_only_preserves_foreground",mirror.mirror.view.input.activation_id==second.ack.activationId and media.audio_available)
             old_callback=media.capture.on_audio_packet
-            media.set_device_available(False)
-            old_callback(b"\x10\0"*640,16000,1,640)
-            await until(lambda:mirror.mirror.view.input.phase==p.InputPhase.IDLE and not mirror.mirror.view.audio_available)
-            check("devices/open_activation_cancelled",mirror.mirror.view.activations[second.ack.activationId].input_closed and
-                  mirror.mirror.view.activations[second.ack.activationId].close_reason in ("cancelled", "audio_unavailable"))
-            check("devices/session_and_older_drain_preserved",media.session.binding is binding and mirror.mirror.view.activations[first.ack.activationId].status=="draining")
-            count=len(recorder.received); feed(media,config); await asyncio.sleep(.05)
-            check("devices/lost_input_sends_no_pcm",len(recorder.received)==count)
+            stopped, release_stop = threading.Event(), threading.Event()
+            original_stop = media.capture.stop
+            def blocked_stop():
+                stopped.set()
+                release_stop.wait(5)
+                original_stop()
+            media.capture.stop = blocked_stop
+            try:
+                media.set_device_available(False)
+                old_callback(b"\x10\0"*640,16000,1,640)
+                await until(stopped.is_set)
+                await until(lambda:mirror.mirror.view.input.phase==p.InputPhase.IDLE and not mirror.mirror.view.audio_available,timeout=2)
+                check("devices/false_acked_before_blocked_native_stop",not release_stop.is_set() and
+                      media._reported_available==(binding,False) and media.capture.is_running)
+                check("devices/open_activation_cancelled",mirror.mirror.view.activations[second.ack.activationId].input_closed and
+                      mirror.mirror.view.activations[second.ack.activationId].close_reason in ("cancelled", "audio_unavailable"))
+                check("devices/session_and_older_drain_preserved",media.session.binding is binding and mirror.mirror.view.activations[first.ack.activationId].status=="draining")
+                count=len(recorder.received); feed(media,config); await asyncio.sleep(.05)
+                check("devices/lost_input_sends_no_pcm",len(recorder.received)==count)
+                for job in list(service.scheduler.jobs):
+                    if job.kind=="final" and job.session_id==binding.session_id:
+                        service.scheduler.complete(job,text="synthetic delayed final")
+                await until(lambda:any(r.finals for r in reductions))
+                check("background/older_final_while_native_stop_blocked",not release_stop.is_set() and
+                      len([f for r in reductions for f in r.finals])==1)
+            finally:
+                release_stop.set()
+                media.capture.stop = original_stop
+            await until(lambda:media._capture_operation is None)
             config.sample_rate=48000; config.channels=2
             media.set_device_available(True)
             await until(lambda:media._gate and mirror.mirror.view.audio_available)
@@ -279,7 +300,32 @@ async def run(root, repository):
             await until(lambda:media.logs.context.session_id==new.session_id and media.logs.context.log_access is not None)
             check("reconnect/new_log_token",media.logs.context.log_access.access_token!=access.access_token)
             measurements.append(media.counters())
+            await until(lambda:media.logs.context.event_state==EventConnectionState.LIVE)
+            log_transport=media.logs._transport
+            log_task,expiry_task=media.logs._transport_task,media.logs._expiry_task
+            entered_close,release_close=threading.Event(),threading.Event()
+            original_stop=media.capture.stop
+            def blocked_shutdown_stop():
+                entered_close.set()
+                release_close.wait(5)
+                original_stop()
+            media.capture.stop=blocked_shutdown_stop
+            media.shutdown_timeout=.1
+            try:
+                try:
+                    await media.close()
+                except TimeoutError:
+                    check("shutdown/native_stop_timeout_reported",entered_close.is_set() and not release_close.is_set())
+                else:
+                    raise AssertionError("native shutdown timeout missing")
+                check("shutdown/native_timeout_real_logs_clean",media.logs.active_transport_count==0 and
+                      log_task.done() and expiry_task.done() and log_transport.state==EventConnectionState.STOPPED)
+            finally:
+                release_close.set()
+                media.capture.stop=original_stop
+                media.shutdown_timeout=3
             await media.close(); await mirror.close()
+            check("shutdown/retry_joins_native_stop",media._capture_operation is None and media._cleanup_complete)
             check("shutdown/media_tasks_and_queue_clean",media._task is None and media._sender is None and not media.capture.is_running and media.queue.duration_ms==0)
 
             for manual,wake in ((False,True),(True,True)):

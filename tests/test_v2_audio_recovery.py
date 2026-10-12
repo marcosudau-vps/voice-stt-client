@@ -326,6 +326,134 @@ class Media(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(order, ["started", "stopped"])
         self.assertIsNone(media._capture_operation)
 
+    async def assert_unavailable_before_blocked_stop(self, cause):
+        media, socket = await self.start()
+        binding = media.session.binding
+        entered, release = threading.Event(), threading.Event()
+        original_stop = media.capture.stop
+        def blocked_stop():
+            entered.set()
+            release.wait(3)
+            original_stop()
+        media.capture.stop = blocked_stop
+        callback = media.capture.on_audio_packet
+        try:
+            if cause == "device":
+                media.set_device_available(False)
+            elif cause == "mute":
+                media.set_hardware_muted(True)
+            else:
+                media.capture.device_active = False
+            await until(entered.is_set)
+            # The driver is still blocked: ACK/false must already be known.
+            self.assertFalse(release.is_set())
+            self.assertEqual(media._reported_available, (binding, False))
+            self.assertTrue(any(c["type"] == "audio_availability.set" and
+                                c["audioAvailable"] is False for c in socket.commands))
+            self.assertFalse(media._gate)
+            callback(b"\0\0" * 640, 16000, 1, 640)
+            self.assertEqual(media.queue.duration_ms, 0)
+            self.assertIs(media.session.binding, binding)
+        finally:
+            release.set()
+            await media.close()
+
+    async def test_device_loss_reports_false_before_blocked_native_stop(self):
+        await self.assert_unavailable_before_blocked_stop("device")
+
+    async def test_hardware_mute_reports_false_before_blocked_native_stop(self):
+        await self.assert_unavailable_before_blocked_stop("mute")
+
+    async def test_dead_device_reports_false_before_blocked_native_stop(self):
+        await self.assert_unavailable_before_blocked_stop("dead")
+
+    async def assert_timeout_cleans_logs_and_retry(self, kind):
+        media, socket = await self.start()
+        await until(lambda: media.logs.active_transport_count == 1)
+        log_task, expiry_task = media.logs._transport_task, media.logs._expiry_task
+        log_transport = media.logs._transport
+        entered, release = threading.Event(), threading.Event()
+        original_stop = media.capture.stop
+        pending = None
+        def blocked():
+            entered.set()
+            release.wait(3)
+            if kind == "stop":
+                original_stop()
+        media.shutdown_timeout = .1
+        try:
+            if kind == "stop":
+                media.capture.stop = blocked
+            else:
+                pending = asyncio.create_task(media._capture_call(blocked))
+                await until(entered.is_set)
+            with self.assertRaises(TimeoutError):
+                await asyncio.wait_for(media.close(), 1)
+            self.assertTrue(entered.is_set())
+            self.assertFalse(release.is_set())
+            self.assertEqual(media.logs.active_transport_count, 0)
+            self.assertTrue(log_task.done() and expiry_task.done())
+            self.assertEqual(log_transport.stop_calls, 1)
+            self.assertIsNone(media.session.binding)
+            self.assertFalse(media._gate)
+            self.assertEqual(media.queue.duration_ms, 0)
+            # Repeated close while the driver still hangs must report failure.
+            with self.assertRaises(TimeoutError):
+                await asyncio.wait_for(media.close(), 1)
+            release.set()
+            media.shutdown_timeout = 1
+            if pending:
+                await pending
+            await asyncio.wait_for(media.close(), 1)
+            await media.close()
+            self.assertFalse(media.capture.is_running)
+            self.assertIsNone(media._capture_operation)
+        finally:
+            release.set()
+            media.shutdown_timeout = 1
+            if pending:
+                await pending
+            # Cleanup also on the unfixed baseline, where close skips logs.
+            await media.logs.shutdown()
+            await media.close()
+            original_stop()
+
+    async def test_native_operation_timeout_closes_logs_and_retries_cleanup(self):
+        await self.assert_timeout_cleans_logs_and_retry("operation")
+
+    async def test_native_stop_timeout_closes_logs_and_retries_cleanup(self):
+        await self.assert_timeout_cleans_logs_and_retry("stop")
+
+    async def test_cancelled_close_still_cleans_logs_and_can_retry(self):
+        media, socket = await self.start()
+        await until(lambda: media.logs.active_transport_count == 1)
+        log_task = media.logs._transport_task
+        entered, release = threading.Event(), threading.Event()
+        def blocked():
+            entered.set()
+            release.wait(3)
+        pending = asyncio.create_task(media._capture_call(blocked))
+        closing = None
+        try:
+            await until(entered.is_set)
+            closing = asyncio.create_task(media.close())
+            await until(lambda: media._closed and media._task is None)
+            closing.cancel()
+            with self.assertRaises(asyncio.CancelledError):
+                await closing
+            self.assertEqual(media.logs.active_transport_count, 0)
+            self.assertTrue(log_task.done())
+            release.set()
+            await pending
+            await media.close()
+            self.assertFalse(media.capture.is_running)
+        finally:
+            release.set()
+            await pending
+            if closing:
+                await asyncio.gather(closing, return_exceptions=True)
+            await media.close()
+
     async def test_real_capture_callback_processing_and_packet_flow(self):
         capture = AudioCapture(AudioConfig())
         class Stream:

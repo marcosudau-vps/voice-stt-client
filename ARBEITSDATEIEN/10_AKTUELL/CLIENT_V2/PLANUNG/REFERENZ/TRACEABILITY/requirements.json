@@ -5466,6 +5466,29 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.Media.test_config_ready_gates_capture_and_sending",
+          "tests.test_v2_audio_recovery.Media.test_continuous_manual_wake_and_combined_across_commands"
+        ],
+        "serverCases": [
+          "capture/no_pre_ready_frames",
+          "audio/idle_received_no_local_gate",
+          "audio/waiting_to_recording",
+          "audio/draining_idle_still_received",
+          "audio/idle_trigger_mode/False/True",
+          "audio/idle_trigger_mode/True/True"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -5516,6 +5539,24 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.Media.test_continuous_manual_wake_and_combined_across_commands"
+        ],
+        "serverCases": [
+          "audio/idle_received_no_local_gate",
+          "audio/wakepause_trigger_mode/False/True"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -5566,6 +5607,24 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.Media.test_continuous_manual_wake_and_combined_across_commands"
+        ],
+        "serverCases": [
+          "audio/draining_idle_still_received",
+          "audio/wakepause_trigger_mode/True/True"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -5617,6 +5676,25 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.Media.test_network_reconnect_clears_samples_and_uses_new_ids",
+          "tests.test_v2_audio_recovery.AudioQueue.test_age_and_generation_are_rejected"
+        ],
+        "serverCases": [
+          "reconnect/new_session_and_generation",
+          "reconnect/empty_old_queue"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -5668,6 +5746,24 @@
         "serverCases": [],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.AudioQueue.test_duration_overflow_drops_oldest_and_retains_latest",
+          "tests.test_v2_audio_recovery.AudioQueue.test_extreme_rate_has_packet_count_and_byte_bounds",
+          "tests.test_v2_audio_recovery.Media.test_thread_burst_coalesces_handles_and_bounds_pcm",
+          "tests.test_v2_audio_recovery.Media.test_sustained_slow_socket_overflow_recycles_transport"
+        ],
+        "serverCases": [],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -5719,6 +5815,30 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.Media.test_device_loss_mute_recovery_and_led_are_separate",
+          "tests.test_v2_audio_recovery.Media.test_device_loss_reports_false_before_blocked_native_stop"
+        ],
+        "serverCases": [
+          "devices/open_activation_cancelled",
+          "devices/session_and_older_drain_preserved",
+          "background/older_final_after_device_cancel",
+          "devices/false_acked_before_blocked_native_stop",
+          "background/older_final_while_native_stop_blocked"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": [
+          "CV2-040-R02-F01"
+        ]
       }
     },
     {
@@ -5770,6 +5890,28 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.Media.test_device_loss_mute_recovery_and_led_are_separate",
+          "tests.test_v2_audio_recovery.Media.test_mute_during_bootstrap_is_acked_before_desired_suppression",
+          "tests.test_v2_audio_recovery.Media.test_hardware_mute_reports_false_before_blocked_native_stop"
+        ],
+        "serverCases": [
+          "devices/lost_input_sends_no_pcm",
+          "reconnect/desired_suppression_retained"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": [
+          "CV2-040-R02-F01"
+        ]
       }
     },
     {
@@ -5819,6 +5961,23 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.Media.test_device_loss_mute_recovery_and_led_are_separate"
+        ],
+        "serverCases": [
+          "devices/led_only_preserves_foreground"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -5871,6 +6030,35 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.Media.test_dead_capture_reports_false_then_reopens",
+          "tests.test_v2_audio_recovery.Media.test_failed_start_remains_session_bound_and_recovers",
+          "tests.test_v2_audio_recovery.Media.test_real_capture_callback_processing_and_packet_flow",
+          "tests.test_v2_audio_recovery.Media.test_dead_device_reports_false_before_blocked_native_stop",
+          "tests.test_v2_audio_recovery.Media.test_native_operation_timeout_closes_logs_and_retries_cleanup",
+          "tests.test_v2_audio_recovery.Media.test_native_stop_timeout_closes_logs_and_retries_cleanup",
+          "tests.test_v2_audio_recovery.Media.test_cancelled_close_still_cleans_logs_and_can_retry"
+        ],
+        "serverCases": [
+          "devices/rebound_48k_stereo_resampled_at_server",
+          "devices/rebind_no_auto_activation",
+          "shutdown/native_stop_timeout_reported",
+          "shutdown/native_timeout_real_logs_clean",
+          "shutdown/retry_joins_native_stop"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": [
+          "CV2-040-R02-F02"
+        ]
       }
     },
     {
@@ -5922,6 +6110,25 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.Media.test_network_reconnect_clears_samples_and_uses_new_ids",
+          "tests.test_v2_mirror.Mirror.test_disconnect_retains_text_and_rebind_isolated"
+        ],
+        "serverCases": [
+          "logs/replay_keeps_published_final",
+          "reconnect/new_session_and_generation"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -5971,6 +6178,23 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.Media.test_log_unavailable_and_expired_access_do_not_block_audio"
+        ],
+        "serverCases": [
+          "logs/faults_audio_continues"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -6019,6 +6243,22 @@
         "serverCases": [],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_mirror.Mirror.test_disconnect_retains_text_and_rebind_isolated",
+          "tests.test_v2_mirror.Connection.test_1011_recovery_new_session_and_stale_binding_guard"
+        ],
+        "serverCases": [],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -8786,6 +9026,24 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.LogBootstrap.test_unavailable_without_capability_fields_or_token",
+          "tests.test_v2_audio_recovery.Media.test_log_final_is_observation_only_and_snapshot_keeps_token"
+        ],
+        "serverCases": [
+          "logs/bootstrap_session_and_channels"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -8837,6 +9095,25 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_event_protocol.TestEventStreamAccess.test_access_rejects_admin_channels_and_incompatible_contracts",
+          "tests.test_event_protocol.TestEventProtocolProcessor.test_wrong_handshake_contract_and_session_scope_are_rejected"
+        ],
+        "serverCases": [
+          "logs/no_foreign_session",
+          "logs/authorization"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -8888,6 +9165,25 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.Media.test_network_reconnect_clears_samples_and_uses_new_ids",
+          "tests.test_session_coordinator.DualSessionCoordinatorTests.test_active_token_expiry_stops_transport_without_orphan_task",
+          "tests.test_event_protocol.TestEventProtocolProcessor.test_new_server_instance_starts_at_zero_without_destroying_old_record"
+        ],
+        "serverCases": [
+          "reconnect/new_log_token"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -8939,6 +9235,25 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.LogBootstrap.test_both_paths_reject_foreign_origin_before_token_transport",
+          "tests.test_v2_audio_recovery.LogBootstrap.test_log_connection_error_redacts_token_and_keeps_diagnostics",
+          "tests.test_event_protocol.TestEventStreamAccess.test_token_is_only_exposed_in_subscribe_payload_not_repr_or_endpoint"
+        ],
+        "serverCases": [
+          "logs/memory_only_redacted"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -8988,6 +9303,23 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_event_stream.TestEventStreamTransport.test_handshake_replay_live_and_first_frame_token_policy"
+        ],
+        "serverCases": [
+          "logs/actual_hello_subscribe_replay_completed"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -9037,6 +9369,23 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_event_protocol.TestEventProtocolProcessor.test_global_filtered_cursor_jumps_are_valid"
+        ],
+        "serverCases": [
+          "logs/filtered_cursor_jump"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -9086,6 +9435,23 @@
         "serverCases": [],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.ScopedCursor.test_cursor_is_bound_to_session_filter_origin_and_instance",
+          "tests.test_v2_audio_recovery.ScopedCursor.test_legacy_unscoped_cursor_is_preserved_but_not_reused",
+          "tests.test_event_stream.TestEventStreamTransport.test_cursor_write_failure_replays_without_duplicate_visible_impulse"
+        ],
+        "serverCases": [],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -9136,6 +9502,24 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.ScopedCursor.test_retention_gap_does_not_jump_confirmation_cursor"
+        ],
+        "serverCases": [
+          "logs/real_retention_gap",
+          "logs/retention_survivors_delivered"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -9189,6 +9573,33 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_event_protocol.TestEventProtocolProcessor.test_documented_errors_are_translated_to_typed_issues",
+          "tests.test_event_stream.TestEventStreamTransport.test_auth_error_waits_for_reconfigured_session_access",
+          "tests.test_v2_audio_recovery.Media.test_native_operation_timeout_closes_logs_and_retries_cleanup",
+          "tests.test_v2_audio_recovery.Media.test_native_stop_timeout_closes_logs_and_retries_cleanup",
+          "tests.test_v2_audio_recovery.Media.test_cancelled_close_still_cleans_logs_and_can_retry"
+        ],
+        "serverCases": [
+          "logs/authorization",
+          "logs/cursor_ahead",
+          "logs/store_unavailable",
+          "logs/faults_audio_continues",
+          "shutdown/native_timeout_real_logs_clean"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": [
+          "CV2-040-R02-F02"
+        ]
       }
     },
     {
@@ -9238,6 +9649,23 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.ScopedCursor.test_integer_and_opaque_log_ids_are_diagnostic_only"
+        ],
+        "serverCases": [
+          "logs/opaque_segment_metadata_not_domain_uuid"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {
@@ -9289,6 +9717,25 @@
         ],
         "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "productDiffSha256": "5d87fe46852c8ee3ecdffed5604e1ce144f93f0cb8aa441fb321408a617963d4"
+      },
+      "correctionEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY_INDEPENDENT_RECHECK_OPEN",
+        "run": "R03-KORREKTUR",
+        "candidateRef": "work/client-v2/ap-cv2-040",
+        "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
+        "testedBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+        "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_audio_recovery.Media.test_log_final_is_observation_only_and_snapshot_keeps_token",
+          "tests.test_v2_audio_recovery.LogBootstrap.test_stale_runtime_delivery_rejected_with_diagnostics_preserved"
+        ],
+        "serverCases": [
+          "logs/replay_no_domain_effect",
+          "logs/replay_keeps_published_final"
+        ],
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
+        "productDiffSha256": "67db3bebf108faae0e2361a6d8eb6221c3e28e561460173f7202c918c53f35de",
+        "findingIds": []
       }
     },
     {

@@ -22,7 +22,7 @@ Bootstrap an `settings_bootstrap` übergeben, nicht bereits an den Transport.
 Die Media-Konstruktion installiert diesen Bootstrap und verkettet bestehende
 Status-/Accepted-/Lost-Callbacks. `AudioCapture.probe()` prüft das Gerät ohne
 Aufnahme; negative Verfügbarkeit wird vor der Wiederherstellung der gewünschten
-Suppression bestätigt. Capture beginnt erst bei READY. Ein Gerätefehler beim
+Suppression bestätigt. Bei Geräte-/Muteverlust wird negative Availability noch vor dem möglicherweise blockierenden nativen Stop bestätigt. Capture beginnt erst bei READY. Ein Gerätefehler beim
 Öffnen meldet anschließend false; erfolgreiche Wiederanbindung meldet true.
 
 Audio läuft in idle, waiting, recording, followup und draining. Finish, Cancel
@@ -79,15 +79,15 @@ SQLite, Registry oder Credentialspeicher. Ein neues Subscribe beginnt bei
 abweichender Bindung mit Cursor 0. Gefilterte globale Cursorsprünge sind erlaubt;
 Retentiongap überspringt keinen Cursor blind und erhält surviving Events.
 
-`close()` ist idempotent. Zuerst Transport stoppen und lokale Gates schließen,
+`close()` ist nach vollständig erfolgreichem Cleanup idempotent. Zuerst Transport stoppen und lokale Gates schließen,
 dann Sender/Lifecycle joinen, laufenden nativen Geräteaufruf joinen, Capture
 stoppen und Logs herunterfahren. Geräteoperationen haben beim Shutdown ein
 3-s-Budget, Logclose 3 s plus Koordinatorbudget. Ein festhängender nativer
 Treiber kann nicht durch asyncio hart abgebrochen werden; Timeout wird an den
-Owner weitergegeben. Kein erfolgreiches Shutdown behaupten, wenn er auftritt.
+Owner weitergegeben. Das unabhängige Logcleanup wird auch bei Capture-Timeout, Transportfehler oder Abbruch des Close-Aufrufs im finally ausgeführt. Unvollständiges natives Cleanup bleibt gehalten; erneutes `close()` joint zunächst diesen Vorgang und versucht den Stop erneut. Parallele Close-Aufrufe werden serialisiert. Kein erfolgreiches Shutdown behaupten, wenn er auftritt.
 
-Nachweise: [Runreport](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/01_REPORT.md)
-und [Windowsqualifikation](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json).
+Nachweise: [Runreport](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md)
+und [Windowsqualifikation](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json).
 Der echte Servercheckpoint nutzt ada13b0, reale FastAPI/WebSockets/SQLite/
 PCM-Decodierung/Resampling/Controller, synthetische PortAudioeingabe und einen
 modellfreien Recorder. Reales Mikrofon, Wake-Engine, ASRqualität und physische

@@ -1,0 +1,12 @@
+{
+  "productBase": "146839809bc234a2dfe4f02cea37d7ce2e4ff480",
+  "reviewedProduct": "79cffe19b103cfcc325f5c15a7532da763ff3f9c",
+  "findingIds": [
+    "CV2-040-R02-F01",
+    "CV2-040-R02-F02"
+  ],
+  "expectedFailureTestCount": 5,
+  "observedFailures": 5,
+  "log": "repro-before-fix.txt",
+  "note": "Only the five new test methods were present before product edits; native calls controlled by thread Events. Three F01 availability cases and two F02 cleanup cases all failed as predicted."
+}

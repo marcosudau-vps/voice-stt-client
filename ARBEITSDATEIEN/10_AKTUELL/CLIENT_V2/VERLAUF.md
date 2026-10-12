@@ -70,3 +70,7 @@ compileall/diffcheck PASS, vollständige Logs samt Basis/Diff/Blobbindung.
 Unabhängige Abnahme offen; Paketbranch ab Übergabe pausiert. Kein eigener
 ROOT_PASS, Merge oder Folgepaketstart. Serverada13b0/Distributed und spätere
 ASR-/Hardwaregates offen.
+
+## AP-CV2-040-R03 – 2026-10-12 – Availability-/Shutdownkorrektur / REVIEW_READY
+
+R02-Unterlagen per Fast-forward übernommen; F01/F02 in fünf Fehlerfällen reproduziert und anerkannt. Negative Availability vor nativem Stop, unabhängiges finally-Logcleanup und wiederholbares natives Shutdowncleanup korrigiert. 1373 Windows-/228 gezielte Tests,46 echte Serverfälle/46 Quellen sowie compileall/diffcheck PASS. [R03-Report](30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md). Historische Belege erhalten, alle23 IDs aktualisiert. Neue unabhängige Abnahme offen; Branch ab Übergabe pausiert. Keine Promotion oder Folgepaketimplementierung.

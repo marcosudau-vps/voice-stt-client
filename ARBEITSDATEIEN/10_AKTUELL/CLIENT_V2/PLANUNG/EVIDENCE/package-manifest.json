@@ -283,7 +283,7 @@
         "AP-CV2-030"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-040.md",
-      "status": "CHANGES_REQUIRED",
+      "status": "REVIEW_READY",
       "testModules": [
         "test_v2_audio_recovery",
         "test_audio_capture",
@@ -336,11 +336,9 @@
       "testModulesRole": "suggested locations; actual coverage and methods required",
       "candidateBranch": "work/client-v2/ap-cv2-040",
       "canonicalParent": "3df342c3a7cacaa1226743c4d9bee674e94d33db",
-      "executionReport": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/01_REPORT.md",
+      "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R03-KORREKTUR/EVIDENCE/windows-validation.json",
       "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/6",
-      "qualifiedImplementationCommit": "efd8362fc63bc8a98fdbc9edccd4b4074c659393",
-      "qualifiedImplementationTree": "dd63a7822a39ca332a2a62a113ad75b16bf9397b",
       "reviewedCommit": "79cffe19b103cfcc325f5c15a7532da763ff3f9c",
       "reviewedTree": "1449c1b71015d978349826891644565b3711e17a",
       "reviewReport": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R02-ABNAHME/01_REPORT.md",
