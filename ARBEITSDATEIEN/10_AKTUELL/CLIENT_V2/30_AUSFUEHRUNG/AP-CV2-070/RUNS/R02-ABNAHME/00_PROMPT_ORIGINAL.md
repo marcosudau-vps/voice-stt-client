@@ -7,4 +7,4 @@ Bitte prüfe den eingereichten PR #9 zum umgesetzten AP-CV2-070 im Repository ht
 Lies zuerst ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/voice-stt-client-v2-naechster-schritt/SKILL.md und folge den dort verlinkten Vorgaben für Abnahme/ Review.
 ```
 
-Review-Docs-Commit auf dem pausierten Paketbranch nach workflowweiter ausdrücklicher Freigabe in [AP000-Originalauftrag](../../../../AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md); kein Produktcode-/Testupdate, Merge oder Folgepaketstart beauftragt.
+Review-Docs-Commit auf dem pausierten Paketbranch nach workflowweiter ausdrücklicher Freigabe in [AP000-Originalauftrag](../../../AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md); kein Produktcode-/Testupdate, Merge oder Folgepaketstart beauftragt.
