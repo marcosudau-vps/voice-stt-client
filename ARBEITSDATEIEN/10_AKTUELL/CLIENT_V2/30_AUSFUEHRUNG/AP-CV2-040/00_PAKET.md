@@ -1,5 +1,12 @@
 # AP-CV2-040 – Continuous-Audio, Geräte-Recovery und Logbootstrap
 
+**ROOT_PASS / WAITING_FOR_APPROVAL** nach unabhängiger R06-Abnahme am 2026-10-12. Fachlich geprüfter Kandidat `4ef7a13672bf7c50665e08f5eff837fb5d687419`, Tree `f670a6fce6557ff657644037964025e9f7f1ee1e`. [R06-Originalauftrag](RUNS/R06-ABNAHME/00_PROMPT_ORIGINAL.md), [PASS-Bericht](RUNS/R06-ABNAHME/01_REPORT.md), [Evidenzindex](RUNS/R06-ABNAHME/EVIDENCE/INDEX.md). F01 CLOSED_R04, F02 CLOSED_R06, keine offenen Pflichtfindings. 1378 Windows-, 233 gezielte Tests, 52 echte Serverfälle (46 bytegeprüfte Quellen), Git-Blobs 188/188, CI SUCCESS als unabhängig geprüfte Fremdbelege.
+
+PR [#6](https://github.com/marcosudau-vps/voice-stt-client/pull/6) bleibt offen; Base `feat/client-v2` und Parent `3df342c3a7cacaa1226743c4d9bee674e94d33db` unverändert. Menschliche Übernahmefreigabe fehlt: **kein Merge, kein AP050, kein Release**.
+
+## Historischer R05-Korrekturstand
+
+
 Status **REVIEW_READY**, workflowPhase REVIEW_READY. Aktueller Run R05-KORREKTUR.
 [R05-Report](RUNS/R05-KORREKTUR/01_REPORT.md), [Evidenz](RUNS/R05-KORREKTUR/EVIDENCE/INDEX.md), [Originalauftrag](RUNS/R05-KORREKTUR/00_PROMPT_ORIGINAL.md).
 F01 unabhängig CLOSED_R04; F02 Task-Join-/Logclose-Cancellation anerkannt, reproduziert und technisch korrigiert. Unabhängige Bestätigung offen.

@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-030 sind **ACCEPTED** (AP030 kanonischer Commit `3df342c3a7cacaa1226743c4d9bee674e94d33db`). AP-CV2-040: **REVIEW_READY**, [R05-Korrektur](../../30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/01_REPORT.md) nach [R04-Review](../../30_AUSFUEHRUNG/AP-CV2-040/RUNS/R04-ABNAHME/01_REPORT.md). F01 CLOSED_R04; F02 Task-Join-/Logclose-Cancellation technisch korrigiert, unabhängiger Recheck offen. Spätere Pakete PLANNED.
+AP-CV2-000 bis AP-CV2-030 sind **ACCEPTED** (AP030 kanonischer Commit `3df342c3a7cacaa1226743c4d9bee674e94d33db`). AP-CV2-040: **ROOT_PASS / WAITING_FOR_APPROVAL**, [unabhängige R06-Abnahme](../../30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md) des R05-Korrekturkandidaten `4ef7a13672bf7c50665e08f5eff837fb5d687419`. F01 CLOSED_R04, F02 CLOSED_R06; alle Pflichtfindings geschlossen, kein Merge ohne menschlichen Prompt. Spätere Pakete PLANNED.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |

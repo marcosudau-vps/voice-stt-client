@@ -1,10 +1,9 @@
-# Client V2 – AP-CV2-040 / R05-KORREKTUR / REVIEW_READY, 2026-10-12
+# Client V2 – AP-CV2-040 / R06-ABNAHME / ROOT_PASS, 2026-10-12
 
-AP-CV2-030 ist tatsächlich ACCEPTED auf `3df342c3a7cacaa1226743c4d9bee674e94d33db`, dem unveränderten kanonischen Parent. AP-CV2-040 **REVIEW_READY** nach Korrektur des R04-Restbefunds F02. [R05-Report](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/01_REPORT.md), [R04-Abnahme](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R04-ABNAHME/01_REPORT.md), [Workflowstatus](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json).
+AP-CV2-030 ist ACCEPTED auf `3df342c3a7cacaa1226743c4d9bee674e94d33db`. AP-CV2-040 ist **technisch ROOT_PASS**, Workflow **WAITING_FOR_APPROVAL** nach unabhängiger Abnahme des fachlichen Kandidaten `4ef7a13672bf7c50665e08f5eff837fb5d687419` (Tree `f670a6fce6557ff657644037964025e9f7f1ee1e`). [R06-ROOT_PASS](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md); F01 und F02 vollständig geschlossen. 1378 Windows-Tests, 233 gezielte Tests, 52 echte Serverfälle/46 Serverquellen, 188/188 Git-Blobs und CI auf Kandidaten-SHA SUCCESS wurden als Fremdbelege unabhängig validiert. [PR #6](https://github.com/marcosudau-vps/voice-stt-client/pull/6) bleibt offen.
 
-F01 ist unabhängig CLOSED_R04. F02 wurde mit Cancellation beim Sender-/Lifecycle-Join und beim Logclose reproduziert. Logcleanup umfasst jetzt alle Shutdown-Awaits; ausstehende Task-/Logjoins bleiben begrenzt und retrybar. Neue Qualifikation: **1378 Windows-Tests, 233 gezielte Tests, 52 echte Serverfälle / 46 bytegeprüfte Quellen**, compileall/diffcheck PASS. Alle 23 Requirements neu belegt; R01–R04-Akten unverändert erhalten. [PR #6](https://github.com/marcosudau-vps/voice-stt-client/pull/6).
+Nächste Aktion: ausdrücklicher menschlicher Übernahmeprompt mit aktuellem Docs-Head, canonical_parent und R06-PASS-Bericht; bis dahin **kein Merge und kein Start AP-CV2-050**. Reale Hardware-/ASR-Gates und Qt-/Settingskomposition bleiben späteren Paketen zugeordnet.
 
-Nächste Aktion: frische unabhängige Abnahme des gesamten R05-Kandidaten mit F02-Recheck. Kein eigener ROOT_PASS oder eigene Findingschließung. Paketbranch `work/client-v2/ap-cv2-040` ab Übergabe pausiert. Qt-/Settingskomposition CV2-100/070 und echte Hardware/ASR bleiben spätere Gates; Serverada13b0/Distributed unverändert. Start `.\venv\Scripts\python.exe -m voice_stt_client`. Kein Merge oder Folgepaketstart.
 
 ## Historischer Stand vor AP-CV2-020
 

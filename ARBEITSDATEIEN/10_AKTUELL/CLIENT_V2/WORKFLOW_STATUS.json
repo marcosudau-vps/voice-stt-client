@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "REVIEW_READY",
-  "packageStatus": "REVIEW_READY",
+  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "packageStatus": "ROOT_PASS",
   "activePackage": "AP-CV2-040",
   "nextPackage": "AP-CV2-050",
   "canonicalBranch": "feat/client-v2",
@@ -10,20 +10,18 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/6",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R05-KORREKTUR",
-    "role": "correction",
-    "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/EVIDENCE/INDEX.md"
+    "id": "R06-ABNAHME",
+    "role": "review",
+    "report": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "7461577b1316ff113bac1c08ea7a836cf4b5023a",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R04-ABNAHME/01_REPORT.md",
-  "openFindingIds": [
-    "CV2-040-R02-F02"
-  ],
+  "reviewedCommit": "4ef7a13672bf7c50665e08f5eff837fb5d687419",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md",
+  "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Frische unabhängige Abnahme des gesamten R05-Kandidaten; F02 Task-Join-/Logclose-Cancellation und Retry prüfen. Keine Übernahme ohne PASS und menschlichen Prompt.",
+  "nextAction": "Technischer ROOT_PASS für AP-CV2-040/R06; auf ausdrücklichen menschlichen Übernahmeprompt für PR #6 samt finalem Docs-Head, kanonischem Parent und R06-Bericht warten. Ohne Freigabe kein Merge und kein Folgepaket.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -40,7 +38,7 @@
   "recovery": null,
   "relatedServerFix": null,
   "predecessorCanonicalization": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json",
-  "reviewedTree": "83dd48d0ccd9110668c23732e3cd4933a50d03c3",
+  "reviewedTree": "f670a6fce6557ff657644037964025e9f7f1ee1e",
   "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/EVIDENCE/windows-validation.json",
   "qualificationBasis": {
     "base": "1289991613d4577e535eb6067ca332240488c790",
@@ -49,6 +47,6 @@
   },
   "correctionDisposition": {
     "CV2-040-R02-F01": "CLOSED_R04",
-    "CV2-040-R02-F02": "SELF_CHECK_FIXED_R05_INDEPENDENT_RECHECK_REQUIRED"
+    "CV2-040-R02-F02": "CLOSED_R06"
   }
 }

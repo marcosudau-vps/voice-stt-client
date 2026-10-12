@@ -283,7 +283,7 @@
         "AP-CV2-030"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-040.md",
-      "status": "REVIEW_READY",
+      "status": "ROOT_PASS",
       "testModules": [
         "test_v2_audio_recovery",
         "test_audio_capture",
@@ -339,15 +339,13 @@
       "executionReport": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/01_REPORT.md",
       "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/EVIDENCE/windows-validation.json",
       "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/6",
-      "reviewedCommit": "7461577b1316ff113bac1c08ea7a836cf4b5023a",
-      "reviewedTree": "83dd48d0ccd9110668c23732e3cd4933a50d03c3",
-      "reviewReport": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R04-ABNAHME/01_REPORT.md",
-      "openFindingIds": [
-        "CV2-040-R02-F02"
-      ],
+      "reviewedCommit": "4ef7a13672bf7c50665e08f5eff837fb5d687419",
+      "reviewedTree": "f670a6fce6557ff657644037964025e9f7f1ee1e",
+      "reviewReport": "30_AUSFUEHRUNG/AP-CV2-040/RUNS/R06-ABNAHME/01_REPORT.md",
+      "openFindingIds": [],
       "findingDispositions": {
         "CV2-040-R02-F01": "CLOSED_R04",
-        "CV2-040-R02-F02": "SELF_CHECK_FIXED_R05_INDEPENDENT_RECHECK_REQUIRED"
+        "CV2-040-R02-F02": "CLOSED_R06"
       }
     },
     {
