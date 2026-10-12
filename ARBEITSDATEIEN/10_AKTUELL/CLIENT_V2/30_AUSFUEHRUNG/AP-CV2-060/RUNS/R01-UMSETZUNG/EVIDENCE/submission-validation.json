@@ -19,11 +19,28 @@
     "result": "PASS",
     "package": "AP-CV2-060",
     "packageStatus": "REVIEW_READY",
-    "referencedFiles": 26,
-    "markdownFiles": 21,
-    "relativeLinks": 1014,
+    "referencedFiles": 27,
+    "markdownFiles": 22,
+    "relativeLinks": 1015,
     "errors": []
   },
   "diffCheck": "PASS",
-  "scope": "Index qualification; final commit SHA/tree reported externally after administrative publication refs. No self-SHA."
+  "scope": "Index qualification; final commit SHA/tree reported externally after administrative publication refs. No self-SHA.",
+  "qualifiedCommit": "66b6e39daa86855ae1314025bc06344eb55f7d39",
+  "publishedQualifiedTree": "fbe3931c3b68efa510bee1e35db4b77ad7a83f27",
+  "publishedProductBlobsAndLogHashes": "PASS",
+  "publicationReferencesOnly": true,
+  "administrativeDiffPaths": [
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/00_PAKET.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/pr-submission-snapshot.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/pr-summary.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/AP-CV2-050.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/ARBEITSPAKETE/README.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/EVIDENCE/package-manifest.json",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json"
+  ],
+  "actualPRSnapshot": "pr-submission-snapshot.json",
+  "actualPRSummaryAtVerification": "pr-summary.md"
 }
