@@ -121,7 +121,7 @@
         "AP-CV2-010"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-020.md",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "testModules": [
         "test_v2_transport"
       ],
@@ -188,7 +188,10 @@
       "closedFindingIds": [
         "CV2-020-R02-F01",
         "CV2-020-R02-F02"
-      ]
+      ],
+      "canonicalCommit": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+      "canonicalTree": "94f859d311135ceb539b0f1099d1e246d5b88b6a",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "AP-CV2-030",
@@ -198,9 +201,11 @@
         "AP-CV2-020"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-030.md",
-      "status": "PLANNED",
+      "status": "REVIEW_READY",
       "testModules": [
-        "test_v2_mirror"
+        "test_v2_mirror",
+        "test_v2_transport",
+        "test_v2_protocol"
       ],
       "requirements": [
         "FG-01",
@@ -253,7 +258,12 @@
         "defaultRuns": 1,
         "scopeNote": "one complete package session; steps are not separate runs"
       },
-      "testModulesRole": "suggested locations; actual coverage and methods required"
+      "testModulesRole": "suggested locations; actual coverage and methods required",
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "candidateBranch": "work/client-v2/ap-cv2-030",
+      "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+      "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+      "actualCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
     },
     {
       "id": "AP-CV2-040",

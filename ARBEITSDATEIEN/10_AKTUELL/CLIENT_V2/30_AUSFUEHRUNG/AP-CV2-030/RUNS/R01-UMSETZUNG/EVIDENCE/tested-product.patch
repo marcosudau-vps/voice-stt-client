@@ -1,0 +1,1440 @@
+diff --git a/scripts/check_v2_server_transport.py b/scripts/check_v2_server_transport.py
+index f6dcbb3..b90078f 100644
+--- a/scripts/check_v2_server_transport.py
++++ b/scripts/check_v2_server_transport.py
+@@ -56,7 +56,7 @@ def verify_sources(root, repository):
+     return hashes
+ 
+ 
+-async def run(root, repository):
++async def run(root, repository, *, with_mirror=False):
+     sys.path.insert(0, str(root))
+     import uvicorn
+     from api_fastapi_server.server import create_app, ServerSettings
+@@ -120,6 +120,12 @@ async def run(root, repository):
+             client.on_completion = completions.append
+             client.on_status = lambda status: trace.append(dict(state=str(status.state), generation=status.generation,
+                                                                 reason=status.reason))
++            adapter = None
++            reductions = []
++            if with_mirror:
++                from voice_stt_client.core.v2_mirror import V2MirrorConnection
++                adapter = V2MirrorConnection(client)
++                adapter.on_reduction = reductions.append
+             sessions.append(client)
+             tasks.append(asyncio.create_task(client.run()))
+             await until(lambda: client.binding is not None)
+@@ -130,10 +136,11 @@ async def run(root, repository):
+             check("hello/configuring_not_ready", client.status.state == V2TransportState.CONFIGURING)
+             ready.set()
+             await until(lambda: client.is_ready)
+-            check("bootstrap/availability_and_suppression_acks", len(completions) == 3 and all(x.ack.accepted for x in completions))
++            check("bootstrap/availability_and_suppression_acks", (len(completions) >= 3 if adapter else len(completions) == 3)
++                  and all(x.ack.accepted for x in completions))
+             completion = await client.request(p.CommandType.SNAPSHOT_REQUEST)
+             await until(lambda: any(isinstance(message, p.Snapshot) for _, message in messages))
+-            snapshot = next(message for _, message in messages if isinstance(message, p.Snapshot))
++            snapshot = next(message for _, message in reversed(messages) if isinstance(message, p.Snapshot))
+             check("snapshot/ack_same_session", completion.ack.sessionId == snapshot.sessionId == admitted.session_id)
+             check("snapshot/typed_actual_state", snapshot.payload["audioAvailable"] and not snapshot.payload["trigger"]["suppressed"]["manual"])
+             check("snapshot/command_uuid", p.is_canonical_uuid(completion.command.commandId))
+@@ -151,10 +158,73 @@ async def run(root, repository):
+             # Actual manual activation/finish: server event ordering may lead ack.
+             activated = await client.request(p.CommandType.ACTIVATION, action="activate", source="manual")
+             check("commands/activate_ack", activated.ack.accepted and p.is_canonical_uuid(activated.ack.activationId))
++            if adapter:
++                await until(lambda: not adapter.mirror.view.snapshot_pending)
++                check("mirror/activation_actual_id", adapter.mirror.view.input.activation_id == activated.ack.activationId)
++                check("mirror/deadline_clarified_by_real_snapshot", adapter.mirror.view.input.deadline is not None)
++                # Raw deterministic PCM is the named AP040 audio-capture boundary.
++                await client.send_audio(b"\x00\x40" * 640, 16000, frames=640)
++                await until(lambda: bool(adapter.mirror.view.segments))
++                segment = next(iter(adapter.mirror.view.segments.values()))
++                check("mirror/recording_real_ids", segment.activation_id == activated.ack.activationId and p.is_canonical_uuid(segment.segment_id))
++                check("mirror/foreground_segment_active", adapter.mirror.view.input.phase == p.InputPhase.SEGMENT_ACTIVE)
++                domain = app.state.voicestt_service.sessions.get(admitted.session_id)
++                domain._on_realtime_text("synthetic mirror preview")
++                await until(lambda: adapter.mirror.view.segments[segment.segment_id].preview == "synthetic mirror preview")
++                check("mirror/interim_actual_projection", adapter.mirror.view.segments[segment.segment_id].preview == "synthetic mirror preview")
++                # Drop exactly one real Domain event at the client receive
++                # boundary. The next actual event detects the gap; the tracker
++                # requests an actual server snapshot, never a fabricated one.
++                receive = client.on_message
++                dropped = []
++                def drop_one(binding, message):
++                    if isinstance(message, p.Event) and message.type == p.EventType.INTERIM and not dropped:
++                        dropped.append(message.eventSeq)
++                    else:
++                        receive(binding, message)
++                client.on_message = drop_one
++                domain._on_realtime_text("synthetic lost preview")
++                await until(lambda: bool(dropped))
++                domain._on_realtime_text("synthetic salvaged preview")
++                await until(lambda: any(x.view.state.value == "resyncing" for x in reductions))
++                await until(lambda: adapter.mirror.view.operations_ready and not adapter.mirror.view.snapshot_pending)
++                check("mirror/real_gap_resync", any("snapshot_required" in x.effects and x.view.state.value == "resyncing" for x in reductions))
++                check("mirror/buffered_payload_behind_real_cursor", adapter.mirror.view.segments[segment.segment_id].preview == "synthetic salvaged preview")
++                client.on_message = receive
+             finished = await client.request(p.CommandType.ACTIVATION, action="finish", activationId=activated.ack.activationId)
+             check("commands/finish_correlated", finished.ack.commandId == finished.command.commandId)
+             check("commands/domain_events_received", any(isinstance(message, p.Event) for _, message in messages))
++            if adapter:
++                await until(lambda: any(x.finals for x in reductions))
++                results = [f for x in reductions for f in x.finals]
++                check("mirror/final_once_actual_ids", len(results) == 1 and results[0].segment_id == segment.segment_id and results[0].activation_id == activated.ack.activationId)
++                check("mirror/final_no_interim_preview", adapter.mirror.view.segments[segment.segment_id].preview is None)
++                await until(lambda: adapter.mirror.view.input.phase == p.InputPhase.IDLE)
++                await until(lambda: not adapter.mirror.view.snapshot_pending)
++                check("mirror/idle_manual_released", adapter.mirror.view.manual_available)
++
++                second = await client.request(p.CommandType.ACTIVATION, action="activate", source="manual")
++                await until(lambda: not adapter.mirror.view.snapshot_pending)
++                await client.send_audio(b"\x00\x40" * 640, 16000, frames=640)
++                await until(lambda: len(adapter.mirror.view.segments) == 2)
++                lost_final = []
++                def drop_final(binding, message):
++                    if isinstance(message, p.Event) and message.type == p.EventType.COMPLETED:
++                        lost_final.append(message.eventSeq)
++                    else:
++                        receive(binding, message)
++                client.on_message = drop_final
++                await client.request(p.CommandType.ACTIVATION, action="finish", activationId=second.ack.activationId)
++                await until(lambda: bool(lost_final))
++                await until(lambda: adapter.mirror.view.incomplete and adapter.mirror.view.operations_ready)
++                check("mirror/lost_real_final_incomplete", adapter.mirror.view.activations[second.ack.activationId].incomplete)
++                check("mirror/no_text_reconstruction", len([f for x in reductions for f in x.finals]) == 1)
++                check("mirror/retained_prior_final", adapter.mirror.view.segments[segment.segment_id].text == results[0].text)
++                client.on_message = receive
+             await client.stop()
++            if adapter:
++                await adapter.close()
++                check("mirror/disconnect_and_task_join", adapter.mirror.view.state.value == "disconnected" and adapter._task is None)
+             await until(lambda: not app.state.voicestt_service.metrics()["sessions"])
+             check("disconnect/no_pending_or_callbacks", client.pending_count == 0 and client.binding is None and client._receiver is None)
+             check("disconnect/server_slot_released", not app.state.voicestt_service.metrics()["sessions"])
+@@ -180,6 +250,9 @@ async def run(root, repository):
+                         runtime=dict(python=sys.version, executable=sys.executable, platform=platform.platform(),
+                                      uvicorn=uvicorn.__version__), sourceHashes=hashes,
+                         checks=checks, checkCount=len(checks), transportTrace=trace,
++                        mirrorTrace=[dict(state=str(x.view.state), cursor=x.view.last_event_seq, inputPhase=str(x.view.input.phase),
++                                          activationId=x.view.input.activation_id, incomplete=x.view.incomplete,
++                                          finals=len(x.finals), effects=x.effects) for x in reductions],
+                         boundaries="Real loopback TCP/WebSocket and production FastAPI app, admission/controller/ledger/replay/projection. Same process asyncio loops; pinned GateAwareRecorder/AutoScheduler replace only hardware/models. Named bootstrap supplies availability; real settings/audio/Qt composition remains AP040/070/100. No ASR/hardware/live claim.")
+         finally:
+             for client in sessions:
+@@ -196,8 +269,9 @@ def main():
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument("--server-root", required=True, type=Path)
+     parser.add_argument("--server-repository", required=True, type=Path)
++    parser.add_argument("--with-mirror", action="store_true", help="AP-CV2-030 actual mirror checkpoint")
+     args = parser.parse_args()
+-    print(json.dumps(asyncio.run(run(args.server_root.resolve(), args.server_repository.resolve())), indent=2))
++    print(json.dumps(asyncio.run(run(args.server_root.resolve(), args.server_repository.resolve(), with_mirror=args.with_mirror)), indent=2))
+ 
+ 
+ if __name__ == "__main__":
+diff --git a/tests/test_v2_mirror.py b/tests/test_v2_mirror.py
+new file mode 100644
+index 0000000..d6bbe1c
+--- /dev/null
++++ b/tests/test_v2_mirror.py
+@@ -0,0 +1,615 @@
++from copy import deepcopy
++from dataclasses import FrozenInstanceError
++import asyncio
++import itertools
++import unittest
++
++from voice_stt_client.core import protocol_v2 as p
++from voice_stt_client.core.activation_mirror import ActivationMirror, MirrorLimits, MirrorState
++from voice_stt_client.core.v2_mirror import V2MirrorConnection
++from voice_stt_client.core.v2_transport import V2STTSession, V2TransportConfig
++from voice_stt_client.core.command_tracker import TransportLost
++from tests.test_v2_protocol import FIXTURES, IDS, event
++from tests.test_v2_transport import FakeWebSocket, no_settings, until
++
++A, B, S = IDS['activationId'], p.new_id(), IDS['segmentId']
++
++
++def snapshot(seq=0, version=0, *, active=None, phase='idle', pending=(), **fields):
++    data = deepcopy(FIXTURES['snapshot'])
++    data.update(lastEventSeq=seq, stateVersion=version, settingsRevision=0, pendingActivations=list(pending), **fields)
++    data['audioAvailable'] = True
++    data['trigger']['effective']['manual'] = True
++    data['input'] = dict(phase=phase, activationId=active, primarySource='manual' if active else None,
++                         deadlineAtUnixMs=100000 if active else None, remainingMs=10000 if active else None,
++                         closeRequested=phase == 'closing_input')
++    return p.parse_snapshot(data)
++
++
++def pending(aid=A, count=1, terminal=0, seq=1):
++    return dict(activationId=aid, activationSequence=seq, inputClosedReason='finished', processingState='draining',
++                acceptedSegmentCount=count, terminalSegmentCount=terminal)
++
++
++def msg(kind, seq, *, aid=A, sid=S, segment_sequence=1, version=None, **fields):
++    data = event(kind)
++    data.update(eventId=p.new_id(), eventSeq=seq, stateVersion=seq if version is None else version)
++    if 'activationId' in data:
++        data['activationId'] = aid
++    if 'segmentId' in data and kind != p.EventType.WATCHDOG_WARNING:
++        data.update(segmentId=sid, segmentSequence=segment_sequence)
++    data.update(fields)
++    return p.decode_server_message(data)
++
++
++class Mirror(unittest.TestCase):
++    def setUp(self):
++        self.m = ActivationMirror()
++        self.m.begin(1, snapshot(), 10)
++        self.seq = 0
++
++    def send(self, kind, **fields):
++        self.seq += 1
++        return self.m.consume(1, msg(kind, self.seq, **fields), 10)
++
++    def test_all_eighteen_events_have_actual_reduction(self):
++        for kind in p.EventType:
++            with self.subTest(kind=kind):
++                m = ActivationMirror()
++                m.begin(1, snapshot(active=A, phase='waiting_first_speech'), 10)
++                result = m.consume(1, msg(kind, 1, **({'catalogRevision':2} if kind == p.EventType.WAKE_AVAILABILITY else {})), 10)
++                self.assertEqual(result.view.last_event_seq, 1)
++                self.assertEqual(result.events[0].type, kind)
++                if kind == p.EventType.COMPLETED:
++                    self.assertEqual(len(result.finals), 1)
++                if kind == p.EventType.WAKE_DETECTED:
++                    self.assertEqual(result.view.activations[A].wake_word_id, msg(kind, 1).payload['wakeWordId'])
++                if kind == p.EventType.WATCHDOG_WARNING:
++                    self.assertIsNotNone(result.view.activations[A].watchdog)
++                if kind == p.EventType.SETTINGS_CHANGED:
++                    self.assertIn('settings_required', result.effects)
++                if kind == p.EventType.WAKE_AVAILABILITY:
++                    self.assertIn('catalog_required', result.effects)
++
++    def test_server_foreground_phases_and_countdown(self):
++        self.send(p.EventType.ACTIVATION_STARTED)
++        for phase in list(p.InputPhase)[1:]:
++            result = self.send(p.EventType.PHASE_CHANGED, inputPhase=phase, deadlineAtUnixMs=100000, remainingMs=3000)
++            self.assertEqual(result.view.input.phase, phase)
++            self.assertEqual(result.view.input.close_requested, phase == p.InputPhase.CLOSING_INPUT)
++            self.assertEqual(result.view.input.deadline.remaining(11), 2000)
++            self.assertEqual(result.view.input.deadline.remaining(99), 0)
++        self.assertEqual(self.m.tick(1, 11).effects, ())
++        self.assertEqual(self.m.view.input.phase, p.InputPhase.CLOSING_INPUT)
++
++    def test_known_additive_fields_cannot_cross_domain_boundaries(self):
++        session_events = (p.EventType.TRIGGER_SUPPRESSED, p.EventType.WAKE_AVAILABILITY, p.EventType.SETTINGS_CHANGED)
++        segment_events = (p.EventType.RECORDING_STARTED, p.EventType.RECORDING_ENDED, p.EventType.TRANSCRIPTION_ACCEPTED,
++                          p.EventType.INTERIM, p.EventType.COMPLETED, p.EventType.DISCARDED, p.EventType.FAILED)
++        for kind in p.EventType:
++            with self.subTest(kind=kind):
++                self.setUp()
++                data = msg(kind, 1).to_mapping()
++                if kind in session_events:
++                    data['activationId'] = 'future unused field'
++                if kind not in segment_events and kind != p.EventType.WATCHDOG_WARNING:
++                    data['segmentId'] = 'future unused field'
++                    data['segmentSequence'] = 'future unused field'
++                result = self.m.consume(1, p.decode_server_message(data), 10)
++                self.assertEqual(result.view.last_event_seq, 1)
++                if kind not in segment_events:
++                    self.assertFalse(result.view.segments)
++                if kind in session_events:
++                    self.assertFalse(result.view.activations)
++
++    def test_countdown_uses_receipt_not_wallclock_and_nulls(self):
++        result = self.m.consume(1, snapshot(active=A, phase='followup_wait'), 50)
++        self.assertEqual(result.view.input.deadline.remaining(52.5), 7500)
++        self.assertEqual(result.view.input.deadline.remaining(49), 10000)
++        self.assertEqual(self.m.consume(1, snapshot(), 55).view.input.deadline, None)
++        self.assertFalse(self.m.view.input.close_requested)
++
++    def test_manual_and_wake_share_one_foreground(self):
++        self.send(p.EventType.ACTIVATION_STARTED, primarySource='wake_word')
++        self.send(p.EventType.WAKE_DETECTED)
++        self.send(p.EventType.TRIGGER_SUPPRESSED)
++        self.assertEqual(self.m.view.input.activation_id, A)
++        self.assertEqual(self.m.view.input.primary_source, 'wake_word')
++        self.assertFalse(self.m.view.manual_available)
++        self.send(p.EventType.RECORDING_ENDED)
++        self.send(p.EventType.PHASE_CHANGED, inputPhase='followup_wait')
++        self.assertFalse(self.m.view.manual_available)
++
++    def test_terminal_before_close_does_not_release_foreground(self):
++        for terminal in (p.EventType.ACTIVATION_COMPLETED, p.EventType.ACTIVATION_CANCELLED, p.EventType.ACTIVATION_FAILED):
++            self.setUp()
++            self.send(p.EventType.ACTIVATION_STARTED)
++            self.send(terminal)
++            self.assertEqual(self.m.view.input.activation_id, A)
++            self.assertFalse(self.m.view.manual_available)
++            self.send(p.EventType.INPUT_CLOSED)
++            self.assertEqual(self.m.view.input.phase, p.InputPhase.IDLE)
++
++    def test_b_start_before_a_close_and_old_final_during_b(self):
++        self.send(p.EventType.ACTIVATION_STARTED)
++        self.send(p.EventType.RECORDING_STARTED)
++        self.send(p.EventType.ACTIVATION_STARTED, aid=B, activationSequence=2)
++        self.send(p.EventType.PHASE_CHANGED, aid=B, inputPhase='segment_active')
++        self.send(p.EventType.INPUT_CLOSED)
++        final = self.send(p.EventType.COMPLETED, text='synthetic old final')
++        self.assertEqual(final.finals[0].activation_id, A)
++        self.assertEqual(self.m.view.input.activation_id, B)
++        self.assertEqual(self.m.view.input.phase, p.InputPhase.SEGMENT_ACTIVE)
++        self.assertTrue(self.m.view.activations[A].input_closed)
++
++    def test_idle_with_multiple_drains_allows_manual(self):
++        self.send(p.EventType.ACTIVATION_STARTED)
++        self.send(p.EventType.INPUT_CLOSED)
++        self.send(p.EventType.ACTIVATION_STARTED, aid=B, activationSequence=2)
++        self.send(p.EventType.INPUT_CLOSED, aid=B)
++        self.assertEqual([a.status for a in self.m.view.activations.values()], ['draining', 'draining'])
++        self.assertTrue(self.m.view.manual_available)
++        self.assertNotIn('finalizing', {x.value for x in p.InputPhase})
++
++    def test_discard_and_failure_before_ended_accepted_interim(self):
++        for terminal in (p.EventType.DISCARDED, p.EventType.FAILED, p.EventType.COMPLETED):
++            self.setUp()
++            self.send(terminal)
++            first = self.m.view.segments[S]
++            for kind in (p.EventType.RECORDING_ENDED, p.EventType.TRANSCRIPTION_ACCEPTED,
++                         p.EventType.RECORDING_STARTED, p.EventType.INTERIM, p.EventType.COMPLETED):
++                result = self.send(kind)
++                self.assertEqual(self.m.view.segments[S], first)
++                self.assertFalse(result.finals)
++
++    def test_multiple_segments_and_terminal_holes_do_not_block_final(self):
++        self.send(p.EventType.ACTIVATION_STARTED)
++        collected = []
++        for i, terminal in enumerate((p.EventType.DISCARDED, p.EventType.FAILED, p.EventType.COMPLETED, p.EventType.COMPLETED), 1):
++            sid = p.new_id()
++            self.send(p.EventType.RECORDING_STARTED, sid=sid, segment_sequence=i)
++            self.send(p.EventType.RECORDING_ENDED, sid=sid, segment_sequence=i)
++            collected.extend(self.send(terminal, sid=sid, segment_sequence=i, **({'text':'same synthetic text'} if terminal == p.EventType.COMPLETED else {})).finals)
++        self.assertEqual([x.segment_sequence for x in collected], [3, 4])
++        self.assertEqual(len(self.m.view.segments), 4)
++        self.assertEqual({s.activation_id for s in self.m.view.segments.values()}, {A})
++
++    def test_interims_equal_versions_segment_owned_display_fallback(self):
++        self.send(p.EventType.INTERIM, version=0, text='one', displayText='display')
++        self.send(p.EventType.INTERIM, version=0, text='two', displayText=False)
++        self.send(p.EventType.INTERIM, aid=B, sid=p.new_id(), segment_sequence=2, version=0, text='new recording')
++        self.assertEqual(self.m.view.segments[S].preview, 'two')
++        self.assertEqual(self.m.view.state_version, 0)
++        self.assertEqual(self.m.view.last_event_seq, 3)
++        self.assertEqual(self.m.view.input.phase, p.InputPhase.IDLE)
++
++    def test_generation_session_duplicate_and_unknown_sequence(self):
++        value = msg(p.EventType.INTERIM, 1)
++        self.assertFalse(self.m.consume(2, value, 10).events)
++        foreign = value.to_mapping(); foreign['sessionId'] = p.new_id()
++        self.assertFalse(self.m.consume(1, p.decode_server_message(foreign), 10).events)
++        self.m.consume(1, value, 10)
++        self.assertFalse(self.m.consume(1, value, 10).events)
++        data = value.to_mapping(); data.update(type='future.additive', eventId=p.new_id(), eventSeq=2, stateVersion=42)
++        result = self.m.consume(1, p.decode_server_message(data), 10)
++        self.assertEqual(result.view.last_event_seq, 2)
++        self.assertEqual(result.view.state_version, 42)
++        self.assertEqual(result.view.state, MirrorState.READY)
++        self.assertEqual(result.effects, ('unknown_event',))
++        self.assertEqual(result.view.segments[S].preview, value.preview_text)
++
++    def test_state_version_jump_without_sequence_gap(self):
++        self.send(p.EventType.INTERIM, version=99)
++        self.send(p.EventType.INTERIM, version=99)
++        self.assertEqual(self.m.view.state, MirrorState.READY)
++        self.assertEqual(self.m.view.state_version, 99)
++
++    def test_conflicting_event_id_never_republishes(self):
++        value = msg(p.EventType.COMPLETED, 1, text='one')
++        self.m.consume(1, value, 10)
++        bad = value.to_mapping(); bad.update(text='contradiction', eventSeq=2)
++        result = self.m.consume(1, p.decode_server_message(bad), 10)
++        self.assertEqual(result.view.state, MirrorState.RESYNCING)
++        self.assertFalse(result.finals)
++        self.assertEqual(result.view.segments[S].text, 'one')
++
++    def test_segment_identity_and_sequence_collision_degrade(self):
++        for fields in (dict(aid=B), dict(segment_sequence=2), dict(sid=p.new_id())):
++            self.setUp()
++            self.send(p.EventType.INTERIM)
++            result = self.send(p.EventType.COMPLETED, **fields)
++            self.assertEqual(result.view.state, MirrorState.RESYNCING)
++            self.assertFalse(result.finals)
++            self.assertEqual(len(result.view.segments), 1)
++            self.assertEqual(set(result.view.activations), {A})
++
++    def test_snapshot_equal_version_higher_seq_and_stale_bounds(self):
++        self.send(p.EventType.INTERIM, version=4)
++        self.m.consume(1, snapshot(7, 4), 11)
++        self.assertEqual(self.m.view.last_event_seq, 7)
++        for seq, version in ((6, 4), (7, 3), (10, 3)):
++            result = self.m.consume(1, snapshot(seq, version), 12)
++            self.assertIn('stale_snapshot', result.effects)
++            self.assertEqual(result.view.last_event_seq, 7)
++            self.assertEqual(result.view.state_version, 4)
++
++    def test_snapshot_all_domains_and_safe_immutable_projection(self):
++        original = self.m.view
++        result = self.m.consume(1, snapshot(1, 3, active=A, phase='closing_input', pending=(pending(B, seq=2),)), 10)
++        self.assertEqual(result.view.input.phase, p.InputPhase.CLOSING_INPUT)
++        self.assertTrue(result.view.input.close_requested)
++        self.assertEqual(result.view.activations[B].status, 'draining')
++        self.assertEqual(len(result.view.requested_settings), 16)
++        self.assertIn('catalogRevision', result.view.capabilities)
++        with self.assertRaises(TypeError): result.view.activations[A] = None
++        with self.assertRaises(TypeError): result.view.requested_settings['x'] = 1
++        with self.assertRaises(FrozenInstanceError): result.view.input.phase = 'idle'
++        self.assertEqual(len(original.activations), 0)
++
++    def test_activation_settings_frozen_across_snapshot_and_settings_events(self):
++        self.send(p.EventType.ACTIVATION_STARTED, effectiveSettings={'activation.followupTimeoutMs': 1234})
++        self.send(p.EventType.SETTINGS_CHANGED, settingsRevision=1)
++        newer = snapshot(self.seq, self.seq, active=A, phase='followup_wait').to_mapping()
++        newer['effectiveSettings']['activation.followupTimeoutMs'] = 5000
++        newer['settingsRevision'] = 1
++        newer['requestedSettings']['activation.followupTimeoutMs'] = 6000
++        self.m.consume(1, p.parse_snapshot(newer), 11)
++        self.assertEqual(self.m.view.activations[A].effective_settings['activation.followupTimeoutMs'], 1234)
++        self.assertEqual(self.m.view.effective_settings['activation.followupTimeoutMs'], 5000)
++        self.assertEqual(self.m.view.requested_settings['activation.followupTimeoutMs'], 6000)
++        self.send(p.EventType.ACTIVATION_STARTED, aid=B, activationSequence=2, effectiveSettings={'activation.followupTimeoutMs':6000})
++        self.assertEqual(self.m.view.activations[B].effective_settings['activation.followupTimeoutMs'], 6000)
++
++    def test_close_reason_command_identity_and_unknown_reasons(self):
++        for reason, command in (('finished', p.new_id()), ('cancelled', p.new_id()), ('timed_out', None), ('device_lost', None), ('future_reason', None)):
++            self.setUp(); self.send(p.EventType.ACTIVATION_STARTED)
++            self.send(p.EventType.INPUT_CLOSED, reason=reason, causedByCommandId=command)
++            a = self.m.view.activations[A]
++            self.assertEqual((a.close_reason, a.caused_by_command_id), (reason, command))
++
++    def test_gap_requests_once_and_buffers_until_snapshot(self):
++        self.send(p.EventType.RECORDING_STARTED)
++        result = self.m.consume(1, msg(p.EventType.INTERIM, 3), 10)
++        self.assertEqual(result.effects, ('snapshot_required',))
++        self.assertFalse(result.view.operations_ready)
++        for i in (5, 4):
++            result = self.m.consume(1, msg(p.EventType.INTERIM, i), 10)
++            self.assertNotIn('snapshot_required', result.effects)
++        result = self.m.consume(1, snapshot(3, 3, active=A, phase='segment_active'), 11)
++        self.assertEqual(result.view.last_event_seq, 5)
++        self.assertTrue(result.view.operations_ready)
++        self.assertFalse(result.view.snapshot_pending)
++
++    def test_buffered_final_at_or_behind_cursor_salvaged_once(self):
++        for cursor in (3, 4, 5):
++            self.setUp(); self.send(p.EventType.RECORDING_STARTED)
++            value = msg(p.EventType.COMPLETED, 3, text='synthetic salvaged')
++            self.m.consume(1, value, 10)
++            result = self.m.consume(1, snapshot(cursor, 5, pending=(pending(terminal=1),)), 11)
++            self.assertEqual([x.text for x in result.finals], ['synthetic salvaged'])
++            self.assertFalse(result.view.incomplete)
++            self.assertEqual(result.view.input.phase, p.InputPhase.IDLE)
++            self.assertFalse(self.m.consume(1, value, 12).finals)
++            self.assertFalse(self.m.consume(1, snapshot(cursor, 5), 12).finals)
++
++    def test_snapshot_preserves_received_final_and_terminal_dedup(self):
++        first = self.send(p.EventType.COMPLETED, text='synthetic retained')
++        self.m.consume(1, snapshot(5, 5), 11)
++        self.assertEqual(self.m.view.segments[S].text, first.finals[0].text)
++        self.assertFalse(self.m.consume(1, msg(p.EventType.COMPLETED, 6), 12).finals)
++
++    def test_lost_final_and_disappeared_pending_are_incomplete_no_text(self):
++        self.send(p.EventType.RECORDING_STARTED)
++        result = self.m.consume(1, snapshot(4, 4, pending=(pending(terminal=1),)), 11)
++        self.assertTrue(result.view.incomplete)
++        self.assertFalse(result.finals)
++        result = self.m.consume(1, snapshot(5, 5), 12)
++        self.assertEqual(result.view.activations[A].status, 'terminal_unknown')
++        self.assertEqual(result.view.segments[S].status, 'terminal_unknown')
++        self.assertIsNone(result.view.segments[S].text)
++
++    def test_buffered_lifecycle_not_applied_backwards(self):
++        self.send(p.EventType.ACTIVATION_STARTED)
++        self.m.consume(1, msg(p.EventType.PHASE_CHANGED, 3, inputPhase='segment_active'), 10)
++        result = self.m.consume(1, snapshot(4, 4, active=B, phase='followup_wait'), 11)
++        self.assertEqual(result.view.input.activation_id, B)
++        self.assertEqual(result.view.input.phase, p.InputPhase.FOLLOWUP_WAIT)
++        self.assertEqual(result.view.activations[A].status, 'terminal_unknown')
++
++    def test_buffered_cancel_failed_tombstones_suppress_unpublished_only(self):
++        for terminal in (p.EventType.ACTIVATION_CANCELLED, p.EventType.ACTIVATION_FAILED):
++            self.setUp()
++            self.send(p.EventType.COMPLETED, text='already published')
++            self.m.consume(1, msg(terminal, 3), 10)
++            self.m.consume(1, msg(p.EventType.COMPLETED, 4, sid=p.new_id(), segment_sequence=2, text='forbidden'), 10)
++            result = self.m.consume(1, snapshot(4, 4), 11)
++            self.assertFalse(result.finals)
++            self.assertEqual(result.view.segments[S].text, 'already published')
++            self.assertEqual(result.view.activations[A].status, terminal.split('.')[1])
++            result = self.m.consume(1, msg(p.EventType.COMPLETED, 5, sid=p.new_id(), segment_sequence=3), 12)
++            self.assertFalse(result.finals)
++            self.assertEqual(result.view.input.phase, p.InputPhase.IDLE)
++
++    def test_buffered_final_before_cancel_remains_published(self):
++        self.send(p.EventType.RECORDING_STARTED)
++        self.m.consume(1, msg(p.EventType.COMPLETED, 3, text='synthetic valid before cancel'), 10)
++        self.m.consume(1, msg(p.EventType.ACTIVATION_CANCELLED, 4), 10)
++        result = self.m.consume(1, snapshot(4, 4), 11)
++        self.assertEqual(len(result.finals), 1)
++        self.assertEqual(result.view.segments[S].status, 'completed')
++
++    def test_new_gap_during_replay_stays_gated_with_new_request(self):
++        self.send(p.EventType.RECORDING_STARTED)
++        self.m.consume(1, msg(p.EventType.INTERIM, 3), 10)
++        self.m.consume(1, msg(p.EventType.INTERIM, 5), 10)
++        result = self.m.consume(1, snapshot(3, 3, active=A, phase='segment_active'), 11)
++        self.assertEqual(result.view.state, MirrorState.RESYNCING)
++        self.assertIn('snapshot_required', result.effects)
++        self.assertEqual(result.view.last_event_seq, 3)
++        result = self.m.consume(1, snapshot(4, 4, active=A, phase='segment_active'), 12)
++        self.assertEqual(result.view.last_event_seq, 5)
++        self.assertTrue(result.view.operations_ready)
++
++    def test_resync_event_and_byte_overflow_is_incomplete_reconnect(self):
++        for limits in (MirrorLimits(max_events=1), MirrorLimits(max_bytes=1)):
++            m = ActivationMirror(limits); m.begin(1, snapshot(active=A, phase='segment_active'), 10)
++            result = m.consume(1, msg(p.EventType.INTERIM, 2), 10)
++            if result.view.state != MirrorState.RECONNECT_REQUIRED:
++                result = m.consume(1, msg(p.EventType.INTERIM, 3), 10)
++            self.assertEqual(result.view.state, MirrorState.RECONNECT_REQUIRED)
++            self.assertTrue(result.view.incomplete)
++            self.assertIn('reconnect_required', result.effects)
++            self.assertFalse(result.view.snapshot_pending)
++
++    def test_timeout_two_attempts_stale_snapshot_does_not_extend_budget(self):
++        self.send(p.EventType.RECORDING_STARTED)
++        self.m.consume(1, msg(p.EventType.INTERIM, 3), 10)
++        result = self.m.consume(1, snapshot(0, 0), 14)
++        self.assertNotIn('snapshot_required', result.effects)
++        self.assertEqual(self.m.tick(1, 15).effects, ('snapshot_required',))
++        result = self.m.tick(1, 20)
++        self.assertEqual(result.view.state, MirrorState.RECONNECT_REQUIRED)
++        self.assertTrue(result.view.incomplete)
++        self.assertEqual(result.view.activations[A].status, 'terminal_unknown')
++
++    def test_start_missing_deadline_clarification_does_not_timeout_activation(self):
++        result = self.send(p.EventType.ACTIVATION_STARTED)
++        self.assertEqual(result.effects, ('snapshot_required',))
++        self.m.consume(1, snapshot(1, 1, active=A, phase='waiting_first_speech'), 11)
++        result = self.m.tick(1, 1000)
++        self.assertEqual(result.view.input.phase, p.InputPhase.WAITING_FIRST_SPEECH)
++        self.assertFalse(result.effects)
++
++    def test_disconnect_retains_text_and_rebind_isolated(self):
++        self.send(p.EventType.COMPLETED, text='synthetic retained')
++        sid = p.new_id(); self.send(p.EventType.INTERIM, sid=sid, segment_sequence=2)
++        old = self.m.view
++        result = self.m.disconnect(1)
++        self.assertEqual(result.view.state, MirrorState.DISCONNECTED)
++        self.assertTrue(result.view.incomplete)
++        self.assertEqual(result.view.segments[S].text, 'synthetic retained')
++        self.assertFalse(self.m.consume(1, msg(p.EventType.COMPLETED, 3), 11).finals)
++        self.m.begin(2, snapshot(), 12)
++        self.assertEqual(len(self.m.view.segments), 0)
++        self.assertEqual(old.segments[S].status, 'completed')
++        self.m.disconnect(1)
++        self.assertEqual(self.m.view.state, MirrorState.READY)
++        self.m.begin(1, snapshot(9, 9), 12)
++        self.assertEqual(self.m.view.last_event_seq, 0)
++
++    def test_empty_completed_is_terminal_final_and_repr_has_no_text(self):
++        result = self.send(p.EventType.COMPLETED, text='')
++        self.assertEqual(result.finals[0].text, '')
++        self.assertEqual(result.view.segments[S].status, 'completed')
++        self.send(p.EventType.COMPLETED, sid=p.new_id(), segment_sequence=2, text='private synthetic sentinel')
++        self.assertNotIn('private synthetic sentinel', repr(self.m.view))
++
++    def test_generated_races_have_id_and_terminal_invariants_each_step(self):
++        count = 0
++        # Enumerate all valid interleavings: A's final/terminal/close and B's
++        # start/recording. Terminals and close may race; B start precedes B segment.
++        labels = ('a_final', 'a_terminal', 'a_close', 'b_start', 'b_record')
++        for order in itertools.permutations(labels):
++            if order.index('b_start') > order.index('b_record'): continue
++            self.setUp(); self.send(p.EventType.ACTIVATION_STARTED); self.send(p.EventType.RECORDING_STARTED)
++            bs = p.new_id(); finals = []
++            operations = {'a_final':(p.EventType.COMPLETED, {}), 'a_terminal':(p.EventType.ACTIVATION_COMPLETED, {}),
++                          'a_close':(p.EventType.INPUT_CLOSED, {}),
++                          'b_start':(p.EventType.ACTIVATION_STARTED, dict(aid=B, activationSequence=2)),
++                          'b_record':(p.EventType.RECORDING_STARTED, dict(aid=B, sid=bs, segment_sequence=2))}
++            b_started = False
++            for label in order:
++                kind, fields = operations[label]; result = self.send(kind, **fields); finals.extend(result.finals)
++                b_started |= label == 'b_start'
++                self.assertEqual(result.view.segments[S].activation_id, A)
++                if b_started: self.assertEqual(result.view.input.activation_id, B)
++                self.assertNotEqual(result.view.input.phase, 'finalizing')
++            self.assertEqual(len(finals), 1)
++            count += 1
++        self.assertEqual(count, 60)
++
++    def test_default_512_event_buffer_bound_and_no_duplicate_budget_use(self):
++        first = msg(p.EventType.INTERIM, 2)
++        self.m.consume(1, first, 10)
++        for _ in range(20): self.m.consume(1, first, 10)
++        for i in range(3, 514): self.m.consume(1, msg(p.EventType.INTERIM, i), 10)
++        self.assertEqual(self.m.view.state, MirrorState.RESYNCING)
++        self.assertEqual(len(self.m._buffer), 512)
++        result = self.m.consume(1, msg(p.EventType.INTERIM, 514), 10)
++        self.assertEqual(result.view.state, MirrorState.RECONNECT_REQUIRED)
++        self.assertEqual(len(self.m._buffer), 0)
++
++    def test_snapshot_cannot_change_activation_identity_or_regress_settings(self):
++        self.send(p.EventType.ACTIVATION_STARTED, activationSequence=1)
++        result = self.m.consume(1, snapshot(1, 1, pending=(pending(seq=9),)), 10)
++        self.assertIn('protocol_fault', result.effects)
++        self.assertEqual(result.view.activations[A].sequence, 1)
++        self.setUp(); self.send(p.EventType.SETTINGS_CHANGED, settingsRevision=5)
++        result = self.m.consume(1, snapshot(4, 4), 10)
++        self.assertIn('stale_snapshot', result.effects)
++        self.assertEqual(result.view.settings_revision, 5)
++
++    def test_unseen_buffered_segment_missing_lifecycle_is_unknown(self):
++        self.m.consume(1, msg(p.EventType.COMPLETED, 3), 10)
++        result = self.m.consume(1, snapshot(3, 3), 11)
++        self.assertEqual(len(result.finals), 1)
++        self.assertEqual(result.view.activations[A].status, 'terminal_unknown')
++        self.assertTrue(result.view.incomplete)
++
++    def test_all_terminal_cancel_permutations_first_terminal_wins(self):
++        for order in itertools.permutations((p.EventType.DISCARDED, p.EventType.RECORDING_ENDED,
++                                            p.EventType.TRANSCRIPTION_ACCEPTED, p.EventType.INTERIM)):
++            self.setUp()
++            for kind in order:
++                result = self.send(kind)
++                if result.view.segments[S].status == 'discarded':
++                    self.assertIsNone(result.view.segments[S].preview)
++            self.assertEqual(self.m.view.segments[S].status, 'discarded')
++            self.assertFalse(self.send(p.EventType.COMPLETED).finals)
++
++    def test_invalid_local_limits(self):
++        for kwargs in (dict(max_events=0), dict(max_bytes=True), dict(snapshot_attempts=0), dict(snapshot_timeout=float('nan'))):
++            with self.assertRaises(ValueError): ActivationMirror(MirrorLimits(**kwargs))
++
++
++class Connection(unittest.IsolatedAsyncioTestCase):
++    async def start(self, *, limits=None):
++        class FreshSocket(FakeWebSocket):
++            def push(self, value):
++                if isinstance(value, dict) and value.get('type') == 'hello.accepted':
++                    value['snapshot']['lastEventSeq'] = 0
++                    value['snapshot']['settingsRevision'] = 0
++                super().push(value)
++        socket = FreshSocket()
++        async def connect(*args, **kwargs): return socket
++        session = V2STTSession(V2TransportConfig(ack_timeout=.1, command_retries=0, backoff_initial=.01), bootstrap=no_settings, connector=connect)
++        adapter = V2MirrorConnection(session, ActivationMirror(limits))
++        async def reply(command):
++            if command['type'] == p.CommandType.SNAPSHOT_REQUEST:
++                data = snapshot().to_mapping(); data['sessionId'] = socket.session_id
++                socket.push(data)
++            socket.reply(command, revision=0)
++        socket.on_send = reply
++        task = asyncio.create_task(session.run())
++        self.addAsyncCleanup(adapter.close)
++        self.addAsyncCleanup(self.join, task)
++        await until(lambda: session.is_ready and not adapter.mirror.view.snapshot_pending)
++        return session, adapter, socket
++
++    async def join(self, task):
++        task.cancel(); await asyncio.gather(task, return_exceptions=True)
++
++    async def test_eventless_bootstrap_ack_reads_actual_snapshot(self):
++        session, adapter, socket = await self.start()
++        self.assertTrue(adapter.mirror.view.manual_available)
++        self.assertEqual(len([x for x in socket.commands if x['type'] == p.CommandType.SNAPSHOT_REQUEST]), 1)
++        with self.assertRaises(RuntimeError): V2MirrorConnection(session)
++
++    async def test_gap_gates_actual_transport_and_resync_before_ack(self):
++        session, adapter, socket = await self.start()
++        allow = asyncio.Event(); requested = asyncio.Event()
++        async def reply(command):
++            if command['type'] == p.CommandType.SNAPSHOT_REQUEST:
++                requested.set(); await allow.wait()
++                socket.push(snapshot(3, 3, pending=(pending(terminal=1),)).to_mapping())
++            socket.reply(command, revision=0, version=3)
++        socket.on_send = reply
++        socket.push(msg(p.EventType.COMPLETED, 3, text='synthetic resync').to_mapping())
++        await requested.wait()
++        with self.assertRaises(TransportLost): await session.request(p.CommandType.ACTIVATION, action='activate', source='manual')
++        self.assertEqual(adapter.mirror.view.state, MirrorState.RESYNCING)
++        allow.set(); await until(lambda: adapter.mirror.view.operations_ready)
++        self.assertEqual(adapter.mirror.view.segments[S].text, 'synthetic resync')
++        self.assertEqual(adapter.mirror.view.last_event_seq, 3)
++
++    async def test_malformed_known_event_degrades_without_guessing_identity(self):
++        session, adapter, socket = await self.start()
++        data = msg(p.EventType.INTERIM, 1).to_mapping(); del data['activationId']
++        seen = []; adapter.on_reduction = lambda result: seen.append(result)
++        socket.push(data)
++        await until(lambda: any('protocol_fault' in x.effects for x in seen))
++        await until(lambda: adapter.mirror.view.operations_ready)
++        self.assertFalse(adapter.mirror.view.segments)
++        self.assertTrue(session.is_ready)
++
++    async def test_closing_ack_clarifies_never_overwrites_foreground(self):
++        session, adapter, socket = await self.start()
++        session.dispatch(snapshot(2, 2, active=B, phase='segment_active'), session.binding)
++        async def reply(command):
++            if command['type'] == p.CommandType.SNAPSHOT_REQUEST:
++                socket.push(snapshot(2, 2, active=B, phase='segment_active').to_mapping())
++                socket.reply(command, version=2, revision=0)
++            else: socket.reply(command, 'closing_input', version=1, revision=0, phase='closing_input')
++        socket.on_send = reply
++        await session.request(p.CommandType.ACTIVATION, action='refresh', activationId=A)
++        await until(lambda: not adapter.mirror.view.snapshot_pending)
++        self.assertEqual(adapter.mirror.view.input.activation_id, B)
++        self.assertEqual(adapter.mirror.view.input.phase, p.InputPhase.SEGMENT_ACTIVE)
++
++    async def test_queued_activation_rechecks_resync_guard_before_send(self):
++        session, adapter, socket = await self.start()
++        entered = asyncio.Event(); release = asyncio.Event()
++        original = socket.on_send
++        async def hold(command):
++            if command['type'] == p.CommandType.ACTIVATION:
++                entered.set(); await release.wait()
++                socket.reply(command, revision=0)
++            else: await original(command)
++        socket.on_send = hold
++        first = asyncio.create_task(session.request(p.CommandType.ACTIVATION, action='activate', source='manual'))
++        await entered.wait()
++        second = asyncio.create_task(session.request(p.CommandType.ACTIVATION, action='activate', source='manual'))
++        await asyncio.sleep(0)
++        adapter._publish(adapter.mirror.protocol_fault(session.generation, adapter.clock()))
++        # Keep snapshot reply behind the activation Ack so the queued command
++        # would otherwise leave the domain lock during resync.
++        async def only_ack(command): socket.reply(command, revision=0)
++        socket.on_send = only_ack
++        release.set(); await first
++        with self.assertRaises(TransportLost): await second
++        self.assertEqual(len([x for x in socket.commands if x['type'] == p.CommandType.ACTIVATION]), 1)
++
++    async def test_1011_recovery_new_session_and_stale_binding_guard(self):
++        from tests.test_v2_transport import close_error
++        session, adapter, socket = await self.start()
++        old = session.binding
++        session.dispatch(msg(p.EventType.INTERIM, 1), old)
++        class NewSocket(FakeWebSocket):
++            def push(self, value):
++                if isinstance(value, dict) and value.get('type') == 'hello.accepted':
++                    value['snapshot']['lastEventSeq'] = 0
++                    value['snapshot']['settingsRevision'] = 0
++                super().push(value)
++        newer = NewSocket(session_id=p.new_id())
++        async def connect(*args, **kwargs): return newer
++        async def reply(command):
++            if command['type'] == p.CommandType.SNAPSHOT_REQUEST:
++                data = snapshot().to_mapping(); data['sessionId'] = newer.session_id; newer.push(data)
++            newer.reply(command, revision=0)
++        newer.on_send = reply; session._connector = connect
++        losses = []; previous = session.on_lost
++        def lost(binding):
++            previous(binding); losses.append(adapter.mirror.view)
++        session.on_lost = lost
++        socket.inbox.put_nowait(close_error(1011))
++        await until(lambda: session.is_ready and session.binding is not old and not adapter.mirror.view.snapshot_pending)
++        self.assertTrue(losses[0].incomplete)
++        self.assertEqual(losses[0].segments[S].status, 'terminal_unknown')
++        self.assertEqual(adapter.mirror.view.input.phase, p.InputPhase.IDLE)
++        self.assertFalse(adapter.mirror.view.segments)
++        self.assertFalse(session.dispatch(msg(p.EventType.COMPLETED, 2), old))
++        self.assertEqual(adapter.mirror.view.session_id, newer.session_id)
++
++    async def test_missing_snapshot_even_with_ack_reconnects_bounded(self):
++        session, adapter, socket = await self.start(limits=MirrorLimits(snapshot_timeout=.02))
++        async def reply(command): socket.reply(command, revision=0)
++        socket.on_send = reply
++        old_binding = session.binding
++        socket.push(msg(p.EventType.INTERIM, 2).to_mapping())
++        await until(lambda: session.binding is not old_binding)
++        self.assertTrue(socket.closed)
++        self.assertEqual(adapter.mirror.view.state, MirrorState.DISCONNECTED)
++        self.assertTrue(adapter.mirror.view.incomplete)
++        requests = [x for x in socket.commands if x['type'] == p.CommandType.SNAPSHOT_REQUEST]
++        self.assertEqual(len(requests), 3)  # bootstrap clarification plus two attempts
++        self.assertFalse(adapter.mirror.view.snapshot_pending)
+diff --git a/voice_stt_client/core/activation_mirror.py b/voice_stt_client/core/activation_mirror.py
+new file mode 100644
+index 0000000..182689d
+--- /dev/null
++++ b/voice_stt_client/core/activation_mirror.py
+@@ -0,0 +1,487 @@
++"""Pure, session-bound server projection. Effects are data, never UI/I/O calls.
++
++The owning core loop supplies monotonic receipt times. Snapshots repair only
++snapshot domains; segment payloads and first-terminal guards survive resync.
++"""
++
++from __future__ import annotations
++
++from collections.abc import Mapping
++from dataclasses import dataclass, field, replace
++from enum import StrEnum
++import hashlib
++import json
++from types import MappingProxyType
++from typing import Any
++
++from . import protocol_v2 as p
++
++
++def freeze(value):
++    if isinstance(value, Mapping):
++        return MappingProxyType({key: freeze(item) for key, item in value.items()})
++    if isinstance(value, (tuple, list)):
++        return tuple(freeze(item) for item in value)
++    return value
++
++
++EMPTY = MappingProxyType({})
++SEGMENT_TERMINALS = frozenset(("completed", "discarded", "failed"))
++ACTIVATION_TERMINALS = frozenset(("completed", "cancelled", "failed"))
++SEGMENT_EVENTS = frozenset((p.EventType.RECORDING_STARTED, p.EventType.RECORDING_ENDED,
++                           p.EventType.TRANSCRIPTION_ACCEPTED, p.EventType.INTERIM,
++                           p.EventType.COMPLETED, p.EventType.DISCARDED, p.EventType.FAILED))
++SESSION_EVENTS = frozenset((p.EventType.TRIGGER_SUPPRESSED, p.EventType.WAKE_AVAILABILITY,
++                           p.EventType.SETTINGS_CHANGED))
++
++
++class MirrorState(StrEnum):
++    DISCONNECTED = "disconnected"
++    READY = "ready"
++    RESYNCING = "resyncing"
++    RECONNECT_REQUIRED = "reconnect_required"
++
++
++@dataclass(frozen=True)
++class Deadline:
++    unix_ms: int
++    remaining_ms: int
++    received_at: float
++
++    def remaining(self, now: float) -> int:
++        return max(0, self.remaining_ms - int(max(0, now - self.received_at) * 1000))
++
++
++@dataclass(frozen=True)
++class InputView:
++    phase: p.InputPhase = p.InputPhase.IDLE
++    activation_id: str | None = None
++    primary_source: str | None = None
++    deadline: Deadline | None = None
++    close_requested: bool = False
++
++
++@dataclass(frozen=True)
++class ActivationView:
++    activation_id: str
++    sequence: int | None = None
++    primary_source: str | None = None
++    effective_settings: Mapping[str, Any] = field(default_factory=lambda: EMPTY, repr=False)
++    input_closed: bool = False
++    close_reason: str | None = None
++    caused_by_command_id: str | None = None
++    status: str = "open"
++    accepted_count: int = 0
++    terminal_count: int = 0
++    incomplete: bool = False
++    reason: str | None = None
++    wake_word_id: str | None = None
++    watchdog: Deadline | None = None
++
++
++@dataclass(frozen=True)
++class SegmentView:
++    activation_id: str
++    segment_id: str
++    sequence: int
++    status: str = "recording"
++    preview: str | None = field(default=None, repr=False)
++    text: str | None = field(default=None, repr=False)
++    reason: str | None = None
++    event_id: str | None = None
++    event_seq: int | None = None
++
++
++@dataclass(frozen=True)
++class FinalResult:
++    session_id: str
++    activation_id: str
++    segment_id: str
++    segment_sequence: int
++    text: str = field(repr=False)
++    event_id: str
++    event_seq: int
++
++
++@dataclass(frozen=True)
++class MirrorView:
++    generation: int | None
++    session_id: str | None
++    state: MirrorState
++    state_version: int
++    last_event_seq: int
++    settings_revision: int
++    input: InputView
++    activations: Mapping[str, ActivationView]
++    segments: Mapping[str, SegmentView]
++    trigger: Mapping[str, Any]
++    audio_available: bool
++    requested_settings: Mapping[str, Any] = field(repr=False)
++    effective_settings: Mapping[str, Any] = field(repr=False)
++    capabilities: Mapping[str, Any]
++    incomplete: bool
++    loss_reasons: tuple[str, ...]
++    snapshot_pending: bool
++
++    @property
++    def operations_ready(self) -> bool:
++        return self.state == MirrorState.READY
++
++    @property
++    def manual_available(self) -> bool:
++        return (self.operations_ready and self.input.phase == p.InputPhase.IDLE
++                and self.audio_available and self.trigger.get("effective", {}).get("manual", False))
++
++
++@dataclass(frozen=True)
++class Reduction:
++    view: MirrorView
++    finals: tuple[FinalResult, ...] = ()
++    events: tuple[p.Event, ...] = ()
++    effects: tuple[str, ...] = ()
++
++
++@dataclass(frozen=True)
++class MirrorLimits:
++    max_events: int = 512
++    max_bytes: int = 4 * 1024 * 1024
++    snapshot_timeout: float = 5
++    snapshot_attempts: int = 2
++
++    def __post_init__(self):
++        if any(type(x) is not int or x < 1 for x in
++               (self.max_events, self.max_bytes, self.snapshot_attempts)):
++            raise ValueError("invalid mirror bounds")
++        if (type(self.snapshot_timeout) not in (int, float)
++                or not 0 < self.snapshot_timeout < float("inf")):
++            raise ValueError("invalid snapshot timeout")
++
++
++class ActivationMirror:
++    """Deterministic reducer; public views own immutable copies of all maps.
++
++    Call begin once on admission, consume only decoded events/snapshots, tick
++    while snapshot_pending, and disconnect on binding loss. Ack is never state.
++    Event fingerprints/terminal records are retained for this socket session.
++    """
++
++    def __init__(self, limits: MirrorLimits | None = None):
++        self.limits = limits or MirrorLimits()
++        self.generation = self.session_id = None
++        self._reset()
++
++    def _reset(self):
++        self.state = MirrorState.DISCONNECTED
++        self.state_version = self.last_event_seq = self.settings_revision = 0
++        self.input = InputView()
++        self.activations: dict[str, ActivationView] = {}
++        self.segments: dict[str, SegmentView] = {}
++        self.trigger = self.requested = self.effective = self.capabilities = EMPTY
++        self.audio_available = False
++        self._seen: dict[str, str] = {}
++        self._sequences: dict[int, str] = {}
++        self._buffer: dict[int, tuple[p.Event, float, int]] = {}
++        self._buffer_bytes = 0
++        self._deadline: float | None = None
++        self._attempts = 0
++        self._loss: set[str] = set()
++
++    @property
++    def view(self) -> MirrorView:
++        return MirrorView(self.generation, self.session_id, self.state, self.state_version,
++                          self.last_event_seq, self.settings_revision, self.input,
++                          MappingProxyType(dict(self.activations)), MappingProxyType(dict(self.segments)),
++                          self.trigger, self.audio_available, self.requested, self.effective,
++                          self.capabilities, bool(self._loss) or any(a.incomplete for a in self.activations.values()),
++                          tuple(sorted(self._loss)), self._deadline is not None)
++
++    def _result(self, finals=(), events=(), effects=()):
++        return Reduction(self.view, tuple(finals), tuple(events), tuple(dict.fromkeys(effects)))
++
++    def _current(self, generation, session_id):
++        return (generation == self.generation and session_id == self.session_id
++                and self.state not in (MirrorState.DISCONNECTED, MirrorState.RECONNECT_REQUIRED))
++
++    def begin(self, generation: int, snapshot: p.Snapshot, now: float) -> Reduction:
++        if type(generation) is not int or generation < 1:
++            raise ValueError("invalid generation")
++        if self.generation is not None and generation <= self.generation:
++            return self._result()
++        self._reset()
++        self.generation, self.session_id = generation, snapshot.sessionId
++        self.state = MirrorState.READY
++        return self.consume(generation, snapshot, now)
++
++    def disconnect(self, generation: int) -> Reduction:
++        if generation != self.generation or self.state == MirrorState.DISCONNECTED:
++            return self._result()
++        self._mark_loss("transport_lost")
++        self.state = MirrorState.DISCONNECTED
++        self._clear_wait()
++        # Foreground was interrupted, never resumed in the new session.
++        self.input = InputView()
++        return self._result(effects=("interrupted",))
++
++    def _clear_wait(self):
++        self._deadline = None
++        self._attempts = 0
++        self._buffer.clear()
++        self._buffer_bytes = 0
++
++    def _request_snapshot(self, now, *, resync=False):
++        if resync:
++            self.state = MirrorState.RESYNCING
++        if self._deadline is not None:
++            return ()
++        self._attempts = 1
++        self._deadline = now + self.limits.snapshot_timeout
++        return ("snapshot_required",)
++
++    def clarify(self, generation: int, now: float) -> Reduction:
++        if not self._current(generation, self.session_id):
++            return self._result()
++        return self._result(effects=self._request_snapshot(now))
++
++    def protocol_fault(self, generation: int, now: float) -> Reduction:
++        if not self._current(generation, self.session_id):
++            return self._result()
++        return self._result(effects=("protocol_fault", *self._request_snapshot(now, resync=True)))
++
++    def tick(self, generation: int, now: float) -> Reduction:
++        if not self._current(generation, self.session_id) or self._deadline is None or now < self._deadline:
++            return self._result()
++        if self._attempts >= self.limits.snapshot_attempts:
++            return self._fail("snapshot_timeout")
++        self._attempts += 1
++        self._deadline = now + self.limits.snapshot_timeout
++        return self._result(effects=("snapshot_required",))
++
++    def snapshot_wait(self, now: float) -> float | None:
++        """Monotonic remaining wait for an asyncio timer; never a domain timer."""
++        return None if self._deadline is None else max(0, self._deadline - now)
++
++    def _mark_loss(self, reason):
++        for key, a in tuple(self.activations.items()):
++            if a.status not in ACTIVATION_TERMINALS:
++                self.activations[key] = replace(a, status="terminal_unknown", input_closed=True,
++                                                incomplete=True, reason=reason)
++        for key, s in tuple(self.segments.items()):
++            if s.status not in SEGMENT_TERMINALS:
++                self.segments[key] = replace(s, status="terminal_unknown", preview=None, reason=reason)
++        if self.activations or self.segments:
++            self._loss.add(reason)
++
++    def _fail(self, reason):
++        self._mark_loss(reason)
++        self._loss.add(reason)
++        self.state = MirrorState.RECONNECT_REQUIRED
++        self._clear_wait()
++        return self._result(effects=("incomplete", "reconnect_required"))
++
++    def consume(self, generation: int, message: p.Event | p.Snapshot, now: float) -> Reduction:
++        if not self._current(generation, message.sessionId):
++            return self._result()
++        if isinstance(message, p.Snapshot):
++            return self._snapshot(message, now)
++        wire = json.dumps(message.to_mapping(), sort_keys=True, ensure_ascii=False, separators=(",", ":"))
++        fingerprint = hashlib.sha256(wire.encode("utf-8")).hexdigest()
++        seen = self._seen.get(message.eventId)
++        if seen is not None and seen != fingerprint:
++            return self.protocol_fault(generation, now)
++        if message.eventSeq <= self.last_event_seq:
++            return self._result()
++        if seen is not None:
++            return self._result()
++        if message.eventSeq in self._buffer:
++            return self.protocol_fault(generation, now)
++        if self.state == MirrorState.RESYNCING or message.eventSeq != self.last_event_seq + 1:
++            effects = self._request_snapshot(now, resync=True)
++            size = len(wire.encode("utf-8"))
++            if len(self._buffer) >= self.limits.max_events or self._buffer_bytes + size > self.limits.max_bytes:
++                return self._fail("resync_overflow")
++            self._seen[message.eventId] = fingerprint
++            self._buffer[message.eventSeq] = (message, now, size)
++            self._buffer_bytes += size
++            return self._result(effects=effects)
++        self._seen[message.eventId] = fingerprint
++        finals, effects = [], []
++        if not self._reduce(message, now, finals, effects):
++            effects.extend(self._request_snapshot(now, resync=True))
++            return self._result(effects=effects)
++        self.last_event_seq = message.eventSeq
++        self.state_version = max(self.state_version, message.stateVersion)
++        return self._result(finals, (message,), effects)
++
++    def _activation(self, key):
++        return self.activations.setdefault(key, ActivationView(key))
++
++    def _deadline_view(self, data, now):
++        if data.get("deadlineAtUnixMs") is None or data.get("remainingMs") is None:
++            return None
++        return Deadline(data["deadlineAtUnixMs"], data["remainingMs"], now)
++
++    def _reduce(self, event, now, finals, effects, *, historical=False):
++        d, kind = event.payload, event.type
++        if isinstance(event, p.UnknownEvent):
++            effects.append("unknown_event")
++            return True
++        aid = None if kind in SESSION_EVENTS else d.get("activationId")
++        # Validate stable segment ownership before creating any activation.
++        # A protocol finding must not leave a partially accepted phantom ID.
++        if kind in SEGMENT_EVENTS:
++            existing = self.segments.get(d["segmentId"])
++            owner = self._sequences.get(d["segmentSequence"])
++            if (existing and (existing.activation_id != aid or existing.sequence != d["segmentSequence"])
++                    or owner not in (None, d["segmentId"])):
++                effects.append("segment_identity_conflict")
++                return False
++        a = self._activation(aid) if aid else None
++        if kind == p.EventType.ACTIVATION_STARTED:
++            if (a.sequence is not None and a.sequence != d["activationSequence"]
++                    or a.primary_source is not None and a.primary_source != d["primarySource"]):
++                effects.append("activation_identity_conflict")
++                return False
++            self.activations[aid] = replace(a, sequence=d["activationSequence"], primary_source=d["primarySource"],
++                                            effective_settings=a.effective_settings or freeze(d["effectiveSettings"]))
++            if not historical and a.status not in ACTIVATION_TERMINALS and not a.input_closed:
++                old = self.activations.get(self.input.activation_id)
++                if old and old.activation_id != aid:
++                    self.activations[old.activation_id] = replace(old, input_closed=True, status=(
++                        old.status if old.status in ACTIVATION_TERMINALS else "draining"))
++                self.input = InputView(p.InputPhase.WAITING_FIRST_SPEECH, aid, d["primarySource"])
++                effects.extend(self._request_snapshot(now))
++        elif kind == p.EventType.PHASE_CHANGED and not historical:
++            if aid == self.input.activation_id:
++                phase = p.InputPhase(d["inputPhase"])
++                self.input = (InputView() if phase == p.InputPhase.IDLE else
++                              replace(self.input, phase=phase, deadline=self._deadline_view(d, now),
++                                      close_requested=phase == p.InputPhase.CLOSING_INPUT))
++        elif kind == p.EventType.INPUT_CLOSED and not historical:
++            self.activations[aid] = replace(a, input_closed=True, close_reason=d["reason"],
++                                            caused_by_command_id=d["causedByCommandId"],
++                                            accepted_count=max(a.accepted_count, d["acceptedSegmentCount"]),
++                                            status=a.status if a.status in ACTIVATION_TERMINALS else "draining")
++            if aid == self.input.activation_id:
++                self.input = InputView()
++        elif kind in (p.EventType.ACTIVATION_COMPLETED, p.EventType.ACTIVATION_CANCELLED, p.EventType.ACTIVATION_FAILED):
++            status = kind.split(".")[1]
++            if a.status not in ACTIVATION_TERMINALS:
++                self.activations[aid] = replace(a, status=status, reason=d.get("reason"),
++                                                accepted_count=max(a.accepted_count, d["acceptedSegmentCount"]),
++                                                terminal_count=max(a.terminal_count, d["terminalSegmentCount"]))
++            if status in ("cancelled", "failed"):
++                for key, s in tuple(self.segments.items()):
++                    if s.activation_id == aid and s.status not in SEGMENT_TERMINALS:
++                        self.segments[key] = replace(s, preview=None)
++        elif kind in SEGMENT_EVENTS:
++            sid, seq = d["segmentId"], d["segmentSequence"]
++            s = self.segments.get(sid)
++            self._sequences[seq] = sid
++            s = s or SegmentView(aid, sid, seq)
++            if s.status in SEGMENT_TERMINALS:
++                return True
++            if kind in (p.EventType.COMPLETED, p.EventType.DISCARDED, p.EventType.FAILED):
++                status, text, reason = kind.split(".")[1], d.get("text"), d.get("reason")
++                if kind == p.EventType.COMPLETED and a.status in ("cancelled", "failed"):
++                    status, text, reason = "discarded", None, "activation_" + a.status
++                self.segments[sid] = replace(s, status=status, preview=None, text=text, reason=reason,
++                                             event_id=event.eventId, event_seq=event.eventSeq)
++                if status == "completed":
++                    finals.append(FinalResult(self.session_id, aid, sid, seq, text, event.eventId, event.eventSeq))
++            elif kind == p.EventType.INTERIM:
++                if a.status not in ("cancelled", "failed"):
++                    self.segments[sid] = replace(s, preview=event.preview_text)
++            else:
++                rank = {"recording": 0, "recorded": 1, "accepted": 2, "terminal_unknown": -1}
++                status = {p.EventType.RECORDING_STARTED: "recording", p.EventType.RECORDING_ENDED: "recorded",
++                          p.EventType.TRANSCRIPTION_ACCEPTED: "accepted"}[kind]
++                self.segments[sid] = replace(s, status=status if rank[status] > rank[s.status] else s.status)
++        elif kind == p.EventType.WATCHDOG_WARNING and not historical:
++            self.activations[aid] = replace(a, watchdog=self._deadline_view(d, now))
++        elif kind == p.EventType.WAKE_DETECTED:
++            self.activations[aid] = replace(a, wake_word_id=d["wakeWordId"])
++        elif kind == p.EventType.WAKE_AVAILABILITY and not historical:
++            if d["catalogRevision"] >= self.capabilities.get("catalogRevision", 0):
++                changed = d["catalogRevision"] != self.capabilities.get("catalogRevision")
++                self.capabilities = freeze({key: d[key] for key in ("catalogRevision", "availableWakeWordIds")})
++                if changed:
++                    effects.append("catalog_required")
++        elif kind == p.EventType.SETTINGS_CHANGED and not historical:
++            self.settings_revision = max(self.settings_revision, d["settingsRevision"])
++            effects.extend(("settings_required", *self._request_snapshot(now)))
++        return True
++
++    def _snapshot(self, snapshot, now):
++        if (snapshot.stateVersion < self.state_version or snapshot.lastEventSeq < self.last_event_seq
++                or snapshot.settingsRevision < self.settings_revision):
++            return self._result(effects=("stale_snapshot", *self._request_snapshot(now)))
++        d = snapshot.payload
++        for item in d["pendingActivations"]:
++            known = self.activations.get(item["activationId"])
++            if known and known.sequence is not None and known.sequence != item["activationSequence"]:
++                return self.protocol_fault(self.generation, now)
++        previous = set(self.activations)
++        inp = d["input"]
++        self.input = InputView(p.InputPhase(inp["phase"]), inp["activationId"], inp["primarySource"],
++                               self._deadline_view(inp, now), inp["closeRequested"])
++        visible = set()
++        if self.input.activation_id:
++            aid = self.input.activation_id
++            a = self._activation(aid)
++            visible.add(aid)
++            self.activations[aid] = replace(a, primary_source=a.primary_source or self.input.primary_source,
++                                            effective_settings=a.effective_settings or freeze(d["effectiveSettings"]))
++        for item in d["pendingActivations"]:
++            aid = item["activationId"]
++            visible.add(aid)
++            a = self._activation(aid)
++            self.activations[aid] = replace(a, sequence=a.sequence or item["activationSequence"], input_closed=True,
++                                            close_reason=item["inputClosedReason"],
++                                            status=a.status if a.status in ACTIVATION_TERMINALS else "draining",
++                                            accepted_count=max(a.accepted_count, item["acceptedSegmentCount"]),
++                                            terminal_count=max(a.terminal_count, item["terminalSegmentCount"]))
++        self.trigger = freeze(d["trigger"])
++        self.audio_available = d["audioAvailable"]
++        self.requested, self.effective = freeze(d["requestedSettings"]), freeze(d["effectiveSettings"])
++        self.capabilities = freeze(d["wakeWordCapabilities"])
++        self.settings_revision = max(self.settings_revision, snapshot.settingsRevision)
++        self.state_version, self.last_event_seq = snapshot.stateVersion, snapshot.lastEventSeq
++        buffered = sorted(self._buffer.items())
++        self._clear_wait()
++        self.state = MirrorState.READY
++        finals, effects, events = [], [], []
++        historical_ids = set()
++        for seq, (event, received_at, size) in buffered:
++            if seq <= snapshot.lastEventSeq:
++                if event.payload.get("activationId"):
++                    historical_ids.add(event.payload["activationId"])
++                if not self._reduce(event, received_at, finals, effects, historical=True):
++                    effects.extend(self._request_snapshot(now, resync=True))
++            elif self.state == MirrorState.RESYNCING or seq != self.last_event_seq + 1:
++                effects.extend(self._request_snapshot(now, resync=True))
++                self._buffer[seq] = (event, received_at, size)
++                self._buffer_bytes += size
++            else:
++                if self._reduce(event, received_at, finals, effects):
++                    self.last_event_seq = seq
++                    self.state_version = max(self.state_version, event.stateVersion)
++                    events.append(event)
++                else:
++                    effects.extend(self._request_snapshot(now, resync=True))
++        # Reconcile after salvaging all buffered payloads and tombstones.
++        # New post-snapshot activations must not be classified as disappeared.
++        for aid, a in tuple(self.activations.items()):
++            known = sum(s.activation_id == aid and s.status in SEGMENT_TERMINALS for s in self.segments.values())
++            vanished = (aid in previous | historical_ids and aid not in visible
++                        and aid != self.input.activation_id and a.status not in ACTIVATION_TERMINALS)
++            if vanished:
++                a = replace(a, status="terminal_unknown", input_closed=True, incomplete=True)
++                for sid, s in tuple(self.segments.items()):
++                    if s.activation_id == aid and s.status not in SEGMENT_TERMINALS:
++                        self.segments[sid] = replace(s, status="terminal_unknown", preview=None)
++            if a.terminal_count > known:
++                a = replace(a, incomplete=True)
++            self.activations[aid] = a
++            if a.incomplete:
++                effects.append("incomplete")
++        return self._result(finals, events, effects)
+diff --git a/voice_stt_client/core/v2_mirror.py b/voice_stt_client/core/v2_mirror.py
+new file mode 100644
+index 0000000..ba4bf71
+--- /dev/null
++++ b/voice_stt_client/core/v2_mirror.py
+@@ -0,0 +1,121 @@
++"""Asyncio adapter for the pure mirror and the actual V2 command tracker.
++
++Install before run. Existing callbacks run after reduction. on_reduction is the
++single publication port for future Controls/Results/Feedback/UI consumers.
++"""
++
++from __future__ import annotations
++
++import asyncio
++from collections.abc import Callable
++import time
++
++from websockets.exceptions import ConnectionClosed
++
++from . import protocol_v2 as p
++from .activation_mirror import ActivationMirror, MirrorState, Reduction
++from .command_tracker import AckAdvice, CommandFailure
++from .v2_transport import V2STTSession, V2TransportState, _Blocked
++
++
++class V2MirrorConnection:
++    def __init__(self, session: V2STTSession, mirror: ActivationMirror | None = None, *, clock=time.monotonic):
++        if session.binding is not None or session.domain_ready is not None:
++            raise RuntimeError("attach mirror once before transport admission")
++        self.session, self.mirror, self.clock = session, mirror or ActivationMirror(), clock
++        self.on_reduction: Callable[[Reduction], None] | None = None
++        self._changed = asyncio.Event()
++        self._task: asyncio.Task | None = None
++        self._request_revision = 0
++        old_accepted, old_message = session.on_accepted, session.on_message
++        old_lost, old_completion = session.on_lost, session.on_completion
++        old_fault = session.on_protocol_fault
++
++        def accepted(binding):
++            self._publish(self.mirror.begin(binding.generation, binding.accepted.snapshot, self.clock()))
++            if old_accepted:
++                old_accepted(binding)
++
++        def message(binding, value):
++            self._publish(self.mirror.consume(binding.generation, value, self.clock()))
++            if old_message:
++                old_message(binding, value)
++
++        def completion(value):
++            # No Ack field ever replaces foreground. Eventless changes and
++            # ambiguous closing/recovery outcomes are clarified by snapshot.
++            if (value.advice in (AckAdvice.CLOSING, AckAdvice.SNAPSHOT, AckAdvice.SETTINGS_CONFLICT)
++                    or value.ack.accepted and value.command.type in (
++                        p.CommandType.SUPPRESSION, p.CommandType.AUDIO_AVAILABILITY, p.CommandType.SETTINGS_PATCH)):
++                self._publish(self.mirror.clarify(value.generation, self.clock()))
++            if old_completion:
++                old_completion(value)
++
++        def fault(binding):
++            self._publish(self.mirror.protocol_fault(binding.generation, self.clock()))
++            if old_fault:
++                old_fault(binding)
++
++        def lost(binding):
++            if self._task:
++                self._task.cancel()
++            self._publish(self.mirror.disconnect(binding.generation))
++            if old_lost:
++                old_lost(binding)
++
++        session.on_accepted, session.on_message = accepted, message
++        session.on_completion, session.on_lost, session.on_protocol_fault = completion, lost, fault
++        session.domain_ready = lambda: self.mirror.view.operations_ready
++
++    def _publish(self, reduction):
++        if "snapshot_required" in reduction.effects:
++            self._request_revision += 1
++        self._changed.set()
++        if self.on_reduction:
++            self.on_reduction(reduction)
++        if (reduction.view.snapshot_pending or reduction.view.state == MirrorState.RECONNECT_REQUIRED):
++            if self._task is None or self._task.done():
++                self._task = asyncio.create_task(self._pump(), name="v2-mirror-resync")
++
++    async def _pump(self):
++        binding = self.session.binding
++        if binding is None:
++            return
++        sent_revision = -1
++        try:
++            while self.session.binding is binding:
++                view = self.mirror.view
++                if view.state == MirrorState.RECONNECT_REQUIRED:
++                    await self.session.reconnect(binding, "mirror_resync_failed")
++                    return
++                if not view.snapshot_pending:
++                    return
++                self._changed.clear()
++                if sent_revision != self._request_revision:
++                    sent_revision = self._request_revision
++                    if self.session.status.state == V2TransportState.CONFIGURING:
++                        await self.session.bootstrap_command(binding, p.CommandType.SNAPSHOT_REQUEST)
++                    else:
++                        await self.session.request(p.CommandType.SNAPSHOT_REQUEST, binding=binding)
++                    continue
++                # The Ack may arrive before/after a snapshot and is not its proof.
++                try:
++                    await asyncio.wait_for(self._changed.wait(), self.mirror.snapshot_wait(self.clock()))
++                except TimeoutError:
++                    pass
++                result = self.mirror.tick(binding.generation, self.clock())
++                self._publish(result)
++        except (CommandFailure, TimeoutError, OSError, ConnectionClosed, _Blocked):
++            if self.session.binding is binding:
++                await self.session.reconnect(binding, "mirror_snapshot_command_failed")
++        finally:
++            # Do not let completion of an old-generation task clear a newer task.
++            if self._task is asyncio.current_task():
++                self._task = None
++
++    async def close(self):
++        """Stop transport and join the adapter's bounded snapshot task."""
++        await self.session.stop()
++        if self._task:
++            self._task.cancel()
++            await asyncio.gather(self._task, return_exceptions=True)
+diff --git a/voice_stt_client/core/v2_transport.py b/voice_stt_client/core/v2_transport.py
+index 183e3ef..123a058 100644
+--- a/voice_stt_client/core/v2_transport.py
++++ b/voice_stt_client/core/v2_transport.py
+@@ -141,6 +141,8 @@ class V2STTSession:
+         self.on_completion: Callable[[CommandCompletion], None] | None = None
+         self.on_rejected: Callable[[p.HandshakeRejected], None] | None = None
+         self.on_lost: Callable[[SessionBinding], None] | None = None
++        self.on_protocol_fault: Callable[[SessionBinding], None] | None = None
++        self.domain_ready: Callable[[], bool] | None = None
+         self._ws = None
+         self._tracker: CommandTracker | None = None
+         self._runner: asyncio.Task | None = None
+@@ -313,7 +315,16 @@ class V2STTSession:
+                 return
+             if not isinstance(frame, str):
+                 raise p.ProtocolError("server binary frame forbidden")
+-            self.dispatch(p.decode_server_message(frame), binding)
++            try:
++                message = p.decode_server_message(frame)
++            except p.ProtocolError:
++                if self.on_protocol_fault is None:
++                    raise
++                # An attached mirror degrades and requests an authoritative
++                # snapshot. Never publish malformed payload/guessed identities.
++                self.on_protocol_fault(binding)
++                continue
++            self.dispatch(message, binding)
+ 
+     def dispatch(self, message, binding: SessionBinding) -> bool:
+         """Generationguard for socket/test adapters. Unknown unrelated frames ignored."""
+@@ -342,6 +353,8 @@ class V2STTSession:
+     async def _command(self, binding, kind, **fields):
+         if not self._current(binding):
+             raise TransportLost("transport_lost")
++        if kind == p.CommandType.ACTIVATION and self.domain_ready is not None and not self.domain_ready():
++            raise TransportLost("activation mirror is resyncing")
+         tracker, ws = self._tracker, self._ws
+         if any(key in fields for key in ("commandId", "sessionId", "protocolVersion", "type")):
+             raise p.ProtocolError("command envelope is owned by transport")
+@@ -349,7 +362,22 @@ class V2STTSession:
+                 and fields.get("activationId") == self._closing_activation):
+             raise TransportLost("refresh is blocked for closing input")
+         command = p.build_command(kind, binding.session_id, **fields)
+-        return await tracker.request(command, ws.send)
++        async def guarded_send(wire):
++            if not self._current(binding):
++                raise TransportLost("transport_lost")
++            if kind == p.CommandType.ACTIVATION and self.domain_ready is not None and not self.domain_ready():
++                raise TransportLost("activation mirror is resyncing")
++            await ws.send(wire)
++        return await tracker.request(command, guarded_send)
++
++    async def reconnect(self, binding: SessionBinding, reason: str):
++        """Recycle only the current socket after a mirror loss/timeout finding."""
++        if not self._current(binding):
++            return
++        if self._tracker:
++            self._tracker.close()
++        self._state(V2TransportState.BACKOFF, reason)
++        await self._close_socket()
+ 
+     async def bootstrap_command(self, binding, kind, **fields):
+         if self.status.state != V2TransportState.CONFIGURING or kind not in (

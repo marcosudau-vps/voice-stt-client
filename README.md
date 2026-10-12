@@ -10,11 +10,7 @@ Releases: <https://github.com/marcosudau-vps/voice-stt-client/releases>
 ## Aktueller Entwicklungsstand
 
 Aktiver Einstieg ist [Client V2](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md).
-AP-CV2-000 hat die Feature-/Releasebasis in `voice_stt_client` technisch qualifiziert (REVIEW_READY nach R03-Korrektur).
-Der Paketkandidat ist noch nicht unabhängig abgenommen oder auf `feat/client-v2`
-übernommen. Der bestehende Transport ist weiterhin V1; die Migration auf den
-gepinnten V2-Serververtrag erfolgt in den Folgepaketen. Aktuelle Startbefehle,
-Benutzerpfade und Grenzen: [Kompatibilität](docs/compatibility.md).
+AP-CV2-000 bis AP-CV2-020 sind nach unabhängigem PASS und menschlicher Freigabe auf `feat/client-v2` übernommen. AP-CV2-030 ist REVIEW_READY: reiner ActivationMirror mit IDgebundenen Hintergrunddaten und begrenztem Resync,1339 Windows-Tests und35 echte Serverfälle bestanden. [Umsetzungsreport](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md). Unabhängige Abnahme als nächster Schritt. Die laufende App verwendet ihren bestehenden Transport bis zur V2-Komposition in AP-CV2-100. Start, Benutzerpfade und Grenzen: [Kompatibilität](docs/compatibility.md).
 
 Die folgende Bestandsbeschreibung ist historische Produktorientierung.
 

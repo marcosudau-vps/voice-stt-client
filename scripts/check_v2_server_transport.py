@@ -56,7 +56,7 @@ def verify_sources(root, repository):
     return hashes
 
 
-async def run(root, repository):
+async def run(root, repository, *, with_mirror=False):
     sys.path.insert(0, str(root))
     import uvicorn
     from api_fastapi_server.server import create_app, ServerSettings
@@ -120,6 +120,12 @@ async def run(root, repository):
             client.on_completion = completions.append
             client.on_status = lambda status: trace.append(dict(state=str(status.state), generation=status.generation,
                                                                 reason=status.reason))
+            adapter = None
+            reductions = []
+            if with_mirror:
+                from voice_stt_client.core.v2_mirror import V2MirrorConnection
+                adapter = V2MirrorConnection(client)
+                adapter.on_reduction = reductions.append
             sessions.append(client)
             tasks.append(asyncio.create_task(client.run()))
             await until(lambda: client.binding is not None)
@@ -130,10 +136,11 @@ async def run(root, repository):
             check("hello/configuring_not_ready", client.status.state == V2TransportState.CONFIGURING)
             ready.set()
             await until(lambda: client.is_ready)
-            check("bootstrap/availability_and_suppression_acks", len(completions) == 3 and all(x.ack.accepted for x in completions))
+            check("bootstrap/availability_and_suppression_acks", (len(completions) >= 3 if adapter else len(completions) == 3)
+                  and all(x.ack.accepted for x in completions))
             completion = await client.request(p.CommandType.SNAPSHOT_REQUEST)
             await until(lambda: any(isinstance(message, p.Snapshot) for _, message in messages))
-            snapshot = next(message for _, message in messages if isinstance(message, p.Snapshot))
+            snapshot = next(message for _, message in reversed(messages) if isinstance(message, p.Snapshot))
             check("snapshot/ack_same_session", completion.ack.sessionId == snapshot.sessionId == admitted.session_id)
             check("snapshot/typed_actual_state", snapshot.payload["audioAvailable"] and not snapshot.payload["trigger"]["suppressed"]["manual"])
             check("snapshot/command_uuid", p.is_canonical_uuid(completion.command.commandId))
@@ -151,10 +158,73 @@ async def run(root, repository):
             # Actual manual activation/finish: server event ordering may lead ack.
             activated = await client.request(p.CommandType.ACTIVATION, action="activate", source="manual")
             check("commands/activate_ack", activated.ack.accepted and p.is_canonical_uuid(activated.ack.activationId))
+            if adapter:
+                await until(lambda: not adapter.mirror.view.snapshot_pending)
+                check("mirror/activation_actual_id", adapter.mirror.view.input.activation_id == activated.ack.activationId)
+                check("mirror/deadline_clarified_by_real_snapshot", adapter.mirror.view.input.deadline is not None)
+                # Raw deterministic PCM is the named AP040 audio-capture boundary.
+                await client.send_audio(b"\x00\x40" * 640, 16000, frames=640)
+                await until(lambda: bool(adapter.mirror.view.segments))
+                segment = next(iter(adapter.mirror.view.segments.values()))
+                check("mirror/recording_real_ids", segment.activation_id == activated.ack.activationId and p.is_canonical_uuid(segment.segment_id))
+                check("mirror/foreground_segment_active", adapter.mirror.view.input.phase == p.InputPhase.SEGMENT_ACTIVE)
+                domain = app.state.voicestt_service.sessions.get(admitted.session_id)
+                domain._on_realtime_text("synthetic mirror preview")
+                await until(lambda: adapter.mirror.view.segments[segment.segment_id].preview == "synthetic mirror preview")
+                check("mirror/interim_actual_projection", adapter.mirror.view.segments[segment.segment_id].preview == "synthetic mirror preview")
+                # Drop exactly one real Domain event at the client receive
+                # boundary. The next actual event detects the gap; the tracker
+                # requests an actual server snapshot, never a fabricated one.
+                receive = client.on_message
+                dropped = []
+                def drop_one(binding, message):
+                    if isinstance(message, p.Event) and message.type == p.EventType.INTERIM and not dropped:
+                        dropped.append(message.eventSeq)
+                    else:
+                        receive(binding, message)
+                client.on_message = drop_one
+                domain._on_realtime_text("synthetic lost preview")
+                await until(lambda: bool(dropped))
+                domain._on_realtime_text("synthetic salvaged preview")
+                await until(lambda: any(x.view.state.value == "resyncing" for x in reductions))
+                await until(lambda: adapter.mirror.view.operations_ready and not adapter.mirror.view.snapshot_pending)
+                check("mirror/real_gap_resync", any("snapshot_required" in x.effects and x.view.state.value == "resyncing" for x in reductions))
+                check("mirror/buffered_payload_behind_real_cursor", adapter.mirror.view.segments[segment.segment_id].preview == "synthetic salvaged preview")
+                client.on_message = receive
             finished = await client.request(p.CommandType.ACTIVATION, action="finish", activationId=activated.ack.activationId)
             check("commands/finish_correlated", finished.ack.commandId == finished.command.commandId)
             check("commands/domain_events_received", any(isinstance(message, p.Event) for _, message in messages))
+            if adapter:
+                await until(lambda: any(x.finals for x in reductions))
+                results = [f for x in reductions for f in x.finals]
+                check("mirror/final_once_actual_ids", len(results) == 1 and results[0].segment_id == segment.segment_id and results[0].activation_id == activated.ack.activationId)
+                check("mirror/final_no_interim_preview", adapter.mirror.view.segments[segment.segment_id].preview is None)
+                await until(lambda: adapter.mirror.view.input.phase == p.InputPhase.IDLE)
+                await until(lambda: not adapter.mirror.view.snapshot_pending)
+                check("mirror/idle_manual_released", adapter.mirror.view.manual_available)
+
+                second = await client.request(p.CommandType.ACTIVATION, action="activate", source="manual")
+                await until(lambda: not adapter.mirror.view.snapshot_pending)
+                await client.send_audio(b"\x00\x40" * 640, 16000, frames=640)
+                await until(lambda: len(adapter.mirror.view.segments) == 2)
+                lost_final = []
+                def drop_final(binding, message):
+                    if isinstance(message, p.Event) and message.type == p.EventType.COMPLETED:
+                        lost_final.append(message.eventSeq)
+                    else:
+                        receive(binding, message)
+                client.on_message = drop_final
+                await client.request(p.CommandType.ACTIVATION, action="finish", activationId=second.ack.activationId)
+                await until(lambda: bool(lost_final))
+                await until(lambda: adapter.mirror.view.incomplete and adapter.mirror.view.operations_ready)
+                check("mirror/lost_real_final_incomplete", adapter.mirror.view.activations[second.ack.activationId].incomplete)
+                check("mirror/no_text_reconstruction", len([f for x in reductions for f in x.finals]) == 1)
+                check("mirror/retained_prior_final", adapter.mirror.view.segments[segment.segment_id].text == results[0].text)
+                client.on_message = receive
             await client.stop()
+            if adapter:
+                await adapter.close()
+                check("mirror/disconnect_and_task_join", adapter.mirror.view.state.value == "disconnected" and adapter._task is None)
             await until(lambda: not app.state.voicestt_service.metrics()["sessions"])
             check("disconnect/no_pending_or_callbacks", client.pending_count == 0 and client.binding is None and client._receiver is None)
             check("disconnect/server_slot_released", not app.state.voicestt_service.metrics()["sessions"])
@@ -180,6 +250,9 @@ async def run(root, repository):
                         runtime=dict(python=sys.version, executable=sys.executable, platform=platform.platform(),
                                      uvicorn=uvicorn.__version__), sourceHashes=hashes,
                         checks=checks, checkCount=len(checks), transportTrace=trace,
+                        mirrorTrace=[dict(state=str(x.view.state), cursor=x.view.last_event_seq, inputPhase=str(x.view.input.phase),
+                                          activationId=x.view.input.activation_id, incomplete=x.view.incomplete,
+                                          finals=len(x.finals), effects=x.effects) for x in reductions],
                         boundaries="Real loopback TCP/WebSocket and production FastAPI app, admission/controller/ledger/replay/projection. Same process asyncio loops; pinned GateAwareRecorder/AutoScheduler replace only hardware/models. Named bootstrap supplies availability; real settings/audio/Qt composition remains AP040/070/100. No ASR/hardware/live claim.")
         finally:
             for client in sessions:
@@ -196,8 +269,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--server-root", required=True, type=Path)
     parser.add_argument("--server-repository", required=True, type=Path)
+    parser.add_argument("--with-mirror", action="store_true", help="AP-CV2-030 actual mirror checkpoint")
     args = parser.parse_args()
-    print(json.dumps(asyncio.run(run(args.server_root.resolve(), args.server_repository.resolve())), indent=2))
+    print(json.dumps(asyncio.run(run(args.server_root.resolve(), args.server_repository.resolve(), with_mirror=args.with_mirror)), indent=2))
 
 
 if __name__ == "__main__":

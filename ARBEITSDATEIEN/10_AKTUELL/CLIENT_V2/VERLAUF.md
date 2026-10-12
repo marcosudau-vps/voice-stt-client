@@ -53,3 +53,7 @@ Aus tatsächlicher kanonischer AP000-Basis1cf076b: immutable V2-Wirecodec, byteg
 ## AP-CV2-010-R02 – 2026-10-11 – unabhängige technische Abnahme ROOT_PASS
 
 Unabhängiger commitgebundener Vollreview des PR #3: `7124e5629e24817dd711b2e2b697b9c07aa11dd7`, Tree `37b61ff4cab90c18abf8e5bfae920f2e265ad3ab`, Parent `1cf076bd2ed56929b1a3780bc140da51348a8295`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`. Produkt-/Testdiff, WIRE-01..17, 30 Codec-Tests, 1263 Windowsvollsuite, 188 gepinnte Serverchecks, Originalvektoren und finale GitHub-CI unabhängig validiert; keine Pflichtfindings. Windows/HW durch Reviewer selbst NOT_RUN (gültige Fremdevidenz). [R02-Report](30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md). Paketstatus ROOT_PASS, Workflow WAITING_FOR_APPROVAL; keine Übernahmefreigabe und kein Merge, AP020 nicht gestartet.
+
+## AP-CV2-030-R01 – 2026-10-12 – Mirror und Resync / REVIEW_READY
+
+Von AP020-Aggregat8fa0f82 nach belegtem unabhängigen PASS, menschlicher Freigabe und Baumgleichheit: reiner Mirror, sichere Segment-/Terminal-/Settingsprojektionen und tatsächliche V2-Transport-/Snapshotanbindung. Alle35 Requirements einzeln verknüpft.1339 Windowsgesamttests,106 gezielte Tests,35 echte Serverchecks/46 Quellblobs und compileall PASS; exakte Basis/Produktdiff/Gitblobs und vollständige Logs gesichert. [R01-Report](30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md). Keine eigene Abnahme, Promotion oder Folgepaketimplementierung; Schreiben ab Übergabe pausiert.

@@ -1,0 +1,45 @@
+{
+  "result": "PASS",
+  "testedBase": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+  "productPatchIdentical": true,
+  "productWorktreeMatchesIndex": true,
+  "all185RuntimeSourcesUnchanged": true,
+  "requirementContractsOwnersAndSourcesUnchanged": true,
+  "checks": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check",
+        "--",
+        ".",
+        ":(exclude)**/tested-product.patch",
+        ":(exclude)**/windows-full-unittest.txt"
+      ],
+      "exitCode": 0,
+      "result": "PASS",
+      "note": "Full staged handoff; exact patch context lines and one original unittest log trailing space are preserved as raw evidence and excluded from whitespace lint only."
+    }
+  ],
+  "checkedAtUtc": "2026-10-12T00:24:19.997463+00:00"
+}

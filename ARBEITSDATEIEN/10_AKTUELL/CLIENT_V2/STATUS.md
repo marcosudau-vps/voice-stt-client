@@ -1,7 +1,8 @@
-# Aktueller Client-V2-Korrekturstand – AP-CV2-020 / R03, 2026-10-12
+# Client V2 – AP-CV2-030 / REVIEW_READY, 2026-10-12
 
-AP-CV2-020 **ROOT_PASS / WAITING_FOR_APPROVAL** im [PR #4](https://github.com/marcosudau-vps/voice-stt-client/pull/4), Branch `work/client-v2/ap-cv2-020`, Parent `91065f5f7715aa6653ec5335d9e757b6ef97a067` (AP010 ACCEPTED, unverändert). [R03-Report](30_AUSFUEHRUNG/AP-CV2-020/RUNS/R03-KORREKTUR/01_REPORT.md), [Workflowstatus](WORKFLOW_STATUS.json). Beide R02-Findings berechtigt und selbst korrigiert; unabhängiger Recheck offen. Neue kandidatengebundene Qualifikation `98ab3c0fc5c935019d81d6d6acb1423185cb4793`: **1294 Windows-Tests,61 gezielte Tests,21 Serverfälle und compileall PASS**. Serverada13b0 unverändert. Nächste Aktion: frische unabhängige Abnahme des ganzen PR einschließlich F01/F02; Paketbranch nach finaler Übergabe pausiert. Keine kanonische Übernahme oder AP030; Appkomposition CV2-100, Hardware/ASR später.
-Unabhängige [R04-Abnahme](https://github.com/marcosudau-vps/voice-stt-client/blob/work/client-v2/ap-cv2-020/ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md): beide R02-Findings geschlossen, keine offenen Pflichtbefunde. Übernahme nur nach ausdrücklicher menschlicher Freigabe.
+AP-CV2-020 ist tatsächlich ACCEPTED auf `8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0` (PR #4, R04-PASS, menschliche Freigabe und Baumgleichheit belegt). AP-CV2-030 **REVIEW_READY** auf `work/client-v2/ap-cv2-030`, Parent unverändert. [R01-Report](30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md), [Workflowstatus](WORKFLOW_STATUS.json). Reiner Activation-/Segmentmirror und tatsächliche Transport-/Resyncanbindung;1339 Windows-Tests,106 gezielte Tests,35 Serverfälle/46 bytegeprüfte Quellen und compileall PASS. Alle35 Requirements einzeln belegt.
+
+Nächste Aktion: frische unabhängige Abnahme des vollständigen Paket-PR. Schreibhoheit nach Übergabe pausiert. Appkomposition CV2-100, Audio-/Settingsservices CV2-040/070 und reale ASR-/Hardwarefälle später; Serverbaseline ada13b0 unverändert und Server-Distributed offen. Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`. Kein eigener ROOT_PASS, Merge oder Folgepaketstart.
 
 ## Historischer Stand vor AP-CV2-020
 

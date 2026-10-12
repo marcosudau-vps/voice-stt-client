@@ -1,3 +1,7 @@
+# Kanonischer Abschluss AP-CV2-020 – 2026-10-12
+
+Status **ACCEPTED**, workflowPhase CANONICALIZED. Nach R04-PASS und menschlicher Freigabe über PR #4 übernommen: Aggregate `8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0`, Parent `91065f5f7715aa6653ec5335d9e757b6ef97a067`, Tree `94f859d311135ceb539b0f1099d1e246d5b88b6a`. Genau ein Single-Parent-Commit und Baumgleichheit zum freigegebenen Head c3a9ec3 nachgewiesen. [Nachmergeprovenienz](../AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). Die folgenden datierten Vorübernahmeakten bleiben Historie.
+
 # AP-CV2-020 – V2-Transport und Commandkorrelation
 
 Status **ROOT_PASS**, workflowPhase WAITING_FOR_APPROVAL.

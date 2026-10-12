@@ -141,6 +141,8 @@ class V2STTSession:
         self.on_completion: Callable[[CommandCompletion], None] | None = None
         self.on_rejected: Callable[[p.HandshakeRejected], None] | None = None
         self.on_lost: Callable[[SessionBinding], None] | None = None
+        self.on_protocol_fault: Callable[[SessionBinding], None] | None = None
+        self.domain_ready: Callable[[], bool] | None = None
         self._ws = None
         self._tracker: CommandTracker | None = None
         self._runner: asyncio.Task | None = None
@@ -313,7 +315,16 @@ class V2STTSession:
                 return
             if not isinstance(frame, str):
                 raise p.ProtocolError("server binary frame forbidden")
-            self.dispatch(p.decode_server_message(frame), binding)
+            try:
+                message = p.decode_server_message(frame)
+            except p.ProtocolError:
+                if self.on_protocol_fault is None:
+                    raise
+                # An attached mirror degrades and requests an authoritative
+                # snapshot. Never publish malformed payload/guessed identities.
+                self.on_protocol_fault(binding)
+                continue
+            self.dispatch(message, binding)
 
     def dispatch(self, message, binding: SessionBinding) -> bool:
         """Generationguard for socket/test adapters. Unknown unrelated frames ignored."""
@@ -342,6 +353,8 @@ class V2STTSession:
     async def _command(self, binding, kind, **fields):
         if not self._current(binding):
             raise TransportLost("transport_lost")
+        if kind == p.CommandType.ACTIVATION and self.domain_ready is not None and not self.domain_ready():
+            raise TransportLost("activation mirror is resyncing")
         tracker, ws = self._tracker, self._ws
         if any(key in fields for key in ("commandId", "sessionId", "protocolVersion", "type")):
             raise p.ProtocolError("command envelope is owned by transport")
@@ -349,7 +362,22 @@ class V2STTSession:
                 and fields.get("activationId") == self._closing_activation):
             raise TransportLost("refresh is blocked for closing input")
         command = p.build_command(kind, binding.session_id, **fields)
-        return await tracker.request(command, ws.send)
+        async def guarded_send(wire):
+            if not self._current(binding):
+                raise TransportLost("transport_lost")
+            if kind == p.CommandType.ACTIVATION and self.domain_ready is not None and not self.domain_ready():
+                raise TransportLost("activation mirror is resyncing")
+            await ws.send(wire)
+        return await tracker.request(command, guarded_send)
+
+    async def reconnect(self, binding: SessionBinding, reason: str):
+        """Recycle only the current socket after a mirror loss/timeout finding."""
+        if not self._current(binding):
+            return
+        if self._tracker:
+            self._tracker.close()
+        self._state(V2TransportState.BACKOFF, reason)
+        await self._close_socket()
 
     async def bootstrap_command(self, binding, kind, **fields):
         if self.status.state != V2TransportState.CONFIGURING or kind not in (
