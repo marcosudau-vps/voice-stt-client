@@ -2134,3 +2134,8 @@ Nach tatsächlicher AP040-Übernahme (PR6, PASS/Freigabe/Singleparent/Baumgleich
 ## AP-CV2-060-R01 – 2026-10-12 – Final-Pipeline/Historymigration / REVIEW_READY
 
 Von AP050-Aggregat ce95c66 nach belegtem PASS/Freigabe/Singleparent/Baumgleichheit umgesetzt: UUID-Herkunft, unabhängiger Prozessdedup, transaktionale V1-Migration/Backup/Rollback und reservierte automatische/manuelle Ausgabe mit Crashstatus unknown. 1426 Windowsgesamttests, 323 gezielte Tests, 19 echte Serverchecks/46 Quellblobs, compileall/diffcheck PASS. Alle13 RESULT-Requirements einzeln belegt. CI-Pfadaliasfehler in neuer Backupfixture vor endgültiger Übergabe reproduziert/korrigiert und sämtliche Qualifikationschecks mit neuem Testblob wiederholt. [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md). Unabhängige Abnahme offen; Schreiben ab Übergabe pausiert, keine kanonische Übernahme oder Folgepaketimplementierung.
+
+
+## AP-CV2-060-R02 – 2026-10-12 – unabhängige Abnahme CHANGES_REQUIRED
+
+PR #8 Kandidat `33fef1d892917030100c0583566367f49fff14eb`, Tree `b725d2e467a479de8ce778646eebbe71a4ec67b5`, Parent ce95c66 und Server ada13b0 geprüft. 1426 Windows-Tests, 323 gezielte Tests, 19 echte Serverchecks und finale CI38268881303 als gültige extern durchgeführte Belege bestätigt. Ein Pflichtfinding `CV2-060-R02-F01`: API-Dokumentation nennt `ClientController.attach_v2_results`, tatsächlich implementiert ist `STTController.attach_v2_results`. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R02-ABNAHME/01_REPORT.md). Keine Produktänderung oder Merge; Docfix und unabhängiger Recheck erforderlich.

@@ -1,6 +1,6 @@
 # AP-CV2-060 – Final-Pipeline, UUID-Historie und sichere Textinjektion
 
-Status **REVIEW_READY**, workflowPhase **REVIEW_READY**, Stand 2026-10-12. Vollständiger R01-Selbstcheck; unabhängige Abnahme offen. Schreibrecht ab eingereichter Übergabe pausiert.
+Status **CHANGES_REQUIRED**, workflowPhase **CHANGES_REQUIRED**, Stand 2026-10-12. Vollständiger R01-Selbstcheck; unabhängige Abnahme R02 abgeschlossen; Schreibrecht für beauftragte Korrektur freigegeben.
 
 [Paketvertrag](../../PLANUNG/ARBEITSPAKETE/AP-CV2-060.md), [Originalauftrag](RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md), [Report](RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [Produktinterfaces](../../../../../docs/protocol-v2-results.md).
 
@@ -15,3 +15,8 @@ Exakter Kandidat ergibt sich aus veröffentlichter Branchspitze und aktueller PR
 
 
 Maßgeblich nach CI-Selbstkorrektur: aktuelles Windowsmanifest mit getesteter Basis 66f44e0 plus staged Pfadalias-Testkorrektur, vollständig neu qualifiziertem Testblob und allen 195 qualifizierten Produktblobs. Finale Kandidaten-SHA/Tree stehen in PR und Übergabe.
+
+
+## Unabhängige Abnahme R02 (2026-10-12)
+
+**CHANGES_REQUIRED** mit genau einem Pflichtfinding `CV2-060-R02-F01`: Öffentliche API-Dokumentation nennt `ClientController` statt der implementierten `STTController`-Klasse. [R02-Report](RUNS/R02-ABNAHME/01_REPORT.md), [Evidenz](RUNS/R02-ABNAHME/EVIDENCE/INDEX.md). Tests und CI bleiben als gültige Fremdnachweise anerkannt; kleiner Docfix und unabhängige Nachprüfung erforderlich. Kein Merge/AP070.
