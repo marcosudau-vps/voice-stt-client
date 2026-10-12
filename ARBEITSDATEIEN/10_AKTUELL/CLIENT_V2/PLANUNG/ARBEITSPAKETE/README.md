@@ -1,3 +1,7 @@
+# Aktueller Paketstand – 2026-10-12
+
+AP000 bis AP070 ACCEPTED, AP080 REVIEW_READY. [AP080-Report](../../30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/01_REPORT.md), [Workflowstatus](../../WORKFLOW_STATUS.json). Nächster Schritt ist unabhängiges AP080-Review; spätere Pakete bleiben PLANNED.
+
 # Arbeitspakete – Index und Liefergrenzen
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.

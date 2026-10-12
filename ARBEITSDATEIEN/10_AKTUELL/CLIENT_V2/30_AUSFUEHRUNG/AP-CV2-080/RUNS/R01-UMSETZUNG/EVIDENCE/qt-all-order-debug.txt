@@ -1,0 +1,443 @@
+test_optional_actions_are_registered_and_dispatched (tests.test_ap06_followup.TestActionHotkeys.test_optional_actions_are_registered_and_dispatched) ... ok
+test_configuration_block_stops_connection_attempts_until_change (tests.test_ap06_followup.TestConfigurationReconnectGuard.test_configuration_block_stops_connection_attempts_until_change) ... Reconnect paused until the invalid session configuration changes.
+ok
+test_hotkey_followup_warns_then_new_speech_clears_warning (tests.test_ap06_followup.TestDictationWindow.test_hotkey_followup_warns_then_new_speech_clears_warning) ... Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+ok
+test_initial_timeout_stops_accidental_start (tests.test_ap06_followup.TestDictationWindow.test_initial_timeout_stops_accidental_start) ... ok
+test_server_recorder_state_change_publishes_snapshot_for_tray (tests.test_ap06_followup.TestDictationWindow.test_server_recorder_state_change_publishes_snapshot_for_tray) ... ok
+test_stale_timeline_event_does_not_cancel_initial_timer (tests.test_ap06_followup.TestDictationWindow.test_stale_timeline_event_does_not_cancel_initial_timer) ... ok
+test_timeline_and_extension_are_bound_to_current_window (tests.test_ap06_followup.TestDictationWindow.test_timeline_and_extension_are_bound_to_current_window) ... Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+ok
+test_unavailable_audio_candidate_does_not_change_runtime (tests.test_ap06_followup.TestDictationWindow.test_unavailable_audio_candidate_does_not_change_runtime) ... ok
+test_wake_word_followup_uses_server_duration_and_clears_on_speech (tests.test_ap06_followup.TestDictationWindow.test_wake_word_followup_uses_server_duration_and_clears_on_speech) ... Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+ok
+test_delete_and_clear_keep_dedupe_semantics (tests.test_ap06_followup.TestHistoryDeletion.test_delete_and_clear_keep_dedupe_semantics) ... ok
+test_failed_wake_stream_activation_restores_hotkey_runtime (tests.test_ap06_followup.TestRuntimeModeSwitchLifecycle.test_failed_wake_stream_activation_restores_hotkey_runtime) ... ok
+test_hotkey_wake_hotkey_switch_arms_stream_and_keeps_core_alive (tests.test_ap06_followup.TestRuntimeModeSwitchLifecycle.test_hotkey_wake_hotkey_switch_arms_stream_and_keeps_core_alive) ... ok
+test_switched_wake_mode_rearms_after_recoverable_reconnect (tests.test_ap06_followup.TestRuntimeModeSwitchLifecycle.test_switched_wake_mode_rearms_after_recoverable_reconnect) ... Dictation interrupted (reason: transport_loss).
+ok
+test_candidate_validation_does_not_mutate_current_config (tests.test_ap06_followup.TestSessionConfigAndMetadata.test_candidate_validation_does_not_mutate_current_config) ... ok
+test_effective_mode_mismatch_is_rejected (tests.test_ap06_followup.TestSessionConfigAndMetadata.test_effective_mode_mismatch_is_rejected) ... ok
+test_every_metadata_path_targets_typed_config (tests.test_ap06_followup.TestSessionConfigAndMetadata.test_every_metadata_path_targets_typed_config) ... ok
+test_fallback_metadata_is_recorded_after_valid_confirmation (tests.test_ap06_followup.TestSessionConfigAndMetadata.test_fallback_metadata_is_recorded_after_valid_confirmation) ... Session configuration warnings: ['fallback used']
+Session configuration fallbacks: ['sensitivity']
+ok
+test_legacy_user_config_is_fallback_only (tests.test_ap06_followup.TestSessionConfigAndMetadata.test_legacy_user_config_is_fallback_only) ... ok
+test_project_and_user_files_are_layered_and_save_is_atomic (tests.test_ap06_followup.TestSessionConfigAndMetadata.test_project_and_user_files_are_layered_and_save_is_atomic) ... ok
+test_unknown_user_field_keeps_valid_override (tests.test_ap06_followup.TestSessionConfigAndMetadata.test_unknown_user_field_keeps_valid_override) ... Ignoring unknown configuration fields in C:\Users\marco\AppData\Local\Temp\tmpealnzgy7\user.yaml: overlay.invented
+ok
+test_url_generation_replaces_each_public_key_exactly_once (tests.test_ap06_followup.TestSessionConfigAndMetadata.test_url_generation_replaces_each_public_key_exactly_once) ... ok
+test_dependency_fields_remain_visible_but_disable_when_inactive (tests.test_ap06_followup.TestSettingsDialog.test_dependency_fields_remain_visible_but_disable_when_inactive) ... ok
+test_failed_runtime_submit_rolls_hotkeys_and_file_back (tests.test_ap06_followup.TestSettingsDialog.test_failed_runtime_submit_rolls_hotkeys_and_file_back) ... LED output unavailable: [Errno 13] Access denied (insufficient permissions)
+ok
+test_five_tabs_and_standard_editor_types (tests.test_ap06_followup.TestSettingsDialog.test_five_tabs_and_standard_editor_types) ... ok
+test_hotkey_editor_records_and_normalizes_key_sequence (tests.test_ap06_followup.TestSettingsDialog.test_hotkey_editor_records_and_normalizes_key_sequence) ... ok
+test_installed_defaults_round_trip_through_every_settings_editor (tests.test_ap06_followup.TestSettingsDialog.test_installed_defaults_round_trip_through_every_settings_editor) ... ok
+test_rejected_hotkey_restores_committed_value_and_explains_failure (tests.test_ap06_followup.TestSettingsDialog.test_rejected_hotkey_restores_committed_value_and_explains_failure) ... ok
+test_reopening_dialog_discards_unapplied_draft (tests.test_ap06_followup.TestSettingsDialog.test_reopening_dialog_discards_unapplied_draft) ... ok
+test_slider_spinbox_preserves_non_step_audio_rate (tests.test_ap06_followup.TestSettingsDialog.test_slider_spinbox_preserves_non_step_audio_rate) ... ok
+test_standard_editor_builds_typed_candidate (tests.test_ap06_followup.TestSettingsDialog.test_standard_editor_builds_typed_candidate) ... ok
+test_windows_modifier_round_trips_through_qt_editor (tests.test_ap06_followup.TestSettingsDialog.test_windows_modifier_round_trips_through_qt_editor) ... ok
+test_async_and_sync_commands_execute_in_worker_loop (tests.test_core_bridge.TestCoreBridge.test_async_and_sync_commands_execute_in_worker_loop) ... ok
+test_command_before_start_and_after_stop_is_rejected_not_queued (tests.test_core_bridge.TestCoreBridge.test_command_before_start_and_after_stop_is_rejected_not_queued) ... ok
+test_configured_auto_start_is_armed_before_run (tests.test_core_bridge.TestCoreBridge.test_configured_auto_start_is_armed_before_run) ... ok
+test_controller_loop_is_worker_owned_and_signals_arrive_in_main (tests.test_core_bridge.TestCoreBridge.test_controller_loop_is_worker_owned_and_signals_arrive_in_main) ... ok
+test_local_feedback_can_wait_until_worker_processed_it (tests.test_core_bridge.TestCoreBridge.test_local_feedback_can_wait_until_worker_processed_it) ... ok
+test_loop_close_race_rejects_command_without_escaping_runtime_error (tests.test_core_bridge.TestCoreBridge.test_loop_close_race_rejects_command_without_escaping_runtime_error) ... ok
+test_shutdown_is_idempotent_and_leaves_no_worker_thread (tests.test_core_bridge.TestCoreBridge.test_shutdown_is_idempotent_and_leaves_no_worker_thread) ... ok
+test_cli_profile_argument_reaches_loader_without_touching_runtime (tests.test_cv2_000_integration.IntegratedPreferences.test_cli_profile_argument_reaches_loader_without_touching_runtime) ... ok
+test_disabled_hotkeys_remain_disabled_and_do_not_block_startup (tests.test_cv2_000_integration.IntegratedPreferences.test_disabled_hotkeys_remain_disabled_and_do_not_block_startup) ... ok
+test_editor_sync_keeps_effective_legacy_trigger_flags (tests.test_cv2_000_integration.IntegratedPreferences.test_editor_sync_keeps_effective_legacy_trigger_flags) ... ok
+test_environment_profile_never_silently_falls_back_to_legacy (tests.test_cv2_000_integration.IntegratedPreferences.test_environment_profile_never_silently_falls_back_to_legacy) ... ok
+test_existing_legacy_history_is_read_in_place_without_loss (tests.test_cv2_000_integration.IntegratedPreferences.test_existing_legacy_history_is_read_in_place_without_loss) ... ok
+test_explicit_profile_keeps_feature_flags_and_preferences_on_roundtrip (tests.test_cv2_000_integration.IntegratedPreferences.test_explicit_profile_keeps_feature_flags_and_preferences_on_roundtrip) ... ok
+test_feature_pr_ci_tests_namespace_build_and_installed_wheel (tests.test_cv2_000_integration.IntegratedPreferences.test_feature_pr_ci_tests_namespace_build_and_installed_wheel) ... ok
+test_apply_config_releases_preloaded_players (tests.test_feedback_ui.SoundFeedbackTests.test_apply_config_releases_preloaded_players) ... ok
+test_backend_exception_is_nonfatal_and_limited (tests.test_feedback_ui.SoundFeedbackTests.test_backend_exception_is_nonfatal_and_limited) ... Sound feedback failed for error.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\feedback.py", line 96, in play
+    player.play()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_feedback_ui.py", line 53, in play
+    raise RuntimeError("simulated sound backend failure")
+RuntimeError: simulated sound backend failure
+ok
+test_different_cues_use_independent_players (tests.test_feedback_ui.SoundFeedbackTests.test_different_cues_use_independent_players) ... ok
+test_disabled_feedback_does_not_touch_backend (tests.test_feedback_ui.SoundFeedbackTests.test_disabled_feedback_does_not_touch_backend) ... ok
+test_frozen_application_uses_bundled_package_root (tests.test_feedback_ui.SoundFeedbackTests.test_frozen_application_uses_bundled_package_root) ... ok
+test_mapped_cue_uses_configured_asset_and_volume (tests.test_feedback_ui.SoundFeedbackTests.test_mapped_cue_uses_configured_asset_and_volume) ... ok
+test_missing_asset_failure_is_reported_only_once (tests.test_feedback_ui.SoundFeedbackTests.test_missing_asset_failure_is_reported_only_once) ... Sound asset is unavailable: P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\definitely-missing.wav
+ok
+test_relative_asset_is_resolved_against_application_resource_root (tests.test_feedback_ui.SoundFeedbackTests.test_relative_asset_is_resolved_against_application_resource_root) ... ok
+test_resolver_expands_a_user_relative_path (tests.test_feedback_ui.SoundFeedbackTests.test_resolver_expands_a_user_relative_path) ... ok
+test_resolver_preserves_absolute_paths (tests.test_feedback_ui.SoundFeedbackTests.test_resolver_preserves_absolute_paths) ... ok
+test_timeout_tick_can_be_stopped_explicitly (tests.test_feedback_ui.SoundFeedbackTests.test_timeout_tick_can_be_stopped_explicitly) ... ok
+test_an_unset_slot_is_silence_rather_than_a_failure (tests.test_feedback_ui.TestSoundCueCatalogueIsComplete.test_an_unset_slot_is_silence_rather_than_a_failure) ... ok
+test_every_cue_has_a_configuration_slot (tests.test_feedback_ui.TestSoundCueCatalogueIsComplete.test_every_cue_has_a_configuration_slot) ... ok
+test_disabled_manager_never_touches_backend (tests.test_hotkeys.TestGlobalHotkeyManager.test_disabled_manager_never_touches_backend) ... ok
+test_partial_registration_rolls_back_and_is_retryable (tests.test_hotkeys.TestGlobalHotkeyManager.test_partial_registration_rolls_back_and_is_retryable) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_hotkeys.py", line 35, in register
+    raise OSError("simulated hotkey conflict")
+OSError: simulated hotkey conflict
+ok
+test_registers_both_and_dispatches_exact_action (tests.test_hotkeys.TestGlobalHotkeyManager.test_registers_both_and_dispatches_exact_action) ... ok
+test_unregister_is_idempotent_and_disables_dispatch (tests.test_hotkeys.TestGlobalHotkeyManager.test_unregister_is_idempotent_and_disables_dispatch) ... ok
+test_parses_legacy_toggle_hotkey (tests.test_hotkeys.TestHotkeyParser.test_parses_legacy_toggle_hotkey) ... ok
+test_parses_reinsertion_and_function_keys (tests.test_hotkeys.TestHotkeyParser.test_parses_reinsertion_and_function_keys) ... ok
+test_probe_skips_occupied_candidate_and_releases_available_one (tests.test_hotkeys.TestHotkeyParser.test_probe_skips_occupied_candidate_and_releases_available_one) ... ok
+test_a_failing_clear_is_reported_not_raised (tests.test_obs050_ui.TestDesktopWiring.test_a_failing_clear_is_reported_not_raised) ... Clearing the diagnostics history failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\application.py", line 717, in clear_diagnostics_history
+    deleted = manager.clear_history()
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_obs050_ui.py", line 1163, in clear_history
+    raise TimeoutError("clear did not complete in time")
+TimeoutError: clear did not complete in time
+ok
+test_clear_goes_through_the_manager_not_the_query_layer (tests.test_obs050_ui.TestDesktopWiring.test_clear_goes_through_the_manager_not_the_query_layer)
+FD-S4 / �5.8 / O-14: the deletion happens at the store. ... ok
+test_clear_without_a_manager_says_so (tests.test_obs050_ui.TestDesktopWiring.test_clear_without_a_manager_says_so) ... ok
+test_desktop_application_never_stops_the_manager (tests.test_obs050_ui.TestDesktopWiring.test_desktop_application_never_stops_the_manager)
+ARCH �6.2(b)/FD-R4: the manager's lifetime stays in app.py. ... ok
+test_shutdown_releases_the_log_window (tests.test_obs050_ui.TestDesktopWiring.test_shutdown_releases_the_log_window) ... ok
+test_the_window_is_created_once_and_reused (tests.test_obs050_ui.TestDesktopWiring.test_the_window_is_created_once_and_reused) ... ok
+test_with_a_manager_the_tray_opens_the_log_window (tests.test_obs050_ui.TestDesktopWiring.test_with_a_manager_the_tray_opens_the_log_window) ... ok
+test_without_a_manager_the_tray_entry_is_disabled (tests.test_obs050_ui.TestDesktopWiring.test_without_a_manager_the_tray_entry_is_disabled) ... ok
+test_details_are_shown_as_a_tree (tests.test_obs050_ui.TestLogDetailView.test_details_are_shown_as_a_tree) ... ok
+test_empty_view_says_so (tests.test_obs050_ui.TestLogDetailView.test_empty_view_says_so) ... ok
+test_missing_raw_is_stated_not_left_blank (tests.test_obs050_ui.TestLogDetailView.test_missing_raw_is_stated_not_left_blank) ... ok
+test_raw_arrives_separately_and_only_for_the_current_record (tests.test_obs050_ui.TestLogDetailView.test_raw_arrives_separately_and_only_for_the_current_record)
+�9.3: raw is loaded on selection; a late answer for a record that ... ok
+test_structured_details_carry_record_ids_inside_the_tab (tests.test_obs050_ui.TestLogDetailView.test_structured_details_carry_record_ids_inside_the_tab) ... ok
+test_a_half_typed_segment_id_does_not_restrict (tests.test_obs050_ui.TestLogFilterBar.test_a_half_typed_segment_id_does_not_restrict) ... ok
+test_activation_filter_carries_the_unreliability_hint (tests.test_obs050_ui.TestLogFilterBar.test_activation_filter_carries_the_unreliability_hint)
+The technical caveat is available without a dominant banner. ... ok
+test_all_is_exclusive_and_empty_specific_selection_returns_to_all (tests.test_obs050_ui.TestLogFilterBar.test_all_is_exclusive_and_empty_specific_selection_returns_to_all) ... ok
+test_context_action_sets_one_field_and_emits_once (tests.test_obs050_ui.TestLogFilterBar.test_context_action_sets_one_field_and_emits_once) ... ok
+test_default_filter_is_unrestricted (tests.test_obs050_ui.TestLogFilterBar.test_default_filter_is_unrestricted) ... ok
+test_facets_disable_zero_hit_values_and_populate_event_types (tests.test_obs050_ui.TestLogFilterBar.test_facets_disable_zero_hit_values_and_populate_event_types) ... ok
+test_fields_map_onto_the_query_filter (tests.test_obs050_ui.TestLogFilterBar.test_fields_map_onto_the_query_filter) ... ok
+test_filter_change_is_debounced (tests.test_obs050_ui.TestLogFilterBar.test_filter_change_is_debounced)
+�9.2: entprellt, 300 ms � typing must not fire one query per key. ... ok
+test_labels_tooltips_and_replay_wording_are_user_facing (tests.test_obs050_ui.TestLogFilterBar.test_labels_tooltips_and_replay_wording_are_user_facing) ... ok
+test_level_is_an_exact_multi_selection (tests.test_obs050_ui.TestLogFilterBar.test_level_is_an_exact_multi_selection) ... ok
+test_reset_clears_every_field (tests.test_obs050_ui.TestLogFilterBar.test_reset_clears_every_field) ... ok
+test_a_raising_health_provider_does_not_break_the_status_line (tests.test_obs050_ui.TestLogPage.test_a_raising_health_provider_does_not_break_the_status_line) ... ok
+test_a_response_is_interpreted_by_its_request_not_by_the_cursor (tests.test_obs050_ui.TestLogPage.test_a_response_is_interpreted_by_its_request_not_by_the_cursor)
+The structural half of the B-2 fix: the kind is recorded with the ... ok
+test_a_stale_answer_is_dropped (tests.test_obs050_ui.TestLogPage.test_a_stale_answer_is_dropped) ... ok
+test_at_least_one_column_must_remain_visible (tests.test_obs050_ui.TestLogPage.test_at_least_one_column_must_remain_visible) ... ok
+test_auto_scroll_only_moves_for_time_sort (tests.test_obs050_ui.TestLogPage.test_auto_scroll_only_moves_for_time_sort) ... ok
+test_automatic_load_at_the_list_end_keeps_the_order (tests.test_obs050_ui.TestLogPage.test_automatic_load_at_the_list_end_keeps_the_order)
+The same path without a button press: �9.3's *"automatisches ... ok
+test_context_menu_actions_set_the_filter (tests.test_obs050_ui.TestLogPage.test_context_menu_actions_set_the_filter) ... ok
+test_display_order_stays_monotone_across_three_history_pages (tests.test_obs050_ui.TestLogPage.test_display_order_stays_monotone_across_three_history_pages)
+**Regression for B-1.** The gate reproduced a visible time axis ... ok
+test_filter_change_during_live_reseeds_without_duplicates (tests.test_obs050_ui.TestLogPage.test_filter_change_during_live_reseeds_without_duplicates)
+A filter change calls ``reload()`` and resets ``_live_cursor`` � ... ok
+test_filter_change_replaces_the_page_and_reaches_the_provider (tests.test_obs050_ui.TestLogPage.test_filter_change_replaces_the_page_and_reaches_the_provider) ... ok
+test_further_records_after_an_empty_start_extend_the_tail (tests.test_obs050_ui.TestLogPage.test_further_records_after_an_empty_start_extend_the_tail)
+Several consecutive tail answers: order kept, no duplicates, and ... ok
+test_header_sort_updates_query_and_indicator (tests.test_obs050_ui.TestLogPage.test_header_sort_updates_query_and_indicator) ... ok
+test_history_mode_shows_the_newest_page_first_newest_on_top (tests.test_obs050_ui.TestLogPage.test_history_mode_shows_the_newest_page_first_newest_on_top)
+�9.3 + gate finding B-1: the page is shown exactly as the provider ... ok
+test_json_copy_deduplicates_cells_and_includes_full_record_and_raw (tests.test_obs050_ui.TestLogPage.test_json_copy_deduplicates_cells_and_includes_full_record_and_raw) ... ok
+test_json_copy_multiple_rows_returns_each_record_once (tests.test_obs050_ui.TestLogPage.test_json_copy_multiple_rows_returns_each_record_once) ... ok
+test_live_mode_tails_ascending_over_the_same_provider (tests.test_obs050_ui.TestLogPage.test_live_mode_tails_ascending_over_the_same_provider)
+FD-S1: no ring buffer � the live path is a tailing QUERY. ... ok
+test_live_plus_history_marks_origins_and_deduplicates_tail_records (tests.test_obs050_ui.TestLogPage.test_live_plus_history_marks_origins_and_deduplicates_tail_records) ... ok
+test_live_start_on_a_populated_store_stays_correct (tests.test_obs050_ui.TestLogPage.test_live_start_on_a_populated_store_stays_correct)
+The happy path the gate confirmed as already correct (case C) must ... ok
+test_live_start_on_an_empty_result_set_then_records_arrive (tests.test_obs050_ui.TestLogPage.test_live_start_on_an_empty_result_set_then_records_arrive)
+**Regression for B-2.** The gate reproduced, on an empty store:: ... ok
+test_live_start_with_a_filter_that_matches_nothing_then_matches (tests.test_obs050_ui.TestLogPage.test_live_start_with_a_filter_that_matches_nothing_then_matches)
+The same empty start, but reached through a filter rather than an ... ok
+test_load_more_does_nothing_without_a_next_page (tests.test_obs050_ui.TestLogPage.test_load_more_does_nothing_without_a_next_page) ... ok
+test_load_more_pages_backwards_with_the_cursor (tests.test_obs050_ui.TestLogPage.test_load_more_pages_backwards_with_the_cursor) ... ok
+test_loaded_view_exports_csv_and_json_with_explicit_scope (tests.test_obs050_ui.TestLogPage.test_loaded_view_exports_csv_and_json_with_explicit_scope) ... ok
+test_rectangular_selection_copies_tsv (tests.test_obs050_ui.TestLogPage.test_rectangular_selection_copies_tsv) ... ok
+test_scrolling_does_not_change_the_auto_scroll_preference (tests.test_obs050_ui.TestLogPage.test_scrolling_does_not_change_the_auto_scroll_preference) ... ok
+test_selection_loads_the_detail_and_the_raw_payload (tests.test_obs050_ui.TestLogPage.test_selection_loads_the_detail_and_the_raw_payload) ... ok
+test_single_provider_control_is_hidden_and_actions_are_explicit (tests.test_obs050_ui.TestLogPage.test_single_provider_control_is_hidden_and_actions_are_explicit) ... ok
+test_status_line_shows_provider_and_health (tests.test_obs050_ui.TestLogPage.test_status_line_shows_provider_and_health) ... ok
+test_stop_halts_both_timers (tests.test_obs050_ui.TestLogPage.test_stop_halts_both_timers) ... ok
+test_three_modes_include_live_plus_history (tests.test_obs050_ui.TestLogPage.test_three_modes_include_live_plus_history) ... ok
+test_a_raising_service_never_reaches_the_qt_thread (tests.test_obs050_ui.TestLogQueryController.test_a_raising_service_never_reaches_the_qt_thread) ... ok
+test_after_shutdown_requests_are_refused (tests.test_obs050_ui.TestLogQueryController.test_after_shutdown_requests_are_refused) ... ok
+test_facets_run_through_the_same_bounded_query_worker (tests.test_obs050_ui.TestLogQueryController.test_facets_run_through_the_same_bounded_query_worker) ... ok
+test_json_records_load_raw_only_for_selected_records (tests.test_obs050_ui.TestLogQueryController.test_json_records_load_raw_only_for_selected_records) ... ok
+test_query_runs_off_the_qt_thread_and_answers_by_signal (tests.test_obs050_ui.TestLogQueryController.test_query_runs_off_the_qt_thread_and_answers_by_signal) ... ok
+test_raw_is_fetched_through_the_service (tests.test_obs050_ui.TestLogQueryController.test_raw_is_fetched_through_the_service) ... ok
+test_request_ids_increase_so_stale_answers_are_recognisable (tests.test_obs050_ui.TestLogQueryController.test_request_ids_increase_so_stale_answers_are_recognisable) ... ok
+test_the_query_thread_is_not_the_qt_thread (tests.test_obs050_ui.TestLogQueryController.test_the_query_thread_is_not_the_qt_thread)
+�9.2: the query has its own executor and does not run on ... ok
+test_append_page_grows_and_record_at_returns_the_record (tests.test_obs050_ui.TestLogTableModel.test_append_page_grows_and_record_at_returns_the_record) ... ok
+test_cells_render_the_record (tests.test_obs050_ui.TestLogTableModel.test_cells_render_the_record) ... ok
+test_clear_empties_the_model (tests.test_obs050_ui.TestLogTableModel.test_clear_empties_the_model) ... ok
+test_configurable_columns_include_defaults_and_context_ids (tests.test_obs050_ui.TestLogTableModel.test_configurable_columns_include_defaults_and_context_ids) ... ok
+test_default_visible_fields_remain_compact (tests.test_obs050_ui.TestLogTableModel.test_default_visible_fields_remain_compact) ... ok
+test_new_live_records_are_inserted_in_the_active_sort (tests.test_obs050_ui.TestLogTableModel.test_new_live_records_are_inserted_in_the_active_sort) ... ok
+test_numeric_sort_is_not_lexicographic (tests.test_obs050_ui.TestLogTableModel.test_numeric_sort_is_not_lexicographic) ... ok
+test_only_warning_and_above_get_a_row_colour (tests.test_obs050_ui.TestLogTableModel.test_only_warning_and_above_get_a_row_colour) ... ok
+test_row_count_is_bounded_and_drops_the_oldest (tests.test_obs050_ui.TestLogTableModel.test_row_count_is_bounded_and_drops_the_oldest)
+O-04: a live view must not grow without a bound. ... ok
+test_time_display_is_desktop_friendly_but_sort_stays_typed (tests.test_obs050_ui.TestLogTableModel.test_time_display_is_desktop_friendly_but_sort_stays_typed) ... ok
+test_closing_hides_instead_of_closing (tests.test_obs050_ui.TestLogWindow.test_closing_hides_instead_of_closing)
+�9.3: ``hide()`` statt ``close()``. ... ok
+test_columns_sort_and_splitter_state_restore (tests.test_obs050_ui.TestLogWindow.test_columns_sort_and_splitter_state_restore) ... ok
+test_geometry_is_stored_in_qsettings (tests.test_obs050_ui.TestLogWindow.test_geometry_is_stored_in_qsettings) ... ok
+test_hiding_stops_the_polling (tests.test_obs050_ui.TestLogWindow.test_hiding_stops_the_polling)
+�9.1's second reason for a separate window: a hidden view must not ... ok
+test_invalid_saved_columns_fall_back_to_safe_defaults (tests.test_obs050_ui.TestLogWindow.test_invalid_saved_columns_fall_back_to_safe_defaults) ... ok
+test_window_is_non_modal_and_top_level (tests.test_obs050_ui.TestLogWindow.test_window_is_non_modal_and_top_level) ... ok
+test_both_action_buttons_exist (tests.test_obs050_ui.TestSettingsTab.test_both_action_buttons_exist) ... ok
+test_changing_a_logging_setting_produces_an_immediate_policy (tests.test_obs050_ui.TestSettingsTab.test_changing_a_logging_setting_produces_an_immediate_policy) ... ok
+test_clear_button_asks_before_deleting (tests.test_obs050_ui.TestSettingsTab.test_clear_button_asks_before_deleting) ... ok
+test_clearing_the_file_sink_directory_means_the_default_again (tests.test_obs050_ui.TestSettingsTab.test_clearing_the_file_sink_directory_means_the_default_again)
+An emptied optional path must become ``None``, not ``""`` � the ... ok
+test_every_logging_setting_has_an_editor (tests.test_obs050_ui.TestSettingsTab.test_every_logging_setting_has_an_editor) ... ok
+test_level_editor_offers_the_closed_level_set (tests.test_obs050_ui.TestSettingsTab.test_level_editor_offers_the_closed_level_set) ... ok
+test_show_logs_button_emits_the_request (tests.test_obs050_ui.TestSettingsTab.test_show_logs_button_emits_the_request) ... ok
+test_store_enabled_change_reports_app_restart (tests.test_obs050_ui.TestSettingsTab.test_store_enabled_change_reports_app_restart) ... ok
+test_the_dialog_has_six_tabs_with_logging_last (tests.test_obs050_ui.TestSettingsTab.test_the_dialog_has_six_tabs_with_logging_last) ... ok
+test_disabled_and_wake_only_never_register_or_rewrite_profile (tests.test_startup_hotkey_persistence.StartupPersistence.test_disabled_and_wake_only_never_register_or_rewrite_profile) ... UI received fatal Core error: Core konnte nicht gestartet werden
+UI received fatal Core error: Core konnte nicht gestartet werden
+ok
+test_failed_core_preserves_profile_and_restores_in_memory_hotkeys (tests.test_startup_hotkey_persistence.StartupPersistence.test_failed_core_preserves_profile_and_restores_in_memory_hotkeys) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+UI received fatal Core error: Core konnte nicht gestartet werden
+ok
+test_retry_after_failed_core_uses_original_binding_then_persists (tests.test_startup_hotkey_persistence.StartupPersistence.test_retry_after_failed_core_uses_original_binding_then_persists) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+UI received fatal Core error: Core konnte nicht gestartet werden
+Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+ok
+test_save_failure_stops_started_core_and_restores_hotkeys (tests.test_startup_hotkey_persistence.StartupPersistence.test_save_failure_stops_started_core_and_restores_hotkeys) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+Could not persist the working fallback hotkey.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\application.py", line 255, in start
+    self.config.save_user()
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+PermissionError: read-only profile
+ok
+test_success_persists_after_core_start_and_preserves_preferences (tests.test_startup_hotkey_persistence.StartupPersistence.test_success_persists_after_core_start_and_preserves_preferences) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_startup_hotkey_persistence.py", line 29, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+ok
+test_argument_parser_preserves_explicit_headless_mode (tests.test_ui_application.TestDesktopApplication.test_argument_parser_preserves_explicit_headless_mode) ... ok
+test_core_start_failure_rolls_back_hotkeys_and_tray (tests.test_ui_application.TestDesktopApplication.test_core_start_failure_rolls_back_hotkeys_and_tray) ... UI received fatal Core error: Core konnte nicht gestartet werden
+ok
+test_hotkey_conflict_without_fallback_aborts_before_core_start (tests.test_ui_application.TestDesktopApplication.test_hotkey_conflict_without_fallback_aborts_before_core_start) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_ui_application.py", line 112, in register
+    raise OSError("conflict")
+OSError: conflict
+Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_ui_application.py", line 112, in register
+    raise OSError("conflict")
+OSError: conflict
+No working global hotkey combination found: Windows konnte die Tastenkombination nicht registrieren.
+ok
+test_led_failure_returns_as_canonical_local_fact (tests.test_ui_application.TestDesktopApplication.test_led_failure_returns_as_canonical_local_fact) ... ok
+test_legacy_command_completion_no_longer_triggers_sound (tests.test_ui_application.TestDesktopApplication.test_legacy_command_completion_no_longer_triggers_sound) ... ok
+test_live_local_lifecycle_fact_keeps_led_event_and_state (tests.test_ui_application.TestDesktopApplication.test_live_local_lifecycle_fact_keeps_led_event_and_state) ... ok
+test_mapped_feedback_decision_updates_ui_and_enqueues_one_sound (tests.test_ui_application.TestDesktopApplication.test_mapped_feedback_decision_updates_ui_and_enqueues_one_sound) ... ok
+test_missing_system_tray_is_controlled_and_releases_mutex (tests.test_ui_application.TestDesktopApplication.test_missing_system_tray_is_controlled_and_releases_mutex) ... No system tray is available.
+ok
+test_replay_or_unpublished_decision_never_reaches_ui_adapters (tests.test_ui_application.TestDesktopApplication.test_replay_or_unpublished_decision_never_reaches_ui_adapters) ... ok
+test_second_instance_exits_before_ui_start (tests.test_ui_application.TestDesktopApplication.test_second_instance_exits_before_ui_start) ... ok
+test_sound_failure_returns_as_canonical_local_fact (tests.test_ui_application.TestDesktopApplication.test_sound_failure_returns_as_canonical_local_fact) ... ok
+test_start_wires_native_hotkeys_to_core_and_shutdown_releases_all (tests.test_ui_application.TestDesktopApplication.test_start_wires_native_hotkeys_to_core_and_shutdown_releases_all) ... ok
+test_startup_replaces_conflicting_key_only_after_real_registration (tests.test_ui_application.TestDesktopApplication.test_startup_replaces_conflicting_key_only_after_real_registration) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_ui_application.py", line 262, in register
+    raise OSError(1409, "occupied")
+OSError: [Errno 1409] occupied
+ok
+test_text_signal_adapts_segment_text_and_final_for_overlay (tests.test_ui_application.TestDesktopApplication.test_text_signal_adapts_segment_text_and_final_for_overlay) ... ok
+test_ui_initialization_exception_releases_mutex (tests.test_ui_application.TestDesktopApplication.test_ui_initialization_exception_releases_mutex) ... Qt UI initialization failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\application.py", line 1017, in run_gui
+    desktop = DesktopApplication(
+              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+RuntimeError: simulated UI construction failure
+ok
+test_a_mute_the_device_never_saw_is_labelled_honestly (tests.test_ui_application.TestMuteAndReconnect.test_a_mute_the_device_never_saw_is_labelled_honestly)
+The mute LED stays dark, so the menu must not imply otherwise. ... ok
+test_device_reconnect_rebuilds_the_led_output (tests.test_ui_application.TestMuteAndReconnect.test_device_reconnect_rebuilds_the_led_output) ... ok
+test_muting_reaches_both_the_client_and_the_device (tests.test_ui_application.TestMuteAndReconnect.test_muting_reaches_both_the_client_and_the_device) ... ok
+test_server_reconnect_goes_to_the_core (tests.test_ui_application.TestMuteAndReconnect.test_server_reconnect_goes_to_the_core) ... ok
+test_the_tray_entry_toggles_the_mute (tests.test_ui_application.TestMuteAndReconnect.test_the_tray_entry_toggles_the_mute) ... ok
+test_unmuting_clears_the_label (tests.test_ui_application.TestMuteAndReconnect.test_unmuting_clears_the_label) ... ok
+test_every_action_renders_in_both_modes (tests.test_ui_widgets.TestMappedActionCatalogueIsComplete.test_every_action_renders_in_both_modes) ... ok
+test_the_mode_changes_the_colour_but_never_the_vocabulary (tests.test_ui_widgets.TestMappedActionCatalogueIsComplete.test_the_mode_changes_the_colour_but_never_the_vocabulary) ... ok
+test_transient_actions_say_how_long_they_last (tests.test_ui_widgets.TestMappedActionCatalogueIsComplete.test_transient_actions_say_how_long_they_last)
+Success, warning and error announce something and then give the ... ok
+test_all_availability_states_have_a_presentation (tests.test_ui_widgets.TestPresentationMapping.test_all_availability_states_have_a_presentation) ... ok
+test_external_unavailability_is_yellow_and_protocol_is_red (tests.test_ui_widgets.TestPresentationMapping.test_external_unavailability_is_yellow_and_protocol_is_red) ... ok
+test_feedback_distinguishes_network_microphone_and_protocol (tests.test_ui_widgets.TestPresentationMapping.test_feedback_distinguishes_network_microphone_and_protocol) ... ok
+test_history_label_is_single_line_and_bounded (tests.test_ui_widgets.TestPresentationMapping.test_history_label_is_single_line_and_bounded) ... ok
+test_hotkey_mode_uses_dark_rimmed_and_bright_green_phases (tests.test_ui_widgets.TestPresentationMapping.test_hotkey_mode_uses_dark_rimmed_and_bright_green_phases) ... ok
+test_mapped_app_action_preserves_operating_mode_color (tests.test_ui_widgets.TestPresentationMapping.test_mapped_app_action_preserves_operating_mode_color) ... ok
+test_retry_delay_is_visible_only_in_tooltip (tests.test_ui_widgets.TestPresentationMapping.test_retry_delay_is_visible_only_in_tooltip) ... ok
+test_unpublished_decision_has_no_overlay_presentation (tests.test_ui_widgets.TestPresentationMapping.test_unpublished_decision_has_no_overlay_presentation) ... ok
+test_wake_word_mode_uses_dark_rimmed_and_bright_blue_phases (tests.test_ui_widgets.TestPresentationMapping.test_wake_word_mode_uses_dark_rimmed_and_bright_blue_phases) ... ok
+test_feedback_uses_requested_color (tests.test_ui_widgets.TestTranscriptOverlay.test_feedback_uses_requested_color) ... ok
+test_realtime_replaces_text_and_final_fades (tests.test_ui_widgets.TestTranscriptOverlay.test_realtime_replaces_text_and_final_fades) ... ok
+test_window_is_focus_and_input_transparent (tests.test_ui_widgets.TestTranscriptOverlay.test_window_is_focus_and_input_transparent) ... ok
+test_about_to_show_requests_fresh_history (tests.test_ui_widgets.TestTrayController.test_about_to_show_requests_fresh_history) ... ok
+test_event_stream_degradation_is_secondary_and_keeps_mode_color (tests.test_ui_widgets.TestTrayController.test_event_stream_degradation_is_secondary_and_keeps_mode_color) ... ok
+test_history_actions_are_id_bound_and_empty_state_is_honest (tests.test_ui_widgets.TestTrayController.test_history_actions_are_id_bound_and_empty_state_is_honest) ... ok
+test_snapshot_updates_status_toggle_and_tooltip (tests.test_ui_widgets.TestTrayController.test_snapshot_updates_status_toggle_and_tooltip) ... ok
+test_status_icon_renders_requested_white_border (tests.test_ui_widgets.TestTrayController.test_status_icon_renders_requested_white_border) ... ok
+test_closing_input_finish_cancel_no_change_and_refresh_blocked (tests.test_v2_controls.Controls.test_closing_input_finish_cancel_no_change_and_refresh_blocked) ... ok
+test_complete_mask_coalesces_and_confirmation_waits_for_snapshot (tests.test_v2_controls.Controls.test_complete_mask_coalesces_and_confirmation_waits_for_snapshot) ... ok
+test_configuring_and_resync_send_no_activation (tests.test_v2_controls.Controls.test_configuring_and_resync_send_no_activation) ... ok
+test_duplicate_pending_and_audio_desired_pause_guards (tests.test_v2_controls.Controls.test_duplicate_pending_and_audio_desired_pause_guards) ... ok
+test_lost_ack_reconnect_keeps_intent_without_false_confirmation (tests.test_v2_controls.Controls.test_lost_ack_reconnect_keeps_intent_without_false_confirmation) ... ok
+test_old_activation_intent_never_retargeted_and_invalid_phase_no_retry (tests.test_v2_controls.Controls.test_old_activation_intent_never_retargeted_and_invalid_phase_no_retry) ... ok
+test_pause_during_bootstrap_ack_restored_before_ready (tests.test_v2_controls.Controls.test_pause_during_bootstrap_ack_restored_before_ready) ... ok
+test_run_restart_pause_reset_and_persisted_base_has_trigger (tests.test_v2_controls.Controls.test_run_restart_pause_reset_and_persisted_base_has_trigger) ... ok
+test_conflict_does_not_mutate_or_delete_profile (tests.test_v2_controls.Migration.test_conflict_does_not_mutate_or_delete_profile) ... ok
+test_defaults_alias_and_explicit_bindings_preserved (tests.test_v2_controls.Migration.test_defaults_alias_and_explicit_bindings_preserved) ... ok
+test_normalization_and_collisions_rejected_before_registration (tests.test_v2_controls.Migration.test_normalization_and_collisions_rejected_before_registration) ... ok
+test_controls_registered_without_manual_source_and_wake_slot_only_pause (tests.test_v2_controls.NativeRegistration.test_controls_registered_without_manual_source_and_wake_slot_only_pause) ... ok
+test_disabled_and_empty_profiles_no_native_bindings (tests.test_v2_controls.NativeRegistration.test_disabled_and_empty_profiles_no_native_bindings) ... ok
+test_partial_failure_restores_old_and_apply_rebind_invalidates_old_ids (tests.test_v2_controls.NativeRegistration.test_partial_failure_restores_old_and_apply_rebind_invalidates_old_ids) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_controls.py", line 329, in register
+    raise OSError(1409, 'synthetic occupied key')
+OSError: [Errno 1409] synthetic occupied key
+ok
+test_rollback_failure_exposed_and_no_partial_dispatch (tests.test_v2_controls.NativeRegistration.test_rollback_failure_exposed_and_no_partial_dispatch) ... Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_controls.py", line 329, in register
+    raise OSError(1409, 'synthetic occupied key')
+OSError: [Errno 1409] synthetic occupied key
+Global hotkey registration failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\hotkeys.py", line 286, in register
+    self._backend.register(
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_controls.py", line 329, in register
+    raise OSError(1409, 'synthetic occupied key')
+OSError: [Errno 1409] synthetic occupied key
+ok
+test_wrong_physical_lparam_rejected_and_utilities_separate (tests.test_v2_controls.NativeRegistration.test_wrong_physical_lparam_rejected_and_utilities_separate) ... ok
+test_all_5_phases_4_actions_2_slots_2_sources (tests.test_v2_controls.PhaseMatrix.test_all_5_phases_4_actions_2_slots_2_sources) ... ok
+test_idle_effective_manual_and_local_audio_barriers (tests.test_v2_controls.PhaseMatrix.test_idle_effective_manual_and_local_audio_barriers) ... ok
+test_no_local_deadline_or_vad_side_effect (tests.test_v2_controls.PhaseMatrix.test_no_local_deadline_or_vad_side_effect) ... ok
+test_admin_write_requires_verified_guard (tests.test_v2_settings_ui.CoreActions.test_admin_write_requires_verified_guard) ... ok
+test_auth_revision_validation_persistence_errors_do_not_unlock (tests.test_v2_settings_ui.CoreActions.test_auth_revision_validation_persistence_errors_do_not_unlock) ... ok
+test_cancel_targets_captured_activation_and_separate_drain_loss (tests.test_v2_settings_ui.CoreActions.test_cancel_targets_captured_activation_and_separate_drain_loss) ... ok
+test_claimed_applied_keycheck_is_rejected (tests.test_v2_settings_ui.CoreActions.test_claimed_applied_keycheck_is_rejected) ... ok
+test_close_while_drain_waiting_restores_pauses_without_reconnect (tests.test_v2_settings_ui.CoreActions.test_close_while_drain_waiting_restores_pauses_without_reconnect) ... ok
+test_conflict_rereads_and_rechecks_once (tests.test_v2_settings_ui.CoreActions.test_conflict_rereads_and_rechecks_once) ... ok
+test_context_race_rejects_old_activation_or_drain (tests.test_v2_settings_ui.CoreActions.test_context_race_rejects_old_activation_or_drain) ... ok
+test_defer_preserves_foreground_and_background (tests.test_v2_settings_ui.CoreActions.test_defer_preserves_foreground_and_background) ... ok
+test_dialog_closed_during_auth_drops_response (tests.test_v2_settings_ui.CoreActions.test_dialog_closed_during_auth_drops_response) ... ok
+test_disconnect_while_decision_open_rejects_old_context (tests.test_v2_settings_ui.CoreActions.test_disconnect_while_decision_open_rejects_old_context) ... ok
+test_explicit_discard_idle_drain_reconnects_once (tests.test_v2_settings_ui.CoreActions.test_explicit_discard_idle_drain_reconnects_once) ... ok
+test_explicit_migration_repair_preserves_unknown_and_retired (tests.test_v2_settings_ui.CoreActions.test_explicit_migration_repair_preserves_unknown_and_retired) ... ok
+test_finish_waits_for_actual_completion_before_reconnect (tests.test_v2_settings_ui.CoreActions.test_finish_waits_for_actual_completion_before_reconnect) ... ok
+test_generation_changed_during_verify_cannot_unlock (tests.test_v2_settings_ui.CoreActions.test_generation_changed_during_verify_cannot_unlock) ... ok
+test_hotkey_collision_preserves_saved_profile (tests.test_v2_settings_ui.CoreActions.test_hotkey_collision_preserves_saved_profile) ... ok
+test_idle_background_drain_requires_separate_loss_choice (tests.test_v2_settings_ui.CoreActions.test_idle_background_drain_requires_separate_loss_choice) ... ok
+test_keycheck_uses_latest_value_not_stale_ui_default (tests.test_v2_settings_ui.CoreActions.test_keycheck_uses_latest_value_not_stale_ui_default) ... ok
+test_manual_wake_and_wake_only_keep_controls (tests.test_v2_settings_ui.CoreActions.test_manual_wake_and_wake_only_keep_controls) ... ok
+test_na_apply_keeps_activation_and_confirms_session (tests.test_v2_settings_ui.CoreActions.test_na_apply_keeps_activation_and_confirms_session) ... ok
+test_new_background_drain_during_pause_needs_new_choice (tests.test_v2_settings_ui.CoreActions.test_new_background_drain_during_pause_needs_new_choice) ... ok
+test_no_change_check_does_not_mutate_defaults (tests.test_v2_settings_ui.CoreActions.test_no_change_check_does_not_mutate_defaults) ... ok
+test_origin_switch_drops_key_and_cannot_unlock_or_patch (tests.test_v2_settings_ui.CoreActions.test_origin_switch_drops_key_and_cannot_unlock_or_patch) ... ok
+test_persistence_failure_leaves_profile_and_commands (tests.test_v2_settings_ui.CoreActions.test_persistence_failure_leaves_profile_and_commands) ... ok
+test_preserved_ns_intent_cannot_be_edited_as_session_setting (tests.test_v2_settings_ui.CoreActions.test_preserved_ns_intent_cannot_be_edited_as_session_setting) ... ok
+test_public_reads_and_saved_key_do_not_unlock (tests.test_v2_settings_ui.CoreActions.test_public_reads_and_saved_key_do_not_unlock) ... ok
+test_reapplying_deferred_profile_still_requires_connection_choice (tests.test_v2_settings_ui.CoreActions.test_reapplying_deferred_profile_still_requires_connection_choice) ... ok
+test_reconnect_without_activation_choice_has_no_side_effect (tests.test_v2_settings_ui.CoreActions.test_reconnect_without_activation_choice_has_no_side_effect) ... ok
+test_rejected_write_relocks_on_401_or_403 (tests.test_v2_settings_ui.CoreActions.test_rejected_write_relocks_on_401_or_403) ... ok
+test_store_failure_is_memory_only_and_explicit_error (tests.test_v2_settings_ui.CoreActions.test_store_failure_is_memory_only_and_explicit_error) ... ok
+test_triggerless_and_empty_wake_selection_are_atomic_rejections (tests.test_v2_settings_ui.CoreActions.test_triggerless_and_empty_wake_selection_are_atomic_rejections) ... ok
+test_verify_save_replace_delete_and_relock (tests.test_v2_settings_ui.CoreActions.test_verify_save_replace_delete_and_relock) ... ok
+test_wait_drain_timeout_keeps_socket_and_restores_pauses (tests.test_v2_settings_ui.CoreActions.test_wait_drain_timeout_keeps_socket_and_restores_pauses) ... ok
+test_bad_origins_never_become_targets (tests.test_v2_settings_ui.Credentials.test_bad_origins_never_become_targets) ... ok
+test_create_replace_delete_and_redacted_repr (tests.test_v2_settings_ui.Credentials.test_create_replace_delete_and_redacted_repr) ... ok
+test_failure_read_write_delete_redacts_backend (tests.test_v2_settings_ui.Credentials.test_failure_read_write_delete_redacts_backend) ... ok
+test_normalized_origin_and_isolation (tests.test_v2_settings_ui.Credentials.test_normalized_origin_and_isolation) ... ok
+test_all_http_errors_have_distinct_user_messages (tests.test_v2_settings_ui.QtSurface.test_all_http_errors_have_distinct_user_messages) ... ok
+test_bad_key_error_is_visible_and_locked (tests.test_v2_settings_ui.QtSurface.test_bad_key_error_is_visible_and_locked) ... ok
+test_bool_and_backend_have_typed_editors (tests.test_v2_settings_ui.QtSurface.test_bool_and_backend_have_typed_editors) ... ok
+test_catalog_failure_keeps_prior_selection (tests.test_v2_settings_ui.QtSurface.test_catalog_failure_keeps_prior_selection) ... ok
+test_decision_cancel_default_and_all_three_choices (tests.test_v2_settings_ui.QtSurface.test_decision_cancel_default_and_all_three_choices) ... ok
+test_dialog_close_and_old_reply_do_not_unlock (tests.test_v2_settings_ui.QtSurface.test_dialog_close_and_old_reply_do_not_unlock) ... ok
+test_empty_catalog_has_explicit_message (tests.test_v2_settings_ui.QtSurface.test_empty_catalog_has_explicit_message) ... ok
+test_local_surface_contains_no_legacy_trigger_or_mode_controls (tests.test_v2_settings_ui.QtSurface.test_local_surface_contains_no_legacy_trigger_or_mode_controls) ... ok
+test_ns_noise_vad_readonly_and_server_initially_locked (tests.test_v2_settings_ui.QtSurface.test_ns_noise_vad_readonly_and_server_initially_locked) ... ok
+test_old_epoch_reply_after_reopen_cannot_unlock_new_origin (tests.test_v2_settings_ui.QtSurface.test_old_epoch_reply_after_reopen_cannot_unlock_new_origin) ... ok
+test_password_check_clears_field_and_unlocks_only_after_patch (tests.test_v2_settings_ui.QtSurface.test_password_check_clears_field_and_unlocks_only_after_patch) ... ok
+test_qsettings_export_and_config_have_no_key (tests.test_v2_settings_ui.QtSurface.test_qsettings_export_and_config_have_no_key) ... ok
+test_rejected_triggerless_ui_does_not_persist (tests.test_v2_settings_ui.QtSurface.test_rejected_triggerless_ui_does_not_persist) ... ok
+test_scope_schema_policy_requested_effective_and_calibration_visible (tests.test_v2_settings_ui.QtSurface.test_scope_schema_policy_requested_effective_and_calibration_visible) ... ok
+test_server_editor_uses_real_service_and_revision (tests.test_v2_settings_ui.QtSurface.test_server_editor_uses_real_service_and_revision) ... ok
+test_session_draft_survives_inspect_requested_effective_refresh (tests.test_v2_settings_ui.QtSurface.test_session_draft_survives_inspect_requested_effective_refresh) ... ok
+test_unavailable_and_unknown_saved_ids_remain_visible (tests.test_v2_settings_ui.QtSurface.test_unavailable_and_unknown_saved_ids_remain_visible) ... ok
+
+----------------------------------------------------------------------
+Ran 270 tests in 44.677s
+
+OK

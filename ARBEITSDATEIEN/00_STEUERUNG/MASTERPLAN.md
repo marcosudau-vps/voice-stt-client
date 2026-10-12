@@ -1,10 +1,14 @@
-# Client V2 – AP-CV2-060 / R04-ABNAHME / ROOT_PASS, 2026-10-12
+# Client V2 – AP-CV2-080 / R01-UMSETZUNG / REVIEW_READY, 2026-10-12
 
-AP000 bis AP050 ACCEPTED; kanonischer Parent ce95c66. AP060: R02-CHANGES_REQUIRED wegen einzigem Finding CV2-060-R02-F01; in R03 ausschließlich den dokumentierten öffentlichen Klassennamen zu STTController korrigiert. [Korrekturreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md), [Evidenz](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md), [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Planungseinstieg](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md).
+Aktiver Arbeitsblock CLIENT_V2. AP000 bis AP070 **ACCEPTED**; AP070-Aggregat `0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3` tatsächlich auf feat/client-v2, Single-Parent/Treegleichheit und unabhängiger PASS/menschlicher Prompt [belegt](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP080 vollständig umgesetzt, unabhängige Abnahme offen. Branch `work/client-v2/ap-cv2-080`. Spätere Pakete PLANNED, Server-Distributed bleibt bis zum gemeinsamen Abschluss offen.
 
-Produkt/Test/Config und die unabhängig geprüften 1426 Windows-/323 gezielten/19 Servernachweise unverändert. Neue lokale Vollsuite beim Docfix NOT_RUN, wie R02 ausdrücklich vorsieht. **Aktueller Stand: R04-ROOT_PASS / WAITING_FOR_APPROVAL.** F01 unabhängig geschlossen. **Nächste Aktion:** ausdrücklichen menschlichen Übernahmeprompt für PR #8 abwarten; kein Merge/AP070 ohne Freigabe. Appkomposition AP100 und reale Hardware/ASR/Fokusprüfung IV2-020 bleiben offen.
+[Runreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Planungseinstieg](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md), [Produktinterfaces](../../docs/protocol-v2-settings-ui.md).
 
-**Maßgeblicher aktueller Abnahmenachweis:** [R04-ROOT_PASS](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md) auf `1d81bb0230cfc5a099b7870488f6b42cd4735d5a`. R01-Testbelege und R03-Dokumentkorrektur bleiben unverändert; keine menschliche Übernahmefreigabe.
+V2-Trigger-/Session-/Serverdialog, getrennte requested/effective/pending-Werte, schemaabhängige Typen/Grenzen/Defaults/Applypolicies, öffentliche Wake-Mehrfachauswahl. Adminprüfung mit tatsächlichem No-change-PATCH; Windows Credential Manager originbezogen mit Create/Replace/Delete und Memory-only bei Ausfall. Reconnect verlangt ausdrückliche Activation-/Drainentscheidung; asynchrone Replies sind dialog-/generationgebunden.
+
+Qualifikation: 1513 vollständige Windows-Tests, 296 gezielte Regressionstests, 53 neue Clienttests. Reale Serverchecks: UI27, native Windows-UI/Vault29, bestehende Settings38, Supplement55 ohne Skips. compileall/diffcheck und Akten-/Blobprüfung PASS. Vollständige Log-/Hash-/Kandidatenbindung im Evidenzindex.
+
+Nächste Aktion: unabhängiges Review des endgültigen PR-Heads. Umsetzungsbranch ab Übergabe pausiert; kein automatischer Merge/AP090. ROOT_PASS und anschließender menschlicher Übernahmeprompt erforderlich. Reguläre Appkomposition samt koordinierter nativer Hotkey-Persistenz bleibt AP100; reale ASR/Mikrofon-/Wakekalibrierung AP-IV2-020. Die neue Oberfläche ist mit echten Produktionsservices lokal qualifiziert.
 
 ## Historischer Stand vor AP-CV2-020
 

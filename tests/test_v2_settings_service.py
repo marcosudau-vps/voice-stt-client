@@ -379,7 +379,12 @@ class Service(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(service.profile.wake_word_ids, ["alexa"])
         self.assertEqual(service.report().pending["wakeWord.selection"], ("alexa",))
         config = await service.prepare(session)
-        self.assertEqual(config.wake_word_ids, ("alexa",))
+        self.assertEqual(config.wake_word_ids, ())
+        self.assertEqual(service.profile.wake_word_ids, ["alexa"])
+        # Disabling Wake retains the local selection but the Hello must omit it.
+        p.build_hello(clientVersion="test", clientCommit="test", clientRunId=p.new_id(),
+            manual=config.manual, wakeWord=config.wake_word, wakeWordIds=list(config.wake_word_ids),
+            suppressManual=True, suppressWakeWord=True)
 
     async def test_atomic_local_validation_and_scope_authority(self):
         session, service, socket, http = await self.start()

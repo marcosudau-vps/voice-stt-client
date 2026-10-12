@@ -2159,3 +2159,8 @@ Menschlicher Originalauftrag sichergestellt: „Nach erfolgreicher CI wird die F
 ## AP-CV2-070-R01 – 2026-10-12 – Settings/Profilmigration / REVIEW_READY
 
 Von tatsächlichem AP060-Aggregat473a75d nach geprüftem PASS/Prompt/Singleparent/Treegleichheit umgesetzt: versioniertes Profil/Backup/Reparatur, dynamischer Katalog, getrennte Revisionsräume und bestätigter NA-Bootstrap vor Audio. 1460 Windowsgesamttests,243 gezielte Tests,38 echte HTTP/WS/Media/PCM-Checks,55 gepinnte Settings/Wake-Supplementtests ohne Skips, compileall/diffcheck PASS. 34 neue Tests;29 Anforderungen einzeln belegt. [R01-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md). Keine eigene Abnahme/Promotion/AP080; Schreiben ab Übergabe pausiert.
+
+
+## AP-CV2-080-R01 – 2026-10-12 – Settings-UI/Admin/Vault/Apply / REVIEW_READY
+
+Vom tatsächlich übernommenen AP070-Aggregat0c8d52d nach PASS/Freigabe/PR-/Parent-/Treeprüfung umgesetzt. Trigger-/Session-/Serveroberfläche, echte No-change-Adminprüfung, originbezogener Windowsvault, explizite Activation-/Drainentscheidungen, epoch-/generationgebundene Requests und bestätigte Profilmigration. 1513 vollständige Windows-Tests, 296 gezielte Regressionen, 53 neue Tests, echte UI27/native29/Settings38 sowie gepinnte Supplement55 ohne Skips; compileall/diffcheck PASS. [R01-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/01_REPORT.md). Zehn UI-Anforderungen einzeln belegt. Eigenprüfung SELF_CHECK_PASS, unabhängige Abnahme offen; kein Merge/AP090. Appkomposition AP100, reale ASR/Hardware AP-IV2-020, Server-Distributed offen. Nach Übergabe Schreiben pausiert.

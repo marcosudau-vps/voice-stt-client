@@ -2,45 +2,38 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "READY_FOR_CANONICALIZATION",
-  "packageStatus": "ROOT_PASS",
-  "activePackage": "AP-CV2-070",
-  "nextPackage": "AP-CV2-080",
-  "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
-  "candidateBranch": "work/client-v2/ap-cv2-070",
-  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/9",
+  "workflowPhase": "REVIEW_READY",
+  "packageStatus": "REVIEW_READY",
+  "activePackage": "AP-CV2-080",
+  "nextPackage": "AP-CV2-090",
+  "canonicalParent": "0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3",
+  "candidateBranch": "work/client-v2/ap-cv2-080",
+  "pullRequest": null,
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R03-UEBERNAHME",
-    "role": "canonicalization",
-    "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R03-UEBERNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
+    "id": "R01-UMSETZUNG",
+    "role": "implementation",
+    "report": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+  "reviewedCommit": null,
+  "reviewReport": null,
   "openFindingIds": [],
-  "humanApproval": {
-    "run": "R03-UEBERNAHME",
-    "source": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
-    "originalHead": "f0c95190b205180cca3f1224687e4872f25116db",
-    "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
-    "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/9",
-    "reviewReport": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md"
-  },
-  "writeOwner": "R03-UEBERNAHME",
+  "humanApproval": null,
+  "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Menschlicher Mergeprompt erteilt. Nur nach erfolgreicher aktueller Head/Base-CI und Prüfung des ausschließlich administrativen Freigabenachtrags PR #9 via squash and merge übernehmen; danach Single-Parent/Treegleichheit prüfen und keinen zweiten Featurecommit erzeugen.",
+  "nextAction": "Unabhängiges AP080-Review des veröffentlichten PR-Heads und kandidatengebundener Windowsbelege; keine Übernahme oder AP090 ohne PASS und menschlichen Prompt.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
   "candidateSelection": {
-    "candidateId": "AP-CV2-070",
-    "source": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "Ausdrücklicher Auftrag nach tatsächlich übernommenem AP060."
+    "candidateId": "AP-CV2-080",
+    "source": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "reason": "Ausdrücklicher AP080-Auftrag nach tatsächlicher AP070-Übernahme."
   },
   "recovery": null,
   "relatedServerFix": null,
-  "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e"
+  "reviewedTree": null
 }

@@ -455,7 +455,10 @@ class SettingsService:
         ids = self.catalog.validate_selection(profile.wake_word_ids,
             backend=self.server_requested["wakeWord.inferenceBackend"], required=profile.wake_word)
         self.profile = profile
-        return replace(session.config, manual=profile.manual, wake_word=profile.wake_word, wake_word_ids=ids)
+        # Keep the user's inactive selection in the profile; the Hello contract
+        # forbids IDs when Wake is disabled. Re-enabling uses the retained wish.
+        return replace(session.config, manual=profile.manual, wake_word=profile.wake_word,
+                       wake_word_ids=ids if profile.wake_word else ())
 
     def report(self):
         binding, snapshot = self.session.binding, self._snapshot
@@ -627,6 +630,38 @@ class SettingsService:
             if self.server_revision < body["settingsRevision"] or any(self.server_requested.get(key) != value for key, value in changes.items()):
                 raise SettingsError("server_patch_not_confirmed")
             return p._freeze(body)
+
+    async def verify_admin(self, admin_key):
+        """Guarded no-change transaction, with one conflict reread/recheck.
+
+        Select the value *after* the read, under the server transaction lock.
+        Never reuse an earlier value in patch_server (its reread could turn a
+        stale keycheck into a write). Public reads alone are not authentication.
+        """
+        async with self._server_lock:
+            generation = self.session.generation
+            for attempt in range(2):
+                await self.read_server()
+                revision = self.server_revision
+                key = next(key for key in SERVER_DEFAULT_KEYS if key in self.server_requested)
+                value = deepcopy(self.server_requested[key])
+                response = await self.http.request("PATCH", "/api/v2/settings/server",
+                    body={"baseSettingsRevision": revision, "changes": {key: value}}, admin_key=admin_key)
+                self._guard(generation)
+                if response.status == 409 and attempt == 0:
+                    continue
+                if response.status != 200:
+                    raise SettingsError({401: "admin_unauthorized", 403: "admin_disabled", 409: "settings_revision_conflict",
+                        422: "server_settings_rejected", 500: "server_persistence_failed"}.get(response.status, "server_patch_failed"), status=response.status)
+                try:
+                    parsed = p.decode_settings_patch_response(response.body, revisionScope=p.RevisionScope.SERVER)
+                except p.ProtocolError:
+                    raise SettingsError("invalid_server_patch_response") from None
+                if (not parsed.accepted or parsed.result != p.AckResult.NO_CHANGE
+                        or parsed.settingsRevision != revision or response.body.get("changedKeys")
+                        or response.body.get("values", {}).get(key) != value):
+                    raise SettingsError("admin_check_not_no_change")
+                return revision
 
     async def close(self):
         tasks = [task for task in (self._refresh_task, self._session_refresh_task) if task]
