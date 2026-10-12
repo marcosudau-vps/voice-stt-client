@@ -1,0 +1,18 @@
+{
+  "baseRefOid": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+  "headRefOid": "c3a9ec30151a8f4743117662ab04d5c2b08dfdbc",
+  "mergeCommit": {
+    "oid": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0"
+  },
+  "mergedAt": "2026-10-11T23:48:50Z",
+  "state": "MERGED",
+  "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/4",
+  "result": "PASS",
+  "aggregate": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+  "parent": "91065f5f7715aa6653ec5335d9e757b6ef97a067",
+  "tree": "94f859d311135ceb539b0f1099d1e246d5b88b6a",
+  "approvedTree": "94f859d311135ceb539b0f1099d1e246d5b88b6a",
+  "reviewReport": "AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+  "humanApprovalSource": "Aggregate commit message verbatim and PR #4 issuecomment-6115269529",
+  "aggregateMessage": "AP-CV2-020: bounded V2 transport, Hello and command correlation (#4)\n\nAP-CV2-020: bounded V2 transport, Hello, command correlation and recovery. Independent R04 ROOT_PASS; both R02 findings CLOSED; no open mandatory findings.\n\nHigh-level closing assessment PASS; no detailed technical rereview. All28 requirement IDs have R03 test/evidence and R04 ROOT_PASS references; matrix/report match. Requirement texts, owners, contracts and source refs unchanged from canonical parent; acceptance criteria not weakened. Windows1294, targeted61, actual pinned server21 cases: all4 complete qualification log hashes verified. After reviewed SHA only administrative docs; product/tests/config unchanged. Structure validator and diff check PASS.\n\nCanonical parent: 91065f5f7715aa6653ec5335d9e757b6ef97a067\nApproved PR head: c3a9ec30151a8f4743117662ab04d5c2b08dfdbc\nReviewed head: 6d74c1ae06643e026834bc9164028bec908e26df\nQualified correction commit: 98ab3c0fc5c935019d81d6d6acb1423185cb4793\nApproved tree: 94f859d311135ceb539b0f1099d1e246d5b88b6a\nServer baseline: ada13b011e1d3829f78e7f389e3b927795a2b3be\nReview report: ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md\nPremerge CI38185041773 SUCCESS; exact head/base testmerge ed8f4cac3288207f343c70b0b9f003de61bf027f,1294 tests and build/install checks PASS.\n\nNonblocking editorial follow-up for next package plan maintenance: CURRENT_STATE/MASTERPLAN and some status summaries retain R03 'independent recheck open' next to R04 ROOT_PASS. R04 report and WORKFLOW_STATUS are authoritative. Refresh current summaries, including inherited 'core/ui on top-level' sentence in package templates; preserve original historical reports. No product or acceptance gap.\n\nActual human authorization (verbatim):\nDer Reviewer hat ROOT_PASS PR #4, Arbeitspaket AP-CV2-020 erteilt. \nBitte prüfe nochmal grob den Umfang, Bewertungsmaßstäbe, Tracabilities, etc...  \nKeine fachliche Detailprüfung mehr... \nWenn du nichts einzuwenden hast, erteile ich dir die Freigabe, um den Pull Request so zu mergen.\n\nCondition satisfied: no objection to adoption. Exactly one squash onto feat/client-v2; no extra packagebranch changes, cleanup, main/server promotion or successor implementation. Canonical acceptance follows verified Git/mergedPR; premerge status texts are carried forward on next package branch.\n"
+}

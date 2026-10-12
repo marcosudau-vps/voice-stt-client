@@ -1,0 +1,41 @@
+# AP-CV2-030 – tatsächliche Requirementmethoden
+
+Kandidatenbezug und vollständige Resultate in [Windowsqualifikation](windows-validation.json). Requirementtexte, Owner und Serverquellen bleiben erhalten. Umsetzungsnachweis; unabhängige Abnahme steht aus.
+
+| ID | Tatsächlich vorhandene Methode | Beleg |
+| --- | --- | --- |
+| FG-01 | `tests.test_v2_mirror.Mirror.test_server_foreground_phases_and_countdown`; `tests.test_v2_mirror.Mirror.test_idle_with_multiple_drains_allows_manual` | [Qualifikation](windows-validation.json) |
+| FG-02 | `tests.test_v2_mirror.Mirror.test_manual_and_wake_share_one_foreground` | [Qualifikation](windows-validation.json) |
+| FG-03 | `tests.test_v2_mirror.Mirror.test_manual_and_wake_share_one_foreground`; `tests.test_v2_mirror.Mirror.test_b_start_before_a_close_and_old_final_during_b` | [Qualifikation](windows-validation.json) |
+| FG-04 | `tests.test_v2_mirror.Mirror.test_multiple_segments_and_terminal_holes_do_not_block_final` | [Qualifikation](windows-validation.json) |
+| FG-05 | `tests.test_v2_mirror.Mirror.test_manual_and_wake_share_one_foreground`; `tests.test_v2_mirror.Mirror.test_terminal_before_close_does_not_release_foreground` | [Qualifikation](windows-validation.json) |
+| FG-06 | `tests.test_v2_mirror.Mirror.test_idle_with_multiple_drains_allows_manual` | [Qualifikation](windows-validation.json) |
+| FG-07 | `tests.test_v2_mirror.Mirror.test_terminal_before_close_does_not_release_foreground`; `tests.test_v2_mirror.Mirror.test_generated_races_have_id_and_terminal_invariants_each_step` | [Qualifikation](windows-validation.json) |
+| FG-08 | `tests.test_v2_mirror.Mirror.test_b_start_before_a_close_and_old_final_during_b`; `tests.test_v2_mirror.Mirror.test_generated_races_have_id_and_terminal_invariants_each_step` | [Qualifikation](windows-validation.json) |
+| FG-09 | `tests.test_v2_mirror.Mirror.test_discard_and_failure_before_ended_accepted_interim`; `tests.test_v2_mirror.Mirror.test_all_terminal_cancel_permutations_first_terminal_wins` | [Qualifikation](windows-validation.json) |
+| FG-10 | `tests.test_v2_mirror.Mirror.test_segment_identity_and_sequence_collision_degrade`; `tests.test_v2_mirror.Mirror.test_snapshot_cannot_change_activation_identity_or_regress_settings` | [Qualifikation](windows-validation.json) |
+| FG-11 | `tests.test_v2_mirror.Mirror.test_multiple_segments_and_terminal_holes_do_not_block_final`; `tests.test_v2_mirror.Mirror.test_gap_requests_once_and_buffers_until_snapshot` | [Qualifikation](windows-validation.json) |
+| FG-12 | `tests.test_v2_mirror.Mirror.test_multiple_segments_and_terminal_holes_do_not_block_final` | [Qualifikation](windows-validation.json) |
+| FG-13 | `tests.test_v2_mirror.Mirror.test_interims_equal_versions_segment_owned_display_fallback` | [Qualifikation](windows-validation.json) |
+| FG-14 | `tests.test_v2_mirror.Mirror.test_interims_equal_versions_segment_owned_display_fallback`; `tests.test_v2_mirror.Mirror.test_discard_and_failure_before_ended_accepted_interim` | [Qualifikation](windows-validation.json) |
+| FG-15 | `tests.test_v2_mirror.Mirror.test_activation_settings_frozen_across_snapshot_and_settings_events` | [Qualifikation](windows-validation.json) |
+| FG-16 | `tests.test_v2_mirror.Mirror.test_close_reason_command_identity_and_unknown_reasons` | [Qualifikation](windows-validation.json) |
+| FG-17 | `tests.test_v2_mirror.Connection.test_closing_ack_clarifies_never_overwrites_foreground`; `tests.test_v2_mirror.Mirror.test_snapshot_all_domains_and_safe_immutable_projection` | [Qualifikation](windows-validation.json) |
+| FG-18 | `tests.test_v2_mirror.Connection.test_1011_recovery_new_session_and_stale_binding_guard`; `tests.test_v2_mirror.Mirror.test_disconnect_retains_text_and_rebind_isolated` | [Qualifikation](windows-validation.json) |
+| SYNC-01 | `tests.test_v2_mirror.Mirror.test_interims_equal_versions_segment_owned_display_fallback`; `tests.test_v2_mirror.Mirror.test_gap_requests_once_and_buffers_until_snapshot` | [Qualifikation](windows-validation.json) |
+| SYNC-02 | `tests.test_v2_mirror.Mirror.test_state_version_jump_without_sequence_gap` | [Qualifikation](windows-validation.json) |
+| SYNC-03 | `tests.test_v2_mirror.Mirror.test_generation_session_duplicate_and_unknown_sequence`; `tests.test_v2_mirror.Connection.test_1011_recovery_new_session_and_stale_binding_guard` | [Qualifikation](windows-validation.json) |
+| SYNC-04 | `tests.test_v2_mirror.Mirror.test_generation_session_duplicate_and_unknown_sequence`; `tests.test_v2_mirror.Mirror.test_known_additive_fields_cannot_cross_domain_boundaries` | [Qualifikation](windows-validation.json) |
+| SYNC-05 | `tests.test_v2_mirror.Mirror.test_gap_requests_once_and_buffers_until_snapshot`; `tests.test_v2_mirror.Connection.test_gap_gates_actual_transport_and_resync_before_ack`; `tests.test_v2_mirror.Connection.test_queued_activation_rechecks_resync_guard_before_send` | [Qualifikation](windows-validation.json) |
+| SYNC-06 | `tests.test_v2_mirror.Mirror.test_snapshot_all_domains_and_safe_immutable_projection` | [Qualifikation](windows-validation.json) |
+| SYNC-07 | `tests.test_v2_mirror.Mirror.test_snapshot_all_domains_and_safe_immutable_projection`; `tests.test_v2_mirror.Connection.test_eventless_bootstrap_ack_reads_actual_snapshot` | [Qualifikation](windows-validation.json) |
+| SYNC-08 | `tests.test_v2_mirror.Mirror.test_countdown_uses_receipt_not_wallclock_and_nulls`; `tests.test_v2_mirror.Mirror.test_server_foreground_phases_and_countdown` | [Qualifikation](windows-validation.json) |
+| SYNC-09 | `tests.test_v2_mirror.Mirror.test_snapshot_all_domains_and_safe_immutable_projection`; `tests.test_v2_mirror.Mirror.test_idle_with_multiple_drains_allows_manual` | [Qualifikation](windows-validation.json) |
+| SYNC-10 | `tests.test_v2_mirror.Mirror.test_lost_final_and_disappeared_pending_are_incomplete_no_text` | [Qualifikation](windows-validation.json) |
+| SYNC-11 | `tests.test_v2_mirror.Mirror.test_snapshot_preserves_received_final_and_terminal_dedup`; `tests.test_v2_mirror.Mirror.test_buffered_final_at_or_behind_cursor_salvaged_once` | [Qualifikation](windows-validation.json) |
+| SYNC-12 | `tests.test_v2_mirror.Mirror.test_buffered_final_at_or_behind_cursor_salvaged_once`; `tests.test_v2_mirror.Mirror.test_buffered_lifecycle_not_applied_backwards` | [Qualifikation](windows-validation.json) |
+| SYNC-13 | `tests.test_v2_mirror.Mirror.test_lost_final_and_disappeared_pending_are_incomplete_no_text`; `tests.test_v2_mirror.Mirror.test_unseen_buffered_segment_missing_lifecycle_is_unknown` | [Qualifikation](windows-validation.json) |
+| SYNC-14 | `tests.test_v2_mirror.Mirror.test_buffered_cancel_failed_tombstones_suppress_unpublished_only`; `tests.test_v2_mirror.Mirror.test_buffered_final_before_cancel_remains_published` | [Qualifikation](windows-validation.json) |
+| SYNC-15 | `tests.test_v2_mirror.Mirror.test_snapshot_equal_version_higher_seq_and_stale_bounds`; `tests.test_v2_mirror.Mirror.test_snapshot_cannot_change_activation_identity_or_regress_settings` | [Qualifikation](windows-validation.json) |
+| SYNC-16 | `tests.test_v2_mirror.Mirror.test_resync_event_and_byte_overflow_is_incomplete_reconnect`; `tests.test_v2_mirror.Mirror.test_default_512_event_buffer_bound_and_no_duplicate_budget_use`; `tests.test_v2_mirror.Mirror.test_timeout_two_attempts_stale_snapshot_does_not_extend_budget`; `tests.test_v2_mirror.Connection.test_missing_snapshot_even_with_ack_reconnects_bounded` | [Qualifikation](windows-validation.json) |
+| SYNC-17 | `tests.test_v2_mirror.Mirror.test_countdown_uses_receipt_not_wallclock_and_nulls`; `tests.test_v2_mirror.Mirror.test_start_missing_deadline_clarification_does_not_timeout_activation` | [Qualifikation](windows-validation.json) |

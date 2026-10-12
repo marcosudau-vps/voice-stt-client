@@ -1,3 +1,7 @@
+## 2026-10-12 – AP-CV2-030: unabhängige Abnahme R02
+
+PR #5, geprüfter Kandidat `d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61`, Tree `7123984bb4b382919e557f4ecef1400de4eced29`, Parent `8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0`: **ROOT_PASS** für 35/35 FG-/SYNC-IDs nach unabhängiger Code- und Fremdevidenzprüfung; 1339 Windows-, 106 Targeted-Tests und 35 gepinnte Serverchecks grün, GitHub-CI grün. Eigene Windows-Suite regelkonform NOT_RUN. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md). Status WAITING_FOR_APPROVAL; menschliche Übernahme noch offen, AP040 nicht begonnen.
+
 # Verlaufs-Log
 
 ## Hinweise / Beginn
@@ -2113,3 +2117,7 @@ F01/F02 dynamisch bestätigt und gezielt korrigiert (HTTP-Upgrade-Recovery, 4408
 ## AP-CV2-020-R04 – 2026-10-12 – unabhängige Abnahme ROOT_PASS
 
 Review auf `6d74c1ae06643e026834bc9164028bec908e26df` (Tree `f8a57f79c6bf61d7b079a41a53662adeac34c546`), Parent `91065f5f7715aa6653ec5335d9e757b6ef97a067`, Server ada13b0. R02-Pflichtfindings CV2-020-R02-F01 und -F02 im korrigierten Code plus 4 neuen Regressionstests sowie Vorher-Repros unabhängig geschlossen. Windows1294, targeted61, echter gepinnter Server21/46 Quellblobs, compileall und SHA256 aller Pflichtlogs als vollständige Fremdevidenz unabhängig validiert; GitHub-CI 38183803142 auf exakt submitted Head erfolgreich. Alle28 Paket-Requirements und kumulativer Code-/Testdiff geprüft, kein neuer Pflichtbefund. [R04-Bericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-020/RUNS/R04-ABNAHME/01_REPORT.md). Status ROOT_PASS / WAITING_FOR_APPROVAL; keine menschliche Freigabe und kein Merge/Folgepaket.
+
+## AP-CV2-030-R01 – 2026-10-12 – Mirror und Resync / REVIEW_READY
+
+Von AP020-Aggregat8fa0f82 nach belegtem unabhängigen PASS, menschlicher Freigabe und Baumgleichheit: reiner Mirror, sichere Segment-/Terminal-/Settingsprojektionen und tatsächliche V2-Transport-/Snapshotanbindung. Alle35 Requirements einzeln verknüpft.1339 Windowsgesamttests,106 gezielte Tests,35 echte Serverchecks/46 Quellblobs und compileall PASS; exakte Basis/Produktdiff/Gitblobs und vollständige Logs gesichert. [R01-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md). Keine eigene Abnahme, Promotion oder Folgepaketimplementierung; Schreiben ab Übergabe pausiert.

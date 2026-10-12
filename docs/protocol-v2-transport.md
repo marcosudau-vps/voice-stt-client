@@ -1,5 +1,13 @@
 # AP-CV2-020 – V2-Transportübergabe
 
+AP-CV2-030 ergänzt die [Mirroranbindung und Resync-API](protocol-v2-mirror.md).
+`V2MirrorConnection` installiert die Projektion vor dem Transportstart;
+`domain_ready` sperrt Activationcommands während Resync auch unmittelbar vor
+dem Senden. `on_protocol_fault(binding)` erlaubt dem angeschlossenen Mirror
+Snapshotklärung malformed Events, und `reconnect(binding, reason)` schließt
+kontrolliert ausschließlich die aktuelle Session. Bestehende Aufrufer ohne
+Adapter behalten ihre bisherige Protokollfehlerbehandlung.
+
 Stand 2026-10-12. `voice_stt_client.core.v2_transport.V2STTSession` ist der
 headless V2-Transport; `stt_session.STTSession` bleibt bis CV2-100 der bisherige
 App-Pfad. Die separate Klasse verhindert einen halben Protokollwechsel im
