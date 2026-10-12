@@ -39,9 +39,9 @@
         "min": 1,
         "max": 1,
         "phases": [
-          "Feature-/Releaseinventar und Übernahmematrix",
+          "Feature-/Releaseinventar und Ãœbernahmematrix",
           "Namespace, Releasepolish und Triggererhalt integrieren",
-          "Vollständige Baseline-/Packagingqualifikation"
+          "VollstÃ¤ndige Baseline-/Packagingqualifikation"
         ],
         "independentAcceptanceRuns": 1,
         "correctionsExcluded": true,
@@ -160,7 +160,7 @@
         "min": 1,
         "max": 2,
         "phases": [
-          "Verbindung, Hello, Bootstrapzustände und Close-/Backoffregeln",
+          "Verbindung, Hello, BootstrapzustÃ¤nde und Close-/Backoffregeln",
           "Commandtracker, Ack-/Retry-/Generationguards und Transporttests"
         ],
         "independentAcceptanceRuns": 1,
@@ -277,7 +277,7 @@
     },
     {
       "id": "AP-CV2-040",
-      "title": "Continuous-Audio, Geräte-Recovery und Logbootstrap",
+      "title": "Continuous-Audio, GerÃ¤te-Recovery und Logbootstrap",
       "dependencies": [
         "AP-CV2-020",
         "AP-CV2-030"
@@ -325,8 +325,8 @@
         "max": 1,
         "phases": [
           "Continuous-Audio und Device-/Mute-/LEDtrennung",
-          "V2-Logbootstrap und unabhängige Cursor-/Recoverypfade",
-          "Integrations-/Fehlerfälle Audio plus Hintergrundfinal"
+          "V2-Logbootstrap und unabhÃ¤ngige Cursor-/Recoverypfade",
+          "Integrations-/FehlerfÃ¤lle Audio plus Hintergrundfinal"
         ],
         "independentAcceptanceRuns": 1,
         "correctionsExcluded": true,
@@ -400,7 +400,10 @@
       "candidateBranch": "work/client-v2/ap-cv2-050",
       "canonicalParent": "4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f",
       "executionReport": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/7",
+      "qualifiedCommit": "ee1f1a7bb0a55112b61a3cab9c34be561aae274e",
+      "qualifiedTree": "f1613cb4ecf3292e6442f38c4704162b940c5fea"
     },
     {
       "id": "AP-CV2-060",
@@ -493,7 +496,7 @@
         "phases": [
           "Persistierte Configmigration und HTTP-/Katalogservice",
           "Settingsrevisionen, Patch/Applypolicies und Bootstrap",
-          "Wake-/NS-/Konflikt-/Reconnectfälle"
+          "Wake-/NS-/Konflikt-/ReconnectfÃ¤lle"
         ],
         "independentAcceptanceRuns": 1,
         "correctionsExcluded": true,
@@ -532,8 +535,8 @@
         "min": 1,
         "max": 1,
         "phases": [
-          "Settings-/Katalog-/Requested-effective-Oberfläche",
-          "Credential Manager, Adminprüfung und Apply-/Drainentscheidungen"
+          "Settings-/Katalog-/Requested-effective-OberflÃ¤che",
+          "Credential Manager, AdminprÃ¼fung und Apply-/Drainentscheidungen"
         ],
         "independentAcceptanceRuns": 1,
         "correctionsExcluded": true,
@@ -571,8 +574,8 @@
         "min": 1,
         "max": 1,
         "phases": [
-          "Bestehende Feedbackeingänge und UI/Overlayprojektion an V2-Herkunft und Phasen anschließen",
-          "Sound-/LED-/OBS-Dedup und Ausfallfälle"
+          "Bestehende FeedbackeingÃ¤nge und UI/Overlayprojektion an V2-Herkunft und Phasen anschlieÃŸen",
+          "Sound-/LED-/OBS-Dedup und AusfallfÃ¤lle"
         ],
         "independentAcceptanceRuns": 1,
         "correctionsExcluded": true,
@@ -583,7 +586,7 @@
     },
     {
       "id": "AP-CV2-100",
-      "title": "Vollständige Runtimeintegration und Lifecycleverdrahtung",
+      "title": "VollstÃ¤ndige Runtimeintegration und Lifecycleverdrahtung",
       "dependencies": [
         "AP-CV2-040",
         "AP-CV2-050",
@@ -610,7 +613,7 @@
         "min": 1,
         "max": 1,
         "phases": [
-          "Tatsächliche App/Core/Qtverdrahtung und Readymarkierung",
+          "TatsÃ¤chliche App/Core/Qtverdrahtung und Readymarkierung",
           "Integrierte Fehler-/Shutdown-/Rollbacktests mit realen Klassen"
         ],
         "independentAcceptanceRuns": 1,
@@ -622,7 +625,7 @@
     },
     {
       "id": "AP-CV2-110",
-      "title": "Legacyabbau, Paketressourcen, Kompatibilität und Build",
+      "title": "Legacyabbau, Paketressourcen, KompatibilitÃ¤t und Build",
       "dependencies": [
         "AP-CV2-100"
       ],
@@ -645,7 +648,7 @@
         "min": 1,
         "max": 1,
         "phases": [
-          "Gezielter Legacyabbau, Version-/Ressourcen-/Kompatibilitätsabgleich",
+          "Gezielter Legacyabbau, Version-/Ressourcen-/KompatibilitÃ¤tsabgleich",
           "Executable/wheel/sdist und Installations-/GUIsmokes"
         ],
         "independentAcceptanceRuns": 1,
@@ -712,9 +715,9 @@
         "min": 1,
         "max": 1,
         "phases": [
-          "Reale Windows-/ASR-/Bedien-/Clipboard-/Credential-Prüfung",
+          "Reale Windows-/ASR-/Bedien-/Clipboard-/Credential-PrÃ¼fung",
           "ReSpeaker/USB/Wakepositive-/Negativ-/Nutzsprachgrenze",
-          "Dauerprüfung und Abschluss der realen Belegmatrix"
+          "DauerprÃ¼fung und Abschluss der realen Belegmatrix"
         ],
         "independentAcceptanceRuns": 1,
         "correctionsExcluded": true,
@@ -725,7 +728,7 @@
     },
     {
       "id": "AP-SV2-FIX",
-      "title": "Bedingtes Serverkorrekturpaket während der Cliententwicklung",
+      "title": "Bedingtes Serverkorrekturpaket wÃ¤hrend der Cliententwicklung",
       "dependencies": [],
       "path": "ARBEITSPAKETE/AP-SV2-FIX.md",
       "status": "CONDITIONAL",
@@ -736,7 +739,7 @@
         "min": null,
         "max": null,
         "phases": [
-          "Nur bei einem konkreten reproduzierbaren Serverbefund separat schätzen"
+          "Nur bei einem konkreten reproduzierbaren Serverbefund separat schÃ¤tzen"
         ],
         "independentAcceptanceRuns": null,
         "correctionsExcluded": true,

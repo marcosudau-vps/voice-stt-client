@@ -8,7 +8,7 @@
   "nextPackage": "AP-CV2-060",
   "canonicalParent": "4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f",
   "candidateBranch": "work/client-v2/ap-cv2-050",
-  "pullRequest": null,
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/7",
   "selectedCandidate": true,
   "lastRun": {
     "id": "R01-UMSETZUNG",
@@ -22,19 +22,25 @@
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Frische unabhängige Abnahme des vollständigen AP-CV2-050-Kandidaten; Umsetzer pausiert Änderungen/Pushes. Keine kanonische Übernahme oder Folgepaketstart.",
+  "nextAction": "Frische unabhÃ¤ngige Abnahme des vollstÃ¤ndigen AP-CV2-050-Kandidaten; Umsetzer pausiert Ã„nderungen/Pushes. Keine kanonische Ãœbernahme oder Folgepaketstart.",
   "workAuthorization": {
-    "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
+    "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
   "candidateSelection": {
     "candidateId": "AP-CV2-050",
     "source": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "Ausdrücklicher AP050-Auftrag nach tatsächlichem AP040-Merge."
+    "reason": "AusdrÃ¼cklicher AP050-Auftrag nach tatsÃ¤chlichem AP040-Merge."
   },
   "recovery": null,
   "relatedServerFix": null,
   "predecessorCanonicalization": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json",
-  "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+  "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+  "qualificationBasis": {
+    "commit": "ee1f1a7bb0a55112b61a3cab9c34be561aae274e",
+    "tree": "f1613cb4ecf3292e6442f38c4704162b940c5fea",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+    "scope": "Exact tested product diff/192 Gitblobs; subsequent publication refs administrative only."
+  }
 }
