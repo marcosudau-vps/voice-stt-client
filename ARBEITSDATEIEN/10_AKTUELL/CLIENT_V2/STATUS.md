@@ -1,10 +1,8 @@
-# Client V2 – AP-CV2-060 / R02-ABNAHME / CHANGES_REQUIRED, 2026-10-12
+# Client V2 – AP-CV2-060 / R03-KORREKTUR / REVIEW_READY, 2026-10-12
 
-AP-CV2-000 bis AP-CV2-050 sind **ACCEPTED**, zuletzt AP050 auf `ce95c66a7a3b4440faaa33289351871a040ebe19` nach unabhängigem PASS, menschlicher Freigabe und tatsächlicher PR7-Übernahme. [Abschlussbeleg](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP-CV2-060 ist vollständig umgesetzt und selbstqualifiziert: UUID-Herkunft, verlustfreie V1-Historymigration, Prozessdedup und reservierte Ausgabe mit Crashstatus unknown. [Runreport](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [Workflowstatus](WORKFLOW_STATUS.json), [aktiver Arbeitsblock](README.md), [Planungseinstieg](PLANUNG/README.md).
+AP000 bis AP050 ACCEPTED; kanonischer Parent ce95c66. AP060: R02-CHANGES_REQUIRED wegen einzigem Finding CV2-060-R02-F01; in R03 ausschließlich den dokumentierten öffentlichen Klassennamen zu STTController korrigiert. [Korrekturreport](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md), [Evidenz](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md), [Workflowstatus](WORKFLOW_STATUS.json), [Planungseinstieg](PLANUNG/README.md).
 
-1426 vollständige Windows-Tests, 323 gezielte Tests und 19 echte gepinnte Serverchecks PASS; compileall/diffcheck PASS. RESULT-01 bis RESULT-13 als Selbstchecks belegt, R02-Review CHANGES_REQUIRED. **Nächste Aktion:** Korrektur `CV2-060-R02-F01` und unabhängige Nachprüfung. Schreiben ab Übergabe pausiert; kein automatischer Merge oder Folgepaketstart. Settings AP070/080, Feedback AP090, Appkomposition AP100 und reale ASR-/Hardware-/Fokusabnahme AP-IV2-020 bleiben eigene Gates. Die gestartete App verwendet weiter die bestehende Komposition. [Result-API und Migration](../../../docs/protocol-v2-results.md).
-
-**Aktuelle unabhängige Abnahme: CHANGES_REQUIRED.** Einziges Pflichtfinding `CV2-060-R02-F01`, falsche öffentliche Controllerklasse in `docs/protocol-v2-results.md`. [R02-Report](30_AUSFUEHRUNG/AP-CV2-060/RUNS/R02-ABNAHME/01_REPORT.md). Korrektur und unabhängige Nachprüfung erforderlich; kein Merge/AP070.
+Produkt/Test/Config und die unabhängig geprüften 1426 Windows-/323 gezielten/19 Servernachweise unverändert. Neue lokale Vollsuite beim Docfix NOT_RUN, wie R02 ausdrücklich vorsieht. **Nächste Aktion:** erneute unabhängige Nachprüfung von PR8. Kein eigener ROOT_PASS/Merge/AP070. Schreiben ab Übergabe pausiert. Appkomposition AP100 und reale Hardware/ASR/Fokusprüfung IV2-020 bleiben offen.
 
 ## Historischer Stand vor AP-CV2-020
 

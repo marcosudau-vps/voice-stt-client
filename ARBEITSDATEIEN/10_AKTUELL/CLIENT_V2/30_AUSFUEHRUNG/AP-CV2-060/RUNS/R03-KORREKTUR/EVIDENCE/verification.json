@@ -1,0 +1,38 @@
+{
+  "result": "PASS",
+  "finding": "CV2-060-R02-F01",
+  "findingAssessment": "justified; corrected; independent recheck pending",
+  "startCommit": "ad1086958c0bddfc80e7d5fc31aedf5f0d512240",
+  "previouslyReviewedCommit": "33fef1d892917030100c0583566367f49fff14eb",
+  "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "exactSingleClassNameReplacement": true,
+  "actualPublicClassAndMethod": "STTController.attach_v2_results",
+  "unchangedQualifiedProductBlobCount": 195,
+  "unchangedQualificationLogHashes": {
+    "targeted-unittest.txt": "dfb2ca8dd535438eaa58847d3e95a1ec4d394549fff1df0ec4202c640e5fb944",
+    "server-results-checkpoint.json": "d8081616cd9682a30f2f39636310103ea4726e1b3c284ab8b298236aa5f3bff7",
+    "server-results-checkpoint.json.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compileall.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "windows-full-unittest.txt": "41926aa1dafe1555b70608a38e3f045b4ab7dede347f930286f6aa5b9a71e331"
+  },
+  "preservedR01R02Records": true,
+  "unchangedRequirementCriteriaAndTestMethods": true,
+  "records": {
+    "result": "PASS",
+    "package": "AP-CV2-060",
+    "packageStatus": "REVIEW_READY",
+    "referencedFiles": 24,
+    "markdownFiles": 24,
+    "relativeLinks": 1009,
+    "errors": []
+  },
+  "diffCheck": "PASS",
+  "localFullSuite": "NOT_RUN: documentation only, explicitly allowed by R02",
+  "runtime": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "executable": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "utc": "2026-10-12T16:03:02.640971+00:00"
+}

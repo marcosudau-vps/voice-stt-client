@@ -2139,3 +2139,8 @@ Von AP050-Aggregat ce95c66 nach belegtem PASS/Freigabe/Singleparent/Baumgleichhe
 ## AP-CV2-060-R02 – 2026-10-12 – unabhängige Abnahme CHANGES_REQUIRED
 
 PR #8 Kandidat `33fef1d892917030100c0583566367f49fff14eb`, Tree `b725d2e467a479de8ce778646eebbe71a4ec67b5`, Parent ce95c66 und Server ada13b0 geprüft. 1426 Windows-Tests, 323 gezielte Tests, 19 echte Serverchecks und finale CI38268881303 als gültige extern durchgeführte Belege bestätigt. Ein Pflichtfinding `CV2-060-R02-F01`: API-Dokumentation nennt `ClientController.attach_v2_results`, tatsächlich implementiert ist `STTController.attach_v2_results`. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R02-ABNAHME/01_REPORT.md). Keine Produktänderung oder Merge; Docfix und unabhängiger Recheck erforderlich.
+
+
+## AP-CV2-060-R03 – 2026-10-12 – API-Dokumentnamen / REVIEW_READY
+
+Reviewunterlagen ad10869 übernommen. Berechtigtes F01 reproduziert und ausschließlich ClientController → STTController in öffentlicher API korrigiert. Alle195 Produkt-/Test-/Configblobs und Pflichtloghashes unverändert, Docdiff/Kriterien-/Aktenprüfung PASS. Neue lokale Vollsuite NOT_RUN gemäß ausdrücklicher R02-Regel. [R03-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md). Erneute unabhängige Nachprüfung, kein Eigen-PASS/Merge/AP070; Schreiben ab Übergabe pausiert.

@@ -7889,7 +7889,14 @@
         "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md",
         "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
-        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+        "documentationCorrection": {
+          "finding": "CV2-060-R02-F01",
+          "run": "R03-KORREKTUR",
+          "report": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md",
+          "evidence": "30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/EVIDENCE/verification.json",
+          "result": "SELF_CHECK_PASS; independent recheck pending"
+        }
       }
     },
     {

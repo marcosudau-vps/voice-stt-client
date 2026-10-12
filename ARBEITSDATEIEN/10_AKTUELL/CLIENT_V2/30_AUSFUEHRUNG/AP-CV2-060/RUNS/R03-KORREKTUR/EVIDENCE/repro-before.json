@@ -1,0 +1,11 @@
+{
+  "finding": "CV2-060-R02-F01",
+  "result": "REPRODUCED",
+  "startCommit": "ad1086958c0bddfc80e7d5fc31aedf5f0d512240",
+  "reviewedCommit": "33fef1d892917030100c0583566367f49fff14eb",
+  "actualDocumentedClass": "ClientController",
+  "actualPublicClass": "STTController",
+  "actualMethod": "attach_v2_results",
+  "source": "Python AST, controller.py; literal documentation lookup",
+  "utc": "2026-10-12T15:58:27.337526+00:00"
+}

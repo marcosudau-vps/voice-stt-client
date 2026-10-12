@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-050 sind **ACCEPTED**, zuletzt AP050 `ce95c66a7a3b4440faaa33289351871a040ebe19`; [Abschlussbeleg](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP-CV2-060: **CHANGES_REQUIRED**, unabhängiges R02-Review mit ausschließlich `CV2-060-R02-F01` (falsche Controllerklasse in der API-Dokumentation); [R02-Report](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R02-ABNAHME/01_REPORT.md). Nächste Aktion Docfix und Nachprüfung. Keine eigene Promotion oder AP070-Umsetzung. Spätere Pakete PLANNED.
+AP-CV2-000 bis AP-CV2-050 sind **ACCEPTED**, zuletzt AP050 ce95c66. AP-CV2-060: **REVIEW_READY** nach R03-Dokumentkorrektur des berechtigten R02-F01. [R03-Report](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md), [R02-Verdict](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R02-ABNAHME/01_REPORT.md). Nächste Aktion erneute unabhängige Nachprüfung; kein Merge/AP070. Spätere Pakete PLANNED.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |
@@ -34,3 +34,6 @@ Aktuelle AP060-Kandidatenidentität und PR werden bei vollständiger Abgabe in P
 
 
 Maßgeblich nach CI-Selbstkorrektur: aktuelles Windowsmanifest mit getesteter Basis 66f44e0 plus staged Pfadalias-Testkorrektur, vollständig neu qualifiziertem Testblob und allen 195 qualifizierten Produktblobs. Finale Kandidaten-SHA/Tree stehen in PR und Übergabe.
+
+
+Aktuell R03: F01-Dokumentnamen korrigiert; [Korrekturreport](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md). Unabhängige Nachprüfung offen, Produktqualifikation unverändert gültig.

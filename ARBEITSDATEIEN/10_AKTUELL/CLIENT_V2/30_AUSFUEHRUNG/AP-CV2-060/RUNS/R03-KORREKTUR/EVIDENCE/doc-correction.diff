@@ -1,0 +1,7 @@
+diff --git a/docs/protocol-v2-results.md b/docs/protocol-v2-results.md
+index 089d4b6..e873df2 100644
+--- a/docs/protocol-v2-results.md
++++ b/docs/protocol-v2-results.md
+@@ -7 +7 @@ Stand 2026-10-12. Der Resultservice konsumiert ausschließlich vom ActivationMir
+-`ClientController.attach_v2_results(connection: V2MirrorConnection)` genau einmal vor Sessionadmission aufrufen. Er bindet einen `V2ResultService` an vorhandene History und serielle `TextInjectionQueue`. Alternativ `V2ResultService(history, queue, connection)` für headless Integration. `consume(Reduction)` wird synchron im Core in Serverpublikationsfolge aufgerufen. Mehrere salvagierte Finals einer Reduction werden nach event_seq geordnet. Parallele fremde Aufrufer müssen die Reductionfolge bewahren; der interne Lock verhindert doppelte Sideeffects, rekonstruiert aber keine beliebig umsortierten Aufrufe.
++`STTController.attach_v2_results(connection: V2MirrorConnection)` genau einmal vor Sessionadmission aufrufen. Er bindet einen `V2ResultService` an vorhandene History und serielle `TextInjectionQueue`. Alternativ `V2ResultService(history, queue, connection)` für headless Integration. `consume(Reduction)` wird synchron im Core in Serverpublikationsfolge aufgerufen. Mehrere salvagierte Finals einer Reduction werden nach event_seq geordnet. Parallele fremde Aufrufer müssen die Reductionfolge bewahren; der interne Lock verhindert doppelte Sideeffects, rekonstruiert aber keine beliebig umsortierten Aufrufe.

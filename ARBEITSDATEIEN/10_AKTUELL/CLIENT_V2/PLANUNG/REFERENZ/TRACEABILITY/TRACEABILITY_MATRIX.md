@@ -347,3 +347,6 @@ WIRE-01 bis WIRE-17 bleiben CLIENT OPEN bis unabhängiger Abnahme; R01 liefert d
 ### AP-CV2-010 – unabhängige Abnahme R02, 2026-10-11
 
 WIRE-01 bis WIRE-17: **ROOT_PASS**, [individueller R02-Requirement- und Testabgleich](../../../30_AUSFUEHRUNG/AP-CV2-010/RUNS/R02-ABNAHME/01_REPORT.md) auf `7124e5629e24817dd711b2e2b697b9c07aa11dd7` / Tree `37b61ff4cab90c18abf8e5bfae920f2e265ad3ab`. R01-Windows1263, Codec30, Servercheckpoint188 und CI unabhängig belegt; kein offenes Pflichtfinding. ROOT_PASS ist **nicht** ACCEPTED; menschliche Einzelübernahme ausstehend.
+
+
+AP060 R03: ausschließlich öffentliche API-Benennung zu STTController korrigiert (RESULT-01/Übergabedokumentation), [Korrekturbeleg](../../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/EVIDENCE/verification.json). Alle fachlichen Requirementtexte/Owner/Testzuordnungen unverändert; CLIENT OPEN, kein eigener ROOT_PASS.
