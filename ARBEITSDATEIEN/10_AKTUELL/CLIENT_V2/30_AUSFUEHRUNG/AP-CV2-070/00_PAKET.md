@@ -13,3 +13,7 @@ Der exakte Kandidat ergibt sich aus veröffentlichter Branchspitze/PR-Beschreibu
 [PR #9](https://github.com/marcosudau-vps/voice-stt-client/pull/9) gegen feat/client-v2. Qualifizierter Produkt-/Unterlagencommit `8b68b4840c7955cd06a2be14736678d83ee729dc`, Tree `cd46b9047762829e89dd8f5fd95e5f66d0a9032e`. Nachfolgender PR-Verweisnachtrag administrativ; finale eingereichte SHA/Tree in aktueller PR-Beschreibung und finaler Handoff.
 
 [R02-Reviewreport](RUNS/R02-ABNAHME/01_REPORT.md), [Review-Evidenz](RUNS/R02-ABNAHME/EVIDENCE/INDEX.md), [Originalauftrag](RUNS/R02-ABNAHME/00_PROMPT_ORIGINAL.md). reviewed_sha `146eff89e89faa48546f913cd7b770d3449d22a6`, reviewed_tree `e18b610e4fddfefc9a167c7178931f64f7fcd10e`. Offene Pflichtfindings keine.
+
+## Übernahmefreigabe
+
+Menschliche Freigabe für [PR #9](https://github.com/marcosudau-vps/voice-stt-client/pull/9) ist unter [R03-UEBERNAHME](RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md) als Original gesichert; [Vorgezogener Abschlussbericht](RUNS/R03-UEBERNAHME/01_REPORT.md), [Evidenzindex](RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md). Vor dem GitHub-Squash weiterhin `ROOT_PASS` / `READY_FOR_CANONICALIZATION`; kein ACCEPTED ohne tatsächlich verifizierten Single-Parent-Merge. Ausgangs-Head bei Freigabe `f0c95190b205180cca3f1224687e4872f25116db`.

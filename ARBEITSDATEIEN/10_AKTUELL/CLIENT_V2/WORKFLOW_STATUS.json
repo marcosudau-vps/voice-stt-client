@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "workflowPhase": "READY_FOR_CANONICALIZATION",
   "packageStatus": "ROOT_PASS",
   "activePackage": "AP-CV2-070",
   "nextPackage": "AP-CV2-080",
@@ -11,18 +11,25 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/9",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R02-ABNAHME",
-    "role": "independent_review",
-    "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+    "id": "R03-UEBERNAHME",
+    "role": "canonicalization",
+    "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R03-UEBERNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
   },
   "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
   "reviewReport": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
-  "humanApproval": null,
-  "writeOwner": null,
+  "humanApproval": {
+    "run": "R03-UEBERNAHME",
+    "source": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+    "originalHead": "f0c95190b205180cca3f1224687e4872f25116db",
+    "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
+    "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/9",
+    "reviewReport": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md"
+  },
+  "writeOwner": "R03-UEBERNAHME",
   "blockingReason": null,
-  "nextAction": "Unabhängiges ROOT_PASS für AP-CV2-070 / PR #9. Ausdrücklichen menschlichen Übernahmeprompt abwarten; Head-/Base-/CI- und admin-only-Diff zu reviewedCommit vor Merge prüfen. Kein AP080 oder automatischer Merge.",
+  "nextAction": "Menschlicher Mergeprompt erteilt. Nur nach erfolgreicher aktueller Head/Base-CI und Prüfung des ausschließlich administrativen Freigabenachtrags PR #9 via squash and merge übernehmen; danach Single-Parent/Treegleichheit prüfen und keinen zweiten Featurecommit erzeugen.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
