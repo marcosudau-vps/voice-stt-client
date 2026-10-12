@@ -1,6 +1,6 @@
-# Client V2 – AP-CV2-070 / R01-UMSETZUNG / REVIEW_READY, 2026-10-12
+# Client V2 – AP-CV2-070 / R02-ABNAHME / ROOT_PASS, 2026-10-12
 
-Aktiver Arbeitsblock CLIENT_V2. AP000 bis AP060 **ACCEPTED**; tatsächliches AP060-Aggregat `473a75d02fb6d00e5664af4328dadaa44da5191a` auf feat/client-v2, Single-Parent und Treegleichheit sowie PASS/menschlicher Prompt [belegt](../30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP070 ist vollständig umgesetzt und zur unabhängigen Abnahme bereit, Branch `work/client-v2/ap-cv2-070`. Spätere Pakete bleiben PLANNED; Server-Distributed bleibt bis zum gemeinsamen Abschluss offen.
+Aktiver Arbeitsblock CLIENT_V2. AP000 bis AP060 **ACCEPTED**; tatsächliches AP060-Aggregat `473a75d02fb6d00e5664af4328dadaa44da5191a` auf feat/client-v2, Single-Parent und Treegleichheit sowie PASS/menschlicher Prompt [belegt](../30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP070 ist unabhängig technisch ROOT_PASS gemäß R02-Abnahme, Branch `work/client-v2/ap-cv2-070`; menschliche Übernahme ausstehend. Spätere Pakete bleiben PLANNED; Server-Distributed bleibt bis zum gemeinsamen Abschluss offen.
 
 [Runreport](../30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](../30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [Workflowstatus](../WORKFLOW_STATUS.json), [Planungseinstieg](README.md), [Produktinterfaces](../../../../docs/protocol-v2-settings.md).
 
@@ -8,7 +8,9 @@ Versionierte V1→V2-Migration mit Backup/Reparatur; dynamischer öffentlicher W
 
 Qualifikation: 1460 vollständige Windows-Tests, 243 gezielte Regressionstests, 38 echte HTTP/WS/Media/PCM-Checks und 55 gepinnte Settings-/Wake-Supplementtests ohne Skips; compileall/diffcheck PASS. 34 neue Clienttests. Empirische Wake-/ASR-/Hardwarequalifikation weiterhin AP-IV2-020, kein Nachweis optimaler Kalibrierung.
 
-Nächste Aktion: unabhängiges AP070-Review des veröffentlichten PR-Heads und dieser Kandidatennachweise. Ab Übergabe Umsetzungsänderungen auf dem Paketbranch pausiert. ROOT_PASS und menschlicher Übernahmeprompt erforderlich; kein automatischer Merge/AP080. Runtime Python3.12 in Projektvenv; Testreproduktion über den Runner im Evidenzindex. Die reguläre App bleibt bis AP100 auf dem bisherigen Pfad.
+Nächste Aktion: menschlichen Übernahmeprompt für PR #9 abwarten, vorher aktuellen Head/Base, admin-only-Diff und CI prüfen; kein automatischer Merge/AP080. Runtime Python3.12 in Projektvenv; Testreproduktion über den Runner im Evidenzindex. Die reguläre App bleibt bis AP100 auf dem bisherigen Pfad.
+
+[Unabhängiger R02-ROOT_PASS](../30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md), [Review-Evidenz](../30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md).
 
 ## Historischer Stand vor AP-CV2-020
 

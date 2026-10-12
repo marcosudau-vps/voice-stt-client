@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-060 sind **ACCEPTED**, zuletzt AP060 `473a75d02fb6d00e5664af4328dadaa44da5191a` nach tatsächlichem PR8-Squash. AP-CV2-070 **REVIEW_READY**, [R01-Report](../../30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](../../30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md). Nächste Aktion unabhängige Abnahme; kein Merge/AP080 ohne ROOT_PASS und menschlichen Prompt. Spätere Pakete PLANNED.
+AP-CV2-000 bis AP-CV2-060 sind **ACCEPTED**, zuletzt AP060 `473a75d02fb6d00e5664af4328dadaa44da5191a` nach tatsächlichem PR8-Squash. AP-CV2-070 **ROOT_PASS** gemäß [R02-Review](../../30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md); menschlicher Mergeprompt weiterhin erforderlich. Kein AP080 bis tatsächliche Übernahme. Spätere Pakete PLANNED.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |

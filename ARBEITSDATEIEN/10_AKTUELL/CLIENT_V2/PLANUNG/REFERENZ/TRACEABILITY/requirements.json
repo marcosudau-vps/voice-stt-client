@@ -8649,7 +8649,7 @@
       "test": "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8690,6 +8690,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -8700,7 +8708,7 @@
       "test": "tests.test_v2_settings_service.CatalogAndSchema.test_types_ranges_and_no_coercion; tests.test_v2_settings_service.Service.test_atomic_local_validation_and_scope_authority",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8742,6 +8750,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -8752,7 +8768,7 @@
       "test": "tests.test_v2_settings_service.CatalogAndSchema.test_types_ranges_and_no_coercion; tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8795,6 +8811,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -8805,7 +8829,7 @@
       "test": "tests.test_v2_settings_service.Service.test_server_revision_patch_no_change_and_unclear_read_no_retry; tests.test_v2_settings_service.Service.test_preflight_then_na_patch_snapshot_suppression_ready",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8847,6 +8871,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -8857,7 +8889,7 @@
       "test": "tests.test_v2_settings_service.Service.test_atomic_local_validation_and_scope_authority; tests.test_v2_settings_service.Service.test_bootstrap_faults_never_release_suppression",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8904,6 +8936,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -8914,7 +8954,7 @@
       "test": "tests.test_v2_settings_service.Service.test_conflict_reread_new_command_id_exactly_once",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -8957,6 +8997,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -8967,7 +9015,7 @@
       "test": "tests.test_v2_settings_service.Service.test_requested_effective_latched_and_pending_report; tests.test_v2_settings_service.Service.test_input_closed_refreshes_effective_without_explicit_ui_read",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9010,6 +9058,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9020,7 +9076,7 @@
       "test": "tests.test_v2_settings_service.Service.test_preflight_then_na_patch_snapshot_suppression_ready",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9061,6 +9117,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9071,7 +9135,7 @@
       "test": "tests.test_v2_settings_service.Service.test_ns_preferences_unsupported_selection_next_hello_no_patch",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9113,6 +9177,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9123,7 +9195,7 @@
       "test": "tests.test_v2_settings_service.Service.test_ns_preferences_unsupported_selection_next_hello_no_patch",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9165,6 +9237,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9175,7 +9255,7 @@
       "test": "tests.test_v2_settings_service.Service.test_atomic_local_validation_and_scope_authority",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9217,6 +9297,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9227,7 +9315,7 @@
       "test": "tests.test_v2_settings_service.Service.test_server_revision_patch_no_change_and_unclear_read_no_retry; tests.test_v2_settings_service.Service.test_server_error_codes_reload_no_partial_or_retry",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9271,6 +9359,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9281,7 +9377,7 @@
       "test": "tests.test_v2_settings_service.Service.test_server_revision_patch_no_change_and_unclear_read_no_retry; tests.test_v2_settings_service.HTTP.test_bounded_http_timeout_keeps_one_worker_and_loop_responsive",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9324,6 +9420,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9334,7 +9438,7 @@
       "test": "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9375,6 +9479,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9385,7 +9497,7 @@
       "test": "tests.test_v2_settings_service.Migration.test_mode_flags_and_explicit_both; tests.test_v2_settings_service.Migration.test_exact_seconds_ms_and_retired_extension_warning; tests.test_v2_settings_service.Migration.test_colliding_session_and_local_timing_remains_unresolved; tests.test_v2_settings_service.Migration.test_versioned_profile_ignores_legacy_mode_extension",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9427,6 +9539,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9437,7 +9557,7 @@
       "test": "tests.test_v2_settings_service.Migration.test_backup_atomic_idempotent_local_fields_preserved; tests.test_v2_settings_service.Migration.test_write_failure_leaves_original_and_backup; tests.test_v2_settings_service.Migration.test_invalid_trigger_and_hotkey_conflicts_are_preserved",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9478,6 +9598,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9488,7 +9616,7 @@
       "test": "tests.test_v2_settings_service.Service.test_preflight_then_na_patch_snapshot_suppression_ready; tests.test_v2_settings_service.Service.test_media_availability_rejection_blocks_before_settings_audio; tests.test_v2_settings_service.Service.test_bootstrap_faults_never_release_suppression; tests.test_v2_settings_service.Service.test_bootstrap_new_wish_during_confirmation_cannot_claim_ready",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9534,6 +9662,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9544,7 +9680,7 @@
       "test": "tests.test_v2_settings_service.Migration.test_offline_then_online_resolution_unavailable_id_retained; tests.test_v2_settings_service.Service.test_preflight_error_each_read_and_profile_keeps_wire_empty",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9587,6 +9723,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9597,7 +9741,7 @@
       "test": "tests.test_v2_settings_service.Service.test_atomic_local_validation_and_scope_authority; tests.test_v2_settings_service.HTTP.test_origin_tls_routes_and_no_secret_errors",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_settings_control_plane.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9637,6 +9781,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9647,7 +9799,7 @@
       "test": "tests.test_v2_settings_service.Service.test_catalog_revision_cache_and_availability_reload; tests.test_v2_settings_service.Service.test_availability_reload_rejects_old_revision_and_retries_bounded; tests.test_v2_settings_service.Service.test_stale_http_generation_rejected_without_publication",
       "source": "Server VoiceSTT/core/wakeword_catalog.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9690,6 +9842,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9700,7 +9860,7 @@
       "test": "tests.test_v2_settings_service.CatalogAndSchema.test_catalog_metadata_immutable_no_internal_paths",
       "source": "Server VoiceSTT/core/wakeword_catalog.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9741,6 +9901,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9751,7 +9919,7 @@
       "test": "tests.test_v2_settings_service.CatalogAndSchema.test_alias_resolution_unicode_trim_dedup_and_ambiguity",
       "source": "Server VoiceSTT/core/wakeword_catalog.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9792,6 +9960,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9802,7 +9978,7 @@
       "test": "tests.test_v2_settings_service.CatalogAndSchema.test_alias_resolution_unicode_trim_dedup_and_ambiguity",
       "source": "Server VoiceSTT/core/wakeword_catalog.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9843,6 +10019,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9853,7 +10037,7 @@
       "test": "tests.test_v2_settings_service.CatalogAndSchema.test_whole_selection_no_common_or_explicit_backend_no_fallback; tests.test_v2_settings_service.Migration.test_offline_then_online_resolution_unavailable_id_retained",
       "source": "Server VoiceSTT/core/wakeword_catalog.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9895,6 +10079,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9905,7 +10097,7 @@
       "test": "tests.test_v2_settings_service.CatalogAndSchema.test_whole_selection_no_common_or_explicit_backend_no_fallback",
       "source": "Server VoiceSTT/core/wakeword_catalog.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9946,6 +10138,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -9956,7 +10156,7 @@
       "test": "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags; tests.unit.test_wakeword_selected_only.SelectedOnlyLoaderTests.test_three_selected_classifiers_load_exactly_three_models; tests.unit.test_wakeword_selected_only.SessionConfigTests.test_an_admitted_selection_configures_exactly_its_artifacts",
       "source": "Server VoiceSTT/core/wake_backend.py @ ada13b0; Server tests/unit/test_wakeword_selected_only.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -9994,6 +10194,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -10004,7 +10212,7 @@
       "test": "tests.unit.test_wake_detection.EvaluatorTests.test_a_latched_detector_offers_nothing_more",
       "source": "Server VoiceSTT/core/wake_detection.py @ ada13b0; Server api_fastapi_server/wake_admission.py @ ada13b0; Server tests/unit/test_wakeword_session_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -10047,6 +10255,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -10057,7 +10273,7 @@
       "test": "tests.test_v2_settings_service.CatalogAndSchema.test_counts_policies_and_schema_without_write_flags",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server VoiceSTT/core/wake_detection.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -10091,6 +10307,14 @@
         "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json"
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
@@ -10101,7 +10325,7 @@
       "test": "tests.unit.test_wake_detection.HitRegionTests.test_a_qualified_run_finalizes_once_at_its_trailing_edge; tests.unit.test_wake_audio_boundary.BoundaryTests.test_the_history_start_clamps_the_boundary; tests.unit.test_wake_audio_boundary.TrimTests.test_the_wake_word_leaves_and_the_first_user_word_survives; tests.unit.test_wakeword_root_findings_c3.DetectorGainTests.test_the_original_pcm_buffer_is_byte_identical_after_a_gain_pass; tests.unit.test_wakeword_root_findings_c3.DetectorGainTests.test_only_the_inference_copy_carries_the_gain",
       "source": "Server VoiceSTT/core/wake_audio_boundary.py @ ada13b0; Server VoiceSTT/core/wake_detection.py @ ada13b0; Server tests/unit/test_wakeword_recording_path.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -10145,6 +10369,14 @@
         "coverage": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/requirement-coverage.md",
         "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "realSpeechBoundary": "NOT_RUN; empirical calibration/real speech boundary belongs AP-IV2-020, not claimed by controlled PCM/model tests."
+      },
+      "reviewEvidence": {
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+        "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e",
+        "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
       }
     },
     {
