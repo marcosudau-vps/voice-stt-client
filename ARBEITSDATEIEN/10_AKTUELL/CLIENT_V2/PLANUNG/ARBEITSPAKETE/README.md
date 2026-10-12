@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-050 sind **ACCEPTED**, zuletzt AP050 ce95c66. AP-CV2-060: **ROOT_PASS / WAITING_FOR_APPROVAL** nach R04; R02-Finding `CV2-060-R02-F01` unabhängig geschlossen. [R04-Abnahme](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md), [R03-Korrektur](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md). **Nächste Aktion:** ausdrücklichen menschlichen Übernahmeprompt abwarten; kein Merge/AP070. Spätere Pakete PLANNED.
+AP-CV2-000 bis AP-CV2-050 sind **ACCEPTED**, zuletzt AP050 ce95c66. AP-CV2-060: **ROOT_PASS / READY_FOR_CANONICALIZATION** nach R04; R02-Finding `CV2-060-R02-F01` unabhängig geschlossen. [R04-Abnahme](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R04-ABNAHME/01_REPORT.md), [R03-Korrektur](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md). **Nächste Aktion:** nach erneuter Head-CI den ausdrücklich freigegebenen Squash-Merge PR8 ausführen; kein AP070 ohne Folgeauftrag. Spätere Pakete PLANNED.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |
@@ -37,3 +37,6 @@ Maßgeblich nach CI-Selbstkorrektur: aktuelles Windowsmanifest mit getesteter Ba
 
 
 Aktuell R03: F01-Dokumentnamen korrigiert; [Korrekturreport](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/01_REPORT.md). R04-ROOT_PASS erteilt; Produktqualifikation unverändert gültig, Übernahmefreigabe ausstehend.
+
+
+[AP060 R05 Freigabeoriginal und Übernahmeakte](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md): Konditionierte menschliche Mergefreigabe ist nach CI38276463113 gültig; rein administrativer Nachtrag muss vor Squash erneut CI-bestanden sein. Kein CANONICALIZED vor tatsächlichem Merge.
