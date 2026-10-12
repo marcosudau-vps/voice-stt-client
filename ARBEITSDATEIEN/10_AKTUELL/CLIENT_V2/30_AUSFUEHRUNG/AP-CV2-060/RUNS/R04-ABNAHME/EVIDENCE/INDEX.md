@@ -14,6 +14,6 @@
 | [R03-Strukturtests](../../R03-KORREKTUR/EVIDENCE/record-tests.txt) | 7/7 PASS; aktuelle Akten-/Link-/Statusüberprüfung als Fremdbeleg |
 | [GitHub-PR-CI 38274673106](https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38274673106) | Exakter R03-HEAD `1d81bb0230cfc5a099b7870488f6b42cd4735d5a`, conclusion success; sämtliche Build-/Smoke-/Testschritte success |
 | [Produkt-API am geprüften Commit](https://github.com/marcosudau-vps/voice-stt-client/blob/1d81bb0230cfc5a099b7870488f6b42cd4735d5a/docs/protocol-v2-results.md), [tatsächlicher Controller](https://github.com/marcosudau-vps/voice-stt-client/blob/1d81bb0230cfc5a099b7870488f6b42cd4735d5a/voice_stt_client/core/controller.py) | Übereinstimmung `STTController.attach_v2_results` |
-| [Requirementmatrix](../../../../PLANUNG/REFERENZ/TRACEABILITY/TRACEABILITY_MATRIX.md), [Paketvertrag](../../../../PLANUNG/ARBEITSPAKETE/AP-CV2-060.md) | Scope/DoD/Requirement-Owner erhalten; R04 technischer ROOT_PASS |
+| [Requirementmatrix](../../../../../PLANUNG/REFERENZ/TRACEABILITY/TRACEABILITY_MATRIX.md), [Paketvertrag](../../../../../PLANUNG/ARBEITSPAKETE/AP-CV2-060.md) | Scope/DoD/Requirement-Owner erhalten; R04 technischer ROOT_PASS |
 
 **Eigene Prüfung:** remote und SHA-gebundene Code-/Dokumentprüfung, vollständige betroffene Git-Compare-Dateiliste, Finding-Schließung, R01-/R03-Test- und Identitätsbelege, bestätigtes GitHub-CI. **Eigene Windows-/Hardwaredurchführung:** NOT_RUN gemäß Rollenregeln. Offen: keine Pflichtfindings; menschlicher Mergeauftrag bleibt erforderlich.
