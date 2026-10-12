@@ -2,7 +2,7 @@
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-040 sind **ACCEPTED** (AP040 kanonischer Commit `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`, [Abschlussbeleg](../../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json)). AP-CV2-050: **ROOT_PASS** / WAITING_FOR_APPROVAL nach [unabhängiger R02-Abnahme](../../30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md) auf `55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a`; 1397 Windows-/297 gezielte/79 Server-/16 native Prüfungen als Fremdbelege unabhängig kontrolliert. Nächste Aktion ausdrückliche menschliche Übernahmefreigabe zu PR #7; kein Merge/AP060-Start ohne Freigabe. Spätere Pakete PLANNED.
+AP-CV2-000 bis AP-CV2-050 sind **ACCEPTED**, zuletzt AP050 `ce95c66a7a3b4440faaa33289351871a040ebe19`; [Abschlussbeleg](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP-CV2-060: **REVIEW_READY**, vollständige R01-Selbstchecks; [Runreport](../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md). Nächste Aktion unabhängige Abnahme. Keine eigene Promotion oder AP070-Umsetzung. Spätere Pakete PLANNED.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |
@@ -26,4 +26,5 @@ Jede Paketdatei enthält Ziel, fachliche Ownership, Eingangsvoraussetzungen, ein
 
 Die Ausführung erfolgt streng seriell. Fachlaufzahlen und Teilung stehen in jeder AP-Datei sowie im [Umfangsmodell](../REFERENZ/PLANUNG/UMFANG_UND_AGENTENLAEUFE.md). Jedes Paket wird unabhängig geprüft; erst ROOT PASS und die gesicherte kanonische Aggregateübernahme geben den nächsten Start frei. [Agentenregelwerk](../REFERENZ/GOVERNANCE/AGENTEN_REGELWERK.md).
 
-[PR #7](https://github.com/marcosudau-vps/voice-stt-client/pull/7) gegen feat/client-v2. Vollständiger qualifizierter Umsetzungscommit `ee1f1a7bb0a55112b61a3cab9c34be561aae274e`, Tree `f1613cb4ecf3292e6442f38c4704162b940c5fea`. Nachfolgende PR-Verweise rein administrativ; finale eingereichte Spitze steht SHA-/Tree-genau in aktueller PR-Beschreibung und finaler Übergabe.
+
+Aktuelle AP060-Kandidatenidentität und PR werden bei vollständiger Abgabe in Paketakte und PR-Beschreibung angegeben.

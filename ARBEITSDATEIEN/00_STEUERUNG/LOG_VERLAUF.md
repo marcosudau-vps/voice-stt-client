@@ -2129,3 +2129,8 @@ Von AP020-Aggregat8fa0f82 nach belegtem unabhängigen PASS, menschlicher Freigab
 ## AP-CV2-050-R01 – 2026-10-12 – Controls/Runpausen/Win32 / REVIEW_READY
 
 Nach tatsächlicher AP040-Übernahme (PR6, PASS/Freigabe/Singleparent/Baumgleichheit belegt) von 4eb1161 umgesetzt: quellenneutraler Controlservice, ursprüngliche IDbindung, vollständige getrennte Runpausen und atomare Win32rollenregistrierung.1397 Windowsgesamttests,297 gezielte Tests,79 echte Serverchecks/46 Quellblobs,16 native Windowschecks, compileall/diffcheck PASS. Alle14 Requirements einzeln belegt. [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R01-UMSETZUNG/01_REPORT.md). Unabhängige Abnahme offen; Schreiben ab Übergabe pausiert, keine kanonische Übernahme oder Folgepaketimplementierung.
+
+
+## AP-CV2-060-R01 – 2026-10-12 – Final-Pipeline/Historymigration / REVIEW_READY
+
+Von AP050-Aggregat ce95c66 nach belegtem PASS/Freigabe/Singleparent/Baumgleichheit umgesetzt: UUID-Herkunft, unabhängiger Prozessdedup, transaktionale V1-Migration/Backup/Rollback und reservierte automatische/manuelle Ausgabe mit Crashstatus unknown. 1426 Windowsgesamttests, 323 gezielte Tests, 19 echte Serverchecks/46 Quellblobs, compileall/diffcheck PASS. Alle13 RESULT-Requirements einzeln belegt. [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md). Unabhängige Abnahme offen; Schreiben ab Übergabe pausiert, keine kanonische Übernahme oder Folgepaketimplementierung.

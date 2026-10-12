@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "canonicalParent": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+  "candidateBranch": "work/client-v2/ap-cv2-060",
+  "qualifiedProductBlobCount": 195,
+  "matchedProductBlobs": true,
+  "matchedRuntimeSources": true,
+  "matchedLogSha256": {
+    "targeted-unittest.txt": "4abd862f73c2e77d915f8f7e7c5b820334a5bf298ef133a47e7920b4ec42ded0",
+    "server-results-checkpoint.json": "ed0c131727ae138cf44f78b59271d00142e5ced62440ed07437a432ce42b62b5",
+    "server-results-checkpoint.json.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compileall.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "windows-full-unittest.txt": "0358befe736b1f122accd58ea612a8392aaa92727603411a1fe75b0da2103d75"
+  },
+  "unchangedRequirementCriteria": true,
+  "tracedRequirements": 13,
+  "actualTestMethodsVerified": true,
+  "records": {
+    "result": "PASS",
+    "package": "AP-CV2-060",
+    "packageStatus": "REVIEW_READY",
+    "referencedFiles": 26,
+    "markdownFiles": 21,
+    "relativeLinks": 1014,
+    "errors": []
+  },
+  "diffCheck": "PASS",
+  "scope": "Index qualification; final commit SHA/tree reported externally after administrative publication refs. No self-SHA."
+}

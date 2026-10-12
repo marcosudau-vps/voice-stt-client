@@ -1,0 +1,37 @@
+{"checks": ["admission/pinned_server", "interim/no_sqlite_or_clipboard", "out_of_order_model/no_early_B_output"], "trace": [], "segments": {"b2b2a1ac-fb0e-4ac5-b6d8-41653d6b76e0": {"status": "accepted", "activation": "5c3d1476-a0e1-4133-ade5-4c4711cf7add"}, "95b83450-5d75-456a-8c24-ac526abd522c": {"status": "accepted", "activation": "f7dd3c70-413d-4709-90a9-5b5dd75720ce"}}, "finals": [], "jobs": [{"kind": "final", "segment": "b2b2a1ac-fb0e-4ac5-b6d8-41653d6b76e0", "generation": 0}, {"kind": "final", "segment": "95b83450-5d75-456a-8c24-ac526abd522c", "generation": 0}]}
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\scripts\check_v2_server_transport.py", line 37, in poll
+    await asyncio.sleep(.01)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 665, in sleep
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\scripts\check_v2_server_results.py", line 197, in <module>
+    print(json.dumps(asyncio.run(run(args.server_root.resolve(),args.server_repository.resolve())),indent=2))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\scripts\check_v2_server_results.py", line 136, in run
+    await until(lambda: len([o for o in outcomes if o.status=='queued'])==2)
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\scripts\check_v2_server_transport.py", line 38, in until
+    await asyncio.wait_for(poll(), timeout)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 519, in wait_for
+    async with timeouts.timeout(timeout):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError

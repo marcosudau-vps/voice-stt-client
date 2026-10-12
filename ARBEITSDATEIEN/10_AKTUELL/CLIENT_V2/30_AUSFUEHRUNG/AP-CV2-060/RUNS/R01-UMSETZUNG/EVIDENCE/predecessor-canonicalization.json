@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "predecessor": "AP-CV2-050",
+  "pullRequest": {
+    "baseRefName": "feat/client-v2",
+    "headRefName": "work/client-v2/ap-cv2-050",
+    "headRefOid": "445f8bbd14ef9c467fb64b707ca36db5404f12a1",
+    "mergeCommit": {
+      "oid": "ce95c66a7a3b4440faaa33289351871a040ebe19"
+    },
+    "mergedAt": "2026-10-12T14:13:34Z",
+    "state": "MERGED",
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/7"
+  },
+  "canonicalCommit": "ce95c66a7a3b4440faaa33289351871a040ebe19",
+  "canonicalParent": "4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f",
+  "canonicalTree": "67ab9a25ad32b82567785304ee684f8c78d6d175",
+  "finalCandidate": "445f8bbd14ef9c467fb64b707ca36db5404f12a1",
+  "finalCandidateTree": "67ab9a25ad32b82567785304ee684f8c78d6d175",
+  "commitCount": 1,
+  "parentCount": 1,
+  "treeEqual": true,
+  "independentPassReport": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md",
+  "reviewedCommit": "55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a",
+  "reviewedTree": "3b0dc469a1a3e577eb4dda0a67e2f3746b9c92cd",
+  "humanAuthorizationSource": "Git aggregate commit message ce95c66a7a3b4440faaa33289351871a040ebe19",
+  "aggregateMessage": "AP-CV2-050: V2 controls, run pauses and atomic Windows hotkeys (#7)\n\nAP-CV2-050: source-neutral controls, reconnect-safe run pauses and atomic Windows hotkey roles. Independent R02 ROOT_PASS, no mandatory findings. High-level closing assessment PASS; no detailed technical rereview. All14 CONTROL IDs have actual test methods, checkpoint cases and independent R02 references. Requirement texts/owners/contracts/source refs unchanged; acceptance criteria not weakened. Complete qualification5 logs,2 stderr logs, product patch hash and192/192 qualified source/test/config Gitblobs verified. Windows1397/targeted297/server79/native Win32-Qt16 PASS. After reviewed SHA administrative documents only. Aktencheck PASS9 Markdown/80 links, diffcheck PASS.\n\nCanonical parent: 4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f\nFinal approved head: 445f8bbd14ef9c467fb64b707ca36db5404f12a1\nReviewed product/package head: 55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a\nQualified implementation commit: ee1f1a7bb0a55112b61a3cab9c34be561aae274e\nApproved tree: 67ab9a25ad32b82567785304ee684f8c78d6d175\nServer baseline: ada13b011e1d3829f78e7f389e3b927795a2b3be\nR02 report: ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md\nPremerge CI38260069341 SUCCESS on exact head/base testmerge dfdb9f032d0b4bbde65c2ba4ca55e115d804e207;1397 tests, build/installsmokes PASS.\n\nNonblocking editorial follow-up: MASTERPLAN and original PR title still REVIEW_READY while authoritative CURRENT_STATE/WORKFLOW/Manifest/R02/Requirements are ROOT_PASS; inherited AP050 namespace text mentions top-level core/ui though actual namespace is voice_stt_client. Carry current summaries forward on next package branch; historical reports remain intact. Versioned premerge WAITING_FOR_APPROVAL/humanApproval=null is overridden by actual approval below and verified mergedPR/aggregate; no extra AP050 status commit.\n\nActual human authorization (verbatim):\nDer Reviewer hat ROOT_PASS PR #7, Arbeitspaket AP-CV2-050 erteilt. \nBitte prüfe nochmal grob den Umfang, Bewertungsmaßstäbe, Tracabilities, etc...  \nKeine fachliche Detailprüfung mehr... \nWenn du nichts einzuwenden hast, erteile ich dir die Freigabe, um den Pull Request so zu mergen.\n\nCondition satisfied: no objection to adoption. Exactly one Squash and merge onto feat/client-v2; no product changes/additional branch commit, cleanup/main/server promotion, tags/releases or successor implementation. Verify aggregate parent/count/tree and required postmerge CI. AP070/080 settings/UI, AP100 runtime composition and IV2-020 microphone/ASR/clipboard gates remain open as assigned; no overall E2E acceptance claimed. Qt bridge must bind ControlIntent at trigger before asynchronous queueing.",
+  "checkedRemoteCanonical": "ce95c66a7a3b4440faaa33289351871a040ebe19"
+}

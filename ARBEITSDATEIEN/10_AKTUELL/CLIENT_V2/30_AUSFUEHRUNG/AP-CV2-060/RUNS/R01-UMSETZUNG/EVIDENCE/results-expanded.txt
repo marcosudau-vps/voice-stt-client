@@ -1,0 +1,33 @@
+test_real_process_crash_at_five_boundaries_never_auto_reinjects (tests.test_v2_results.CrashRecovery.test_real_process_crash_at_five_boundaries_never_auto_reinjects) ... ok
+test_future_schema_is_preserved (tests.test_v2_results.Migration.test_future_schema_is_preserved) ... ok
+test_mid_migration_ddl_failure_rolls_back_and_retry_uses_backup (tests.test_v2_results.Migration.test_mid_migration_ddl_failure_rolls_back_and_retry_uses_backup) ... ok
+test_uuid_origin_unique_and_fk_survive_reopen (tests.test_v2_results.Migration.test_uuid_origin_unique_and_fk_survive_reopen) ... ok
+test_v1_backup_ids_attempts_origin_and_second_start_idempotent (tests.test_v2_results.Migration.test_v1_backup_ids_attempts_origin_and_second_start_idempotent) ... ok
+test_callback_exceptions_do_not_break_reduction_or_worker (tests.test_v2_results.Results.test_callback_exceptions_do_not_break_reduction_or_worker) ... ok
+test_cancel_disconnect_and_recovery_preserve_published_text (tests.test_v2_results.Results.test_cancel_disconnect_and_recovery_preserve_published_text) ... ok
+test_cancelled_activation_unpublished_final_is_suppressed (tests.test_v2_results.Results.test_cancelled_activation_unpublished_final_is_suppressed) ... ok
+test_clipboard_failure_does_not_block_later_segment (tests.test_v2_results.Results.test_clipboard_failure_does_not_block_later_segment) ... ok
+test_concurrent_reduction_delivery_and_eviction_do_not_repeat_effect (tests.test_v2_results.Results.test_concurrent_reduction_delivery_and_eviction_do_not_repeat_effect) ... ok
+test_controller_port_attaches_once_preserves_legacy_cancel_and_shutdown_guard (tests.test_v2_results.Results.test_controller_port_attaches_once_preserves_legacy_cancel_and_shutdown_guard) ... ok
+test_delayed_A_final_during_B_keeps_every_origin_and_pastes_once (tests.test_v2_results.Results.test_delayed_A_final_during_B_keeps_every_origin_and_pastes_once) ... ok
+test_disconnected_same_generation_stale_reduction_is_rejected (tests.test_v2_results.Results.test_disconnected_same_generation_stale_reduction_is_rejected) ... ok
+test_filtered_history_failure_attempt_preserves_v2_origin (tests.test_v2_results.Results.test_filtered_history_failure_attempt_preserves_v2_origin) ... ok
+test_first_discard_failed_empty_then_completed_and_late_interim_never_paste (tests.test_v2_results.Results.test_first_discard_failed_empty_then_completed_and_late_interim_never_paste) ... ok
+test_gap_salvage_publication_order_and_snapshot_never_infers_text (tests.test_v2_results.Results.test_gap_salvage_publication_order_and_snapshot_never_infers_text) ... ok
+test_history_off_keeps_process_dedup_and_outputs (tests.test_v2_results.Results.test_history_off_keeps_process_dedup_and_outputs) ... ok
+test_identical_texts_different_segments_are_not_deduplicated (tests.test_v2_results.Results.test_identical_texts_different_segments_are_not_deduplicated) ... ok
+test_interim_stable_fields_have_no_history_reservation_or_clipboard_effect (tests.test_v2_results.Results.test_interim_stable_fields_have_no_history_reservation_or_clipboard_effect) ... ok
+test_legacy_reinsert_reserves_manual_source (tests.test_v2_results.Results.test_legacy_reinsert_reserves_manual_source) ... ok
+test_queue_unavailable_and_service_close_have_no_external_effect (tests.test_v2_results.Results.test_queue_unavailable_and_service_close_have_no_external_effect) ... ok
+test_reinsert_has_separate_manual_attempt_and_clipboard_restore (tests.test_v2_results.Results.test_reinsert_has_separate_manual_attempt_and_clipboard_restore) ... ok
+test_reservation_committed_before_clipboard_and_send_input (tests.test_v2_results.Results.test_reservation_committed_before_clipboard_and_send_input) ... ok
+test_retention_preserves_pending_attempt_until_outcome (tests.test_v2_results.Results.test_retention_preserves_pending_attempt_until_outcome) ... ok
+test_sqlite_outcome_failure_unknown_and_no_retry (tests.test_v2_results.Results.test_sqlite_outcome_failure_unknown_and_no_retry) ... ok
+test_sqlite_reservation_failure_is_visible_no_paste_mirror_keeps_running (tests.test_v2_results.Results.test_sqlite_reservation_failure_is_visible_no_paste_mirror_keeps_running) ... ok
+test_wrong_session_or_forged_identity_cannot_reach_output (tests.test_v2_results.Results.test_wrong_session_or_forged_identity_cannot_reach_output) ... Ignoring final without an authoritative segment identity
+ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 4.907s
+
+OK
