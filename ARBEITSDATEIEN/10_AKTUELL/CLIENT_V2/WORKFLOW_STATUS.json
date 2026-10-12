@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "workflowPhase": "REVIEW_READY",
-  "packageStatus": "REVIEW_READY",
+  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "packageStatus": "ROOT_PASS",
   "activePackage": "AP-CV2-030",
   "nextPackage": "AP-CV2-040",
   "canonicalBranch": "feat/client-v2",
@@ -10,18 +10,18 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/5",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R01-UMSETZUNG",
-    "role": "implementation",
-    "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
+    "id": "R02-ABNAHME",
+    "role": "review",
+    "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": null,
-  "reviewReport": null,
+  "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Frische unabhängige Session prüft den vollständigen AP-CV2-030-Kandidaten und die gebundenen Windows-/Serverbelege; kein Eigenreview oder automatischer Paketabschluss.",
+  "nextAction": "R02 technischer ROOT_PASS für AP-CV2-030; ausdrücklichen menschlichen Übernahmeprompt für PR #5 mit R02-Report und finalem Head/Parent abwarten. Kein eigenmächtiger Merge oder AP-CV2-040-Start.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -41,5 +41,6 @@
   "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
   "qualificationBase": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
   "qualificationProductDiff": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/tested-product.patch",
-  "qualifiedImplementationCommit": "93acd2e6a589e04b266019f69e2bcad2998b8904"
+  "qualifiedImplementationCommit": "93acd2e6a589e04b266019f69e2bcad2998b8904",
+  "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29"
 }

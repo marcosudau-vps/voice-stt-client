@@ -1,8 +1,8 @@
-# Client V2 – AP-CV2-030 / REVIEW_READY, 2026-10-12
+# Client V2 – AP-CV2-030 / ROOT_PASS – WAITING_FOR_APPROVAL, 2026-10-12
 
-AP-CV2-020 ist tatsächlich ACCEPTED auf `8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0` (PR #4, R04-PASS, menschliche Freigabe und Baumgleichheit belegt). AP-CV2-030 **REVIEW_READY** auf `work/client-v2/ap-cv2-030`, Parent unverändert. [R01-Report](30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md), [Workflowstatus](WORKFLOW_STATUS.json). Reiner Activation-/Segmentmirror und tatsächliche Transport-/Resyncanbindung;1339 Windows-Tests,106 gezielte Tests,35 Serverfälle/46 bytegeprüfte Quellen und compileall PASS. Alle35 Requirements einzeln belegt.
+AP-CV2-020 ist tatsächlich ACCEPTED auf `8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0` (PR #4, R04-PASS, menschliche Freigabe und Baumgleichheit belegt). AP-CV2-030 **ROOT_PASS** auf `work/client-v2/ap-cv2-030`, Parent unverändert. [R02-Review](30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md), [R01-Report](30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md), [Workflowstatus](WORKFLOW_STATUS.json). Reiner Activation-/Segmentmirror und tatsächliche Transport-/Resyncanbindung;1339 Windows-Tests,106 gezielte Tests,35 Serverfälle/46 bytegeprüfte Quellen und compileall PASS. Alle35 Requirements einzeln belegt.
 
-Nächste Aktion: frische unabhängige Abnahme des vollständigen Paket-PR. Schreibhoheit nach Übergabe pausiert. Appkomposition CV2-100, Audio-/Settingsservices CV2-040/070 und reale ASR-/Hardwarefälle später; Serverbaseline ada13b0 unverändert und Server-Distributed offen. Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`. Kein eigener ROOT_PASS, Merge oder Folgepaketstart.
+Nächste Aktion: ausdrücklicher menschlicher Übernahmeprompt zu PR #5 nach unabhängigem R02-ROOT_PASS; Schreibhoheit zurückgegeben. Appkomposition CV2-100, Audio-/Settingsservices CV2-040/070 und reale ASR-/Hardwarefälle später; Serverbaseline ada13b0 unverändert und Server-Distributed offen. Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`. R02-ROOT_PASS gesichert, aber keine menschliche Übernahmefreigabe; kein Merge und kein Folgepaketstart.
 
 ## Historischer Stand vor AP-CV2-020
 

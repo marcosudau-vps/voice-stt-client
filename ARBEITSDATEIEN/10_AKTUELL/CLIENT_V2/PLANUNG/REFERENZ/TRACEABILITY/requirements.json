@@ -3096,7 +3096,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3141,6 +3141,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3151,7 +3162,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3195,6 +3206,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3205,7 +3227,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3250,6 +3272,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3260,7 +3293,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3304,6 +3337,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3314,7 +3358,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3359,6 +3403,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3369,7 +3424,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3413,6 +3468,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3423,7 +3489,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3468,6 +3534,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3478,7 +3555,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3523,6 +3600,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3533,7 +3621,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3578,6 +3666,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3588,7 +3687,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3633,6 +3732,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3643,7 +3753,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3688,6 +3798,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3698,7 +3819,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3742,6 +3863,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3752,7 +3884,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server VoiceSTT/core/realtime_callbacks.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3789,6 +3921,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3799,7 +3942,7 @@
       "test": "test_v2_mirror",
       "source": "Server VoiceSTT/core/realtime_callbacks.py @ ada13b0; Server api_fastapi_server/server.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3837,6 +3980,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3847,7 +4001,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/settings_control.py @ ada13b0; Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server tests/unit/test_protocol_v2_settings.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3884,6 +4038,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3894,7 +4059,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3938,6 +4103,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -3948,7 +4124,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/activation.py @ ada13b0; Server api_fastapi_server/segment_ledger.py @ ada13b0; Server api_fastapi_server/protocol_v2/events.py @ ada13b0; Server tests/unit/test_protocol_v2_e2e.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -3993,6 +4169,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4003,7 +4190,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/connection.py @ ada13b0; Server tests/unit/test_protocol_v2_terminal_recovery.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4034,6 +4221,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4044,7 +4242,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4082,6 +4280,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4092,7 +4301,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4129,6 +4338,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4139,7 +4359,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4177,6 +4397,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4187,7 +4418,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4225,6 +4456,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4235,7 +4477,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4274,6 +4516,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4284,7 +4537,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4321,6 +4574,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4331,7 +4595,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4369,6 +4633,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4379,7 +4654,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4417,6 +4692,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4427,7 +4713,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4465,6 +4751,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4475,7 +4772,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4512,6 +4809,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4522,7 +4830,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4560,6 +4868,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4570,7 +4889,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4608,6 +4927,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4618,7 +4948,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4656,6 +4986,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4666,7 +5007,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4704,6 +5045,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4714,7 +5066,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4752,6 +5104,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4762,7 +5125,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4803,6 +5166,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
@@ -4813,7 +5187,7 @@
       "test": "test_v2_mirror",
       "source": "Server api_fastapi_server/protocol_v2/snapshot.py @ ada13b0; Server api_fastapi_server/protocol_v2/session.py @ ada13b0; Server tests/unit/test_protocol_v2_races.py @ ada13b0",
       "kind": "SERVER-IST + CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-server",
@@ -4851,6 +5225,17 @@
         ],
         "qualification": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
         "serverCheckpoint": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/EVIDENCE/server-mirror-checkpoint.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "reviewedCommit": "d062ce2ec8d6d9c0683dc6be09397e11cdbd7e61",
+        "reviewedTree": "7123984bb4b382919e557f4ecef1400de4eced29",
+        "canonicalParent": "8fa0f829bece203e4a9d5ee0896dc9c4478f9fc0",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "report": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-030/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "testProvenance": "R01 Windows1339/targeted106/pinned server35; independently checked code/methods/complete logs; reviewer Windows suite not rerun"
       }
     },
     {
