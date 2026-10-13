@@ -370,3 +370,15 @@ Methoden in Runtime/QtRuntime gehören tests.test_v2_runtime_integration.
 
 AP090 durch tatsächlichen Squash ACCEPTED; [Git-/PR-Provenienz](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json).
 Historische Reviews bleiben unverändert.
+
+## AP-CV2-100 – CI-Korrektur R02, 2026-10-13
+
+FINAL-01/02 und RUNTIME-01 bis RUNTIME-04 bleiben CLIENT OPEN; die oben
+zugeordneten tatsächlichen Methoden wurden im neuen Kandidaten erneut bestanden.
+[Report](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md),
+[Windows1574/gezielte203](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/windows-validation.json),
+[Servercheckpoint17](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/server-runtime-checkpoint.json).
+Zusätzliche Legacy-Regressionsabsicherung: `tests.test_event_stream.TestEventStreamTransport.test_cursor_write_failure_replay_tolerates_slow_durable_commit`
+und bestehender `test_cursor_write_failure_replays_without_duplicate_visible_impulse`: Replay nach
+Cursor-Schreibfehler, einmaliger sichtbarer Impuls, durable Cursor24, genau zwei
+Verbindungen und sauberer Stop, auch mit 280 ms Schreibverzögerung. Kein Eigen-PASS.

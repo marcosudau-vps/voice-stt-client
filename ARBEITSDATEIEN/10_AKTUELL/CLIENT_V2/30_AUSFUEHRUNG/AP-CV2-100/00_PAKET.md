@@ -20,3 +20,13 @@ menschliche Freigabe [gesichert](RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonic
 Erster vollständiger Umsetzungskandidat `c93f5ea0ecfdaa39f3fa17f5ec080d21fd86e727`,
 Tree `0869bbb26e5d0b34b09bc4adc9a19a9e139d2557`; folgender Nachtrag ausschließlich
 PR-/Abgabeverweise und Aktenprüfung. Finalen Head/Tree der PR-Beschreibung entnehmen.
+
+## Aktueller Korrekturlauf R02
+
+[Originalauftrag](RUNS/R02-KORREKTUR/00_PROMPT_ORIGINAL.md),
+[Report](RUNS/R02-KORREKTUR/01_REPORT.md),
+[Evidenz](RUNS/R02-KORREKTUR/EVIDENCE/INDEX.md).
+CI-01 korrigiert, Windowsvollsuite1574, gezielte203, Servercheckpoint17 PASS.
+R01 bleibt historische Umsetzungsevidenz. Finaler Kandidat: Basis ca3cd400 plus
+R02-Produktdiff/Gitblobs; exakten veröffentlichten Head/Tree und abschließenden
+CI-Erfolg im PR prüfen. Reviewübergabe erst bei grüner finaler CI.

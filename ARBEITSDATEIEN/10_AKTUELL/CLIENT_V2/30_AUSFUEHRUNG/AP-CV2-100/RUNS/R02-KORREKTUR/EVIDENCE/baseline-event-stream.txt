@@ -1,0 +1,22 @@
+Command: ['P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe', '-m', 'unittest', 'tests.test_event_stream', '-v']
+Exit: 0
+test_auth_error_waits_for_reconfigured_session_access (tests.test_event_stream.TestEventStreamTransport.test_auth_error_waits_for_reconfigured_session_access) ... ok
+test_backoff_remains_capped_after_extreme_failure_count (tests.test_event_stream.TestEventStreamTransport.test_backoff_remains_capped_after_extreme_failure_count) ... ok
+test_binary_and_invalid_json_frames_fail_the_attempt (tests.test_event_stream.TestEventStreamTransport.test_binary_and_invalid_json_frames_fail_the_attempt) ... ok
+test_cursor_write_failure_replays_without_duplicate_visible_impulse (tests.test_event_stream.TestEventStreamTransport.test_cursor_write_failure_replays_without_duplicate_visible_impulse) ... Event stream attempt failed: simulated cursor disk failure
+ok
+test_handshake_replay_live_and_first_frame_token_policy (tests.test_event_stream.TestEventStreamTransport.test_handshake_replay_live_and_first_frame_token_policy) ... ok
+test_live_idle_timeout_sends_application_ping (tests.test_event_stream.TestEventStreamTransport.test_live_idle_timeout_sends_application_ping) ... ok
+test_python_logger_uses_canonical_component_name (tests.test_event_stream.TestEventStreamTransport.test_python_logger_uses_canonical_component_name) ... ok
+test_replay_disconnect_resumes_from_last_confirmed_cursor (tests.test_event_stream.TestEventStreamTransport.test_replay_disconnect_resumes_from_last_confirmed_cursor) ... Event stream attempt failed: disconnect during replay
+ok
+test_shutdown_during_replay_leaves_no_pending_receive (tests.test_event_stream.TestEventStreamTransport.test_shutdown_during_replay_leaves_no_pending_receive) ... ok
+test_shutdown_interrupts_an_in_progress_connect (tests.test_event_stream.TestEventStreamTransport.test_shutdown_interrupts_an_in_progress_connect) ... ok
+test_shutdown_interrupts_backoff_without_leaking_run_task (tests.test_event_stream.TestEventStreamTransport.test_shutdown_interrupts_backoff_without_leaking_run_task) ... Event stream attempt failed: network down
+ok
+test_unconfirmed_event_forces_reconnect_without_cursor_commit (tests.test_event_stream.TestEventStreamTransport.test_unconfirmed_event_forces_reconnect_without_cursor_commit) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.869s
+
+OK

@@ -11,10 +11,10 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/12",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R01-UMSETZUNG",
-    "role": "implementation",
-    "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
+    "id": "R02-KORREKTUR",
+    "role": "correction",
+    "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/INDEX.md"
   },
   "reviewedCommit": null,
   "reviewReport": null,
@@ -22,11 +22,12 @@
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Frische unabhängige Abnahme des vollständigen AP100-Kandidaten samt Windowsbelegen; kein Merge/AP110 ohne PASS und menschlichen Prompt.",
+  "nextAction": "Finalen PR-Head nur bei grüner CI an frische unabhängige Abnahme übergeben; danach keine Paketbranchänderungen. Kein Merge/AP110 ohne PASS und menschlichen Prompt.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
+    "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md",
+    "currentCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
   "candidateSelection": {
     "candidateId": "AP-CV2-100",

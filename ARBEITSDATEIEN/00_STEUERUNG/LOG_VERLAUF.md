@@ -2196,3 +2196,12 @@ compileall/diffcheck PASS. Unabhängige Abnahme offen, Umsetzungsschreiben ab Ab
 pausiert; keine kanonische Übernahme oder AP110-Implementierung.
 
 [Runreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md).
+
+## 2026-10-13 – AP-CV2-100 / R02-KORREKTUR: CI-01
+
+CI-Replaytimeout bei 281-ms-Runnerverzögerung reproduziert; Testfristen für
+durable Cursor-IO korrigiert, 280-ms-Regressionsfall ergänzt, fachliche Assertions
+erhalten und erweitert. Windows1574/gezielte203/Servercheckpoint17/compileall
+PASS, kandidatgebundene vollständige Logs. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md).
+REVIEW_READY im Selbstcheck; tatsächliche Übergabe erst nach grüner finaler PR-CI.
+Keine Eigenabnahme, kanonische Übernahme oder AP110.

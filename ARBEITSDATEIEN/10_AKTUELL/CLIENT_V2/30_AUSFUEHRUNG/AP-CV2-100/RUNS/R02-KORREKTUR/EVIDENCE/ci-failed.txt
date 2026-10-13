@@ -1,0 +1,1038 @@
+Test and build release candidates	Run complete test suite	﻿2026-10-13T03:42:40.2579910Z ##[group]Run python -m unittest discover -s tests -p "test_*.py"
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:40.2580441Z [36;1mpython -m unittest discover -s tests -p "test_*.py"[0m
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:40.2639571Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:40.2639889Z env:
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:40.2640056Z   QT_QPA_PLATFORM: offscreen
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:40.2640263Z   OPENBLAS_NUM_THREADS: 1
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:40.2640461Z   OMP_NUM_THREADS: 1
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:40.2640706Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.10\x64
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:40.2641075Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.10\x64/lib/pkgconfig
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:40.2641435Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:40.2641765Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:40.2642078Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:40.2642333Z ##[endgroup]
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:43.4161298Z .Reconnect paused until the invalid session configuration changes.
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:43.5431588Z .Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:43.5432204Z Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:43.6097208Z Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:44.0821860Z ....Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:44.0822516Z Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:44.7400506Z ..Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:45.5956520Z ....Dictation interrupted (reason: transport_loss).
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:45.7556722Z ....Session configuration warnings: ['fallback used']
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:45.7557128Z Session configuration fallbacks: ['sensitivity']
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:45.8226522Z ...Ignoring unknown configuration fields in C:\Users\RUNNER~1\AppData\Local\Temp\tmpa2z36pxt\user.yaml: overlay.invented
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:46.0460557Z ...LED output unavailable: reSpeaker not connected
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.0319766Z ............................................................................Ignoring unknown configuration fields in D:\a\voice-stt-client\voice-stt-client\voice_stt_client\config.yaml: led.memory, led.persistent
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.0706340Z .Manual server reconnect failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.0706669Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.0712665Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\controller.py", line 1265, in reconnect_server
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.0713258Z     await self.session.invalidate_connection("manual_reconnect")
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.0713733Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_controller.py", line 1968, in boom
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.0714115Z     raise OSError("no route to host")
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.0714368Z OSError: no route to host
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.6626113Z ....Dictation interrupted (reason: transport_loss).
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7307840Z ........Dictation interrupted (reason: transport_loss).
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7848446Z ..Error in on_snapshot_change callback.
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7848766Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7849708Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\controller.py", line 553, in _publish_snapshot
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7850477Z     self.on_snapshot_change(snapshot)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7851063Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_controller.py", line 1600, in fail_callback
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7851704Z     raise RuntimeError("simulated UI callback failure")
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7852080Z RuntimeError: simulated UI callback failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7852411Z Error in on_feedback_event callback.
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7852757Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7853553Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\controller.py", line 586, in _emit_feedback_event
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7856807Z     self.on_feedback_event(event)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7857459Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_controller.py", line 1600, in fail_callback
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7858111Z     raise RuntimeError("simulated UI callback failure")
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:49.7858387Z RuntimeError: simulated UI callback failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.3552725Z .......Injection queue rejected entry for ('s', 1) (not running/stopping)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.3553247Z Failed to record attempt for 59c00984c64947a9985c9a5c6e805b54: Record attempt failed
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.7122624Z .Enqueue exception for ('s', 1): Simulated enqueue failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.7123007Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.7123931Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\controller.py", line 2439, in process_raw_final_event
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.7124604Z     enqueued = self.queue.enqueue(entry)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.7124919Z                ^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.7125474Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_controller.py", line 1857, in failing_enqueue
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.7126073Z     raise RuntimeError("Simulated enqueue failure")
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.7126437Z RuntimeError: Simulated enqueue failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.7630772Z .HistoryEntry unavailable for ('s', 1). Auto-enqueue skipped.
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.7839191Z .Queue is not running (state=NEW). Rejecting entry 2564f4bb82514d708a35a8b5c1473d9d
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:50.7839868Z Injection queue rejected entry for ('s', 1) (not running/stopping)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.2067286Z .Failed to add history entry for ('race_sess', 1): History failure simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.2068222Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.2069143Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\controller.py", line 2376, in process_raw_final_event
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.2070001Z     hist_res = self.history.add_entry_with_status(clean_session_id, segment_id, clean_text)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.2070892Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.2071603Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_controller.py", line 931, in add_entry_with_status
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.2072271Z     raise RuntimeError("History failure simulated")
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.2072892Z RuntimeError: History failure simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.2073343Z HistoryEntry unavailable for ('race_sess', 1). Auto-enqueue skipped.
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.2271916Z .Contradictory duplicate final event for ('sess_1', 10): existing='Text version A', new='Text version B'
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.5692255Z ...Invalid final event fields: sessionId='', segmentId=1, text='T'
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.5692922Z Invalid final event fields: sessionId='s', segmentId=True, text='T'
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.5693354Z Invalid final event fields: sessionId='s', segmentId=-1, text='T'
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:51.5693742Z Invalid final event fields: sessionId='s', segmentId=1, text='   '
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:52.7018303Z .........reinsert_entry requested for unknown entry_id: unknown_id
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:52.7851119Z .Reinsertion rejected: TextInjectionQueue unavailable for entry dfb0bceb7cb8481ba72975de8fa3d315
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:53.1362208Z ..Initial headless auto-start did not complete: send_start simulated failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:53.7056929Z ........Initial headless auto-start did not complete: Dictation start was stopped
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:53.7172381Z ..Dictation interrupted (reason: transport_loss).
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:54.3870257Z ................TextInjectionQueue worker did not stop within timeout.
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:54.7400879Z ..................Ignoring invalid event cursor file C:\Users\RUNNER~1\AppData\Local\Temp\tmpwbfk1ry1\cursor.json: Expecting value: line 1 column 1 (char 0)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:54.7404640Z Ignoring invalid event cursor file C:\Users\RUNNER~1\AppData\Local\Temp\tmpwbfk1ry1\cursor.json: cursor fields do not match schema version 1
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:54.7409262Z Ignoring invalid event cursor file C:\Users\RUNNER~1\AppData\Local\Temp\tmpwbfk1ry1\cursor.json: invalid cursor
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:54.7468494Z Ignoring event cursor 100 ahead of server cursor 99
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:54.8152072Z ................................Event stream attempt failed: simulated cursor disk failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1079848Z Event stream attempt failed: event stream replay timed out
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1086102Z Executing <Task pending name='Task-607' coro=<TestEventStreamTransport.test_cursor_write_failure_replays_without_duplicate_visible_impulse() running at D:\a\voice-stt-client\voice-stt-client\tests\test_event_stream.py:438> wait_for=<Task pending name='Task-611' coro=<sleep() running at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\tasks.py:653> cb=[Task.task_wakeup()] created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\tasks.py:420> cb=[_run_until_complete_cb() at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\base_events.py:181] created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\runners.py:100> took 0.281 seconds
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1126918Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1164297Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1205113Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1244155Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1275085Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1313861Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1356800Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1394651Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1434854Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1473737Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1504650Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1544426Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1584801Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1623853Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1664320Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1694966Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1733979Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1774686Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1813947Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1854772Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1894277Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1934818Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.1973864Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2014830Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2053987Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2094748Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2133835Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2174621Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2213926Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2255062Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2293943Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2334691Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2373820Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2414599Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2453989Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2485017Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2524425Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2564957Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2604202Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2634675Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2675256Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2714966Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2754172Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2794551Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2830888Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2865066Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2894469Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2925206Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.2964560Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.3006398Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.3045462Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.3080648Z Event stream attempt failed: pop from empty list
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.4048322Z E...Event stream attempt failed: disconnect during replay
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.4642662Z ...Event stream attempt failed: network down
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.4911582Z ..Error in on_feedback_decision callback.
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.4911938Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.4912901Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\controller.py", line 607, in _publish_feedback_decision
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.4913529Z     self.on_feedback_decision(decision)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.4914253Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_feedback_integration.py", line 198, in <lambda>
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.4914965Z     self.controller.on_feedback_decision = lambda decision: (_ for _ in ()).throw(
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.4915525Z                                                             ^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.4916641Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_feedback_integration.py", line 198, in <genexpr>
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.4917378Z     self.controller.on_feedback_decision = lambda decision: (_ for _ in ()).throw(
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.4917929Z RuntimeError: adapter failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.6508485Z ........Ignoring unknown configuration fields in D:\a\voice-stt-client\voice-stt-client\voice_stt_client\config.yaml: led.memory, led.persistent
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.6843811Z ..Ignoring unknown configuration fields in D:\a\voice-stt-client\voice-stt-client\voice_stt_client\config.yaml: led.memory, led.persistent
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.7698407Z .Ignoring unknown configuration fields in D:\a\voice-stt-client\voice-stt-client\voice_stt_client\config.yaml: led.memory, led.persistent
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.8031901Z .Ignoring unknown configuration fields in D:\a\voice-stt-client\voice-stt-client\voice_stt_client\config.yaml: led.memory, led.persistent
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:55.8365349Z ...Ignoring unknown configuration fields in D:\a\voice-stt-client\voice-stt-client\voice_stt_client\config.yaml: led.memory, led.persistent
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.1880356Z ......................Sound feedback failed for error.
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.1880727Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.1881240Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\feedback.py", line 97, in play
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.1881636Z     player.play()
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.1882052Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_feedback_ui.py", line 53, in play
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.1882473Z     raise RuntimeError("simulated sound backend failure")
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.1882748Z RuntimeError: simulated sound backend failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.1940531Z .....Sound asset is unavailable: D:\a\voice-stt-client\voice-stt-client\voice_stt_client\definitely-missing.wav
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6025133Z ..............Failed to initialize SQLite database: file is not a database. Falling back to in-memory mode.
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6025892Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6026402Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\history.py", line 177, in _init_db
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6026866Z     if conn.execute('PRAGMA user_version').fetchone()[0] > 2:
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6027138Z        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6027382Z sqlite3.DatabaseError: file is not a database
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6767977Z ..Failed to initialize SQLite database: [WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpb2di40xf\\parent_is_a_file'. Falling back to in-memory mode.
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6768731Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6769326Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\history.py", line 175, in _init_db
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6769778Z     self.db_path.parent.mkdir(parents=True, exist_ok=True)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6770230Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\pathlib.py", line 1311, in mkdir
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6770588Z     os.mkdir(self, mode)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.6771077Z FileExistsError: [WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\runneradmin\\AppData\\Local\\Temp\\tmpb2di40xf\\parent_is_a_file'
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7271487Z ..Failed to fetch entry from DB: Database connection lost
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7274774Z Failed to save history entry to DB: Database connection lost
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7275130Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7275637Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\history.py", line 461, in _save_to_db
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7276595Z     with self._db_session() as conn:
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7276962Z          ^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7277581Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\contextlib.py", line 137, in __enter__
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7278228Z     return next(self.gen)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7278825Z            ^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7279590Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\history.py", line 156, in _db_session
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7280229Z     conn = self._get_connection()
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7280545Z            ^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7281277Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_history.py", line 564, in faulty_connection
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7282052Z     raise sqlite3.OperationalError("Database connection lost")
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7282558Z sqlite3.OperationalError: Database connection lost
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7283080Z Failed to check if parent exists in DB: Database connection lost
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7283702Z Failed to save history entry and attempt atomar in DB: Database connection lost
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7284235Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7284926Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\history.py", line 694, in record_injection_attempt
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7285679Z     with self._db_session() as conn:
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7286027Z          ^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7286597Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\contextlib.py", line 137, in __enter__
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7287216Z     return next(self.gen)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7287524Z            ^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7288119Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\history.py", line 156, in _db_session
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7288802Z     conn = self._get_connection()
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7289124Z            ^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7289736Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_history.py", line 564, in faulty_connection
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7290502Z     raise sqlite3.OperationalError("Database connection lost")
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:57.7291016Z sqlite3.OperationalError: Database connection lost
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:58.7009856Z ..........Failed to save history entry to DB: database is locked
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:58.7010287Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:58.7010790Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\history.py", line 462, in _save_to_db
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:58.7011213Z     cursor = self._insert_entry(conn, entry)
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:58.7011537Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:58.7012305Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\history.py", line 277, in _insert_entry
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:58.7012716Z     return conn.execute('''INSERT INTO history_entries
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:58.7012963Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:58.7013313Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_history.py", line 592, in execute
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:58.7013812Z     raise sqlite3.OperationalError("database is locked")
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:58.7014079Z sqlite3.OperationalError: database is locked
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:59.9045704Z ..........Global hotkey registration failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:59.9046240Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:59.9046970Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\hotkeys.py", line 286, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:59.9047515Z     self._backend.register(
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:59.9048013Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_hotkeys.py", line 35, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:59.9049189Z     raise OSError("simulated hotkey conflict")
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:59.9049573Z OSError: simulated hotkey conflict
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:59.9054441Z ......LED output unavailable: no ring window connected
+Test and build release candidates	Run complete test suite	2026-10-13T03:42:59.9613652Z ..LED output unavailable: gone
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.4867304Z ..............LED output unavailable: set_state listening: device gone
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.6108860Z .....LED output unavailable: set_state listening: device gone
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.6215180Z LED output unavailable: set_state speaking: gone again
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8277869Z .the LED worker did not stop in time
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8395929Z .....LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8396413Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8396809Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8397146Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8397503Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8397846Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8398164Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8398522Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8398911Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8399591Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8399967Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8400329Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8400736Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8401077Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8401463Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8401812Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8402154Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8402538Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8402895Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8403245Z LED queue overflowed; dropped 1 oldest calls
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8405989Z .LED output unavailable: reSpeaker not connected
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:09.8406426Z LED output unavailable: gone again
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2755816Z ................................................................................................................................................................................--- Logging error ---
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2821203Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2823387Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\logging\__init__.py", line 1163, in emit
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2823818Z     stream.write(msg + self.terminator)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2824241Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\encodings\cp1252.py", line 19, in encode
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2824695Z     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2825011Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2825627Z UnicodeEncodeError: 'charmap' codec can't encode character '\u2502' in position 9: character maps to <undefined>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2826364Z Call stack:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2826731Z   File "<frozen runpy>", line 198, in _run_module_as_main
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2827266Z   File "<frozen runpy>", line 88, in _run_code
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2827671Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\__main__.py", line 18, in <module>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2828049Z     main(module=None)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2828396Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 105, in __init__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2828850Z     self.runTests()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2829161Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 281, in runTests
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2829527Z     self.result = testRunner.run(self.test)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2830011Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\runner.py", line 240, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2830351Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2830662Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2831107Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2831709Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2832060Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2832370Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2832933Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2833276Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2833611Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2834046Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2834695Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2835284Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2835635Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2835951Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 690, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2836307Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2836745Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 634, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2837093Z     self._callTestMethod(testMethod)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2837576Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 589, in _callTestMethod
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2837956Z     if method() is not None:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2838515Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_obs020_logging_setup_integration.py", line 56, in test_file_and_stdout_output_identical_with_and_without_observability
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2839069Z     setup_logging(config_a)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2839460Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\logging_setup.py", line 114, in setup_logging
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2839980Z     logging.getLogger("app").info(
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2840317Z Message: 'Logging initialized: level=%s, dir=%s, json=%s'
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2840755Z Arguments: ('INFO', WindowsPath('C:/Users/RUNNER~1/AppData/Local/Temp/tmpiho0go1o/a'), True)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2841096Z --- Logging error ---
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2841297Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2842385Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\logging\__init__.py", line 1163, in emit
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2842781Z     stream.write(msg + self.terminator)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2843167Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\encodings\cp1252.py", line 19, in encode
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2843594Z     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2843894Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2844298Z UnicodeEncodeError: 'charmap' codec can't encode character '\u2502' in position 9: character maps to <undefined>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2844685Z Call stack:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2844903Z   File "<frozen runpy>", line 198, in _run_module_as_main
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2845175Z   File "<frozen runpy>", line 88, in _run_code
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2845555Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\__main__.py", line 18, in <module>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2845906Z     main(module=None)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2846218Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 105, in __init__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2846646Z     self.runTests()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2846980Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 281, in runTests
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2847424Z     self.result = testRunner.run(self.test)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2847778Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\runner.py", line 240, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2848113Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2848409Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2848744Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2849076Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2849396Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2849682Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2850544Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2850882Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2851207Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2851510Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2851845Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2852168Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2852496Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2852796Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 690, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2853141Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2853546Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 634, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2853894Z     self._callTestMethod(testMethod)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2854284Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 589, in _callTestMethod
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2854645Z     if method() is not None:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2855206Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_obs020_logging_setup_integration.py", line 57, in test_file_and_stdout_output_identical_with_and_without_observability
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2855796Z     logging.getLogger("controller").info("identical line %s", 1)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2856066Z Message: 'identical line %s'
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.2856261Z Arguments: (1,)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3001199Z D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\logging_setup.py:77: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmpiho0go1o\\a\\client.log' mode='a' encoding='utf-8'>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3001981Z   root_logger.handlers.clear()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3002298Z ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3006575Z --- Logging error ---
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3007418Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3008939Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\logging\__init__.py", line 1163, in emit
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3009435Z     stream.write(msg + self.terminator)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3009827Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\encodings\cp1252.py", line 19, in encode
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3010282Z     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3010589Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3010994Z UnicodeEncodeError: 'charmap' codec can't encode character '\u2502' in position 9: character maps to <undefined>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3011629Z Call stack:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3011923Z   File "<frozen runpy>", line 198, in _run_module_as_main
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3012202Z   File "<frozen runpy>", line 88, in _run_code
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3012687Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\__main__.py", line 18, in <module>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3013052Z     main(module=None)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3013375Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 105, in __init__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3013757Z     self.runTests()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3014237Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 281, in runTests
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3014774Z     self.result = testRunner.run(self.test)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3015162Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\runner.py", line 240, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3015512Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3015821Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3016166Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3016522Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3016871Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3017390Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3017874Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3018236Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3018565Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3018859Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3019212Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3019535Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3019857Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3020161Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 690, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3020499Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3020823Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 634, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3021170Z     self._callTestMethod(testMethod)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3021539Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 589, in _callTestMethod
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3021899Z     if method() is not None:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3022563Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_obs020_logging_setup_integration.py", line 64, in test_file_and_stdout_output_identical_with_and_without_observability
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3023144Z     setup_logging(config_b, observability=observability)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3023582Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\logging_setup.py", line 114, in setup_logging
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3023985Z     logging.getLogger("app").info(
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3024240Z Message: 'Logging initialized: level=%s, dir=%s, json=%s'
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3024702Z Arguments: ('INFO', WindowsPath('C:/Users/RUNNER~1/AppData/Local/Temp/tmpiho0go1o/b'), True)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3025493Z --- Logging error ---
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3025785Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3026377Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\logging\__init__.py", line 1163, in emit
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3026954Z     stream.write(msg + self.terminator)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3027312Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\encodings\cp1252.py", line 19, in encode
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3027915Z     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3028353Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3028760Z UnicodeEncodeError: 'charmap' codec can't encode character '\u2502' in position 9: character maps to <undefined>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3029139Z Call stack:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3029371Z   File "<frozen runpy>", line 198, in _run_module_as_main
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3029644Z   File "<frozen runpy>", line 88, in _run_code
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3030020Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\__main__.py", line 18, in <module>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3030370Z     main(module=None)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3030682Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 105, in __init__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3031016Z     self.runTests()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3031318Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 281, in runTests
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3031665Z     self.result = testRunner.run(self.test)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3032017Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\runner.py", line 240, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3032350Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3032753Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3033094Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3033435Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3033914Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3034205Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3034540Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3034866Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3035182Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3035465Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3035801Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3054778Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3055371Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3055856Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 690, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3056430Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3056923Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 634, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3057469Z     self._callTestMethod(testMethod)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3058078Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 589, in _callTestMethod
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3058679Z     if method() is not None:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3059651Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_obs020_logging_setup_integration.py", line 65, in test_file_and_stdout_output_identical_with_and_without_observability
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3060701Z     logging.getLogger("controller").info("identical line %s", 1)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3061146Z Message: 'identical line %s'
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3061419Z Arguments: (1,)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3063014Z C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmpiho0go1o\\b\\client.log' mode='a' encoding='utf-8'>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3063908Z   function(*args, **kwargs)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3064191Z ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3064504Z .--- Logging error ---
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3064728Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3065286Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\logging\__init__.py", line 1163, in emit
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3066004Z     stream.write(msg + self.terminator)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3066389Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\encodings\cp1252.py", line 19, in encode
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3066816Z     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3067107Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3067547Z UnicodeEncodeError: 'charmap' codec can't encode character '\u2502' in position 9: character maps to <undefined>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3067988Z Call stack:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3068209Z   File "<frozen runpy>", line 198, in _run_module_as_main
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3068497Z   File "<frozen runpy>", line 88, in _run_code
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3068865Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\__main__.py", line 18, in <module>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3069204Z     main(module=None)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3069516Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 105, in __init__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3069854Z     self.runTests()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3070146Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 281, in runTests
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3070495Z     self.result = testRunner.run(self.test)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3070839Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\runner.py", line 240, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3071160Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3071451Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3071785Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3072251Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3072912Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3073462Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3073947Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3074276Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3074598Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3074886Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3075248Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3075583Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3075906Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3076217Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 690, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3076579Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3076907Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 634, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3077260Z     self._callTestMethod(testMethod)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3077788Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 589, in _callTestMethod
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3078249Z     if method() is not None:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3078788Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_obs020_logging_setup_integration.py", line 47, in test_without_observability_param_behaves_exactly_as_before
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3079408Z     setup_logging(config)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3079784Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\logging_setup.py", line 114, in setup_logging
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3080190Z     logging.getLogger("app").info(
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3080443Z Message: 'Logging initialized: level=%s, dir=%s, json=%s'
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3080937Z Arguments: ('INFO', WindowsPath('C:/Users/RUNNER~1/AppData/Local/Temp/tmpu0fp91ka'), True)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3081702Z C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmpu0fp91ka\\client.log' mode='a' encoding='utf-8'>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3082346Z   function(*args, **kwargs)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3082730Z ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3083039Z .--- Logging error ---
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3083237Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3083587Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\logging\__init__.py", line 1163, in emit
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3083945Z     stream.write(msg + self.terminator)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3084291Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\encodings\cp1252.py", line 19, in encode
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3084718Z     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3085020Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3085419Z UnicodeEncodeError: 'charmap' codec can't encode character '\u2502' in position 9: character maps to <undefined>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3085805Z Call stack:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3086043Z   File "<frozen runpy>", line 198, in _run_module_as_main
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3086321Z   File "<frozen runpy>", line 88, in _run_code
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3086683Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\__main__.py", line 18, in <module>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3087022Z     main(module=None)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3087335Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 105, in __init__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3087777Z     self.runTests()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3088080Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 281, in runTests
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3088438Z     self.result = testRunner.run(self.test)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3088884Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\runner.py", line 240, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3089215Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3089511Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3089862Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3090186Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3090507Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3090805Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3091141Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3091463Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3091993Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3092593Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3092972Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3093308Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3093631Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3094040Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 690, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3094389Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3094726Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 634, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3095070Z     self._callTestMethod(testMethod)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3095430Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 589, in _callTestMethod
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3095795Z     if method() is not None:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3096345Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_obs020_logging_setup_integration.py", line 110, in test_double_setup_logging_call_yields_exactly_one_unified_handler
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3097026Z     setup_logging(config, observability=observability)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3097467Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\logging_setup.py", line 114, in setup_logging
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3097978Z     logging.getLogger("app").info(
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3098232Z Message: 'Logging initialized: level=%s, dir=%s, json=%s'
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3098607Z Arguments: ('INFO', WindowsPath('C:/Users/RUNNER~1/AppData/Local/Temp/tmpdkjwk_nd'), True)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3099398Z D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\logging_setup.py:77: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmpdkjwk_nd\\client.log' mode='a' encoding='utf-8'>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3100078Z   root_logger.handlers.clear()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3100368Z ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3100682Z --- Logging error ---
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3100875Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3101227Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\logging\__init__.py", line 1163, in emit
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3101590Z     stream.write(msg + self.terminator)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3101938Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\encodings\cp1252.py", line 19, in encode
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3102345Z     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3102727Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3103136Z UnicodeEncodeError: 'charmap' codec can't encode character '\u2502' in position 9: character maps to <undefined>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3103511Z Call stack:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3103719Z   File "<frozen runpy>", line 198, in _run_module_as_main
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3103997Z   File "<frozen runpy>", line 88, in _run_code
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3104360Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\__main__.py", line 18, in <module>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3104792Z     main(module=None)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3105117Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 105, in __init__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3105453Z     self.runTests()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3105753Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 281, in runTests
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3106107Z     self.result = testRunner.run(self.test)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3106459Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\runner.py", line 240, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3106808Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3107124Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3107470Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3107908Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3108246Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3108550Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3108886Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3109203Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3109527Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3109815Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3110147Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3110469Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3110786Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3111075Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 690, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3111415Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3111815Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 634, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3112165Z     self._callTestMethod(testMethod)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3112647Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 589, in _callTestMethod
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3113015Z     if method() is not None:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3113572Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_obs020_logging_setup_integration.py", line 111, in test_double_setup_logging_call_yields_exactly_one_unified_handler
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3114150Z     setup_logging(config, observability=observability)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3114578Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\logging_setup.py", line 114, in setup_logging
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3114970Z     logging.getLogger("app").info(
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3115220Z Message: 'Logging initialized: level=%s, dir=%s, json=%s'
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3115601Z Arguments: ('INFO', WindowsPath('C:/Users/RUNNER~1/AppData/Local/Temp/tmpdkjwk_nd'), True)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3116372Z C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmpdkjwk_nd\\client.log' mode='a' encoding='utf-8'>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3117010Z   function(*args, **kwargs)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3117298Z ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3117711Z .--- Logging error ---
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3117933Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3118281Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\logging\__init__.py", line 1163, in emit
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3118632Z     stream.write(msg + self.terminator)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3118976Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\encodings\cp1252.py", line 19, in encode
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3119392Z     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3119695Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3120308Z UnicodeEncodeError: 'charmap' codec can't encode character '\u2502' in position 9: character maps to <undefined>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3120912Z Call stack:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3121145Z   File "<frozen runpy>", line 198, in _run_module_as_main
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3121420Z   File "<frozen runpy>", line 88, in _run_code
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3121781Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\__main__.py", line 18, in <module>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3122127Z     main(module=None)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3122534Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 105, in __init__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3122871Z     self.runTests()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3123171Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 281, in runTests
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3123512Z     self.result = testRunner.run(self.test)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3123851Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\runner.py", line 240, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3124184Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3124477Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3124807Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3125128Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3125447Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3125728Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3126057Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3126373Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3126684Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3126959Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3127401Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3127832Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3128153Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3128451Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 690, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3128787Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3129110Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 634, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3129449Z     self._callTestMethod(testMethod)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3129809Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 589, in _callTestMethod
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3130160Z     if method() is not None:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3130644Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_obs020_logging_setup_integration.py", line 102, in test_logging_through_root_reaches_the_ingress
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3131164Z     setup_logging(config, observability=observability)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3131599Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\logging_setup.py", line 114, in setup_logging
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3131982Z     logging.getLogger("app").info(
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3132236Z Message: 'Logging initialized: level=%s, dir=%s, json=%s'
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3132689Z Arguments: ('INFO', WindowsPath('C:/Users/RUNNER~1/AppData/Local/Temp/tmpi7t3x5v5'), True)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3133016Z --- Logging error ---
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3133201Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3133543Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\logging\__init__.py", line 1163, in emit
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3133889Z     stream.write(msg + self.terminator)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3134227Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\encodings\cp1252.py", line 19, in encode
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3134637Z     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3134932Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3135413Z UnicodeEncodeError: 'charmap' codec can't encode character '\u2502' in position 9: character maps to <undefined>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3135789Z Call stack:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3135990Z   File "<frozen runpy>", line 198, in _run_module_as_main
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3136257Z   File "<frozen runpy>", line 88, in _run_code
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3136616Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\__main__.py", line 18, in <module>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3136950Z     main(module=None)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3137255Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 105, in __init__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3137671Z     self.runTests()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3137974Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 281, in runTests
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3138314Z     self.result = testRunner.run(self.test)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3138669Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\runner.py", line 240, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3139002Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3139291Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3139621Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3139946Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3140268Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3140547Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3140874Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3141182Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3141491Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3141776Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3142199Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3142595Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3142945Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3143225Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 690, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3143552Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3143869Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 634, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3144205Z     self._callTestMethod(testMethod)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3144565Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 589, in _callTestMethod
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3144918Z     if method() is not None:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3145408Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_obs020_logging_setup_integration.py", line 103, in test_logging_through_root_reaches_the_ingress
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3145931Z     logging.getLogger("controller").info("via root logger")
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3146187Z Message: 'via root logger'
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3146369Z Arguments: ()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3146959Z C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmpi7t3x5v5\\client.log' mode='a' encoding='utf-8'>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3147672Z   function(*args, **kwargs)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3147952Z ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3148278Z .--- Logging error ---
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3148472Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3148808Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\logging\__init__.py", line 1163, in emit
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3149163Z     stream.write(msg + self.terminator)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3149501Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\encodings\cp1252.py", line 19, in encode
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3149910Z     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3150316Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3150712Z UnicodeEncodeError: 'charmap' codec can't encode character '\u2502' in position 9: character maps to <undefined>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3151081Z Call stack:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3151286Z   File "<frozen runpy>", line 198, in _run_module_as_main
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3151558Z   File "<frozen runpy>", line 88, in _run_code
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3151915Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\__main__.py", line 18, in <module>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3152248Z     main(module=None)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3152636Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 105, in __init__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3152972Z     self.runTests()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3153291Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\main.py", line 281, in runTests
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3153639Z     self.result = testRunner.run(self.test)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3153981Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\runner.py", line 240, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3154296Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3154590Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3154921Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3155242Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3155564Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3155853Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3156189Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3156509Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3156820Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3157103Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 84, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3157565Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3157934Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\suite.py", line 122, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3158252Z     test(result)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3158533Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 690, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3158866Z     return self.run(*args, **kwds)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3159173Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 634, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3159496Z     self._callTestMethod(testMethod)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3159859Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py", line 589, in _callTestMethod
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3160204Z     if method() is not None:
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3160717Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_obs020_logging_setup_integration.py", line 92, in test_third_handler_is_added_and_level_set_from_observability
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3161270Z     setup_logging(config, observability=observability)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3161689Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\logging_setup.py", line 114, in setup_logging
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3162071Z     logging.getLogger("app").info(
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3162312Z Message: 'Logging initialized: level=%s, dir=%s, json=%s'
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3162762Z Arguments: ('INFO', WindowsPath('C:/Users/RUNNER~1/AppData/Local/Temp/tmp8txg6akt'), True)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3163515Z C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\tmp8txg6akt\\client.log' mode='a' encoding='utf-8'>
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3164143Z   function(*args, **kwargs)
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.3164420Z ResourceWarning: Enable tracemalloc to get the object allocation traceback
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:14.4336302Z ...............................Ignoring unknown configuration fields in C:\Users\RUNNER~1\AppData\Local\Temp\tmptp5mw7ec\config.yaml: logging.observability.made_up_field
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:15.4330539Z ..................[observability] store_write_failed: store is broken
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:15.4334205Z ...[observability] retention_pressure: db_bytes=1024 exceeds max_db_bytes=512
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:15.4856656Z ...........[observability] store_write_failed: broken
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:21.2111777Z .......................................[observability] path_outside_user_profile: logging.observability.db_path is outside the user profile (CONTRACTS �4.3 P-8) and was not accepted; using the default location
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:22.7899501Z .............................[observability] store_write_failed: boom
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:23.4539269Z ............[observability] sink_write_failed: simulated sink failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:23.4882022Z .[observability] store_disk_full: database or disk is full
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:23.5170912Z .[observability] store_write_failed: permanently broken
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:23.5471366Z .[observability] store_write_failed: boom
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:23.6127715Z .[observability] store_write_failed: transient
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:23.7006607Z .[observability] worker_loop_failed: injected drain failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:23.7532536Z [observability] worker_drain_failed: injected drain failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:23.7637059Z [observability] shutdown_flush_incomplete: 1 records dropped at shutdown
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:23.8632747Z ....[observability] worker_loop_failed: injected drain failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:23.9406251Z .............Server error classified without transport reset: where=audio_packet count=1 message=bad packet
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:23.9407086Z Server error classified without transport reset: where=audio_packet count=2 message=bad packet
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:24.3889227Z ........................................................Executing <Task finished name='Task-995' coro=<TestIndependentFanOut.test_a_slow_observer_delays_but_does_not_change_the_outcome() done, defined at D:\a\voice-stt-client\voice-stt-client\tests\test_obs040_fanout_hook.py:355> result=None created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\runners.py:100> took 0.188 seconds
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:24.4030015Z ....Event stream attempt failed: server sent a frame that is not JSON
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:24.4078184Z .Event stream attempt failed: boom
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:24.4207828Z Event stream attempt failed: boom
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:24.4258431Z .Event stream attempt failed: {"type": "log.event", "secretFrameContent": 1}
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:28.1245232Z ...............................................................................................................................................................Clearing the diagnostics history failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:28.1245775Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:28.1246280Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\application.py", line 717, in clear_diagnostics_history
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:28.1246777Z     deleted = manager.clear_history()
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:28.1247002Z               ^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:28.1247358Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_obs050_ui.py", line 1163, in clear_history
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:28.1247768Z     raise TimeoutError("clear did not complete in time")
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:28.1248030Z TimeoutError: clear did not complete in time
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:57.0960166Z ..........................................................................................[observability] store_open_failed: open explodes
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:57.0960769Z [observability] retention_failed: retention explodes
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:57.3186556Z .[observability] retention_failed: retention explodes
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:57.9742750Z .................[observability] store_write_failed: injected write failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:58.6731878Z .[observability] store_write_failed: injected write failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:59.1552417Z .[observability] store_write_failed: injected write failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:43:59.8477245Z .[observability] store_write_failed: injected write failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6278186Z ...Failed to read memory history entries (will try persistent fallback): Simulated memory history failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6280837Z Failed to query persistent transcript history: Simulated persistent history failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6281366Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6281817Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\reinsertion.py", line 142, in reinsert_last
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6282327Z     persistent_entries = self.history_manager.get_persistent_entries()
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6282639Z                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6283092Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_reinsertion.py", line 50, in get_persistent_entries
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6283739Z     raise RuntimeError("Simulated persistent history failure")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6284064Z RuntimeError: Simulated persistent history failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6305603Z ......Failed to read memory entries in get_recent_entries: Simulated memory history failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6306366Z Failed to read persistent entries in get_recent_entries: Simulated persistent history failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6306941Z Failed to read memory entries in get_recent_entries: Simulated memory history failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6307587Z Failed to read persistent entries in get_recent_entries: Simulated persistent history failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6308005Z Both memory and persistent history queries failed in get_recent_entries.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6309210Z .Reinsertion rejected: TextInjectionQueue unavailable for entry id_1
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:00.6309621Z Failed to log injection attempt for entry id_1: Simulated record attempt failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3502191Z ...reinsert_entry called with invalid entry_id: ''
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3502679Z reinsert_entry called with invalid entry_id: '   '
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3503380Z .Failed to read memory history entries (will try persistent fallback): Simulated memory history failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3536851Z ......Unexpected exception during enqueue for entry id_1: Enqueue exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3537347Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3537795Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\reinsertion.py", line 246, in _enqueue_entry
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3538301Z     else self.injection_queue.enqueue(entry_copy))
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3538633Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3538984Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_reinsertion.py", line 86, in enqueue
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3539385Z     raise RuntimeError("Enqueue exception simulated")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3539639Z RuntimeError: Enqueue exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3539940Z .Reinsertion rejected: TextInjectionQueue unavailable for entry id_1
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3541313Z ..Failed to read memory history entries: Simulated memory history failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3542800Z ..Failed to read memory history entries (will try persistent fallback): Simulated memory history failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3545292Z ...reinsert_entry requested for unknown entry_id: non_existent_id
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3549510Z ..
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.3550188Z release stopped: Local tag-first publication is disabled. Qualify main with ci.yml and dispatch release.yml with that successful candidate_run_id.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.4087182Z ..........Event stream task ended: RuntimeError
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.4558888Z ...........Failed to acquire single-instance mutex.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.4559258Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.4559715Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\single_instance.py", line 93, in acquire
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.4560152Z     handle, already_exists = self._backend.create(self.name)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.4560425Z                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.4561154Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_single_instance.py", line 23, in create
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.4561552Z     raise OSError("simulated mutex failure")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.4561778Z OSError: simulated mutex failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.4772964Z ...UI received fatal Core error: Core konnte nicht gestartet werden
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.5210422Z UI received fatal Core error: Core konnte nicht gestartet werden
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.5654035Z .Global hotkey registration failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.5654368Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.5654803Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\hotkeys.py", line 286, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.5655236Z     self._backend.register(
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.5655697Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_startup_hotkey_persistence.py", line 29, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.5656102Z     raise OSError(1409, "occupied")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.5656335Z OSError: [Errno 1409] occupied
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.5656603Z UI received fatal Core error: Core konnte nicht gestartet werden
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6058737Z .Global hotkey registration failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6059119Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6059685Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\hotkeys.py", line 286, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6060672Z     self._backend.register(
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6061506Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_startup_hotkey_persistence.py", line 29, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6062169Z     raise OSError(1409, "occupied")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6062447Z OSError: [Errno 1409] occupied
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6062818Z UI received fatal Core error: Core konnte nicht gestartet werden
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6068924Z Global hotkey registration failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6069241Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6069619Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\hotkeys.py", line 286, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6070294Z     self._backend.register(
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6070674Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_startup_hotkey_persistence.py", line 29, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6071083Z     raise OSError(1409, "occupied")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6071286Z OSError: [Errno 1409] occupied
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6813032Z .Global hotkey registration failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6813353Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6813786Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\hotkeys.py", line 286, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6814167Z     self._backend.register(
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6814552Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_startup_hotkey_persistence.py", line 29, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6814952Z     raise OSError(1409, "occupied")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6815157Z OSError: [Errno 1409] occupied
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6816538Z Could not persist the working fallback hotkey.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6816798Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6817167Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\application.py", line 255, in start
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6817522Z     self.config.save_user()
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6817858Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\mock.py", line 1139, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6818226Z     return self._mock_call(*args, **kwargs)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6818434Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6818770Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\mock.py", line 1143, in _mock_call
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6819142Z     return self._execute_mock_call(*args, **kwargs)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6819372Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6819743Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6820104Z     raise effect
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.6820533Z PermissionError: read-only profile
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.7026084Z .Global hotkey registration failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.7026382Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.7026797Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\hotkeys.py", line 286, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.7027175Z     self._backend.register(
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.7027561Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_startup_hotkey_persistence.py", line 29, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.7027953Z     raise OSError(1409, "occupied")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.7028406Z OSError: [Errno 1409] occupied
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.7698483Z .Server error: where=admission msg=capacity reached
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.7699270Z Session admission rejected: capacity reached
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.8338438Z ..Ping timeout after 3 consecutive misses, closing connection (gen 1).
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.8495567Z .Ping loop failed; recycling connection: simulated ping send failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.8537146Z .Server reported ready with ok=false
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:01.8537885Z Server unavailable: Server not ready (ok=false)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:02.0061252Z .........................No trigger_ack for commandId=cmd-5344da11ed41 within 0.1s
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:02.0637555Z ..Failed to backup clipboard content (non-fatal): Format check exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:02.4063827Z Failed to write transcript text to clipboard: Empty clipboard exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:02.6510340Z Failed to restore previous clipboard content: Empty exception in restore
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:03.1661001Z .Failed to write transcript text to clipboard: Could not open clipboard after maximum retries.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:03.4766101Z .....Queue is not running (state=NEW). Rejecting entry e302edb8150d45c49b4e11f5caafcd5b
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:03.6394983Z ..Failed to write transcript text to clipboard: Clipboard error simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.6184217Z .....Failed to restore previous clipboard content: Sequence number exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.6652092Z Failed to restore previous clipboard content: Sequence number exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.7112318Z SendInput encountered error: SendInput exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.7112808Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.7113274Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\text_injector.py", line 767, in _process_job
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.7113745Z     sent_count = self.backend.send_input_keyboard(events)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.7114033Z                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.7114450Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_text_injector.py", line 151, in send_input_keyboard
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.7114915Z     raise RuntimeError("SendInput exception simulated")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.7115189Z RuntimeError: SendInput exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.7115535Z Failed to restore previous clipboard content: Sequence number exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.8967437Z ..Failed to initialize worker thread: CreateWindowExW exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.8968075Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.8968964Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\text_injector.py", line 573, in _worker_loop
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.8969407Z     self.backend.create_owner_window()
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.8969836Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_text_injector.py", line 76, in create_owner_window
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.8970301Z     raise RuntimeError("CreateWindowExW exception simulated")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:04.8970603Z RuntimeError: CreateWindowExW exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.1023892Z Queue is not running (state=STOPPED). Rejecting entry 33a9ff3a9bb949f4b8efee108a580b19
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.1258225Z .Failed to initialize worker thread: Clipboard owner window creation returned invalid HWND 0.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.1259408Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.1260265Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\text_injector.py", line 576, in _worker_loop
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.1261467Z     raise OSError("Clipboard owner window creation returned invalid HWND 0.")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.1262107Z OSError: Clipboard owner window creation returned invalid HWND 0.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.1478659Z Queue is not running (state=STOPPED). Rejecting entry 9cf09c67f41b49c99cbc2bb480d618f1
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.5032547Z ....Queue is not running (state=STOPPED). Rejecting entry ffebd15a025943ea90257f5a0fbf0b0a
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.5303569Z .Failed to initialize worker thread: CreateWindowExW exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.5304067Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.5304550Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\text_injector.py", line 573, in _worker_loop
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.5304969Z     self.backend.create_owner_window()
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.5305393Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_text_injector.py", line 983, in blocking_failing_create
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.5305828Z     original_create()
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.5306195Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_text_injector.py", line 76, in create_owner_window
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.5306646Z     raise RuntimeError("CreateWindowExW exception simulated")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.5306948Z RuntimeError: CreateWindowExW exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.7233625Z ..Worker thread join timed out after 0.01 seconds.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:05.8973071Z .Worker thread join timed out after 0.01 seconds.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:06.2720513Z .Failed to restore previous clipboard content: Failed to restore clipboard connection
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:08.1422045Z .........Failed to initialize worker thread: CreateWindowExW exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:08.1422989Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:08.1423838Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\text_injector.py", line 573, in _worker_loop
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:08.1424574Z     self.backend.create_owner_window()
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:08.1425152Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_text_injector.py", line 76, in create_owner_window
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:08.1426563Z     raise RuntimeError("CreateWindowExW exception simulated")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:08.1427103Z RuntimeError: CreateWindowExW exception simulated
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:08.2356257Z Queue is not running (state=STOPPED). Rejecting entry 8abb2a0b15f9412eaec0cbfbda3e6ea3
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:08.3528362Z .Worker thread join timed out after 0.05 seconds.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:08.6022331Z .Queue is not running (state=STOPPED). Rejecting entry 055c95f7d4fc4975a54d13298fd2ff9d
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1167746Z ...............Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1168358Z Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1168820Z Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1291938Z ...Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1292458Z Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1432865Z ....Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1433793Z Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1434823Z Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1435275Z Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1435704Z Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1436117Z Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1528904Z ..Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1529808Z Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1530706Z Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1531146Z Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1531844Z Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1532379Z Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1734785Z ....Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1735347Z Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1743589Z Invalid STT fallback event ignored: transcription.recording_started requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.1744213Z Invalid STT fallback event ignored: transcription.recording_ended requires segmentId
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2174657Z ................UI received fatal Core error: Core konnte nicht gestartet werden
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2204860Z .Global hotkey registration failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2205180Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2205619Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\hotkeys.py", line 286, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2206003Z     self._backend.register(
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2206370Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_ui_application.py", line 112, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2206742Z     raise OSError("conflict")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2206935Z OSError: conflict
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2207805Z Global hotkey registration failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2208140Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2208738Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\hotkeys.py", line 286, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2209761Z     self._backend.register(
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2210318Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_ui_application.py", line 112, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2210918Z     raise OSError("conflict")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2211213Z OSError: conflict
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2211742Z No working global hotkey combination found: Windows konnte die Tastenkombination nicht registrieren.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2294194Z .....No system tray is available.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2350678Z .....Global hotkey registration failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2351204Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2352354Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\hotkeys.py", line 286, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2353041Z     self._backend.register(
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2353552Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_ui_application.py", line 262, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2354103Z     raise OSError(1409, "occupied")
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2354415Z OSError: [Errno 1409] occupied
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2459508Z ..Qt UI initialization failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2459884Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2460524Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\application.py", line 1019, in run_gui
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2461172Z     desktop = V2DesktopApplication(
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2461492Z               ^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2462052Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\mock.py", line 1139, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2462647Z     return self._mock_call(*args, **kwargs)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2462989Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2463586Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\mock.py", line 1143, in _mock_call
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2464205Z     return self._execute_mock_call(*args, **kwargs)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2464578Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2465235Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2466174Z     raise effect
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:09.2466473Z RuntimeError: simulated UI construction failure
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6316992Z ...............................................................................Global hotkey registration failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6317426Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6317996Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\hotkeys.py", line 286, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6318393Z     self._backend.register(
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6318746Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_v2_controls.py", line 329, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6319161Z     raise OSError(1409, 'synthetic occupied key')
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6319422Z OSError: [Errno 1409] synthetic occupied key
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6321012Z .Global hotkey registration failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6321384Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6322029Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\hotkeys.py", line 286, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6322648Z     self._backend.register(
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6323205Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_v2_controls.py", line 329, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6323873Z     raise OSError(1409, 'synthetic occupied key')
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6324284Z OSError: [Errno 1409] synthetic occupied key
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6324675Z Global hotkey registration failed.
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6325030Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6325657Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\ui\hotkeys.py", line 286, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6326268Z     self._backend.register(
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6326811Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_v2_controls.py", line 329, in register
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6327869Z     raise OSError(1409, 'synthetic occupied key')
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:14.6328291Z OSError: [Errno 1409] synthetic occupied key
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:30.5390233Z ...................................................................................................................................................Ignoring final without an authoritative segment identity
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.1931620Z .........Executing <Task pending name='Task-2421' coro=<Runtime.test_device_loss_preserves_background_results_and_pause() running at D:\a\voice-stt-client\voice-stt-client\tests\test_v2_runtime_integration.py:250> cb=[_run_until_complete_cb() at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\base_events.py:181] created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\runners.py:100> took 0.156 seconds
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.4204970Z Executing <Task pending name='v2-receive' coro=<V2STTSession._receive() running at D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\v2_transport.py:337> wait_for=<Future pending cb=[Task.task_wakeup()] created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\base_events.py:448> cb=[Task.task_wakeup()] created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\tasks.py:420> took 0.188 seconds
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7104001Z ...Final output failed; audio and mirror remain available
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7104384Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7104859Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\final_results.py", line 135, in consume
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7105427Z     added = self.history.add_entry_with_status(final.session_id, final.segment_id, final.text, **fields)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7105845Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7106269Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\mock.py", line 1139, in __call__
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7106640Z     return self._mock_call(*args, **kwargs)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7106886Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7108097Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\mock.py", line 1143, in _mock_call
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7108495Z     return self._execute_mock_call(*args, **kwargs)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7108734Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7109116Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7109477Z     raise effect
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:35.7109640Z OSError: synthetic
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:36.7114752Z .....Executing <Task pending name='Task-2682' coro=<Runtime.test_pending_command_disconnect_completes_and_shutdown_joins_workers() running at D:\a\voice-stt-client\voice-stt-client\tests\test_v2_runtime_integration.py:262> cb=[_run_until_complete_cb() at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\base_events.py:181] created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\runners.py:100> took 0.141 seconds
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:37.1171511Z ...Executing <Task pending name='Task-2750' coro=<Runtime.test_resync_without_snapshot_remains_guarded_and_bounded() running at D:\a\voice-stt-client\voice-stt-client\tests\test_v2_runtime_integration.py:278> cb=[_run_until_complete_cb() at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\base_events.py:181] created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\runners.py:100> took 0.156 seconds
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:37.4216861Z .Executing <Task pending name='Task-2775' coro=<Runtime.test_two_segments_same_activation_same_text_keep_distinct_results() running at D:\a\voice-stt-client\voice-stt-client\tests\test_v2_runtime_integration.py:341> cb=[_run_until_complete_cb() at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\base_events.py:181] created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\runners.py:100> took 0.125 seconds
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:37.8309592Z Executing <Task pending name='v2-receive' coro=<V2STTSession._receive() running at D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\v2_transport.py:337> wait_for=<Future pending cb=[Task.task_wakeup()] created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\base_events.py:448> cb=[Task.task_wakeup()] created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\tasks.py:420> took 0.391 seconds
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:38.1139898Z Executing <Task pending name='v2-receive' coro=<V2STTSession._receive() running at D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\v2_transport.py:337> wait_for=<Future pending cb=[Task.task_wakeup()] created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\base_events.py:448> cb=[Task.task_wakeup()] created at C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\tasks.py:420> took 0.281 seconds
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6171583Z ..............................................................................................................................
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6172327Z ======================================================================
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6173333Z ERROR: test_cursor_write_failure_replays_without_duplicate_visible_impulse (test_event_stream.TestEventStreamTransport.test_cursor_write_failure_replays_without_duplicate_visible_impulse)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6174307Z ----------------------------------------------------------------------
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6174739Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6175241Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\tasks.py", line 520, in wait_for
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6175764Z     return await fut
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6176028Z            ^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6176396Z   File "D:\a\voice-stt-client\voice-stt-client\voice_stt_client\core\event_stream.py", line 143, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6176775Z     await self._backoff_sleep_task
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6177131Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\tasks.py", line 665, in sleep
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6177642Z     return await future
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6178689Z            ^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6178878Z asyncio.exceptions.CancelledError
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6179026Z
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6179180Z The above exception was the direct cause of the following exception:
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6179390Z
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6179474Z Traceback (most recent call last):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6179852Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\runners.py", line 118, in run
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6180258Z     return self._loop.run_until_complete(task)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6180497Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6180898Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\base_events.py", line 691, in run_until_complete
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6181328Z     return future.result()
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6181532Z            ^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6182032Z   File "D:\a\voice-stt-client\voice-stt-client\tests\test_event_stream.py", line 438, in test_cursor_write_failure_replays_without_duplicate_visible_impulse
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6182572Z     await asyncio.wait_for(transport.run(), timeout=0.5)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6182983Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\tasks.py", line 519, in wait_for
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6183341Z     async with timeouts.timeout(timeout):
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6183559Z                ^^^^^^^^^^^^^^^^^^^^^^^^^
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6183921Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\asyncio\timeouts.py", line 115, in __aexit__
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6184286Z     raise TimeoutError from exc_val
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6184488Z TimeoutError
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6184585Z
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6184704Z ----------------------------------------------------------------------
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6184973Z Ran 1573 tests in 128.257s
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6185089Z
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.6185164Z FAILED (errors=1)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.7100882Z Built <MagicMock name='EXE_PATH' id='2660211585008'> (1 bytes)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.7102170Z Version 1.2.3; SHA-256 2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.7102840Z Built <MagicMock name='EXE_PATH' id='2660230155344'> (1 bytes)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.7103471Z Version 1.2.3; SHA-256 2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.7103921Z
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.7104232Z [OBS-020 timing baseline] 100000 submits at full queue: 1.2142s (12.14us/call)
+Test and build release candidates	Run complete test suite	2026-10-13T03:44:51.8965146Z ##[error]Process completed with exit code 1.
