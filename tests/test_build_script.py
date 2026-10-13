@@ -112,7 +112,7 @@ class BuildScriptTests(unittest.TestCase):
 
     def test_frozen_smoke_checks_version_and_gui_runtime(self) -> None:
         completed = type("Completed", (), {"returncode": 0})()
-        def smoke(command, **kwargs):
+        def smoke(command, *args, **kwargs):
             if "--verification-output" in command:
                 import json
                 build.Path(command[-1]).write_text(json.dumps({"result":"PASS", "buildIdentity":{"clientCommit":"a"*40}}))
@@ -123,7 +123,7 @@ class BuildScriptTests(unittest.TestCase):
             patch.object(build, "run"),
             patch.object(build, "verify_frozen_feedback_assets"),
             patch("runpy.run_path", return_value={"identity": lambda: {"clientCommit": "a"*40}}),
-            patch.object(build.subprocess, "run", side_effect=smoke) as run_process,
+            patch.object(build, "run_frozen_smoke", side_effect=smoke) as run_process,
             patch.object(build, "EXE_PATH") as exe_path,
         ):
             exe_path.is_file.return_value = True
@@ -140,6 +140,32 @@ class BuildScriptTests(unittest.TestCase):
                 [str(exe_path), "--verify-gui-runtime"],
             ],
         )
+
+    def test_smoke_timeout_kills_bootloader_tree_before_cleanup(self) -> None:
+        from unittest.mock import MagicMock
+        process = MagicMock(pid=12345)
+        process.communicate.side_effect = [build.subprocess.TimeoutExpired(['owned.exe'], 60), ('', None)]
+        process.poll.return_value = None
+        with (patch.object(build.subprocess, 'Popen', return_value=process),
+              patch.object(build.subprocess, 'run') as terminate):
+            with self.assertRaisesRegex(build.BuildError, 'Frozen smoke timed out'):
+                build.run_frozen_smoke(['owned.exe', '--verify-gui-runtime'], 'owned-folder', {})
+        terminate.assert_called_once_with(['taskkill', '/PID', '12345', '/T', '/F'],
+            capture_output=True, check=False, creationflags=build.subprocess.CREATE_NO_WINDOW)
+        process.kill.assert_called_once()
+        self.assertEqual(process.communicate.call_args_list[-1].kwargs, {'timeout': 10})
+
+    def test_real_timeout_releases_temporary_cwd(self) -> None:
+        # A real parent/child tree, including inherited cwd/pipe handles. If
+        # either survives, Windows refuses TemporaryDirectory cleanup.
+        script = ('import subprocess,sys,time; '
+            'subprocess.Popen([sys.executable,"-c","import time;time.sleep(20)"]); '
+            'time.sleep(20)')
+        with build.tempfile.TemporaryDirectory(prefix='owned-smoke-timeout-') as folder:
+            with self.assertRaisesRegex(build.BuildError, 'Frozen smoke timed out'):
+                build.run_frozen_smoke([build.sys.executable, '-c', script], folder,
+                    build.os.environ.copy(), timeout=.5)
+        self.assertFalse(build.Path(folder).exists())
 
     def test_feedback_archive_check_rejects_missing_sound(self) -> None:
         with patch("PyInstaller.archive.readers.CArchiveReader") as reader:

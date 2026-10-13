@@ -122,7 +122,7 @@ def desktop_probe(url, qt, packaged_config):
 
 def run_probe(output: Path | None = None, server_url: str | None = None):
     from PySide6.QtCore import QUrl
-    from PySide6.QtMultimedia import QSoundEffect
+    from PySide6.QtMultimedia import QAudioDecoder, QMediaDevices, QSoundEffect
     from PySide6.QtWidgets import QApplication
     from voice_stt_client.ui.feedback import resolve_sound_asset
     from voice_stt_client.ui.overlay import TranscriptOverlay
@@ -132,6 +132,7 @@ def run_probe(output: Path | None = None, server_url: str | None = None):
     del V2DesktopApplication  # Import the entire actual composition, including native ports.
 
     qt = QApplication.instance() or QApplication([])
+    audio_output_available = bool(QMediaDevices.audioOutputs())
     config = AppConfig._load_single(DEFAULT_CONFIG_PATH)
     overlay = TranscriptOverlay(config.overlay)
     dialog = SettingsDialog(config, lambda *_: False, v2_local=True, audio_devices=())
@@ -148,12 +149,35 @@ def run_probe(output: Path | None = None, server_url: str | None = None):
                 with wave.open(str(path), 'rb') as sound:
                     if sound.getnframes() <= 0:
                         raise RuntimeError('Empty sound asset')
-                effect = QSoundEffect()
-                effect.setSource(QUrl.fromLocalFile(str(path.resolve())))
-                effects.append(effect)
+                if audio_output_available:
+                    effect = QSoundEffect()
+                    effect.setSource(QUrl.fromLocalFile(str(path.resolve())))
+                    effects.append(effect)
+                else:
+                    # A CI desktop may have no audio output. Decode the real
+                    # asset through Qt instead of requiring playback hardware.
+                    decoder = QAudioDecoder()
+                    decoded = {'frames': 0, 'finished': False, 'error': False}
+                    def read_buffer():
+                        decoded['frames'] += decoder.read().frameCount()
+                    decoder.bufferReady.connect(read_buffer)
+                    decoder.finished.connect(lambda: decoded.update(finished=True))
+                    decoder.error.connect(lambda *_: decoded.update(error=True))
+                    decoder.setSource(QUrl.fromLocalFile(str(path.resolve())))
+                    try:
+                        decoder.start()
+                        deadline = time.monotonic() + 10
+                        while not (decoded['finished'] or decoded['error']) and time.monotonic() < deadline:
+                            qt.processEvents()
+                            time.sleep(.01)
+                        if decoded['error'] or not decoded['finished'] or decoded['frames'] <= 0:
+                            raise RuntimeError('Qt sound decoder failed: ' + decoder.errorString())
+                    finally:
+                        decoder.stop()
+                        decoder.deleteLater()
+                        qt.processEvents()
                 sounds[name] = hashlib.sha256(path.read_bytes()).hexdigest()
         # Loading uses Qt's real multimedia backend without audibly playing.
-        import time
         deadline = time.monotonic() + 10
         while any(x.status() == QSoundEffect.Status.Loading for x in effects) and time.monotonic() < deadline:
             qt.processEvents()
@@ -171,7 +195,10 @@ def run_probe(output: Path | None = None, server_url: str | None = None):
             packageRoot=str(Path(__file__).resolve().parent), cwd=str(Path.cwd()),
             frozen=bool(getattr(sys, 'frozen', False)), configUrl=config.server.url,
             sounds=sounds, resources=resource_hashes, hello=hello.to_mapping(),
-            gui=dict(platform=qt.platformName(), localTabs=dialog.tabs.count(), overlayVisible=overlay.isVisible(), icon=True))
+            gui=dict(platform=qt.platformName(), localTabs=dialog.tabs.count(), overlayVisible=overlay.isVisible(), icon=True,
+                audioOutputAvailable=audio_output_available,
+                soundLoadMode='QSoundEffect' if audio_output_available else 'QAudioDecoder',
+                playbackTest='NOT_RUN'))
         if server_url:
             result['network'] = asyncio.run(network_probe(server_url))
             result['desktop'] = desktop_probe(server_url, qt, config)

@@ -209,6 +209,35 @@ class FailureIsolation(unittest.IsolatedAsyncioTestCase):
             with self.subTest(url=url), self.assertRaises(ValueError): await network_probe(url)
 
 
+class ProbeDiagnostics(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from PySide6.QtWidgets import QApplication
+        cls.qt = QApplication.instance() or QApplication([])
+
+    def test_no_audio_output_decodes_all_actual_assets_through_qt(self):
+        from PySide6.QtMultimedia import QMediaDevices
+        from voice_stt_client.release_probe import run_probe
+        with patch.object(QMediaDevices, 'audioOutputs', return_value=[]):
+            result = run_probe()
+        self.assertEqual(result['result'], 'PASS')
+        self.assertEqual(len(result['sounds']), 8)
+        self.assertEqual(result['gui']['soundLoadMode'], 'QAudioDecoder')
+        self.assertFalse(result['gui']['audioOutputAvailable'])
+        self.assertEqual(result['gui']['playbackTest'], 'NOT_RUN')
+
+    def test_probe_failure_returns_nonzero_with_machine_readable_result(self):
+        from voice_stt_client.app import main
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder)/'probe.json'
+            with patch('voice_stt_client.release_probe.run_probe', side_effect=RuntimeError('synthetic decoder failure')):
+                self.assertEqual(main(['--verify-gui-runtime', '--verification-output', str(output)]), 1)
+            failure = json.loads(output.read_text(encoding='utf8'))
+            self.assertEqual(failure['result'], 'FAIL')
+            self.assertEqual(failure['errorType'], 'RuntimeError')
+            self.assertIn('decoder failure', failure['error'])
+
+
 class StartupPreferences(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

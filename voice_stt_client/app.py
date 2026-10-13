@@ -108,9 +108,20 @@ def main(argv: Optional[list[str]] = None) -> int:
     # Importing the complete GUI module catches missing or incompatible Qt
     # DLLs without starting a tray instance or touching user configuration.
     if args.verify_gui_runtime:
-        from voice_stt_client.release_probe import run_probe
-        run_probe(args.verification_output, args.verification_server)
-        return 0
+        try:
+            from voice_stt_client.release_probe import run_probe
+            run_probe(args.verification_output, args.verification_server)
+            return 0
+        except Exception as exc:
+            # A windowed frozen executable otherwise opens PyInstaller's modal
+            # error dialog and strands the unattended smoke process.
+            import json
+            failure = dict(result='FAIL', errorType=type(exc).__name__, error=str(exc))
+            if args.verification_output:
+                args.verification_output.write_text(json.dumps(failure)+'\n', encoding='utf8')
+            if sys.stderr is not None:
+                print('GUI packaging probe failed: '+str(exc), file=sys.stderr)
+            return 1
 
     config = AppConfig.load(args.config)
 

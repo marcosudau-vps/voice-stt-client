@@ -1,0 +1,19 @@
+{
+  "failedCiRun": 38437903400,
+  "failedHead": "21d5549ac1c567a6dcd390335fea2b3772dcf2b9",
+  "observedFailure": "Frozen GUI smoke exceeds 60s; orphaned onefile process retains temporary cwd, WinError32 masks original failure",
+  "underlyingProbeCause": "not yet observed in first CI: exception dialog swallowed diagnostics; new probe writes FAIL JSON and exits",
+  "changes": [
+    "GUI probe errors return 1 with JSON instead of modal frozen error dialog",
+    "Popen owns bootloader tree until taskkill /PID owned-pid /T /F; joins before temporary cwd removal",
+    "Device-free Qt QAudioDecoder validates actual WAVs when no audio output; playback remains NOT_RUN"
+  ],
+  "methods": [
+    "tests.test_build_script.BuildScriptTests.test_real_timeout_releases_temporary_cwd",
+    "tests.test_build_script.BuildScriptTests.test_smoke_timeout_kills_bootloader_tree_before_cleanup",
+    "tests.test_v2_release.ProbeDiagnostics.test_no_audio_output_decodes_all_actual_assets_through_qt",
+    "tests.test_v2_release.ProbeDiagnostics.test_probe_failure_returns_nonzero_with_machine_readable_result"
+  ],
+  "targeted": "29 tests PASS plus real Windows process-tree regression PASS",
+  "status": "REQUALIFICATION_REQUIRED"
+}

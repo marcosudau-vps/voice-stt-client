@@ -1,0 +1,75 @@
+{
+  "result": "PASS",
+  "version": "1.0.0",
+  "buildIdentity": {
+    "clientCommit": "21d5549ac1c567a6dcd390335fea2b3772dcf2b9",
+    "schemaVersion": 1,
+    "sourceCommit": "21d5549ac1c567a6dcd390335fea2b3772dcf2b9",
+    "sourceDirty": false,
+    "version": "1.0.0"
+  },
+  "packageRoot": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-ebcycxk8\\wheel-installed\\voice_stt_client",
+  "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-ebcycxk8",
+  "frozen": false,
+  "configUrl": "wss://stt.voice.marcosudau.com/ws/v2",
+  "sounds": {
+    "wake_word_sound": "8f31f3fa50fa8e6535df62f0fdb0d30bf37bf15e2a0a7af6ca7b44f5c6ed2e48",
+    "start_sound": "f3629f74e38d9d3f969288cba26f1d25ff9cc33ac1d7b62d41165a3c3e095f5a",
+    "stop_sound": "048af76ab6f2b48bcad3a78f135cfac6d6a181640b6649710504b74c539150ba",
+    "complete_sound": "b855eb625c0b0324f8f78c8ed8b1256f0c036f5ccd43f58ae9c1137c4383f845",
+    "cancel_sound": "a6c68a352b52330a627166ba0f6385afb5d5f54776e5494bf6b981b087f8fc49",
+    "warning_sound": "bcc20aafc809373bfdd5f99cb3101ea0d6ded03f6b6118cb32bea5aabe201d1c",
+    "error_sound": "b1ee8a7f222bee3e9437601ec3f32285cb46e3eb8de72c9743a324da3268a7d0",
+    "timeout_tick_sound": "d610c2bd4ea5b4e374e18bb10f6b2ef75eb2971a5f0ea5ed0b29359ce894c5a8"
+  },
+  "resources": {
+    "protocol-v2-vectors.json": "694971cea437ca57c207620fac7f169d0397987d7fe1ee02fd276eb8b941de34",
+    "protocol-v2-client-fixtures.json": "0d0ce117140a6a2af98f5e4423e1841d85f0634fffd41a7d7d9f44ba47dd01f1",
+    "protocol-v2-provenance.json": "b887653686b4036e1a576ae1e1676e26494988d93cd5ddacf4013f9550539e63"
+  },
+  "hello": {
+    "type": "hello",
+    "supportedProtocolVersions": [
+      2
+    ],
+    "clientVersion": "1.0.0",
+    "clientCommit": "21d5549ac1c567a6dcd390335fea2b3772dcf2b9",
+    "clientRunId": "f554b6cf-247b-4f60-961c-7b2f0e6d843d",
+    "requestedSession": {
+      "trigger": {
+        "manual": true,
+        "wakeWord": false
+      },
+      "wakeWordIds": []
+    },
+    "runtimeSuppression": {
+      "manual": true,
+      "wakeWord": true
+    }
+  },
+  "gui": {
+    "platform": "windows",
+    "localTabs": 5,
+    "overlayVisible": true,
+    "icon": true
+  },
+  "network": {
+    "result": "PASS",
+    "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+    "sessionId": "210eb237-0d28-4dca-8a94-c5770671e2f8",
+    "settingsRevision": 0,
+    "audioAvailable": false,
+    "snapshotAck": "applied"
+  },
+  "desktop": {
+    "result": "PASS",
+    "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+    "settingsVisible": true,
+    "settingsTabs": 3,
+    "coreThreadSeparate": true,
+    "audioAvailable": false,
+    "audioCaptured": false,
+    "globalKeysRegistered": false,
+    "coreStopped": true
+  }
+}

@@ -134,3 +134,7 @@ menschlicher Freigabe und tatsächlicher kanonischer AP110-Übernahme.
 CI-01: erster PR-CI-Lauf 38437050459 findet CRLF-Konversion der neuen JSONs.
 Repro RED/gezielter Fix GREEN; vollständige Neuqualifikation läuft. Frühere
 Qualifikation in EVIDENCE/QUALIFICATION-01 erhalten, noch keine Reviewübergabe.
+
+CI-02: Suite/compileall auf frischem Runner PASS, Frozen-Smoke hängt und
+WinError32 maskiert Fehler. Kontrollierte Windows-Prozessbaum-/Qt-Decoder-/
+FAIL-JSON-Regressionen PASS. Neuer vollständiger Kandidatenlauf erforderlich.

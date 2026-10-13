@@ -148,6 +148,27 @@ def sanitized_build_path() -> str:
     return os.pathsep.join(unique)
 
 
+def run_frozen_smoke(command: list[str], folder: str, env: dict[str, str], *, timeout: float = 60):
+    """Keep the bootloader alive until timeout cleanup kills its whole tree."""
+    process = subprocess.Popen(command, cwd=folder, env=env, text=True,
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        creationflags=subprocess.CREATE_NO_WINDOW)
+    try:
+        output, _ = process.communicate(timeout=timeout)
+    except subprocess.TimeoutExpired as exc:
+        # subprocess.run kills only the onefile parent; its child can retain
+        # the temporary cwd and mask the timeout with WinError32 on cleanup.
+        subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'],
+            capture_output=True, check=False, creationflags=subprocess.CREATE_NO_WINDOW)
+        if process.poll() is None:
+            process.kill()
+        process.communicate(timeout=10)
+        raise BuildError('Frozen smoke timed out: '+command[1]) from exc
+    if output:
+        print(output, end='')
+    return subprocess.CompletedProcess(command, process.returncode, output)
+
+
 def build(*, clean: bool = False, smoke_test: bool = True, dist_dir: Path | None = None) -> Path:
     if os.name != "nt":
         raise BuildError("The Windows executable must be built on Windows.")
@@ -216,9 +237,11 @@ def build(*, clean: bool = False, smoke_test: bool = True, dist_dir: Path | None
                     command += ['--verification-output', str(Path(folder)/'probe.json')]
                 smoke_env = os.environ.copy()
                 smoke_env['QT_QPA_PLATFORM'] = 'offscreen'
-                result = subprocess.run(command, cwd=folder, env=smoke_env, timeout=60, check=False)
+                result = run_frozen_smoke(command, folder, smoke_env)
                 if result.returncode != 0:
-                    raise BuildError(f"Executable smoke test {smoke_argument} failed with exit code {result.returncode}")
+                    failure_path = Path(folder)/'probe.json'
+                    detail = failure_path.read_text(encoding='utf8') if failure_path.is_file() else result.stdout
+                    raise BuildError(f"Executable smoke test {smoke_argument} failed with exit code {result.returncode}: {detail}")
             probe = json.loads((Path(folder)/'probe.json').read_text(encoding='utf-8'))
             if probe['result'] != 'PASS' or probe['buildIdentity']['clientCommit'] == 'unknown':
                 raise BuildError('Frozen candidate has no qualified source identity')
