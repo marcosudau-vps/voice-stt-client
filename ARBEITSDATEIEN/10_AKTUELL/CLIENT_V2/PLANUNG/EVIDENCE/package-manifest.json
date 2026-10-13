@@ -651,10 +651,12 @@
       "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/server-feedback-checkpoint.json",
       "openFindingIds": [],
       "reviewReport": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md",
-      "humanApproval": null,
+      "humanApproval": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
       "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/11",
       "reviewedCommit": "51d20aa24b41a125acbf2a3cd50df1477eb0c79b",
-      "reviewedTree": "d52aeda488d55b61b9d1c1d744ad0ab09fdf69d4"
+      "reviewedTree": "d52aeda488d55b61b9d1c1d744ad0ab09fdf69d4",
+      "latestReview": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md",
+      "canonicalizationRun": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R03-UEBERNAHME/01_REPORT.md"
     },
     {
       "id": "AP-CV2-100",
