@@ -36,7 +36,7 @@ data = dict(testedBase=subprocess.check_output(['git','rev-parse','HEAD'],text=T
             startedAtUtc=datetime.datetime.now(datetime.UTC).isoformat(),checks=[],
             lineEndingNote='Runtime hashes cover local bytes; Git blobs/exact staged product diff identify normalized published content. All qualification logs are UTF-8 LF before SHA256 and versioning.')
 checks = [
-    (['-W','error','-m','unittest','tests.test_v2_feedback','tests.test_feedback_reducer','tests.test_event_normalizer','tests.test_feedback_mapping','tests.test_feedback_ui','tests.test_led_feedback','tests.test_obs040_client_hooks','tests.test_obs010_models','tests.test_obs010_normalizer_client','tests.test_obs010_normalizer_server','tests.test_obs030_sqlite_store','tests.test_obs050_local_provider','-v'], 'targeted-unittest.txt', 180),
+    (['-W','error','-m','unittest','tests.test_v2_feedback','tests.test_feedback_reducer','tests.test_event_normalizer','tests.test_feedback_mapping','tests.test_feedback_ui','tests.test_led_feedback','tests.test_obs050_ui','tests.test_obs040_client_hooks','tests.test_obs010_models','tests.test_obs010_normalizer_client','tests.test_obs010_normalizer_server','tests.test_obs030_sqlite_store','tests.test_obs050_local_provider','-v'], 'targeted-unittest.txt', 180),
     (['scripts/check_v2_server_feedback.py','--server-root','C:/Users/marco/AppData/Local/Temp/voice-stt-ap-cv2-020-ada13b0','--server-repository','P:/GithubRepos/marcosudau-vps/voice-stt-server/main'], 'server-feedback-checkpoint.json', 90),
     (['-m','compileall','-q','voice_stt_client','scripts','tests'], 'compileall.txt', 60),
     (['-m','unittest','discover','-s','tests','-p','test_*.py','-v'], 'windows-full-unittest.txt', 900),

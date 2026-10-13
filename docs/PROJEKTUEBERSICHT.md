@@ -6,7 +6,7 @@ Aktiver Arbeitsblock CLIENT_V2. AP000 bis AP080 ACCEPTED; AP080 tatsächlich auf
 
 Bestehende Feedbackengine mit validiertem V2-Mirroringang, quellenneutralen Phasen und getrenntem Backgrounddrain. Segmentvorschau, Domain-Dedup, diagnostischer Log-/Replaypfad, relative Anzeige ohne Lifecyclecommands; isolierte queued Qt-/Sound-/LEDausgabe. Mappingregeln und Präferenzen bleiben erhalten, UUIDkorrelation nutzt die vorhandene OBSfoundation.
 
-Qualifikation: 1551 vollständige Windows-Tests, 289 gezielte Tests, 38 neue Clienttests; tatsächlicher gepinnter Domain-/Log-/Replay-/Qtcheckpoint 18 Checks. compileall/diffcheck und Akten-/Blobbindung im Evidenzindex. Hardware-/ASR-/Wahrnehmung bleibt AP-IV2-020, reguläre Appkomposition AP100. Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`.
+Qualifikation: 1552 vollständige Windows-Tests, 377 gezielte Tests, 39 neue Clienttests; tatsächlicher gepinnter Domain-/Log-/Replay-/Qtcheckpoint 18 Checks. compileall/diffcheck und Akten-/Blobbindung im Evidenzindex. Hardware-/ASR-/Wahrnehmung bleibt AP-IV2-020, reguläre Appkomposition AP100. Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`.
 
 Nächste Aktion: unabhängiges Review des endgültigen PR-Heads; Umsetzungsschreiben ab Übergabe pausiert. ROOT_PASS und anschließend ausdrücklicher menschlicher Übernahmeprompt erforderlich. Kein automatischer Merge/AP100.
 

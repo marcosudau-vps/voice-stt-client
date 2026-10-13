@@ -36,6 +36,8 @@ Serverprüfung hatte zunächst einen falschen Gitrepositorypfad und anschließen
 
 Checkpoint verwendet reale Produktions-FastAPI, SQLiteeventstore, zwei TCP-WebSocketkanäle, V2Session/Mirror/Controls/DualSessionCoordinator/EventStreamTransport und queued Qt-Ausgabe bis zu echten Tray-/Overlaywidgets. PCM/Recorder/VAD/ASRscheduler und physische Sound-/LEDsinks sind kontrollierte Grenzen. Synthetic Preview/Finaltexte bleiben Testdaten. Kein Kontakt zum produktiven Server, keine Nutzeraudio-/DB-/Secretablage. Die zwei künstlich fehlschlagenden physischen Sinks prüfen Audio-/Control-/Finalereignisfortgang. Reconnect erhält neuen Generation-/Sessionkontext ohne Finalimpulsreplay.
 
+Abschließender Anschlusscheck reproduzierte nach der ersten PR-Bereitstellung einen UUID-Viewerfehler: Kontextaktionen ließen den UUIDfilter als None fallen und die numerische Tabellensortierung ordnete UUIDs wie fehlende Werte ein. Vor UIänderung bestehende OBS-050-UIsuite 87 PASS, neuer realer Qt-/SQLitefall [reproduziert](EVIDENCE/viewer-repro.txt). Kleine Änderungen nur an Segmentfilterparser und segmentspezifischer Sortierung; alte Integer-/Half-typed-Fälle bleiben unverändert. Neuer isolierter Qtfall prüft echte Kontextaktion, Providerquery und beide Sortierrichtungen gegen tatsächliche SQLiteausgabe. Ganze Qualifikation am aktualisierten Kandidaten wiederholt. [Frühere qualifizierte Logs](EVIDENCE/BEFORE-VIEWER-FIX/windows-validation.json) bleiben historische Vorqualifikation und ersetzen keinen aktuellen Nachweis.
+
 Reguläre Appverdrahtung samt bestehendem Resultat-/History-/Injectionport bleibt AP100. Physischer Mikrofon-/Wake-/ASR-/Sound-/LED-Wahrnehmungsnachweis bleibt AP-IV2-020, Server-Distributed offen. Zwischencheckpoint qualifiziert tatsächliche Client-/Serverpfade, keine reale Gesamtabnahme.
 
 ## Validierung und Abgabe
@@ -45,15 +47,15 @@ Reguläre Appverdrahtung samt bestehendem Resultat-/History-/Injectionport bleib
 | Prüfung | Ergebnis |
 | --- | --- |
 | Relevante Baseline vor erster Änderung | 185 PASS |
-| Neue V2-Feedbacktests einschließlich Qt-Thread-/Faultfälle | 38 PASS, sämtliche Fälle in Gesamtsuite |
-| Gezielte Regression mit `-W error` einschließlich OBS-040-Importgrenze | 289 PASS |
+| Neue V2-Feedbacktests einschließlich Qt-Thread-/Faultfälle | 39 PASS, sämtliche Fälle in Gesamtsuite |
+| Gezielte Regression mit `-W error` einschließlich OBS-040-Importgrenze | 377 PASS |
 | Tatsächlicher gepinnter Domain-/Log-/Replay-/Qtcheckpoint | 18 Checks PASS |
-| Gesamte Windows-Clientsuite | 1551 PASS |
+| Gesamte Windows-Clientsuite | 1552 PASS |
 | compileall, diff/cached --check | PASS |
 | Kandidaten-/Log-/FB-/Aktenbindung | separate Abgabeprüfung PASS |
 
-[Evidenzindex](EVIDENCE/INDEX.md) enthält vollständige Befehle/Artefakthashes. Dokumentation, Matrix/Requirements, Manifest, WORKFLOW_STATUS und operative Einstiege auf REVIEW_READY aktualisiert. AP080-Übernahme ausschließlich in aktueller Paket-/Planpflege nachgeführt; historische Reports unverändert. Genau ein Runmeilenstein. Finaler Paket-PR gegen feat/client-v2 wird angehängt, mit Head/Tree/CI-Kurzfassung identifiziert; Arbeitsbaum bei Abgabe sauber. Nächste Aktion: frisches unabhängiges Review, danach ausdrücklicher menschlicher Übernahmeprompt. Kein Auto-Merge und kein Folgepaketstart.
+[Evidenzindex](EVIDENCE/INDEX.md) enthält vollständige Befehle/Artefakthashes. Dokumentation, Matrix/Requirements, Manifest, WORKFLOW_STATUS und operative Einstiege auf REVIEW_READY aktualisiert. AP080-Übernahme ausschließlich in aktueller Paket-/Planpflege nachgeführt; historische Reports unverändert. Genau ein Runmeilenstein. Paket-PR gegen feat/client-v2 ist angehängt, mit Head/Tree/CI-Kurzfassung identifiziert; Arbeitsbaum bei Abgabe sauber. Nächste Aktion: frisches unabhängiges Review, danach ausdrücklicher menschlicher Übernahmeprompt. Kein Auto-Merge und kein Folgepaketstart.
 
 ## PR-Bereitstellung
 
-[PR #11](https://github.com/marcosudau-vps/voice-stt-client/pull/11), Base feat/client-v2; qualifizierter erster Umsetzungskandidat `9012cd695125e6fa26b58f1cfcc855195013bd4b`, Tree `c596046cd33e05d541dbdd9f3418e3029ecbb51e`. PR ist diesem Codex-Chat angehängt. Nachtrag ändert ausschließlich PR-/Akten-/Verifikationsverweise. [Erneute veröffentlichungsbezogene Blob-/Log-/FB-/Aktenprüfung](EVIDENCE/publication-verification.json) sichert unveränderte 208 qualifizierte Blobs. Finaler Head/Tree und tatsächliches CIresultat werden außerhalb des erzeugenden Commits in der PR-Beschreibung identifiziert. Keine eigene unabhängige Abnahme oder Übernahmefreigabe.
+[PR #11](https://github.com/marcosudau-vps/voice-stt-client/pull/11), Base feat/client-v2. Früherer Umsetzungskandidat `9012cd695125e6fa26b58f1cfcc855195013bd4b` / Tree `c596046cd33e05d541dbdd9f3418e3029ecbb51e`, darauf ausschließlich administrativer PR-Nachtrag `d8e73e57b9b819068e7f7d97d5a6c822a6f37831`. Der anschließend reproduzierte UUID-Vieweranschluss ist am endgültigen Kandidaten neu qualifiziert; dessen getestete Basis d8e73e5 und genauer Produkt-/Testdiff stehen im aktuellen Windowsmanifest. [Aktuelle veröffentlichungsbezogene Prüfung](EVIDENCE/publication-verification.json) bindet alle 208 aktualisierten qualifizierten Blobs, Logs, Requirements und Akten. Finaler Head/Tree und CIresultat stehen außerhalb des erzeugenden Commits in der PR-Beschreibung. PR ist diesem Codex-Chat angehängt; nach vollständiger finaler Übergabe Umsetzungsschreiben pausiert. Keine unabhängige Eigenabnahme, Übernahme oder Folgepaketimplementierung.

@@ -1,19 +1,19 @@
-Built <MagicMock name='EXE_PATH' id='1743688668208'> (1 bytes)
+Built <MagicMock name='EXE_PATH' id='1537173575520'> (1 bytes)
 Version 1.2.3; SHA-256 2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881
-Built <MagicMock name='EXE_PATH' id='1743686565424'> (1 bytes)
+Built <MagicMock name='EXE_PATH' id='1537173593440'> (1 bytes)
 Version 1.2.3; SHA-256 2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881
 
-[OBS-020 timing baseline] 100000 submits at full queue: 2.1371s (21.37us/call)
-03:06:16 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmp7p3frif6\a, json=True
-03:06:16 │ INFO  │ controller   │ identical line 1
-03:06:16 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmp7p3frif6\b, json=True
-03:06:16 │ INFO  │ controller   │ identical line 1
-03:06:16 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpi7q6ihfs, json=True
-03:06:16 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmptexwqn1d, json=True
-03:06:16 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmptexwqn1d, json=True
-03:06:16 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpac7ji9p_, json=True
-03:06:16 │ INFO  │ controller   │ via root logger
-03:06:16 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpns7x_huo, json=True
+[OBS-020 timing baseline] 100000 submits at full queue: 1.8808s (18.81us/call)
+03:18:19 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpy7q0ylyi\a, json=True
+03:18:19 │ INFO  │ controller   │ identical line 1
+03:18:19 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpy7q0ylyi\b, json=True
+03:18:19 │ INFO  │ controller   │ identical line 1
+03:18:19 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmp1yjmihi8, json=True
+03:18:19 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpjzmg8hnl, json=True
+03:18:19 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpjzmg8hnl, json=True
+03:18:19 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpg3d0m_m2, json=True
+03:18:19 │ INFO  │ controller   │ via root logger
+03:18:19 │ INFO  │ app          │ Logging initialized: level=INFO, dir=C:\Users\marco\AppData\Local\Temp\tmpzo3ydd5e, json=True
 test_optional_actions_are_registered_and_dispatched (test_ap06_followup.TestActionHotkeys.test_optional_actions_are_registered_and_dispatched) ... ok
 test_configuration_block_stops_connection_attempts_until_change (test_ap06_followup.TestConfigurationReconnectGuard.test_configuration_block_stops_connection_attempts_until_change) ... Reconnect paused until the invalid session configuration changes.
 ok
@@ -43,7 +43,7 @@ Session configuration fallbacks: ['sensitivity']
 ok
 test_legacy_user_config_is_fallback_only (test_ap06_followup.TestSessionConfigAndMetadata.test_legacy_user_config_is_fallback_only) ... ok
 test_project_and_user_files_are_layered_and_save_is_atomic (test_ap06_followup.TestSessionConfigAndMetadata.test_project_and_user_files_are_layered_and_save_is_atomic) ... ok
-test_unknown_user_field_keeps_valid_override (test_ap06_followup.TestSessionConfigAndMetadata.test_unknown_user_field_keeps_valid_override) ... Ignoring unknown configuration fields in C:\Users\marco\AppData\Local\Temp\tmpvhx2j3fy\user.yaml: overlay.invented
+test_unknown_user_field_keeps_valid_override (test_ap06_followup.TestSessionConfigAndMetadata.test_unknown_user_field_keeps_valid_override) ... Ignoring unknown configuration fields in C:\Users\marco\AppData\Local\Temp\tmp17navnbw\user.yaml: overlay.invented
 ok
 test_url_generation_replaces_each_public_key_exactly_once (test_ap06_followup.TestSessionConfigAndMetadata.test_url_generation_replaces_each_public_key_exactly_once) ... ok
 test_dependency_fields_remain_visible_but_disable_when_inactive (test_ap06_followup.TestSettingsDialog.test_dependency_fields_remain_visible_but_disable_when_inactive) ... ok
@@ -175,7 +175,7 @@ test_parallel_duplicate_final_events_produce_exactly_one_history_entry (test_con
 test_disconnect_invalidates_event_session_and_shutdown_is_once (test_controller.TestSTTControllerDualSessionLifecycle.test_disconnect_invalidates_event_session_and_shutdown_is_once) ... ok
 test_transport_and_hello_callbacks_share_generation (test_controller.TestSTTControllerDualSessionLifecycle.test_transport_and_hello_callbacks_share_generation) ... ok
 test_attempt_logging_failure_does_not_crash_controller (test_controller.TestSTTControllerErrorBranches.test_attempt_logging_failure_does_not_crash_controller) ... Injection queue rejected entry for ('s', 1) (not running/stopping)
-Failed to record attempt for 04e8ac3c11074856b6db3146848655c8: Record attempt failed
+Failed to record attempt for 1b2e9d9f5c024600bd04582bcc25102b: Record attempt failed
 ok
 test_enqueue_exception_returns_failed_and_logs_failed_attempt (test_controller.TestSTTControllerErrorBranches.test_enqueue_exception_returns_failed_and_logs_failed_attempt) ... Enqueue exception for ('s', 1): Simulated enqueue failure
 Traceback (most recent call last):
@@ -188,7 +188,7 @@ RuntimeError: Simulated enqueue failure
 ok
 test_history_disabled_returns_history_unavailable (test_controller.TestSTTControllerErrorBranches.test_history_disabled_returns_history_unavailable) ... HistoryEntry unavailable for ('s', 1). Auto-enqueue skipped.
 ok
-test_queue_not_started_returns_queue_unavailable_and_logs_skipped_attempt (test_controller.TestSTTControllerErrorBranches.test_queue_not_started_returns_queue_unavailable_and_logs_skipped_attempt) ... Queue is not running (state=NEW). Rejecting entry 607047455b724cda8bda0840356684b0
+test_queue_not_started_returns_queue_unavailable_and_logs_skipped_attempt (test_controller.TestSTTControllerErrorBranches.test_queue_not_started_returns_queue_unavailable_and_logs_skipped_attempt) ... Queue is not running (state=NEW). Rejecting entry 6386d187d57246e092920ac9b7a5934a
 Injection queue rejected entry for ('s', 1) (not running/stopping)
 ok
 test_atomic_reservation_race_prevents_duplicate_history_calls (test_controller.TestSTTControllerFinalAndDeduplication.test_atomic_reservation_race_prevents_duplicate_history_calls) ... Failed to add history entry for ('race_sess', 1): History failure simulated
@@ -220,7 +220,7 @@ test_reinsert_entry_by_id (test_controller.TestSTTControllerReinsertion.test_rei
 test_reinsert_last_uses_queue_without_new_history_entry (test_controller.TestSTTControllerReinsertion.test_reinsert_last_uses_queue_without_new_history_entry) ... ok
 test_reinsert_non_existent_id (test_controller.TestSTTControllerReinsertion.test_reinsert_non_existent_id) ... reinsert_entry requested for unknown entry_id: unknown_id
 ok
-test_reinsert_when_queue_unavailable (test_controller.TestSTTControllerReinsertion.test_reinsert_when_queue_unavailable) ... Reinsertion rejected: TextInjectionQueue unavailable for entry 72ce052701a64be4b08964060f811fd3
+test_reinsert_when_queue_unavailable (test_controller.TestSTTControllerReinsertion.test_reinsert_when_queue_unavailable) ... Reinsertion rejected: TextInjectionQueue unavailable for entry f787479252144ce699bdc1541c21b81d
 ok
 test_auto_start_completion_does_not_terminate_run_loop (test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_auto_start_completion_does_not_terminate_run_loop) ... ok
 test_auto_start_failure_keeps_background_controller_alive (test_controller.TestSTTControllerRunLoopAndConcurrentShutdown.test_auto_start_failure_keeps_background_controller_alive) ... Initial headless auto-start did not complete: send_start simulated failure
@@ -271,9 +271,9 @@ test_existing_legacy_history_is_read_in_place_without_loss (test_cv2_000_integra
 test_explicit_profile_keeps_feature_flags_and_preferences_on_roundtrip (test_cv2_000_integration.IntegratedPreferences.test_explicit_profile_keeps_feature_flags_and_preferences_on_roundtrip) ... ok
 test_feature_pr_ci_tests_namespace_build_and_installed_wheel (test_cv2_000_integration.IntegratedPreferences.test_feature_pr_ci_tests_namespace_build_and_installed_wheel) ... ok
 test_commit_and_load_are_bound_to_endpoint_instance_and_protocol (test_event_cursor_store.TestEventCursorStore.test_commit_and_load_are_bound_to_endpoint_instance_and_protocol) ... ok
-test_corrupt_unknown_negative_and_ahead_cursors_are_ignored (test_event_cursor_store.TestEventCursorStore.test_corrupt_unknown_negative_and_ahead_cursors_are_ignored) ... Ignoring invalid event cursor file C:\Users\marco\AppData\Local\Temp\tmp4158gd73\cursor.json: Expecting value: line 1 column 1 (char 0)
-Ignoring invalid event cursor file C:\Users\marco\AppData\Local\Temp\tmp4158gd73\cursor.json: cursor fields do not match schema version 1
-Ignoring invalid event cursor file C:\Users\marco\AppData\Local\Temp\tmp4158gd73\cursor.json: invalid cursor
+test_corrupt_unknown_negative_and_ahead_cursors_are_ignored (test_event_cursor_store.TestEventCursorStore.test_corrupt_unknown_negative_and_ahead_cursors_are_ignored) ... Ignoring invalid event cursor file C:\Users\marco\AppData\Local\Temp\tmpx4j18yka\cursor.json: Expecting value: line 1 column 1 (char 0)
+Ignoring invalid event cursor file C:\Users\marco\AppData\Local\Temp\tmpx4j18yka\cursor.json: cursor fields do not match schema version 1
+Ignoring invalid event cursor file C:\Users\marco\AppData\Local\Temp\tmpx4j18yka\cursor.json: invalid cursor
 Ignoring event cursor 100 ahead of server cursor 99
 ok
 test_endpoint_rejects_credentials_query_and_non_websocket_schemes (test_event_cursor_store.TestEventCursorStore.test_endpoint_rejects_credentials_query_and_non_websocket_schemes) ... ok
@@ -409,13 +409,13 @@ Traceback (most recent call last):
 sqlite3.DatabaseError: file is not a database
 ok
 test_database_connections_are_closed (test_history.TestTranscriptHistoryManager.test_database_connections_are_closed) ... ok
-test_database_error_handling (test_history.TestTranscriptHistoryManager.test_database_error_handling) ... Failed to initialize SQLite database: [WinError 183] Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmp8yoqzsid\\parent_is_a_file'. Falling back to in-memory mode.
+test_database_error_handling (test_history.TestTranscriptHistoryManager.test_database_error_handling) ... Failed to initialize SQLite database: [WinError 183] Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmpawq447xk\\parent_is_a_file'. Falling back to in-memory mode.
 Traceback (most recent call last):
   File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\history.py", line 175, in _init_db
     self.db_path.parent.mkdir(parents=True, exist_ok=True)
   File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1311, in mkdir
     os.mkdir(self, mode)
-FileExistsError: [WinError 183] Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmp8yoqzsid\\parent_is_a_file'
+FileExistsError: [WinError 183] Eine Datei kann nicht erstellt werden, wenn sie bereits vorhanden ist: 'C:\\Users\\marco\\AppData\\Local\\Temp\\tmpawq447xk\\parent_is_a_file'
 ok
 test_database_path_priorities (test_history.TestTranscriptHistoryManager.test_database_path_priorities) ... ok
 test_db_error_after_init (test_history.TestTranscriptHistoryManager.test_db_error_after_init) ... Failed to fetch entry from DB: Database connection lost
@@ -740,29 +740,29 @@ test_accepted_record_is_enqueued_and_counted (test_obs020_ingress.TestSubmitPosi
 test_high_survives_and_low_is_dropped_under_watermark (test_obs020_ingress.TestSubmitPositive.test_high_survives_and_low_is_dropped_under_watermark) ... ok
 test_n04_replayed_server_event_with_type_is_dropped_at_watermark (test_obs020_ingress.TestSubmitPositive.test_n04_replayed_server_event_with_type_is_dropped_at_watermark)
 N-04: without ``not replayed`` in the priority rule this test would ... ok
-test_file_and_stdout_output_identical_with_and_without_observability (test_obs020_logging_setup_integration.TestBackwardCompatibility.test_file_and_stdout_output_identical_with_and_without_observability) ... P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\logging_setup.py:77: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmp7p3frif6\\a\\client.log' mode='a' encoding='utf-8'>
+test_file_and_stdout_output_identical_with_and_without_observability (test_obs020_logging_setup_integration.TestBackwardCompatibility.test_file_and_stdout_output_identical_with_and_without_observability) ... P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\logging_setup.py:77: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpy7q0ylyi\\a\\client.log' mode='a' encoding='utf-8'>
   root_logger.handlers.clear()
 ResourceWarning: Enable tracemalloc to get the object allocation traceback
-C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmp7p3frif6\\b\\client.log' mode='a' encoding='utf-8'>
+C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpy7q0ylyi\\b\\client.log' mode='a' encoding='utf-8'>
   function(*args, **kwargs)
 ResourceWarning: Enable tracemalloc to get the object allocation traceback
 ok
-test_without_observability_param_behaves_exactly_as_before (test_obs020_logging_setup_integration.TestBackwardCompatibility.test_without_observability_param_behaves_exactly_as_before) ... C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpi7q6ihfs\\client.log' mode='a' encoding='utf-8'>
+test_without_observability_param_behaves_exactly_as_before (test_obs020_logging_setup_integration.TestBackwardCompatibility.test_without_observability_param_behaves_exactly_as_before) ... C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmp1yjmihi8\\client.log' mode='a' encoding='utf-8'>
   function(*args, **kwargs)
 ResourceWarning: Enable tracemalloc to get the object allocation traceback
 ok
-test_double_setup_logging_call_yields_exactly_one_unified_handler (test_obs020_logging_setup_integration.TestObservabilityWiring.test_double_setup_logging_call_yields_exactly_one_unified_handler) ... P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\logging_setup.py:77: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmptexwqn1d\\client.log' mode='a' encoding='utf-8'>
+test_double_setup_logging_call_yields_exactly_one_unified_handler (test_obs020_logging_setup_integration.TestObservabilityWiring.test_double_setup_logging_call_yields_exactly_one_unified_handler) ... P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\logging_setup.py:77: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpjzmg8hnl\\client.log' mode='a' encoding='utf-8'>
   root_logger.handlers.clear()
 ResourceWarning: Enable tracemalloc to get the object allocation traceback
-C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmptexwqn1d\\client.log' mode='a' encoding='utf-8'>
+C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpjzmg8hnl\\client.log' mode='a' encoding='utf-8'>
   function(*args, **kwargs)
 ResourceWarning: Enable tracemalloc to get the object allocation traceback
 ok
-test_logging_through_root_reaches_the_ingress (test_obs020_logging_setup_integration.TestObservabilityWiring.test_logging_through_root_reaches_the_ingress) ... C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpac7ji9p_\\client.log' mode='a' encoding='utf-8'>
+test_logging_through_root_reaches_the_ingress (test_obs020_logging_setup_integration.TestObservabilityWiring.test_logging_through_root_reaches_the_ingress) ... C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpg3d0m_m2\\client.log' mode='a' encoding='utf-8'>
   function(*args, **kwargs)
 ResourceWarning: Enable tracemalloc to get the object allocation traceback
 ok
-test_third_handler_is_added_and_level_set_from_observability (test_obs020_logging_setup_integration.TestObservabilityWiring.test_third_handler_is_added_and_level_set_from_observability) ... C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpns7x_huo\\client.log' mode='a' encoding='utf-8'>
+test_third_handler_is_added_and_level_set_from_observability (test_obs020_logging_setup_integration.TestObservabilityWiring.test_third_handler_is_added_and_level_set_from_observability) ... C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\case.py:597: ResourceWarning: unclosed file <_io.TextIOWrapper name='C:\\Users\\marco\\AppData\\Local\\Temp\\tmpzo3ydd5e\\client.log' mode='a' encoding='utf-8'>
   function(*args, **kwargs)
 ResourceWarning: Enable tracemalloc to get the object allocation traceback
 ok
@@ -799,7 +799,7 @@ test_defaults_match_frozen_schema (test_obs030_config.TestDefaults.test_defaults
 test_absent_observability_section_still_yields_defaults (test_obs030_config.TestSaveLoadRoundTrip.test_absent_observability_section_still_yields_defaults) ... ok
 test_non_default_observability_values_survive_save_and_load (test_obs030_config.TestSaveLoadRoundTrip.test_non_default_observability_values_survive_save_and_load)
 This is the exact scenario that would silently corrupt ... ok
-test_unknown_observability_key_is_ignored_not_fatal (test_obs030_config.TestSaveLoadRoundTrip.test_unknown_observability_key_is_ignored_not_fatal) ... Ignoring unknown configuration fields in C:\Users\marco\AppData\Local\Temp\tmpqxjgugz6\config.yaml: logging.observability.made_up_field
+test_unknown_observability_key_is_ignored_not_fatal (test_obs030_config.TestSaveLoadRoundTrip.test_unknown_observability_key_is_ignored_not_fatal) ... Ignoring unknown configuration fields in C:\Users\marco\AppData\Local\Temp\tmps71uo_oc\config.yaml: logging.observability.made_up_field
 ok
 test_negative_invalid_level_raises (test_obs030_config.TestValidation.test_negative_invalid_level_raises) ... ok
 test_negative_negative_retention_days_raises (test_obs030_config.TestValidation.test_negative_negative_retention_days_raises) ... ok
@@ -1051,7 +1051,7 @@ CONTRACTS §7.1: *"jeweils als ERSTE Anweisung"*. Checked on the ... ok
 test_the_controllers_own_event_stream_slot_stays_free_for_the_ui (test_obs040_fanout_hook.TestHookLocationAndForm.test_the_controllers_own_event_stream_slot_stays_free_for_the_ui)
 §7.4: ``STTController.on_event_stream_event`` is *"vorhanden und ... ok
 test_a_slow_observer_delays_but_does_not_change_the_outcome (test_obs040_fanout_hook.TestIndependentFanOut.test_a_slow_observer_delays_but_does_not_change_the_outcome)
-ARCH §8.5 GRENZE 2: the observer principle guarantees BEHAVIOURAL ... Executing <Task finished name='Task-890' coro=<TestIndependentFanOut.test_a_slow_observer_delays_but_does_not_change_the_outcome() done, defined at P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_obs040_fanout_hook.py:355> result=None created at C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.204 seconds
+ARCH §8.5 GRENZE 2: the observer principle guarantees BEHAVIOURAL ... Executing <Task finished name='Task-890' coro=<TestIndependentFanOut.test_a_slow_observer_delays_but_does_not_change_the_outcome() done, defined at P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_obs040_fanout_hook.py:355> result=None created at C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.203 seconds
 ok
 test_both_branches_see_the_same_event (test_obs040_fanout_hook.TestIndependentFanOut.test_both_branches_see_the_same_event) ... ok
 test_events_the_runtime_path_discards_are_still_observed (test_obs040_fanout_hook.TestIndependentFanOut.test_events_the_runtime_path_discards_are_still_observed)
@@ -1614,7 +1614,7 @@ test_an_ack_from_an_older_generation_is_dropped (test_stt_session.TestTriggerAck
 test_an_ack_without_a_command_id_is_ignored (test_stt_session.TestTriggerAcknowledgement.test_an_ack_without_a_command_id_is_ignored) ... ok
 test_capability_detection_reads_the_server_announcement (test_stt_session.TestTriggerAcknowledgement.test_capability_detection_reads_the_server_announcement) ... ok
 test_request_trigger_returns_the_matching_ack (test_stt_session.TestTriggerAcknowledgement.test_request_trigger_returns_the_matching_ack) ... ok
-test_request_trigger_times_out_without_an_ack (test_stt_session.TestTriggerAcknowledgement.test_request_trigger_times_out_without_an_ack) ... No trigger_ack for commandId=cmd-467b26a70e72 within 0.1s
+test_request_trigger_times_out_without_an_ack (test_stt_session.TestTriggerAcknowledgement.test_request_trigger_times_out_without_an_ack) ... No trigger_ack for commandId=cmd-f79e0292fe8c within 0.1s
 ok
 test_sending_a_trigger_on_a_closed_socket_raises (test_stt_session.TestTriggerAcknowledgement.test_sending_a_trigger_on_a_closed_socket_raises) ... ok
 test_clipboard_close_guarantees_on_exceptions (test_text_injector.TestTextInjector.test_clipboard_close_guarantees_on_exceptions) ... Failed to backup clipboard content (non-fatal): Format check exception simulated
@@ -1627,7 +1627,7 @@ test_clipboard_open_retry_success (test_text_injector.TestTextInjector.test_clip
 test_config_nested_deserialization (test_text_injector.TestTextInjector.test_config_nested_deserialization) ... ok
 test_config_save_load_roundtrip (test_text_injector.TestTextInjector.test_config_save_load_roundtrip) ... ok
 test_empty_text_skipped (test_text_injector.TestTextInjector.test_empty_text_skipped) ... ok
-test_enqueue_before_start_rejected (test_text_injector.TestTextInjector.test_enqueue_before_start_rejected) ... Queue is not running (state=NEW). Rejecting entry 54dc71554964450c985fd4b0fdb67cb3
+test_enqueue_before_start_rejected (test_text_injector.TestTextInjector.test_enqueue_before_start_rejected) ... Queue is not running (state=NEW). Rejecting entry 2a8cc19bd0074f1fbbaac4230263b814
 ok
 test_enqueue_copies_data (test_text_injector.TestTextInjector.test_enqueue_copies_data) ... ok
 test_error_in_job_does_not_kill_worker (test_text_injector.TestTextInjector.test_error_in_job_does_not_kill_worker) ... Failed to write transcript text to clipboard: Clipboard error simulated
@@ -1656,19 +1656,19 @@ Traceback (most recent call last):
   File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 76, in create_owner_window
     raise RuntimeError("CreateWindowExW exception simulated")
 RuntimeError: CreateWindowExW exception simulated
-Queue is not running (state=STOPPED). Rejecting entry a7f67907ea0f4c428874c267bc241e4f
+Queue is not running (state=STOPPED). Rejecting entry 60cd34d31f0e4725b023a155c4f12eb6
 ok
 test_init_owner_window_zero_fails (test_text_injector.TestTextInjector.test_init_owner_window_zero_fails) ... Failed to initialize worker thread: Clipboard owner window creation returned invalid HWND 0.
 Traceback (most recent call last):
   File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\text_injector.py", line 576, in _worker_loop
     raise OSError("Clipboard owner window creation returned invalid HWND 0.")
 OSError: Clipboard owner window creation returned invalid HWND 0.
-Queue is not running (state=STOPPED). Rejecting entry 322c3964c63c4ff3b6f69bf3cba1ae4a
+Queue is not running (state=STOPPED). Rejecting entry 1c8aa903248846388f4cd5638f1e87cc
 ok
 test_job_processed_after_failure (test_text_injector.TestTextInjector.test_job_processed_after_failure) ... ok
 test_multiple_start_single_worker (test_text_injector.TestTextInjector.test_multiple_start_single_worker) ... ok
 test_no_forbidden_win32_calls (test_text_injector.TestTextInjector.test_no_forbidden_win32_calls) ... ok
-test_no_new_jobs_accepted_after_stop (test_text_injector.TestTextInjector.test_no_new_jobs_accepted_after_stop) ... Queue is not running (state=STOPPED). Rejecting entry 8f8df5e522694bc391e4939a2c911161
+test_no_new_jobs_accepted_after_stop (test_text_injector.TestTextInjector.test_no_new_jobs_accepted_after_stop) ... Queue is not running (state=STOPPED). Rejecting entry e8182341e17f49e381b94c63d9d4928f
 ok
 test_parallel_start_calls_init_failure (test_text_injector.TestTextInjector.test_parallel_start_calls_init_failure) ... Failed to initialize worker thread: CreateWindowExW exception simulated
 Traceback (most recent call last):
@@ -1702,11 +1702,11 @@ Traceback (most recent call last):
   File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_text_injector.py", line 76, in create_owner_window
     raise RuntimeError("CreateWindowExW exception simulated")
 RuntimeError: CreateWindowExW exception simulated
-Queue is not running (state=STOPPED). Rejecting entry 7e8d2cff86b44eb48a3c50ea54893c5d
+Queue is not running (state=STOPPED). Rejecting entry 4df6f0cf4e2442069aef15dc7bc8d6e4
 ok
 test_stop_drains_queue (test_text_injector.TestTextInjector.test_stop_drains_queue) ... Worker thread join timed out after 0.05 seconds.
 ok
-test_stop_during_initializing (test_text_injector.TestTextInjector.test_stop_during_initializing) ... Queue is not running (state=STOPPED). Rejecting entry 5aa265e59a48431b988992c14961f43c
+test_stop_during_initializing (test_text_injector.TestTextInjector.test_stop_during_initializing) ... Queue is not running (state=STOPPED). Rejecting entry 1c14377382c6491687ad386690fe9370
 ok
 test_stop_idempotency (test_text_injector.TestTextInjector.test_stop_idempotency) ... ok
 test_unicode_support (test_text_injector.TestTextInjector.test_unicode_support) ... ok
@@ -1968,6 +1968,7 @@ test_observability_uuid_storage_filter_and_mixed_sort_pagination (test_v2_feedba
 test_profile_file_migration_preserves_user_feedback_bytes_in_backup (test_v2_feedback.MappingMigration.test_profile_file_migration_preserves_user_feedback_bytes_in_backup) ... ok
 test_roundtrip_idempotent_and_schema1_requires_visible_repair (test_v2_feedback.MappingMigration.test_roundtrip_idempotent_and_schema1_requires_visible_repair) ... ok
 test_countdown_clock_drift_never_finishes_or_hides_preview (test_v2_feedback.QtOutput.test_countdown_clock_drift_never_finishes_or_hides_preview) ... ok
+test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite (test_v2_feedback.QtOutput.test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite) ... ok
 test_foreground_preview_survives_background_final_and_plain_text (test_v2_feedback.QtOutput.test_foreground_preview_survives_background_final_and_plain_text) ... ok
 test_independent_sound_led_failures_and_duplicate_output (test_v2_feedback.QtOutput.test_independent_sound_led_failures_and_duplicate_output) ... ok
 test_queued_foreign_thread_delivers_only_on_main_and_close_invalidates (test_v2_feedback.QtOutput.test_queued_foreign_thread_delivers_only_on_main_and_close_invalidates) ... ok
@@ -2205,6 +2206,6 @@ test_package_header_and_index_must_match_active_state (test_v2_work_records.Work
 test_valid_different_packages_and_statuses_preserve_historical_verdict (test_v2_work_records.WorkRecords.test_valid_different_packages_and_statuses_preserve_historical_verdict) ... ok
 
 ----------------------------------------------------------------------
-Ran 1551 tests in 159.775s
+Ran 1552 tests in 161.735s
 
 OK

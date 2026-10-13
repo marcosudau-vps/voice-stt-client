@@ -12500,7 +12500,8 @@
           "tests.test_v2_feedback.DomainFeedback.test_uuid_command_hooks_and_secrets_at_actual_normalizer",
           "tests.test_v2_feedback.DomainFeedback.test_one_shot_and_observation_memory_bounded",
           "tests.test_v2_feedback.DomainFeedback.test_failed_observability_cannot_fail_domain_output",
-          "tests.test_v2_feedback.MappingMigration.test_observability_uuid_storage_filter_and_mixed_sort_pagination"
+          "tests.test_v2_feedback.MappingMigration.test_observability_uuid_storage_filter_and_mixed_sort_pagination",
+          "tests.test_v2_feedback.QtOutput.test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite"
         ],
         "checkpointCases": [
           "logs/opaque_recording_label_has_no_domain_authority",

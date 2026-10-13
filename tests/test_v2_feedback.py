@@ -468,4 +468,30 @@ class QtOutput(unittest.TestCase):
         self.assertEqual(d.m.view.input.phase,p.InputPhase.WAITING_FIRST_SPEECH)
 
 
+    def test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite(self):
+        from PySide6.QtCore import Qt
+        from voice_stt_client.ui.logs.log_filter_bar import LogFilterBar
+        from voice_stt_client.ui.logs.log_table_model import LogTableModel
+        from voice_stt_client.core.observability.storage.sqlite import SQLiteLogStore
+        from voice_stt_client.core.observability.query.local import LocalLogProvider
+        from voice_stt_client.core.observability.query.base import QueryFilter
+        bar=LogFilterBar(); self.addCleanup(bar.close)
+        bar.apply_context(segment_id=S)
+        self.assertEqual(bar.current_filter().segment_id,S)
+        bar.segment_edit.setText('2'); self.assertEqual(bar.current_filter().segment_id,2)
+        bar.segment_edit.setText('-'); self.assertIsNone(bar.current_filter().segment_id)
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)/'viewer.sqlite'
+            store=SQLiteLogStore(path); self.assertTrue(store.open().ok)
+            values=[None,2,10,S,p.new_id()]
+            store.write_batch([from_client_event('client.feedback.decision',channel='system',instance_id='synthetic',segment_id=v) for v in values])
+            store.close(); provider=LocalLogProvider(path); model=LogTableModel()
+            bar.apply_context(segment_id=S)
+            self.assertEqual(provider.query(bar.current_filter()).records[0].segment_id,S)
+            for descending,order in ((False,Qt.SortOrder.AscendingOrder),(True,Qt.SortOrder.DescendingOrder)):
+                page=provider.query(QueryFilter(sort_by='segment_id',sort_descending=descending))
+                model.set_records(page.records); model.set_sort('segment_id',order)
+                self.assertEqual([x.segment_id for x in model.records()],[x.segment_id for x in page.records])
+
+
 if __name__=='__main__': unittest.main()

@@ -1,0 +1,120 @@
+test_a_failing_clear_is_reported_not_raised (tests.test_obs050_ui.TestDesktopWiring.test_a_failing_clear_is_reported_not_raised) ... Clearing the diagnostics history failed.
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\application.py", line 717, in clear_diagnostics_history
+    deleted = manager.clear_history()
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_obs050_ui.py", line 1163, in clear_history
+    raise TimeoutError("clear did not complete in time")
+TimeoutError: clear did not complete in time
+ok
+test_clear_goes_through_the_manager_not_the_query_layer (tests.test_obs050_ui.TestDesktopWiring.test_clear_goes_through_the_manager_not_the_query_layer)
+FD-S4 / �5.8 / O-14: the deletion happens at the store. ... ok
+test_clear_without_a_manager_says_so (tests.test_obs050_ui.TestDesktopWiring.test_clear_without_a_manager_says_so) ... ok
+test_desktop_application_never_stops_the_manager (tests.test_obs050_ui.TestDesktopWiring.test_desktop_application_never_stops_the_manager)
+ARCH �6.2(b)/FD-R4: the manager's lifetime stays in app.py. ... ok
+test_shutdown_releases_the_log_window (tests.test_obs050_ui.TestDesktopWiring.test_shutdown_releases_the_log_window) ... ok
+test_the_window_is_created_once_and_reused (tests.test_obs050_ui.TestDesktopWiring.test_the_window_is_created_once_and_reused) ... ok
+test_with_a_manager_the_tray_opens_the_log_window (tests.test_obs050_ui.TestDesktopWiring.test_with_a_manager_the_tray_opens_the_log_window) ... ok
+test_without_a_manager_the_tray_entry_is_disabled (tests.test_obs050_ui.TestDesktopWiring.test_without_a_manager_the_tray_entry_is_disabled) ... ok
+test_details_are_shown_as_a_tree (tests.test_obs050_ui.TestLogDetailView.test_details_are_shown_as_a_tree) ... ok
+test_empty_view_says_so (tests.test_obs050_ui.TestLogDetailView.test_empty_view_says_so) ... ok
+test_missing_raw_is_stated_not_left_blank (tests.test_obs050_ui.TestLogDetailView.test_missing_raw_is_stated_not_left_blank) ... ok
+test_raw_arrives_separately_and_only_for_the_current_record (tests.test_obs050_ui.TestLogDetailView.test_raw_arrives_separately_and_only_for_the_current_record)
+�9.3: raw is loaded on selection; a late answer for a record that ... ok
+test_structured_details_carry_record_ids_inside_the_tab (tests.test_obs050_ui.TestLogDetailView.test_structured_details_carry_record_ids_inside_the_tab) ... ok
+test_a_half_typed_segment_id_does_not_restrict (tests.test_obs050_ui.TestLogFilterBar.test_a_half_typed_segment_id_does_not_restrict) ... ok
+test_activation_filter_carries_the_unreliability_hint (tests.test_obs050_ui.TestLogFilterBar.test_activation_filter_carries_the_unreliability_hint)
+The technical caveat is available without a dominant banner. ... ok
+test_all_is_exclusive_and_empty_specific_selection_returns_to_all (tests.test_obs050_ui.TestLogFilterBar.test_all_is_exclusive_and_empty_specific_selection_returns_to_all) ... ok
+test_context_action_sets_one_field_and_emits_once (tests.test_obs050_ui.TestLogFilterBar.test_context_action_sets_one_field_and_emits_once) ... ok
+test_default_filter_is_unrestricted (tests.test_obs050_ui.TestLogFilterBar.test_default_filter_is_unrestricted) ... ok
+test_facets_disable_zero_hit_values_and_populate_event_types (tests.test_obs050_ui.TestLogFilterBar.test_facets_disable_zero_hit_values_and_populate_event_types) ... ok
+test_fields_map_onto_the_query_filter (tests.test_obs050_ui.TestLogFilterBar.test_fields_map_onto_the_query_filter) ... ok
+test_filter_change_is_debounced (tests.test_obs050_ui.TestLogFilterBar.test_filter_change_is_debounced)
+�9.2: entprellt, 300 ms � typing must not fire one query per key. ... ok
+test_labels_tooltips_and_replay_wording_are_user_facing (tests.test_obs050_ui.TestLogFilterBar.test_labels_tooltips_and_replay_wording_are_user_facing) ... ok
+test_level_is_an_exact_multi_selection (tests.test_obs050_ui.TestLogFilterBar.test_level_is_an_exact_multi_selection) ... ok
+test_reset_clears_every_field (tests.test_obs050_ui.TestLogFilterBar.test_reset_clears_every_field) ... ok
+test_a_raising_health_provider_does_not_break_the_status_line (tests.test_obs050_ui.TestLogPage.test_a_raising_health_provider_does_not_break_the_status_line) ... ok
+test_a_response_is_interpreted_by_its_request_not_by_the_cursor (tests.test_obs050_ui.TestLogPage.test_a_response_is_interpreted_by_its_request_not_by_the_cursor)
+The structural half of the B-2 fix: the kind is recorded with the ... ok
+test_a_stale_answer_is_dropped (tests.test_obs050_ui.TestLogPage.test_a_stale_answer_is_dropped) ... ok
+test_at_least_one_column_must_remain_visible (tests.test_obs050_ui.TestLogPage.test_at_least_one_column_must_remain_visible) ... ok
+test_auto_scroll_only_moves_for_time_sort (tests.test_obs050_ui.TestLogPage.test_auto_scroll_only_moves_for_time_sort) ... ok
+test_automatic_load_at_the_list_end_keeps_the_order (tests.test_obs050_ui.TestLogPage.test_automatic_load_at_the_list_end_keeps_the_order)
+The same path without a button press: �9.3's *"automatisches ... ok
+test_context_menu_actions_set_the_filter (tests.test_obs050_ui.TestLogPage.test_context_menu_actions_set_the_filter) ... ok
+test_display_order_stays_monotone_across_three_history_pages (tests.test_obs050_ui.TestLogPage.test_display_order_stays_monotone_across_three_history_pages)
+**Regression for B-1.** The gate reproduced a visible time axis ... ok
+test_filter_change_during_live_reseeds_without_duplicates (tests.test_obs050_ui.TestLogPage.test_filter_change_during_live_reseeds_without_duplicates)
+A filter change calls ``reload()`` and resets ``_live_cursor`` � ... ok
+test_filter_change_replaces_the_page_and_reaches_the_provider (tests.test_obs050_ui.TestLogPage.test_filter_change_replaces_the_page_and_reaches_the_provider) ... ok
+test_further_records_after_an_empty_start_extend_the_tail (tests.test_obs050_ui.TestLogPage.test_further_records_after_an_empty_start_extend_the_tail)
+Several consecutive tail answers: order kept, no duplicates, and ... ok
+test_header_sort_updates_query_and_indicator (tests.test_obs050_ui.TestLogPage.test_header_sort_updates_query_and_indicator) ... ok
+test_history_mode_shows_the_newest_page_first_newest_on_top (tests.test_obs050_ui.TestLogPage.test_history_mode_shows_the_newest_page_first_newest_on_top)
+�9.3 + gate finding B-1: the page is shown exactly as the provider ... ok
+test_json_copy_deduplicates_cells_and_includes_full_record_and_raw (tests.test_obs050_ui.TestLogPage.test_json_copy_deduplicates_cells_and_includes_full_record_and_raw) ... ok
+test_json_copy_multiple_rows_returns_each_record_once (tests.test_obs050_ui.TestLogPage.test_json_copy_multiple_rows_returns_each_record_once) ... ok
+test_live_mode_tails_ascending_over_the_same_provider (tests.test_obs050_ui.TestLogPage.test_live_mode_tails_ascending_over_the_same_provider)
+FD-S1: no ring buffer � the live path is a tailing QUERY. ... ok
+test_live_plus_history_marks_origins_and_deduplicates_tail_records (tests.test_obs050_ui.TestLogPage.test_live_plus_history_marks_origins_and_deduplicates_tail_records) ... ok
+test_live_start_on_a_populated_store_stays_correct (tests.test_obs050_ui.TestLogPage.test_live_start_on_a_populated_store_stays_correct)
+The happy path the gate confirmed as already correct (case C) must ... ok
+test_live_start_on_an_empty_result_set_then_records_arrive (tests.test_obs050_ui.TestLogPage.test_live_start_on_an_empty_result_set_then_records_arrive)
+**Regression for B-2.** The gate reproduced, on an empty store:: ... ok
+test_live_start_with_a_filter_that_matches_nothing_then_matches (tests.test_obs050_ui.TestLogPage.test_live_start_with_a_filter_that_matches_nothing_then_matches)
+The same empty start, but reached through a filter rather than an ... ok
+test_load_more_does_nothing_without_a_next_page (tests.test_obs050_ui.TestLogPage.test_load_more_does_nothing_without_a_next_page) ... ok
+test_load_more_pages_backwards_with_the_cursor (tests.test_obs050_ui.TestLogPage.test_load_more_pages_backwards_with_the_cursor) ... ok
+test_loaded_view_exports_csv_and_json_with_explicit_scope (tests.test_obs050_ui.TestLogPage.test_loaded_view_exports_csv_and_json_with_explicit_scope) ... ok
+test_rectangular_selection_copies_tsv (tests.test_obs050_ui.TestLogPage.test_rectangular_selection_copies_tsv) ... ok
+test_scrolling_does_not_change_the_auto_scroll_preference (tests.test_obs050_ui.TestLogPage.test_scrolling_does_not_change_the_auto_scroll_preference) ... ok
+test_selection_loads_the_detail_and_the_raw_payload (tests.test_obs050_ui.TestLogPage.test_selection_loads_the_detail_and_the_raw_payload) ... ok
+test_single_provider_control_is_hidden_and_actions_are_explicit (tests.test_obs050_ui.TestLogPage.test_single_provider_control_is_hidden_and_actions_are_explicit) ... ok
+test_status_line_shows_provider_and_health (tests.test_obs050_ui.TestLogPage.test_status_line_shows_provider_and_health) ... ok
+test_stop_halts_both_timers (tests.test_obs050_ui.TestLogPage.test_stop_halts_both_timers) ... ok
+test_three_modes_include_live_plus_history (tests.test_obs050_ui.TestLogPage.test_three_modes_include_live_plus_history) ... ok
+test_a_raising_service_never_reaches_the_qt_thread (tests.test_obs050_ui.TestLogQueryController.test_a_raising_service_never_reaches_the_qt_thread) ... ok
+test_after_shutdown_requests_are_refused (tests.test_obs050_ui.TestLogQueryController.test_after_shutdown_requests_are_refused) ... ok
+test_facets_run_through_the_same_bounded_query_worker (tests.test_obs050_ui.TestLogQueryController.test_facets_run_through_the_same_bounded_query_worker) ... ok
+test_json_records_load_raw_only_for_selected_records (tests.test_obs050_ui.TestLogQueryController.test_json_records_load_raw_only_for_selected_records) ... ok
+test_query_runs_off_the_qt_thread_and_answers_by_signal (tests.test_obs050_ui.TestLogQueryController.test_query_runs_off_the_qt_thread_and_answers_by_signal) ... ok
+test_raw_is_fetched_through_the_service (tests.test_obs050_ui.TestLogQueryController.test_raw_is_fetched_through_the_service) ... ok
+test_request_ids_increase_so_stale_answers_are_recognisable (tests.test_obs050_ui.TestLogQueryController.test_request_ids_increase_so_stale_answers_are_recognisable) ... ok
+test_the_query_thread_is_not_the_qt_thread (tests.test_obs050_ui.TestLogQueryController.test_the_query_thread_is_not_the_qt_thread)
+�9.2: the query has its own executor and does not run on ... ok
+test_append_page_grows_and_record_at_returns_the_record (tests.test_obs050_ui.TestLogTableModel.test_append_page_grows_and_record_at_returns_the_record) ... ok
+test_cells_render_the_record (tests.test_obs050_ui.TestLogTableModel.test_cells_render_the_record) ... ok
+test_clear_empties_the_model (tests.test_obs050_ui.TestLogTableModel.test_clear_empties_the_model) ... ok
+test_configurable_columns_include_defaults_and_context_ids (tests.test_obs050_ui.TestLogTableModel.test_configurable_columns_include_defaults_and_context_ids) ... ok
+test_default_visible_fields_remain_compact (tests.test_obs050_ui.TestLogTableModel.test_default_visible_fields_remain_compact) ... ok
+test_new_live_records_are_inserted_in_the_active_sort (tests.test_obs050_ui.TestLogTableModel.test_new_live_records_are_inserted_in_the_active_sort) ... ok
+test_numeric_sort_is_not_lexicographic (tests.test_obs050_ui.TestLogTableModel.test_numeric_sort_is_not_lexicographic) ... ok
+test_only_warning_and_above_get_a_row_colour (tests.test_obs050_ui.TestLogTableModel.test_only_warning_and_above_get_a_row_colour) ... ok
+test_row_count_is_bounded_and_drops_the_oldest (tests.test_obs050_ui.TestLogTableModel.test_row_count_is_bounded_and_drops_the_oldest)
+O-04: a live view must not grow without a bound. ... ok
+test_time_display_is_desktop_friendly_but_sort_stays_typed (tests.test_obs050_ui.TestLogTableModel.test_time_display_is_desktop_friendly_but_sort_stays_typed) ... ok
+test_closing_hides_instead_of_closing (tests.test_obs050_ui.TestLogWindow.test_closing_hides_instead_of_closing)
+�9.3: ``hide()`` statt ``close()``. ... ok
+test_columns_sort_and_splitter_state_restore (tests.test_obs050_ui.TestLogWindow.test_columns_sort_and_splitter_state_restore) ... ok
+test_geometry_is_stored_in_qsettings (tests.test_obs050_ui.TestLogWindow.test_geometry_is_stored_in_qsettings) ... ok
+test_hiding_stops_the_polling (tests.test_obs050_ui.TestLogWindow.test_hiding_stops_the_polling)
+�9.1's second reason for a separate window: a hidden view must not ... ok
+test_invalid_saved_columns_fall_back_to_safe_defaults (tests.test_obs050_ui.TestLogWindow.test_invalid_saved_columns_fall_back_to_safe_defaults) ... ok
+test_window_is_non_modal_and_top_level (tests.test_obs050_ui.TestLogWindow.test_window_is_non_modal_and_top_level) ... ok
+test_both_action_buttons_exist (tests.test_obs050_ui.TestSettingsTab.test_both_action_buttons_exist) ... ok
+test_changing_a_logging_setting_produces_an_immediate_policy (tests.test_obs050_ui.TestSettingsTab.test_changing_a_logging_setting_produces_an_immediate_policy) ... ok
+test_clear_button_asks_before_deleting (tests.test_obs050_ui.TestSettingsTab.test_clear_button_asks_before_deleting) ... ok
+test_clearing_the_file_sink_directory_means_the_default_again (tests.test_obs050_ui.TestSettingsTab.test_clearing_the_file_sink_directory_means_the_default_again)
+An emptied optional path must become ``None``, not ``""`` � the ... ok
+test_every_logging_setting_has_an_editor (tests.test_obs050_ui.TestSettingsTab.test_every_logging_setting_has_an_editor) ... ok
+test_level_editor_offers_the_closed_level_set (tests.test_obs050_ui.TestSettingsTab.test_level_editor_offers_the_closed_level_set) ... ok
+test_show_logs_button_emits_the_request (tests.test_obs050_ui.TestSettingsTab.test_show_logs_button_emits_the_request) ... ok
+test_store_enabled_change_reports_app_restart (tests.test_obs050_ui.TestSettingsTab.test_store_enabled_change_reports_app_restart) ... ok
+test_the_dialog_has_six_tabs_with_logging_last (tests.test_obs050_ui.TestSettingsTab.test_the_dialog_has_six_tabs_with_logging_last) ... ok
+
+----------------------------------------------------------------------
+Ran 87 tests in 30.190s
+
+OK

@@ -22,7 +22,7 @@
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Unabhängiges Review des endgültigen AP090-PR-Heads anhand Code und kandidatengebundener Windows-/Serverbelege; kein Merge/AP100.",
+  "nextAction": "Unabhängiges Review des endgültigen AP090-PR-Heads anhand Code und aktualisierter kandidatengebundener Windows-/Serverbelege; kein Merge/AP100.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

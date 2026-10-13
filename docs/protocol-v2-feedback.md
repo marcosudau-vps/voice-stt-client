@@ -93,7 +93,10 @@ Domain-/Diagnose-/Adapterzähler bleiben einfache Zähler auf dem Producer.
 Die vorhandenen OBSmodel-/Query-/Ingresssegmenttypen akzeptieren zusätzlich
 nichtleere Domain-UUIDstrings. Legacyinteger bleiben gültig. SQLite INTEGER-
 Affinity speichert nichtnumerische UUIDs bereits als TEXT; keine DBmigration.
-Lokale Filter und gemischte Keyset-Sortierung erhalten beide Typen. Opaque
+Lokale Filter und gemischte Keyset-Sortierung erhalten beide Typen. Der
+Logviewer erhält vollständige UUIDs auch aus Kontextaktionen; halb eingegebene
+IDs bleiben unbeschränkt. Seine Live-/Tabellensortierung stimmt mit SQLite
+überein (NULL, Legacyinteger, UUIDtext). Opaque
 Logsegmentlabels werden niemals zu Domainidentität, auch bei gleichen Bytes.
 
 ## Nachweis und verbleibende Gates

@@ -22,7 +22,7 @@
   ],
   "checkCount": 18,
   "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
-  "clientHead": "1bc5be893060e0d6a80e1d890102bfffebb73a17",
+  "clientHead": "d8e73e57b9b819068e7f7d97d5a6c822a6f37831",
   "sourceHashes": {
     "api_fastapi_server/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
     "api_fastapi_server/activation.py": "3109b2ae10cc8da7e54e9972e4c1851f33cb3eeb6efa4e10403569635945d8c7",
@@ -73,7 +73,7 @@
   },
   "decisionTrace": [
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "idle",
       "foreground": null,
@@ -84,7 +84,7 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "idle",
       "foreground": null,
@@ -95,7 +95,7 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "idle",
       "foreground": null,
@@ -106,7 +106,7 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "idle",
       "foreground": null,
@@ -117,7 +117,7 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "idle",
       "foreground": null,
@@ -128,7 +128,7 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "idle",
       "foreground": null,
@@ -139,7 +139,7 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "idle",
       "foreground": null,
@@ -150,7 +150,7 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "idle",
       "foreground": null,
@@ -161,7 +161,7 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "idle",
       "foreground": null,
@@ -172,10 +172,10 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "waiting_first_speech",
-      "foreground": "001d54c6-f7a2-402b-91cf-dfb90c5fa572",
+      "foreground": "e67d6698-213d-45b0-a955-8769cb29da72",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -183,21 +183,21 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "waiting_first_speech",
-      "foreground": "001d54c6-f7a2-402b-91cf-dfb90c5fa572",
+      "foreground": "e67d6698-213d-45b0-a955-8769cb29da72",
       "pending": 0,
-      "eventId": "f189009a-12ef-4cc2-81da-16278224d52b",
+      "eventId": "d0029c46-d2ae-4441-9658-f03ec4b26825",
       "eventType": "server.activation.started",
       "segmentId": null,
       "sound": "wake_word"
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "waiting_first_speech",
-      "foreground": "001d54c6-f7a2-402b-91cf-dfb90c5fa572",
+      "foreground": "e67d6698-213d-45b0-a955-8769cb29da72",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -205,10 +205,10 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "segment_active",
-      "foreground": "001d54c6-f7a2-402b-91cf-dfb90c5fa572",
+      "foreground": "e67d6698-213d-45b0-a955-8769cb29da72",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -216,10 +216,10 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "segment_active",
-      "foreground": "001d54c6-f7a2-402b-91cf-dfb90c5fa572",
+      "foreground": "e67d6698-213d-45b0-a955-8769cb29da72",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -227,21 +227,21 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "segment_active",
-      "foreground": "001d54c6-f7a2-402b-91cf-dfb90c5fa572",
+      "foreground": "e67d6698-213d-45b0-a955-8769cb29da72",
       "pending": 0,
-      "eventId": "89a4a903-93be-4b62-b36c-9f796188c962",
+      "eventId": "d87844ca-99b8-4eab-a989-dfa756a460a5",
       "eventType": "server.recording.started",
-      "segmentId": "f3a47fa5-6649-48be-a859-94bbbdbe1295",
+      "segmentId": "d6e9a574-1107-4cc2-a619-dd3b3f1e9078",
       "sound": "start"
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "segment_active",
-      "foreground": "001d54c6-f7a2-402b-91cf-dfb90c5fa572",
+      "foreground": "e67d6698-213d-45b0-a955-8769cb29da72",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -249,10 +249,10 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "followup_wait",
-      "foreground": "001d54c6-f7a2-402b-91cf-dfb90c5fa572",
+      "foreground": "e67d6698-213d-45b0-a955-8769cb29da72",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -260,10 +260,10 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "followup_wait",
-      "foreground": "001d54c6-f7a2-402b-91cf-dfb90c5fa572",
+      "foreground": "e67d6698-213d-45b0-a955-8769cb29da72",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -271,21 +271,21 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "followup_wait",
-      "foreground": "001d54c6-f7a2-402b-91cf-dfb90c5fa572",
+      "foreground": "e67d6698-213d-45b0-a955-8769cb29da72",
       "pending": 0,
-      "eventId": "ff9c76dd-ea8c-43f4-a32a-20cdc6e88591",
+      "eventId": "cc4816ea-e03e-4bad-b875-56f108531c7d",
       "eventType": "server.recording.ended",
-      "segmentId": "f3a47fa5-6649-48be-a859-94bbbdbe1295",
+      "segmentId": "d6e9a574-1107-4cc2-a619-dd3b3f1e9078",
       "sound": "stop"
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "followup_wait",
-      "foreground": "001d54c6-f7a2-402b-91cf-dfb90c5fa572",
+      "foreground": "e67d6698-213d-45b0-a955-8769cb29da72",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -293,7 +293,7 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "idle",
       "foreground": null,
@@ -304,10 +304,10 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "waiting_first_speech",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 1,
       "eventId": null,
       "eventType": null,
@@ -315,21 +315,21 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "waiting_first_speech",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 1,
-      "eventId": "cf6aaae0-bff2-4db4-9c46-71bcb4a5919c",
+      "eventId": "7ce4caf9-f4f0-415e-8443-8e79e689b665",
       "eventType": "server.activation.started",
       "segmentId": null,
       "sound": "wake_word"
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "waiting_first_speech",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 1,
       "eventId": null,
       "eventType": null,
@@ -337,10 +337,10 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "segment_active",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 1,
       "eventId": null,
       "eventType": null,
@@ -348,10 +348,10 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "segment_active",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 1,
       "eventId": null,
       "eventType": null,
@@ -359,21 +359,21 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "segment_active",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 1,
-      "eventId": "8fa25101-af94-4224-a7c5-f418b7a96055",
+      "eventId": "c01eee89-b9a9-4888-a844-d217f508ee5c",
       "eventType": "server.recording.started",
-      "segmentId": "291967e7-3942-43b1-addc-57bac58410f3",
+      "segmentId": "4daf27eb-bb1f-4dc0-835d-87f9ffc04cfc",
       "sound": "start"
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "segment_active",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 1,
       "eventId": null,
       "eventType": null,
@@ -381,10 +381,10 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "segment_active",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 1,
       "eventId": null,
       "eventType": null,
@@ -392,21 +392,21 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "segment_active",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 1,
-      "eventId": "2cdc7300-b322-4ead-a910-5967f625ac38",
+      "eventId": "1833fdf6-7f5f-4470-b7c2-16c3f2e58a5e",
       "eventType": "server.transcription.completed",
-      "segmentId": "f3a47fa5-6649-48be-a859-94bbbdbe1295",
+      "segmentId": "d6e9a574-1107-4cc2-a619-dd3b3f1e9078",
       "sound": "complete"
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "segment_active",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -414,10 +414,10 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "followup_wait",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -425,10 +425,10 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "followup_wait",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -436,21 +436,21 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "followup_wait",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 0,
-      "eventId": "a83781fe-e04a-4923-9507-26d1e205dd5e",
+      "eventId": "759207f5-2ff5-4890-a051-92ce6a440086",
       "eventType": "server.recording.ended",
-      "segmentId": "291967e7-3942-43b1-addc-57bac58410f3",
+      "segmentId": "4daf27eb-bb1f-4dc0-835d-87f9ffc04cfc",
       "sound": "stop"
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "followup_wait",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -458,10 +458,10 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "followup_wait",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -469,21 +469,21 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "followup_wait",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 0,
-      "eventId": "ee14682c-e565-413b-b921-e24bff1accd8",
+      "eventId": "5f63868b-b8ba-4d16-9eb0-5a792f161d36",
       "eventType": "server.transcription.completed",
-      "segmentId": "291967e7-3942-43b1-addc-57bac58410f3",
+      "segmentId": "4daf27eb-bb1f-4dc0-835d-87f9ffc04cfc",
       "sound": "complete"
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "followup_wait",
-      "foreground": "48f416ce-2abf-432d-8697-8db4cc54b402",
+      "foreground": "30ce4ad5-717f-4217-8aa0-1aadeff33285",
       "pending": 0,
       "eventId": null,
       "eventType": null,
@@ -491,7 +491,7 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "idle",
       "foreground": null,
@@ -502,7 +502,7 @@
       "sound": null
     },
     {
-      "sessionId": "b09a48b3-7a02-41af-98e8-e38c13c15ecd",
+      "sessionId": "af373011-c3cf-4606-a7c5-79eee46a8f8f",
       "generation": 1,
       "phase": "idle",
       "foreground": null,
@@ -513,7 +513,7 @@
       "sound": null
     },
     {
-      "sessionId": "21df873a-5530-4b14-8486-1f446a93781d",
+      "sessionId": "6c65e801-6a5a-4f7c-ac88-0eee00a4cef5",
       "generation": 2,
       "phase": "idle",
       "foreground": null,
@@ -524,7 +524,7 @@
       "sound": null
     },
     {
-      "sessionId": "21df873a-5530-4b14-8486-1f446a93781d",
+      "sessionId": "6c65e801-6a5a-4f7c-ac88-0eee00a4cef5",
       "generation": 2,
       "phase": "idle",
       "foreground": null,
@@ -535,7 +535,7 @@
       "sound": null
     },
     {
-      "sessionId": "21df873a-5530-4b14-8486-1f446a93781d",
+      "sessionId": "6c65e801-6a5a-4f7c-ac88-0eee00a4cef5",
       "generation": 2,
       "phase": "idle",
       "foreground": null,
@@ -546,7 +546,7 @@
       "sound": null
     },
     {
-      "sessionId": "21df873a-5530-4b14-8486-1f446a93781d",
+      "sessionId": "6c65e801-6a5a-4f7c-ac88-0eee00a4cef5",
       "generation": 2,
       "phase": "idle",
       "foreground": null,
@@ -557,7 +557,7 @@
       "sound": null
     },
     {
-      "sessionId": "21df873a-5530-4b14-8486-1f446a93781d",
+      "sessionId": "6c65e801-6a5a-4f7c-ac88-0eee00a4cef5",
       "generation": 2,
       "phase": "idle",
       "foreground": null,
@@ -568,7 +568,7 @@
       "sound": null
     },
     {
-      "sessionId": "21df873a-5530-4b14-8486-1f446a93781d",
+      "sessionId": "6c65e801-6a5a-4f7c-ac88-0eee00a4cef5",
       "generation": 2,
       "phase": "idle",
       "foreground": null,
@@ -579,7 +579,7 @@
       "sound": null
     },
     {
-      "sessionId": "21df873a-5530-4b14-8486-1f446a93781d",
+      "sessionId": "6c65e801-6a5a-4f7c-ac88-0eee00a4cef5",
       "generation": 2,
       "phase": "idle",
       "foreground": null,
@@ -590,7 +590,7 @@
       "sound": null
     },
     {
-      "sessionId": "21df873a-5530-4b14-8486-1f446a93781d",
+      "sessionId": "6c65e801-6a5a-4f7c-ac88-0eee00a4cef5",
       "generation": 2,
       "phase": "idle",
       "foreground": null,
@@ -601,7 +601,7 @@
       "sound": null
     },
     {
-      "sessionId": "21df873a-5530-4b14-8486-1f446a93781d",
+      "sessionId": "6c65e801-6a5a-4f7c-ac88-0eee00a4cef5",
       "generation": 2,
       "phase": "idle",
       "foreground": null,
@@ -612,7 +612,7 @@
       "sound": null
     },
     {
-      "sessionId": "21df873a-5530-4b14-8486-1f446a93781d",
+      "sessionId": "6c65e801-6a5a-4f7c-ac88-0eee00a4cef5",
       "generation": 2,
       "phase": "idle",
       "foreground": null,

@@ -1,12 +1,12 @@
 {
-  "testedBase": "1bc5be893060e0d6a80e1d890102bfffebb73a17",
+  "testedBase": "d8e73e57b9b819068e7f7d97d5a6c822a6f37831",
   "candidateBranch": "work/client-v2/ap-cv2-090",
   "canonicalParent": "1bc5be893060e0d6a80e1d890102bfffebb73a17",
   "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
   "productDiff": "tested-product.patch.base64",
   "productDiffEncoding": "base64",
-  "productDiffArtifactSha256": "7e6d42fae16b92572629c254f43423f80804d10c1e3c37d338396122d60ce560",
-  "productDiffSha256": "c4a62b9806fe1cc9f825c5d4f91bdad5261b3e9b8b04f4df169e132cf43efbc2",
+  "productDiffArtifactSha256": "976294b4a2919c02dc6ec69555d34b11244e234cfed8e2a6658dfeef8ee3863b",
+  "productDiffSha256": "340998aabeab8136548868dfed8775e61843ef112334cc3be9037bfa5132a31f",
   "sourceHashes": {
     ".github/workflows/ci.yml": "4fa031c6196396808263d21c7bbada44c8282c972b3aa1e92a5b48b8e7e9ae9b",
     ".github/workflows/release.yml": "01924a84e0e36b328d6d185570f10907a3aa97d0203eb5b4d1fd347ba3cd4698",
@@ -118,7 +118,7 @@
     "tests/test_ui_widgets.py": "ead964143a6f9b83a027b9194025fabdb10e9318f409b6dab8383eff9189a796",
     "tests/test_v2_audio_recovery.py": "2e42389ce883d2e70165f5a9650d2c336cbd540a6b49705aa60ce4964b12c751",
     "tests/test_v2_controls.py": "a347f3eef5d06d148c5916cec6c64083af1ecbf13c2e36710595cff4406f8280",
-    "tests/test_v2_feedback.py": "f3614a3f7cee08405d1aeb3c342cc2803851b4d02f66d30d99902fe8e9a24cba",
+    "tests/test_v2_feedback.py": "f257779cb8097a3cd64382ee15991f5cc3136a8368ea8dbbf185b14ca990ac0a",
     "tests/test_v2_mirror.py": "542606c02f1be2dd98bb305d32ec10050f55c4dfd792f9702d0196f03a8c9a8d",
     "tests/test_v2_protocol.py": "eabced19e5d78cd2aff0ef7ce29838092a4c674dbc3b8e2533fea84febd62bfe",
     "tests/test_v2_results.py": "9fd4ba9fca8bd0791f9aa62527b9a42b57d724fc3d17245112c14ffb51d3f9da",
@@ -204,10 +204,10 @@
     "voice_stt_client/ui/led_feedback.py": "b7b14260818b209309f4202e0fa54fc63f75c96cf9764db96b679d10096bc0e5",
     "voice_stt_client/ui/logs/__init__.py": "7020978efce4658b8eb5cbcc637179fb6327b472e6221c861a3178f2142e9077",
     "voice_stt_client/ui/logs/log_detail_view.py": "9f1b9dd590848972e1de7e3cdfa79f346d4e6960127c0f83e6d3c56affe97cca",
-    "voice_stt_client/ui/logs/log_filter_bar.py": "8819cf5cc285522738d9ef3d91e643aa6782c15b1c801c379e12a3bd55cf99d4",
+    "voice_stt_client/ui/logs/log_filter_bar.py": "e25befd5dd1df7edd7547c52d54226f339d04a76935dc56e405c729548a34ea7",
     "voice_stt_client/ui/logs/log_page.py": "125d8d5cff9087a61c720d3c2ebea39b63d75f2c027a945b856e6c8739a06d5c",
     "voice_stt_client/ui/logs/log_query_controller.py": "66557171e660c1c71e6db029c348579f4ea3091aad95fa8fb7471cf6a91c0776",
-    "voice_stt_client/ui/logs/log_table_model.py": "0ac94150091abb02609530af86e610d78d561f695e6b910e15aaf3c83113c9a2",
+    "voice_stt_client/ui/logs/log_table_model.py": "bebe763a5ecd90e63f15c09aad59780db161227f2860f1e85c62baff831bec88",
     "voice_stt_client/ui/logs/log_window.py": "9dd243d77ea474c2e296ea0c217b7dadcc5a3e650e4986b787147736d386a739",
     "voice_stt_client/ui/overlay.py": "4cfa6aae7f898bd7ecc94ae17df0d5736df22e24754f4815fa46468c132add72",
     "voice_stt_client/ui/presentation.py": "399617db49588e572d422ecab0a8acfee694a4aa62727cd2382b2dbd0f4f7d74",
@@ -328,7 +328,7 @@
     "tests/test_ui_widgets.py": "bb2cc012bd794b1dad4364a8c9034d84b1ff610f",
     "tests/test_v2_audio_recovery.py": "ea51510dde4d54ce51db5a1979aeb83962eb9786",
     "tests/test_v2_controls.py": "48c4269577f1d95d8c4e93b0e9d90587d954e3e6",
-    "tests/test_v2_feedback.py": "ff53a8b4da3c19684dd7ef9acabd443d4febe43c",
+    "tests/test_v2_feedback.py": "b7fbd4ed45f78bd98d9c72d8668d3bf18868f1a4",
     "tests/test_v2_mirror.py": "d6bbe1c542e75c707db1404408faad2bc4c97676",
     "tests/test_v2_protocol.py": "de66709b1df6399091037df0b225dff2ab455fdc",
     "tests/test_v2_results.py": "7c0a232f9c20fd0c0b43accb2bb7e7277f2acdef",
@@ -414,10 +414,10 @@
     "voice_stt_client/ui/led_feedback.py": "00d4e39009cdbcc1c9f8d221cc106b03073d6278",
     "voice_stt_client/ui/logs/__init__.py": "e30307a3f65caac6270fab409dc70796613ed0a1",
     "voice_stt_client/ui/logs/log_detail_view.py": "66e807484bfd1a06ed2f12cccd90eb444131b958",
-    "voice_stt_client/ui/logs/log_filter_bar.py": "c654e98a8363383a470a01cc9b3afac9cf148ee9",
+    "voice_stt_client/ui/logs/log_filter_bar.py": "d0acc0d62f4039cf1931341d0280572e654c4091",
     "voice_stt_client/ui/logs/log_page.py": "7be016e3b7648d93ea029cd2d10203b6b1fa4db5",
     "voice_stt_client/ui/logs/log_query_controller.py": "8fbcea955df7c6a742bb77b85deea3535ac32825",
-    "voice_stt_client/ui/logs/log_table_model.py": "2320a257858f2ebefdb70d8dfad089a1ecf76388",
+    "voice_stt_client/ui/logs/log_table_model.py": "3798cf33e13ff4011c0d98611b0ce71d6ee0ad4a",
     "voice_stt_client/ui/logs/log_window.py": "973a2445b799a75a94af7f48afe8faa25b3ec8e4",
     "voice_stt_client/ui/overlay.py": "8f07c25eb8cfba874ffd0a12632bb4756f629819",
     "voice_stt_client/ui/presentation.py": "eed890ea839d8b387b9c863cf87431f5e80024de",
@@ -441,7 +441,7 @@
       "halo": "0.0.31"
     }
   },
-  "startedAtUtc": "2026-10-13T01:05:05.502190+00:00",
+  "startedAtUtc": "2026-10-13T01:16:38.246310+00:00",
   "checks": [
     {
       "command": [
@@ -456,6 +456,7 @@
         "tests.test_feedback_mapping",
         "tests.test_feedback_ui",
         "tests.test_led_feedback",
+        "tests.test_obs050_ui",
         "tests.test_obs040_client_hooks",
         "tests.test_obs010_models",
         "tests.test_obs010_normalizer_client",
@@ -465,12 +466,12 @@
         "-v"
       ],
       "exitCode": 0,
-      "elapsedSeconds": 24.891,
+      "elapsedSeconds": 56.125,
       "log": "targeted-unittest.txt",
-      "sha256": "d421ca0ac15c47293b95d127a36146888a66d5961a009f7a60987aec4f1eb46f",
+      "sha256": "b49b9eaba718a7e4474bedc04a2df4a0b792e1214e2f1ffdafc0341e42a062ac",
       "result": "PASS",
-      "testCount": 289,
-      "testSeconds": 23.59
+      "testCount": 377,
+      "testSeconds": 54.628
     },
     {
       "command": [
@@ -482,9 +483,9 @@
         "P:/GithubRepos/marcosudau-vps/voice-stt-server/main"
       ],
       "exitCode": 0,
-      "elapsedSeconds": 9.515,
+      "elapsedSeconds": 9.469,
       "log": "server-feedback-checkpoint.json",
-      "sha256": "184644be93cc9646a0ea855a8f70d3ede8da8d95849b5b6beea6be5ff9624c9f",
+      "sha256": "fb0ad934391adfaa9a8ac519a8f45ba842f409218045da6dd7b831a29a1cabf0",
       "result": "PASS",
       "stderrLog": "server-feedback-checkpoint.json.stderr.txt",
       "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -520,16 +521,16 @@
         "-v"
       ],
       "exitCode": 0,
-      "elapsedSeconds": 161.422,
+      "elapsedSeconds": 163.406,
       "log": "windows-full-unittest.txt",
-      "sha256": "7f09715b84cb77ca909034a8a020a2f0dd70c90e58821f6ba944b2a98279bc06",
+      "sha256": "023914e2b9aeecf18c57243bf608c9819300b8075223636981081e5c01be8a1d",
       "result": "PASS",
-      "testCount": 1551,
-      "testSeconds": 159.775
+      "testCount": 1552,
+      "testSeconds": 161.735
     }
   ],
   "lineEndingNote": "Runtime hashes cover local bytes; Git blobs/exact staged product diff identify normalized published content. All qualification logs are UTF-8 LF before SHA256 and versioning.",
   "diffCheckResult": "PASS",
-  "finishedAtUtc": "2026-10-13T01:08:21.781988+00:00",
+  "finishedAtUtc": "2026-10-13T01:20:27.672722+00:00",
   "result": "PASS"
 }
