@@ -71,7 +71,7 @@ def read_build_identity() -> dict:
             if Path(git('rev-parse', '--show-toplevel')).resolve() == SOURCE_ROOT.resolve():
                 commit = git('rev-parse', 'HEAD')
                 dirty = bool(git('status', '--porcelain', '--', 'voice_stt_client', 'scripts',
-                    'setup.py', 'pyproject.toml', 'VERSION', 'requirements.txt', 'requirements-dev.txt', 'MANIFEST.in', 'README.md', 'voice-stt-client.spec'))
+                    '.gitattributes', 'setup.py', 'pyproject.toml', 'VERSION', 'requirements.txt', 'requirements-dev.txt', 'MANIFEST.in', 'README.md', 'voice-stt-client.spec'))
                 return dict(schemaVersion=1, version=__version__, clientCommit='unknown' if dirty else commit,
                     sourceCommit=commit, sourceDirty=dirty)
         except (OSError, subprocess.SubprocessError):

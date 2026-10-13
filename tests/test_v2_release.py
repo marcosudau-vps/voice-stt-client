@@ -7,6 +7,7 @@ import json
 import os
 from pathlib import Path
 import runpy
+import subprocess
 import tarfile
 import zipfile
 import io
@@ -82,6 +83,34 @@ class RuntimeRetirement(unittest.TestCase):
         for name in ('protocol-v2-vectors.json', 'protocol-v2-client-fixtures.json', 'protocol-v2-provenance.json'):
             self.assertEqual((ROOT/'tests/contracts'/name).read_bytes(),
                 (ROOT/'voice_stt_client/resources'/name).read_bytes())
+
+    def test_windows_checkout_keeps_pinned_resource_bytes(self):
+        # Reproduce the runner's checkout conversion, not merely this working
+        # tree's bytes. Git must preserve all packaged contract files under
+        # core.autocrlf=true before Python imports or tests can touch them.
+        with tempfile.TemporaryDirectory() as folder:
+            checkout = Path(folder)
+            def git(*args):
+                return subprocess.check_output(['git', '-C', str(checkout), *args],
+                    stderr=subprocess.STDOUT)
+            git('init', '--quiet')
+            git('config', 'core.autocrlf', 'true')
+            git('config', 'core.safecrlf', 'false')
+            (checkout/'.gitattributes').write_bytes((ROOT/'.gitattributes').read_bytes())
+            expected = {}
+            for source in ('tests/contracts', 'voice_stt_client/resources'):
+                for name in ('protocol-v2-vectors.json', 'protocol-v2-client-fixtures.json', 'protocol-v2-provenance.json'):
+                    relative = source+'/'+name
+                    data = subprocess.check_output(['git', '-C', str(ROOT), 'show', 'HEAD:'+relative])
+                    target = checkout/relative
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_bytes(data)
+                    expected[relative] = data
+            git('add', '--', '.gitattributes', 'tests', 'voice_stt_client')
+            exported = checkout/'exported'
+            git('checkout-index', '--all', '--force', '--prefix='+exported.as_posix()+'/')
+            for relative, data in expected.items():
+                self.assertEqual((exported/relative).read_bytes(), data, relative)
 
 
 class BuildIdentity(unittest.TestCase):

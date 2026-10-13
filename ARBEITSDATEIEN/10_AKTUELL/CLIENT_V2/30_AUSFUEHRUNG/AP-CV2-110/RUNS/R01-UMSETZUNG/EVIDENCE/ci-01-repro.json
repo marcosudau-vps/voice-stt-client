@@ -1,0 +1,12 @@
+{
+  "failedCiRun": 38437050459,
+  "failedHead": "24c50a7c845086b03e1b8027365edddde1440f7a",
+  "failure": "Git checkout CRLF conversion changes packaged pinned JSON bytes",
+  "method": "tests.test_v2_release.RuntimeRetirement.test_windows_checkout_keeps_pinned_resource_bytes",
+  "red": "old Git attributes selectively injected only at attribute read; actual temp Git checkout-index core.autocrlf=true",
+  "redFailures": 1,
+  "greenPassed": true,
+  "fullLog": "ci-01-red-green.txt.gz",
+  "rawSha256": "bfe4221f346845324097c490295f837cfaf4915f0a0c6ea1587c6e6d33f064c4",
+  "status": "SELF_CORRECTED_REQUALIFICATION_REQUIRED"
+}

@@ -11,3 +11,8 @@
 # Contract vector hashes refer to exact Git/server LF bytes on every platform.
 tests/contracts/protocol-v2-vectors.json -text
 ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/REFERENZ/KONTRAKTE/VEKTOREN/protocol-v2-vectors.json text eol=lf
+
+# Installed/frozen resources must remain byte-identical to the pinned fixtures,
+# including on Windows checkouts with core.autocrlf=true.
+tests/contracts/protocol-v2-*.json text eol=lf
+voice_stt_client/resources/protocol-v2-*.json text eol=lf

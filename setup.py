@@ -23,7 +23,7 @@ def identity():
         if not re.fullmatch(r'[0-9a-f]{40}', commit):
             raise RuntimeError('Invalid source commit')
         # Administrative run records do not alter the shipped product.
-        paths = ['voice_stt_client', 'scripts', 'setup.py', 'pyproject.toml',
+        paths = ['voice_stt_client', 'scripts', '.gitattributes', 'setup.py', 'pyproject.toml',
                  'VERSION', 'requirements.txt', 'requirements-dev.txt', 'MANIFEST.in', 'README.md', 'voice-stt-client.spec']
         dirty = bool(subprocess.check_output(['git', '-C', str(ROOT), 'status', '--porcelain', '--', *paths]))
     return dict(schemaVersion=1, version=(ROOT / 'VERSION').read_text().strip(),

@@ -28,7 +28,7 @@ def git(*args):
 
 def product_blobs():
     return git('ls-files', '-s', '--', 'voice_stt_client', 'tests', 'scripts',
-        '.github', 'pyproject.toml', 'setup.py', 'MANIFEST.in', 'VERSION',
+        '.github', '.gitattributes', 'pyproject.toml', 'setup.py', 'MANIFEST.in', 'VERSION',
         'requirements.txt', 'requirements-dev.txt', 'voice-stt-client.spec', 'README.md')
 
 
@@ -155,7 +155,7 @@ def run():
                 raise AssertionError('Server did not observe all real client Hello identities')
             report['receivedHelloCount'] = len(server_report['hellos'])
         if product_blobs() != blobs or git('diff', '--name-only', 'HEAD', '--', 'voice_stt_client', 'tests', 'scripts',
-                '.github', 'setup.py', 'MANIFEST.in', 'pyproject.toml', 'README.md'):
+                '.github', '.gitattributes', 'setup.py', 'MANIFEST.in', 'pyproject.toml', 'README.md'):
             raise AssertionError('Product/test changes during qualification')
         command('diff-check', ['git', '-c', 'core.safecrlf=false', 'diff', '--check'])
         report['result'] = 'PASS'

@@ -1,6 +1,6 @@
 # AP-CV2-110 / R01-UMSETZUNG
 
-**Status:** REVIEW_READY (vollständiger Selbstcheck; unabhängige Abnahme offen).
+**Status:** IN_PROGRESS (vollständiger Selbstcheck; unabhängige Abnahme offen).
 Stand 2026-10-13. [PR #13](https://github.com/marcosudau-vps/voice-stt-client/pull/13); Abgabe erst nach grüner CI der endgültigen PR-Spitze.
 
 ## Identität, Auftrag und Voraussetzungen
@@ -130,3 +130,7 @@ Folgepaketimplementierung. Ab REVIEW_READY-Übergabe Branchschreiben pausiert.
 Nächste Aktion: frischer unabhängiger Gesamt-Review AP110 auf der endgültigen
 PR-Spitze; keine Eigenabnahme. AP-IV2-010 startet erst nach unabhängiger Abnahme,
 menschlicher Freigabe und tatsächlicher kanonischer AP110-Übernahme.
+
+CI-01: erster PR-CI-Lauf 38437050459 findet CRLF-Konversion der neuen JSONs.
+Repro RED/gezielter Fix GREEN; vollständige Neuqualifikation läuft. Frühere
+Qualifikation in EVIDENCE/QUALIFICATION-01 erhalten, noch keine Reviewübergabe.
