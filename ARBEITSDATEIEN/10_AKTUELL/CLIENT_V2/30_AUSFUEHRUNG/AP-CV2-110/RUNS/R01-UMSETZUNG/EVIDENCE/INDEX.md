@@ -1,28 +1,26 @@
 # AP-CV2-110 R01 – Evidenz
 
-**Status:** IN_PROGRESS. Vollständige Selbstchecks PASS, unabhängiger Review offen.
-[PR #13](https://github.com/marcosudau-vps/voice-stt-client/pull/13), Base feat/client-v2.
-Produktkandidat `2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259`, Tree `d9a30deafd7c66143e376931f21d96f6b02aabc4`, Parent `62ca35a01fb88b37e16b7003e26c2f9110c131f3`,
-Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`. Runtime Windows11 Build26300 x64, Projektvenv Python3.12.10.
+**Status:** REVIEW_READY. Vollständiger Selbstcheck PASS, unabhängiger Review offen.
+[PR #13](https://github.com/marcosudau-vps/voice-stt-client/pull/13), Base feat/client-v2, Head work/client-v2/ap-cv2-110.
+Qualifizierter Produktcommit `cf42a2a9d96c1ebc88035817a5d529dfe04e4306`, Tree `985986edaef2a1a6fc37091756d13b988adddc7e`,
+Parent `62ca35a01fb88b37e16b7003e26c2f9110c131f3`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`.
+Runtime Windows11 Build26300 x64, Projektvenv Python3.12.10.
 
-[Originalprompt](../00_PROMPT_ORIGINAL.md), [Report](../01_REPORT.md),
-[Start-/Vorgängerbeleg](start-provenance.json), [Windowsmanifest](windows-validation.json),
-[Gitblobbindung](candidate-blobs.txt), [V1-Ersatzfälle](legacy-test-successors.json).
+[Originalauftrag](../00_PROMPT_ORIGINAL.md), [Report](../01_REPORT.md),
+[Startprovenienz](start-provenance.json), [Windowsmanifest](windows-validation.json),
+[Gitblobbindung einschließlich .gitattributes](candidate-blobs.txt),
+[251 V1-Ersatzverantwortungen](legacy-test-successors.json).
 
-Erzeugender Orchestrator: [run_qualification.py](run_qualification.py),
-Projektroot und `venv/Scripts/python.exe`; full/targeted unittest, compileall,
-check_v2_server_runtime, build.py --clean, build --sdist --wheel, twine check,
-client_release_guard candidate --expected-commit, pip --target und sdist-Rebuild,
---version/--verify-gui-runtime --verification-server für alle vier Produkte.
-Vollständige argv/cwd/Commit/Exitcode/Dauer/Testzahl stehen pro Fall im JSON und
-am Anfang des vollständigen Rohlogs. [Loghashes](full-log-manifest.json) führen
-SHA256 sowohl der gzip-Datei als auch der unveränderten entpackten Bytes.
-Gzip dient der bytegleichen Sicherung, kein Kürzen oder Whitespacebereinigen.
+Erzeugender Befehl aus dem Projektroot:
+`venv/Scripts/python.exe ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/run_qualification.py`.
+[Orchestrator](run_qualification.py); vollständige argv/cwd/Commit/Exitcode/Dauer/
+Testzahlen pro Fall im JSON und Logkopf. [SHA256 aller aktuellen gzip/Rohbytes](full-log-manifest.json).
+Gzip bewahrt vollständige Bytes; kein Kürzen/Whitespacebereinigen.
 
-| Erzeugender Fall | Exit / Ergebnis | Vollständiger Log |
+| Erzeugender Fall | Ergebnis | Vollständiger Log |
 | --- | --- | --- |
-| windows-full | 0 / PASS / 1348 Tests | [windows-full.txt.gz](windows-full.txt.gz) |
-| windows-targeted | 0 / PASS / 229 Tests | [windows-targeted.txt.gz](windows-targeted.txt.gz) |
+| windows-full | 0 / PASS / 1353 Tests | [windows-full.txt.gz](windows-full.txt.gz) |
+| windows-targeted | 0 / PASS / 234 Tests | [windows-targeted.txt.gz](windows-targeted.txt.gz) |
 | compileall | 0 / PASS | [compileall.txt.gz](compileall.txt.gz) |
 | server-runtime | 0 / PASS | [server-runtime.txt.gz](server-runtime.txt.gz) |
 | pyinstaller-clean | 0 / PASS | [pyinstaller-clean.txt.gz](pyinstaller-clean.txt.gz) |
@@ -42,38 +40,39 @@ Gzip dient der bytegleichen Sicherung, kein Kürzen oder Whitespacebereinigen.
 | frozen-native-probe | 0 / PASS | [frozen-native-probe.txt.gz](frozen-native-probe.txt.gz) |
 | diff-check | 0 / PASS | [diff-check.txt.gz](diff-check.txt.gz) |
 
-Zusätzlich [release-server.txt.gz](release-server.txt.gz) und
-[release-server.json](release-server.json): separater gepinnter FastAPI-Prozess,
-Quellenhashes, acht tatsächlich empfangene Hellos, V1-Raw-Admission hello/ready.
+[Getrennter Produktionsserver](release-server.json), [vollständiger Serverlog](release-server.txt.gz):
+bytegeprüfte ada13b0-Quellen, acht empfangene aktuelle Hellos, V1-Raw-Admission.
 [Source](source-probe.json), [Wheel](wheel-probe.json),
-[sdist-Rebuild](rebuilt-wheel-probe.json), [Frozen](frozen-probe.json) dokumentieren
-nativen Desktop, Einstellungen, Corethread, Config, Icon, acht Sounds und JSONs.
-Alle installed/frozen PackageRoots außerhalb Checkout. Audioavailable=false,
-keine Capture, registrierten Keys oder Paste. Separate echte HTTP-/WSports;
-Modell-/Recorder-/Schedulergrenzen explizit, keine Hardware-/ASR-Gesamtabnahme.
+[sdist-Rebuild](rebuilt-wheel-probe.json), [Frozen](frozen-probe.json): native Windows-
+Qt/Settingsdialog/Corethread, Config/Icon/JSONs/Sounds, Helloidentität und
+Snapshot/Settingsrevision. Alle installed/frozen PackageRoots außerhalb Checkout.
+Qt-Soundprüfpfad und Audioausgabegerät stehen im JSON; Playback NOT_RUN.
+Audioavailable=false, kein Capture/Paste/Keys/LED. Recorder/ASR/Scheduler modellfrei;
+kein physischer Hardware-/ASR-/Fremdanwendungs-/Langlauf-PASS.
 
-Baseline: [isolierter unveränderter Parent](baseline-isolated-windows.txt.gz),
-1581 PASS; [Checkoutpfad](baseline-isolated-path.txt).
-[Ungültiger erster Versuch](baseline-windows.txt.gz) vollständig erhalten,
-8 durch laufende Sourceänderungen beeinflusste Fehler, kein gültiger Baseline-PASS.
+Baseline [1581 PASS am isolierten unveränderten Parent](baseline-isolated-windows.txt.gz),
+[Archivpfad](baseline-isolated-path.txt). [Ungültiger erster Versuch](baseline-windows.txt.gz)
+mit 8 durch eigene laufende Sourceänderungen beeinflussten Fehlern erhalten;
+ausschließlich der isolierte PASS gilt als Baseline.
+
+CI-01 [fehlgeschlagener Lauf](ci-01-failure.txt.gz), [Repro](ci-01-repro.json),
+[RED/GREEN](ci-01-red-green.txt.gz), [ausführbarer Repro](reproduce_ci01.py).
+Aufruf mit Projektvenv aus Root und `PYTHONPATH=.`; tatsächlicher Gitcheckout unter
+autocrlf=true. CI-02 [fehlgeschlagener Lauf](ci-02-failure.txt.gz),
+[Timeout-/Decoder-/FAIL-JSON-Regressionen](ci-02-repro.json).
+CI-03 [Produktkandidaten-CI PASS](ci-03-success.json), [vollständiger Log](ci-03-success.txt.gz).
+Frühere lokale Nachweise [Q01](QUALIFICATION-01/windows-validation.json),
+[Q02](QUALIFICATION-02/windows-validation.json) samt eigenen Rohlogs/Hashes erhalten;
+sie qualifizieren die ursprünglichen, mittlerweile korrigierten Kandidaten.
 
 | Lokales Artefakt unter dist | Bytes | SHA256 |
 | --- | --- | --- |
-| `voice_stt_client-1.0.0-py3-none-any.whl` | 1185338 | `dc8f1ab383294a995121dbfc17210de4c19294100b2a89257096c70a1f91030c` |
-| `voice_stt_client-1.0.0.tar.gz` | 1148131 | `f3621a1fb7c215390d3717981de013285b7f04b06f1e4a2e1928e2f468f6a9b2` |
-| `voice-stt-client.exe` | 75578275 | `bdb237aa30d7bf381a4169a2566b936d4f550e046b5967ae652545b2dd8528e2` |
+| `voice_stt_client-1.0.0-py3-none-any.whl` | 1185970 | `00073cd4f5b1f1b1e20e433380bb1422cff4f3e0d64a7230d1578fd8f1efbeec` |
+| `voice_stt_client-1.0.0.tar.gz` | 1148781 | `99f0231e69d52cbaa5eae3834ccfa9ee39d8002cb64191dbe0fb8f233c981345` |
+| `voice-stt-client.exe` | 75579676 | `dccc449d227e7e3580bbdfa333f7386ac6070f007eee29c40971f863375c6f5d` |
 
-Binärprodukte sind lokale Buildausgaben und nicht im Gitdiff. CI stellt ihre
-separat neu gebauten Kandidaten als GitHub-Actions-Artefakt des endgültigen PR-Heads
-bereit; dessen andere Buildstempel/ZIPhashes nicht mit diesen lokalen Hashes vermischen.
-Finale Head-/Tree-/CIidentität und administrative Gitblobgleichheit werden in der
-Abgabeverifikation bzw. tatsächlichen PR-Kurzfassung festgehalten.
-
-[Aktenprüfung](work-record-validation.json) und
-[administrativer Delta-/Gitblob-/Hashabgleich](administrative-delta.json): PASS.
-[PR-Anlageprovenienz](pr-provenance.json) nennt die beobachtete Dokumentenspitze
-vor dem rein administrativen PR-Verweisnachtrag. Finale SHA/Tree/CI im tatsächlichen PR.
-
-CI-01: erster PR-CI-Lauf 38437050459 findet CRLF-Konversion der neuen JSONs.
-Repro RED/gezielter Fix GREEN; vollständige Neuqualifikation läuft. Frühere
-Qualifikation in EVIDENCE/QUALIFICATION-01 erhalten, noch keine Reviewübergabe.
+Lokale Binärprodukte nicht im Gitdiff. CI baut eigene commitgestempelte Kandidaten
+und lädt sie als GitHub-Actions-Artefakt hoch; diese anderen Hashes nicht mit den
+lokalen Artefakten vermischen. [Aktenprüfung](work-record-validation.json) und
+[administrativer Gitblob-/Log-/Artefakthashabgleich](administrative-delta.json) PASS.
+Finale tatsächliche PR-Spitze/Tree/CI extern im PR, danach Umsetzungsschreiben pausiert.

@@ -1,6 +1,6 @@
 # AP-CV2-110 / R01-UMSETZUNG
 
-**Status:** IN_PROGRESS (vollständiger Selbstcheck; unabhängige Abnahme offen).
+**Status:** REVIEW_READY (vollständiger Selbstcheck; unabhängige Abnahme offen).
 Stand 2026-10-13. [PR #13](https://github.com/marcosudau-vps/voice-stt-client/pull/13); Abgabe erst nach grüner CI der endgültigen PR-Spitze.
 
 ## Identität, Auftrag und Voraussetzungen
@@ -11,7 +11,7 @@ Branch `work/client-v2/ap-cv2-110`, Base `feat/client-v2`, kanonischer Parent
 R06-Auftrag tatsächlich übernommen: ein Parent, identischer Baum zum finalen
 AP100-Head. Server `ada13b011e1d3829f78e7f389e3b927795a2b3be` bleibt unverändert.
 
-Qualifizierter Produkt-/Test-/Buildkandidat **`2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259`**, Tree **`d9a30deafd7c66143e376931f21d96f6b02aabc4`**.
+Qualifizierter Produkt-/Test-/Buildkandidat **`cf42a2a9d96c1ebc88035817a5d529dfe04e4306`**, Tree **`985986edaef2a1a6fc37091756d13b988adddc7e`**.
 Die spätere PR-Spitze enthält ausschließlich administrative Dokument-/Evidenznachträge;
 [Gitblobmanifest](EVIDENCE/candidate-blobs.txt) und Abgabeverifikation binden sie an
 exakt diesen Produktstand. Finale Head-/Treeidentität wird aus dem PR/Gitref ermittelt
@@ -64,8 +64,8 @@ Testzahlen und vollständige Logs im [Evidenzindex](EVIDENCE/INDEX.md) und
 | Prüfung | Tatsächliches Resultat |
 | --- | --- |
 | Unveränderte Parent-Baseline, isoliertes Gitarchive | 1581 Tests PASS, 183.004s |
-| Gesamte aktuelle Clientsuite | 1348 Tests PASS, keine Skips, 175.609s Testlauf |
-| Gezielte Release/Runtime/Feedback/OBS/Eventstream/Buildtests | 229 Tests PASS |
+| Gesamte aktuelle Clientsuite | 1353 Tests PASS, keine Skips, 176.873s Testlauf |
+| Gezielte Release/Runtime/Feedback/OBS/Eventstream/Buildtests | 234 Tests PASS |
 | compileall und git diff --check | PASS |
 | Tatsächlicher komponierter Runtime-/Servercheckpoint | 17 Checks PASS; bytegeprüfter ada13b0-Server |
 | PyInstaller --clean und EXE Ressourcen-/Versions-/Qt-Smoke | PASS |
@@ -131,10 +131,34 @@ Nächste Aktion: frischer unabhängiger Gesamt-Review AP110 auf der endgültigen
 PR-Spitze; keine Eigenabnahme. AP-IV2-010 startet erst nach unabhängiger Abnahme,
 menschlicher Freigabe und tatsächlicher kanonischer AP110-Übernahme.
 
-CI-01: erster PR-CI-Lauf 38437050459 findet CRLF-Konversion der neuen JSONs.
-Repro RED/gezielter Fix GREEN; vollständige Neuqualifikation läuft. Frühere
-Qualifikation in EVIDENCE/QUALIFICATION-01 erhalten, noch keine Reviewübergabe.
+## CI-Selbstkorrekturen vor der tatsächlichen Reviewübergabe
 
-CI-02: Suite/compileall auf frischem Runner PASS, Frozen-Smoke hängt und
-WinError32 maskiert Fehler. Kontrollierte Windows-Prozessbaum-/Qt-Decoder-/
-FAIL-JSON-Regressionen PASS. Neuer vollständiger Kandidatenlauf erforderlich.
+CI-01 am Head24c50a7 / Run38437050459: Git konvertierte die neuen Paket-JSONs
+zu CRLF. Deterministischer echter Git-checkout-index-Repro unter autocrlf=true
+RED mit alten Regeln, GREEN mit explizitem LF für beide Fixturepfade. Assertions
+bleiben bytegenau. .gitattributes gehört nun auch zur Dirty-/Gitblobbindung.
+[Repro](EVIDENCE/ci-01-repro.json), [RED/GREEN](EVIDENCE/ci-01-red-green.txt.gz),
+[ausführbarer Repro](EVIDENCE/reproduce_ci01.py), [vollständige CI](EVIDENCE/ci-01-failure.txt.gz).
+
+CI-02 am Head21d5549 / Run38437903400: Suite/compileall PASS; Frozen-Smoke läuft
+in Timeout und WinError32 beim belegten Tempordner maskiert die ursprüngliche
+Diagnose. Diese ursprüngliche Probeexception wurde nicht beobachtet; keine
+Behauptung einer sicher bewiesenen Audiohardwareursache. Probefehler liefern jetzt
+FAIL-JSON und Exit1. Bei Timeout wird der eigene Bootloader-/Kindprozessbaum vor
+Cleanup beendet und joined. Ein echter Windows-Eltern-/Kindprozess bestätigt,
+dass der Tempordner danach freigegeben ist. Ohne Audioausgabegerät validiert Qt
+alle acht echten WAVs über QAudioDecoder; kein Playback-PASS. Mit Ausgabegerät
+bleibt QSoundEffect-Ready die Prüfung. Kontrollierte Qt-Decoder-/Fehler-/Timeout-
+Regressionen und gesamte Neuqualifikation PASS. [CI-02-Beleg](EVIDENCE/ci-02-repro.json),
+[vollständige fehlgeschlagene CI](EVIDENCE/ci-02-failure.txt.gz).
+
+CI-03 auf dem aktuellen qualifizierten Produktcommit cf42a2a / Run38439465278:
+alle Windows-Suite-/Compile-/Clean-EXE-/GUI-/Distribution-/Wheelinstall-/Uploadchecks
+PASS; [Metadaten](EVIDENCE/ci-03-success.json), [vollständige CI](EVIDENCE/ci-03-success.txt.gz).
+Die endgültige administrative Dokumentenspitze bekommt vor tatsächlicher
+Übergabe ihren eigenen grünen CI-Nachweis; dessen exakte SHA/Tree/Run stehen im PR.
+
+Frühere lokale Vollqualifikationen bleiben unverändert in
+[QUALIFICATION-01](EVIDENCE/QUALIFICATION-01/windows-validation.json) und
+[QUALIFICATION-02](EVIDENCE/QUALIFICATION-02/windows-validation.json) mit vollständigen
+Logs erhalten. Sie ersetzen keinen Nachweis des aktuellen Produktstands.

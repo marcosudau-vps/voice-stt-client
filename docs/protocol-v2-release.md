@@ -30,7 +30,12 @@ saubere Identitäten; `--expected-commit` bindet die Artefakte an den Kandidaten
 Der Kandidatenmodus benutzt keine PyPI-Verbindung und veröffentlicht nichts.
 
 Versteckter Port `--verify-gui-runtime --verification-output <json>` lädt echte
-Qt-Widgets/Icon und QSoundEffect-Ressourcen ohne Playback. Optional
+Qt-Widgets/Icon und alle acht Sounds ohne Playback. Mit Audioausgabegerät
+werden QSoundEffect-Assets geladen; ohne Ausgabegerät decodiert QAudioDecoder
+die tatsächlichen WAVs. Der JSONreport nennt Gerätverfügbarkeit, konkreten
+Soundprüfpfad und playbackTest=NOT_RUN. Probe-Ausnahmen liefern FAIL-JSON
+und Exit1 statt eines blockierenden Frozen-Fehlerdialogs. Buildtimeout beendet
+nur den eigenen Bootloaderprozessbaum und joint ihn vor Tempordnercleanup. Optional
 `--verification-server ws://127.0.0.1:<port>/ws/v2` verbindet echten Transport,
 Settings und Mirror, dann den tatsächlichen Desktop/Core-Thread/Settingsdialog.
 Andere Hosts oder Routen werden abgewiesen. Desktopprobe: eigener nativer Mutex,

@@ -10,10 +10,10 @@ AP000 bis AP100 tatsächlich ACCEPTED auf feat/client-v2; letzter kanonischer Pa
 
 AP110 auf `work/client-v2/ap-cv2-110`: ausführbare V1-Autoritäten entfernt,
 Migrationreader und Utilities erhalten, Source/Wheel/sdist/Frozen mit belegter
-Helloidentität und nativer Windows-GUI qualifiziert. Windows **1348 PASS**,
-gezielte **229 PASS**, Servercheckpoint **17 PASS**, compileall/diffcheck und
+Helloidentität und nativer Windows-GUI qualifiziert. Windows **1353 PASS**,
+gezielte **234 PASS**, Servercheckpoint **17 PASS**, compileall/diffcheck und
 alle Build-/Ressourcen-/Installationschecks PASS. Getesteter Produktcommit
-`2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259`; finale PR-Spitze ergänzt ausschließlich administrative Unterlagen.
+`cf42a2a9d96c1ebc88035817a5d529dfe04e4306`; finale PR-Spitze ergänzt ausschließlich administrative Unterlagen.
 [Report](30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md), [vollständige Evidenz](30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md),
 [Kompatibilität](../../../docs/compatibility.md), [Runtime](../../../docs/protocol-v2-runtime.md).
 

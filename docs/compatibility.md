@@ -38,7 +38,7 @@ in eine ausdrücklich neue Datenbasis. [Resultvertrag](protocol-v2-results.md).
 
 Der konkrete Kandidatencommit und Artefakthashes stehen im
 [AP110-Nachweis](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md).
-Serverreferenz: `ada13b011e1d3829f78e7f389e3b927795a2b3be`; geprüfter V2-Clientcommit `2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259`.
+Serverreferenz: `ada13b011e1d3829f78e7f389e3b927795a2b3be`; geprüfter V2-Clientcommit `cf42a2a9d96c1ebc88035817a5d529dfe04e4306`.
 
 | Client / Endpoint | Ergebnis und Grenze |
 | --- | --- |

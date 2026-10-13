@@ -124,10 +124,13 @@ AP100-PASS, menschlichen R06-Auftrag und tatsächlichen PR12-Squash mit Single-P
 Baumgleichheit geprüft; vom kanonischen Parent `62ca35a01fb88b37e16b7003e26c2f9110c131f3` gestartet.
 V1-Controller/Transport/Headless-/Mode-/Timer-/Feedbackfallbackautoritäten entfernt,
 Migrationreader/Utilities erhalten, 251 methodengenaue Ersatzverantwortungen belegt.
-Loggingapply-/Startretryanschlussfehler iterativ korrigiert. Windows1348/gezielte229/
+Loggingapply-/Startretryanschlussfehler iterativ korrigiert. Windows1353/gezielte234/
 17 echte Runtime-Serverchecks, compileall/diffcheck, EXE/Wheel/sdist und native
 Windows-GUI-/Hello-/Ressourcencheckpoint für Source/Installed/Rebuilt/Frozen PASS.
 [Report](30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md).
 Frischer unabhängiger Gesamt-Review offen; tatsächliche Übergabe erst nach finaler
 grüner PR-CI, danach Schreiben pausiert. Kein eigener ROOT_PASS, Merge/Publish/Tag,
 Serverpromotion oder AP-IV2-010. Hardware-/ASRgates bleiben explizit offen.
+CI-01 LF-Checkout und CI-02 Frozen-Diagnose/Prozesscleanup im selben R01
+selbstkorrigiert; frühere Belege erhalten, vollständige Neuqualifikation und
+Produktkandidaten-CI38439465278 PASS. Finale Dokumentenspitzen-CI vor Abgabe.
