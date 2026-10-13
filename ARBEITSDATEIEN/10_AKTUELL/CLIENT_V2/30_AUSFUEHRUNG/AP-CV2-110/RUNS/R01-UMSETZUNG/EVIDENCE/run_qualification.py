@@ -3,6 +3,7 @@
 Run from the repository root. No publishing, user configuration, physical
 audio/USB or global keys. Native Qt probes use temporary isolated data.
 """
+import gzip
 import hashlib
 import json
 import os
@@ -159,6 +160,17 @@ def run():
         command('diff-check', ['git', '-c', 'core.safecrlf=false', 'diff', '--check'])
         report['result'] = 'PASS'
     finally:
+        # Preserve original raw bytes; gzip avoids whitespace changes in full logs.
+        for path in EVIDENCE.glob('*.txt'):
+            if path.name in {'candidate-blobs.txt', 'baseline-isolated-path.txt'}:
+                continue
+            packed = path.with_name(path.name+'.gz')
+            packed.write_bytes(gzip.compress(path.read_bytes(), mtime=0))
+            path.unlink()
+            for check in checks:
+                if check['log'] == path.name:
+                    check['log'] = packed.name
+                    check['compressedSha256'] = hashlib.sha256(packed.read_bytes()).hexdigest()
         (EVIDENCE/'candidate-blobs.txt').write_text(blobs+'\n', encoding='utf8')
         (EVIDENCE/'windows-validation.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf8')
 
