@@ -1,14 +1,14 @@
-# Client V2 – AP-CV2-090 / R01-UMSETZUNG / REVIEW_READY, 2026-10-13
+# Client V2 – AP-CV2-090 / R02-ABNAHME / ROOT_PASS, 2026-10-13
 
-Aktiver Arbeitsblock CLIENT_V2. AP000 bis AP080 ACCEPTED; AP080 tatsächlich auf `1bc5be893060e0d6a80e1d890102bfffebb73a17` übernommen, Single-Parent/Baumgleichheit und unabhängiger PASS/menschlicher Prompt [belegt](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP090 vollständig umgesetzt auf `work/client-v2/ap-cv2-090`; unabhängige Abnahme offen. Spätere Pakete PLANNED, Server-Distributed bleibt offen.
+Aktiver Arbeitsblock CLIENT_V2. AP000 bis AP080 ACCEPTED; AP080 tatsächlich auf `1bc5be893060e0d6a80e1d890102bfffebb73a17` übernommen, Single-Parent/Baumgleichheit und unabhängiger PASS/menschlicher Prompt [belegt](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP090 unabhängig mit ROOT_PASS auf `work/client-v2/ap-cv2-090` geprüft (R02); Workflow WAITING_FOR_APPROVAL, menschliche Übernahme ausstehend. Spätere Pakete PLANNED, Server-Distributed bleibt offen.
 
-[Runreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Planungseinstieg](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md), [Produktinterfaces](../../docs/protocol-v2-feedback.md).
+[Runreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [R02-ROOT_PASS](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md), [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Planungseinstieg](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md), [Produktinterfaces](../../docs/protocol-v2-feedback.md).
 
 Bestehende Feedbackengine mit validiertem V2-Mirroringang, quellenneutralen Phasen und getrenntem Backgrounddrain. Segmentvorschau, Domain-Dedup, diagnostischer Log-/Replaypfad, relative Anzeige ohne Lifecyclecommands; isolierte queued Qt-/Sound-/LEDausgabe. Mappingregeln und Präferenzen bleiben erhalten, UUIDkorrelation nutzt die vorhandene OBSfoundation.
 
 Qualifikation: 1552 vollständige Windows-Tests, 377 gezielte Tests, 39 neue Clienttests; tatsächlicher gepinnter Domain-/Log-/Replay-/Qtcheckpoint 18 Checks. compileall/diffcheck und Akten-/Blobbindung im Evidenzindex. Hardware-/ASR-/Wahrnehmung bleibt AP-IV2-020, reguläre Appkomposition AP100. Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`.
 
-Nächste Aktion: unabhängiges Review des endgültigen PR-Heads; Umsetzungsschreiben ab Übergabe pausiert. ROOT_PASS und anschließend ausdrücklicher menschlicher Übernahmeprompt erforderlich. Kein automatischer Merge/AP100.
+Nächste Aktion: ausdrückliche menschliche Übernahmefreigabe für den unabhängig geprüften PR #11 abwarten; kein automatischer Merge/AP100.
 
 ## Historischer Stand vor AP-CV2-020
 

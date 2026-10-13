@@ -1,3 +1,7 @@
+## 2026-10-13 – AP-CV2-090 / R02-ABNAHME: unabhängiger ROOT_PASS
+
+PR #11, geprüfter Kandidat `51d20aa24b41a125acbf2a3cd50df1477eb0c79b`, Tree `d52aeda488d55b61b9d1c1d744ad0ab09fdf69d4`, Parent `1bc5be893060e0d6a80e1d890102bfffebb73a17`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`: neun FB-Anforderungen unabhängig PASS, keine offenen Pflichtfindings. Windows-R01-Fremdbelege 1552 Tests und 377 gezielte, 18 echte gepinnte Domain-/Log-/Qtcheckpointchecks sowie 13/13 eigene Kandidaten-Gitblobstichproben geprüft, GitHub-CI 38331762953 erfolgreich. Eigene Windowswiederholung NOT_RUN (zulässig). [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md). Workflow WAITING_FOR_APPROVAL, kein Merge oder AP100 ohne menschliche Freigabe.
+
 ## 2026-10-12 – AP-CV2-050: unabhängige technische Abnahme R02
 
 PR #7; geprüfter Kandidat `55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a`, Tree `3b0dc469a1a3e577eb4dda0a67e2f3746b9c92cd`, kanonischer Parent `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`: **ROOT_PASS** für CONTROL-01 bis CONTROL-14, keine offenen Pflichtfindings. 1397 Windows-, 297 gezielte, 79 echte lokale TCP/WS-Server- und 16 native Win32-Checks als Fremdbelege geprüft; eigene Windows-Wiederholung NOT_RUN. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md). Workflow WAITING_FOR_APPROVAL; kein Merge und kein AP060 ohne menschliche Übernahmefreigabe.

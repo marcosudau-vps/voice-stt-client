@@ -1,12 +1,12 @@
 # Aktueller Paketstand – 2026-10-13
 
-AP000 bis AP080 ACCEPTED; AP090 REVIEW_READY. [Workflowstatus](../../WORKFLOW_STATUS.json). Nächste Aktion: unabhängiges Review, kein Merge.
+AP000 bis AP080 ACCEPTED; AP090 ROOT_PASS / WAITING_FOR_APPROVAL. [Workflowstatus](../../WORKFLOW_STATUS.json). Nächste Aktion: ausdrücklichen Übernahmeprompt abwarten, kein Merge.
 
 # Arbeitspakete – Index und Liefergrenzen
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-080 sind ACCEPTED; AP080 tatsächlich `1bc5be893060e0d6a80e1d890102bfffebb73a17`. AP090 REVIEW_READY; [R01](../../30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md), unabhängige Abnahme offen. Kein AP100-Start vor PASS, menschlichem Prompt und tatsächlicher Übernahme.
+AP-CV2-000 bis AP-CV2-080 sind ACCEPTED; AP080 tatsächlich `1bc5be893060e0d6a80e1d890102bfffebb73a17`. AP090 ROOT_PASS; [R01](../../30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md), [R02](../../30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md), menschliche Übernahme offen. Kein AP100-Start vor PASS, menschlichem Prompt und tatsächlicher Übernahme.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |

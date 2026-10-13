@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "REVIEW_READY",
-  "packageStatus": "REVIEW_READY",
+  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "packageStatus": "ROOT_PASS",
   "activePackage": "AP-CV2-090",
   "nextPackage": "AP-CV2-100",
   "canonicalParent": "1bc5be893060e0d6a80e1d890102bfffebb73a17",
@@ -11,18 +11,18 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/11",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R01-UMSETZUNG",
-    "role": "implementation",
-    "report": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
+    "id": "R02-ABNAHME",
+    "role": "review",
+    "report": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": null,
-  "reviewReport": null,
+  "reviewedCommit": "51d20aa24b41a125acbf2a3cd50df1477eb0c79b",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Unabhängiges Review des endgültigen AP090-PR-Heads anhand Code und aktualisierter kandidatengebundener Windows-/Serverbelege; kein Merge/AP100.",
+  "nextAction": "ROOT_PASS / WAITING_FOR_APPROVAL: ausdrücklichen menschlichen Übernahmeprompt für PR #11 abwarten; dann Head/Base/CI/administrativen Diff prüfen, anschließend nur bei Freigabe Squash. Kein AP100-Start ohne Übernahme.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -35,5 +35,5 @@
   },
   "recovery": null,
   "relatedServerFix": null,
-  "reviewedTree": null
+  "reviewedTree": "d52aeda488d55b61b9d1c1d744ad0ab09fdf69d4"
 }
