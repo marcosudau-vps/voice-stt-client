@@ -673,7 +673,7 @@
         "AP-CV2-090"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-100.md",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "testModules": [
         "test_v2_runtime_integration"
       ],
@@ -723,7 +723,9 @@
       "closedFindingIds": [
         "CV2-100-R03-F01"
       ],
-      "canonicalizationReport": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/01_REPORT.md"
+      "canonicalizationReport": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/01_REPORT.md",
+      "aggregateCommit": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json"
     },
     {
       "id": "AP-CV2-110",
@@ -732,7 +734,7 @@
         "AP-CV2-100"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-110.md",
-      "status": "IN_PROGRESS",
+      "status": "REVIEW_READY",
       "testModules": [
         "test_v2_release",
         "test_v2_runtime_integration",
@@ -765,7 +767,12 @@
         "scopeNote": "one complete package session; steps are not separate runs"
       },
       "testModulesRole": "suggested locations; actual coverage and methods required",
-      "executionReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md"
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "candidateBranch": "work/client-v2/ap-cv2-110",
+      "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+      "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+      "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json",
+      "openFindingIds": []
     },
     {
       "id": "AP-IV2-010",

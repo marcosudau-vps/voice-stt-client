@@ -117,3 +117,17 @@ PR #12 nach R04-Korrektur vollständig gegen Parent dad89bb5d und Kandidat `0d45
 ## 2026-10-13 – AP-CV2-100 / R06-UEBERNAHME: menschliche Squash-Freigabe dokumentiert
 
 Wörtlicher Auftrag „Hiermit wird die Freigabe zun Merge von PR #12, Arbeitspaket AP-CV2-100 erteilt. Bitte führe den Merge durch.“ als [Originalprompt](30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/00_PROMPT_ORIGINAL.md) gesichert. R05-PASS auf 0d45f8e9d3b484631da80be28f31c86ea85ab002; freigegebener Head 4c7be6945ae3f2c52748667963d00a1d5cd30d9f, kanonischer Parent dad89bb5d08e6d34abc5cfab57fc76010c5131dc. Finale PR-CI nach rein administrativem R06-Nachtrag nochmals erforderlich; ACCEPTED erst nach echtem Squash, Git-Parent- und Treeabgleich. Kein AP110-Vorgriff.
+
+## 2026-10-13 – AP-CV2-110 / R01-UMSETZUNG: Legacyabbau und Releasequalifikation / REVIEW_READY
+
+AP100-PASS, menschlichen R06-Auftrag und tatsächlichen PR12-Squash mit Single-Parent/
+Baumgleichheit geprüft; vom kanonischen Parent `62ca35a01fb88b37e16b7003e26c2f9110c131f3` gestartet.
+V1-Controller/Transport/Headless-/Mode-/Timer-/Feedbackfallbackautoritäten entfernt,
+Migrationreader/Utilities erhalten, 251 methodengenaue Ersatzverantwortungen belegt.
+Loggingapply-/Startretryanschlussfehler iterativ korrigiert. Windows1348/gezielte229/
+17 echte Runtime-Serverchecks, compileall/diffcheck, EXE/Wheel/sdist und native
+Windows-GUI-/Hello-/Ressourcencheckpoint für Source/Installed/Rebuilt/Frozen PASS.
+[Report](30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md).
+Frischer unabhängiger Gesamt-Review offen; tatsächliche Übergabe erst nach finaler
+grüner PR-CI, danach Schreiben pausiert. Kein eigener ROOT_PASS, Merge/Publish/Tag,
+Serverpromotion oder AP-IV2-010. Hardware-/ASRgates bleiben explizit offen.

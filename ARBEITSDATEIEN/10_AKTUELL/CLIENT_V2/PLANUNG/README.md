@@ -1,3 +1,34 @@
+# Client V2 – AP-CV2-110 / R01-UMSETZUNG / REVIEW_READY, 2026-10-13
+
+Aktiver Arbeitsblock [CLIENT_V2](../README.md);
+[Einstieg Planung](README.md), [Workflowstatus](../WORKFLOW_STATUS.json).
+AP000 bis AP100 tatsächlich ACCEPTED auf feat/client-v2; letzter kanonischer Parent
+`62ca35a01fb88b37e16b7003e26c2f9110c131f3`. AP100-PASS, menschlicher R06-Auftrag und wirklicher PR12-Squash
+[verifiziert](../30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json).
+
+AP110 auf `work/client-v2/ap-cv2-110`: ausführbare V1-Autoritäten entfernt,
+Migrationreader und Utilities erhalten, Source/Wheel/sdist/Frozen mit belegter
+Helloidentität und nativer Windows-GUI qualifiziert. Windows **1348 PASS**,
+gezielte **229 PASS**, Servercheckpoint **17 PASS**, compileall/diffcheck und
+alle Build-/Ressourcen-/Installationschecks PASS. Getesteter Produktcommit
+`2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259`; finale PR-Spitze ergänzt ausschließlich administrative Unterlagen.
+[Report](../30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md), [vollständige Evidenz](../30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md),
+[Kompatibilität](../../../../docs/compatibility.md), [Runtime](../../../../docs/protocol-v2-runtime.md).
+
+Start `.\venv\Scripts\python.exe -m voice_stt_client`; Headless `--headless`.
+Bekannte Legacy-Profile und History werden mit Backup migriert; kein V1-Fallback.
+Builds liegen lokal unter dist, kein veröffentlichter Release. Keine realen
+ASR-/Mikrofon-/USB-/Fremdanwendungs-/Wahrnehmungsgates behauptet.
+
+**Nächste Aktion:** frischer unabhängiger AP110-Gesamt-Review auf der endgültigen
+PR-Spitze nach grüner finaler CI. Schreiben ab tatsächlicher Übergabe pausiert.
+Kein eigener ROOT_PASS, Merge oder Folgepaketstart. AP-IV2-010/AP-IV2-020 und
+Server-Distributed bleiben offen; AP-IV2-010 erst nach tatsächlicher AP110-Übernahme.
+
+---
+
+## Historischer AP100-Stand vor dessen tatsächlicher kanonischer Übernahme
+
 # Client V2 – AP-CV2-100 / R05-ABNAHME / ROOT_PASS, 2026-10-13
 
 AP-CV2-000 bis AP-CV2-090 auf `feat/client-v2` ACCEPTED; letzter kanonischer Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`. Der aktuelle AP-CV2-100-Paketbranch `work/client-v2/ap-cv2-100` ([PR #12](https://github.com/marcosudau-vps/voice-stt-client/pull/12)) wurde unabhängig am Kandidaten `0d45f8e9d3b484631da80be28f31c86ea85ab002` / Tree `aa8e3146f7e05e67694fc2027d712c62ce44cebe` geprüft: **technischer ROOT_PASS**, 6/6 Paketrequirements erfüllt, `CV2-100-R03-F01` geschlossen.

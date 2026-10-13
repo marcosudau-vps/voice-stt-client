@@ -38,14 +38,14 @@ in eine ausdrücklich neue Datenbasis. [Resultvertrag](protocol-v2-results.md).
 
 Der konkrete Kandidatencommit und Artefakthashes stehen im
 [AP110-Nachweis](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md).
-Serverreferenz: `ada13b011e1d3829f78e7f389e3b927795a2b3be`.
+Serverreferenz: `ada13b011e1d3829f78e7f389e3b927795a2b3be`; geprüfter V2-Clientcommit `2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259`.
 
 | Client / Endpoint | Ergebnis und Grenze |
 | --- | --- |
-| V1 `f625904795880ce71acec216e43678f9ec1656d0` + damaliger V1-Endpoint | NOT_RUN in AP110. Historische V1-Belege bleiben ihrem Datum zugeordnet; kein neues PASS. |
-| V2 AP110 Source/Wheel/Frozen + `/ws/v2` des gepinnten Servers | Lokaler Checkpoint: echte getrennte Prozesse, echte WS/HTTP-/Settings-/Mirror-/Desktopports; Recorder/ASR/Scheduler modellfrei. Details und tatsächlicher Status im AP110-Nachweis. |
-| V2 + V1-only Server | Inkompatibel: V1-URL wird im direkten Transport sichtbar BLOCKED; kein V1-Hello/Startfallback. Reguläre bekannte Profil-URL migriert auf V2 und benötigt dort einen V2-Server. Fehlender V2-Endpoint bleibt Fehler. |
-| V1-Endpoint `/ws/transcribe` am neuen gepinnten Server | Getrennt vom V2-Nachweis zu beurteilen; kein V1-Kompatibilitäts-PASS aus einem V2-Smoke ableiten. Tatsächlicher Routecheck im AP110-Nachweis. |
+| V1 `f625904795880ce71acec216e43678f9ec1656d0` + damaliger V1-Endpoint (historischer Server-SHA in AP110 nicht neu qualifiziert) | NOT_RUN in AP110. Historische V1-Belege bleiben ihrem Datum zugeordnet; kein neues PASS. |
+| V2 AP110 Source/Wheel/Frozen + `/ws/v2` des gepinnten Servers | PASS (lokaler modellfreier Checkpoint) für Source, Wheel, sdist-Rebuild und Frozen. Native Windows-GUI, getrennte Prozesse, echte WS/HTTP-/Settings-/Mirror-/Desktopports; Recorder/ASR/Scheduler modellfrei. Keine reale ASR-/Hardwareabnahme. |
+| V2 + V1-only Server | NOT_RUN gegen einen echten historischen V1-only Server (kein neu qualifizierter Server-SHA). Funktionale Negativtests PASS; inkompatibel: V1-URL wird im direkten Transport sichtbar BLOCKED; kein V1-Hello/Startfallback. Reguläre bekannte Profil-URL migriert auf V2 und benötigt dort einen V2-Server. Fehlender V2-Endpoint bleibt Fehler. |
+| V1-Endpoint `/ws/transcribe` am neuen gepinnten Server | PASS nur für Raw-Admission hello/ready am Server ada13b0. Historischer V1-Client ist NOT_RUN; kein End-to-End-V1-PASS daraus ableiten. |
 
 `serverCommit=unknown` bleibt unknown; es beweist keinen gepinnten Serverbuild.
 Erst Git-/Dateiprüfung und tatsächlich empfangene Buildmetadaten binden den
