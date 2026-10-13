@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "REVIEW_READY",
-  "packageStatus": "REVIEW_READY",
+  "workflowPhase": "CHANGES_REQUIRED",
+  "packageStatus": "CHANGES_REQUIRED",
   "activePackage": "AP-CV2-100",
   "nextPackage": "AP-CV2-110",
   "canonicalParent": "dad89bb5d08e6d34abc5cfab57fc76010c5131dc",
@@ -11,18 +11,20 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/12",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R02-KORREKTUR",
-    "role": "correction",
-    "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/INDEX.md"
+    "id": "R03-ABNAHME",
+    "role": "review",
+    "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": null,
-  "reviewReport": null,
-  "openFindingIds": [],
+  "reviewedCommit": "4a35a2d7eba5fa55e79528744320419b8ec0a1b3",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md",
+  "openFindingIds": [
+    "CV2-100-R03-F01"
+  ],
   "humanApproval": null,
   "writeOwner": null,
-  "blockingReason": null,
-  "nextAction": "Finalen PR-Head nur bei grüner CI an frische unabhängige Abnahme übergeben; danach keine Paketbranchänderungen. Kein Merge/AP110 ohne PASS und menschlichen Prompt.",
+  "blockingReason": "CV2-100-R03-F01: Settings-Audit und gemeinsame Korrelation fehlen in der V2-Local-Apply-Verdrahtung",
+  "nextAction": "F01 im selben PR #12 minimal korrigieren; erneute kandidatgebundene Windows-Vollsuite und finale CI, danach frischer unabhängiger Review des Gesamtpakets. Kein Merge oder AP110.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -36,5 +38,5 @@
   },
   "recovery": null,
   "relatedServerFix": null,
-  "reviewedTree": null
+  "reviewedTree": "18f7516471c97627b92e9221e24e367f30f5cd81"
 }

@@ -2205,3 +2205,7 @@ erhalten und erweitert. Windows1574/gezielte203/Servercheckpoint17/compileall
 PASS, kandidatgebundene vollständige Logs. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md).
 REVIEW_READY im Selbstcheck; tatsächliche Übergabe erst nach grüner finaler PR-CI.
 Keine Eigenabnahme, kanonische Übernahme oder AP110.
+
+## 2026-10-13 – AP-CV2-100 / R03-ABNAHME
+
+Unabhängiger Review von PR #12 (Kandidat `4a35a2d7eba5fa55e79528744320419b8ec0a1b3`): Windows-Vollsuite 1574, gezielte 203, Servercheckpoint 17 und finale CI 38347923728 als fremde PASS-Nachweise geprüft; sechs qualifizierte Gitblobs individuell gegen GitHub abgeglichen. **CHANGES_REQUIRED** wegen `CV2-100-R03-F01`: bestehende Settings-OBS-Audit-/Korrelationsereignisse werden im tatsächlichen V2-Desktop/Core-Apply nicht erzeugt. [R03-Abnahmebericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md). Reviewer keine eigene Windows-Suite, keine Produktcodeänderungen. Korrektur und erneute unabhängige Abnahme auf demselben PR; kein Merge/AP110.

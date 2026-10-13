@@ -1,28 +1,12 @@
-# Client V2 – AP-CV2-100 / R02 / REVIEW_READY, 2026-10-13
+# Client V2 – AP-CV2-100 / R03-ABNAHME / CHANGES_REQUIRED, 2026-10-13
 
-Aktiver Block CLIENT_V2. AP000 bis AP090 tatsächlich ACCEPTED, zuletzt `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`
-über PR #11; unabhängiger PASS, menschlicher Prompt und Git-/PR-Provenienz
-[gesichert](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP100 vollständig
-selbstqualifiziert auf `work/client-v2/ap-cv2-100`; unabhängige Abnahme offen.
+Aktiver CLIENT_V2-Arbeitsblock. AP000 bis AP090 tatsächlich ACCEPTED; aktueller kanonischer Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`. Der kumulative [PR #12](https://github.com/marcosudau-vps/voice-stt-client/pull/12) wurde unabhängig auf Kandidat `4a35a2d7eba5fa55e79528744320419b8ec0a1b3` / Tree `18f7516471c97627b92e9221e24e367f30f5cd81` geprüft. **CHANGES_REQUIRED**: Finding `CV2-100-R03-F01`, strukturierte korrelierte Settings-Audits fehlen im neuen V2-Local-Apply-Pfad.
 
-Tatsächlicher V2-Desktop-/Headlessprozess mit gemeinsamem Mirror, Settingsbootstrap,
-Media, Controls, Results, Logs und Feedback. Qt-/Core-/Audio-/Clipboard-/LEDworkers
-getrennt, profilgebundene Workerpersistenz/Hotkeyrollback und Shutdown getestet.
-1574 Windows-/ 203 gezielte Tests und 17 komponierte Serverchecks
-an 45 bytegeprüften ada13b0-Quellen PASS; compileall/diffcheck PASS.
+[R03-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md), [R03-Evidenz](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/EVIDENCE/INDEX.md), [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json).
 
-[Paketakte](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/00_PAKET.md), [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md),
-[Evidenz](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/INDEX.md), [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json),
-[Planung](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md), [Runtimeinterfaces](../../docs/protocol-v2-runtime.md).
-Start `.\venv\Scripts\python.exe -m voice_stt_client`; Headless `--headless`.
+Extern qualifiziert: 1574 Windows-Tests und 203 gezielte PASS, 17 komponierte Client-/Serverchecks gegen 45 Quellen am Server `ada13b0`, finale [CI 38347923728](https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38347923728) erfolgreich. Diese Nachweise ersetzen die noch nötige F01-Korrektur nicht.
 
-Nächste Aktion: vollständigen kumulativen Kandidaten unabhängig prüfen; Branch ab
-Abgabe pausiert. Kein eigener ROOT_PASS, kein AP100-Mergeprompt, kein AP110-Start.
-Server-Distributed sowie Build-/Crossrepo-/Hardware-/ASRgates bleiben offen.
-
-R02 behebt CI-01: großzügige Testfristen für Replay mit dauerhaftem Cursor-IO,
-zusätzlicher 280-ms-Schreibverzögerungsfall, unveränderte Funktionsassertions.
-CI des finalen PR-Heads muss vor tatsächlicher Reviewübergabe grün sein.
+Nächste Aktion: F01 im selben PR korrigieren, kandidatengebunden erneut qualifizieren und gesamte AP100-Linie frisch unabhängig prüfen. **Kein ROOT_PASS, kein Merge und kein AP110-Start.**
 
 ## Historischer Stand vor AP-CV2-020
 

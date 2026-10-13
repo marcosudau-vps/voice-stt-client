@@ -1,6 +1,6 @@
 # AP-CV2-100 – Paketakte
 
-**Status:** REVIEW_READY. Stand 2026-10-13. Unabhängige Abnahme offen.
+**Status:** CHANGES_REQUIRED. Stand 2026-10-13. Unabhängige R03-Abnahme: offenes Pflichtfinding CV2-100-R03-F01.
 
 Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`, Branch `work/client-v2/ap-cv2-100`, Server `ada13b0`.
 [PR #12](https://github.com/marcosudau-vps/voice-stt-client/pull/12), Base feat/client-v2.
@@ -30,3 +30,7 @@ CI-01 korrigiert, Windowsvollsuite1574, gezielte203, Servercheckpoint17 PASS.
 R01 bleibt historische Umsetzungsevidenz. Finaler Kandidat: Basis ca3cd400 plus
 R02-Produktdiff/Gitblobs; exakten veröffentlichten Head/Tree und abschließenden
 CI-Erfolg im PR prüfen. Reviewübergabe erst bei grüner finaler CI.
+
+## Aktuelle unabhängige Abnahme R03 – CHANGES_REQUIRED
+
+[Originalauftrag](RUNS/R03-ABNAHME/00_PROMPT_ORIGINAL.md), [Reviewreport](RUNS/R03-ABNAHME/01_REPORT.md), [Evidenz](RUNS/R03-ABNAHME/EVIDENCE/INDEX.md). Reviewed `4a35a2d7eba5fa55e79528744320419b8ec0a1b3`, Tree `18f7516471c97627b92e9221e24e367f30f5cd81` vor eigenem Docs-Commit. `CV2-100-R03-F01`: fehlende korrelierte Settings-Audit-Emissionen im V2-Local-Apply. R01/R02 sind historische Selbstchecks; kein ROOT_PASS, keine kanonische Übernahme, kein AP110-Start.
