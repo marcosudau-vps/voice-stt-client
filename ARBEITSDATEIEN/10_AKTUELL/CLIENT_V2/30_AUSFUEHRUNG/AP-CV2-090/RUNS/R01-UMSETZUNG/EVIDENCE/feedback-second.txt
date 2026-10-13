@@ -1,0 +1,49 @@
+test_activation_cue_is_source_neutral_and_wake_detection_is_diagnostic (tests.test_v2_feedback.DomainFeedback.test_activation_cue_is_source_neutral_and_wake_detection_is_diagnostic) ... ok
+test_all_manual_wake_phases_have_identical_ui_and_persistent_rules (tests.test_v2_feedback.DomainFeedback.test_all_manual_wake_phases_have_identical_ui_and_persistent_rules) ... ok
+test_background_warning_is_silent (tests.test_v2_feedback.DomainFeedback.test_background_warning_is_silent) ... ok
+test_callback_chain_order_failure_isolation_and_close (tests.test_v2_feedback.DomainFeedback.test_callback_chain_order_failure_isolation_and_close) ... ok
+test_cancelled_activation_does_not_announce_late_completed (tests.test_v2_feedback.DomainFeedback.test_cancelled_activation_does_not_announce_late_completed) ... ok
+test_domain_log_replay_and_repeated_reduction_complete_once (tests.test_v2_feedback.DomainFeedback.test_domain_log_replay_and_repeated_reduction_complete_once) ... ok
+test_failed_observability_cannot_fail_domain_output (tests.test_v2_feedback.DomainFeedback.test_failed_observability_cannot_fail_domain_output) ... ok
+test_frozen_snapshot_redacts_repr_and_bounds_display_text (tests.test_v2_feedback.DomainFeedback.test_frozen_snapshot_redacts_repr_and_bounds_display_text) ... ok
+test_idle_with_multiple_drains_remains_trigger_ready (tests.test_v2_feedback.DomainFeedback.test_idle_with_multiple_drains_remains_trigger_ready) ... ok
+test_key_reject_and_history_fault_visible_and_explicitly_clearable (tests.test_v2_feedback.DomainFeedback.test_key_reject_and_history_fault_visible_and_explicitly_clearable) ... ok
+test_late_interim_and_recording_cannot_revive_terminal_preview_or_cue (tests.test_v2_feedback.DomainFeedback.test_late_interim_and_recording_cannot_revive_terminal_preview_or_cue) ... ok
+test_local_faults_secondary_and_repeated_without_warning_loop (tests.test_v2_feedback.DomainFeedback.test_local_faults_secondary_and_repeated_without_warning_loop) ... ok
+test_log_connection_loss_does_not_change_recording (tests.test_v2_feedback.DomainFeedback.test_log_connection_loss_does_not_change_recording) ... ok
+test_old_complete_cannot_change_new_followup (tests.test_v2_feedback.DomainFeedback.test_old_complete_cannot_change_new_followup) ... ok
+test_old_complete_cannot_change_new_recording_or_persistent_led (tests.test_v2_feedback.DomainFeedback.test_old_complete_cannot_change_new_recording_or_persistent_led) ... ok
+test_one_shot_and_observation_memory_bounded (tests.test_v2_feedback.DomainFeedback.test_one_shot_and_observation_memory_bounded) ... ok
+test_reconnect_resets_preview_and_old_generation_cannot_return (tests.test_v2_feedback.DomainFeedback.test_reconnect_resets_preview_and_old_generation_cannot_return) ... ok
+test_relative_countdown_does_not_mutate_mirror_or_issue_commands (tests.test_v2_feedback.DomainFeedback.test_relative_countdown_does_not_mutate_mirror_or_issue_commands) ... ok
+test_replace_preview_displaytext_and_missing_stabilization (tests.test_v2_feedback.DomainFeedback.test_replace_preview_displaytext_and_missing_stabilization) ... ok
+test_resync_incomplete_device_and_log_have_distinct_diagnostics (tests.test_v2_feedback.DomainFeedback.test_resync_incomplete_device_and_log_have_distinct_diagnostics) ... ok
+test_snapshot_counts_do_not_generate_missing_final_cues (tests.test_v2_feedback.DomainFeedback.test_snapshot_counts_do_not_generate_missing_final_cues) ... ok
+test_suppression_combinations_are_visible (tests.test_v2_feedback.DomainFeedback.test_suppression_combinations_are_visible) ... ok
+test_terminal_only_removes_its_own_preview (tests.test_v2_feedback.DomainFeedback.test_terminal_only_removes_its_own_preview) ... ok
+test_uuid_command_hooks_and_secrets_at_actual_normalizer (tests.test_v2_feedback.DomainFeedback.test_uuid_command_hooks_and_secrets_at_actual_normalizer) ... ok
+test_watchdog_repeated_new_event_ids_emit_one_warning (tests.test_v2_feedback.DomainFeedback.test_watchdog_repeated_new_event_ids_emit_one_warning) ... ok
+test_wrong_session_reduction_and_status_are_rejected (tests.test_v2_feedback.DomainFeedback.test_wrong_session_reduction_and_status_are_rejected) ... ok
+test_custom_rules_retained_reported_and_new_keys_win (tests.test_v2_feedback.MappingMigration.test_custom_rules_retained_reported_and_new_keys_win) ... ok
+test_observability_uuid_storage_filter_and_mixed_sort_pagination (tests.test_v2_feedback.MappingMigration.test_observability_uuid_storage_filter_and_mixed_sort_pagination) ... ERROR
+test_profile_file_migration_preserves_user_feedback_bytes_in_backup (tests.test_v2_feedback.MappingMigration.test_profile_file_migration_preserves_user_feedback_bytes_in_backup) ... ok
+test_roundtrip_idempotent_and_schema1_requires_visible_repair (tests.test_v2_feedback.MappingMigration.test_roundtrip_idempotent_and_schema1_requires_visible_repair) ... ok
+test_countdown_clock_drift_never_finishes_or_hides_preview (tests.test_v2_feedback.QtOutput.test_countdown_clock_drift_never_finishes_or_hides_preview) ... ok
+test_foreground_preview_survives_background_final_and_plain_text (tests.test_v2_feedback.QtOutput.test_foreground_preview_survives_background_final_and_plain_text) ... ok
+test_independent_sound_led_failures_and_duplicate_output (tests.test_v2_feedback.QtOutput.test_independent_sound_led_failures_and_duplicate_output) ... ok
+test_queued_foreign_thread_delivers_only_on_main_and_close_invalidates (tests.test_v2_feedback.QtOutput.test_queued_foreign_thread_delivers_only_on_main_and_close_invalidates) ... ok
+test_stale_generation_snapshot_is_rejected (tests.test_v2_feedback.QtOutput.test_stale_generation_snapshot_is_rejected) ... ok
+test_terminal_removes_preview_and_late_interim_cannot_restore_it (tests.test_v2_feedback.QtOutput.test_terminal_removes_preview_and_late_interim_cannot_restore_it) ... ok
+
+======================================================================
+ERROR: test_observability_uuid_storage_filter_and_mixed_sort_pagination (tests.test_v2_feedback.MappingMigration.test_observability_uuid_storage_filter_and_mixed_sort_pagination)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_feedback.py", line 300, in test_observability_uuid_storage_filter_and_mixed_sort_pagination
+    from voice_stt_client.core.observability.storage.sqlite import LocalLogStore
+ImportError: cannot import name 'LocalLogStore' from 'voice_stt_client.core.observability.storage.sqlite' (P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\observability\storage\sqlite.py)
+
+----------------------------------------------------------------------
+Ran 36 tests in 9.718s
+
+FAILED (errors=1)

@@ -55,7 +55,7 @@ class ClientEventEmitter:
         session_id: Optional[str] = None,
         generation: Optional[int] = None,
         activation_id: Optional[str] = None,
-        segment_id: Optional[int] = None,
+        segment_id: Optional[int | str] = None,
         command_id: Optional[str] = None,
         correlation_id: Optional[str] = None,
         transcription_id: Optional[str] = None,

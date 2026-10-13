@@ -1,5 +1,13 @@
 # AP-CV2-080 – Paketakte
 
+**Status:** ACCEPTED. Stand 2026-10-13. PR #10 tatsächlich als `1bc5be893060e0d6a80e1d890102bfffebb73a17` übernommen; unabhängiger R02-PASS und menschlicher R03-Prompt geprüft.
+
+[Git-/Baum-/Single-Parent-Nachweis](../AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). Genau ein Aggregat auf `0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3`, Tree `d3f64330bc413715e9708f9cd4b586e2ada18a96` gleich finalem Pakethead `17174f093acb66ccdf06b124e640b4a4d5e9c503`.
+
+## Historischer Index vor bestätigter Übernahme
+
+# AP-CV2-080 – Paketakte
+
 **Status:** ROOT_PASS / READY_FOR_CANONICALIZATION. Stand 2026-10-13. R02-ABNAHME unabhängig PASS; menschlicher Squash-Merge ausdrücklich freigegeben, tatsächliche Übernahme noch offen.
 
 Parent `0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3`, Branch `work/client-v2/ap-cv2-080`, Server `ada13b0`.

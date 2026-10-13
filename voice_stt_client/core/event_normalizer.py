@@ -122,6 +122,47 @@ _LOCAL_SEMANTICS: dict[CanonicalEventType, tuple[Optional[FeedbackState], Option
 class EventNormalizer:
     """Strictly map documented event identifiers to stable canonical facts."""
 
+    def normalize_domain(self, event, *, generation: int) -> Optional[NormalizedFeedbackEvent]:
+        """Normalize only events accepted by ActivationMirror, never raw frames.
+
+        Details are an explicit correlation allowlist, excluding text, settings,
+        credentials and arbitrary additive fields even with a test ingress.
+        """
+        from . import protocol_v2 as p
+        semantics = {
+            p.EventType.ACTIVATION_STARTED: (CanonicalEventType.SERVER_ACTIVATION_STARTED, FeedbackImpulse.WAKE_WORD_DETECTED),
+            p.EventType.RECORDING_STARTED: (CanonicalEventType.SERVER_RECORDING_STARTED, FeedbackImpulse.RECORDING_STARTED),
+            p.EventType.RECORDING_ENDED: (CanonicalEventType.SERVER_RECORDING_ENDED, FeedbackImpulse.RECORDING_ENDED),
+            p.EventType.COMPLETED: (CanonicalEventType.SERVER_TRANSCRIPTION_COMPLETED, FeedbackImpulse.TRANSCRIPTION_COMPLETED),
+            p.EventType.DISCARDED: (CanonicalEventType.SERVER_TRANSCRIPTION_DISCARDED, None),
+            p.EventType.FAILED: (CanonicalEventType.SERVER_TRANSCRIPTION_FAILED, FeedbackImpulse.TRANSCRIPTION_FAILED),
+            p.EventType.ACTIVATION_CANCELLED: (CanonicalEventType.SERVER_TRANSCRIPTION_CANCELLED, FeedbackImpulse.DICTATION_INTERRUPTED),
+            p.EventType.ACTIVATION_FAILED: (CanonicalEventType.SERVER_TRANSCRIPTION_FAILED, FeedbackImpulse.TRANSCRIPTION_FAILED),
+            p.EventType.WATCHDOG_WARNING: (CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING, FeedbackImpulse.ACTION_BLOCKED),
+            p.EventType.TRIGGER_SUPPRESSED: (CanonicalEventType.CLIENT_ACTION_BLOCKED, FeedbackImpulse.ACTION_BLOCKED),
+        }
+        semantic = semantics.get(event.type)
+        if semantic is None:
+            return None
+        self._validate_generation(generation)
+        d = event.payload
+        kind, impulse = semantic
+        segment_kinds = {p.EventType.RECORDING_STARTED, p.EventType.RECORDING_ENDED,
+                         p.EventType.COMPLETED, p.EventType.DISCARDED, p.EventType.FAILED, p.EventType.WATCHDOG_WARNING}
+        aid = None if event.type == p.EventType.TRIGGER_SUPPRESSED else d.get('activationId')
+        sid = d.get('segmentId') if event.type in segment_kinds else None
+        sequence = d.get('segmentSequence') if event.type in segment_kinds else None
+        identity = sid or aid or event.eventId
+        if event.type == p.EventType.WATCHDOG_WARNING:
+            identity = f"{d['activationId']}:{d.get('segmentId')}:{d['deadlineAtUnixMs']}"
+        correlation = f"{kind.value}|session:{event.sessionId}|identity:{identity}"
+        return NormalizedFeedbackEvent(kind, EventOrigin.LIVE, FeedbackSource.DOMAIN,
+            impulse=impulse, event_id=event.eventId, correlation_id=correlation,
+            details={"generation": generation, "sessionId": event.sessionId,
+                     "activationId": aid, "segmentId": sid,
+                     "segmentSequence": sequence, "commandId": None,
+                     "eventSeq": event.eventSeq})
+
     def normalize_event_stream(
         self,
         result: EventProtocolResult,

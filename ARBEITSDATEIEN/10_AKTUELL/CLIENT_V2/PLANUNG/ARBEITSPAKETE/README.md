@@ -1,12 +1,12 @@
-# Aktueller Paketstand – 2026-10-12
+# Aktueller Paketstand – 2026-10-13
 
-AP000 bis AP070 ACCEPTED; AP080 ROOT_PASS / READY_FOR_CANONICALIZATION (menschlicher Mergeprompt gesichert). [R02-Abnahme](../../30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md), [R01-Umsetzung](../../30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/01_REPORT.md), [Workflowstatus](../../WORKFLOW_STATUS.json). Nächste Aktion: freigegebenen Squash nach CI- und Head-/Parentprüfung; spätere Pakete PLANNED.
+AP000 bis AP080 ACCEPTED; AP090 REVIEW_READY. [Workflowstatus](../../WORKFLOW_STATUS.json). Nächste Aktion: unabhängiges Review, kein Merge.
 
 # Arbeitspakete – Index und Liefergrenzen
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-000 bis AP-CV2-060 sind **ACCEPTED**, zuletzt AP060 `473a75d02fb6d00e5664af4328dadaa44da5191a` nach tatsächlichem PR8-Squash. AP-CV2-070 **ROOT_PASS** gemäß [R02-Review](../../30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md); menschlicher Mergeprompt weiterhin erforderlich. Kein AP080 bis tatsächliche Übernahme. Spätere Pakete PLANNED.
+AP-CV2-000 bis AP-CV2-080 sind ACCEPTED; AP080 tatsächlich `1bc5be893060e0d6a80e1d890102bfffebb73a17`. AP090 REVIEW_READY; [R01](../../30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md), unabhängige Abnahme offen. Kein AP100-Start vor PASS, menschlichem Prompt und tatsächlicher Übernahme.
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |
@@ -31,7 +31,9 @@ Jede Paketdatei enthält Ziel, fachliche Ownership, Eingangsvoraussetzungen, ein
 Die Ausführung erfolgt streng seriell. Fachlaufzahlen und Teilung stehen in jeder AP-Datei sowie im [Umfangsmodell](../REFERENZ/PLANUNG/UMFANG_UND_AGENTENLAEUFE.md). Jedes Paket wird unabhängig geprüft; erst ROOT PASS und die gesicherte kanonische Aggregateübernahme geben den nächsten Start frei. [Agentenregelwerk](../REFERENZ/GOVERNANCE/AGENTEN_REGELWERK.md).
 
 
-Aktuelle AP060-Kandidatenidentität und PR werden bei vollständiger Abgabe in Paketakte und PR-Beschreibung angegeben.
+## Historische PR-Verweise zu AP060
+
+Frühere AP060-Kandidatenidentität und PR werden bei vollständiger Abgabe in Paketakte und PR-Beschreibung angegeben.
 
 
 [PR #8](https://github.com/marcosudau-vps/voice-stt-client/pull/8) gegen feat/client-v2. Früherer vor CI-Selbstkorrektur qualifizierter Umsetzungscommit `66b6e39daa86855ae1314025bc06344eb55f7d39`, Tree `fbe3931c3b68efa510bee1e35db4b77ad7a83f27`. Nachfolgende Veröffentlichungsverweise sind rein administrativ; endgültige eingereichte SHA/Tree stehen in aktueller PR-Beschreibung und finaler Übergabe.

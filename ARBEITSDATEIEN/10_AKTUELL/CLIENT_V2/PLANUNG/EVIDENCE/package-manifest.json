@@ -557,7 +557,7 @@
         "AP-CV2-070"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-080.md",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "testModules": [
         "test_v2_settings_ui",
         "test_v2_settings_service"
@@ -601,7 +601,10 @@
       "latestReview": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md",
       "reviewedCommit": "eafd918f456551af694ede4af472ed4515b9fdd6",
       "reviewedTree": "960270c3f786433967aee7b16333be70f41427fe",
-      "canonicalizationRun": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/01_REPORT.md"
+      "canonicalizationRun": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/01_REPORT.md",
+      "canonicalCommit": "1bc5be893060e0d6a80e1d890102bfffebb73a17",
+      "canonicalTree": "d3f64330bc413715e9708f9cd4b586e2ada18a96",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "AP-CV2-090",
@@ -612,7 +615,7 @@
         "AP-CV2-060"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-090.md",
-      "status": "PLANNED",
+      "status": "REVIEW_READY",
       "testModules": [
         "test_v2_feedback"
       ],
@@ -640,7 +643,16 @@
         "defaultRuns": 1,
         "scopeNote": "existing infrastructure retained; adapt protocol input/bootstrap only"
       },
-      "testModulesRole": "suggested locations; actual coverage and methods required"
+      "testModulesRole": "suggested locations; actual coverage and methods required",
+      "candidateBranch": "work/client-v2/ap-cv2-090",
+      "canonicalParent": "1bc5be893060e0d6a80e1d890102bfffebb73a17",
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+      "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/server-feedback-checkpoint.json",
+      "openFindingIds": [],
+      "reviewReport": null,
+      "humanApproval": null,
+      "pullRequest": null
     },
     {
       "id": "AP-CV2-100",

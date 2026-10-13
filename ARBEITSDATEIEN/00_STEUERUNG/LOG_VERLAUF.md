@@ -2172,3 +2172,7 @@ PR #10, geprüfter Kandidat `eafd918f456551af694ede4af472ed4515b9fdd6`, Tree `96
 ## 2026-10-13 – AP-CV2-080: menschliche Squash-Freigabe gesichert (R03)
 
 Nach unabhängigem [R02-ROOT_PASS](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md) hat der Auftraggeber [PR #10](https://github.com/marcosudau-vps/voice-stt-client/pull/10) ausdrücklich zum Merge freigegeben. [Originalprompt](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md), [R03-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/01_REPORT.md). Freigegebener Head `777c8e23f531e24532e78312365798bc83f2234c`, Parent `0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3`, CI #38321633045 PASS. Workflow READY_FOR_CANONICALIZATION, noch kein Merge im vorgezogenen Report. Squash benötigt neue CI sowie Head-/Parent-/Treeprüfung; kein AP090-Autostart.
+
+## 2026-10-13 – AP-CV2-090 / R01-UMSETZUNG
+
+Quellenneutraler V2-Feedbackpfad auf Paketbranch aus AP080-Aggregat 1bc5be8; 1551 Windows-/289 gezielte Tests und 18 reale gepinnte Domain-/Log-/Qtchecks PASS. [Runreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md). REVIEW_READY, unabhängige Abnahme und menschliche Übernahme offen; kein AP100-/Serverabschluss.

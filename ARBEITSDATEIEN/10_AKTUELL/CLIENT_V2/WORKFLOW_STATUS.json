@@ -2,47 +2,38 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "READY_FOR_CANONICALIZATION",
-  "packageStatus": "ROOT_PASS",
-  "activePackage": "AP-CV2-080",
-  "nextPackage": "AP-CV2-090",
-  "canonicalParent": "0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3",
-  "candidateBranch": "work/client-v2/ap-cv2-080",
-  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/10",
+  "workflowPhase": "REVIEW_READY",
+  "packageStatus": "REVIEW_READY",
+  "activePackage": "AP-CV2-090",
+  "nextPackage": "AP-CV2-100",
+  "canonicalParent": "1bc5be893060e0d6a80e1d890102bfffebb73a17",
+  "candidateBranch": "work/client-v2/ap-cv2-090",
+  "pullRequest": null,
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R03-UEBERNAHME",
-    "role": "canonicalization",
-    "report": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
+    "id": "R01-UMSETZUNG",
+    "role": "implementation",
+    "report": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "eafd918f456551af694ede4af472ed4515b9fdd6",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md",
+  "reviewedCommit": null,
+  "reviewReport": null,
   "openFindingIds": [],
-  "humanApproval": {
-    "source": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
-    "prNumber": 10,
-    "approvedHead": "777c8e23f531e24532e78312365798bc83f2234c",
-    "approvedTree": "986d445f0afd83060c0cfd747067e6bed0c67b37",
-    "canonicalParent": "0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3",
-    "reviewReport": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md",
-    "action": "squash_and_merge",
-    "status": "GRANTED"
-  },
+  "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Menschliche Freigabe für PR #10 gesichert; administrative Freigabenachtrags-CI und finale SHA-/Base-/Mergeable-Prüfung, danach genau ein Squash-Merge und Single-Parent-/Tree-Nachweis. AP090 bleibt gesperrt.",
+  "nextAction": "Unabhängiges Review des endgültigen AP090-PR-Heads anhand Code und kandidatengebundener Windows-/Serverbelege; kein Merge/AP100.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
   "candidateSelection": {
-    "candidateId": "AP-CV2-080",
-    "source": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "Ausdrücklicher AP080-Auftrag nach tatsächlicher AP070-Übernahme."
+    "candidateId": "AP-CV2-090",
+    "source": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "reason": "Ausdrücklicher AP090-Auftrag nach tatsächlicher AP080-Übernahme."
   },
   "recovery": null,
   "relatedServerFix": null,
-  "reviewedTree": "960270c3f786433967aee7b16333be70f41427fe"
+  "reviewedTree": null
 }

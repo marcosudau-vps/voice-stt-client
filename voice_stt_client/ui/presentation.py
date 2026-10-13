@@ -22,6 +22,8 @@ from voice_stt_client.core.event_models import (
 from voice_stt_client.core.feedback_mapping import AppActionId
 from voice_stt_client.core.feedback_reducer import FeedbackDecision
 from voice_stt_client.core.stt_session import SessionState
+from voice_stt_client.core.v2_feedback import FeedbackSnapshot
+from voice_stt_client.core import protocol_v2 as p
 
 
 class IndicatorColor(str, Enum):
@@ -57,6 +59,41 @@ class MappedAppPresentation:
     status_text: str
     border_color: str | None = None
     duration_ms: int | None = None
+
+
+def presentation_for_v2_snapshot(snapshot: FeedbackSnapshot, *, now: float) -> TrayPresentation:
+    """One source-neutral foreground; background/output issues stay separate."""
+    phase = snapshot.phase
+    color = IndicatorColor.GREEN if phase == p.InputPhase.SEGMENT_ACTIVE else IndicatorColor.DARK_GREEN
+    text = {p.InputPhase.IDLE: "Bereit", p.InputPhase.WAITING_FIRST_SPEECH: "Wartet auf Sprache",
+            p.InputPhase.SEGMENT_ACTIVE: "Sprache wird aufgenommen", p.InputPhase.FOLLOWUP_WAIT: "Wartet auf Fortsetzung",
+            p.InputPhase.CLOSING_INPUT: "Eingabe wird geschlossen"}[phase]
+    border = "#ffffff" if phase in (p.InputPhase.WAITING_FIRST_SPEECH, p.InputPhase.FOLLOWUP_WAIT) else None
+    if snapshot.availability != 'ready':
+        color = IndicatorColor.YELLOW
+        text = 'Zustand wird synchronisiert' if snapshot.availability in ('resyncing', 'reconnect_required') else 'Verbindung unterbrochen'
+    elif not snapshot.audio_available:
+        color, text = IndicatorColor.YELLOW, 'Mikrofon nicht verfügbar'
+    elif phase == p.InputPhase.IDLE and snapshot.manual_suppressed and snapshot.wake_suppressed:
+        color, text = IndicatorColor.GRAY, 'Trigger pausiert'
+    notes = {
+        'resync': 'Zustand wird synchronisiert', 'incomplete': 'Ergebnis unvollständig',
+        'device_off': 'Mikrofon nicht verfügbar', 'log_unavailable': 'Diagnoselog eingeschränkt',
+        'key_rejected': 'Admin-Schlüssel abgelehnt', 'history_unavailable': 'Verlauf nicht verfügbar',
+        'injection_failed': 'Text konnte nicht eingefügt werden', 'sound_failed': 'Sound eingeschränkt',
+        'led_unavailable': 'LED eingeschränkt', 'action_blocked': 'Aktion derzeit nicht verfügbar',
+        'manual_suppressed': 'Manueller Trigger pausiert', 'wake_suppressed': 'Wake Word pausiert',
+    }
+    tooltip = [f'RealtimeSTT – {text}']
+    if snapshot.pending_count:
+        tooltip.append(f'{snapshot.pending_count} Diktat(e) werden im Hintergrund verarbeitet')
+    tooltip.extend(notes[x] for x in snapshot.diagnostics if x in notes)
+    remaining = snapshot.remaining_ms(now)
+    if remaining is not None:
+        tooltip.append(f'Restzeit: {remaining / 1000:.1f} s')
+    toggle = 'Diktat starten' if phase == p.InputPhase.IDLE else 'Diktatzeit verlängern'
+    enabled = snapshot.manual_available if phase == p.InputPhase.IDLE else snapshot.availability == 'ready' and snapshot.audio_available
+    return TrayPresentation(color, text, '\n'.join(tooltip), toggle, enabled, border)
 
 
 _AVAILABILITY_PRESENTATION = {
@@ -273,6 +310,20 @@ def presentation_for_feedback_decision(
     """Create optional overlay feedback from one already mapped decision."""
     if not decision.publish or decision.replay or decision.rule.app is None:
         return None
+    if decision.snapshot is not None:
+        if decision.persistent:
+            return None
+        # Late A terminals cannot replace B's recording/follow-up feedback.
+        if (decision.event and decision.event.event_type in {
+            CanonicalEventType.SERVER_TRANSCRIPTION_COMPLETED, CanonicalEventType.SERVER_TRANSCRIPTION_DISCARDED,
+            CanonicalEventType.SERVER_TRANSCRIPTION_CANCELLED, CanonicalEventType.SERVER_TRANSCRIPTION_FAILED}
+            and decision.snapshot.activation_id != decision.event.details.get('activationId')):
+            return None
+        mapped = presentation_for_mapped_action(decision.rule.app.action, operating_mode='hotkey')
+        text = ('Diktat bereit' if decision.event and decision.event.event_type == CanonicalEventType.SERVER_ACTIVATION_STARTED
+                else 'Daueraufnahme endet bald' if decision.event and decision.event.event_type == CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING
+                else mapped.status_text)
+        return FeedbackPresentation(mapped.color, text, mapped.duration_ms or 1000)
     mapped = presentation_for_mapped_action(
         decision.rule.app.action,
         operating_mode=operating_mode,

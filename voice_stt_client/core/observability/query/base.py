@@ -47,7 +47,7 @@ class QueryFilter:
     session_id: Optional[str] = None
     generation: Optional[int] = None
     activation_id: Optional[str] = None
-    segment_id: Optional[int] = None
+    segment_id: Optional[int | str] = None
     command_id: Optional[str] = None
     correlation_id: Optional[str] = None
     transcription_id: Optional[str] = None
@@ -101,7 +101,7 @@ class LogRecordView:
     session_id: Optional[str]
     generation: Optional[int]
     activation_id: Optional[str]
-    segment_id: Optional[int]
+    segment_id: Optional[int | str]
     transcription_id: Optional[str]
     command_id: Optional[str]
     event_id: Optional[str]

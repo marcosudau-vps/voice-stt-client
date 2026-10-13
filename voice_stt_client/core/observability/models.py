@@ -132,7 +132,7 @@ class CanonicalLogRecord:
     session_id: Optional[str] = None
     generation: Optional[int] = None
     activation_id: Optional[str] = None
-    segment_id: Optional[int] = None
+    segment_id: Optional[int | str] = None
     transcription_id: Optional[str] = None
     command_id: Optional[str] = None
     event_id: Optional[str] = None
@@ -170,7 +170,11 @@ class CanonicalLogRecord:
                      "activation_id", "transcription_id", "command_id",
                      "event_id", "correlation_id", "message"):
             _optional_string(getattr(self, name), name)
-        for name in ("generation", "segment_id", "server_cursor"):
+        if isinstance(self.segment_id, str):
+            _required_string(self.segment_id, 'segment_id')
+        else:
+            _optional_int(self.segment_id, 'segment_id')
+        for name in ("generation", "server_cursor"):
             _optional_int(getattr(self, name), name)
         if not isinstance(self.details, Mapping):
             raise ValueError("details must be a mapping")
