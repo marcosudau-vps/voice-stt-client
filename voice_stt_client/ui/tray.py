@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Callable, Iterable, Optional
+import time
 
 from PySide6.QtCore import QObject, QTimer, Qt
 from PySide6.QtGui import QAction, QColor, QIcon, QPainter, QPen, QPixmap
@@ -18,6 +19,7 @@ from voice_stt_client.ui.presentation import (
     format_history_label,
     presentation_for_mapped_action,
     presentation_for_snapshot,
+    presentation_for_v2_snapshot,
 )
 
 
@@ -203,6 +205,18 @@ class TrayController(QObject):
     def update_feedback_decision(self, decision: FeedbackDecision) -> None:
         """Apply only configured in-app effects; transport state stays secondary."""
         if not decision.publish or decision.replay:
+            return
+        if decision.snapshot is not None:
+            self._feedback_timer.stop()
+            self._feedback_override = None
+            self._event_stream_note = None
+            self._base_presentation = presentation_for_v2_snapshot(decision.snapshot, now=time.monotonic())
+            value = self._base_presentation
+            self.status_action.setText(value.status_text)
+            self.toggle_action.setText(value.toggle_text)
+            self.toggle_action.setEnabled(value.toggle_enabled)
+            self.tray.setToolTip(value.tooltip)
+            self.tray.setIcon(create_status_icon(value.color, border_color=value.border_color))
             return
         event_type = decision.event.event_type if decision.event is not None else None
         if event_type in {

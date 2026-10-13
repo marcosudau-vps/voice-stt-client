@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Any, Iterable, Optional
+from uuid import UUID
 
 from PySide6.QtCore import Qt, QTimer, Signal
 from PySide6.QtWidgets import (
@@ -204,7 +205,7 @@ class LogFilterBar(QWidget):
         activation_label = QLabel("Activation-ID ⚠")
         activation_label.setToolTip(ACTIVATION_HINT)
         context_form.addRow(activation_label, self.activation_edit)
-        self.segment_edit = self._line("Segment-ID (Zahl)", "Exakte numerische Segment-ID.", self.context_group)
+        self.segment_edit = self._line("Segment-ID", "Exakte Segment-ID: UUID oder ältere numerische ID.", self.context_group)
         context_form.addRow("Segment-ID", self.segment_edit)
         self.command_edit = self._line("Command-ID", "Exakte Command-ID.", self.context_group)
         context_form.addRow("Command-ID", self.command_edit)
@@ -244,7 +245,7 @@ class LogFilterBar(QWidget):
             type_prefix=_text_or_none(self.type_edit),
             session_id=_text_or_none(self.session_edit),
             activation_id=_text_or_none(self.activation_edit),
-            segment_id=_int_or_none(self.segment_edit),
+            segment_id=_segment_or_none(self.segment_edit),
             command_id=_text_or_none(self.command_edit),
             event_id=_text_or_none(self.event_edit),
             transcription_id=_text_or_none(self.transcription_edit),
@@ -328,14 +329,19 @@ def _text_or_none(edit: QLineEdit) -> Optional[str]:
     return value or None
 
 
-def _int_or_none(edit: QLineEdit) -> Optional[int]:
+def _segment_or_none(edit: QLineEdit) -> Optional[int | str]:
     value = edit.text().strip()
     if not value:
         return None
     try:
         return int(value)
     except ValueError:
-        return None
+        try:
+            UUID(value)
+        except ValueError:
+            # Half-typed IDs remain unrestricted until complete, as before.
+            return None
+        return value
 
 
 __all__ = ["LogFilterBar", "MultiSelectButtons", "DEBOUNCE_MS", "ACTIVATION_HINT"]

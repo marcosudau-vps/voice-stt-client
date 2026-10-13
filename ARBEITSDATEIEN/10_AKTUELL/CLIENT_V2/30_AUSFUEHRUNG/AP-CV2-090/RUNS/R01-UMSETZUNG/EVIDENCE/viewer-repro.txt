@@ -1,0 +1,28 @@
+test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite (tests.test_v2_feedback.QtOutput.test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite) ... FAIL
+
+======================================================================
+FAIL: test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite (tests.test_v2_feedback.QtOutput.test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_feedback.py", line 388, in _isolated
+    self.assertEqual(child.returncode,0,child.stdout+child.stderr)
+AssertionError: 1 != 0 : test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite (tests.test_v2_feedback.QtOutput.test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite) ... FAIL
+
+======================================================================
+FAIL: test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite (tests.test_v2_feedback.QtOutput.test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_feedback.py", line 480, in test_diagnostic_uuid_context_filter_and_mixed_sort_match_sqlite
+    self.assertEqual(bar.current_filter().segment_id,S)
+AssertionError: None != '40000000-0000-4000-8000-000000000001'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.824s
+
+FAILED (failures=1)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 1.506s
+
+FAILED (failures=1)

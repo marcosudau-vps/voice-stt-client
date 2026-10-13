@@ -1,3 +1,11 @@
+## 2026-10-13 – AP-CV2-090 / R03-UEBERNAHME: menschliche Squash-Freigabe gesichert
+
+PR #11 auf `work/client-v2/ap-cv2-090` gegen `feat/client-v2`, kanonischer Parent `1bc5be893060e0d6a80e1d890102bfffebb73a17`. Tatsächlicher Nutzerauftrag „Hiermit wird die Freigabe zun Merge von PR #11, Arbeitspaket AP-CV2-090 erteilt. Bitte führe den Merge durch.“ in [R03-Originalprompt](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md) unverändert gesichert. Unabhängiger R02-PASS auf `51d20aa24b41a125acbf2a3cd50df1477eb0c79b`; freigegebener Head beim Auftrag `04ad97c1d58d24a0b9f76ad1cd9cdb4841f0e92e` / Tree `b9968a3f71738b97c27eafe4b7f39cb427390f02`; CI #38335152161 completed/success. R03 ist rein administrative Freigabedokumentation, technischer Status weiter ROOT_PASS, Workflow READY_FOR_CANONICALIZATION. Vor GitHub-Squash finalen Head/Base/CI, allein administrative R03-Änderungen und Treegleichheit nach Merge prüfen. Keine vorweggenommene ACCEPTED-Aussage und kein AP100-Autostart.
+
+## 2026-10-13 – AP-CV2-090 / R02-ABNAHME: unabhängiger ROOT_PASS
+
+PR #11, geprüfter Kandidat `51d20aa24b41a125acbf2a3cd50df1477eb0c79b`, Tree `d52aeda488d55b61b9d1c1d744ad0ab09fdf69d4`, Parent `1bc5be893060e0d6a80e1d890102bfffebb73a17`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`: neun FB-Anforderungen unabhängig PASS, keine offenen Pflichtfindings. Windows-R01-Fremdbelege 1552 Tests und 377 gezielte, 18 echte gepinnte Domain-/Log-/Qtcheckpointchecks sowie 13/13 eigene Kandidaten-Gitblobstichproben geprüft, GitHub-CI 38331762953 erfolgreich. Eigene Windowswiederholung NOT_RUN (zulässig). [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md). Workflow WAITING_FOR_APPROVAL, kein Merge oder AP100 ohne menschliche Freigabe.
+
 ## 2026-10-12 – AP-CV2-050: unabhängige technische Abnahme R02
 
 PR #7; geprüfter Kandidat `55d6ca6b4d222fac9bba66a4911c7a6b8c236a0a`, Tree `3b0dc469a1a3e577eb4dda0a67e2f3746b9c92cd`, kanonischer Parent `4eb1161eecf12aaf3c7bd7938f04fb4f95f8744f`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`: **ROOT_PASS** für CONTROL-01 bis CONTROL-14, keine offenen Pflichtfindings. 1397 Windows-, 297 gezielte, 79 echte lokale TCP/WS-Server- und 16 native Win32-Checks als Fremdbelege geprüft; eigene Windows-Wiederholung NOT_RUN. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-050/RUNS/R02-ABNAHME/01_REPORT.md). Workflow WAITING_FOR_APPROVAL; kein Merge und kein AP060 ohne menschliche Übernahmefreigabe.
@@ -2172,3 +2180,7 @@ PR #10, geprüfter Kandidat `eafd918f456551af694ede4af472ed4515b9fdd6`, Tree `96
 ## 2026-10-13 – AP-CV2-080: menschliche Squash-Freigabe gesichert (R03)
 
 Nach unabhängigem [R02-ROOT_PASS](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md) hat der Auftraggeber [PR #10](https://github.com/marcosudau-vps/voice-stt-client/pull/10) ausdrücklich zum Merge freigegeben. [Originalprompt](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md), [R03-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/01_REPORT.md). Freigegebener Head `777c8e23f531e24532e78312365798bc83f2234c`, Parent `0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3`, CI #38321633045 PASS. Workflow READY_FOR_CANONICALIZATION, noch kein Merge im vorgezogenen Report. Squash benötigt neue CI sowie Head-/Parent-/Treeprüfung; kein AP090-Autostart.
+
+## 2026-10-13 – AP-CV2-090 / R01-UMSETZUNG
+
+Quellenneutraler V2-Feedbackpfad auf Paketbranch aus AP080-Aggregat 1bc5be8; 1552 Windows-/377 gezielte Tests und 18 reale gepinnte Domain-/Log-/Qtchecks PASS. [Runreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md). REVIEW_READY, unabhängige Abnahme und menschliche Übernahme offen; kein AP100-/Serverabschluss.

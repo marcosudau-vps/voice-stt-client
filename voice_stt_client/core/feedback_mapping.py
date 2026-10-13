@@ -267,6 +267,7 @@ class FeedbackRule:
 class FeedbackMappingConfig:
     schema_version: int = SCHEMA_VERSION
     events: dict[str, FeedbackRule] = field(default_factory=dict)
+    migration_report: tuple[str, ...] = field(default=(), compare=False)
 
     def validate(self) -> None:
         if (
@@ -344,6 +345,7 @@ class FeedbackMappingConfig:
                 for event_name, rule_raw in events_raw.items()
             },
         )
+        config = migrate_v2_feedback_mapping(config)
         config.validate()
         return config
 
@@ -495,3 +497,30 @@ def default_feedback_mappings() -> FeedbackMappingConfig:
         schema_version=SCHEMA_VERSION,
         events={event_type.value: FeedbackRule() for event_type in CanonicalEventType},
     )
+
+
+def migrate_v2_feedback_mapping(mapping: FeedbackMappingConfig) -> FeedbackMappingConfig:
+    """Extend schema 2 without rewriting any user rule, cue, volume or LEFX call.
+
+    V2 uses one activation cue for both sources. The manual rule is the stable
+    common default; the wake-specific rule remains available and is reported,
+    but wake detection is now diagnostic. Explicit new keys always win.
+    Schema 1 still requires explicit repair rather than guessing LED effects.
+    """
+    mapping.validate()
+    aliases = {
+        CanonicalEventType.SERVER_ACTIVATION_STARTED: CanonicalEventType.CLIENT_HOTKEY_ACCEPTED,
+        CanonicalEventType.SERVER_INPUT_IDLE: CanonicalEventType.SERVER_TRANSCRIPTION_DISCARDED,
+        CanonicalEventType.SERVER_INPUT_WAITING: CanonicalEventType.CLIENT_HOTKEY_ACCEPTED,
+        CanonicalEventType.SERVER_INPUT_FOLLOWUP: CanonicalEventType.CLIENT_HOTKEY_ACCEPTED,
+        CanonicalEventType.SERVER_INPUT_CLOSING: CanonicalEventType.SERVER_TRANSCRIPTION_STARTED,
+    }
+    events = dict(mapping.events)
+    report = list(mapping.migration_report)
+    for target, source in aliases.items():
+        if target.value not in events:
+            events[target.value] = mapping.rule_for(source)
+            report.append(f"inherited:{target.value}<-{source.value}")
+    if report and "retained:server.wakeword.detected:diagnostic-only-in-v2" not in report:
+        report.append("retained:server.wakeword.detected:diagnostic-only-in-v2")
+    return FeedbackMappingConfig(mapping.schema_version, events, tuple(report))

@@ -101,7 +101,7 @@ _SORT_FIELDS = {
     "session_id": ("COALESCE(session_id, '') COLLATE NOCASE", "text"),
     "generation": ("COALESCE(generation, -9223372036854775808)", "number"),
     "activation_id": ("COALESCE(activation_id, '') COLLATE NOCASE", "text"),
-    "segment_id": ("COALESCE(segment_id, -9223372036854775808)", "number"),
+    "segment_id": ("COALESCE(segment_id, -9223372036854775808)", "mixed"),
     "transcription_id": ("COALESCE(transcription_id, '') COLLATE NOCASE", "text"),
     "command_id": ("COALESCE(command_id, '') COLLATE NOCASE", "text"),
     "event_id": ("COALESCE(event_id, '') COLLATE NOCASE", "text"),
@@ -527,11 +527,13 @@ class LocalLogProvider:
 
         for column, value in (
             ("generation", filter.generation),
-            ("segment_id", filter.segment_id),
         ):
             if value is not None:
                 clauses.append(f"{column} = ?")
                 parameters.append(int(value))
+        if filter.segment_id is not None:
+            clauses.append('segment_id = ?')
+            parameters.append(filter.segment_id)
 
         if filter.type_prefix and "type_prefix" not in excluded:
             clauses.append("type LIKE ? ESCAPE ?")
@@ -643,6 +645,10 @@ class LocalLogProvider:
                     "ERROR": 40, "CRITICAL": 50}.get(str(value), 0)
         if _SORT_FIELDS[field][1] == "number":
             return -9223372036854775808 if value is None else int(value)
+        if _SORT_FIELDS[field][1] == "mixed":
+            # Match SQLite's native number-before-text ordering. UUIDs must
+            # never pass through int() or a guessed legacy segment identity.
+            return -9223372036854775808 if value is None else value
         return "" if value is None else str(value)
 
     def _classify(self, exc: sqlite3.Error) -> Tuple[ProviderState, str]:

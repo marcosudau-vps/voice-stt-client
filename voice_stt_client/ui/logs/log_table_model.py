@@ -34,7 +34,7 @@ COLUMN_SPECS = (
     ColumnSpec("session_id", "Session-ID"),
     ColumnSpec("generation", "Generation", "number"),
     ColumnSpec("activation_id", "Activation-ID"),
-    ColumnSpec("segment_id", "Segment-ID", "number"),
+    ColumnSpec("segment_id", "Segment-ID", "segment"),
     ColumnSpec("transcription_id", "Transcription-ID"),
     ColumnSpec("command_id", "Command-ID"),
     ColumnSpec("event_id", "Event-ID"),
@@ -214,6 +214,12 @@ def _display(value: Any, kind: str) -> str:
 
 
 def _sort_value(value: Any, kind: str) -> Any:
+    if kind == "segment":
+        # Match the provider's SQLite order: NULL, integers, then UUID TEXT.
+        # Keep exact integers and binary UUID order for stable live insertion.
+        if value is None:
+            return (0, 0)
+        return (1, value) if isinstance(value, int) else (2, str(value))
     if kind == "number":
         try:
             return float(value)

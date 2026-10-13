@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 from typing import Optional
+import time
 
 from PySide6.QtCore import QEasingCurve, QPropertyAnimation, QTimer, Qt
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtWidgets import QLabel, QVBoxLayout, QWidget
 
 from voice_stt_client.core.config import OverlayConfig
-from voice_stt_client.ui.presentation import FeedbackPresentation, IndicatorColor
+from voice_stt_client.ui.presentation import FeedbackPresentation, IndicatorColor, presentation_for_v2_snapshot
 
 
 class TranscriptOverlay(QWidget):
@@ -46,6 +47,18 @@ class TranscriptOverlay(QWidget):
             font.setFamily(config.font_family)
         self.label.setFont(font)
         layout.addWidget(self.label)
+        self.status_label = QLabel(self)
+        self.status_label.setWordWrap(True)
+        self.status_label.setTextInteractionFlags(Qt.TextInteractionFlag.NoTextInteraction)
+        self.status_label.setTextFormat(Qt.TextFormat.PlainText)
+        self.label.setTextFormat(Qt.TextFormat.PlainText)
+        self.status_label.hide()
+        layout.addWidget(self.status_label)
+        self._v2_snapshot = None
+        self._clock = time.monotonic
+        self._countdown_timer = QTimer(self)
+        self._countdown_timer.setInterval(100)
+        self._countdown_timer.timeout.connect(self._update_v2_status)
 
         self.setFixedWidth(config.width)
         self.setMaximumHeight(config.max_height)
@@ -57,7 +70,7 @@ class TranscriptOverlay(QWidget):
         self._fade_timer.timeout.connect(self._begin_fade)
         self._alert_timer = QTimer(self)
         self._alert_timer.setSingleShot(True)
-        self._alert_timer.timeout.connect(self.hide)
+        self._alert_timer.timeout.connect(self._end_alert)
         self._fade_animation = QPropertyAnimation(self, b"windowOpacity", self)
         self._fade_animation.setDuration(250)
         self._fade_animation.setEasingCurve(QEasingCurve.Type.OutCubic)
@@ -95,6 +108,11 @@ class TranscriptOverlay(QWidget):
     def show_feedback(self, feedback: FeedbackPresentation) -> None:
         if not self.config.enabled:
             return
+        if self._v2_snapshot is not None:
+            self.status_label.setText(feedback.text)
+            self.status_label.show()
+            self._alert_timer.start(max(100, feedback.duration_ms))
+            return
         self._fade_timer.stop()
         self._fade_animation.stop()
         self.setWindowOpacity(self._base_opacity)
@@ -104,6 +122,56 @@ class TranscriptOverlay(QWidget):
         self.reposition()
         self.show()
         self._alert_timer.start(max(100, feedback.duration_ms))
+
+    def _end_alert(self):
+        if self._v2_snapshot is None:
+            self.hide()
+        else:
+            self._update_v2_status()
+
+    def apply_feedback_snapshot(self, snapshot):
+        """Replace only mirror-owned previews; never route interims to injection.
+
+        Foreground chooses which segment is displayed. A-terminal removes A
+        through the new mirror projection and cannot hide B's preview.
+        """
+        previous = self._v2_snapshot
+        if previous is not None and (snapshot.generation < previous.generation or
+            snapshot.generation == previous.generation and (
+                snapshot.session_id != previous.session_id or snapshot.revision <= previous.revision)):
+            return
+        self._v2_snapshot = snapshot
+        if previous is None or (snapshot.generation, snapshot.activation_id, snapshot.phase) != (
+            previous.generation, previous.activation_id, previous.phase):
+            self._alert_timer.stop()
+        self._fade_timer.stop()
+        self._fade_animation.stop()
+        previews = [x for x in snapshot.previews if x.activation_id == snapshot.activation_id]
+        self.label.setText(previews[0].text if previews else '')
+        self.label.setVisible(bool(previews))
+        self._update_v2_status()
+        if snapshot.deadline is not None or snapshot.watchdog is not None:
+            self._countdown_timer.start()
+        else:
+            self._countdown_timer.stop()
+        if self.config.enabled:
+            self.setWindowOpacity(self._base_opacity)
+            self.adjustSize()
+            self.reposition()
+            self.show()
+
+    def _update_v2_status(self):
+        snapshot = self._v2_snapshot
+        if snapshot is None or self._alert_timer.isActive():
+            return
+        value = presentation_for_v2_snapshot(snapshot, now=self._clock())
+        self.status_label.setText(value.tooltip.replace('RealtimeSTT – ', '', 1))
+        self.status_label.show()
+        self._set_background(self.config.background_color)
+
+    def closeEvent(self, event):
+        self._countdown_timer.stop()
+        super().closeEvent(event)
 
     def show_hotkey_error(self) -> None:
         self.show_feedback(

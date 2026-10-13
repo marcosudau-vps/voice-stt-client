@@ -20,6 +20,7 @@ class EventConnectionState(str, Enum):
 
 
 class FeedbackSource(str, Enum):
+    DOMAIN = "domain"
     EVENT_STREAM = "event_stream"
     STT_FALLBACK = "stt_fallback"
     LOCAL_ONLY = "local_only"
@@ -69,6 +70,11 @@ class CanonicalEventType(str, Enum):
     """Stable mapping keys shared by server and local client facts."""
 
     SERVER_WAKE_WORD_DETECTED = "server.wakeword.detected"
+    SERVER_ACTIVATION_STARTED = "server.activation.started"
+    SERVER_INPUT_IDLE = "server.input.idle"
+    SERVER_INPUT_WAITING = "server.input.waiting"
+    SERVER_INPUT_FOLLOWUP = "server.input.followup"
+    SERVER_INPUT_CLOSING = "server.input.closing"
     SERVER_RECORDING_STARTED = "server.recording.started"
     SERVER_RECORDING_ENDED = "server.recording.ended"
     SERVER_TRANSCRIPTION_STARTED = "server.transcription.started"

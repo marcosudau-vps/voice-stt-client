@@ -6,8 +6,9 @@ import logging
 from pathlib import Path
 import sys
 from typing import Callable, Optional
+from collections import OrderedDict
 
-from PySide6.QtCore import QObject, QUrl, Signal
+from PySide6.QtCore import QObject, QUrl, Signal, Slot, Qt
 from PySide6.QtMultimedia import QSoundEffect
 
 from voice_stt_client.core.config import FeedbackConfig
@@ -163,3 +164,73 @@ class SoundFeedback(QObject):
 
 
 __all__ = ["SoundFeedback", "application_resource_root", "resolve_sound_asset"]
+
+
+class V2FeedbackOutput(QObject):
+    """Queued main-thread fanout to the existing tray/overlay/sound/LEFX ports.
+
+    Adapter errors are independent and reported only once by category. This
+    port has no reference to transport/controls/history or audio. App wiring is
+    AP100; checkpoints may connect controlled adapters to this actual port.
+    """
+    decision_received = Signal(object)
+    failure = Signal(str)
+
+    def __init__(self, *, tray, overlay, sound, led, parent=None):
+        super().__init__(parent)
+        self.tray, self.overlay, self.sound, self.led = tray, overlay, sound, led
+        self._identity = None
+        self._revision = -1
+        self._reported = set()
+        self._seen_impulses = OrderedDict()
+        self._closed = False
+        self.decision_received.connect(self.apply, Qt.ConnectionType.QueuedConnection)
+
+    def _call(self, category, operation):
+        try:
+            operation()
+        except Exception:
+            if category not in self._reported:
+                self._reported.add(category)
+                self.failure.emit(category)
+
+    @Slot(object)
+    def apply(self, decision):
+        from voice_stt_client.core.feedback_reducer import FeedbackDecision
+        from voice_stt_client.ui.presentation import presentation_for_feedback_decision
+        if self._closed or not isinstance(decision, FeedbackDecision) or not decision.publish or decision.replay:
+            return
+        snapshot = decision.snapshot
+        if snapshot is None:
+            return
+        identity = (snapshot.generation, snapshot.session_id)
+        if self._identity is not None:
+            if snapshot.generation < self._identity[0] or (
+                snapshot.generation == self._identity[0] and identity != self._identity):
+                return
+            if identity == self._identity and snapshot.revision < self._revision:
+                return
+        self._identity, self._revision = identity, snapshot.revision
+        if not decision.persistent and decision.event is not None:
+            key = (identity, decision.event.correlation_id or decision.event.event_id)
+            if key in self._seen_impulses:
+                return
+            self._seen_impulses[key] = None
+            while len(self._seen_impulses) > 2048:
+                self._seen_impulses.popitem(last=False)
+        self._call('tray_failed', lambda: self.tray.update_feedback_decision(decision))
+        self._call('overlay_failed', lambda: self.overlay.apply_feedback_snapshot(snapshot))
+        message = presentation_for_feedback_decision(decision, operating_mode='hotkey')
+        if message is not None:
+            self._call('overlay_failed', lambda: self.overlay.show_feedback(message))
+        if decision.rule.sound is not None:
+            self._call('sound_failed', lambda: self.sound.play(decision.rule.sound))
+        if decision.rule.led:
+            self._call('led_unavailable', lambda: self.led.submit(decision.rule.led, live=not decision.persistent))
+
+    def close(self):
+        """Invalidate already queued decisions before owner shutdown."""
+        self._closed = True
+
+
+__all__.append('V2FeedbackOutput')
