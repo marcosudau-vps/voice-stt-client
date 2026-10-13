@@ -596,11 +596,12 @@
       "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/EVIDENCE/server-ui-checkpoint.json",
       "nativeWindowsEvidence": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/EVIDENCE/windows-credential-ui.json",
       "reviewReport": null,
-      "humanApproval": null,
+      "humanApproval": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
       "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/10",
       "latestReview": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md",
       "reviewedCommit": "eafd918f456551af694ede4af472ed4515b9fdd6",
-      "reviewedTree": "960270c3f786433967aee7b16333be70f41427fe"
+      "reviewedTree": "960270c3f786433967aee7b16333be70f41427fe",
+      "canonicalizationRun": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/01_REPORT.md"
     },
     {
       "id": "AP-CV2-090",

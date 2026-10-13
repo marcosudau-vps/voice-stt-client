@@ -1,6 +1,6 @@
-# Client V2 – AP-CV2-080 / R02-ABNAHME / ROOT_PASS, 2026-10-13
+# Client V2 – AP-CV2-080 / R03-UEBERNAHME / READY_FOR_CANONICALIZATION, 2026-10-13
 
-Aktiver Arbeitsblock CLIENT_V2. AP000 bis AP070 **ACCEPTED**; AP070-Aggregat `0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3` tatsächlich auf feat/client-v2, Single-Parent/Treegleichheit und unabhängiger PASS/menschlicher Prompt [belegt](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP080 vollständig umgesetzt und unabhängig mit ROOT_PASS abgenommen; menschliche Mergefreigabe offen. Branch `work/client-v2/ap-cv2-080`. Spätere Pakete PLANNED, Server-Distributed bleibt bis zum gemeinsamen Abschluss offen.
+Aktiver Arbeitsblock CLIENT_V2. AP000 bis AP070 **ACCEPTED**; AP070-Aggregat `0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3` tatsächlich auf feat/client-v2, Single-Parent/Treegleichheit und unabhängiger PASS/menschlicher Prompt [belegt](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP080 technisch ROOT_PASS; menschliche Squash-Freigabe in R03 gesichert; tatsächliche Übernahme noch offen. Branch `work/client-v2/ap-cv2-080`. Spätere Pakete PLANNED, Server-Distributed bleibt bis zum gemeinsamen Abschluss offen.
 
 [R02-Abnahme](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md), [Runreport](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [Workflowstatus](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Planungseinstieg](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md), [Produktinterfaces](docs/protocol-v2-settings-ui.md).
 
@@ -8,7 +8,7 @@ V2-Trigger-/Session-/Serverdialog, getrennte requested/effective/pending-Werte, 
 
 Qualifikation: 1513 vollständige Windows-Tests, 296 gezielte Regressionstests, 53 neue Clienttests. Reale Serverchecks: UI27, native Windows-UI/Vault29, bestehende Settings38, Supplement55 ohne Skips. compileall/diffcheck und Akten-/Blobprüfung PASS. Vollständige Log-/Hash-/Kandidatenbindung im Evidenzindex.
 
-Nächste Aktion: ausdrückliche menschliche Übernahmefreigabe für PR #10 abwarten. ROOT_PASS belegt; kein automatischer Merge/AP090. Reguläre Appkomposition samt koordinierter nativer Hotkey-Persistenz bleibt AP100; reale ASR/Mikrofon-/Wakekalibrierung AP-IV2-020. Die neue Oberfläche ist mit echten Produktionsservices lokal qualifiziert.
+Nächste Aktion: CI- und Head-/Parentprüfung der genehmigten PR-Übernahme, anschließend genau ein Squash; kein automatischer AP090-Start. Reguläre Appkomposition samt koordinierter nativer Hotkey-Persistenz bleibt AP100; reale ASR/Mikrofon-/Wakekalibrierung AP-IV2-020. Die neue Oberfläche ist mit echten Produktionsservices lokal qualifiziert.
 
 ## Historischer Stand vor AP-CV2-020
 

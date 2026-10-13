@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "workflowPhase": "READY_FOR_CANONICALIZATION",
   "packageStatus": "ROOT_PASS",
   "activePackage": "AP-CV2-080",
   "nextPackage": "AP-CV2-090",
@@ -11,18 +11,27 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/10",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R02-ABNAHME",
-    "role": "review",
-    "report": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+    "id": "R03-UEBERNAHME",
+    "role": "canonicalization",
+    "report": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
   },
   "reviewedCommit": "eafd918f456551af694ede4af472ed4515b9fdd6",
   "reviewReport": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
-  "humanApproval": null,
+  "humanApproval": {
+    "source": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+    "prNumber": 10,
+    "approvedHead": "777c8e23f531e24532e78312365798bc83f2234c",
+    "approvedTree": "986d445f0afd83060c0cfd747067e6bed0c67b37",
+    "canonicalParent": "0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3",
+    "reviewReport": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md",
+    "action": "squash_and_merge",
+    "status": "GRANTED"
+  },
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Technischer ROOT_PASS für AP080: ausdrückliche menschliche Übernahmefreigabe zu PR #10 mit erneutem Head-/Base-/CI-Abgleich abwarten; kein Merge/AP090.",
+  "nextAction": "Menschliche Freigabe für PR #10 gesichert; administrative Freigabenachtrags-CI und finale SHA-/Base-/Mergeable-Prüfung, danach genau ein Squash-Merge und Single-Parent-/Tree-Nachweis. AP090 bleibt gesperrt.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
