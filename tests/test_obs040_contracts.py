@@ -206,10 +206,10 @@ class TestWiringContract(unittest.TestCase):
         """Every injection point is additive: the default is ``NULL_INGRESS``,
         so no existing caller has to change (CONTRACTS §6)."""
         from voice_stt_client.core.audio_capture import AudioCapture
-        from voice_stt_client.core.controller import STTController
+        from voice_stt_client.core.v2_runtime import V2Runtime
         from voice_stt_client.core.event_stream import EventStreamTransport
         from voice_stt_client.core.session_coordinator import DualSessionCoordinator
-        from voice_stt_client.core.stt_session import STTSession
+        from voice_stt_client.core.v2_transport import V2STTSession
         from voice_stt_client.core.text_injector import TextInjectionQueue
         from voice_stt_client.ui.application import DesktopApplication, run_gui
         from voice_stt_client.ui.core_bridge import CoreBridge
@@ -219,10 +219,10 @@ class TestWiringContract(unittest.TestCase):
 
         targets = (
             AudioCapture.__init__,
-            STTController.__init__,
+            V2Runtime.__init__,
             EventStreamTransport.__init__,
             DualSessionCoordinator.__init__,
-            STTSession.__init__,
+            V2STTSession.__init__,
             TextInjectionQueue.__init__,
             DesktopApplication.__init__,
             run_gui,
@@ -281,91 +281,6 @@ class TestWiringContract(unittest.TestCase):
         self.assertIsNone(NULL_INGRESS.observe_server_result(None, None))
 
 
-class TestHookListCoverage(unittest.TestCase):
-    """Every §12 record type that OBS-040 implements must actually appear in
-    the product source. A type that only exists in a test would be a coverage
-    claim without an implementation (gate finding B-2 of OBS-030)."""
-
-    IMPLEMENTED_TYPES = {
-        # §12.1
-        "client.app.started": "voice_stt_client/ui/application.py",
-        "client.app.stopping": "voice_stt_client/ui/application.py",
-        "client.core.thread_started": "voice_stt_client/ui/core_bridge.py",
-        "client.core.thread_stopped": "voice_stt_client/ui/core_bridge.py",
-        "client.controller.run_started": "voice_stt_client/core/controller.py",
-        "client.websocket.connecting": "voice_stt_client/core/stt_session.py",
-        "client.websocket.connected": "voice_stt_client/core/stt_session.py",
-        "client.websocket.disconnected": "voice_stt_client/core/stt_session.py",
-        "client.session.admitted": "voice_stt_client/core/stt_session.py",
-        "client.session.ready": "voice_stt_client/core/stt_session.py",
-        "client.reconnect.scheduled": "voice_stt_client/core/stt_session.py",
-        "client.eventstream.state_changed": "voice_stt_client/core/session_coordinator.py",
-        "client.eventstream.protocol_error": "voice_stt_client/core/event_stream.py",
-        "client.config.validation_failed": "voice_stt_client/core/controller.py",
-        # §12.2
-        "client.hotkey.pressed": "voice_stt_client/ui/hotkeys.py",
-        "client.command.requested": "voice_stt_client/ui/core_bridge.py",
-        "client.command.completed": "voice_stt_client/ui/core_bridge.py",
-        "client.trigger.sent": "voice_stt_client/core/stt_session.py",
-        "client.trigger.ack_received": "voice_stt_client/core/stt_session.py",
-        "client.trigger.ack_dropped": "voice_stt_client/core/stt_session.py",
-        "client.stream.start_sent": "voice_stt_client/core/stt_session.py",
-        "client.dictation.start_attempt": "voice_stt_client/core/controller.py",
-        "client.dictation.confirmed": "voice_stt_client/core/controller.py",
-        "client.dictation.failed": "voice_stt_client/core/controller.py",
-        "client.dictation.interrupted": "voice_stt_client/core/controller.py",
-        "client.settings.apply_started": "voice_stt_client/ui/application.py",
-        "client.settings.apply_completed": "voice_stt_client/ui/application.py",
-        "client.settings.runtime_apply": "voice_stt_client/core/controller.py",
-        "client.action.blocked": "voice_stt_client/core/controller.py",
-        "client.audio.stream_started": "voice_stt_client/core/audio_capture.py",
-        "client.audio.stream_stopped": "voice_stt_client/core/audio_capture.py",
-        # §12.3
-        "client.injection.enqueued": "voice_stt_client/core/controller.py",
-        "client.injection.rejected": "voice_stt_client/core/controller.py",
-        "client.final.deduplicated": "voice_stt_client/core/controller.py",
-        # §12.4
-        "client.audio.stream_stats": "voice_stt_client/core/controller.py",
-        "client.queue.state": "voice_stt_client/core/text_injector.py",
-        "logging.record_rejected": "voice_stt_client/core/observability/ingress.py",
-        # §12.5
-        "client.feedback.decision": "voice_stt_client/ui/application.py",
-        "client.led.dispatch_failed": "voice_stt_client/ui/led_feedback.py",
-        "client.led.queue_overflow": "voice_stt_client/ui/led_feedback.py",
-        "client.sound.failed": "voice_stt_client/ui/application.py",
-        "client.server.error_classified": "voice_stt_client/core/controller.py",
-    }
-
-    def test_every_implemented_type_appears_in_its_module(self):
-        for record_type, relative in sorted(self.IMPLEMENTED_TYPES.items()):
-            with self.subTest(type=record_type):
-                source = (ROOT / relative).read_text(encoding="utf-8")
-                self.assertIn(record_type, source)
-
-    def test_the_worker_produced_types_of_obs030_are_still_there(self):
-        source = (ROOT / "voice_stt_client/core/observability/worker.py").read_text(
-            encoding="utf-8"
-        )
-        for record_type in (
-            "logging.records_dropped",
-            "logging.recovered",
-            "logging.retention_pressure",
-        ):
-            with self.subTest(type=record_type):
-                self.assertIn(record_type, source)
-
-    def test_p_only_hooks_keep_their_existing_logger_lines(self):
-        """§12: ``P`` means *"bestehende Python-Logzeile genuegt"*. Those lines
-        must neither be removed nor reworded."""
-        expectations = (
-            ("voice_stt_client/core/history.py", "logger."),
-            ("voice_stt_client/core/config.py", "logger."),
-            ("voice_stt_client/core/controller.py", 'logger.error("Error stopping audio capture'),
-        )
-        for relative, needle in expectations:
-            with self.subTest(module=relative):
-                source = (ROOT / relative).read_text(encoding="utf-8")
-                self.assertIn(needle, source)
 
 
 if __name__ == "__main__":

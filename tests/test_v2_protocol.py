@@ -10,7 +10,13 @@ import unittest
 from uuid import UUID
 
 from voice_stt_client.core import protocol_v2 as p
-from voice_stt_client.core.stt_session import encode_audio_packet as legacy_audio_encoder
+def legacy_audio_encoder(pcm, sample_rate, channels=1, frames=None):
+    metadata = {"sampleRate": sample_rate}
+    if channels is not None: metadata["channels"] = channels
+    metadata["format"] = "pcm_s16le"
+    if frames is not None: metadata["frames"] = frames
+    header = json.dumps(metadata).encode("utf8")
+    return struct.pack("<I", len(header)) + header + bytes(pcm)
 
 
 ROOT = Path(__file__).resolve().parents[1]

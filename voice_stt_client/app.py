@@ -1,8 +1,7 @@
 """
 RealtimeSTT Desktop Client – Entry Point
 
-AP06 provides the regular PySide6 tray application. The proven AP05 headless
-client remains available through ``--headless`` for diagnostics.
+The regular PySide6 tray and headless diagnostics share the V2Runtime.
 """
 
 from __future__ import annotations
@@ -19,91 +18,11 @@ from typing import Optional
 
 from voice_stt_client.core.config import AppConfig
 from voice_stt_client.core.logging_setup import setup_logging
-from voice_stt_client.core.stt_session import STTSession, TransportState, ClientState
-from voice_stt_client.core.audio_capture import AudioCapture
-from voice_stt_client.core.history import TranscriptHistoryManager
-from voice_stt_client.core.text_injector import TextInjectionQueue, WindowsInjectionBackend
-from voice_stt_client.core.reinsertion import TranscriptReinsertionService
-from voice_stt_client.core.controller import STTController
 from voice_stt_client.core.version import __version__
 
 logger = logging.getLogger("app")
 
 
-class RealtimeSTTClient(STTController):
-    """
-    Orchestrates the client components by extending STTController
-    and providing Phase 1 headless console output handlers.
-    """
-
-    def __init__(
-        self,
-        config: AppConfig,
-        session: Optional[STTSession] = None,
-        audio: Optional[AudioCapture] = None,
-        history_manager: Optional[TranscriptHistoryManager] = None,
-        injection_queue: Optional[TextInjectionQueue] = None,
-        reinsertion_service: Optional[TranscriptReinsertionService] = None,
-        backend: Optional[WindowsInjectionBackend] = None,
-        observability=None,
-    ):
-        kwargs = {} if observability is None else {"observability": observability}
-        super().__init__(
-            config,
-            session=session,
-            audio=audio,
-            history_manager=history_manager,
-            injection_queue=injection_queue,
-            reinsertion_service=reinsertion_service,
-            backend=backend,
-            **kwargs,
-        )
-
-        # Wire up console callbacks
-        self.on_text = self._on_text
-        self.on_transport_change = self._on_transport_change
-
-        # Initial dictation request for headless diagnostics
-        self.request_initial_auto_start()
-
-    # -------------------------------------------------------------------
-    # Console Output Callbacks
-    # -------------------------------------------------------------------
-
-    def _on_text(self, segment_id: int, text: str, is_final: bool) -> None:
-        """Called when a new or updated transcript segment arrives."""
-        prefix = "✓ FINAL" if is_final else "⟳ realtime"
-        print(f"  [{prefix}] seg={segment_id}: {text}")
-
-    def _on_transport_change(self, new_state: TransportState) -> None:
-        """Called when the transport state changes."""
-        indicators = {
-            TransportState.DISCONNECTED: "🔴",
-            TransportState.CONNECTING: "🟡",
-            TransportState.ADMITTED: "🟡",
-            TransportState.READY: "🟢",
-            TransportState.ERROR: "🔴",
-        }
-        indicator = indicators.get(new_state, "⚪")
-        print(f"\n{indicator} Transport: {new_state.name}")
-
-    def _on_state_change(self, state: ClientState) -> None:
-        """Called on every state update."""
-        pass  # Headless mode: transport_change handles the console output
-
-    # -------------------------------------------------------------------
-    # Main run loop
-    # -------------------------------------------------------------------
-
-    async def run(self) -> None:
-        """Start all components and run until interrupted."""
-        print("═" * 60)
-        print("  RealtimeSTT Desktop Client (AP05 Self-Healing Core)")
-        print(f"  Server: {self.config.server.url}")
-        print("═" * 60)
-        print()
-
-        await super().run()
 
 
 def run_headless(config: AppConfig, observability=None) -> int:
@@ -176,20 +95,21 @@ def build_argument_parser() -> argparse.ArgumentParser:
         action="store_true",
         help=argparse.SUPPRESS,
     )
+    parser.add_argument('--verification-output', type=Path, help=argparse.SUPPRESS)
+    parser.add_argument('--verification-server', help=argparse.SUPPRESS)
     return parser
 
 
 def main(argv: Optional[list[str]] = None) -> int:
-    """Select the regular AP06 GUI or the retained headless diagnostics."""
+    """Select the V2 GUI or headless diagnostics."""
     arguments = list(sys.argv[1:] if argv is None else argv)
     args = build_argument_parser().parse_args(arguments)
     # The release build invokes this hidden probe from the frozen executable.
     # Importing the complete GUI module catches missing or incompatible Qt
     # DLLs without starting a tray instance or touching user configuration.
     if args.verify_gui_runtime:
-        from voice_stt_client.ui.application import run_gui as _verified_run_gui
-
-        del _verified_run_gui
+        from voice_stt_client.release_probe import run_probe
+        run_probe(args.verification_output, args.verification_server)
         return 0
 
     config = AppConfig.load(args.config)

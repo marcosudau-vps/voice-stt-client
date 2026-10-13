@@ -83,41 +83,6 @@ def build_candidate(
 
 SETTING_DEFINITIONS = (
     SettingDefinition(
-        "hotkey.enabled", "Globale Hotkeys", "Globale Windows-Hotkeys aktivieren.",
-        SettingType.BOOLEAN, "Allgemein", "Hotkeys", 10,
-        ApplyPolicy.HOTKEY_REREGISTER,
-    ),
-    SettingDefinition(
-        "hotkey.toggle_key", "Primäre Diktataktion",
-        "Startet ein Diktat; während eines Hotkey-Diktats wird die Frist verlängert.",
-        SettingType.STRING, "Allgemein", "Hotkeys", 20,
-        ApplyPolicy.HOTKEY_REREGISTER, editor="hotkey",
-    ),
-    SettingDefinition(
-        "hotkey.finish_key", "Diktat abschließen",
-        "Optionaler separater Hotkey zum sofortigen Abschluss.",
-        SettingType.STRING, "Allgemein", "Hotkeys", 30,
-        ApplyPolicy.HOTKEY_REREGISTER, editor="optional_hotkey",
-    ),
-    SettingDefinition(
-        "hotkey.cancel_key", "Diktat verwerfen",
-        "Optionaler separater Hotkey zum Verwerfen.",
-        SettingType.STRING, "Allgemein", "Hotkeys", 40,
-        ApplyPolicy.HOTKEY_REREGISTER, editor="optional_hotkey",
-    ),
-    SettingDefinition(
-        "hotkey.reinsert_last_key", "Letztes Transkript erneut einfügen",
-        "Globaler Hotkey für die Reinsertion.",
-        SettingType.STRING, "Allgemein", "Hotkeys", 50,
-        ApplyPolicy.HOTKEY_REREGISTER, editor="hotkey",
-    ),
-    SettingDefinition(
-        "hotkey.overlay_toggle_key", "Overlay umschalten",
-        "Optionaler globaler Hotkey für das Overlay.",
-        SettingType.STRING, "Allgemein", "Hotkeys", 60,
-        ApplyPolicy.HOTKEY_REREGISTER, editor="optional_hotkey",
-    ),
-    SettingDefinition(
         "text_injection.append_space", "Leerzeichen anhängen",
         "Hängt nach jedem finalen Segment ein Leerzeichen an.",
         SettingType.BOOLEAN, "Allgemein", "Textinjektion", 100,
@@ -138,73 +103,6 @@ SETTING_DEFINITIONS = (
         SettingType.CHOICE, "Allgemein", "Logging", 160,
         ApplyPolicy.APP_RESTART,
         options=(("DEBUG", "DEBUG"), ("INFO", "INFO"), ("WARNING", "WARNING"), ("ERROR", "ERROR")),
-    ),
-    SettingDefinition(
-        "server.url", "WebSocket-URL", "Live-WebSocket-Endpunkt des Servers.",
-        SettingType.STRING, "Verbindung & Betriebsmodus", "Verbindung", 10,
-        ApplyPolicy.SESSION_RECONNECT,
-    ),
-    SettingDefinition(
-        "session.mode", "Legacy-Betriebsmodus",
-        "Nur noch für die Migration alter Konfigurationen. Maßgeblich sind die "
-        "beiden Triggerschalter darunter.",
-        SettingType.CHOICE, "Verbindung & Betriebsmodus", "Legacy", 30,
-        ApplyPolicy.SESSION_RECONNECT,
-        options=(("Hotkey", "hotkey"), ("Wake Word", "wake_word")),
-    ),
-    SettingDefinition(
-        "session.manual_trigger_enabled", "Manueller Trigger",
-        "Aktiviert manuelle Steuerung per Hotkey/Tray.",
-        SettingType.BOOLEAN, "Verbindung & Betriebsmodus", "Triggerquellen", 32,
-        ApplyPolicy.SESSION_RECONNECT,
-    ),
-    SettingDefinition(
-        "session.wake_word_trigger_enabled", "Wake-Word-Trigger",
-        "Aktiviert serverseitige Wakeword-Erkennung.",
-        SettingType.BOOLEAN, "Verbindung & Betriebsmodus", "Triggerquellen", 35,
-        ApplyPolicy.SESSION_RECONNECT,
-    ),
-    SettingDefinition(
-        "session.wake_words", "Wake Word", "Vom Server veröffentlichte Wake-Word-ID.",
-        SettingType.STRING, "Verbindung & Betriebsmodus", "Wake Word", 40,
-        ApplyPolicy.SESSION_RECONNECT,
-        visible_when=("session.mode", "wake_word"),
-    ),
-    SettingDefinition(
-        "session.wake_word_sensitivity", "Empfindlichkeit",
-        "Optionale serverseitige Wake-Word-Empfindlichkeit.",
-        SettingType.FLOAT, "Verbindung & Betriebsmodus", "Wake Word", 50,
-        ApplyPolicy.SESSION_RECONNECT, minimum=0.0, maximum=1.0, step=0.01,
-        visible_when=("session.mode", "wake_word"),
-        editor="optional_float",
-    ),
-    SettingDefinition(
-        "dictation_window.initial_speech_timeout", "Zeit bis zur ersten Sprache",
-        "Beendet einen versehentlichen Start ohne erkanntes recording_started.",
-        SettingType.FLOAT, "Verbindung & Betriebsmodus", "Hotkey-Diktatfenster", 80,
-        minimum=1.0, maximum=120.0, step=1.0, unit="s",
-        visible_when=("session.mode", "hotkey"),
-    ),
-    SettingDefinition(
-        "dictation_window.followup_timeout", "Nachsprechfenster",
-        "Wartezeit nach recording_ended auf einen weiteren Sprachabschnitt.",
-        SettingType.FLOAT, "Verbindung & Betriebsmodus", "Hotkey-Diktatfenster", 90,
-        minimum=0.1, maximum=60.0, step=0.1, unit="s",
-        visible_when=("session.mode", "hotkey"),
-    ),
-    SettingDefinition(
-        "dictation_window.extension_seconds", "Manuelle Verlängerung",
-        "Zusätzliche Zeit durch erneutes Drücken des primären Hotkeys.",
-        SettingType.FLOAT, "Verbindung & Betriebsmodus", "Hotkey-Diktatfenster", 100,
-        minimum=1.0, maximum=120.0, step=1.0, unit="s",
-        visible_when=("session.mode", "hotkey"),
-    ),
-    SettingDefinition(
-        "dictation_window.timeout_warning_seconds", "Timeout-Vorwarnung",
-        "Startet Tickton und LED-Countdown so viele Sekunden vor Ablauf.",
-        SettingType.FLOAT, "Verbindung & Betriebsmodus", "Hotkey-Diktatfenster", 110,
-        minimum=0.5, maximum=30.0, step=0.5, unit="s",
-        visible_when=("session.mode", "hotkey"),
     ),
     SettingDefinition(
         "audio.device", "Mikrofon", "Statische Eingabegeräteauswahl.",

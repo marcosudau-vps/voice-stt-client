@@ -109,7 +109,9 @@ class DesktopApplication(QObject):
         self._observability_manager = observability_manager
         self.log_window = None
         self._observe = ClientEventEmitter(observability, component="ui.application")
-        self.bridge = bridge or CoreBridge(config, observability=observability)
+        if bridge is None:
+            raise TypeError("DesktopApplication is the shared shell; use V2DesktopApplication")
+        self.bridge = bridge
         self.overlay = TranscriptOverlay(config.overlay)
         self.sound_feedback = SoundFeedback(config.feedback, self)
         self.led_feedback = led_feedback or LedFeedback(
@@ -169,67 +171,11 @@ class DesktopApplication(QObject):
         self._wire_signals()
         self.application.aboutToQuit.connect(self.shutdown)
 
-    def _create_hotkey_manager(self, config: AppConfig) -> GlobalHotkeyManager:
-        return GlobalHotkeyManager(
-            toggle_key=config.hotkey.effective_toggle_key,
-            reinsert_last_key=config.hotkey.reinsert_last_key,
-            finish_key=config.hotkey.finish_key,
-            cancel_key=config.hotkey.cancel_key,
-            overlay_toggle_key=config.hotkey.overlay_toggle_key,
-            on_toggle=getattr(
-                self.bridge,
-                "primary_dictation_action",
-                self.bridge.toggle_dictation,
-            ),
-            on_reinsert_last=self.bridge.reinsert_last,
-            on_finish=getattr(
-                self.bridge, "stop_dictation", self.bridge.toggle_dictation
-            ),
-            on_cancel=getattr(
-                self.bridge,
-                "cancel_dictation",
-                getattr(
-                    self.bridge, "stop_dictation", self.bridge.toggle_dictation
-                ),
-            ),
-            on_overlay_toggle=self.overlay.toggle_visibility,
-            # Global hotkeys only make sense while the manual trigger is a
-            # source for this session. A wake-word-only installation must not
-            # claim system-wide key combinations, and must therefore also not
-            # be able to fail on a hotkey conflict it never needed.
-            enabled=(
-                config.hotkey.enabled
-                and config.session.effective_manual_trigger_enabled
-            ),
-            backend=self._hotkey_backend,
-            application=self.application,
-            observability=self._observability,
-        )
 
-    def _wire_signals(self) -> None:
-        queued = Qt.ConnectionType.QueuedConnection
-        self.bridge.snapshot_changed.connect(
-            self.tray.update_snapshot, queued
-        )
-        self.bridge.feedback_decision_received.connect(
-            self._on_feedback_decision,
-            queued,
-        )
-        self.bridge.text_received.connect(self._on_text_received, queued)
-        self.bridge.command_completed.connect(
-            self._on_command_completed, queued
-        )
-        self.bridge.history_received.connect(self._on_history_received, queued)
-        self.bridge.fatal_error.connect(self._on_fatal_error, queued)
-        self.sound_feedback.failure.connect(self._on_sound_failure)
-        self.device_mute_changed.connect(self._on_device_mute_changed, queued)
 
     def start(self) -> bool:
         if self._started:
             return True
-        original_hotkey = replace(self.config.hotkey)
-        original_manager = self.hotkeys
-        self._startup_hotkey_suggestion = None
         self.tray.show()
         hotkeys_ok = self._register_startup_hotkeys()
         if not hotkeys_ok:
@@ -244,29 +190,8 @@ class DesktopApplication(QObject):
         if not self.bridge.start():
             self._on_fatal_error("Core konnte nicht gestartet werden")
             self.hotkeys.unregister()
-            self.config.hotkey = original_hotkey
-            self.hotkeys = original_manager
             self.tray.hide()
             return False
-        if self._startup_hotkey_suggestion is not None:
-            # Registration is provisional until the Core is running. A failed
-            # startup must not replace the user's persisted hotkey preference.
-            try:
-                self.config.save_user()
-            except Exception:
-                logger.exception("Could not persist the working fallback hotkey.")
-                self.bridge.stop(timeout=10.0)
-                self.hotkeys.unregister()
-                self.config.hotkey = original_hotkey
-                self.hotkeys = original_manager
-                self.tray.hide()
-                return False
-            self.tray.tray.showMessage(
-                "Hotkey automatisch ersetzt",
-                f"Ein belegter Hotkey wurde durch {self._startup_hotkey_suggestion} ersetzt. "
-                "Die neue Kombination steht in den Einstellungen.",
-                QSystemTrayIcon.MessageIcon.Warning,
-            )
         self._started = True
         # CONTRACTS §12.1: client.app.started. FD-C3 puts ``process_id`` in the
         # details of exactly this record rather than in a column of every row.
@@ -276,51 +201,12 @@ class DesktopApplication(QObject):
                 "process_id": os.getpid(),
                 "version": __version__,
                 "hotkeys_registered": bool(hotkeys_ok),
-                "operating_mode": self.config.session.presentation_mode,
+                "protocol_version": 2,
             },
         )
         self._report_lifecycle_started()
         return True
 
-    def _register_startup_hotkeys(self) -> bool:
-        """Keep trying checked alternatives; never run a tray-only dead client."""
-        if not self.hotkeys.enabled:
-            # Preserve an explicit disabled preference and wake-only sessions.
-            # The tray remains a control surface without global key ownership.
-            return self.hotkeys.register()
-        if self.hotkeys.register():
-            return True
-        original = replace(self.config.hotkey)
-        failure = self.hotkeys.last_failure
-        blocked = {
-            value for value in (
-                original.effective_toggle_key, original.reinsert_last_key,
-                original.finish_key, original.cancel_key,
-                original.overlay_toggle_key,
-            ) if value
-        }
-        for suggestion in fallback_hotkeys(blocked):
-            if failure is None or failure[0] not in HOTKEY_FIELDS:
-                break
-            field = HOTKEY_FIELDS[failure[0]]
-            setattr(self.config.hotkey, field, suggestion)
-            if field == "toggle_key":
-                self.config.hotkey.key = None
-            try:
-                candidate = self._create_hotkey_manager(self.config)
-            except ValueError:
-                continue
-            if candidate.register():
-                self.hotkeys = candidate
-                self._startup_hotkey_suggestion = suggestion
-                return True
-            failure = candidate.last_failure
-        self.config.hotkey = original
-        logger.error(
-            "No working global hotkey combination found: %s",
-            hotkey_failure_message(failure[1] if failure else None),
-        )
-        return False
 
     def _report_lifecycle_started(self) -> None:
         if self._lifecycle_started_reported:
@@ -346,102 +232,8 @@ class DesktopApplication(QObject):
         else:
             logger.info("Core was already unavailable during lifecycle shutdown.")
 
-    @Slot(object)
-    def _on_feedback_decision(self, decision: FeedbackDecision) -> None:
-        if not isinstance(decision, FeedbackDecision):
-            logger.warning("Ignoring invalid feedback decision from Core.")
-            return
-        if not decision.publish or decision.replay:
-            return
-        self._log_feedback_decision(decision)
-        self.tray.update_feedback_decision(decision)
-        presentation = presentation_for_feedback_decision(
-            decision,
-            operating_mode=self.config.session.presentation_mode,
-        )
-        if presentation is not None:
-            self.overlay.show_feedback(presentation)
-        self.sound_feedback.play(decision.rule.sound)
-        self.led_feedback.submit(
-            decision.rule.led,
-            # An impulse marks a fact that just happened. Without one this is
-            # rebuilt state, which may restore what the ring shows but must not
-            # replay an announcement.
-            live=self._allows_live_led_events(decision),
-        )
 
-    @staticmethod
-    def _allows_live_led_events(decision: FeedbackDecision) -> bool:
-        if decision.impulse is not None:
-            return True
-        event = decision.event
-        return bool(
-            event is not None
-            and event.source is FeedbackSource.LOCAL_ONLY
-            and event.event_type not in _TECHNICAL_EVENT_STREAM_EVENTS
-        )
 
-    def _log_feedback_decision(self, decision: FeedbackDecision) -> None:
-        event = decision.event
-        event_type = event.event_type.value if event is not None else None
-        led_calls = [
-            {"verb": call.verb.value, "target": call.target, "slot": call.slot}
-            for call in decision.rule.led
-        ]
-        # CONTRACTS §12.5: client.feedback.decision (P+S). *"bereits
-        # strukturiert -- das Vorbild; bleibt unveraendert und wird nur
-        # zusaetzlich erfasst."* The ``logger.info`` below is therefore
-        # untouched; the structured record repeats the same facts through the
-        # canonical model, where ``correlation_id`` and ``session_id`` become
-        # real columns instead of nested ``detail`` keys.
-        self._observe.system(
-            "client.feedback.decision",
-            details={
-                "event_type": event_type,
-                "source": decision.source.value,
-                "state": decision.state.value,
-                "revision": decision.revision,
-                "duplicate": decision.duplicate,
-                "replay": decision.replay,
-                "led": led_calls,
-                "sound": (
-                    decision.rule.sound.cue.value
-                    if decision.rule.sound is not None
-                    else None
-                ),
-                # The feedback event's own id is a SERVER eventId only for
-                # server-sourced facts; §1.1 fixes ``event_id`` to "Server-
-                # eventId, Clientrecords immer None", so it travels in details.
-                "eventId": event.event_id if event is not None else None,
-            },
-            correlation_id=event.correlation_id if event is not None else None,
-        )
-        logger.info(
-            "Feedback decision",
-            extra={
-                "event_type": event_type,
-                "detail": {
-                    "source": decision.source.value,
-                    "state": decision.state.value,
-                    "revision": decision.revision,
-                    "duplicate": decision.duplicate,
-                    "replay": decision.replay,
-                    "eventId": event.event_id if event is not None else None,
-                    "correlationId": (
-                        event.correlation_id if event is not None else None
-                    ),
-                    "sound": (
-                        {
-                            "cue": decision.rule.sound.cue.value,
-                            "action": decision.rule.sound.action,
-                        }
-                        if decision.rule.sound is not None
-                        else None
-                    ),
-                    "led": led_calls,
-                },
-            },
-        )
 
     @Slot(str)
     def _on_sound_failure(self, failure_key: str) -> None:
@@ -578,17 +370,6 @@ class DesktopApplication(QObject):
         )
         return True
 
-    @Slot(int, str, bool)
-    def _on_text_received(
-        self,
-        segment_id: int,
-        text: str,
-        is_final: bool,
-    ) -> None:
-        del segment_id
-        if not is_final and not self.config.overlay.show_realtime_text:
-            return
-        self.overlay.show_transcript(text, is_final)
 
     def _on_command_completed(self, name: str, result: object) -> None:
         if name == "apply_runtime_config":
@@ -634,31 +415,6 @@ class DesktopApplication(QObject):
                 )
             )
 
-    def show_settings(self) -> None:
-        if self.settings_dialog is None:
-            dialog = SettingsDialog(
-                self.config,
-                self._apply_settings,
-                observability=self._observability,
-                apply_error=lambda: self.last_apply_error,
-            )
-            dialog.history_refresh_requested.connect(
-                lambda: self.bridge.request_history(500)
-            )
-            dialog.history_reinsert_requested.connect(self.bridge.reinsert_entry)
-            dialog.history_delete_requested.connect(
-                self.bridge.delete_history_entry
-            )
-            dialog.history_clear_requested.connect(self.bridge.clear_history)
-            dialog.reconnect_device_requested.connect(self.reconnect_device)
-            dialog.reconnect_server_requested.connect(self.reconnect_server)
-            dialog.logging_view_requested.connect(self.show_logs)
-            dialog.logging_clear_requested.connect(self.clear_diagnostics_history)
-            self.settings_dialog = dialog
-        self.bridge.request_history(500)
-        self.settings_dialog.show()
-        self.settings_dialog.raise_()
-        self.settings_dialog.activateWindow()
 
     # -- log view and diagnostics history (OBS-050) ------------------------
 
@@ -673,8 +429,8 @@ class DesktopApplication(QObject):
         manager = self._observability_manager
         if manager is None:
             logger.info("No observability manager; the log view is unavailable.")
-            if self.settings_dialog is not None:
-                self.settings_dialog.set_logging_status(
+            if self._local_dialog is not None:
+                self._local_dialog.set_logging_status(
                     "Keine Diagnosequelle verfügbar."
                 )
             return
@@ -703,8 +459,8 @@ class DesktopApplication(QObject):
         """
         manager = self._observability_manager
         if manager is None:
-            if self.settings_dialog is not None:
-                self.settings_dialog.set_logging_status(
+            if self._local_dialog is not None:
+                self._local_dialog.set_logging_status(
                     "Keine Diagnosequelle verfügbar."
                 )
             return
@@ -719,8 +475,8 @@ class DesktopApplication(QObject):
         except Exception as exc:
             logger.exception("Clearing the diagnostics history failed.")
             message = f"Löschen fehlgeschlagen: {exc}"
-        if self.settings_dialog is not None:
-            self.settings_dialog.set_logging_status(message)
+        if self._local_dialog is not None:
+            self._local_dialog.set_logging_status(message)
         if self.log_window is not None and self.log_window.isVisible():
             self.log_window.page.reload()
 
@@ -729,91 +485,7 @@ class DesktopApplication(QObject):
         if self.settings_dialog is not None:
             self.settings_dialog.set_history_entries(entries)
 
-    def _apply_settings(
-        self,
-        candidate: AppConfig,
-        policies: frozenset[ApplyPolicy],
-    ) -> bool:
-        if self._pending_config is not None:
-            self.last_apply_error = "Eine Änderung wird noch angewendet."
-            return False
-        self.last_apply_error = ""
-        # CONTRACTS §12.2: one correlation_id for apply_started/.completed and
-        # for the controller's client.settings.runtime_apply. Created here,
-        # because this is where the attempt begins; the controller receives it
-        # through the candidate-independent apply chain (§10.4).
-        correlation_id = f"settings:{uuid.uuid4().hex[:12]}"
-        self._settings_apply_correlation = correlation_id
-        self._observe.audit(
-            "client.settings.apply_started",
-            details={"policies": sorted(policy.value for policy in policies)},
-            correlation_id=correlation_id,
-        )
-        old_config = self.config
-        old_hotkeys = self.hotkeys
-        new_hotkeys = old_hotkeys
-        if ApplyPolicy.HOTKEY_REREGISTER in policies:
-            old_hotkeys.unregister()
-            try:
-                new_hotkeys = self._create_hotkey_manager(candidate)
-                if not new_hotkeys.register():
-                    failure = new_hotkeys.last_failure
-                    raise RuntimeError(
-                        hotkey_failure_message(failure[1] if failure else None)
-                    )
-            except Exception as exc:
-                self.last_apply_error = str(exc)
-                logger.exception("New hotkey set rejected; restoring old bindings.")
-                if not old_hotkeys.register():
-                    self.last_apply_error += " Auch der bisherige Hotkey konnte nicht wiederhergestellt werden."
-                self._complete_settings_observation(False, "hotkey_registration_failed")
-                return False
-        try:
-            candidate.save_user()
-        except Exception:
-            self.last_apply_error = "Konfiguration konnte nicht gespeichert werden."
-            logger.exception("Could not persist candidate user configuration.")
-            if new_hotkeys is not old_hotkeys:
-                new_hotkeys.unregister()
-                old_hotkeys.register()
-            self._complete_settings_observation(False, "persist_failed")
-            return False
 
-        self._pending_config = candidate
-        self._pending_old_config = old_config
-        self._pending_old_hotkeys = old_hotkeys
-        if new_hotkeys is not old_hotkeys:
-            self.hotkeys = new_hotkeys
-        if not self._request_runtime_apply(candidate, correlation_id):
-            self._rollback_pending_settings("Core akzeptiert keine Befehle")
-            self._complete_settings_observation(False, "core_unavailable")
-            return False
-        return True
-
-    def _request_runtime_apply(
-        self, candidate: AppConfig, correlation_id: str
-    ) -> bool:
-        """Hand the candidate to the Core, carrying the apply correlation id.
-
-        A ``CoreBridge`` double from before OBS-040 has the one-argument
-        signature; the keyword is therefore optional and its absence costs
-        nothing but the shared correlation id on ``runtime_apply``. The
-        capability is decided by INSPECTING the signature, never by catching a
-        ``TypeError`` around the call — a ``TypeError`` raised inside the apply
-        would otherwise be retried, and an apply must never run twice.
-        """
-        apply = self.bridge.apply_runtime_config
-        try:
-            supported = (
-                "settings_correlation_id" in inspect.signature(apply).parameters
-            )
-        except (TypeError, ValueError):
-            supported = False
-        if supported:
-            return bool(
-                apply(candidate, settings_correlation_id=correlation_id)
-            )
-        return bool(apply(candidate))
 
     def _complete_settings_observation(self, success: bool, status: str) -> None:
         """CONTRACTS §12.2: client.settings.completed, exactly once per attempt.
@@ -833,41 +505,6 @@ class DesktopApplication(QObject):
             correlation_id=correlation_id,
         )
 
-    def _complete_settings_apply(self, result: object) -> None:
-        candidate = self._pending_config
-        if candidate is None:
-            return
-        if isinstance(result, CommandResult) and result.success:
-            old_led_config = self.config.led
-            old_mappings = self.config.feedback_mappings
-            self.config = candidate
-            self.overlay.apply_config(candidate.overlay)
-            self.sound_feedback.apply_config(candidate.feedback)
-            if (
-                candidate.led != old_led_config
-                or candidate.feedback_mappings != old_mappings
-            ):
-                self._replace_led_feedback(candidate, old_led_config)
-            self._pending_config = None
-            self._pending_old_config = None
-            self._pending_old_hotkeys = None
-            self._complete_settings_observation(
-                True, getattr(result, "status", "applied")
-            )
-            if self.settings_dialog is not None:
-                self.settings_dialog.complete_apply(True, candidate, "")
-            return
-        message = (
-            result.message
-            if isinstance(result, CommandResult) and result.message
-            else "Unbekannter Laufzeitfehler"
-        )
-        self._rollback_pending_settings(message)
-        self._complete_settings_observation(
-            False, str(getattr(result, "status", "unknown_error"))
-        )
-        if self.settings_dialog is not None:
-            self.settings_dialog.complete_apply(False, None, message)
 
     def _replace_led_feedback(self, candidate: AppConfig, old_led_config) -> None:
         """Swap the LED output for the new settings, or keep what already works.
@@ -910,22 +547,6 @@ class DesktopApplication(QObject):
         self.led_feedback = replacement
         self.led_feedback.watch_device_mute()
 
-    def _rollback_pending_settings(self, message: str) -> None:
-        del message
-        old_config = self._pending_old_config
-        old_hotkeys = self._pending_old_hotkeys
-        if self.hotkeys is not old_hotkeys and old_hotkeys is not None:
-            self.hotkeys.unregister()
-            old_hotkeys.register()
-            self.hotkeys = old_hotkeys
-        if old_config is not None:
-            try:
-                old_config.save_user()
-            except Exception:
-                logger.exception("Failed to restore previous user config file.")
-        self._pending_config = None
-        self._pending_old_config = None
-        self._pending_old_hotkeys = None
 
     def _on_fatal_error(self, message: str) -> None:
         logger.error("UI received fatal Core error: %s", message)
@@ -940,38 +561,6 @@ class DesktopApplication(QObject):
             )
         )
 
-    def shutdown(self) -> None:
-        if self._shutting_down:
-            return
-        self._shutting_down = True
-        # CONTRACTS §12.1: client.app.stopping. First statement of the
-        # teardown, so it exists before anything that could fail while
-        # stopping. ``manager.stop()`` is NOT called here (ARCH §6.2(b)); the
-        # record is still flushed, because app.py stops the manager only after
-        # run_gui has returned.
-        self._observe.system(
-            "client.app.stopping",
-            details={"started": bool(self._started)},
-        )
-        self._report_lifecycle_stopping()
-        if self._pending_config is not None:
-            self._rollback_pending_settings("Anwendung wird beendet")
-            self._complete_settings_observation(False, "shutdown")
-        self.hotkeys.unregister()
-        self.tray.hide()
-        self.overlay.hide()
-        if self.settings_dialog is not None:
-            self.settings_dialog.close()
-        if self.log_window is not None:
-            # Releases the query thread and stores the geometry. The manager
-            # itself is NOT stopped here (ARCH §6.2(b)).
-            self.log_window.shutdown()
-            self.log_window.hide()
-        if not self.led_feedback.shutdown():
-            logger.warning("LED worker did not stop within its configured timeout.")
-        self.bridge.stop(timeout=10.0)
-        self.instance_guard.release()
-        self._started = False
 
 
 def run_gui(

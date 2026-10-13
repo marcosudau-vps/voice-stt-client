@@ -112,12 +112,18 @@ class BuildScriptTests(unittest.TestCase):
 
     def test_frozen_smoke_checks_version_and_gui_runtime(self) -> None:
         completed = type("Completed", (), {"returncode": 0})()
+        def smoke(command, **kwargs):
+            if "--verification-output" in command:
+                import json
+                build.Path(command[-1]).write_text(json.dumps({"result":"PASS", "buildIdentity":{"clientCommit":"a"*40}}))
+            return completed
         with (
             patch.object(build, "read_version", return_value="1.2.3"),
             patch.object(build, "render_windows_version_info", return_value="info"),
             patch.object(build, "run"),
             patch.object(build, "verify_frozen_feedback_assets"),
-            patch.object(build.subprocess, "run", return_value=completed) as run_process,
+            patch("runpy.run_path", return_value={"identity": lambda: {"clientCommit": "a"*40}}),
+            patch.object(build.subprocess, "run", side_effect=smoke) as run_process,
             patch.object(build, "EXE_PATH") as exe_path,
         ):
             exe_path.is_file.return_value = True
@@ -128,7 +134,7 @@ class BuildScriptTests(unittest.TestCase):
 
         smoke_commands = [call.args[0] for call in run_process.call_args_list]
         self.assertEqual(
-            smoke_commands,
+            [c[:2] for c in smoke_commands],
             [
                 [str(exe_path), "--version"],
                 [str(exe_path), "--verify-gui-runtime"],

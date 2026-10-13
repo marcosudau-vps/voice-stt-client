@@ -435,6 +435,7 @@ class TestApplyChain(unittest.IsolatedAsyncioTestCase):
         from tests.obs050_apply_support import build_controller
 
         controller, session = build_controller()
+        self.addAsyncCleanup(controller.shutdown)
         candidate = build_candidate(
             controller.config, {"logging.observability.level": "DEBUG"}
         )
@@ -442,12 +443,14 @@ class TestApplyChain(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(result.success)
         # The fake session fails on reconfigure; reaching it at all would be
         # the violation.
-        self.assertEqual(session.reconfigure_calls, 0)
+        self.assertEqual(session.generation, 0)
+        self.assertIsNone(session.binding)
 
     async def test_the_observability_config_reaches_the_ingress(self):
         from tests.obs050_apply_support import build_controller
 
         controller, _session = build_controller()
+        self.addAsyncCleanup(controller.shutdown)
         candidate = build_candidate(
             controller.config, {"logging.observability.retention_days": 5}
         )
@@ -463,6 +466,7 @@ class TestApplyChain(unittest.IsolatedAsyncioTestCase):
         from tests.obs050_apply_support import build_controller
 
         controller, _session = build_controller(apply_config_raises=True)
+        self.addAsyncCleanup(controller.shutdown)
         candidate = build_candidate(
             controller.config, {"logging.observability.level": "WARNING"}
         )
@@ -475,6 +479,7 @@ class TestApplyChain(unittest.IsolatedAsyncioTestCase):
         from tests.obs050_apply_support import build_controller
 
         controller, _session = build_controller(apply_config_missing=True)
+        self.addAsyncCleanup(controller.shutdown)
         candidate = build_candidate(
             controller.config, {"logging.observability.level": "WARNING"}
         )

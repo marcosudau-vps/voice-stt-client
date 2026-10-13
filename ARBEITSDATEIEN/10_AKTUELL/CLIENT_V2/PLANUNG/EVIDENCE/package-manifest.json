@@ -732,9 +732,15 @@
         "AP-CV2-100"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-110.md",
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "testModules": [
-        "test_v2_release"
+        "test_v2_release",
+        "test_v2_runtime_integration",
+        "test_v2_feedback",
+        "test_obs050_settings",
+        "test_obs050_ui",
+        "test_build_script",
+        "test_client_release_guard"
       ],
       "requirements": [
         "FINAL-03",
@@ -758,7 +764,8 @@
         "defaultRuns": 1,
         "scopeNote": "one complete package session; steps are not separate runs"
       },
-      "testModulesRole": "suggested locations; actual coverage and methods required"
+      "testModulesRole": "suggested locations; actual coverage and methods required",
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md"
     },
     {
       "id": "AP-IV2-010",

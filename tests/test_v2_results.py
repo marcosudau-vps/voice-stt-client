@@ -403,35 +403,6 @@ class Results(unittest.TestCase):
             self.send(p.EventType.COMPLETED,sid=p.new_id(),segment_sequence=2,text='second'); self.drain()
         self.assertEqual(len(self.backend.send_input_calls),2)
 
-    def test_controller_port_attaches_once_preserves_legacy_cancel_and_shutdown_guard(self):
-        from voice_stt_client.core.controller import STTController
-        from voice_stt_client.core.v2_transport import V2STTSession
-        from voice_stt_client.core.v2_mirror import V2MirrorConnection
-        from tests.test_controller import FakeAudioCapture,FakeSTTSession
-        controller=STTController(self.config,session=FakeSTTSession(),audio=FakeAudioCapture(),
-                                 history_manager=self.history,injection_queue=self.queue)
-        connection=V2MirrorConnection(V2STTSession())
-        observed=[]; connection.on_reduction=observed.append
-        service=controller.attach_v2_results(connection)
-        with self.assertRaises(RuntimeError): controller.attach_v2_results(connection)
-        callbacks=[]; controller.on_final_result=callbacks.append
-        controller._discard_finals=True
-        connection._publish(connection.mirror.begin(1,snapshot(),1))
-        reduction=connection.mirror.consume(1,msg(p.EventType.COMPLETED,1,text='V2 delivered'),1)
-        connection._publish(reduction); self.drain()
-        self.assertEqual(len(observed),2)
-        self.assertEqual((callbacks[0].activation_id,callbacks[0].segment_id,callbacks[0].generation),(A,S,1))
-        self.assertEqual(len(self.backend.send_input_calls),1)
-        current=snapshot().to_mapping(); current['sessionId']=p.new_id()
-        connection._publish(connection.mirror.begin(2,p.parse_snapshot(current),1))
-        self.assertEqual(service.consume(reduction),())
-        new_event=msg(p.EventType.COMPLETED,1,sid=p.new_id(),text='new generation').to_mapping()
-        new_event['sessionId']=current['sessionId']
-        connection._publish(connection.mirror.consume(2,p.decode_server_message(new_event),1))
-        self.drain()
-        self.assertEqual(len(self.backend.send_input_calls),2)
-        asyncio.run(controller.shutdown())
-        self.assertEqual(service.consume(reduction),())
 
 
 class CrashRecovery(unittest.TestCase):

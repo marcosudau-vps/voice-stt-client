@@ -35,12 +35,12 @@ from voice_stt_client.core.feedback_mapping import (
 )
 from voice_stt_client.core.feedback_reducer import FeedbackDecision
 from voice_stt_client.ui.application import (
-    DesktopApplication,
     EXIT_ALREADY_RUNNING,
     EXIT_TRAY_UNAVAILABLE,
     EXIT_UI_INITIALIZATION_FAILED,
     run_gui,
 )
+from voice_stt_client.ui.v2_application import V2DesktopApplication as DesktopApplication
 from voice_stt_client.ui.hotkeys import HOTKEY_ID_REINSERT_LAST, HOTKEY_ID_TOGGLE
 from voice_stt_client.ui.single_instance import (
     InstanceAcquireResult,
@@ -49,6 +49,8 @@ from voice_stt_client.ui.single_instance import (
 
 
 class FakeBridge(QObject):
+    ui_transaction = Signal(str, object, object)
+    audio_devices_received = Signal(object)
     snapshot_changed = Signal(object)
     feedback_received = Signal(object)
     feedback_decision_received = Signal(object)
@@ -70,6 +72,22 @@ class FakeBridge(QObject):
     def stop(self, timeout=10.0):
         self.calls.append(("stop", timeout))
         return True
+
+    def press_control(self, slot):
+        self.calls.append(("control", slot))
+        return True
+
+    def primary_dictation_action(self):
+        return self.press_control("primary")
+
+    def settings_bridge(self, parent):
+        from unittest.mock import MagicMock
+        self.settings_port = MagicMock()
+        return self.settings_port
+
+    def delete_history_entry(self, entry_id): return True
+    def clear_history(self): return True
+    def request_audio_devices(self): return True
 
     def toggle_dictation(self):
         self.calls.append("toggle")
@@ -193,52 +211,6 @@ class TestDesktopApplication(unittest.TestCase):
             led_feedback=led_feedback,
         )
 
-    def test_start_wires_native_hotkeys_to_core_and_shutdown_releases_all(self):
-        bridge = FakeBridge()
-        backend = FakeHotkeyBackend()
-        guard = FakeGuard()
-        desktop = self.make_desktop(
-            bridge=bridge,
-            hotkey_backend=backend,
-            guard=guard,
-        )
-        self.addCleanup(desktop.shutdown)
-
-        self.assertTrue(desktop.start())
-        desktop.hotkeys.dispatch_hotkey_id(HOTKEY_ID_TOGGLE)
-        desktop.hotkeys.dispatch_hotkey_id(HOTKEY_ID_REINSERT_LAST)
-        desktop.shutdown()
-        desktop.shutdown()
-
-        self.assertIn("toggle", bridge.calls)
-        self.assertIn("reinsert_last", bridge.calls)
-        self.assertEqual(
-            backend.registered,
-            [HOTKEY_ID_TOGGLE, HOTKEY_ID_REINSERT_LAST],
-        )
-        self.assertEqual(len(backend.unregistered), 2)
-        self.assertEqual(guard.released, 1)
-        self.assertIn(("stop", 10.0), bridge.calls)
-        self.assertEqual(
-            bridge.calls.count(
-                (
-                    "local_feedback",
-                    CanonicalEventType.CLIENT_LIFECYCLE_STARTED,
-                    None,
-                )
-            ),
-            1,
-        )
-        self.assertEqual(
-            bridge.calls.count(
-                (
-                    "local_feedback",
-                    CanonicalEventType.CLIENT_LIFECYCLE_STOPPING,
-                    None,
-                )
-            ),
-            1,
-        )
 
     def test_hotkey_conflict_without_fallback_aborts_before_core_start(self):
         bridge = FakeBridge()
@@ -255,127 +227,10 @@ class TestDesktopApplication(unittest.TestCase):
         self.assertNotIn("start", bridge.calls)
         self.assertFalse(desktop.tray.tray.isVisible())
 
-    def test_startup_replaces_conflicting_key_only_after_real_registration(self):
-        class SpaceConflictBackend(FakeHotkeyBackend):
-            def register(self, hwnd, hotkey_id, modifiers, virtual_key):
-                if hotkey_id == HOTKEY_ID_REINSERT_LAST and virtual_key == 0x20:
-                    raise OSError(1409, "occupied")
-                super().register(hwnd, hotkey_id, modifiers, virtual_key)
 
-        config = AppConfig()
-        config.led = LedConfig(enabled=False)
-        bridge = FakeBridge()
-        desktop = self.make_desktop(
-            config=config, bridge=bridge, hotkey_backend=SpaceConflictBackend()
-        )
-        self.addCleanup(desktop.shutdown)
-        with patch("voice_stt_client.ui.application.fallback_hotkeys", return_value=["Ctrl+Alt+Shift+F12"]), patch.object(
-            config, "save_user"
-        ) as saved:
-            self.assertTrue(desktop.start())
-        self.assertEqual(config.hotkey.reinsert_last_key, "Ctrl+Alt+Shift+F12")
-        self.assertTrue(desktop.hotkeys.is_registered)
-        saved.assert_called_once()
-        self.assertIn("start", bridge.calls)
 
-    def test_text_signal_adapts_segment_text_and_final_for_overlay(self):
-        bridge = FakeBridge()
-        desktop = self.make_desktop(bridge=bridge)
-        self.addCleanup(desktop.shutdown)
 
-        bridge.text_received.emit(13, "Korrekt verbundener Text", False)
-        self.application.processEvents()
 
-        self.assertEqual(desktop.overlay.label.text(), "Korrekt verbundener Text")
-        self.assertTrue(desktop.overlay.isVisible())
-
-    def test_mapped_feedback_decision_updates_ui_and_enqueues_one_sound(self):
-        bridge = FakeBridge()
-        led_feedback = FakeLedFeedback()
-        desktop = self.make_desktop(
-            bridge=bridge,
-            led_feedback=led_feedback,
-        )
-        self.addCleanup(desktop.shutdown)
-        desktop.sound_feedback.play = MagicMock(return_value=True)
-        decision = FeedbackDecision(
-            state=FeedbackState.RECORDING,
-            source=FeedbackSource.EVENT_STREAM,
-            rule=FeedbackRule(
-                led=(LedCall(LedVerb.SET_STATE, target="listening"),),
-                sound=SoundEffect(SoundCueId.START, 0.4),
-                app=AppEffect(AppActionId.INDICATOR_RECORDING),
-            ),
-            event=NormalizedFeedbackEvent(
-                event_type=CanonicalEventType.SERVER_RECORDING_STARTED,
-                origin=EventOrigin.LIVE,
-                source=FeedbackSource.EVENT_STREAM,
-                state=FeedbackState.RECORDING,
-                impulse=FeedbackImpulse.RECORDING_STARTED,
-            ),
-            impulse=FeedbackImpulse.RECORDING_STARTED,
-        )
-
-        bridge.feedback_decision_received.emit(decision)
-        self.application.processEvents()
-
-        self.assertEqual(desktop.tray.status_action.text(), "Sprache wird aufgenommen")
-        self.assertEqual(desktop.overlay.label.text(), "Aufnahme läuft")
-        desktop.sound_feedback.play.assert_called_once_with(decision.rule.sound)
-        self.assertIn((decision.rule.led, True), led_feedback.calls)
-
-    def test_live_local_lifecycle_fact_keeps_led_event_and_state(self):
-        bridge = FakeBridge()
-        led_feedback = FakeLedFeedback()
-        desktop = self.make_desktop(bridge=bridge, led_feedback=led_feedback)
-        self.addCleanup(desktop.shutdown)
-        decision = FeedbackDecision(
-            state=FeedbackState.IDLE,
-            source=FeedbackSource.LOCAL_ONLY,
-            rule=FeedbackRule(
-                led=(
-                    LedCall(LedVerb.EMIT_EVENT, target="init_event"),
-                    LedCall(LedVerb.SET_STATE, target="ready_state"),
-                )
-            ),
-            event=NormalizedFeedbackEvent(
-                event_type=CanonicalEventType.CLIENT_LIFECYCLE_STARTED,
-                origin=EventOrigin.LOCAL,
-                source=FeedbackSource.LOCAL_ONLY,
-            ),
-        )
-
-        desktop._on_feedback_decision(decision)
-
-        self.assertIn((decision.rule.led, True), led_feedback.calls)
-
-    def test_replay_or_unpublished_decision_never_reaches_ui_adapters(self):
-        bridge = FakeBridge()
-        led_feedback = FakeLedFeedback()
-        desktop = self.make_desktop(
-            bridge=bridge,
-            led_feedback=led_feedback,
-        )
-        self.addCleanup(desktop.shutdown)
-        desktop.sound_feedback.play = MagicMock(return_value=True)
-        decision = FeedbackDecision(
-            state=FeedbackState.RECORDING,
-            source=FeedbackSource.EVENT_STREAM,
-            rule=FeedbackRule(
-                led=(LedCall(LedVerb.SET_STATE, target="listening"),),
-                sound=SoundEffect(SoundCueId.START),
-                app=AppEffect(AppActionId.INDICATOR_RECORDING),
-            ),
-            publish=False,
-            replay=True,
-        )
-
-        bridge.feedback_decision_received.emit(decision)
-        self.application.processEvents()
-
-        desktop.sound_feedback.play.assert_not_called()
-        self.assertNotIn((decision.rule.led, False), led_feedback.calls)
-        self.assertFalse(desktop.overlay.isVisible())
 
     def test_legacy_command_completion_no_longer_triggers_sound(self):
         desktop = self.make_desktop()

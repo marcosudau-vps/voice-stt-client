@@ -39,6 +39,8 @@ include = ["voice_stt_client*"]
 [tool.setuptools.package-data]
 voice_stt_client = [
   "config.yaml",
+  "resources/*.json",
+  "build_identity.json",
   "assets/feedback_sounds/debug/*.wav",
   "assets/feedback_sounds/debug/*.md",
 ]

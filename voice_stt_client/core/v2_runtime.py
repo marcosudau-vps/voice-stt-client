@@ -354,6 +354,14 @@ class V2Runtime:
             self._runner = asyncio.create_task(self.session.run(), name='v2-runtime-transport')
         return CommandResult(True, 'reconnecting')
 
+    def _apply_observability(self, config):
+        try:
+            apply = getattr(self.observability, 'apply_config', None)
+            if apply is not None:
+                apply(config)
+        except Exception:
+            logger.warning('Observability preferences could not be applied')
+
     async def apply_runtime_config(self, candidate, *, correlation_id=None):
         """Local preferences only; triggers/settings go through SettingsUISession."""
         if self._closing:
@@ -388,7 +396,7 @@ class V2Runtime:
                 self.queue.config = deepcopy(candidate)
                 self.feedback.reconfigure_mapping(candidate.feedback_mappings)
                 await self.logs.update_config(replace(candidate.server, url=self.session.config.url), candidate.event_stream)
-                self.observability.apply_config(candidate.logging.observability)
+                self._apply_observability(candidate.logging.observability)
                 result = CommandResult(True, 'applied')
                 return result
             except Exception:
@@ -400,7 +408,7 @@ class V2Runtime:
                 self.queue.config = deepcopy(old)
                 self.feedback.reconfigure_mapping(old.feedback_mappings)
                 await self.logs.update_config(replace(old.server, url=self.session.config.url), old.event_stream)
-                self.observability.apply_config(old.logging.observability)
+                self._apply_observability(old.logging.observability)
                 return result
             finally:
                 self.media.set_device_available(previous_device)

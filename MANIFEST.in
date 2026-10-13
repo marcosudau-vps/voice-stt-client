@@ -1,0 +1,7 @@
+include VERSION requirements.txt pyproject.toml setup.py README.md
+recursive-include voice_stt_client *.py *.yaml *.json *.wav *.md
+prune tests
+prune scripts
+prune ARBEITSDATEIEN
+global-exclude .env *.sqlite *.sqlite3 *.db *.log *.pyc
+prune voice_stt_client/__pycache__

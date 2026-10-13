@@ -124,7 +124,7 @@ def normalize_hotkey_spec(value: str) -> str:
 class ServerConfig:
     """WebSocket server connection settings."""
 
-    url: str = "wss://stt.voice.marcosudau.com/ws/transcribe"
+    url: str = "wss://stt.voice.marcosudau.com/ws/v2"
     health_url: str = "https://stt.voice.marcosudau.com/health"
     reconnect_min_delay: float = 0.5
     reconnect_max_delay: float = 30.0
@@ -401,49 +401,7 @@ class SessionConfig:
                 "wake_word_trigger_enabled) must be enabled"
             )
 
-    def query_parameters(self) -> dict[str, str]:
-        """Return the exact public WebSocket query contract for this session."""
-        man_enabled = self.effective_manual_trigger_enabled
-        ww_enabled = self.effective_wake_word_trigger_enabled
-        values: dict[str, Any] = {
-            "manualTriggerEnabled": man_enabled,
-            "wakeWordTriggerEnabled": ww_enabled,
-            "wakeWordEnabled": ww_enabled,
-            "wakeWordBackend": self.wake_word_backend if ww_enabled else None,
-            "wakeWords": self.wake_words if ww_enabled else None,
-            "wakeWordInferenceFramework": self.wake_word_inference_framework if ww_enabled else None,
-            "wakeWordSensitivity": self.wake_word_sensitivity if ww_enabled else None,
-            "wakeWordActivationDelay": self.wake_word_activation_delay if ww_enabled else None,
-            "wakeWordTimeout": self.wake_word_timeout if ww_enabled else None,
-            "wakeWordBufferDuration": self.wake_word_buffer_duration if ww_enabled else None,
-            "wakeWordFollowupWindow": self.wake_word_followup_window if ww_enabled else None,
-            "initialSpeechTimeout": self.initial_speech_timeout,
-            "followupTimeout": self.followup_timeout,
-            "extensionSeconds": self.extension_seconds,
-        }
-        result: dict[str, str] = {}
-        for key, value in values.items():
-            if value is None:
-                continue
-            if isinstance(value, bool):
-                result[key] = "true" if value else "false"
-            else:
-                result[key] = str(value)
-        return result
 
-    def build_url(self, base_url: str) -> str:
-        """Merge the session contract into *base_url* without duplicate keys."""
-        parts = urlsplit(base_url)
-        session_values = self.query_parameters()
-        query = [
-            (key, value)
-            for key, value in parse_qsl(parts.query, keep_blank_values=True)
-            if key not in session_values
-        ]
-        query.extend(session_values.items())
-        return urlunsplit(
-            (parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment)
-        )
 
 
 @dataclass
@@ -998,9 +956,10 @@ class AppConfig:
             V2Profile(**self.v2_profile)  # Preserve blocked migration diagnostics.
         self.server.validate()
         self.event_stream.validate()
-        self.session.validate()
-        self.dictation_window.validate()
-        self.hotkey.validate()
+        if self.v2_profile is None:
+            self.session.validate()
+            self.dictation_window.validate()
+            self.hotkey.validate()
         self.overlay.validate()
         self.feedback.validate()
         self.led.validate()

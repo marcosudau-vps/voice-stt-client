@@ -1039,10 +1039,10 @@ class TestSettingsTab(QtTestCase):
         self.addCleanup(dialog.close)
         return dialog
 
-    def test_the_dialog_has_six_tabs_with_logging_last(self):
+    def test_the_local_dialog_has_five_tabs_with_logging_last(self):
         dialog = self.make_dialog()
-        self.assertEqual(dialog.tabs.count(), 6)
-        self.assertEqual(dialog.tabs.tabText(5), "Logging & Diagnose")
+        self.assertEqual(dialog.tabs.count(), 5)
+        self.assertEqual(dialog.tabs.tabText(4), "Logging & Diagnose")
 
     def test_every_logging_setting_has_an_editor(self):
         from voice_stt_client.core.logging_settings_metadata import LOGGING_SETTING_DEFINITIONS
@@ -1167,7 +1167,7 @@ class FakeManager:
 class TestDesktopWiring(QtTestCase):
     def make_desktop(self, manager=None):
         from tests.test_ui_application import FakeBridge, FakeGuard, FakeHotkeyBackend
-        from voice_stt_client.ui.application import DesktopApplication
+        from voice_stt_client.ui.v2_application import V2DesktopApplication as DesktopApplication
 
         class DialogCapableBridge(FakeBridge):
             """The settings dialog wires two history commands the AP06 double
@@ -1222,20 +1222,20 @@ class TestDesktopWiring(QtTestCase):
         desktop.show_settings()
         desktop.clear_diagnostics_history()
         self.assertEqual(manager.clear_calls, 1)
-        self.assertIn("12", desktop.settings_dialog.logging_status.text())
+        self.assertIn("12", desktop._local_dialog.logging_status.text())
 
     def test_a_failing_clear_is_reported_not_raised(self):
         manager = FakeManager(clear_raises=True)
         desktop = self.make_desktop(manager=manager)
         desktop.show_settings()
         desktop.clear_diagnostics_history()
-        self.assertIn("fehlgeschlagen", desktop.settings_dialog.logging_status.text())
+        self.assertIn("fehlgeschlagen", desktop._local_dialog.logging_status.text())
 
     def test_clear_without_a_manager_says_so(self):
         desktop = self.make_desktop(manager=None)
         desktop.show_settings()
         desktop.clear_diagnostics_history()
-        self.assertIn("Keine Diagnosequelle", desktop.settings_dialog.logging_status.text())
+        self.assertIn("Keine Diagnosequelle", desktop._local_dialog.logging_status.text())
 
     def test_shutdown_releases_the_log_window(self):
         desktop = self.make_desktop(manager=FakeManager())

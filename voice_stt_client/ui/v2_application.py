@@ -113,6 +113,8 @@ class V2DesktopApplication(DesktopApplication):
         if not ok:
             self.config = old
             self.bridge.config = deepcopy(old)
+            self.hotkeys.unregister()
+            self.hotkeys = self._create_hotkey_manager(old)
         return ok
 
     def _profile_transaction_step(self, operation, payload, reply):

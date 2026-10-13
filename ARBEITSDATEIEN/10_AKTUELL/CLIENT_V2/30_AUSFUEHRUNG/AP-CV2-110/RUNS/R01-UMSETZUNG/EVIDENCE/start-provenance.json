@@ -1,0 +1,22 @@
+{
+  "parent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+  "tree": "cd60ff62ffb073fc5b3d9b0ccf34aa899b95a1c0",
+  "predecessor": {
+    "baseRefName": "feat/client-v2",
+    "headRefOid": "f25e532a1f0a4751bea622e48c7cc731051842d6",
+    "mergeCommit": {
+      "oid": "62ca35a01fb88b37e16b7003e26c2f9110c131f3"
+    },
+    "mergedAt": "2026-10-13T16:05:55Z",
+    "state": "MERGED",
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/12"
+  },
+  "singleParent": true,
+  "treeEquality": true,
+  "predecessorReview": "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-CV2-100\\RUNS\\R05-ABNAHME\\01_REPORT.md",
+  "humanApproval": "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-CV2-100\\RUNS\\R06-UEBERNAHME\\00_PROMPT_ORIGINAL.md",
+  "planningHashes": {
+    "PLANUNG/ARBEITSPAKETE/AP-CV2-110.md": "ca4ad4faff138efbb92c313af4e2273b7ed1bb986031eda923c425faca831479",
+    "PLANUNG/EVIDENCE/package-manifest.json": "d6d3a5dd43f975c551c241199022077cde6386bf37e6e93c028f084f78d606f1"
+  }
+}

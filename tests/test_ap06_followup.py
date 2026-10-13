@@ -22,11 +22,6 @@ from PySide6.QtWidgets import (
 
 from voice_stt_client.core.audio_capture import AudioCapture
 from voice_stt_client.core.config import AppConfig, OperatingMode, SessionConfig
-from voice_stt_client.core.controller import (
-    DictationState,
-    DictationWindowPhase,
-    STTController,
-)
 from voice_stt_client.core.event_models import CanonicalEventType
 from voice_stt_client.core.history import TranscriptHistoryManager
 from voice_stt_client.core.settings_metadata import (
@@ -35,18 +30,6 @@ from voice_stt_client.core.settings_metadata import (
     SettingType,
     build_candidate,
     get_config_value,
-)
-from voice_stt_client.core.stt_session import (
-    ClientState,
-    SessionConfigurationError,
-    SessionState,
-    STTSession,
-    TransportState,
-)
-from tests.test_controller import (
-    FakeAudioCapture,
-    FakeInjectionQueue,
-    FakeSTTSession,
 )
 from tests.test_ui_application import FakeBridge, FakeGuard, FakeHotkeyBackend
 from voice_stt_client.ui.application import DesktopApplication
@@ -70,87 +53,11 @@ class RecordingHotkeyBackend:
         self.unregistered.append(hotkey_id)
 
 
-class ReconfigurableFakeSTTSession(FakeSTTSession):
-    """Long-running fake that reproduces real session generations."""
-
-    def __init__(self) -> None:
-        super().__init__()
-        self.reconfigure_calls = []
-        self._run_stopped = asyncio.Event()
-
-    async def run(self) -> None:
-        await self._run_stopped.wait()
-
-    async def stop(self) -> None:
-        await super().stop()
-        self._run_stopped.set()
-
-    async def reconfigure(self, session_config, server_config) -> None:
-        self.reconfigure_calls.append((session_config.mode, server_config.url))
-        self.generation += 1
-        self._streaming = False
-        self.state = ClientState(
-            transport=TransportState.READY,
-            ready_ok=True,
-            server_status=SessionState.IDLE,
-            generation=self.generation,
-            session_id=f"fake-session-{self.generation}",
-        )
 
 
 class TestSessionConfigAndMetadata(unittest.TestCase):
-    def test_url_generation_replaces_each_public_key_exactly_once(self):
-        config = SessionConfig(
-            mode=OperatingMode.WAKE_WORD.value,
-            wake_words="hey jarvis,computer",
-            wake_word_sensitivity=0.42,
-        )
-        url = config.build_url(
-            "wss://example/ws?keep=1&wakeWordEnabled=false&wakeWordEnabled=false"
-        )
-        self.assertEqual(url.count("wakeWordEnabled="), 1)
-        self.assertIn("wakeWordEnabled=true", url)
-        self.assertIn("wakeWords=hey+jarvis%2Ccomputer", url)
-        self.assertIn("keep=1", url)
 
-    def test_effective_mode_mismatch_is_rejected(self):
-        config = AppConfig()
-        session = STTSession(
-            config.server,
-            config.session,
-            require_session_contract=True,
-        )
-        with self.assertRaises(SessionConfigurationError):
-            session._verify_session_contract(
-                {
-                    "type": "hello",
-                    "sessionConfig": {"effectiveWakeWordEnabled": True},
-                }
-            )
 
-    def test_fallback_metadata_is_recorded_after_valid_confirmation(self):
-        config = AppConfig()
-        session = STTSession(
-            config.server,
-            config.session,
-            require_session_contract=True,
-        )
-        session._verify_session_contract(
-            {
-                "type": "hello",
-                "sessionConfig": {
-                    "effectiveWakeWordEnabled": False,
-                    "fallbacks": ["sensitivity"],
-                    "warnings": ["fallback used"],
-                    "ignoredFields": ["wakeWords"],
-                },
-                "sessionCapabilities": {"availableWakeWords": []},
-            }
-        )
-        self.assertFalse(
-            session.effective_session_config["effectiveWakeWordEnabled"]
-        )
-        self.assertEqual(session.session_capabilities["availableWakeWords"], [])
 
     def test_every_metadata_path_targets_typed_config(self):
         config = AppConfig()
@@ -161,12 +68,12 @@ class TestSessionConfigAndMetadata(unittest.TestCase):
     def test_candidate_validation_does_not_mutate_current_config(self):
         current = AppConfig()
         candidate = build_candidate(
-            current, {"dictation_window.followup_timeout": 7.5}
+            current, {"overlay.opacity": 0.55}
         )
-        self.assertEqual(current.dictation_window.followup_timeout, 3.0)
-        self.assertEqual(candidate.dictation_window.followup_timeout, 7.5)
+        self.assertEqual(current.overlay.opacity, 0.85)
+        self.assertEqual(candidate.overlay.opacity, 0.55)
         with self.assertRaises(ValueError):
-            build_candidate(current, {"dictation_window.followup_timeout": 0.0})
+            build_candidate(current, {"overlay.opacity": 1.5})
 
     def test_project_and_user_files_are_layered_and_save_is_atomic(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -241,359 +148,10 @@ only on a busy machine and never when run alone.
 """
 
 
-class TestDictationWindow(unittest.IsolatedAsyncioTestCase):
-    def make_controller(self) -> tuple[STTController, FakeSTTSession]:
-        config = AppConfig()
-        config.history.enabled = False
-        config.dictation_window.initial_speech_timeout = WINDOW
-        config.dictation_window.followup_timeout = WINDOW / 2
-        config.dictation_window.extension_seconds = WINDOW
-        config.dictation_window.timeout_warning_seconds = WINDOW / 4
-        session = FakeSTTSession()
-        controller = STTController(
-            config,
-            session=session,
-            audio=FakeAudioCapture(),
-            injection_queue=FakeInjectionQueue(),
-        )
-        return controller, session
-
-    async def test_initial_timeout_stops_accidental_start(self):
-        controller, _ = self.make_controller()
-        result = await controller.start_dictation()
-        self.assertTrue(result.success)
-        self.assertEqual(
-            controller.get_snapshot().dictation_window_phase,
-            DictationWindowPhase.WAITING_FIRST_SPEECH,
-        )
-        await asyncio.sleep(WINDOW * 1.8)
-        self.assertEqual(controller.dictation_state, DictationState.IDLE)
-
-    async def test_timeline_and_extension_are_bound_to_current_window(self):
-        controller, session = self.make_controller()
-        await controller.start_dictation()
-        controller.handle_server_event(
-            "timeline",
-            {
-                "type": "timeline",
-                "event": "recording_started",
-                "sessionId": session.state.session_id,
-                "_clientGeneration": session.generation,
-            },
-        )
-        self.assertEqual(
-            controller.get_snapshot().dictation_window_phase,
-            DictationWindowPhase.SEGMENT_ACTIVE,
-        )
-        extension = controller.extend_dictation_window()
-        self.assertEqual(extension.status, "extension_armed")
-        controller.handle_server_event(
-            "timeline",
-            {
-                "type": "timeline",
-                "event": "recording_ended",
-                "sessionId": session.state.session_id,
-                "_clientGeneration": session.generation,
-            },
-        )
-        await asyncio.sleep(WINDOW * 0.6)
-        self.assertEqual(controller.dictation_state, DictationState.ACTIVE)
-        await asyncio.sleep(WINDOW * 1.2)
-        self.assertEqual(controller.dictation_state, DictationState.IDLE)
-
-    async def test_stale_timeline_event_does_not_cancel_initial_timer(self):
-        controller, session = self.make_controller()
-        await controller.start_dictation()
-        controller.handle_server_event(
-            "timeline",
-            {
-                "type": "timeline",
-                "event": "recording_started",
-                "sessionId": session.state.session_id,
-                "_clientGeneration": session.generation - 1,
-            },
-        )
-        self.assertEqual(
-            controller.get_snapshot().dictation_window_phase,
-            DictationWindowPhase.WAITING_FIRST_SPEECH,
-        )
-        await controller.stop_dictation()
-
-    async def test_hotkey_followup_warns_then_new_speech_clears_warning(self):
-        controller, session = self.make_controller()
-        decisions = []
-        controller.on_feedback_decision = decisions.append
-        await controller.start_dictation()
-        base = {
-            "type": "timeline",
-            "sessionId": session.state.session_id,
-            "_clientGeneration": session.generation,
-        }
-        controller.handle_server_event(
-            "timeline", {**base, "event": "recording_started"}
-        )
-        controller.handle_server_event(
-            "timeline", {**base, "event": "recording_ended"}
-        )
-
-        await asyncio.sleep(WINDOW * 0.35)
-        self.assertIn(
-            CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING,
-            [item.event.event_type for item in decisions],
-        )
-        controller.handle_server_event(
-            "timeline", {**base, "event": "recording_started"}
-        )
-        self.assertEqual(
-            [item.event.event_type for item in decisions][-1],
-            CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING_CLEARED,
-        )
-        await controller.stop_dictation()
-
-    async def test_wake_word_followup_uses_server_duration_and_clears_on_speech(self):
-        config = AppConfig()
-        config.history.enabled = False
-        config.session.mode = "wake_word"
-        config.dictation_window.timeout_warning_seconds = WINDOW / 4
-        session = FakeSTTSession()
-        controller = STTController(
-            config,
-            session=session,
-            audio=FakeAudioCapture(),
-            injection_queue=FakeInjectionQueue(),
-        )
-        decisions = []
-        controller.on_feedback_decision = decisions.append
-        await controller.start_dictation()
-        base = {
-            "type": "timeline",
-            "sessionId": session.state.session_id,
-            "_clientGeneration": session.generation,
-        }
-        controller.handle_server_event(
-            "timeline",
-            {
-                **base,
-                "event": "wakeword_followup_started",
-                "durationSeconds": WINDOW,
-            },
-        )
-
-        # Wait for the warning instead of sleeping a fixed fraction of the
-        # window: the assertion is unchanged, but a loaded machine no longer
-        # turns a correct implementation red.
-        deadline = asyncio.get_running_loop().time() + WINDOW * 8
-        while asyncio.get_running_loop().time() < deadline:
-            if CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING in [
-                item.event.event_type for item in decisions
-            ]:
-                break
-            await asyncio.sleep(WINDOW / 20)
-        self.assertIn(
-            CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING,
-            [item.event.event_type for item in decisions],
-        )
-        controller.handle_server_event(
-            "timeline", {**base, "event": "recording_started"}
-        )
-        self.assertEqual(
-            [item.event.event_type for item in decisions][-1],
-            CanonicalEventType.CLIENT_DICTATION_TIMEOUT_WARNING_CLEARED,
-        )
-        await controller.stop_dictation()
-
-    async def test_unavailable_audio_candidate_does_not_change_runtime(self):
-        controller, _ = self.make_controller()
-        candidate = AppConfig()
-        candidate.history.enabled = False
-        candidate.audio.device = 99
-        with patch.object(
-            AudioCapture,
-            "list_devices",
-            return_value=[
-                {
-                    "index": 3,
-                    "name": "Mic",
-                    "channels": 1,
-                    "default_samplerate": 16000,
-                    "is_default": True,
-                }
-            ],
-        ):
-            result = await controller.apply_runtime_config(candidate)
-        self.assertFalse(result.success)
-        self.assertIsNone(controller.config.audio.device)
-
-    async def test_server_recorder_state_change_publishes_snapshot_for_tray(self):
-        controller, session = self.make_controller()
-        snapshots = []
-        controller.on_snapshot_change = snapshots.append
-
-        session.state.server_status = SessionState.WAKEWORD_DETECTED
-        controller._handle_state_change(session.state)
-        controller._handle_state_change(session.state)
-
-        self.assertEqual(len(snapshots), 1)
-        self.assertEqual(
-            snapshots[0].server_status,
-            SessionState.WAKEWORD_DETECTED,
-        )
 
 
-class TestConfigurationReconnectGuard(unittest.IsolatedAsyncioTestCase):
-    async def test_configuration_block_stops_connection_attempts_until_change(self):
-        config = AppConfig()
-        session = STTSession(config.server, config.session)
-        session._configuration_blocked = True
-        calls = 0
-
-        async def connect_once():
-            nonlocal calls
-            calls += 1
-            await session.stop()
-
-        session._connect_and_run = connect_once
-        run_task = asyncio.create_task(session.run())
-        await asyncio.sleep(0.02)
-        self.assertEqual(calls, 0)
-        await session.reconfigure(config.session, config.server)
-        await asyncio.wait_for(run_task, 0.2)
-        self.assertEqual(calls, 1)
 
 
-class TestRuntimeModeSwitchLifecycle(unittest.IsolatedAsyncioTestCase):
-    def make_controller(
-        self,
-    ) -> tuple[
-        STTController,
-        ReconfigurableFakeSTTSession,
-        FakeAudioCapture,
-    ]:
-        config = AppConfig()
-        config.history.enabled = False
-        session = ReconfigurableFakeSTTSession()
-        audio = FakeAudioCapture()
-        controller = STTController(
-            config,
-            session=session,
-            audio=audio,
-            injection_queue=FakeInjectionQueue(),
-        )
-        return controller, session, audio
-
-    async def stop_controller(
-        self,
-        controller: STTController,
-        run_task: asyncio.Task,
-    ) -> None:
-        await controller.shutdown()
-        await asyncio.wait_for(run_task, 1.0)
-
-    async def test_hotkey_wake_hotkey_switch_arms_stream_and_keeps_core_alive(self):
-        controller, session, audio = self.make_controller()
-        run_task = asyncio.create_task(controller.run())
-        await asyncio.sleep(0.12)
-
-        for cycle in range(3):
-            wake_config = copy.deepcopy(controller.config)
-            wake_config.session.mode = "wake_word"
-            wake_result = await controller.apply_runtime_config(wake_config)
-
-            self.assertTrue(wake_result.success, wake_result)
-            self.assertEqual(controller.config.session.mode, "wake_word")
-            self.assertEqual(controller.dictation_state, DictationState.ACTIVE)
-            self.assertTrue(controller.dictation_requested)
-            self.assertTrue(audio.is_running)
-            self.assertFalse(run_task.done())
-
-            hotkey_config = copy.deepcopy(controller.config)
-            hotkey_config.session.mode = "hotkey"
-            hotkey_result = await controller.apply_runtime_config(hotkey_config)
-
-            self.assertTrue(hotkey_result.success, hotkey_result)
-            self.assertEqual(controller.config.session.mode, "hotkey")
-            self.assertEqual(controller.dictation_state, DictationState.IDLE)
-            self.assertFalse(controller.dictation_requested)
-            self.assertFalse(audio.is_running)
-            await asyncio.sleep(0.15)
-            self.assertFalse(
-                run_task.done(),
-                f"Core terminated during mode-switch cycle {cycle + 1}",
-            )
-
-        self.assertEqual(
-            [mode for mode, _ in session.reconfigure_calls],
-            ["wake_word", "hotkey"] * 3,
-        )
-        await self.stop_controller(controller, run_task)
-
-    async def test_failed_wake_stream_activation_restores_hotkey_runtime(self):
-        controller, session, audio = self.make_controller()
-        run_task = asyncio.create_task(controller.run())
-        await asyncio.sleep(0.12)
-        session.send_start_should_fail = True
-
-        candidate = copy.deepcopy(controller.config)
-        candidate.session.mode = "wake_word"
-        result = await controller.apply_runtime_config(candidate)
-
-        self.assertFalse(result.success)
-        self.assertEqual(result.status, "wake_word_arm_failed")
-        self.assertEqual(controller.config.session.mode, "hotkey")
-        self.assertEqual(controller.dictation_state, DictationState.IDLE)
-        self.assertFalse(controller.dictation_requested)
-        self.assertFalse(audio.is_running)
-        self.assertEqual(
-            [mode for mode, _ in session.reconfigure_calls],
-            ["wake_word", "hotkey"],
-        )
-        self.assertFalse(run_task.done())
-        await self.stop_controller(controller, run_task)
-
-    async def test_switched_wake_mode_rearms_after_recoverable_reconnect(self):
-        controller, session, audio = self.make_controller()
-        run_task = asyncio.create_task(controller.run())
-        await asyncio.sleep(0.12)
-
-        candidate = copy.deepcopy(controller.config)
-        candidate.session.mode = "wake_word"
-        result = await controller.apply_runtime_config(candidate)
-        self.assertTrue(result.success, result)
-        first_start_calls = session.start_calls
-
-        session.state = ClientState(
-            transport=TransportState.DISCONNECTED,
-            ready_ok=False,
-            server_status=SessionState.CLOSED,
-            generation=session.generation,
-            session_id=session.state.session_id,
-        )
-        controller._handle_transport_change(TransportState.DISCONNECTED)
-        self.assertEqual(controller.dictation_state, DictationState.IDLE)
-        self.assertFalse(audio.is_running)
-
-        session.generation += 1
-        session.state = ClientState(
-            transport=TransportState.READY,
-            ready_ok=True,
-            server_status=SessionState.IDLE,
-            generation=session.generation,
-            session_id=f"fake-session-{session.generation}",
-        )
-        controller._handle_transport_change(TransportState.READY)
-
-        deadline = asyncio.get_running_loop().time() + 1.0
-        while (
-            controller.dictation_state != DictationState.ACTIVE
-            and asyncio.get_running_loop().time() < deadline
-        ):
-            await asyncio.sleep(0.02)
-
-        self.assertEqual(controller.dictation_state, DictationState.ACTIVE)
-        self.assertGreater(session.start_calls, first_start_calls)
-        self.assertTrue(audio.is_running)
-        self.assertFalse(run_task.done())
-        await self.stop_controller(controller, run_task)
 
 
 class TestHistoryDeletion(unittest.TestCase):
@@ -642,84 +200,23 @@ class TestSettingsDialog(unittest.TestCase):
     def setUpClass(cls):
         cls.app = QApplication.instance() or QApplication([])
 
-    def test_five_tabs_and_standard_editor_types(self):
-        calls = []
-        dialog = SettingsDialog(
-            AppConfig(),
-            lambda candidate, policies: calls.append((candidate, policies)) or True,
-        )
-        self.assertEqual(
-            [dialog.tabs.tabText(index) for index in range(dialog.tabs.count())],
-            list(SettingsDialog.TAB_NAMES),
-        )
-        self.assertIsInstance(dialog._editors["hotkey.enabled"], QCheckBox)
-        self.assertIsInstance(
-            dialog._editors["overlay.opacity"], QDoubleSpinBox
-        )
-        self.assertIsInstance(
-            dialog._editors["hotkey.toggle_key"], QKeySequenceEdit
-        )
-        dialog.close()
 
-    def test_hotkey_editor_records_and_normalizes_key_sequence(self):
-        dialog = SettingsDialog(AppConfig(), lambda candidate, policies: True)
-        editor = dialog._editors["hotkey.toggle_key"]
-        editor.setKeySequence(QKeySequence("Ctrl+Alt+F12"))
-        definition = dialog._definitions["hotkey.toggle_key"]
-        self.assertEqual(dialog._editor_value(definition), "Ctrl+Alt+F12")
-        dialog.close()
 
     def test_reopening_dialog_discards_unapplied_draft(self):
         dialog = SettingsDialog(AppConfig(), lambda candidate, policies: True)
         dialog.show()
-        finish = dialog._editors["hotkey.finish_key"]
         opacity = dialog._editors["overlay.opacity"]
-        finish.setKeySequence(QKeySequence("Ctrl+Alt+F12"))
         opacity.setValue(0.55)
         dialog.status_label.setText("Vorschlag noch nicht übernommen")
 
         dialog.close()
         dialog.show()
 
-        self.assertTrue(finish.keySequence().isEmpty())
         self.assertEqual(opacity.value(), dialog._config.overlay.opacity)
         self.assertEqual(dialog.status_label.text(), "")
         dialog.close()
 
-    def test_windows_modifier_round_trips_through_qt_editor(self):
-        config = AppConfig()
-        config.hotkey.reinsert_last_key = "Ctrl+Shift+Win+F10"
-        dialog = SettingsDialog(config, lambda candidate, policies: True)
-        editor = dialog._editors["hotkey.reinsert_last_key"]
-        self.assertIn("Meta", editor.keySequence().toString())
-        self.assertEqual(
-            dialog._editor_value(dialog._definitions["hotkey.reinsert_last_key"]),
-            "Ctrl+Shift+Win+F10",
-        )
-        dialog._sync_editors()
-        self.assertEqual(
-            dialog._editor_value(dialog._definitions["hotkey.reinsert_last_key"]),
-            "Ctrl+Shift+Win+F10",
-        )
-        dialog.close()
 
-    def test_rejected_hotkey_restores_committed_value_and_explains_failure(self):
-        with patch(
-            "voice_stt_client.ui.settings_dialog.find_available_hotkey",
-            return_value="Ctrl+Alt+Shift+F11",
-        ):
-            dialog = SettingsDialog(
-                AppConfig(), lambda candidate, policies: False,
-                apply_error=lambda: "Diese Tastenkombination ist bereits belegt.",
-            )
-            editor = dialog._editors["hotkey.toggle_key"]
-            editor.setKeySequence(QKeySequence("Ctrl+Alt+F12"))
-            dialog.apply_changes()
-            self.assertEqual(editor.keySequence().toString(), "Ctrl+Alt+Shift+F11")
-            self.assertEqual(dialog._config.hotkey.toggle_key, "Ctrl+Shift+Space")
-            self.assertIn("Weiter aktiv: Ctrl+Shift+Space", dialog.status_label.text())
-            self.assertIn("noch nicht aktiviert", dialog.status_label.text())
-            dialog.close()
 
     def test_slider_spinbox_preserves_non_step_audio_rate(self):
         config = AppConfig()
@@ -766,50 +263,3 @@ class TestSettingsDialog(unittest.TestCase):
         self.assertIsInstance(calls[0][0].overlay.opacity, float)
         self.assertEqual(calls[0][0].overlay.opacity, 0.55)
         dialog.close()
-
-    def test_dependency_fields_remain_visible_but_disable_when_inactive(self):
-        dialog = SettingsDialog(AppConfig(), lambda candidate, policies: True)
-        wake_words = dialog._editors["session.wake_words"]
-        self.assertFalse(wake_words.isHidden())
-        self.assertFalse(wake_words.isEnabled())
-        mode = dialog._editors["session.mode"]
-        mode.setCurrentData("wake_word")
-        mode.valueChanged.emit("wake_word")
-        self.assertFalse(wake_words.isHidden())
-        self.assertTrue(wake_words.isEnabled())
-        start_sound = dialog._editors["feedback.start_sound"]
-        self.assertFalse(start_sound.isHidden())
-        self.assertFalse(start_sound.isEnabled())
-        sounds = dialog._editors["feedback.sounds_enabled"]
-        sounds.setChecked(True)
-        self.assertFalse(start_sound.isHidden())
-        self.assertTrue(start_sound.isEnabled())
-        dialog.close()
-
-    def test_failed_runtime_submit_rolls_hotkeys_and_file_back(self):
-        class RejectingBridge(FakeBridge):
-            def apply_runtime_config(self, candidate):
-                self.calls.append(("apply_runtime_config", candidate))
-                return False
-
-        bridge = RejectingBridge()
-        backend = FakeHotkeyBackend()
-        desktop = DesktopApplication(
-            self.app,
-            AppConfig(),
-            FakeGuard(),
-            bridge=bridge,
-            hotkey_backend=backend,
-        )
-        old_manager = desktop.hotkeys
-        candidate = build_candidate(
-            desktop.config, {"hotkey.toggle_key": "Ctrl+Shift+F12"}
-        )
-        with patch.object(AppConfig, "save_user") as save_user:
-            accepted = desktop._apply_settings(
-                candidate, frozenset({ApplyPolicy.HOTKEY_REREGISTER})
-            )
-        self.assertFalse(accepted)
-        self.assertIs(desktop.hotkeys, old_manager)
-        self.assertEqual(save_user.call_count, 2)
-        desktop.shutdown()
