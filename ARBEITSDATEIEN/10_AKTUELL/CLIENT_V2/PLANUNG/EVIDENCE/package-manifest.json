@@ -706,7 +706,13 @@
       "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/EVIDENCE/server-runtime-checkpoint.json",
       "openFindingIds": [],
       "reviewReport": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md",
-      "humanApproval": null,
+      "humanApproval": {
+        "status": "EXPLICITLY_GRANTED",
+        "source": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+        "approvedHead": "4c7be6945ae3f2c52748667963d00a1d5cd30d9f",
+        "canonicalParent": "dad89bb5d08e6d34abc5cfab57fc76010c5131dc",
+        "passReport": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md"
+      },
       "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/12",
       "reviewedCommit": "0d45f8e9d3b484631da80be28f31c86ea85ab002",
       "reviewedTree": "aa8e3146f7e05e67694fc2027d712c62ce44cebe",
@@ -716,7 +722,8 @@
       "lastIndependentReview": "R05_ROOT_PASS",
       "closedFindingIds": [
         "CV2-100-R03-F01"
-      ]
+      ],
+      "canonicalizationReport": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/01_REPORT.md"
     },
     {
       "id": "AP-CV2-110",

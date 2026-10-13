@@ -1,6 +1,6 @@
 # Aktueller Paketstand – 2026-10-13
 
-AP000 bis AP090 tatsächlich ACCEPTED; AP100 **ROOT_PASS / WAITING_FOR_APPROVAL** nach [unabhängigem R05-Review](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md). F01 behoben und unabhängig geschlossen; technische 6/6 Anforderungen PASS. [Workflowstatus](../../WORKFLOW_STATUS.json). Kein Merge/AP110 vor ausdrücklicher menschlicher Freigabe und tatsächlicher kanonischer Übernahme.
+AP000 bis AP090 tatsächlich ACCEPTED; AP100 **ROOT_PASS / READY_FOR_CANONICALIZATION** nach [unabhängigem R05-Review](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md). F01 behoben und unabhängig geschlossen; technische 6/6 Anforderungen PASS. [Workflowstatus](../../WORKFLOW_STATUS.json). [Menschliche R06-Freigabe](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/00_PROMPT_ORIGINAL.md) liegt vor. Squash-Merge nur nach finaler CI-/Head-/Baseprüfung; kein AP110 vor tatsächlicher kanonischer Übernahme.
 
 # Arbeitspakete – Index und Liefergrenzen
 

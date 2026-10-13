@@ -113,3 +113,7 @@ R03-CHANGES_REQUIRED historisch erhalten; frischer Gesamt-Review offen, kein Mer
 ## 2026-10-13 – AP-CV2-100 / R05-ABNAHME: unabhängiger ROOT_PASS
 
 PR #12 nach R04-Korrektur vollständig gegen Parent dad89bb5d und Kandidat `0d45f8e9d3b484631da80be28f31c86ea85ab002` / Tree `aa8e3146f7e05e67694fc2027d712c62ce44cebe` überprüft. F01 (korrelierte V2-Settings-Audits) nach realer Qt/Core/Bridge-Faultinjection und Red/Green-Tests unabhängig geschlossen, keine neuen Pflichtfindings; FINAL-01/02 und RUNTIME-01..04 technisch PASS. Externe Windows-Belege 1581/210 und gepinnte Servercheckpointfälle 17 sowie CI 38394758805 erfolgreich und unabhängig validiert. [R05-Bericht](30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md). **WAITING_FOR_APPROVAL**, keine menschliche Mergefreigabe, kein AP110-Start.
+
+## 2026-10-13 – AP-CV2-100 / R06-UEBERNAHME: menschliche Squash-Freigabe dokumentiert
+
+Wörtlicher Auftrag „Hiermit wird die Freigabe zun Merge von PR #12, Arbeitspaket AP-CV2-100 erteilt. Bitte führe den Merge durch.“ als [Originalprompt](30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/00_PROMPT_ORIGINAL.md) gesichert. R05-PASS auf 0d45f8e9d3b484631da80be28f31c86ea85ab002; freigegebener Head 4c7be6945ae3f2c52748667963d00a1d5cd30d9f, kanonischer Parent dad89bb5d08e6d34abc5cfab57fc76010c5131dc. Finale PR-CI nach rein administrativem R06-Nachtrag nochmals erforderlich; ACCEPTED erst nach echtem Squash, Git-Parent- und Treeabgleich. Kein AP110-Vorgriff.

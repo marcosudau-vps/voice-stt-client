@@ -1,6 +1,6 @@
 # AP-CV2-100 – Paketakte
 
-**Status:** ROOT_PASS / WAITING_FOR_APPROVAL. Stand 2026-10-13. F01 im unabhängigen R05-Review geschlossen; menschliche Übernahme offen.
+**Status:** ROOT_PASS / READY_FOR_CANONICALIZATION (menschlicher Mergeauftrag erteilt, Übernahme noch nicht erfolgt). Stand 2026-10-13. F01 im unabhängigen R05-Review geschlossen; menschliche Übernahme offen.
 
 Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`, Branch `work/client-v2/ap-cv2-100`, Server `ada13b0`.
 [PR #12](https://github.com/marcosudau-vps/voice-stt-client/pull/12), Base feat/client-v2.
@@ -47,3 +47,7 @@ Schreibpause für frischen unabhängigen Gesamt-Review. Kein eigener ROOT_PASS.
 ## Unabhängige R05-Abnahme – ROOT_PASS
 
 [Originalauftrag](RUNS/R05-ABNAHME/00_PROMPT_ORIGINAL.md), [R05-Report](RUNS/R05-ABNAHME/01_REPORT.md), [R05-Evidenz](RUNS/R05-ABNAHME/EVIDENCE/INDEX.md). Reviewed `0d45f8e9d3b484631da80be28f31c86ea85ab002`, Tree `aa8e3146f7e05e67694fc2027d712c62ce44cebe` vor rein administrativem Reviewcommit. 6/6 Anforderungen PASS, früheres Finding `CV2-100-R03-F01` nach R04-Korrektur unabhängig geschlossen. Windows- und Serverchecks extern ausgeführt und unabhängig geprüft, CI auf Kandidatenhead PASS. **Keine menschliche Mergefreigabe, keine kanonische Übernahme, kein AP110.**
+
+## R06 – ausdrückliche menschliche Übernahmefreigabe
+
+[Wortlaut](RUNS/R06-UEBERNAHME/00_PROMPT_ORIGINAL.md), [Preflightreport](RUNS/R06-UEBERNAHME/01_REPORT.md), [Quellen](RUNS/R06-UEBERNAHME/EVIDENCE/INDEX.md). Freigegeben ist ausschließlich Squash-Merge von PR #12 bei vollständiger finaler CI und unveränderter Base. Dies ist READY_FOR_CANONICALIZATION, **noch keine ACCEPTED-Aussage**.
