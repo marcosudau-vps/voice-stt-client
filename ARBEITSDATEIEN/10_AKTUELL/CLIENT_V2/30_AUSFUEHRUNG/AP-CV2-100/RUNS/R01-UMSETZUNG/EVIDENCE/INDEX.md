@@ -24,6 +24,7 @@ Getesteter Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`, Kandidatenbranch `
 | [Früher Servercheckpoint](checkpoint-first.txt) | komponierter Desktop-/Serverfluss PASS am früheren Produktstand; Endbeleg siehe Manifest |
 | [Falscher Modulaufruf](qualification-command-error.txt) |187 Tests inkl.2 Ladefehler für nicht vorhandene Testmodule; Aufruf korrigiert, alle gültigen Tests im Endlauf PASS |
 | [Abgabeprüfung](submission-verification.json), [Prüfskript](verify_submission.py) | Qualifizierte staged Gitblobs und Loghashs unverändert, diffcheck und Akten-/Markdownlinks PASS |
+| [PR-Kurzfassung erzeugen](prepare_pr.py) | tatsächlichen git Head/Tree in eine UTF8-Datei im lokalen Tempverzeichnis schreiben; gh pr create/edit --body-file, PR #12 mit Base feat/client-v2 |
 
 Die finalen Qualificationlogs sind UTF8/LF und per SHA256 im Manifest gesichert.
 Zwischenlogs sind datierte Diagnosebelege am früheren Stand, keine Endqualifikation.

@@ -113,3 +113,11 @@ REVIEW_READY-Übergabe: vollständigen kumulativen Kandidaten gegen `dad89bb5d08
 Windowsbelege commitgebunden validieren, neue unabhängige Reviewakte auf pausiertem
 Paketbranch. Keine Pflicht, die Windowsvollsuite routinemäßig erneut auszuführen.
 Keine eigene kanonische Übernahme und kein automatischer AP110-Start.
+
+## Tatsächliche PR-Bereitstellung
+
+[PR #12](https://github.com/marcosudau-vps/voice-stt-client/pull/12) mit Base feat/client-v2
+angelegt und am Chat angehängt. Umsetzungskandidat `c93f5ea0ecfdaa39f3fa17f5ec080d21fd86e727`
+/ Tree `0869bbb26e5d0b34b09bc4adc9a19a9e139d2557`; anschließend ausschließlich
+administrative PR-/Abgabeverweise. Endspitze extern mit genauem Head/Tree im PR
+gesichert, Produkt-/Testblobs stimmen weiterhin mit dem Windowsmanifest überein.

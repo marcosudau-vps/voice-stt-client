@@ -3,6 +3,7 @@
 **Status:** REVIEW_READY. Stand 2026-10-13. Unabhängige Abnahme offen.
 
 Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`, Branch `work/client-v2/ap-cv2-100`, Server `ada13b0`.
+[PR #12](https://github.com/marcosudau-vps/voice-stt-client/pull/12), Base feat/client-v2.
 Getesteter Kandidat: Parent plus genaue Produktdiff-/Gitblobbindung im Windowsmanifest;
 finaler Head/Tree extern in der PR-Beschreibung. Workingtree nach Abgabe sauber,
 Umsetzungsschreiben dann pausiert. Kein eigener ROOT_PASS oder menschlicher AP100-Mergeprompt.
@@ -15,3 +16,7 @@ Umsetzungsschreiben dann pausiert. Kein eigener ROOT_PASS oder menschlicher AP10
 
 AP090 tatsächlich ACCEPTED über PR #11; Single-Parent-/Baumgleichheit sowie PASS und
 menschliche Freigabe [gesichert](RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json).
+
+Erster vollständiger Umsetzungskandidat `c93f5ea0ecfdaa39f3fa17f5ec080d21fd86e727`,
+Tree `0869bbb26e5d0b34b09bc4adc9a19a9e139d2557`; folgender Nachtrag ausschließlich
+PR-/Abgabeverweise und Aktenprüfung. Finalen Head/Tree der PR-Beschreibung entnehmen.
