@@ -350,3 +350,23 @@ WIRE-01 bis WIRE-17: **ROOT_PASS**, [individueller R02-Requirement- und Testabgl
 
 
 AP060 R03: ausschließlich öffentliche API-Benennung zu STTController korrigiert (RESULT-01/Übergabedokumentation), [Korrekturbeleg](../../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/EVIDENCE/verification.json). Alle fachlichen Requirementtexte/Owner/Testzuordnungen unverändert; CLIENT OPEN, kein eigener ROOT_PASS.
+
+## AP-CV2-100 – Umsetzung R01, 2026-10-13
+
+Alle sechs IDs bleiben CLIENT OPEN. Selbstchecks REVIEW_READY auf `work/client-v2/ap-cv2-100`,
+Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`. [Report](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md),
+[Windows-/Kandidatenbindung](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json),
+[Servercheckpoint](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/server-runtime-checkpoint.json).
+Methoden in Runtime/QtRuntime gehören tests.test_v2_runtime_integration.
+
+| ID | Tatsächlich ausgeführte Methode/Fall |
+| --- | --- |
+| FINAL-01 | `Runtime.test_manual_wake_both_and_null_effective_share_bootstrap`, `Runtime.test_multiple_activations_background_final_and_history_before_paste`, `Runtime.test_two_segments_same_activation_same_text_keep_distinct_results`, `Runtime.test_history_disabled_keeps_terminal_dedup` |
+| FINAL-02 | `QtRuntime.test_actual_bridge_thread_qt_output_and_native_role_dispatch`, `QtRuntime.test_shutdown_during_disk_commit_finishes_and_releases_native_keys`, `Runtime.test_pending_command_disconnect_completes_and_shutdown_joins_workers` |
+| RUNTIME-01 | `Runtime.test_restore_confirmed_before_first_pcm_and_ready_projection`, `Runtime.test_disconnect_at_each_bootstrap_boundary_never_releases_pcm`, `Runtime.test_resync_without_snapshot_remains_guarded_and_bounded` |
+| RUNTIME-02 | `QtRuntime.test_profile_transaction_rebind_persist_and_failure_rollback`, `QtRuntime.test_device_enumeration_on_worker_and_local_config_apply`, `Runtime.test_local_audio_probe_and_persist_failure_roll_back_config`, `scripts/check_v2_server_runtime.py:apply/drain_wait_no_destructive_reconnect` |
+| RUNTIME-03 | `Runtime.test_autostart_after_confirmed_ready_only_once`, `QtRuntime.test_dialog_close_reopen_new_lease_and_shutdown_all_workers`, `QtRuntime.test_shutdown_during_disk_commit_finishes_and_releases_native_keys`, `tests.test_single_instance`, `tests.test_startup_hotkey_persistence` |
+| RUNTIME-04 | `Runtime.test_history_fault_isolated_with_diagnostic_and_controls_survive`, `QtRuntime.test_adapter_failure_keeps_capture_controls_and_results_alive`, `Runtime.test_device_loss_preserves_background_results_and_pause`, `scripts/check_v2_server_runtime.py` |
+
+AP090 durch tatsächlichen Squash ACCEPTED; [Git-/PR-Provenienz](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json).
+Historische Reviews bleiben unverändert.

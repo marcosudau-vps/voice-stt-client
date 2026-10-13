@@ -1,3 +1,7 @@
+# Appanschluss AP100, 2026-10-13
+
+Reguläre Runtimeverdrahtung jetzt umgesetzt; [tatsächliche Appports und Thread-/Persistenzregeln](protocol-v2-runtime.md). Frühere AP100-offen-Angaben unten sind historischer Stand des jeweiligen Pakets.
+
 # V2-Feedback – AP-CV2-090
 
 Der bestehende `FeedbackEngine` erhält validierte `Reduction`-Objekte vom

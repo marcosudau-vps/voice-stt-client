@@ -1,0 +1,35 @@
+test_loaded_profile_uses_actual_user_values_and_known_endpoint_migration (tests.test_v2_runtime_integration.MigrationBoundary.test_loaded_profile_uses_actual_user_values_and_known_endpoint_migration) ... ok
+test_actual_bridge_thread_qt_output_and_native_role_dispatch (tests.test_v2_runtime_integration.QtRuntime.test_actual_bridge_thread_qt_output_and_native_role_dispatch) ... ok
+test_adapter_failure_keeps_capture_controls_and_results_alive (tests.test_v2_runtime_integration.QtRuntime.test_adapter_failure_keeps_capture_controls_and_results_alive) ... ok
+test_dialog_close_reopen_new_lease_and_shutdown_all_workers (tests.test_v2_runtime_integration.QtRuntime.test_dialog_close_reopen_new_lease_and_shutdown_all_workers) ... ok
+test_profile_transaction_rebind_persist_and_failure_rollback (tests.test_v2_runtime_integration.QtRuntime.test_profile_transaction_rebind_persist_and_failure_rollback) ... ok
+test_device_loss_preserves_background_results_and_pause (tests.test_v2_runtime_integration.Runtime.test_device_loss_preserves_background_results_and_pause) ... ok
+test_disconnect_at_each_bootstrap_boundary_never_releases_pcm (tests.test_v2_runtime_integration.Runtime.test_disconnect_at_each_bootstrap_boundary_never_releases_pcm) ... ok
+test_history_disabled_keeps_terminal_dedup (tests.test_v2_runtime_integration.Runtime.test_history_disabled_keeps_terminal_dedup) ... ok
+test_history_fault_isolated_with_diagnostic_and_controls_survive (tests.test_v2_runtime_integration.Runtime.test_history_fault_isolated_with_diagnostic_and_controls_survive) ... Final output failed; audio and mirror remain available
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\final_results.py", line 135, in consume
+    added = self.history.add_entry_with_status(final.session_id, final.segment_id, final.text, **fields)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+OSError: synthetic
+ok
+test_local_audio_probe_and_persist_failure_roll_back_config (tests.test_v2_runtime_integration.Runtime.test_local_audio_probe_and_persist_failure_roll_back_config) ... ok
+test_manual_wake_both_and_null_effective_share_bootstrap (tests.test_v2_runtime_integration.Runtime.test_manual_wake_both_and_null_effective_share_bootstrap) ... ok
+test_multiple_activations_background_final_and_history_before_paste (tests.test_v2_runtime_integration.Runtime.test_multiple_activations_background_final_and_history_before_paste) ... ok
+test_pending_command_disconnect_completes_and_shutdown_joins_workers (tests.test_v2_runtime_integration.Runtime.test_pending_command_disconnect_completes_and_shutdown_joins_workers) ... ok
+test_reconnect_requires_explicit_open_input_or_drain_decision (tests.test_v2_runtime_integration.Runtime.test_reconnect_requires_explicit_open_input_or_drain_decision) ... ok
+test_restore_confirmed_before_first_pcm_and_ready_projection (tests.test_v2_runtime_integration.Runtime.test_restore_confirmed_before_first_pcm_and_ready_projection) ... ok
+test_resync_without_snapshot_remains_guarded_and_bounded (tests.test_v2_runtime_integration.Runtime.test_resync_without_snapshot_remains_guarded_and_bounded) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 13.098s
+
+OK

@@ -1,3 +1,7 @@
+# Appanschluss AP100, 2026-10-13
+
+Reguläre Runtimeverdrahtung jetzt umgesetzt; [tatsächliche Appports und Thread-/Persistenzregeln](protocol-v2-runtime.md). Frühere AP100-offen-Angaben unten sind historischer Stand des jeweiligen Pakets.
+
 # V2-Einstellungen, Admin-Key und Applyentscheidungen (AP-CV2-080)
 
 Der neue `V2SettingsDialog` verwendet die tatsächlichen AP070-Settings- und AP050-Controlservices über einen eigenen Port zum bestehenden asyncio-Core-Thread. Qt bleibt im Main Thread. Der reguläre Appstart wird in AP100 komponiert; der isolierte, reale UI-/Servercheckpoint ist bereits ausführbar. Serverbaseline bleibt `ada13b011e1d3829f78e7f389e3b927795a2b3be`.

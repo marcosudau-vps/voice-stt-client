@@ -1,6 +1,6 @@
 # AP-CV2-090 – Paketakte
 
-**Status:** ROOT_PASS / READY_FOR_CANONICALIZATION. Stand 2026-10-13. R02 unabhängig PASS; menschliche Squash-Mergefreigabe in R03 gesichert, tatsächliche Übernahme noch offen.
+**Status:** ACCEPTED. Tatsächlich über PR #11 auf dad89bb übernommen; nachgewiesen im AP100-R01-Start.
 
 Parent `1bc5be893060e0d6a80e1d890102bfffebb73a17`, Branch `work/client-v2/ap-cv2-090`, Server `ada13b0`.
 
@@ -17,3 +17,8 @@ Der genaue getestete Basis-/Produktdiff und qualifizierte Blobs stehen im Window
 ## R03-UEBERNAHME – freigegebene kanonische Übernahme
 
 [Freigabe-Originalprompt](RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md), [vorgezogener R03-Report](RUNS/R03-UEBERNAHME/01_REPORT.md), [R03-Evidenz](RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md). Menschlich freigegebener PR-Head `04ad97c1d58d24a0b9f76ad1cd9cdb4841f0e92e` / Tree `b9968a3f71738b97c27eafe4b7f39cb427390f02`; fachlich geprüft `51d20aa24b41a125acbf2a3cd50df1477eb0c79b`. Ausschließlich administrativer Freigabenachtrag erlaubt. Finale R03-CI und Base/Head unmittelbar vor Squash prüfen; vor dem tatsächlichen Merge weiterhin ROOT_PASS, nicht ACCEPTED.
+
+
+## Kanonischer Abschluss, im AP100-Start gesichert
+
+[Git-/PR-Nachweis](../AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json): Single-Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`, Ergebnisbaum e659af24, finaler PR-Head68c3b3b0. Vorherige R03-/PR-offen-Angaben oben sind vor dem tatsächlichen Merge entstanden.

@@ -2,47 +2,38 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "READY_FOR_CANONICALIZATION",
-  "packageStatus": "ROOT_PASS",
-  "activePackage": "AP-CV2-090",
-  "nextPackage": "AP-CV2-100",
-  "canonicalParent": "1bc5be893060e0d6a80e1d890102bfffebb73a17",
-  "candidateBranch": "work/client-v2/ap-cv2-090",
-  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/11",
+  "workflowPhase": "REVIEW_READY",
+  "packageStatus": "REVIEW_READY",
+  "activePackage": "AP-CV2-100",
+  "nextPackage": "AP-CV2-110",
+  "canonicalParent": "dad89bb5d08e6d34abc5cfab57fc76010c5131dc",
+  "candidateBranch": "work/client-v2/ap-cv2-100",
+  "pullRequest": null,
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R03-UEBERNAHME",
-    "role": "canonicalization",
-    "report": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R03-UEBERNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
+    "id": "R01-UMSETZUNG",
+    "role": "implementation",
+    "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "51d20aa24b41a125acbf2a3cd50df1477eb0c79b",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md",
+  "reviewedCommit": null,
+  "reviewReport": null,
   "openFindingIds": [],
-  "humanApproval": {
-    "source": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
-    "prNumber": 11,
-    "approvedHead": "04ad97c1d58d24a0b9f76ad1cd9cdb4841f0e92e",
-    "approvedTree": "b9968a3f71738b97c27eafe4b7f39cb427390f02",
-    "canonicalParent": "1bc5be893060e0d6a80e1d890102bfffebb73a17",
-    "reviewReport": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md",
-    "action": "squash_and_merge",
-    "status": "GRANTED"
-  },
+  "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Freigabe für PR #11 ist originalgetreu in R03 gesichert. Administrative R03-Spitze und CI/Head/Base prüfen, anschließend genau einen GitHub Squash-Merge. Kein automatischer AP-CV2-100-Start.",
+  "nextAction": "Frische unabhängige Abnahme des vollständigen AP100-Kandidaten samt Windowsbelegen; kein Merge/AP110 ohne PASS und menschlichen Prompt.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
   "candidateSelection": {
-    "candidateId": "AP-CV2-090",
-    "source": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "Ausdrücklicher AP090-Auftrag nach tatsächlicher AP080-Übernahme."
+    "candidateId": "AP-CV2-100",
+    "source": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "reason": "Ausdruecklicher Auftrag nach belegter AP090-Uebernahme."
   },
   "recovery": null,
   "relatedServerFix": null,
-  "reviewedTree": "d52aeda488d55b61b9d1c1d744ad0ab09fdf69d4"
+  "reviewedTree": null
 }

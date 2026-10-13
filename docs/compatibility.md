@@ -1,3 +1,15 @@
+# Aktueller V2-Start und Migration – AP-CV2-100, 2026-10-13
+
+GUI und Headless starten dieselbe V2Runtime. Bekannte `/ws/transcribe`-URLs werden
+am gleichen Origin nach `/ws/v2` migriert; Profilwünsche kommen aus tatsächlichen
+Benutzerwerten. Nach erfolgreichem Bootstrap Originalbackup `.pre-v2.bak` und
+atomarer V2-Profilwrite auf Worker, keine gespeicherten Runpausen/Tokens.
+Lokale Präferenzen und Historymigration bleiben erhalten. V1-Klassen bleiben noch
+für Migration/Regression; finaler Legacyabbau und Build AP110 offen.
+[Architektur, öffentliche Ports, Startbefehle und Grenzen](protocol-v2-runtime.md).
+
+## Historische Ergänzungen vor AP100
+
 # Historymigration AP-CV2-060, 2026-10-12
 
 History migriert V1-Integersegmente transaktional nach Schema2 mit TEXT-/Protokoll-/UUID-Herkunft, vorherigem SQLite-Backup und unveränderten Legacy-IDs/Attempts. Pendinginjektion wird nach Crash unknown; keine automatische Wiederholung. [API, Datenmigration und Grenzen](protocol-v2-results.md). Persistierte Konfigurationsmigration bleibt AP070, Appkomposition AP100.

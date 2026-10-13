@@ -2184,3 +2184,15 @@ Nach unabhängigem [R02-ROOT_PASS](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2
 ## 2026-10-13 – AP-CV2-090 / R01-UMSETZUNG
 
 Quellenneutraler V2-Feedbackpfad auf Paketbranch aus AP080-Aggregat 1bc5be8; 1552 Windows-/377 gezielte Tests und 18 reale gepinnte Domain-/Log-/Qtchecks PASS. [Runreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md). REVIEW_READY, unabhängige Abnahme und menschliche Übernahme offen; kein AP100-/Serverabschluss.
+
+
+## AP-CV2-100-R01 – 2026-10-13 – Desktopkomposition / REVIEW_READY
+
+Vom kanonischen AP090-Parent dad89bb nach belegtem unabhängigen PASS, menschlichem
+Prompt und Single-Parent-/Baumgleichheit. Gemeinsamer V2-Desktop-/Core-/Media-/Settings-/
+Result-/Feedbackfluss, Workerpersistenz und kontrollierter Rollback/Shutdown.
+1573 Windows-/ 190 gezielte Tests, 17 echte komponierte Serverchecks,
+compileall/diffcheck PASS. Unabhängige Abnahme offen, Umsetzungsschreiben ab Abgabe
+pausiert; keine kanonische Übernahme oder AP110-Implementierung.
+
+[Runreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md).

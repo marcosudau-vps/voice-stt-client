@@ -615,7 +615,7 @@
         "AP-CV2-060"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-090.md",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "testModules": [
         "test_v2_feedback"
       ],
@@ -656,7 +656,10 @@
       "reviewedCommit": "51d20aa24b41a125acbf2a3cd50df1477eb0c79b",
       "reviewedTree": "d52aeda488d55b61b9d1c1d744ad0ab09fdf69d4",
       "latestReview": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md",
-      "canonicalizationRun": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R03-UEBERNAHME/01_REPORT.md"
+      "canonicalizationRun": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R03-UEBERNAHME/01_REPORT.md",
+      "canonicalCommit": "dad89bb5d08e6d34abc5cfab57fc76010c5131dc",
+      "canonicalTree": "e659af24f20d5e9f6bf0213db7df005d8bc01137",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json"
     },
     {
       "id": "AP-CV2-100",
@@ -670,7 +673,7 @@
         "AP-CV2-090"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-100.md",
-      "status": "PLANNED",
+      "status": "REVIEW_READY",
       "testModules": [
         "test_v2_runtime_integration"
       ],
@@ -695,7 +698,16 @@
         "defaultRuns": 1,
         "scopeNote": "one complete package session; steps are not separate runs"
       },
-      "testModulesRole": "suggested locations; actual coverage and methods required"
+      "testModulesRole": "suggested locations; actual coverage and methods required",
+      "candidateBranch": "work/client-v2/ap-cv2-100",
+      "canonicalParent": "dad89bb5d08e6d34abc5cfab57fc76010c5131dc",
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+      "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/server-runtime-checkpoint.json",
+      "openFindingIds": [],
+      "reviewReport": null,
+      "humanApproval": null,
+      "pullRequest": null
     },
     {
       "id": "AP-CV2-110",

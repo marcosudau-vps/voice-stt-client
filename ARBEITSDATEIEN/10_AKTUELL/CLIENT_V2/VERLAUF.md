@@ -78,3 +78,15 @@ R02-Unterlagen per Fast-forward übernommen; F01/F02 in fünf Fehlerfällen repr
 ## AP-CV2-040-R05 – 2026-10-12 – Task-Join-/Logclose-Cancellation / REVIEW_READY
 
 R04-Unterlagen per Fast-forward übernommen, einziger offener F02-Rest anerkannt und in drei Fenstern reproduziert. Äußerstes Log-finally, begrenzter geschützter Task-Join und gehaltener Logshutdowntask schützen Cancellation samt Retry. Fünf neue Regressionen; 1378 Windows-/233 gezielte Tests,52 reale Serverfälle/46 bytegeprüfte Quellen, compileall/diffcheck PASS. [R05-Report](30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/01_REPORT.md). Alle23 IDs neu belegt, R01–R04 erhalten. F01 CLOSED_R04, F02 technisch selbstkorrigiert mit unabhängigem Recheck offen; Branch ab Übergabe pausiert, keine Promotion/kein Folgepaket.
+
+
+## AP-CV2-100-R01 – 2026-10-13 – Desktopkomposition / REVIEW_READY
+
+Vom kanonischen AP090-Parent dad89bb nach belegtem unabhängigen PASS, menschlichem
+Prompt und Single-Parent-/Baumgleichheit. Gemeinsamer V2-Desktop-/Core-/Media-/Settings-/
+Result-/Feedbackfluss, Workerpersistenz und kontrollierter Rollback/Shutdown.
+1573 Windows-/ 190 gezielte Tests, 17 echte komponierte Serverchecks,
+compileall/diffcheck PASS. Unabhängige Abnahme offen, Umsetzungsschreiben ab Abgabe
+pausiert; keine kanonische Übernahme oder AP110-Implementierung.
+
+[Runreport](30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md).

@@ -475,7 +475,7 @@ class TestDesktopApplication(unittest.TestCase):
                 return_value=True,
             ),
             patch(
-                "voice_stt_client.ui.application.DesktopApplication",
+                "voice_stt_client.ui.v2_application.V2DesktopApplication",
                 side_effect=RuntimeError("simulated UI construction failure"),
             ),
         ):

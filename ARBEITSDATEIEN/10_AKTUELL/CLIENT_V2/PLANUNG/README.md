@@ -1,14 +1,24 @@
-# Client V2 – AP-CV2-090 / R03-UEBERNAHME / ROOT_PASS, 2026-10-13
+# Client V2 – AP-CV2-100 / R01 / REVIEW_READY, 2026-10-13
 
-Aktiver Arbeitsblock CLIENT_V2. AP000 bis AP080 ACCEPTED; AP080 tatsächlich auf `1bc5be893060e0d6a80e1d890102bfffebb73a17` übernommen, Single-Parent/Baumgleichheit und unabhängiger PASS/menschlicher Prompt [belegt](../30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP090 unabhängig mit ROOT_PASS auf `work/client-v2/ap-cv2-090` geprüft (R02); Workflow READY_FOR_CANONICALIZATION, menschliche Squash-Mergefreigabe R03 gesichert; Merge noch ausstehend. Spätere Pakete PLANNED, Server-Distributed bleibt offen.
+Aktiver Block CLIENT_V2. AP000 bis AP090 tatsächlich ACCEPTED, zuletzt `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`
+über PR #11; unabhängiger PASS, menschlicher Prompt und Git-/PR-Provenienz
+[gesichert](../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP100 vollständig
+selbstqualifiziert auf `work/client-v2/ap-cv2-100`; unabhängige Abnahme offen.
 
-[Runreport](../30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](../30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [R02-ROOT_PASS](../30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md), [R03-Freigabe](../30_AUSFUEHRUNG/AP-CV2-090/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md), [Workflowstatus](../WORKFLOW_STATUS.json), [Planungseinstieg](README.md), [Produktinterfaces](../../../../docs/protocol-v2-feedback.md).
+Tatsächlicher V2-Desktop-/Headlessprozess mit gemeinsamem Mirror, Settingsbootstrap,
+Media, Controls, Results, Logs und Feedback. Qt-/Core-/Audio-/Clipboard-/LEDworkers
+getrennt, profilgebundene Workerpersistenz/Hotkeyrollback und Shutdown getestet.
+1573 Windows-/ 190 gezielte Tests und 17 komponierte Serverchecks
+an 45 bytegeprüften ada13b0-Quellen PASS; compileall/diffcheck PASS.
 
-Bestehende Feedbackengine mit validiertem V2-Mirroringang, quellenneutralen Phasen und getrenntem Backgrounddrain. Segmentvorschau, Domain-Dedup, diagnostischer Log-/Replaypfad, relative Anzeige ohne Lifecyclecommands; isolierte queued Qt-/Sound-/LEDausgabe. Mappingregeln und Präferenzen bleiben erhalten, UUIDkorrelation nutzt die vorhandene OBSfoundation.
+[Paketakte](../30_AUSFUEHRUNG/AP-CV2-100/00_PAKET.md), [Report](../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md),
+[Evidenz](../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [Workflowstatus](../WORKFLOW_STATUS.json),
+[Planung](README.md), [Runtimeinterfaces](../../../../docs/protocol-v2-runtime.md).
+Start `.\venv\Scripts\python.exe -m voice_stt_client`; Headless `--headless`.
 
-Qualifikation: 1552 vollständige Windows-Tests, 377 gezielte Tests, 39 neue Clienttests; tatsächlicher gepinnter Domain-/Log-/Replay-/Qtcheckpoint 18 Checks. compileall/diffcheck und Akten-/Blobbindung im Evidenzindex. Hardware-/ASR-/Wahrnehmung bleibt AP-IV2-020, reguläre Appkomposition AP100. Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`.
-
-Nächste Aktion: administrative R03-Freigabe-CI und finale PR-Head-/Baseidentität überprüfen, danach genau einen freigegebenen Squash-Merge von PR #11; kein automatischer AP100-Start.
+Nächste Aktion: vollständigen kumulativen Kandidaten unabhängig prüfen; Branch ab
+Abgabe pausiert. Kein eigener ROOT_PASS, kein AP100-Mergeprompt, kein AP110-Start.
+Server-Distributed sowie Build-/Crossrepo-/Hardware-/ASRgates bleiben offen.
 
 ## Historischer Stand vor AP-CV2-020
 
