@@ -386,3 +386,23 @@ Verbindungen und sauberer Stop, auch mit 280 ms Schreibverzögerung. Kein Eigen-
 ## AP-CV2-100 – unabhängige R03-Abnahme, 2026-10-13
 
 Der kumulative Kandidat `4a35a2d7eba5fa55e79528744320419b8ec0a1b3` gegen Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc` ist **CHANGES_REQUIRED**. `FINAL-01`, `FINAL-02`, `RUNTIME-01`, `RUNTIME-03` und die geprüften Funktionsteile von `RUNTIME-04` wurden bestätigt. Bei `RUNTIME-02` fehlt im realen V2-Settings-Apply die bisherige korrelierte Auditprotokollierung (`CV2-100-R03-F01`); deshalb kein Gesamt-ROOT_PASS trotz grüner Tests. [R03-Reviewreport](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md) und [Evidenz](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/EVIDENCE/INDEX.md). Alle sechs Anforderungen bleiben bis zur frischen unabhängigen Vollabnahme CLIENT OPEN; die fachlichen Anforderungstexte und bisherigen Tests unverändert.
+
+## AP-CV2-100 – R04-Findingkorrektur, 2026-10-13
+
+F01 im Selbstcheck korrigiert; alle sechs Requirements bleiben CLIENT OPEN.
+[Report](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/01_REPORT.md),
+[Windows1581/gezielte210](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/EVIDENCE/windows-validation.json),
+[Servercheckpoint17](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/EVIDENCE/server-runtime-checkpoint.json).
+Alle bisherigen individuellen AP100-Methoden im neuen Kandidaten erneut ausgeführt.
+RUNTIME-02 / OBS-Korrelation zusätzlich durch folgende tatsächliche QtRuntime-Methoden
+unter tests.test_v2_runtime_integration geprüft:
+
+- `test_local_settings_audit_correlates_overlay_audio_and_logging_success`
+- `test_local_settings_audit_reports_persist_failure_and_restores_audio`
+- `test_local_settings_audit_reports_post_save_rollback`
+- `test_local_settings_busy_attempt_preserves_pending_audit_correlation`
+- `test_local_settings_unavailable_core_finishes_audit_once`
+- `test_local_settings_apply_survives_audit_ingress_failure`
+- `test_local_settings_shutdown_completes_pending_audit_once`
+
+Kein historisches R03-Urteil überschrieben; frischer unabhängiger Gesamt-Review offen.

@@ -1,28 +1,26 @@
-# Client V2 – AP-CV2-100 / R02 / REVIEW_READY, 2026-10-13
+# Client V2 – AP-CV2-100 / R04-KORREKTUR / REVIEW_READY, 2026-10-13
 
-Aktiver Block CLIENT_V2. AP000 bis AP090 tatsächlich ACCEPTED, zuletzt `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`
-über PR #11; unabhängiger PASS, menschlicher Prompt und Git-/PR-Provenienz
-[gesichert](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP100 vollständig
-selbstqualifiziert auf `work/client-v2/ap-cv2-100`; unabhängige Abnahme offen.
+Aktiver CLIENT_V2-Block; AP000 bis AP090 tatsächlich ACCEPTED, kanonischer Parent
+`dad89bb5d08e6d34abc5cfab57fc76010c5131dc`. Kandidatenbranch
+`work/client-v2/ap-cv2-100`, [PR #12](https://github.com/marcosudau-vps/voice-stt-client/pull/12).
 
-Tatsächlicher V2-Desktop-/Headlessprozess mit gemeinsamem Mirror, Settingsbootstrap,
-Media, Controls, Results, Logs und Feedback. Qt-/Core-/Audio-/Clipboard-/LEDworkers
-getrennt, profilgebundene Workerpersistenz/Hotkeyrollback und Shutdown getestet.
-1574 Windows-/ 203 gezielte Tests und 17 komponierte Serverchecks
-an 45 bytegeprüften ada13b0-Quellen PASS; compileall/diffcheck PASS.
+R03-[CHANGES_REQUIRED](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md) wurde auf dessen Dokumentenspitze c5a510f übernommen.
+F01 im Selbstcheck korrigiert: V2-Local-Apply publiziert Started/Runtime/Completed
+mit derselben settings-ID, korrekten Flags und Erfolgs-/Fehlerstatus auch bei
+Persistenzfehler und Rollback. Busy, Core-Abweisung, Loggingausfall, Shutdown und
+doppelte Completion sind geprüft. R03-Report bleibt unveränderte historische Quelle.
 
-[Paketakte](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/00_PAKET.md), [Report](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md),
-[Evidenz](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/INDEX.md), [Workflowstatus](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json),
-[Planung](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md), [Runtimeinterfaces](docs/protocol-v2-runtime.md).
+Neue Windows-Vollsuite1581 ohne Skips, gezielte210, 17 komponierte Serverchecks
+gegen 45 bytegeprüfte ada13b0-Quellen, compileall/diffcheck PASS.
+[R04-Report](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/01_REPORT.md), [Evidenz](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/EVIDENCE/INDEX.md), [Paketakte](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/00_PAKET.md),
+[Workflowstatus](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Runtimeinterfaces](docs/protocol-v2-runtime.md).
 Start `.\venv\Scripts\python.exe -m voice_stt_client`; Headless `--headless`.
 
-Nächste Aktion: vollständigen kumulativen Kandidaten unabhängig prüfen; Branch ab
-Abgabe pausiert. Kein eigener ROOT_PASS, kein AP100-Mergeprompt, kein AP110-Start.
-Server-Distributed sowie Build-/Crossrepo-/Hardware-/ASRgates bleiben offen.
-
-R02 behebt CI-01: großzügige Testfristen für Replay mit dauerhaftem Cursor-IO,
-zusätzlicher 280-ms-Schreibverzögerungsfall, unveränderte Funktionsassertions.
-CI des finalen PR-Heads muss vor tatsächlicher Reviewübergabe grün sein.
+Tatsächliche Übergabe erst nach grüner CI des finalen PR-Heads. Danach frische
+unabhängige Abnahme des gesamten kumulativen AP100 mit Fokus F01; Schreiben pausiert.
+Kein eigener ROOT_PASS, kein Merge/AP110 ohne unabhängigen PASS, menschlichen Prompt
+und tatsächliche kanonische Übernahme. Reale Hardware-/ASR-/Crossrepo-/abschließende
+V2-Buildgates und Server-Distributed bleiben offen.
 
 ## Historischer Stand vor AP-CV2-020
 

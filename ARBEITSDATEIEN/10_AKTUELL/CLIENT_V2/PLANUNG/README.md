@@ -1,12 +1,26 @@
-# Client V2 – AP-CV2-100 / R03-ABNAHME / CHANGES_REQUIRED, 2026-10-13
+# Client V2 – AP-CV2-100 / R04-KORREKTUR / REVIEW_READY, 2026-10-13
 
-Aktiver CLIENT_V2-Arbeitsblock. AP000 bis AP090 tatsächlich ACCEPTED; aktueller kanonischer Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`. Der kumulative [PR #12](https://github.com/marcosudau-vps/voice-stt-client/pull/12) wurde unabhängig auf Kandidat `4a35a2d7eba5fa55e79528744320419b8ec0a1b3` / Tree `18f7516471c97627b92e9221e24e367f30f5cd81` geprüft. **CHANGES_REQUIRED**: Finding `CV2-100-R03-F01`, strukturierte korrelierte Settings-Audits fehlen im neuen V2-Local-Apply-Pfad.
+Aktiver CLIENT_V2-Block; AP000 bis AP090 tatsächlich ACCEPTED, kanonischer Parent
+`dad89bb5d08e6d34abc5cfab57fc76010c5131dc`. Kandidatenbranch
+`work/client-v2/ap-cv2-100`, [PR #12](https://github.com/marcosudau-vps/voice-stt-client/pull/12).
 
-[R03-Report](../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md), [R03-Evidenz](../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/EVIDENCE/INDEX.md), [Workflowstatus](../WORKFLOW_STATUS.json).
+R03-[CHANGES_REQUIRED](../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md) wurde auf dessen Dokumentenspitze c5a510f übernommen.
+F01 im Selbstcheck korrigiert: V2-Local-Apply publiziert Started/Runtime/Completed
+mit derselben settings-ID, korrekten Flags und Erfolgs-/Fehlerstatus auch bei
+Persistenzfehler und Rollback. Busy, Core-Abweisung, Loggingausfall, Shutdown und
+doppelte Completion sind geprüft. R03-Report bleibt unveränderte historische Quelle.
 
-Extern qualifiziert: 1574 Windows-Tests und 203 gezielte PASS, 17 komponierte Client-/Serverchecks gegen 45 Quellen am Server `ada13b0`, finale [CI 38347923728](https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38347923728) erfolgreich. Diese Nachweise ersetzen die noch nötige F01-Korrektur nicht.
+Neue Windows-Vollsuite1581 ohne Skips, gezielte210, 17 komponierte Serverchecks
+gegen 45 bytegeprüfte ada13b0-Quellen, compileall/diffcheck PASS.
+[R04-Report](../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/01_REPORT.md), [Evidenz](../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/EVIDENCE/INDEX.md), [Paketakte](../30_AUSFUEHRUNG/AP-CV2-100/00_PAKET.md),
+[Workflowstatus](../WORKFLOW_STATUS.json), [Runtimeinterfaces](../../../../docs/protocol-v2-runtime.md).
+Start `.\venv\Scripts\python.exe -m voice_stt_client`; Headless `--headless`.
 
-Nächste Aktion: F01 im selben PR korrigieren, kandidatengebunden erneut qualifizieren und gesamte AP100-Linie frisch unabhängig prüfen. **Kein ROOT_PASS, kein Merge und kein AP110-Start.**
+Tatsächliche Übergabe erst nach grüner CI des finalen PR-Heads. Danach frische
+unabhängige Abnahme des gesamten kumulativen AP100 mit Fokus F01; Schreiben pausiert.
+Kein eigener ROOT_PASS, kein Merge/AP110 ohne unabhängigen PASS, menschlichen Prompt
+und tatsächliche kanonische Übernahme. Reale Hardware-/ASR-/Crossrepo-/abschließende
+V2-Buildgates und Server-Distributed bleiben offen.
 
 ## Historischer Stand vor AP-CV2-020
 

@@ -207,10 +207,16 @@ class V2DesktopApplication(DesktopApplication):
             self.last_apply_error = 'Eine Änderung wird noch angewendet.'
             return False
         self.last_apply_error = ''
+        correlation_id = f'settings:{uuid.uuid4().hex[:12]}'
+        self._settings_apply_correlation = correlation_id
+        self._observe.audit('client.settings.apply_started',
+            details={'policies': sorted(policy.value for policy in policies)},
+            correlation_id=correlation_id)
         self._pending_config = deepcopy(candidate)
         self._pending_old_config = deepcopy(self.config)
-        if not self.bridge.apply_runtime_config(candidate):
+        if not self.bridge.apply_runtime_config(candidate, settings_correlation_id=correlation_id):
             self._pending_config = self._pending_old_config = None
+            self._complete_settings_observation(False, 'core_unavailable')
             return False
         return True
 
@@ -229,6 +235,7 @@ class V2DesktopApplication(DesktopApplication):
                 self._replace_led_feedback(candidate, old.led)
                 self.output.led = self.led_feedback
         self._pending_config = self._pending_old_config = None
+        self._complete_settings_observation(success, str(getattr(result, 'status', 'unknown_error')))
         if self._local_dialog:
             self._local_dialog.complete_apply(success, self.config if success else None,
                 '' if success else 'Lokale Einstellungen konnten nicht übernommen werden.')
@@ -272,6 +279,7 @@ class V2DesktopApplication(DesktopApplication):
             self.log_window.hide()
         if not self.led_feedback.shutdown():
             logging.getLogger('ui').warning('LED worker did not stop within its configured timeout.')
+        self._complete_settings_observation(False, 'shutdown')
         self._pending_config = self._pending_old_config = None
         self.instance_guard.release()
         self._started = False

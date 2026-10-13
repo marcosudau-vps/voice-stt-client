@@ -2209,3 +2209,13 @@ Keine Eigenabnahme, kanonische Übernahme oder AP110.
 ## 2026-10-13 – AP-CV2-100 / R03-ABNAHME
 
 Unabhängiger Review von PR #12 (Kandidat `4a35a2d7eba5fa55e79528744320419b8ec0a1b3`): Windows-Vollsuite 1574, gezielte 203, Servercheckpoint 17 und finale CI 38347923728 als fremde PASS-Nachweise geprüft; sechs qualifizierte Gitblobs individuell gegen GitHub abgeglichen. **CHANGES_REQUIRED** wegen `CV2-100-R03-F01`: bestehende Settings-OBS-Audit-/Korrelationsereignisse werden im tatsächlichen V2-Desktop/Core-Apply nicht erzeugt. [R03-Abnahmebericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md). Reviewer keine eigene Windows-Suite, keine Produktcodeänderungen. Korrektur und erneute unabhängige Abnahme auf demselben PR; kein Merge/AP110.
+
+## 2026-10-13 – AP-CV2-100 / R04-KORREKTUR: F01
+
+R03-Reviewakte fetch/ff-only übernommen. Fehlende korrelierte Settingsaudits
+im tatsächlichen V2-Desktop/Bridge/Core reproduziert und minimal ergänzt; sieben
+Positiv-/Negativ-/Rollback-/Busy-/Shutdown-/Ingressfälle hinzugefügt.
+Windows1581/gezielte210/Servercheckpoint17/compileall/diffcheck PASS; neue
+Kandidaten-/Log-/Gitblobbindung. [R04-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/01_REPORT.md).
+REVIEW_READY im Selbstcheck, tatsächliche Übergabe nach finaler grüner CI.
+R03-CHANGES_REQUIRED historisch erhalten; frischer Gesamt-Review offen, kein Merge/AP110.

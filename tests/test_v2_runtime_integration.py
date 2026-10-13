@@ -18,6 +18,7 @@ import numpy as np
 from voice_stt_client.core import protocol_v2 as p
 from voice_stt_client.core.config import AppConfig, LedConfig
 from voice_stt_client.core.feedback_mapping import FeedbackMappingConfig
+from voice_stt_client.core.observability.ingress import ObservabilityIngress
 from voice_stt_client.core.v2_profile import V2Profile
 from voice_stt_client.core.v2_runtime import V2Runtime, runtime_profile, v2_endpoint
 from voice_stt_client.core.v2_transport import V2TransportConfig
@@ -374,6 +375,7 @@ class QtRuntime(unittest.TestCase):
         self.socket = None
         self.runtime = None
         self.backend = MockInjectionBackend()
+        self.ingress = ObservabilityIngress(instance_id='v2-settings-audit-test', level='DEBUG')
         self.hotkey_backend = FakeHotkeyBackend()
         for target, kwargs in (
             ('sounddevice.query_devices', dict(side_effect=devices)),
@@ -384,11 +386,12 @@ class QtRuntime(unittest.TestCase):
             self.socket = RuntimeSocket()
             http = FakeHTTP(); http.origin = 'https://stt.voice.marcosudau.com'
             async def connector(*a, **kw): return self.socket
-            self.runtime = V2Runtime(cfg, http=http, connector=connector, backend=self.backend)
+            self.runtime = V2Runtime(cfg, http=http, connector=connector, backend=self.backend,
+                observability=self.ingress)
             return self.runtime
-        self.bridge = V2CoreBridge(config, runtime_factory=factory)
+        self.bridge = V2CoreBridge(config, runtime_factory=factory, observability=self.ingress)
         self.desktop = V2DesktopApplication(self.app, config, FakeGuard(), bridge=self.bridge,
-            hotkey_backend=self.hotkey_backend, led_feedback=FakeLedFeedback())
+            hotkey_backend=self.hotkey_backend, led_feedback=FakeLedFeedback(), observability=self.ingress)
         self.addCleanup(self.desktop.shutdown)
         self.assertTrue(self.desktop.start())
         self.wait(lambda: self.desktop._runtime_ready and self.runtime.media._gate)
@@ -514,6 +517,189 @@ class QtRuntime(unittest.TestCase):
         self.assertTrue(self.desktop._apply_settings(candidate, set()))
         self.wait(lambda: self.desktop._pending_config is None)
         self.assertEqual(self.desktop.config.overlay, self.runtime.config.overlay)
+        self.assertEqual(AppConfig.load(candidate._config_source_path).overlay, candidate.overlay)
+
+    def settings_audits(self):
+        return [record for record in self.ingress.drain(4096, 0.0)
+                if record.type.startswith('client.settings.')]
+
+    def assert_settings_audit(self, *, success, status, audio_changed=False):
+        records = self.settings_audits()
+        self.assertEqual([record.type for record in records], [
+            'client.settings.apply_started', 'client.settings.runtime_apply',
+            'client.settings.apply_completed'])
+        self.assertEqual({record.channel for record in records}, {'audit'})
+        self.assertEqual(len({record.correlation_id for record in records}), 1)
+        correlation = records[0].correlation_id
+        self.assertRegex(correlation, r'^settings:[0-9a-f]{12}$')
+        self.assertEqual(dict(records[0].details), {'policies': ()})
+        runtime = records[1]
+        self.assertEqual(dict(runtime.details), dict(session_changed=False,
+            audio_changed=audio_changed, mode_changed=False, success=success, status=status))
+        self.assertEqual(runtime.session_id, self.runtime.session.binding.session_id)
+        self.assertEqual(runtime.generation, self.runtime.session.generation)
+        self.assertEqual(dict(records[2].details), dict(success=success, status=status))
+        self.assertEqual(records[2].level, 'INFO' if success else 'WARNING')
+        self.assertIsNone(self.desktop._settings_apply_correlation)
+        # A duplicate completion signal cannot publish a second terminal audit.
+        from voice_stt_client.core.controller import CommandResult
+        self.desktop._complete_settings_apply(CommandResult(success, status))
+        self.desktop._complete_settings_observation(success, status)
+        self.assertEqual(self.settings_audits(), [])
+        return correlation
+
+    def test_local_settings_audit_correlates_overlay_audio_and_logging_success(self):
+        if self._child_done: return
+        self.settings_audits()
+        correlations = set()
+        for change in ('overlay', 'audio', 'logging'):
+            with self.subTest(change=change):
+                candidate = deepcopy(self.desktop.config)
+                if change == 'overlay': candidate.overlay.enabled = not candidate.overlay.enabled
+                elif change == 'audio': candidate.audio.device = 0
+                else: candidate.logging.observability.level = 'DEBUG'
+                generation = self.runtime.session.generation
+                self.assertTrue(self.desktop._apply_settings(candidate, frozenset()))
+                self.wait(lambda: self.desktop._pending_config is None)
+                self.assertEqual(self.desktop.config, self.runtime.config)
+                self.assertEqual(self.runtime.config.audio, AppConfig.load(candidate._config_source_path).audio)
+                self.assertEqual(self.runtime.session.generation, generation)
+                correlation = self.assert_settings_audit(success=True, status='applied',
+                    audio_changed=change == 'audio')
+                self.assertNotIn(correlation, correlations)
+                correlations.add(correlation)
+
+    def test_local_settings_audit_reports_persist_failure_and_restores_audio(self):
+        if self._child_done: return
+        self.desktop.config.save_user()
+        old = deepcopy(self.desktop.config)
+        disk = old._config_source_path.read_bytes()
+        candidate = deepcopy(old)
+        candidate.overlay.enabled = not old.overlay.enabled
+        candidate.audio.device = 0
+        self.settings_audits()
+        with patch.object(AppConfig, 'save_user', side_effect=OSError('synthetic disk failure')):
+            self.assertTrue(self.desktop._apply_settings(candidate, frozenset()))
+            self.wait(lambda: self.desktop._pending_config is None)
+        self.assertEqual(self.desktop.config, old)
+        self.assertEqual(self.bridge.config, old)
+        self.assertEqual(self.runtime.config, old)
+        self.assertEqual(self.runtime.audio._config, old.audio)
+        self.assertEqual(old._config_source_path.read_bytes(), disk)
+        self.assertTrue(self.runtime.media.device_available)
+        self.assert_settings_audit(success=False, status='local_apply_failed', audio_changed=True)
+
+    def test_local_settings_audit_reports_post_save_rollback(self):
+        if self._child_done: return
+        self.desktop.config.save_user()
+        old = deepcopy(self.desktop.config)
+        candidate = deepcopy(old)
+        candidate.overlay.enabled = not old.overlay.enabled
+        update = self.runtime.logs.update_config
+        attempts = []
+        async def fail_once(*args):
+            attempts.append(args)
+            if len(attempts) == 1:
+                raise OSError('synthetic post-save apply failure')
+            return await update(*args)
+        self.settings_audits()
+        with patch.object(self.runtime.logs, 'update_config', side_effect=fail_once):
+            self.assertTrue(self.desktop._apply_settings(candidate, frozenset()))
+            self.wait(lambda: self.desktop._pending_config is None)
+        self.assertEqual(len(attempts), 2)
+        self.assertEqual(self.desktop.config, old)
+        self.assertEqual(self.runtime.config, old)
+        self.assertEqual(self.runtime.queue.config, old)
+        self.assertEqual(AppConfig.load(old._config_source_path).overlay, old.overlay)
+        self.assert_settings_audit(success=False, status='local_apply_failed')
+
+    def test_local_settings_busy_attempt_preserves_pending_audit_correlation(self):
+        if self._child_done: return
+        entered, release = threading.Event(), threading.Event()
+        save = AppConfig.save_user
+        def slow_save(config):
+            entered.set()
+            if not release.wait(5): raise OSError('synthetic commit timeout')
+            return save(config)
+        candidate = deepcopy(self.desktop.config)
+        candidate.overlay.enabled = not candidate.overlay.enabled
+        self.settings_audits()
+        with patch.object(AppConfig, 'save_user', slow_save):
+            try:
+                self.assertTrue(self.desktop._apply_settings(candidate, frozenset()))
+                self.wait(entered.is_set)
+                correlation = self.desktop._settings_apply_correlation
+                self.assertFalse(self.desktop._apply_settings(candidate, frozenset()))
+                self.assertEqual(self.desktop._settings_apply_correlation, correlation)
+            finally:
+                release.set()
+            self.wait(lambda: self.desktop._pending_config is None)
+        self.assertEqual(self.assert_settings_audit(success=True, status='applied'), correlation)
+
+    def test_local_settings_unavailable_core_finishes_audit_once(self):
+        if self._child_done: return
+        self.assertTrue(self.bridge.stop())
+        self.settings_audits()
+        self.assertFalse(self.desktop._apply_settings(deepcopy(self.desktop.config), frozenset()))
+        self.app.processEvents()
+        records = self.settings_audits()
+        self.assertEqual([record.type for record in records], [
+            'client.settings.apply_started', 'client.settings.apply_completed'])
+        self.assertEqual(len({record.correlation_id for record in records}), 1)
+        self.assertRegex(records[0].correlation_id, r'^settings:[0-9a-f]{12}$')
+        self.assertEqual(dict(records[1].details), dict(success=False, status='core_unavailable'))
+        self.assertIsNone(self.desktop._pending_config)
+        self.assertIsNone(self.desktop._settings_apply_correlation)
+
+    def test_local_settings_apply_survives_audit_ingress_failure(self):
+        if self._child_done: return
+        candidate = deepcopy(self.desktop.config)
+        candidate.overlay.enabled = not candidate.overlay.enabled
+        observed = []
+        event = self.ingress.event
+        def failed_event(kind, **kwargs):
+            if kind.startswith('client.settings.'):
+                observed.append(kind)
+                raise OSError('synthetic audit failure')
+            return event(kind, **kwargs)
+        with patch.object(self.ingress, 'event', side_effect=failed_event):
+            self.assertTrue(self.desktop._apply_settings(candidate, frozenset()))
+            self.wait(lambda: self.desktop._pending_config is None)
+        self.assertEqual(self.desktop.config, candidate)
+        self.assertEqual(self.runtime.config, candidate)
+        self.assertEqual(observed, ['client.settings.apply_started',
+            'client.settings.runtime_apply', 'client.settings.apply_completed'])
+        self.assertIsNone(self.desktop._settings_apply_correlation)
+
+    def test_local_settings_shutdown_completes_pending_audit_once(self):
+        if self._child_done: return
+        from PySide6.QtCore import QTimer
+        entered, release = threading.Event(), threading.Event()
+        save = AppConfig.save_user
+        def slow_save(config):
+            entered.set()
+            if not release.wait(5): raise OSError('synthetic commit timeout')
+            return save(config)
+        candidate = deepcopy(self.desktop.config)
+        candidate.overlay.enabled = not candidate.overlay.enabled
+        self.settings_audits()
+        with patch.object(AppConfig, 'save_user', slow_save):
+            self.assertTrue(self.desktop._apply_settings(candidate, frozenset()))
+            self.wait(entered.is_set)
+            QTimer.singleShot(20, release.set)
+            self.desktop.shutdown()
+        self.app.processEvents()
+        records = self.settings_audits()
+        self.assertEqual([r.type for r in records], ['client.settings.apply_started',
+            'client.settings.runtime_apply', 'client.settings.apply_completed'])
+        self.assertEqual(len({r.correlation_id for r in records}), 1)
+        self.assertRegex(records[0].correlation_id, r'^settings:[0-9a-f]{12}$')
+        self.assertTrue(records[1].details['success'])
+        self.assertIn(records[2].details['status'], ('applied', 'shutdown'))
+        self.assertEqual(records[2].details['success'], records[2].details['status'] == 'applied')
+        self.assertIsNone(self.desktop._settings_apply_correlation)
+        self.assertFalse(self.bridge.is_running)
+        self.assertFalse(self.desktop.hotkeys._registered_ids)
         self.assertEqual(AppConfig.load(candidate._config_source_path).overlay, candidate.overlay)
 
 

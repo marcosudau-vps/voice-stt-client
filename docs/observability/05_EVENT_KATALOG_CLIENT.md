@@ -78,9 +78,9 @@ Die tatsächliche fachliche Sessionsteuerung bleibt trotzdem außerhalb der Obse
 | `client.dictation.confirmed` | `core/controller.py` | S | Session |
 | `client.dictation.failed` | `core/controller.py` | S | Session/Fehlerkontext |
 | `client.dictation.interrupted` | `core/controller.py` | P+S | Session |
-| `client.settings.apply_started` | `ui/application.py` | S | `correlation_id` |
-| `client.settings.apply_completed` | `ui/application.py` | S | gleiche `correlation_id` |
-| `client.settings.runtime_apply` | `core/controller.py` | S | gleiche `correlation_id` |
+| `client.settings.apply_started` | `ui/application.py`, V2 `ui/v2_application.py` | S | `correlation_id` |
+| `client.settings.apply_completed` | `ui/application.py` (auch V2-Abschlusshelper) | S | gleiche `correlation_id` |
+| `client.settings.runtime_apply` | `core/controller.py`, V2 `core/v2_runtime.py` | S | gleiche `correlation_id` |
 | `client.action.blocked` | `core/controller.py` | S | abhängig von Aktion |
 | `client.audio.stream_started` | `core/audio_capture.py` | P+S | Session/Audio-Kontext |
 | `client.audio.stream_stopped` | `core/audio_capture.py` | P+S | Session/Audio-Kontext |

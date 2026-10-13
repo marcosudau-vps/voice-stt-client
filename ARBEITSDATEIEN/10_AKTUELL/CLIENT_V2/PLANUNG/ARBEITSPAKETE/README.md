@@ -1,12 +1,12 @@
 # Aktueller Paketstand – 2026-10-13
 
-AP-CV2-000 bis AP-CV2-090 ACCEPTED; AP100 **CHANGES_REQUIRED** nach unabhängigem [R03-Review](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md), offenes Finding `CV2-100-R03-F01`. [Workflowstatus](../../WORKFLOW_STATUS.json). Kein Merge von PR #12 oder AP110-Start vor Korrektur, neuem PASS und menschlicher Freigabe.
+AP000 bis AP090 ACCEPTED; AP100 **REVIEW_READY** nach [R04-Korrektur](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/01_REPORT.md). F01 im Selbstcheck korrigiert; aktueller Kandidat muss nach grüner finaler CI frisch unabhängig im Gesamtumfang geprüft werden. [Workflowstatus](../../WORKFLOW_STATUS.json). Kein Merge/AP110 ohne PASS und menschliche Freigabe.
 
 # Arbeitspakete – Index und Liefergrenzen
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.
 
-AP-CV2-090 nach [R02-PASS](../../30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md), menschlicher Freigabe und PR-#11-Merge tatsächlich ACCEPTED. Für AP100 gelten [R02-Selbstnachweise](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md) und der neuere [R03-Findingreport](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md).
+AP-CV2-090 nach [R02-PASS](../../30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md), menschlicher Freigabe und PR-#11-Merge tatsächlich ACCEPTED. Historische AP100-Quellen: [R02-Selbstnachweise](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md) und der neuere [R03-Findingreport](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md).
 
 | Paket | Endzustand | Abhängigkeiten |
 | --- | --- | --- |

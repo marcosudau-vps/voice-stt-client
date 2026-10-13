@@ -358,18 +358,20 @@ class V2Runtime:
         """Local preferences only; triggers/settings go through SettingsUISession."""
         if self._closing:
             return CommandResult(False, 'core_unavailable')
-        return await self._transaction(lambda: self._apply_runtime_config(deepcopy(candidate)))
+        return await self._transaction(lambda: self._apply_runtime_config(deepcopy(candidate), correlation_id))
 
-    async def _apply_runtime_config(self, candidate):
+    async def _apply_runtime_config(self, candidate, correlation_id):
         async with self._apply_lock:
             old = self.config
             if candidate.server != old.server or candidate.v2_profile != old.v2_profile:
                 return CommandResult(False, 'v2_settings_required')
             saved = False
             previous_device = self.media.device_available
+            audio_changed = candidate.audio != old.audio
+            result = CommandResult(False, 'local_apply_failed', 'Lokale Einstellungen konnten nicht übernommen werden.')
             try:
                 candidate.validate()
-                if candidate.audio != old.audio:
+                if audio_changed:
                     self.media.set_device_available(False)
                     if self.session.is_ready:
                         await self.media._report_availability(self.session.binding, False)
@@ -387,7 +389,8 @@ class V2Runtime:
                 self.feedback.reconfigure_mapping(candidate.feedback_mappings)
                 await self.logs.update_config(replace(candidate.server, url=self.session.config.url), candidate.event_stream)
                 self.observability.apply_config(candidate.logging.observability)
-                return CommandResult(True, 'applied')
+                result = CommandResult(True, 'applied')
+                return result
             except Exception:
                 if saved:
                     await asyncio.to_thread(old.save_user)
@@ -398,9 +401,18 @@ class V2Runtime:
                 self.feedback.reconfigure_mapping(old.feedback_mappings)
                 await self.logs.update_config(replace(old.server, url=self.session.config.url), old.event_stream)
                 self.observability.apply_config(old.logging.observability)
-                return CommandResult(False, 'local_apply_failed', 'Lokale Einstellungen konnten nicht übernommen werden.')
+                return result
             finally:
                 self.media.set_device_available(previous_device)
+                binding = self.session.binding
+                # This port admits only local preferences: session/trigger
+                # changes require SettingsUISession. Observe the completed
+                # transaction, including a failed apply after its rollback.
+                self._observe.audit('client.settings.runtime_apply',
+                    details=dict(session_changed=False, audio_changed=audio_changed,
+                        mode_changed=False, success=result.success, status=result.status),
+                    session_id=binding.session_id if binding else None,
+                    generation=self.session.generation, correlation_id=correlation_id)
 
     async def shutdown(self):
         if self._shutdown_task is None:

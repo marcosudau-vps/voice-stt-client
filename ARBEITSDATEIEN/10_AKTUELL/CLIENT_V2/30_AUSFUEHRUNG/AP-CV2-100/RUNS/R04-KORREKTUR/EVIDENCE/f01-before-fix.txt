@@ -1,0 +1,117 @@
+test_local_settings_audit_correlates_overlay_audio_and_logging_success (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_correlates_overlay_audio_and_logging_success) ... FAIL
+test_local_settings_audit_reports_persist_failure_and_restores_audio (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_reports_persist_failure_and_restores_audio) ... FAIL
+
+======================================================================
+FAIL: test_local_settings_audit_correlates_overlay_audio_and_logging_success (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_correlates_overlay_audio_and_logging_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 365, in setUp
+    self.assertEqual(child.returncode, 0, child.stdout + child.stderr)
+AssertionError: 1 != 0 : test_local_settings_audit_correlates_overlay_audio_and_logging_success (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_correlates_overlay_audio_and_logging_success) ...
+  test_local_settings_audit_correlates_overlay_audio_and_logging_success (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_correlates_overlay_audio_and_logging_success) (change='overlay') ... FAIL
+  test_local_settings_audit_correlates_overlay_audio_and_logging_success (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_correlates_overlay_audio_and_logging_success) (change='audio') ... FAIL
+  test_local_settings_audit_correlates_overlay_audio_and_logging_success (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_correlates_overlay_audio_and_logging_success) (change='logging') ... FAIL
+
+======================================================================
+FAIL: test_local_settings_audit_correlates_overlay_audio_and_logging_success (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_correlates_overlay_audio_and_logging_success) (change='overlay')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 567, in test_local_settings_audit_correlates_overlay_audio_and_logging_success
+    correlation = self.assert_settings_audit(success=True, status='applied',
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 528, in assert_settings_audit
+    self.assertEqual([record.type for record in records], [
+AssertionError: Lists differ: [] != ['client.settings.apply_started', 'client.[54 chars]ted']
+
+Second list contains 3 additional elements.
+First extra element 0:
+'client.settings.apply_started'
+
+- []
++ ['client.settings.apply_started',
++  'client.settings.runtime_apply',
++  'client.settings.apply_completed']
+
+======================================================================
+FAIL: test_local_settings_audit_correlates_overlay_audio_and_logging_success (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_correlates_overlay_audio_and_logging_success) (change='audio')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 567, in test_local_settings_audit_correlates_overlay_audio_and_logging_success
+    correlation = self.assert_settings_audit(success=True, status='applied',
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 528, in assert_settings_audit
+    self.assertEqual([record.type for record in records], [
+AssertionError: Lists differ: [] != ['client.settings.apply_started', 'client.[54 chars]ted']
+
+Second list contains 3 additional elements.
+First extra element 0:
+'client.settings.apply_started'
+
+- []
++ ['client.settings.apply_started',
++  'client.settings.runtime_apply',
++  'client.settings.apply_completed']
+
+======================================================================
+FAIL: test_local_settings_audit_correlates_overlay_audio_and_logging_success (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_correlates_overlay_audio_and_logging_success) (change='logging')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 567, in test_local_settings_audit_correlates_overlay_audio_and_logging_success
+    correlation = self.assert_settings_audit(success=True, status='applied',
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 528, in assert_settings_audit
+    self.assertEqual([record.type for record in records], [
+AssertionError: Lists differ: [] != ['client.settings.apply_started', 'client.[54 chars]ted']
+
+Second list contains 3 additional elements.
+First extra element 0:
+'client.settings.apply_started'
+
+- []
++ ['client.settings.apply_started',
++  'client.settings.runtime_apply',
++  'client.settings.apply_completed']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.518s
+
+FAILED (failures=3)
+
+
+======================================================================
+FAIL: test_local_settings_audit_reports_persist_failure_and_restores_audio (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_reports_persist_failure_and_restores_audio)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 365, in setUp
+    self.assertEqual(child.returncode, 0, child.stdout + child.stderr)
+AssertionError: 1 != 0 : test_local_settings_audit_reports_persist_failure_and_restores_audio (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_reports_persist_failure_and_restores_audio) ... FAIL
+
+======================================================================
+FAIL: test_local_settings_audit_reports_persist_failure_and_restores_audio (tests.test_v2_runtime_integration.QtRuntime.test_local_settings_audit_reports_persist_failure_and_restores_audio)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 590, in test_local_settings_audit_reports_persist_failure_and_restores_audio
+    self.assert_settings_audit(success=False, status='local_apply_failed', audio_changed=True)
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 528, in assert_settings_audit
+    self.assertEqual([record.type for record in records], [
+AssertionError: Lists differ: [] != ['client.settings.apply_started', 'client.[54 chars]ted']
+
+Second list contains 3 additional elements.
+First extra element 0:
+'client.settings.apply_started'
+
+- []
++ ['client.settings.apply_started',
++  'client.settings.runtime_apply',
++  'client.settings.apply_completed']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.314s
+
+FAILED (failures=1)
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.771s
+
+FAILED (failures=2)

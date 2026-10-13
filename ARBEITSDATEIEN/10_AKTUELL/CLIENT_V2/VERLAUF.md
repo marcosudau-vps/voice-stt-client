@@ -99,3 +99,13 @@ erhalten und erweitert. Windows1574/gezielte203/Servercheckpoint17/compileall
 PASS, kandidatgebundene vollständige Logs. [R02-Report](30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md).
 REVIEW_READY im Selbstcheck; tatsächliche Übergabe erst nach grüner finaler PR-CI.
 Keine Eigenabnahme, kanonische Übernahme oder AP110.
+
+## 2026-10-13 – AP-CV2-100 / R04-KORREKTUR: F01
+
+R03-Reviewakte fetch/ff-only übernommen. Fehlende korrelierte Settingsaudits
+im tatsächlichen V2-Desktop/Bridge/Core reproduziert und minimal ergänzt; sieben
+Positiv-/Negativ-/Rollback-/Busy-/Shutdown-/Ingressfälle hinzugefügt.
+Windows1581/gezielte210/Servercheckpoint17/compileall/diffcheck PASS; neue
+Kandidaten-/Log-/Gitblobbindung. [R04-Report](30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/01_REPORT.md).
+REVIEW_READY im Selbstcheck, tatsächliche Übergabe nach finaler grüner CI.
+R03-CHANGES_REQUIRED historisch erhalten; frischer Gesamt-Review offen, kein Merge/AP110.
