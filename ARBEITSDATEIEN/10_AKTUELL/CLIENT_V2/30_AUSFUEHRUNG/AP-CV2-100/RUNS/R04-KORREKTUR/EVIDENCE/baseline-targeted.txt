@@ -1,0 +1,87 @@
+test_loaded_profile_uses_actual_user_values_and_known_endpoint_migration (tests.test_v2_runtime_integration.MigrationBoundary.test_loaded_profile_uses_actual_user_values_and_known_endpoint_migration) ... ok
+test_actual_bridge_thread_qt_output_and_native_role_dispatch (tests.test_v2_runtime_integration.QtRuntime.test_actual_bridge_thread_qt_output_and_native_role_dispatch) ... ok
+test_adapter_failure_keeps_capture_controls_and_results_alive (tests.test_v2_runtime_integration.QtRuntime.test_adapter_failure_keeps_capture_controls_and_results_alive) ... ok
+test_device_enumeration_on_worker_and_local_config_apply (tests.test_v2_runtime_integration.QtRuntime.test_device_enumeration_on_worker_and_local_config_apply) ... ok
+test_dialog_close_reopen_new_lease_and_shutdown_all_workers (tests.test_v2_runtime_integration.QtRuntime.test_dialog_close_reopen_new_lease_and_shutdown_all_workers) ... ok
+test_profile_transaction_rebind_persist_and_failure_rollback (tests.test_v2_runtime_integration.QtRuntime.test_profile_transaction_rebind_persist_and_failure_rollback) ... ok
+test_shutdown_during_disk_commit_finishes_and_releases_native_keys (tests.test_v2_runtime_integration.QtRuntime.test_shutdown_during_disk_commit_finishes_and_releases_native_keys) ... ok
+test_autostart_after_confirmed_ready_only_once (tests.test_v2_runtime_integration.Runtime.test_autostart_after_confirmed_ready_only_once) ... ok
+test_device_loss_preserves_background_results_and_pause (tests.test_v2_runtime_integration.Runtime.test_device_loss_preserves_background_results_and_pause) ... ok
+test_disconnect_at_each_bootstrap_boundary_never_releases_pcm (tests.test_v2_runtime_integration.Runtime.test_disconnect_at_each_bootstrap_boundary_never_releases_pcm) ... ok
+test_history_disabled_keeps_terminal_dedup (tests.test_v2_runtime_integration.Runtime.test_history_disabled_keeps_terminal_dedup) ... ok
+test_history_fault_isolated_with_diagnostic_and_controls_survive (tests.test_v2_runtime_integration.Runtime.test_history_fault_isolated_with_diagnostic_and_controls_survive) ... Final output failed; audio and mirror remain available
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\final_results.py", line 135, in consume
+    added = self.history.add_entry_with_status(final.session_id, final.segment_id, final.text, **fields)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\unittest\mock.py", line 1198, in _execute_mock_call
+    raise effect
+OSError: synthetic
+ok
+test_local_audio_probe_and_persist_failure_roll_back_config (tests.test_v2_runtime_integration.Runtime.test_local_audio_probe_and_persist_failure_roll_back_config) ... ok
+test_manual_wake_both_and_null_effective_share_bootstrap (tests.test_v2_runtime_integration.Runtime.test_manual_wake_both_and_null_effective_share_bootstrap) ... ok
+test_migration_backup_and_persist_are_actual_raw_overrides (tests.test_v2_runtime_integration.Runtime.test_migration_backup_and_persist_are_actual_raw_overrides) ... ok
+test_multiple_activations_background_final_and_history_before_paste (tests.test_v2_runtime_integration.Runtime.test_multiple_activations_background_final_and_history_before_paste) ... ok
+test_pending_command_disconnect_completes_and_shutdown_joins_workers (tests.test_v2_runtime_integration.Runtime.test_pending_command_disconnect_completes_and_shutdown_joins_workers) ... ok
+test_reconnect_requires_explicit_open_input_or_drain_decision (tests.test_v2_runtime_integration.Runtime.test_reconnect_requires_explicit_open_input_or_drain_decision) ... ok
+test_restore_confirmed_before_first_pcm_and_ready_projection (tests.test_v2_runtime_integration.Runtime.test_restore_confirmed_before_first_pcm_and_ready_projection) ... ok
+test_resync_without_snapshot_remains_guarded_and_bounded (tests.test_v2_runtime_integration.Runtime.test_resync_without_snapshot_remains_guarded_and_bounded) ... ok
+test_two_segments_same_activation_same_text_keep_distinct_results (tests.test_v2_runtime_integration.Runtime.test_two_segments_same_activation_same_text_keep_distinct_results) ... ok
+test_capture_counters_snapshot_is_a_plain_int_mapping (tests.test_obs040_client_hooks.TestAudioCaptureHooks.test_capture_counters_snapshot_is_a_plain_int_mapping) ... ok
+test_stream_stopped_reports_the_final_counters (tests.test_obs040_client_hooks.TestAudioCaptureHooks.test_stream_stopped_reports_the_final_counters) ... ok
+test_a_throwing_ingress_never_reaches_the_call_site (tests.test_obs040_client_hooks.TestClientEventEmitter.test_a_throwing_ingress_never_reaches_the_call_site)
+O-05: *"Logging-Ausfall beeinflusst die eigentliche Clientfunktion ... ok
+test_cancellation_still_propagates (tests.test_obs040_client_hooks.TestClientEventEmitter.test_cancellation_still_propagates) ... ok
+test_each_wrapper_sets_its_own_channel (tests.test_obs040_client_hooks.TestClientEventEmitter.test_each_wrapper_sets_its_own_channel) ... ok
+test_null_ingress_produces_nothing_and_raises_nothing (tests.test_obs040_client_hooks.TestClientEventEmitter.test_null_ingress_produces_nothing_and_raises_nothing) ... ok
+test_the_component_default_is_applied_and_overridable (tests.test_obs040_client_hooks.TestClientEventEmitter.test_the_component_default_is_applied_and_overridable) ... ok
+test_a_default_controller_observes_nothing (tests.test_obs040_client_hooks.TestControllerHooks.test_a_default_controller_observes_nothing) ... ok
+test_action_blocked_is_an_audit_record (tests.test_obs040_client_hooks.TestControllerHooks.test_action_blocked_is_an_audit_record) ... ok
+test_an_invalid_candidate_produces_a_validation_failed_record (tests.test_obs040_client_hooks.TestControllerHooks.test_an_invalid_candidate_produces_a_validation_failed_record) ... ok
+test_dictation_failed_and_interrupted_use_their_own_types (tests.test_obs040_client_hooks.TestControllerHooks.test_dictation_failed_and_interrupted_use_their_own_types) ... ok
+test_error_classification_is_recorded_with_its_count (tests.test_obs040_client_hooks.TestControllerHooks.test_error_classification_is_recorded_with_its_count) ... Server error classified without transport reset: where=audio_packet count=1 message=bad packet
+Server error classified without transport reset: where=audio_packet count=2 message=bad packet
+ok
+test_final_deduplication_records_the_length_but_never_the_text (tests.test_obs040_client_hooks.TestControllerHooks.test_final_deduplication_records_the_length_but_never_the_text)
+�12.3: *"redaktionspflichtig, loggt heute beide vollstaendigen Texte ... ok
+test_injection_enqueued_and_rejected (tests.test_obs040_client_hooks.TestControllerHooks.test_injection_enqueued_and_rejected) ... ok
+test_run_started_is_recorded_after_the_queue_started (tests.test_obs040_client_hooks.TestControllerHooks.test_run_started_is_recorded_after_the_queue_started) ... ok
+test_runtime_apply_carries_the_three_flags_and_the_correlation (tests.test_obs040_client_hooks.TestControllerHooks.test_runtime_apply_carries_the_three_flags_and_the_correlation)
+�10.4: a pure observability change must set none of ... ok
+test_start_attempt_and_confirmation_share_a_correlation_id (tests.test_obs040_client_hooks.TestControllerHooks.test_start_attempt_and_confirmation_share_a_correlation_id) ... ok
+test_the_controller_stores_the_ingress_under_the_frozen_name (tests.test_obs040_client_hooks.TestControllerHooks.test_the_controller_stores_the_ingress_under_the_frozen_name)
+CONTRACTS �6 spells out ``self.observability = observability``. ... ok
+test_the_counter_source_is_registered_and_removed_again (tests.test_obs040_client_hooks.TestControllerHooks.test_the_counter_source_is_registered_and_removed_again)
+ARCH �8.6: the worker outlives the controller, so the read-only ... ok
+test_the_fan_out_hook_is_installed_on_the_coordinator (tests.test_obs040_client_hooks.TestControllerHooks.test_the_fan_out_hook_is_installed_on_the_coordinator) ... ok
+test_headless_prints_are_untouched (tests.test_obs040_client_hooks.TestDeliberatelyNotInstrumented.test_headless_prints_are_untouched)
+�12.7: the ``print()`` calls of the headless diagnostic mode are the ... ok
+test_pure_modules_import_no_observability (tests.test_obs040_client_hooks.TestDeliberatelyNotInstrumented.test_pure_modules_import_no_observability)
+�12.7: *"Module ohne Logging (event_models, event_protocol, ... ok
+test_realtime_events_produce_no_structured_record (tests.test_obs040_client_hooks.TestDeliberatelyNotInstrumented.test_realtime_events_produce_no_structured_record)
+�12.7: *"realtime-Events: KEIN strukturierter Record. Der bestehende ... ok
+test_queue_state_is_aggregated_and_rate_limited (tests.test_obs040_client_hooks.TestInjectionQueueStateHook.test_queue_state_is_aggregated_and_rate_limited) ... ok
+test_a_failed_send_produces_no_start_record (tests.test_obs040_client_hooks.TestSessionHooks.test_a_failed_send_produces_no_start_record) ... ok
+test_a_repeated_ack_is_recorded_as_dropped_not_as_received (tests.test_obs040_client_hooks.TestSessionHooks.test_a_repeated_ack_is_recorded_as_dropped_not_as_received) ... ok
+test_an_ack_without_a_command_id_is_dropped_and_correlation_stays_empty (tests.test_obs040_client_hooks.TestSessionHooks.test_an_ack_without_a_command_id_is_dropped_and_correlation_stays_empty) ... ok
+test_every_failed_connection_produces_one_disconnected_record (tests.test_obs040_client_hooks.TestSessionHooks.test_every_failed_connection_produces_one_disconnected_record)
+Two failures in a row must produce two records -- the transport ... ok
+test_no_session_hook_leaks_the_access_token (tests.test_obs040_client_hooks.TestSessionHooks.test_no_session_hook_leaks_the_access_token) ... ok
+test_reconnect_scheduled_carries_the_computed_delay (tests.test_obs040_client_hooks.TestSessionHooks.test_reconnect_scheduled_carries_the_computed_delay) ... ok
+test_server_busy_is_visible_in_the_disconnect_record (tests.test_obs040_client_hooks.TestSessionHooks.test_server_busy_is_visible_in_the_disconnect_record) ... ok
+test_session_admitted_reports_the_effective_handshake_contract (tests.test_obs040_client_hooks.TestSessionHooks.test_session_admitted_reports_the_effective_handshake_contract) ... ok
+test_stream_start_sent_is_recorded_after_the_send (tests.test_obs040_client_hooks.TestSessionHooks.test_stream_start_sent_is_recorded_after_the_send) ... ok
+test_transport_transitions_produce_connecting_and_connected (tests.test_obs040_client_hooks.TestSessionHooks.test_transport_transitions_produce_connecting_and_connected) ... ok
+test_trigger_send_and_ack_share_one_command_id (tests.test_obs040_client_hooks.TestSessionHooks.test_trigger_send_and_ack_share_one_command_id)
+�12.2 / �1.1: ``command_id`` is the correlation key between send and ... ok
+
+----------------------------------------------------------------------
+Ran 56 tests in 15.542s
+
+OK

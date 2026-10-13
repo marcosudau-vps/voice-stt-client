@@ -350,3 +350,63 @@ WIRE-01 bis WIRE-17: **ROOT_PASS**, [individueller R02-Requirement- und Testabgl
 
 
 AP060 R03: ausschließlich öffentliche API-Benennung zu STTController korrigiert (RESULT-01/Übergabedokumentation), [Korrekturbeleg](../../../30_AUSFUEHRUNG/AP-CV2-060/RUNS/R03-KORREKTUR/EVIDENCE/verification.json). Alle fachlichen Requirementtexte/Owner/Testzuordnungen unverändert; CLIENT OPEN, kein eigener ROOT_PASS.
+
+## AP-CV2-100 – Umsetzung R01, 2026-10-13
+
+Alle sechs IDs bleiben CLIENT OPEN. Selbstchecks REVIEW_READY auf `work/client-v2/ap-cv2-100`,
+Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`. [Report](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md),
+[Windows-/Kandidatenbindung](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json),
+[Servercheckpoint](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/server-runtime-checkpoint.json).
+Methoden in Runtime/QtRuntime gehören tests.test_v2_runtime_integration.
+
+| ID | Tatsächlich ausgeführte Methode/Fall |
+| --- | --- |
+| FINAL-01 | `Runtime.test_manual_wake_both_and_null_effective_share_bootstrap`, `Runtime.test_multiple_activations_background_final_and_history_before_paste`, `Runtime.test_two_segments_same_activation_same_text_keep_distinct_results`, `Runtime.test_history_disabled_keeps_terminal_dedup` |
+| FINAL-02 | `QtRuntime.test_actual_bridge_thread_qt_output_and_native_role_dispatch`, `QtRuntime.test_shutdown_during_disk_commit_finishes_and_releases_native_keys`, `Runtime.test_pending_command_disconnect_completes_and_shutdown_joins_workers` |
+| RUNTIME-01 | `Runtime.test_restore_confirmed_before_first_pcm_and_ready_projection`, `Runtime.test_disconnect_at_each_bootstrap_boundary_never_releases_pcm`, `Runtime.test_resync_without_snapshot_remains_guarded_and_bounded` |
+| RUNTIME-02 | `QtRuntime.test_profile_transaction_rebind_persist_and_failure_rollback`, `QtRuntime.test_device_enumeration_on_worker_and_local_config_apply`, `Runtime.test_local_audio_probe_and_persist_failure_roll_back_config`, `scripts/check_v2_server_runtime.py:apply/drain_wait_no_destructive_reconnect` |
+| RUNTIME-03 | `Runtime.test_autostart_after_confirmed_ready_only_once`, `QtRuntime.test_dialog_close_reopen_new_lease_and_shutdown_all_workers`, `QtRuntime.test_shutdown_during_disk_commit_finishes_and_releases_native_keys`, `tests.test_single_instance`, `tests.test_startup_hotkey_persistence` |
+| RUNTIME-04 | `Runtime.test_history_fault_isolated_with_diagnostic_and_controls_survive`, `QtRuntime.test_adapter_failure_keeps_capture_controls_and_results_alive`, `Runtime.test_device_loss_preserves_background_results_and_pause`, `scripts/check_v2_server_runtime.py` |
+
+AP090 durch tatsächlichen Squash ACCEPTED; [Git-/PR-Provenienz](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json).
+Historische Reviews bleiben unverändert.
+
+## AP-CV2-100 – CI-Korrektur R02, 2026-10-13
+
+FINAL-01/02 und RUNTIME-01 bis RUNTIME-04 bleiben CLIENT OPEN; die oben
+zugeordneten tatsächlichen Methoden wurden im neuen Kandidaten erneut bestanden.
+[Report](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md),
+[Windows1574/gezielte203](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/windows-validation.json),
+[Servercheckpoint17](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/server-runtime-checkpoint.json).
+Zusätzliche Legacy-Regressionsabsicherung: `tests.test_event_stream.TestEventStreamTransport.test_cursor_write_failure_replay_tolerates_slow_durable_commit`
+und bestehender `test_cursor_write_failure_replays_without_duplicate_visible_impulse`: Replay nach
+Cursor-Schreibfehler, einmaliger sichtbarer Impuls, durable Cursor24, genau zwei
+Verbindungen und sauberer Stop, auch mit 280 ms Schreibverzögerung. Kein Eigen-PASS.
+
+## AP-CV2-100 – unabhängige R03-Abnahme, 2026-10-13
+
+Der kumulative Kandidat `4a35a2d7eba5fa55e79528744320419b8ec0a1b3` gegen Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc` ist **CHANGES_REQUIRED**. `FINAL-01`, `FINAL-02`, `RUNTIME-01`, `RUNTIME-03` und die geprüften Funktionsteile von `RUNTIME-04` wurden bestätigt. Bei `RUNTIME-02` fehlt im realen V2-Settings-Apply die bisherige korrelierte Auditprotokollierung (`CV2-100-R03-F01`); deshalb kein Gesamt-ROOT_PASS trotz grüner Tests. [R03-Reviewreport](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md) und [Evidenz](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/EVIDENCE/INDEX.md). Alle sechs Anforderungen bleiben bis zur frischen unabhängigen Vollabnahme CLIENT OPEN; die fachlichen Anforderungstexte und bisherigen Tests unverändert.
+
+## AP-CV2-100 – R04-Findingkorrektur, 2026-10-13
+
+F01 im Selbstcheck korrigiert; alle sechs Requirements bleiben CLIENT OPEN.
+[Report](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/01_REPORT.md),
+[Windows1581/gezielte210](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/EVIDENCE/windows-validation.json),
+[Servercheckpoint17](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/EVIDENCE/server-runtime-checkpoint.json).
+Alle bisherigen individuellen AP100-Methoden im neuen Kandidaten erneut ausgeführt.
+RUNTIME-02 / OBS-Korrelation zusätzlich durch folgende tatsächliche QtRuntime-Methoden
+unter tests.test_v2_runtime_integration geprüft:
+
+- `test_local_settings_audit_correlates_overlay_audio_and_logging_success`
+- `test_local_settings_audit_reports_persist_failure_and_restores_audio`
+- `test_local_settings_audit_reports_post_save_rollback`
+- `test_local_settings_busy_attempt_preserves_pending_audit_correlation`
+- `test_local_settings_unavailable_core_finishes_audit_once`
+- `test_local_settings_apply_survives_audit_ingress_failure`
+- `test_local_settings_shutdown_completes_pending_audit_once`
+
+Kein historisches R03-Urteil überschrieben; frischer unabhängiger Gesamt-Review offen.
+
+## AP-CV2-100 – unabhängige R05-Abnahme / ROOT_PASS, 2026-10-13
+
+[Technischer R05-Abnahmebericht](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md), [unabhängiger Evidenzindex](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/EVIDENCE/INDEX.md). Geprüfter kumulativer Kandidat `0d45f8e9d3b484631da80be28f31c86ea85ab002` / Tree `aa8e3146f7e05e67694fc2027d712c62ce44cebe`; unveränderter Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`, Server `ada13b0`. FINAL-01, FINAL-02, RUNTIME-01, RUNTIME-02, RUNTIME-03 und RUNTIME-04 **alle unabhängig PASS**. RUNTIME-02: früheres Pflichtfinding `CV2-100-R03-F01` nach korrelierten Audit-/Rollback-/Shutdownintegrationstests geschlossen. Windows 1581/gezielte210 sowie 17 komponierte Serverchecks als echte Fremdbelege unabhängig validiert; finale Windows-CI 38394758805 PASS auf geprüften Head. Bis zum tatsächlich freigegebenen Merge bleiben die Requirement-Lifecyclefelder `CLIENT OPEN` und Paketstatus `ROOT_PASS` / `WAITING_FOR_APPROVAL`, **nicht ACCEPTED**. Kein AP110-Start.

@@ -2184,3 +2184,46 @@ Nach unabhängigem [R02-ROOT_PASS](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2
 ## 2026-10-13 – AP-CV2-090 / R01-UMSETZUNG
 
 Quellenneutraler V2-Feedbackpfad auf Paketbranch aus AP080-Aggregat 1bc5be8; 1552 Windows-/377 gezielte Tests und 18 reale gepinnte Domain-/Log-/Qtchecks PASS. [Runreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md). REVIEW_READY, unabhängige Abnahme und menschliche Übernahme offen; kein AP100-/Serverabschluss.
+
+
+## AP-CV2-100-R01 – 2026-10-13 – Desktopkomposition / REVIEW_READY
+
+Vom kanonischen AP090-Parent dad89bb nach belegtem unabhängigen PASS, menschlichem
+Prompt und Single-Parent-/Baumgleichheit. Gemeinsamer V2-Desktop-/Core-/Media-/Settings-/
+Result-/Feedbackfluss, Workerpersistenz und kontrollierter Rollback/Shutdown.
+1573 Windows-/ 190 gezielte Tests, 17 echte komponierte Serverchecks,
+compileall/diffcheck PASS. Unabhängige Abnahme offen, Umsetzungsschreiben ab Abgabe
+pausiert; keine kanonische Übernahme oder AP110-Implementierung.
+
+[Runreport](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md).
+
+## 2026-10-13 – AP-CV2-100 / R02-KORREKTUR: CI-01
+
+CI-Replaytimeout bei 281-ms-Runnerverzögerung reproduziert; Testfristen für
+durable Cursor-IO korrigiert, 280-ms-Regressionsfall ergänzt, fachliche Assertions
+erhalten und erweitert. Windows1574/gezielte203/Servercheckpoint17/compileall
+PASS, kandidatgebundene vollständige Logs. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md).
+REVIEW_READY im Selbstcheck; tatsächliche Übergabe erst nach grüner finaler PR-CI.
+Keine Eigenabnahme, kanonische Übernahme oder AP110.
+
+## 2026-10-13 – AP-CV2-100 / R03-ABNAHME
+
+Unabhängiger Review von PR #12 (Kandidat `4a35a2d7eba5fa55e79528744320419b8ec0a1b3`): Windows-Vollsuite 1574, gezielte 203, Servercheckpoint 17 und finale CI 38347923728 als fremde PASS-Nachweise geprüft; sechs qualifizierte Gitblobs individuell gegen GitHub abgeglichen. **CHANGES_REQUIRED** wegen `CV2-100-R03-F01`: bestehende Settings-OBS-Audit-/Korrelationsereignisse werden im tatsächlichen V2-Desktop/Core-Apply nicht erzeugt. [R03-Abnahmebericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md). Reviewer keine eigene Windows-Suite, keine Produktcodeänderungen. Korrektur und erneute unabhängige Abnahme auf demselben PR; kein Merge/AP110.
+
+## 2026-10-13 – AP-CV2-100 / R04-KORREKTUR: F01
+
+R03-Reviewakte fetch/ff-only übernommen. Fehlende korrelierte Settingsaudits
+im tatsächlichen V2-Desktop/Bridge/Core reproduziert und minimal ergänzt; sieben
+Positiv-/Negativ-/Rollback-/Busy-/Shutdown-/Ingressfälle hinzugefügt.
+Windows1581/gezielte210/Servercheckpoint17/compileall/diffcheck PASS; neue
+Kandidaten-/Log-/Gitblobbindung. [R04-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/01_REPORT.md).
+REVIEW_READY im Selbstcheck, tatsächliche Übergabe nach finaler grüner CI.
+R03-CHANGES_REQUIRED historisch erhalten; frischer Gesamt-Review offen, kein Merge/AP110.
+
+## 2026-10-13 – AP-CV2-100 / R05-ABNAHME: unabhängiger ROOT_PASS
+
+PR #12 nach R04-Korrektur vollständig gegen Parent dad89bb5d und Kandidat `0d45f8e9d3b484631da80be28f31c86ea85ab002` / Tree `aa8e3146f7e05e67694fc2027d712c62ce44cebe` überprüft. F01 (korrelierte V2-Settings-Audits) nach realer Qt/Core/Bridge-Faultinjection und Red/Green-Tests unabhängig geschlossen, keine neuen Pflichtfindings; FINAL-01/02 und RUNTIME-01..04 technisch PASS. Externe Windows-Belege 1581/210 und gepinnte Servercheckpointfälle 17 sowie CI 38394758805 erfolgreich und unabhängig validiert. [R05-Bericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md). **WAITING_FOR_APPROVAL**, keine menschliche Mergefreigabe, kein AP110-Start.
+
+## 2026-10-13 – AP-CV2-100 / R06-UEBERNAHME: menschliche Squash-Freigabe dokumentiert
+
+Wörtlicher Auftrag „Hiermit wird die Freigabe zun Merge von PR #12, Arbeitspaket AP-CV2-100 erteilt. Bitte führe den Merge durch.“ als [Originalprompt](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/00_PROMPT_ORIGINAL.md) gesichert. R05-PASS auf 0d45f8e9d3b484631da80be28f31c86ea85ab002; freigegebener Head 4c7be6945ae3f2c52748667963d00a1d5cd30d9f, kanonischer Parent dad89bb5d08e6d34abc5cfab57fc76010c5131dc. Finale PR-CI nach rein administrativem R06-Nachtrag nochmals erforderlich; ACCEPTED erst nach echtem Squash, Git-Parent- und Treeabgleich. Kein AP110-Vorgriff.

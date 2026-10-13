@@ -1,0 +1,31 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-13T03:38:59.802848+00:00",
+  "qualificationProductBlobs": 213,
+  "qualificationLogs": "hashes_match",
+  "productChangeSinceQualification": false,
+  "administrativePaths": [
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/00_PAKET.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
+  ],
+  "recordsCommand": [
+    "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/SKILLS/GEMEINSAM/scripts/pruefe_arbeitsakten.py",
+    "--paths",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/00_PAKET.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md",
+    "--pr-summary",
+    "C:/Users/marco/AppData/Local/Temp/voice-stt-client-ap100-current-pr.md"
+  ],
+  "records": {
+    "result": "PASS",
+    "package": "AP-CV2-100",
+    "packageStatus": "REVIEW_READY",
+    "referencedFiles": 10,
+    "markdownFiles": 5,
+    "relativeLinks": 63,
+    "errors": []
+  }
+}

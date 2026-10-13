@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import json
 import tempfile
+import time
 import unittest
 from pathlib import Path
 
@@ -347,6 +348,12 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(seen, ["evt-3", "evt-4", "evt-26"])
 
     async def test_cursor_write_failure_replays_without_duplicate_visible_impulse(self):
+        await self._assert_cursor_write_failure_replay(commit_delay=0.0)
+
+    async def test_cursor_write_failure_replay_tolerates_slow_durable_commit(self):
+        await self._assert_cursor_write_failure_replay(commit_delay=0.28)
+
+    async def _assert_cursor_write_failure_replay(self, *, commit_delay):
         first = ScriptedLogSocket([
             json.dumps(hello()),
             json.dumps(subscribed()),
@@ -409,6 +416,10 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
                 if fail_once:
                     fail_once = False
                     raise OSError("simulated cursor disk failure")
+                # Match synchronous durable IO on a busy Windows runner. This
+                # test verifies replay/dedup, not a disk-latency requirement.
+                if commit_delay:
+                    time.sleep(commit_delay)
                 return original_commit(*args, **kwargs)
 
             store.commit = flaky_commit
@@ -419,10 +430,10 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
             )
             transport = EventStreamTransport(
                 EventStreamConfig(
-                    connect_timeout=0.1,
-                    handshake_timeout=0.1,
-                    replay_timeout=0.1,
-                    message_timeout=0.1,
+                    connect_timeout=5.0,
+                    handshake_timeout=5.0,
+                    replay_timeout=5.0,
+                    message_timeout=5.0,
                     reconnect_min_delay=0.001,
                     reconnect_max_delay=0.001,
                     reconnect_jitter=0,
@@ -435,7 +446,7 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
                 connect_factory=connect_factory,
             )
             holder["transport"] = transport
-            await asyncio.wait_for(transport.run(), timeout=0.5)
+            await asyncio.wait_for(transport.run(), timeout=10.0)
             record = store.load(
                 endpoint=stream_access.endpoint,
                 server_instance_id="server-1",
@@ -456,6 +467,9 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(record.cursor, 24)
         self.assertEqual(json.loads(first.sent[0])["afterCursor"], 0)
         self.assertEqual(json.loads(second.sent[0])["afterCursor"], 0)
+        self.assertEqual(transport.generation, 2)
+        self.assertEqual(sockets, [])
+        self.assertEqual(transport.state, EventConnectionState.STOPPED)
 
     async def test_auth_error_waits_for_reconfigured_session_access(self):
         denied = ScriptedLogSocket([

@@ -1,0 +1,53 @@
+Command: ['P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe', '-c', "\nimport time\nimport unittest\nfrom unittest.mock import patch\nfrom voice_stt_client.core.event_cursor_store import EventCursorStore\noriginal = EventCursorStore.commit\ndef slow_commit(self, *args, **kwargs):\n    time.sleep(0.28)\n    return original(self, *args, **kwargs)\nwith patch.object(EventCursorStore, 'commit', slow_commit):\n    suite = unittest.defaultTestLoader.loadTestsFromName('tests.test_event_stream.TestEventStreamTransport.test_cursor_write_failure_replays_without_duplicate_visible_impulse')\n    result = unittest.TextTestRunner(verbosity=2).run(suite)\n    raise SystemExit(not result.wasSuccessful())\n"]
+Exit: 1
+test_cursor_write_failure_replays_without_duplicate_visible_impulse (tests.test_event_stream.TestEventStreamTransport.test_cursor_write_failure_replays_without_duplicate_visible_impulse) ... Event stream attempt failed: simulated cursor disk failure
+Event stream attempt failed: event stream replay timed out
+Executing <Task pending name='Task-2' coro=<TestEventStreamTransport.test_cursor_write_failure_replays_without_duplicate_visible_impulse() running at P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_event_stream.py:438> wait_for=<Task pending name='Task-6' coro=<sleep() running at C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:653> cb=[Task.task_wakeup()] created at C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:420> cb=[_run_until_complete_cb() at C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.296 seconds
+Event stream attempt failed: pop from empty list
+Event stream attempt failed: pop from empty list
+Event stream attempt failed: pop from empty list
+Event stream attempt failed: pop from empty list
+Event stream attempt failed: pop from empty list
+Event stream attempt failed: pop from empty list
+Event stream attempt failed: pop from empty list
+ERROR
+
+======================================================================
+ERROR: test_cursor_write_failure_replays_without_duplicate_visible_impulse (tests.test_event_stream.TestEventStreamTransport.test_cursor_write_failure_replays_without_duplicate_visible_impulse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\event_stream.py", line 119, in run
+    await self._connect_once()
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\event_stream.py", line 229, in _connect_once
+    self._ws = await asyncio.wait_for(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_event_stream.py", line 438, in test_cursor_write_failure_replays_without_duplicate_visible_impulse
+    await asyncio.wait_for(transport.run(), timeout=0.5)
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 519, in wait_for
+    async with timeouts.timeout(timeout):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+----------------------------------------------------------------------
+Ran 1 test in 0.535s
+
+FAILED (errors=1)

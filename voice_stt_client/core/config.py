@@ -1068,6 +1068,10 @@ class AppConfig:
             override_path if path is not None or user_path is not None
             else DEFAULT_USER_CONFIG_PATH
         )
+        # Migration uses actual supplied values, before packaged defaults are
+        # layered. Otherwise a default time/key would become a user wish.
+        config._v2_migration_source = dataclasses.asdict(config) if config.v2_profile is not None else dict(override_raw)
+        config._v2_migration_path = override_path
         return config
 
     @classmethod

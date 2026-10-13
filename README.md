@@ -10,7 +10,17 @@ Releases: <https://github.com/marcosudau-vps/voice-stt-client/releases>
 ## Aktueller Entwicklungsstand
 
 Aktiver Einstieg ist [Client V2](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md).
-AP-CV2-000 bis AP-CV2-020 sind nach unabhängigem PASS und menschlicher Freigabe auf `feat/client-v2` übernommen. AP-CV2-030 ist REVIEW_READY: reiner ActivationMirror mit IDgebundenen Hintergrunddaten und begrenztem Resync,1339 Windows-Tests und35 echte Serverfälle bestanden. [Umsetzungsreport](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-030/RUNS/R01-UMSETZUNG/01_REPORT.md). Unabhängige Abnahme als nächster Schritt. Die laufende App verwendet ihren bestehenden Transport bis zur V2-Komposition in AP-CV2-100. Start, Benutzerpfade und Grenzen: [Kompatibilität](docs/compatibility.md).
+AP-CV2-000 bis AP-CV2-090 sind tatsächlich übernommen. AP-CV2-100 ist REVIEW_READY:
+der reguläre Desktop-/Headlessstart komponiert die V2-Runtime samt Mirror, Media,
+Settings, Controls, Results, Logs und Feedback. 1573 Windows-Tests und
+17 komponierte Serverchecks PASS. [Runtime und Start](docs/protocol-v2-runtime.md),
+[Kompatibilität](docs/compatibility.md),
+[Umsetzungsreport](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md). Unabhängige Abnahme offen.
+
+V2-Bedienung: Primary aktiviert im Idle bei effektivem Manualtrigger; während
+offener Eingabe wirkt die konfigurierte Rolle. Secondary und Wakepause bleiben
+auch in Wake-only-Sessions registriert. Settingsapply bietet cancel/finish/defer
+und getrenntes wait/discard für Hintergrunddrain. Fachliche Phasen sind quellenneutral.
 
 Die folgende Bestandsbeschreibung ist historische Produktorientierung.
 

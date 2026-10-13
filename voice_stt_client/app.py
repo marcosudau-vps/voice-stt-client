@@ -107,8 +107,12 @@ class RealtimeSTTClient(STTController):
 
 
 def run_headless(config: AppConfig, observability=None) -> int:
-    """Run the retained AP05 console client for diagnostics."""
-    client = RealtimeSTTClient(config, observability=observability)
+    """Run the same V2 composition without the Qt/Win32 control surface."""
+    from voice_stt_client.core.v2_runtime import V2Runtime
+    from voice_stt_client.core.observability.ingress import NULL_INGRESS
+    client = V2Runtime(config, observability=observability or NULL_INGRESS)
+    client.on_snapshot_change = lambda view: print(
+        f"V2 generation={view.generation} transport={view.transport} ready={view.ready} reason={view.reason}")
 
     # Handle Ctrl+C gracefully
     def signal_handler(sig, frame):

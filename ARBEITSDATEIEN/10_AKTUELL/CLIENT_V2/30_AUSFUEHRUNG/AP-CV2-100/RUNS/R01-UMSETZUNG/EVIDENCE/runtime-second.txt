@@ -1,0 +1,542 @@
+test_loaded_profile_uses_actual_user_values_and_known_endpoint_migration (tests.test_v2_runtime_integration.MigrationBoundary.test_loaded_profile_uses_actual_user_values_and_known_endpoint_migration) ... ok
+test_actual_bridge_thread_qt_output_and_native_role_dispatch (tests.test_v2_runtime_integration.QtRuntime.test_actual_bridge_thread_qt_output_and_native_role_dispatch) ... FAIL
+test_adapter_failure_keeps_capture_controls_and_results_alive (tests.test_v2_runtime_integration.QtRuntime.test_adapter_failure_keeps_capture_controls_and_results_alive) ... FAIL
+test_dialog_close_reopen_new_lease_and_shutdown_all_workers (tests.test_v2_runtime_integration.QtRuntime.test_dialog_close_reopen_new_lease_and_shutdown_all_workers) ... FAIL
+test_profile_transaction_rebind_persist_and_failure_rollback (tests.test_v2_runtime_integration.QtRuntime.test_profile_transaction_rebind_persist_and_failure_rollback) ... FAIL
+test_device_loss_preserves_background_results_and_pause (tests.test_v2_runtime_integration.Runtime.test_device_loss_preserves_background_results_and_pause) ... ERROR
+test_disconnect_at_each_bootstrap_boundary_never_releases_pcm (tests.test_v2_runtime_integration.Runtime.test_disconnect_at_each_bootstrap_boundary_never_releases_pcm) ... ERROR
+test_history_disabled_keeps_terminal_dedup (tests.test_v2_runtime_integration.Runtime.test_history_disabled_keeps_terminal_dedup) ... ERROR
+test_history_fault_isolated_with_diagnostic_and_controls_survive (tests.test_v2_runtime_integration.Runtime.test_history_fault_isolated_with_diagnostic_and_controls_survive) ... ERROR
+test_local_audio_probe_and_persist_failure_roll_back_config (tests.test_v2_runtime_integration.Runtime.test_local_audio_probe_and_persist_failure_roll_back_config) ... ERROR
+test_manual_wake_both_and_null_effective_share_bootstrap (tests.test_v2_runtime_integration.Runtime.test_manual_wake_both_and_null_effective_share_bootstrap) ...
+  test_manual_wake_both_and_null_effective_share_bootstrap (tests.test_v2_runtime_integration.Runtime.test_manual_wake_both_and_null_effective_share_bootstrap) (manual=True, wake=False, effective=True) ... ERROR
+  test_manual_wake_both_and_null_effective_share_bootstrap (tests.test_v2_runtime_integration.Runtime.test_manual_wake_both_and_null_effective_share_bootstrap) (manual=False, wake=True, effective=True) ... ERROR
+  test_manual_wake_both_and_null_effective_share_bootstrap (tests.test_v2_runtime_integration.Runtime.test_manual_wake_both_and_null_effective_share_bootstrap) (manual=True, wake=True, effective=True) ... ERROR
+  test_manual_wake_both_and_null_effective_share_bootstrap (tests.test_v2_runtime_integration.Runtime.test_manual_wake_both_and_null_effective_share_bootstrap) (manual=True, wake=True, effective=False) ... ERROR
+test_multiple_activations_background_final_and_history_before_paste (tests.test_v2_runtime_integration.Runtime.test_multiple_activations_background_final_and_history_before_paste) ... ERROR
+test_pending_command_disconnect_completes_and_shutdown_joins_workers (tests.test_v2_runtime_integration.Runtime.test_pending_command_disconnect_completes_and_shutdown_joins_workers) ... ERROR
+test_reconnect_requires_explicit_open_input_or_drain_decision (tests.test_v2_runtime_integration.Runtime.test_reconnect_requires_explicit_open_input_or_drain_decision) ... ERROR
+test_restore_confirmed_before_first_pcm_and_ready_projection (tests.test_v2_runtime_integration.Runtime.test_restore_confirmed_before_first_pcm_and_ready_projection) ... ERROR
+test_resync_without_snapshot_remains_guarded_and_bounded (tests.test_v2_runtime_integration.Runtime.test_resync_without_snapshot_remains_guarded_and_bounded) ... ERROR
+
+======================================================================
+ERROR: test_device_loss_preserves_background_results_and_pause (tests.test_v2_runtime_integration.Runtime.test_device_loss_preserves_background_results_and_pause)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 250, in test_device_loss_preserves_background_results_and_pause
+    r, s, backend, _, _ = await self.start()
+                          ^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_disconnect_at_each_bootstrap_boundary_never_releases_pcm (tests.test_v2_runtime_integration.Runtime.test_disconnect_at_each_bootstrap_boundary_never_releases_pcm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 195, in test_disconnect_at_each_bootstrap_boundary_never_releases_pcm
+    r, _, _, _, _ = await self.start(profile=V2Profile(desired_settings={KEY: 4000}), socket=s)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_history_disabled_keeps_terminal_dedup (tests.test_v2_runtime_integration.Runtime.test_history_disabled_keeps_terminal_dedup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 228, in test_history_disabled_keeps_terminal_dedup
+    config = config_in(self.folder.name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_history_fault_isolated_with_diagnostic_and_controls_survive (tests.test_v2_runtime_integration.Runtime.test_history_fault_isolated_with_diagnostic_and_controls_survive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 239, in test_history_fault_isolated_with_diagnostic_and_controls_survive
+    r, s, backend, decisions, _ = await self.start()
+                                  ^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_local_audio_probe_and_persist_failure_roll_back_config (tests.test_v2_runtime_integration.Runtime.test_local_audio_probe_and_persist_failure_roll_back_config)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 290, in test_local_audio_probe_and_persist_failure_roll_back_config
+    r, s, _, _, _ = await self.start()
+                    ^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_manual_wake_both_and_null_effective_share_bootstrap (tests.test_v2_runtime_integration.Runtime.test_manual_wake_both_and_null_effective_share_bootstrap) (manual=True, wake=False, effective=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 164, in test_manual_wake_both_and_null_effective_share_bootstrap
+    r, s, _, d, _ = await self.start(profile=V2Profile(manual=manual, wake_word=wake,
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_manual_wake_both_and_null_effective_share_bootstrap (tests.test_v2_runtime_integration.Runtime.test_manual_wake_both_and_null_effective_share_bootstrap) (manual=False, wake=True, effective=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 164, in test_manual_wake_both_and_null_effective_share_bootstrap
+    r, s, _, d, _ = await self.start(profile=V2Profile(manual=manual, wake_word=wake,
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_manual_wake_both_and_null_effective_share_bootstrap (tests.test_v2_runtime_integration.Runtime.test_manual_wake_both_and_null_effective_share_bootstrap) (manual=True, wake=True, effective=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 164, in test_manual_wake_both_and_null_effective_share_bootstrap
+    r, s, _, d, _ = await self.start(profile=V2Profile(manual=manual, wake_word=wake,
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_manual_wake_both_and_null_effective_share_bootstrap (tests.test_v2_runtime_integration.Runtime.test_manual_wake_both_and_null_effective_share_bootstrap) (manual=True, wake=True, effective=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 164, in test_manual_wake_both_and_null_effective_share_bootstrap
+    r, s, _, d, _ = await self.start(profile=V2Profile(manual=manual, wake_word=wake,
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_multiple_activations_background_final_and_history_before_paste (tests.test_v2_runtime_integration.Runtime.test_multiple_activations_background_final_and_history_before_paste)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 201, in test_multiple_activations_background_final_and_history_before_paste
+    r, s, backend, decisions, _ = await self.start()
+                                  ^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_pending_command_disconnect_completes_and_shutdown_joins_workers (tests.test_v2_runtime_integration.Runtime.test_pending_command_disconnect_completes_and_shutdown_joins_workers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 262, in test_pending_command_disconnect_completes_and_shutdown_joins_workers
+    r, s, _, _, running = await self.start()
+                          ^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_reconnect_requires_explicit_open_input_or_drain_decision (tests.test_v2_runtime_integration.Runtime.test_reconnect_requires_explicit_open_input_or_drain_decision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 306, in test_reconnect_requires_explicit_open_input_or_drain_decision
+    r, s, _, _, _ = await self.start()
+                    ^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_restore_confirmed_before_first_pcm_and_ready_projection (tests.test_v2_runtime_integration.Runtime.test_restore_confirmed_before_first_pcm_and_ready_projection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 177, in test_restore_confirmed_before_first_pcm_and_ready_projection
+    r, s, _, decisions, _ = await self.start(profile=V2Profile(desired_settings={KEY: 4000}))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+ERROR: test_resync_without_snapshot_remains_guarded_and_bounded (tests.test_v2_runtime_integration.Runtime.test_resync_without_snapshot_remains_guarded_and_bounded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marco\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 278, in test_resync_without_snapshot_remains_guarded_and_bounded
+    r, s, _, _, _ = await self.start()
+                    ^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 145, in start
+    config = config or config_in(self.folder.name, profile)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 120, in config_in
+    config.feedback_mappings = FeedbackMappingConfig.from_mapping({'schema_version': 2,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 344, in from_mapping
+    str(event_name): _parse_rule(str(event_name), rule_raw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 459, in _parse_rule
+    led = _parse_led(event_name, raw.get("led"))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 441, in _parse_led
+    return (_parse_led_call(f"{event_name}.led", raw),)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\core\feedback_mapping.py", line 369, in _parse_led_call
+    raise ValueError(f"{where} names no LED verb; expected one of: {known}")
+ValueError: server.activation.started.led names no LED verb; expected one of: set_state, clear_state, set_overlay, emit_event, set_output
+
+======================================================================
+FAIL: test_actual_bridge_thread_qt_output_and_native_role_dispatch (tests.test_v2_runtime_integration.QtRuntime.test_actual_bridge_thread_qt_output_and_native_role_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 323, in setUp
+    self.assertEqual(child.returncode, 0, child.stdout + child.stderr)
+AssertionError: 1 != 0 : test_actual_bridge_thread_qt_output_and_native_role_dispatch (tests.test_v2_runtime_integration.QtRuntime.test_actual_bridge_thread_qt_output_and_native_role_dispatch) ... ERROR
+
+======================================================================
+ERROR: test_actual_bridge_thread_qt_output_and_native_role_dispatch (tests.test_v2_runtime_integration.QtRuntime.test_actual_bridge_thread_qt_output_and_native_role_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 329, in setUp
+    from voice_stt_client.ui.v2_application import V2DesktopApplication
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\v2_application.py", line 13, in <module>
+    from voice_stt_client.core.feedback_events import CanonicalEventType
+ModuleNotFoundError: No module named 'voice_stt_client.core.feedback_events'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.123s
+
+FAILED (errors=1)
+
+
+======================================================================
+FAIL: test_adapter_failure_keeps_capture_controls_and_results_alive (tests.test_v2_runtime_integration.QtRuntime.test_adapter_failure_keeps_capture_controls_and_results_alive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 323, in setUp
+    self.assertEqual(child.returncode, 0, child.stdout + child.stderr)
+AssertionError: 1 != 0 : test_adapter_failure_keeps_capture_controls_and_results_alive (tests.test_v2_runtime_integration.QtRuntime.test_adapter_failure_keeps_capture_controls_and_results_alive) ... ERROR
+
+======================================================================
+ERROR: test_adapter_failure_keeps_capture_controls_and_results_alive (tests.test_v2_runtime_integration.QtRuntime.test_adapter_failure_keeps_capture_controls_and_results_alive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 329, in setUp
+    from voice_stt_client.ui.v2_application import V2DesktopApplication
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\v2_application.py", line 13, in <module>
+    from voice_stt_client.core.feedback_events import CanonicalEventType
+ModuleNotFoundError: No module named 'voice_stt_client.core.feedback_events'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.127s
+
+FAILED (errors=1)
+
+
+======================================================================
+FAIL: test_dialog_close_reopen_new_lease_and_shutdown_all_workers (tests.test_v2_runtime_integration.QtRuntime.test_dialog_close_reopen_new_lease_and_shutdown_all_workers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 323, in setUp
+    self.assertEqual(child.returncode, 0, child.stdout + child.stderr)
+AssertionError: 1 != 0 : test_dialog_close_reopen_new_lease_and_shutdown_all_workers (tests.test_v2_runtime_integration.QtRuntime.test_dialog_close_reopen_new_lease_and_shutdown_all_workers) ... ERROR
+
+======================================================================
+ERROR: test_dialog_close_reopen_new_lease_and_shutdown_all_workers (tests.test_v2_runtime_integration.QtRuntime.test_dialog_close_reopen_new_lease_and_shutdown_all_workers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 329, in setUp
+    from voice_stt_client.ui.v2_application import V2DesktopApplication
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\v2_application.py", line 13, in <module>
+    from voice_stt_client.core.feedback_events import CanonicalEventType
+ModuleNotFoundError: No module named 'voice_stt_client.core.feedback_events'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.117s
+
+FAILED (errors=1)
+
+
+======================================================================
+FAIL: test_profile_transaction_rebind_persist_and_failure_rollback (tests.test_v2_runtime_integration.QtRuntime.test_profile_transaction_rebind_persist_and_failure_rollback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 323, in setUp
+    self.assertEqual(child.returncode, 0, child.stdout + child.stderr)
+AssertionError: 1 != 0 : test_profile_transaction_rebind_persist_and_failure_rollback (tests.test_v2_runtime_integration.QtRuntime.test_profile_transaction_rebind_persist_and_failure_rollback) ... ERROR
+
+======================================================================
+ERROR: test_profile_transaction_rebind_persist_and_failure_rollback (tests.test_v2_runtime_integration.QtRuntime.test_profile_transaction_rebind_persist_and_failure_rollback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\tests\test_v2_runtime_integration.py", line 329, in setUp
+    from voice_stt_client.ui.v2_application import V2DesktopApplication
+  File "P:\GithubRepos\marcosudau-vps\voice-stt-client\workspaces\client-v2\voice_stt_client\ui\v2_application.py", line 13, in <module>
+    from voice_stt_client.core.feedback_events import CanonicalEventType
+ModuleNotFoundError: No module named 'voice_stt_client.core.feedback_events'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.158s
+
+FAILED (errors=1)
+
+
+----------------------------------------------------------------------
+Ran 16 tests in 5.576s
+
+FAILED (failures=4, errors=14)

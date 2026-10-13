@@ -196,11 +196,13 @@ class SettingsDialog(QDialog):
         observability=NULL_INGRESS,
         apply_error: Callable[[], str] | None = None,
         v2_local: bool = False,
+        audio_devices=None,
     ) -> None:
         super().__init__(parent)
         self.setWindowTitle("RealtimeSTT – Einstellungen")
         self.resize(820, 620)
         self._config = config
+        self._audio_devices = audio_devices
         self._on_apply = on_apply
         self._apply_error = apply_error or (lambda: "")
         self._observe = ClientEventEmitter(
@@ -381,12 +383,15 @@ class SettingsDialog(QDialog):
         if definition.editor == "audio_device":
             editor = QComboBox()
             editor.addItem("Systemstandard", None)
-            for device in AudioCapture.list_devices():
+            for device in (AudioCapture.list_devices() if self._audio_devices is None else self._audio_devices):
                 if int(device.get("channels", 0)) > 0:
                     editor.addItem(
                         str(device["name"]), int(device["index"])
                     )
             index = editor.findData(value)
+            if index < 0 and value is not None:
+                editor.addItem(str(value), value)
+                index = editor.findData(value)
             editor.setCurrentIndex(max(0, index))
             return editor
         if definition.setting_type == SettingType.BOOLEAN:

@@ -1,0 +1,26 @@
+{
+  "result": "PASS",
+  "package": "AP-CV2-090",
+  "canonicalCommit": "dad89bb5d08e6d34abc5cfab57fc76010c5131dc",
+  "parent": "1bc5be893060e0d6a80e1d890102bfffebb73a17",
+  "head": "68c3b3b0add5890fc578744ae0b0609e8fa09cec",
+  "tree": "e659af24f20d5e9f6bf0213db7df005d8bc01137",
+  "pr": {
+    "baseRefOid": "1bc5be893060e0d6a80e1d890102bfffebb73a17",
+    "headRefOid": "68c3b3b0add5890fc578744ae0b0609e8fa09cec",
+    "mergeCommit": {
+      "oid": "dad89bb5d08e6d34abc5cfab57fc76010c5131dc"
+    },
+    "number": 11,
+    "state": "MERGED",
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/11"
+  },
+  "checks": [
+    "MERGED",
+    "one_new_commit",
+    "single_parent",
+    "tree_equality"
+  ],
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md",
+  "humanPrompt": "30_AUSFUEHRUNG/AP-CV2-090/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md"
+}

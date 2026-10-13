@@ -1,14 +1,38 @@
-# Client V2 – AP-CV2-090 / R03-UEBERNAHME / ROOT_PASS, 2026-10-13
+# Client V2 – AP-CV2-100 / R05-ABNAHME / ROOT_PASS, 2026-10-13
 
-Aktiver Arbeitsblock CLIENT_V2. AP000 bis AP080 ACCEPTED; AP080 tatsächlich auf `1bc5be893060e0d6a80e1d890102bfffebb73a17` übernommen, Single-Parent/Baumgleichheit und unabhängiger PASS/menschlicher Prompt [belegt](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). AP090 unabhängig mit ROOT_PASS auf `work/client-v2/ap-cv2-090` geprüft (R02); Workflow READY_FOR_CANONICALIZATION, menschliche Squash-Mergefreigabe R03 gesichert; Merge noch ausstehend. Spätere Pakete PLANNED, Server-Distributed bleibt offen.
+AP-CV2-000 bis AP-CV2-090 auf `feat/client-v2` ACCEPTED; letzter kanonischer Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`. Der aktuelle AP-CV2-100-Paketbranch `work/client-v2/ap-cv2-100` ([PR #12](https://github.com/marcosudau-vps/voice-stt-client/pull/12)) wurde unabhängig am Kandidaten `0d45f8e9d3b484631da80be28f31c86ea85ab002` / Tree `aa8e3146f7e05e67694fc2027d712c62ce44cebe` geprüft: **technischer ROOT_PASS**, 6/6 Paketrequirements erfüllt, `CV2-100-R03-F01` geschlossen.
 
-[Runreport](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [R02-ROOT_PASS](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R02-ABNAHME/01_REPORT.md), [R03-Freigabe](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-090/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md), [Workflowstatus](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Planungseinstieg](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md), [Produktinterfaces](docs/protocol-v2-feedback.md).
+[R05-Abnahmebericht](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md), [unabhängige Evidenz](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/EVIDENCE/INDEX.md), [R04-Korrekturbelege](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/EVIDENCE/INDEX.md), [Workflowstatus](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json).
 
-Bestehende Feedbackengine mit validiertem V2-Mirroringang, quellenneutralen Phasen und getrenntem Backgrounddrain. Segmentvorschau, Domain-Dedup, diagnostischer Log-/Replaypfad, relative Anzeige ohne Lifecyclecommands; isolierte queued Qt-/Sound-/LEDausgabe. Mappingregeln und Präferenzen bleiben erhalten, UUIDkorrelation nutzt die vorhandene OBSfoundation.
+Extern qualifizierte Windows11-Suite **1581 PASS**, gezielte Tests **210 PASS**, **17** echte gepinnte Client-/Servercheckpoints am Server `ada13b0`, GitHub-Actions-CI **38394758805** erfolgreich auf dem geprüften Kandidaten. Reviewer hat diese Belege unabhängig geprüft, aber keine eigene Windows-/Hardwaretestausführung vorgenommen.
 
-Qualifikation: 1552 vollständige Windows-Tests, 377 gezielte Tests, 39 neue Clienttests; tatsächlicher gepinnter Domain-/Log-/Replay-/Qtcheckpoint 18 Checks. compileall/diffcheck und Akten-/Blobbindung im Evidenzindex. Hardware-/ASR-/Wahrnehmung bleibt AP-IV2-020, reguläre Appkomposition AP100. Start weiterhin `.\venv\Scripts\python.exe -m voice_stt_client`.
+**Nächster Schritt: WAITING_FOR_APPROVAL.** Ausdrückliche menschliche Freigabe des Squash-Merges von PR #12 erforderlich, davor aktueller PR-Head, unveränderte Base, ausschließlich administrative R05-Nachträge sowie finale CI prüfen. Kein Merge und kein Start von AP-CV2-110 durch dieses Review.
 
-Nächste Aktion: administrative R03-Freigabe-CI und finale PR-Head-/Baseidentität überprüfen, danach genau einen freigegebenen Squash-Merge von PR #11; kein automatischer AP100-Start.
+---
+
+## Historischer R04-Stand vor unabhängigem R05-Review
+
+Aktiver CLIENT_V2-Block; AP000 bis AP090 tatsächlich ACCEPTED, kanonischer Parent
+`dad89bb5d08e6d34abc5cfab57fc76010c5131dc`. Kandidatenbranch
+`work/client-v2/ap-cv2-100`, [PR #12](https://github.com/marcosudau-vps/voice-stt-client/pull/12).
+
+R03-[CHANGES_REQUIRED](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R03-ABNAHME/01_REPORT.md) wurde auf dessen Dokumentenspitze c5a510f übernommen.
+F01 im Selbstcheck korrigiert: V2-Local-Apply publiziert Started/Runtime/Completed
+mit derselben settings-ID, korrekten Flags und Erfolgs-/Fehlerstatus auch bei
+Persistenzfehler und Rollback. Busy, Core-Abweisung, Loggingausfall, Shutdown und
+doppelte Completion sind geprüft. R03-Report bleibt unveränderte historische Quelle.
+
+Neue Windows-Vollsuite1581 ohne Skips, gezielte210, 17 komponierte Serverchecks
+gegen 45 bytegeprüfte ada13b0-Quellen, compileall/diffcheck PASS.
+[R04-Report](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/01_REPORT.md), [Evidenz](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/EVIDENCE/INDEX.md), [Paketakte](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/00_PAKET.md),
+[Workflowstatus](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json), [Runtimeinterfaces](docs/protocol-v2-runtime.md).
+Start `.\venv\Scripts\python.exe -m voice_stt_client`; Headless `--headless`.
+
+Tatsächliche Übergabe erst nach grüner CI des finalen PR-Heads. Danach frische
+unabhängige Abnahme des gesamten kumulativen AP100 mit Fokus F01; Schreiben pausiert.
+Kein eigener ROOT_PASS, kein Merge/AP110 ohne unabhängigen PASS, menschlichen Prompt
+und tatsächliche kanonische Übernahme. Reale Hardware-/ASR-/Crossrepo-/abschließende
+V2-Buildgates und Server-Distributed bleiben offen.
 
 ## Historischer Stand vor AP-CV2-020
 

@@ -1,0 +1,35 @@
+{
+  "reviewedCommit": "4a35a2d7eba5fa55e79528744320419b8ec0a1b3",
+  "reviewedTree": "18f7516471c97627b92e9221e24e367f30f5cd81",
+  "canonicalParent": "dad89bb5d08e6d34abc5cfab57fc76010c5131dc",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "pullRequest": 12,
+  "compare": {
+    "aheadBy": 3,
+    "behindBy": 0,
+    "changedFiles": 86
+  },
+  "githubCI": {
+    "id": 38347923728,
+    "conclusion": "success"
+  },
+  "independentlyComparedBlobs": {
+    "voice_stt_client/core/v2_runtime.py": "cc29ba0ba98ed6e1c93dd4fb0420a9d831e4d0ea",
+    "voice_stt_client/ui/v2_application.py": "72a78ece73329b4bff569fd762859f872e86061e",
+    "voice_stt_client/ui/v2_core_bridge.py": "ab987ac92111581a5d5fb15023614ddc21c6ce9f",
+    "tests/test_event_stream.py": "bc4ade60e7610d6b6f8ad23818b57ac4d404b2da",
+    "tests/test_v2_runtime_integration.py": "2a2c1929312531e6bbf2836beb397f1ead6220ac",
+    "voice_stt_client/app.py": "5ae68816fff08198a3b7511c9c4d1f12a70cc587"
+  },
+  "externallyRunWindows": {
+    "tests": 1574,
+    "targeted": 203,
+    "serverChecks": 17,
+    "result": "PASS"
+  },
+  "reviewerReexecutedWindowsTests": false,
+  "findingIds": [
+    "CV2-100-R03-F01"
+  ],
+  "verdict": "CHANGES_REQUIRED"
+}

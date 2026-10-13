@@ -7,6 +7,7 @@ in this object only; published projections contain nonsecret metadata.
 from __future__ import annotations
 
 import asyncio
+import inspect
 from copy import deepcopy
 from dataclasses import asdict, dataclass, replace
 from enum import StrEnum
@@ -56,7 +57,7 @@ class SettingsUIView:
 class SettingsUISession:
     """Create one per dialog lease, on the same loop as settings/controls.
 
-    persist_profile(profile) is an explicit synchronous local transaction:
+    persist_profile(profile) is an explicit sync or async local transaction:
     register/validate controls and atomically persist, or raise without commit.
     The application composition supplies that port in AP100. This service
     never invents a successful save when the port is missing.
@@ -239,13 +240,26 @@ class SettingsUISession:
             if self.persist_profile is None:
                 raise SettingsError("profile_persistence_required")
             # Port must be transactional and return normally only on commit.
+            async def persist_and_adopt():
+                try:
+                    result = self.persist_profile(deepcopy(candidate))
+                    if inspect.isawaitable(result):
+                        await result
+                except Exception:
+                    raise SettingsError("profile_persistence_failed") from None
+                self.settings.profile = candidate
+                self.controls.config = ControlConfig(**candidate.controls)
+                self.settings._publish()
+            # Async composition can marshal Win32 work to Qt and disk work to
+            # a worker. Closing the dialog cannot interrupt an atomic commit
+            # between persistence and adoption of the corresponding controls.
+            commit = asyncio.create_task(persist_and_adopt())
             try:
-                self.persist_profile(deepcopy(candidate))
-            except Exception:
-                raise SettingsError("profile_persistence_failed") from None
-            self.settings.profile = candidate
-            self.controls.config = ControlConfig(**candidate.controls)
-            self.settings._publish()
+                await asyncio.shield(commit)
+            except asyncio.CancelledError:
+                await commit
+                raise
+            self._guard(context.generation)
             if not reconnect:
                 if self.settings.session.is_ready:
                     await self.settings.apply_session()

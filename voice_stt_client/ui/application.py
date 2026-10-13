@@ -1014,7 +1014,9 @@ def run_gui(
             guard.release()
             return EXIT_TRAY_UNAVAILABLE
 
-        desktop = DesktopApplication(
+        from voice_stt_client.ui.v2_application import V2DesktopApplication
+
+        desktop = V2DesktopApplication(
             application,
             config,
             guard,

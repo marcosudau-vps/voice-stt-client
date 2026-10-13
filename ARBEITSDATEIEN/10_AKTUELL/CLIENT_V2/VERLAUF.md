@@ -78,3 +78,42 @@ R02-Unterlagen per Fast-forward übernommen; F01/F02 in fünf Fehlerfällen repr
 ## AP-CV2-040-R05 – 2026-10-12 – Task-Join-/Logclose-Cancellation / REVIEW_READY
 
 R04-Unterlagen per Fast-forward übernommen, einziger offener F02-Rest anerkannt und in drei Fenstern reproduziert. Äußerstes Log-finally, begrenzter geschützter Task-Join und gehaltener Logshutdowntask schützen Cancellation samt Retry. Fünf neue Regressionen; 1378 Windows-/233 gezielte Tests,52 reale Serverfälle/46 bytegeprüfte Quellen, compileall/diffcheck PASS. [R05-Report](30_AUSFUEHRUNG/AP-CV2-040/RUNS/R05-KORREKTUR/01_REPORT.md). Alle23 IDs neu belegt, R01–R04 erhalten. F01 CLOSED_R04, F02 technisch selbstkorrigiert mit unabhängigem Recheck offen; Branch ab Übergabe pausiert, keine Promotion/kein Folgepaket.
+
+
+## AP-CV2-100-R01 – 2026-10-13 – Desktopkomposition / REVIEW_READY
+
+Vom kanonischen AP090-Parent dad89bb nach belegtem unabhängigen PASS, menschlichem
+Prompt und Single-Parent-/Baumgleichheit. Gemeinsamer V2-Desktop-/Core-/Media-/Settings-/
+Result-/Feedbackfluss, Workerpersistenz und kontrollierter Rollback/Shutdown.
+1573 Windows-/ 190 gezielte Tests, 17 echte komponierte Serverchecks,
+compileall/diffcheck PASS. Unabhängige Abnahme offen, Umsetzungsschreiben ab Abgabe
+pausiert; keine kanonische Übernahme oder AP110-Implementierung.
+
+[Runreport](30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/01_REPORT.md).
+
+## 2026-10-13 – AP-CV2-100 / R02-KORREKTUR: CI-01
+
+CI-Replaytimeout bei 281-ms-Runnerverzögerung reproduziert; Testfristen für
+durable Cursor-IO korrigiert, 280-ms-Regressionsfall ergänzt, fachliche Assertions
+erhalten und erweitert. Windows1574/gezielte203/Servercheckpoint17/compileall
+PASS, kandidatgebundene vollständige Logs. [R02-Report](30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/01_REPORT.md).
+REVIEW_READY im Selbstcheck; tatsächliche Übergabe erst nach grüner finaler PR-CI.
+Keine Eigenabnahme, kanonische Übernahme oder AP110.
+
+## 2026-10-13 – AP-CV2-100 / R04-KORREKTUR: F01
+
+R03-Reviewakte fetch/ff-only übernommen. Fehlende korrelierte Settingsaudits
+im tatsächlichen V2-Desktop/Bridge/Core reproduziert und minimal ergänzt; sieben
+Positiv-/Negativ-/Rollback-/Busy-/Shutdown-/Ingressfälle hinzugefügt.
+Windows1581/gezielte210/Servercheckpoint17/compileall/diffcheck PASS; neue
+Kandidaten-/Log-/Gitblobbindung. [R04-Report](30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/01_REPORT.md).
+REVIEW_READY im Selbstcheck, tatsächliche Übergabe nach finaler grüner CI.
+R03-CHANGES_REQUIRED historisch erhalten; frischer Gesamt-Review offen, kein Merge/AP110.
+
+## 2026-10-13 – AP-CV2-100 / R05-ABNAHME: unabhängiger ROOT_PASS
+
+PR #12 nach R04-Korrektur vollständig gegen Parent dad89bb5d und Kandidat `0d45f8e9d3b484631da80be28f31c86ea85ab002` / Tree `aa8e3146f7e05e67694fc2027d712c62ce44cebe` überprüft. F01 (korrelierte V2-Settings-Audits) nach realer Qt/Core/Bridge-Faultinjection und Red/Green-Tests unabhängig geschlossen, keine neuen Pflichtfindings; FINAL-01/02 und RUNTIME-01..04 technisch PASS. Externe Windows-Belege 1581/210 und gepinnte Servercheckpointfälle 17 sowie CI 38394758805 erfolgreich und unabhängig validiert. [R05-Bericht](30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md). **WAITING_FOR_APPROVAL**, keine menschliche Mergefreigabe, kein AP110-Start.
+
+## 2026-10-13 – AP-CV2-100 / R06-UEBERNAHME: menschliche Squash-Freigabe dokumentiert
+
+Wörtlicher Auftrag „Hiermit wird die Freigabe zun Merge von PR #12, Arbeitspaket AP-CV2-100 erteilt. Bitte führe den Merge durch.“ als [Originalprompt](30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/00_PROMPT_ORIGINAL.md) gesichert. R05-PASS auf 0d45f8e9d3b484631da80be28f31c86ea85ab002; freigegebener Head 4c7be6945ae3f2c52748667963d00a1d5cd30d9f, kanonischer Parent dad89bb5d08e6d34abc5cfab57fc76010c5131dc. Finale PR-CI nach rein administrativem R06-Nachtrag nochmals erforderlich; ACCEPTED erst nach echtem Squash, Git-Parent- und Treeabgleich. Kein AP110-Vorgriff.
