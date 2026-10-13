@@ -12725,7 +12725,16 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/server-runtime-checkpoint.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "run": "R05-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "0d45f8e9d3b484631da80be28f31c86ea85ab002",
+        "reviewedTree": "aa8e3146f7e05e67694fc2027d712c62ce44cebe",
+        "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/EVIDENCE/INDEX.md",
+        "closedFindingIds": []
+      }
     },
     {
       "id": "FINAL-02",
@@ -12803,7 +12812,16 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/server-runtime-checkpoint.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "run": "R05-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "0d45f8e9d3b484631da80be28f31c86ea85ab002",
+        "reviewedTree": "aa8e3146f7e05e67694fc2027d712c62ce44cebe",
+        "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/EVIDENCE/INDEX.md",
+        "closedFindingIds": []
+      }
     },
     {
       "id": "FINAL-03",
@@ -13324,7 +13342,16 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/server-runtime-checkpoint.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "run": "R05-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "0d45f8e9d3b484631da80be28f31c86ea85ab002",
+        "reviewedTree": "aa8e3146f7e05e67694fc2027d712c62ce44cebe",
+        "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/EVIDENCE/INDEX.md",
+        "closedFindingIds": []
+      }
     },
     {
       "id": "RUNTIME-02",
@@ -13413,7 +13440,18 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/server-runtime-checkpoint.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "run": "R05-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "0d45f8e9d3b484631da80be28f31c86ea85ab002",
+        "reviewedTree": "aa8e3146f7e05e67694fc2027d712c62ce44cebe",
+        "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/EVIDENCE/INDEX.md",
+        "closedFindingIds": [
+          "CV2-100-R03-F01"
+        ]
+      }
     },
     {
       "id": "RUNTIME-03",
@@ -13497,7 +13535,16 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/server-runtime-checkpoint.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "run": "R05-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "0d45f8e9d3b484631da80be28f31c86ea85ab002",
+        "reviewedTree": "aa8e3146f7e05e67694fc2027d712c62ce44cebe",
+        "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/EVIDENCE/INDEX.md",
+        "closedFindingIds": []
+      }
     },
     {
       "id": "RUNTIME-04",
@@ -13578,7 +13625,16 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R02-KORREKTUR/EVIDENCE/server-runtime-checkpoint.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "run": "R05-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "0d45f8e9d3b484631da80be28f31c86ea85ab002",
+        "reviewedTree": "aa8e3146f7e05e67694fc2027d712c62ce44cebe",
+        "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/EVIDENCE/INDEX.md",
+        "closedFindingIds": []
+      }
     },
     {
       "id": "BASE-07",

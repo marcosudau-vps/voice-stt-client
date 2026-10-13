@@ -406,3 +406,7 @@ unter tests.test_v2_runtime_integration geprüft:
 - `test_local_settings_shutdown_completes_pending_audit_once`
 
 Kein historisches R03-Urteil überschrieben; frischer unabhängiger Gesamt-Review offen.
+
+## AP-CV2-100 – unabhängige R05-Abnahme / ROOT_PASS, 2026-10-13
+
+[Technischer R05-Abnahmebericht](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md), [unabhängiger Evidenzindex](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/EVIDENCE/INDEX.md). Geprüfter kumulativer Kandidat `0d45f8e9d3b484631da80be28f31c86ea85ab002` / Tree `aa8e3146f7e05e67694fc2027d712c62ce44cebe`; unveränderter Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`, Server `ada13b0`. FINAL-01, FINAL-02, RUNTIME-01, RUNTIME-02, RUNTIME-03 und RUNTIME-04 **alle unabhängig PASS**. RUNTIME-02: früheres Pflichtfinding `CV2-100-R03-F01` nach korrelierten Audit-/Rollback-/Shutdownintegrationstests geschlossen. Windows 1581/gezielte210 sowie 17 komponierte Serverchecks als echte Fremdbelege unabhängig validiert; finale Windows-CI 38394758805 PASS auf geprüften Head. Bis zum tatsächlich freigegebenen Merge bleiben die Requirement-Lifecyclefelder `CLIENT OPEN` und Paketstatus `ROOT_PASS` / `WAITING_FOR_APPROVAL`, **nicht ACCEPTED**. Kein AP110-Start.

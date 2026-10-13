@@ -1,6 +1,6 @@
 # Aktueller Paketstand – 2026-10-13
 
-AP000 bis AP090 ACCEPTED; AP100 **REVIEW_READY** nach [R04-Korrektur](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/01_REPORT.md). F01 im Selbstcheck korrigiert; aktueller Kandidat muss nach grüner finaler CI frisch unabhängig im Gesamtumfang geprüft werden. [Workflowstatus](../../WORKFLOW_STATUS.json). Kein Merge/AP110 ohne PASS und menschliche Freigabe.
+AP000 bis AP090 tatsächlich ACCEPTED; AP100 **ROOT_PASS / WAITING_FOR_APPROVAL** nach [unabhängigem R05-Review](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md). F01 behoben und unabhängig geschlossen; technische 6/6 Anforderungen PASS. [Workflowstatus](../../WORKFLOW_STATUS.json). Kein Merge/AP110 vor ausdrücklicher menschlicher Freigabe und tatsächlicher kanonischer Übernahme.
 
 # Arbeitspakete – Index und Liefergrenzen
 

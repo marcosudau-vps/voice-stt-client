@@ -1,0 +1,56 @@
+{
+  "result": "ROOT_PASS",
+  "checkedDate": "2026-10-13",
+  "repository": "marcosudau-vps/voice-stt-client",
+  "pr": 12,
+  "reviewedCommit": "0d45f8e9d3b484631da80be28f31c86ea85ab002",
+  "reviewedTree": "aa8e3146f7e05e67694fc2027d712c62ce44cebe",
+  "canonicalParent": "dad89bb5d08e6d34abc5cfab57fc76010c5131dc",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "parentDiff": {
+    "aheadBy": 5,
+    "behindBy": 0,
+    "files": 114
+  },
+  "independentlyComparedBlobs": {
+    "voice_stt_client/core/v2_runtime.py": "8951ef658167b927656c849c327119f0ecf08438",
+    "voice_stt_client/ui/v2_application.py": "1099d5180b86a49da832240b7d1301589d593042",
+    "voice_stt_client/ui/v2_core_bridge.py": "ab987ac92111581a5d5fb15023614ddc21c6ce9f",
+    "tests/test_v2_runtime_integration.py": "1a03deadbed2bab1c555fa95354d37c59432bc53",
+    "tests/test_event_stream.py": "bc4ade60e7610d6b6f8ad23818b57ac4d404b2da",
+    "voice_stt_client/app.py": "5ae68816fff08198a3b7511c9c4d1f12a70cc587",
+    "tests/test_obs040_client_hooks.py": "c7f85f65cac4ea0117ede976c624d36fe3d2964d"
+  },
+  "externalWindows": {
+    "platform": "Windows11 / Python3.12.10",
+    "fullSuite": {
+      "tests": 1581,
+      "skips": 0,
+      "result": "PASS"
+    },
+    "targeted": {
+      "tests": 210,
+      "result": "PASS"
+    },
+    "checkpoints": {
+      "count": 17,
+      "serverSources": 45,
+      "result": "PASS"
+    },
+    "manifest": "R04-KORREKTUR/EVIDENCE/windows-validation.json",
+    "checkedIndependentOfExecution": true
+  },
+  "githubActions": {
+    "runId": 38394758805,
+    "headSha": "0d45f8e9d3b484631da80be28f31c86ea85ab002",
+    "baseSha": "dad89bb5d08e6d34abc5cfab57fc76010c5131dc",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "reviewerWindowsSuite": "NOT_RUN",
+  "closedFindings": [
+    "CV2-100-R03-F01"
+  ],
+  "openFindings": []
+}
