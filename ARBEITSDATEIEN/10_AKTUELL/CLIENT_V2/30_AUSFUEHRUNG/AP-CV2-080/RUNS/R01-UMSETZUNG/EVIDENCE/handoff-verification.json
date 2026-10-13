@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "canonicalParent": "0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3",
+  "candidateBranch": "work/client-v2/ap-cv2-080",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "qualifiedBlobCount": 205,
+  "sourceAndLogHashesMatch": true,
+  "productAndTestsUnchangedSinceQualification": true,
+  "requirementCount": 10,
+  "records": {
+    "result": "PASS",
+    "package": "AP-CV2-080",
+    "packageStatus": "REVIEW_READY",
+    "referencedFiles": 26,
+    "markdownFiles": 22,
+    "relativeLinks": 1151,
+    "errors": []
+  },
+  "diffCheck": "PASS"
+}

@@ -195,6 +195,7 @@ class SettingsDialog(QDialog):
         *,
         observability=NULL_INGRESS,
         apply_error: Callable[[], str] | None = None,
+        v2_local: bool = False,
     ) -> None:
         super().__init__(parent)
         self.setWindowTitle("RealtimeSTT – Einstellungen")
@@ -210,6 +211,8 @@ class SettingsDialog(QDialog):
         self._groups: dict[str, QGroupBox] = {}
         self._definitions: dict[str, SettingDefinition] = {
             definition.path: definition for definition in SETTING_DEFINITIONS
+            if not v2_local or (definition.show_in_dialog and not definition.path.startswith(
+                ("session.", "dictation_window.", "hotkey.", "server.")))
         }
         self._history_entries: list[HistoryEntry] = []
 
@@ -219,6 +222,8 @@ class SettingsDialog(QDialog):
         self._history_tab = self._build_history_tab()
         self.tabs.addTab(self._history_tab, "Verlauf")
         for name in self.TAB_NAMES[1:]:
+            if v2_local and name == "Verbindung & Betriebsmodus":
+                continue
             self.tabs.addTab(self._build_settings_tab(name), name)
         for editor in self._editors.values():
             if isinstance(editor, QComboBox):
@@ -252,7 +257,7 @@ class SettingsDialog(QDialog):
         page = QWidget()
         layout = QVBoxLayout(page)
         grouped: dict[str, list[SettingDefinition]] = defaultdict(list)
-        for definition in SETTING_DEFINITIONS:
+        for definition in self._definitions.values():
             if definition.category == category and definition.show_in_dialog:
                 group_name = definition.group
                 if category == "Erscheinungsbild & Feedback" and group_name == "Feedback":

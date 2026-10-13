@@ -1,12 +1,12 @@
 # AP-CV2-070 – Konfigurationsmigration und serverautoritativer Settingsservice
 
-Status **ROOT_PASS**, workflowPhase **WAITING_FOR_APPROVAL**, Stand 2026-10-12. Unabhängiges R02-Review bestanden; menschlicher Merge-/Übernahmeprompt noch ausstehend.
+Status **ACCEPTED**, workflowPhase **CANONICALIZED**, Stand 2026-10-12. R02-PASS, tatsächlicher R03-Freigabeprompt und erfolgte PR9-Squashübernahme geprüft.
 
 [Paketvertrag](../../PLANUNG/ARBEITSPAKETE/AP-CV2-070.md), [Originalauftrag](RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md), [Report](RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md), [öffentliche API](../../../../../docs/protocol-v2-settings.md).
 
 Base feat/client-v2, Branch `work/client-v2/ap-cv2-070`, Parent `473a75d02fb6d00e5664af4328dadaa44da5191a`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`. Vorgänger-PASS, menschliche Freigabe und tatsächliche Übernahme [geprüft](RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json).
 
-1460 Windowsgesamttests, 243 gezielte Tests, 38 echte Serverchecks und 55 gepinnte Supplementtests/keine Skips, compileall/diffcheck PASS. 34 neue Tests; alle29 SET-/WAKE-Requirements einzeln belegt. R02 unabhängiger ROOT_PASS; kein Merge/AP080 ohne menschlichen Prompt. Reale Kalibrierung und Nutzsprachgrenze AP-IV2-020, Appkomposition AP100.
+1460 Windowsgesamttests, 243 gezielte Tests, 38 echte Serverchecks und 55 gepinnte Supplementtests/keine Skips, compileall/diffcheck PASS. 34 neue Tests; alle29 SET-/WAKE-Requirements einzeln belegt. R02 unabhängiger ROOT_PASS, tatsächlicher R03-Prompt und AP070-Übernahme nachgewiesen; AP080 hat einen eigenen Auftrag. Reale Kalibrierung und Nutzsprachgrenze AP-IV2-020, Appkomposition AP100.
 
 Der exakte Kandidat ergibt sich aus veröffentlichter Branchspitze/PR-Beschreibung. Produkt-/Teststand über Parent, getesteten staged Diff und qualifizierte Gitblobs im Windowsmanifest identifiziert; finale eigene SHA/Tree außerhalb des erzeugenden Commits. Normale Paketbranch-Pushes/PR/Handoff workflowweit autorisiert gemäß Original AP000, keine kanonische Promotion.
 
@@ -17,3 +17,5 @@ Der exakte Kandidat ergibt sich aus veröffentlichter Branchspitze/PR-Beschreibu
 ## Übernahmefreigabe
 
 Menschliche Freigabe für [PR #9](https://github.com/marcosudau-vps/voice-stt-client/pull/9) ist unter [R03-UEBERNAHME](RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md) als Original gesichert; [Vorgezogener Abschlussbericht](RUNS/R03-UEBERNAHME/01_REPORT.md), [Evidenzindex](RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md). Vor dem GitHub-Squash weiterhin `ROOT_PASS` / `READY_FOR_CANONICALIZATION`; kein ACCEPTED ohne tatsächlich verifizierten Single-Parent-Merge. Ausgangs-Head bei Freigabe `f0c95190b205180cca3f1224687e4872f25116db`.
+
+Aktualisierung 2026-10-12: tatsächlich auf feat/client-v2 übernommen als `0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3`, [Provenienznachweis](../AP-CV2-080/RUNS/R01-UMSETZUNG/EVIDENCE/predecessor-canonicalization.json). Frühere Runreports bleiben unverändert historisch.

@@ -4,43 +4,45 @@
   "repository": "marcosudau-vps/voice-stt-client",
   "workflowPhase": "READY_FOR_CANONICALIZATION",
   "packageStatus": "ROOT_PASS",
-  "activePackage": "AP-CV2-070",
-  "nextPackage": "AP-CV2-080",
-  "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
-  "candidateBranch": "work/client-v2/ap-cv2-070",
-  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/9",
+  "activePackage": "AP-CV2-080",
+  "nextPackage": "AP-CV2-090",
+  "canonicalParent": "0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3",
+  "candidateBranch": "work/client-v2/ap-cv2-080",
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/10",
   "selectedCandidate": true,
   "lastRun": {
     "id": "R03-UEBERNAHME",
     "role": "canonicalization",
-    "report": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R03-UEBERNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
+    "report": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+  "reviewedCommit": "eafd918f456551af694ede4af472ed4515b9fdd6",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
   "humanApproval": {
-    "run": "R03-UEBERNAHME",
-    "source": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
-    "originalHead": "f0c95190b205180cca3f1224687e4872f25116db",
-    "canonicalParent": "473a75d02fb6d00e5664af4328dadaa44da5191a",
-    "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/9",
-    "reviewReport": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md"
+    "source": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+    "prNumber": 10,
+    "approvedHead": "777c8e23f531e24532e78312365798bc83f2234c",
+    "approvedTree": "986d445f0afd83060c0cfd747067e6bed0c67b37",
+    "canonicalParent": "0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3",
+    "reviewReport": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md",
+    "action": "squash_and_merge",
+    "status": "GRANTED"
   },
-  "writeOwner": "R03-UEBERNAHME",
+  "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Menschlicher Mergeprompt erteilt. Nur nach erfolgreicher aktueller Head/Base-CI und Prüfung des ausschließlich administrativen Freigabenachtrags PR #9 via squash and merge übernehmen; danach Single-Parent/Treegleichheit prüfen und keinen zweiten Featurecommit erzeugen.",
+  "nextAction": "Menschliche Freigabe für PR #10 gesichert; administrative Freigabenachtrags-CI und finale SHA-/Base-/Mergeable-Prüfung, danach genau ein Squash-Merge und Single-Parent-/Tree-Nachweis. AP090 bleibt gesperrt.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
   "candidateSelection": {
-    "candidateId": "AP-CV2-070",
-    "source": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "Ausdrücklicher Auftrag nach tatsächlich übernommenem AP060."
+    "candidateId": "AP-CV2-080",
+    "source": "30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "reason": "Ausdrücklicher AP080-Auftrag nach tatsächlicher AP070-Übernahme."
   },
   "recovery": null,
   "relatedServerFix": null,
-  "reviewedTree": "e18b610e4fddfefc9a167c7178931f64f7fcd10e"
+  "reviewedTree": "960270c3f786433967aee7b16333be70f41427fe"
 }

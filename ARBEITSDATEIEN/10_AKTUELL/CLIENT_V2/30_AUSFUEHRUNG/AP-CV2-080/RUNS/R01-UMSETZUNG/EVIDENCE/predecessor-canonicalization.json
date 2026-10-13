@@ -1,0 +1,30 @@
+{
+  "package": "AP-CV2-070",
+  "aggregate": "0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3",
+  "parents": [
+    "473a75d02fb6d00e5664af4328dadaa44da5191a"
+  ],
+  "finalPackageHead": "ca90f6a2c1214a78d5edfdc51f4d3e7f37110797",
+  "tree": "1f060bb9c4eb45e907ef059b35213cc65db707ce",
+  "treeEqual": true,
+  "passReport": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R02-ABNAHME/01_REPORT.md",
+  "reviewedCommit": "146eff89e89faa48546f913cd7b770d3449d22a6",
+  "reviewVerdict": "ROOT_PASS",
+  "humanPrompt": "30_AUSFUEHRUNG/AP-CV2-070/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+  "recordPathBase": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2",
+  "humanPromptQuote": "Die Freigabe zum Merge von PR #9, Arbeitspaket AP-CV2-070 ist hiermit erteilt. Bitte führe den Merge durch.",
+  "gitCommitPR": 9,
+  "githubVerified": {
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/9",
+    "state": "closed",
+    "merged": true,
+    "mergedAt": "2026-10-12T18:35:34Z",
+    "base": "feat/client-v2",
+    "head": "ca90f6a2c1214a78d5edfdc51f4d3e7f37110797",
+    "mergeCommit": "0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3",
+    "verificationCommand": "gh api repos/marcosudau-vps/voice-stt-client/pulls/9"
+  },
+  "singleNewCommit": true,
+  "verifiedGitCommand": "git show --format=%P; git rev-parse aggregate^{tree} finalPackageHead^{tree}",
+  "result": "PASS"
+}

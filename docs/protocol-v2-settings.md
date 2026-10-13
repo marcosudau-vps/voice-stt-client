@@ -1,6 +1,8 @@
 # V2 Settingsservice und Profilmigration (AP-CV2-070)
 
-Der Core bietet versionierte Profile, die öffentlichen Settings-/Wake-Katalogrouten und bestätigte Sessionpatches. Die Desktop-App verwendet diesen Pfad erst nach der Komposition in AP-CV2-100. Einstellungen und Credentialdialoge gehören zu AP-CV2-080. Der Serververtrag ist auf `ada13b011e1d3829f78e7f389e3b927795a2b3be` gepinnt.
+Der Core bietet versionierte Profile, die öffentlichen Settings-/Wake-Katalogrouten und bestätigte Sessionpatches. Die Desktop-App verwendet diesen Pfad erst nach der Komposition in AP-CV2-100. Die implementierte AP080-Oberfläche samt Credential-/Applyports ist in [protocol-v2-settings-ui.md](protocol-v2-settings-ui.md) beschrieben. Der Serververtrag ist auf `ada13b011e1d3829f78e7f389e3b927795a2b3be` gepinnt.
+
+AP080 korrigiert die Anschlussgrenze für deaktiviertes Wake: gespeicherte lokale Wake-IDs bleiben im Profil, `prepare()` sendet bei `wake_word=False` jedoch die vertragsgemäß leere Wireauswahl. Wiederaktivierung verwendet die erhaltenen IDs.
 
 ## Öffentliche APIs und Anschluss
 

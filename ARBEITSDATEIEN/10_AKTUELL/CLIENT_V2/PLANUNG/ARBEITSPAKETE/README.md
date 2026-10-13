@@ -1,3 +1,7 @@
+# Aktueller Paketstand – 2026-10-12
+
+AP000 bis AP070 ACCEPTED; AP080 ROOT_PASS / READY_FOR_CANONICALIZATION (menschlicher Mergeprompt gesichert). [R02-Abnahme](../../30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md), [R01-Umsetzung](../../30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/01_REPORT.md), [Workflowstatus](../../WORKFLOW_STATUS.json). Nächste Aktion: freigegebenen Squash nach CI- und Head-/Parentprüfung; spätere Pakete PLANNED.
+
 # Arbeitspakete – Index und Liefergrenzen
 
 Rollen-Einstieg: [Umsetzung](../SKILLS/voice-stt-client-v2-umsetzen/SKILL.md) oder [unabhängige Abnahme](../SKILLS/voice-stt-client-v2-abnehmen/SKILL.md). Nur die Datei des beauftragten Pakets und dessen fachliche Referenzen lesen; die Skills laden den passenden Arbeitsablauf.

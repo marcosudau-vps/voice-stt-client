@@ -1,0 +1,13 @@
+{
+  "canonicalParent": "0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "initialWorkingTree": "clean",
+  "baselineCommand": ".\\venv\\Scripts\\python.exe -m unittest tests.test_v2_settings_service tests.test_v2_controls tests.test_obs050_settings -v",
+  "baselineExitCode": 0,
+  "baselineCount": 90,
+  "planHashes": {
+    "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\PLANUNG\\ARBEITSPAKETE\\AP-CV2-080.md": "4198ef09ff948d8ad6b7449ab83130663b417993298c0e251d10a99645c5ff59",
+    "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\PLANUNG\\REFERENZ\\KONTRAKTE\\K-03_SETTINGS_WAKE_WORDS.md": "49a2e8f33b2b210c181e5af0005ea1ac9ca002cda587a52a4766271062ab3420",
+    "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\PLANUNG\\REFERENZ\\KONTRAKTE\\K-04_LOGS_AUTH_RECOVERY.md": "38f3735ad666546bc0060e06a772dd73aae2e2a6c41396fb3577cf3bdd9bbceb"
+  }
+}

@@ -2159,3 +2159,16 @@ Menschlicher Originalauftrag sichergestellt: „Nach erfolgreicher CI wird die F
 ## AP-CV2-070-R01 – 2026-10-12 – Settings/Profilmigration / REVIEW_READY
 
 Von tatsächlichem AP060-Aggregat473a75d nach geprüftem PASS/Prompt/Singleparent/Treegleichheit umgesetzt: versioniertes Profil/Backup/Reparatur, dynamischer Katalog, getrennte Revisionsräume und bestätigter NA-Bootstrap vor Audio. 1460 Windowsgesamttests,243 gezielte Tests,38 echte HTTP/WS/Media/PCM-Checks,55 gepinnte Settings/Wake-Supplementtests ohne Skips, compileall/diffcheck PASS. 34 neue Tests;29 Anforderungen einzeln belegt. [R01-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/01_REPORT.md). Keine eigene Abnahme/Promotion/AP080; Schreiben ab Übergabe pausiert.
+
+
+## AP-CV2-080-R01 – 2026-10-12 – Settings-UI/Admin/Vault/Apply / REVIEW_READY
+
+Vom tatsächlich übernommenen AP070-Aggregat0c8d52d nach PASS/Freigabe/PR-/Parent-/Treeprüfung umgesetzt. Trigger-/Session-/Serveroberfläche, echte No-change-Adminprüfung, originbezogener Windowsvault, explizite Activation-/Drainentscheidungen, epoch-/generationgebundene Requests und bestätigte Profilmigration. 1513 vollständige Windows-Tests, 296 gezielte Regressionen, 53 neue Tests, echte UI27/native29/Settings38 sowie gepinnte Supplement55 ohne Skips; compileall/diffcheck PASS. [R01-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R01-UMSETZUNG/01_REPORT.md). Zehn UI-Anforderungen einzeln belegt. Eigenprüfung SELF_CHECK_PASS, unabhängige Abnahme offen; kein Merge/AP090. Appkomposition AP100, reale ASR/Hardware AP-IV2-020, Server-Distributed offen. Nach Übergabe Schreiben pausiert.
+
+## 2026-10-13 – AP-CV2-080: unabhängige technische Abnahme R02
+
+PR #10, geprüfter Kandidat `eafd918f456551af694ede4af472ed4515b9fdd6`, Tree `960270c3f786433967aee7b16333be70f41427fe`, kanonischer Parent `0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3`, Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`: **ROOT_PASS** für UI-01 bis UI-10 ohne offene Pflichtfindings. Code-/Parentdiff und neun gepinnte Blobidentitäten unabhängig geprüft; vollständige 1513 Windows-Tests, 296 gezielte, reale Settings38/UI27/native29 und 55 gepinnte Serverchecks ohne Skips als Fremdbelege verifiziert, eigene Windows-Wiederholung NOT_RUN. GitHub-CI auf geprüftem Head grün. [R02-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md). Workflow WAITING_FOR_APPROVAL; menschliche Übernahme offen, kein Merge/AP090.
+
+## 2026-10-13 – AP-CV2-080: menschliche Squash-Freigabe gesichert (R03)
+
+Nach unabhängigem [R02-ROOT_PASS](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R02-ABNAHME/01_REPORT.md) hat der Auftraggeber [PR #10](https://github.com/marcosudau-vps/voice-stt-client/pull/10) ausdrücklich zum Merge freigegeben. [Originalprompt](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md), [R03-Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-080/RUNS/R03-UEBERNAHME/01_REPORT.md). Freigegebener Head `777c8e23f531e24532e78312365798bc83f2234c`, Parent `0c8d52d45a2e942ca8adebb5e5abc4e1aa2d8eb3`, CI #38321633045 PASS. Workflow READY_FOR_CANONICALIZATION, noch kein Merge im vorgezogenen Report. Squash benötigt neue CI sowie Head-/Parent-/Treeprüfung; kein AP090-Autostart.
