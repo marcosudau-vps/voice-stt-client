@@ -1,6 +1,7 @@
 # AP-CV2-110 R01 – Evidenz
 
 **Status:** REVIEW_READY. Vollständige Selbstchecks PASS, unabhängiger Review offen.
+[PR #13](https://github.com/marcosudau-vps/voice-stt-client/pull/13), Base feat/client-v2.
 Produktkandidat `2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259`, Tree `d9a30deafd7c66143e376931f21d96f6b02aabc4`, Parent `62ca35a01fb88b37e16b7003e26c2f9110c131f3`,
 Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`. Runtime Windows11 Build26300 x64, Projektvenv Python3.12.10.
 
@@ -67,3 +68,8 @@ separat neu gebauten Kandidaten als GitHub-Actions-Artefakt des endgültigen PR-
 bereit; dessen andere Buildstempel/ZIPhashes nicht mit diesen lokalen Hashes vermischen.
 Finale Head-/Tree-/CIidentität und administrative Gitblobgleichheit werden in der
 Abgabeverifikation bzw. tatsächlichen PR-Kurzfassung festgehalten.
+
+[Aktenprüfung](work-record-validation.json) und
+[administrativer Delta-/Gitblob-/Hashabgleich](administrative-delta.json): PASS.
+[PR-Anlageprovenienz](pr-provenance.json) nennt die beobachtete Dokumentenspitze
+vor dem rein administrativen PR-Verweisnachtrag. Finale SHA/Tree/CI im tatsächlichen PR.

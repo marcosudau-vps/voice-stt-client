@@ -772,7 +772,8 @@
       "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
       "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
       "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json",
-      "openFindingIds": []
+      "openFindingIds": [],
+      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/13"
     },
     {
       "id": "AP-IV2-010",

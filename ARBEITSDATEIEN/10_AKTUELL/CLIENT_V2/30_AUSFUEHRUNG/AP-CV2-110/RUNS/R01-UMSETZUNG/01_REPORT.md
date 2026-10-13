@@ -1,7 +1,7 @@
 # AP-CV2-110 / R01-UMSETZUNG
 
 **Status:** REVIEW_READY (vollständiger Selbstcheck; unabhängige Abnahme offen).
-Stand 2026-10-13. Abgabe erst nach grüner CI der endgültigen PR-Spitze.
+Stand 2026-10-13. [PR #13](https://github.com/marcosudau-vps/voice-stt-client/pull/13); Abgabe erst nach grüner CI der endgültigen PR-Spitze.
 
 ## Identität, Auftrag und Voraussetzungen
 

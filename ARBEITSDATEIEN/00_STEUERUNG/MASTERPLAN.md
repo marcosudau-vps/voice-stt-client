@@ -1,5 +1,7 @@
 # Client V2 – AP-CV2-110 / R01-UMSETZUNG / REVIEW_READY, 2026-10-13
 
+[Paket-PR #13](https://github.com/marcosudau-vps/voice-stt-client/pull/13), Base `feat/client-v2`, Head `work/client-v2/ap-cv2-110`.
+
 Aktiver Arbeitsblock [CLIENT_V2](../10_AKTUELL/CLIENT_V2/README.md);
 [Einstieg Planung](../10_AKTUELL/CLIENT_V2/PLANUNG/README.md), [Workflowstatus](../10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json).
 AP000 bis AP100 tatsächlich ACCEPTED auf feat/client-v2; letzter kanonischer Parent
