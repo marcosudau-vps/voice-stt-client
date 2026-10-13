@@ -53,3 +53,7 @@ Reguläre Appverdrahtung samt bestehendem Resultat-/History-/Injectionport bleib
 | Kandidaten-/Log-/FB-/Aktenbindung | separate Abgabeprüfung PASS |
 
 [Evidenzindex](EVIDENCE/INDEX.md) enthält vollständige Befehle/Artefakthashes. Dokumentation, Matrix/Requirements, Manifest, WORKFLOW_STATUS und operative Einstiege auf REVIEW_READY aktualisiert. AP080-Übernahme ausschließlich in aktueller Paket-/Planpflege nachgeführt; historische Reports unverändert. Genau ein Runmeilenstein. Finaler Paket-PR gegen feat/client-v2 wird angehängt, mit Head/Tree/CI-Kurzfassung identifiziert; Arbeitsbaum bei Abgabe sauber. Nächste Aktion: frisches unabhängiges Review, danach ausdrücklicher menschlicher Übernahmeprompt. Kein Auto-Merge und kein Folgepaketstart.
+
+## PR-Bereitstellung
+
+[PR #11](https://github.com/marcosudau-vps/voice-stt-client/pull/11), Base feat/client-v2; qualifizierter erster Umsetzungskandidat `9012cd695125e6fa26b58f1cfcc855195013bd4b`, Tree `c596046cd33e05d541dbdd9f3418e3029ecbb51e`. PR ist diesem Codex-Chat angehängt. Nachtrag ändert ausschließlich PR-/Akten-/Verifikationsverweise. [Erneute veröffentlichungsbezogene Blob-/Log-/FB-/Aktenprüfung](EVIDENCE/publication-verification.json) sichert unveränderte 208 qualifizierte Blobs. Finaler Head/Tree und tatsächliches CIresultat werden außerhalb des erzeugenden Commits in der PR-Beschreibung identifiziert. Keine eigene unabhängige Abnahme oder Übernahmefreigabe.

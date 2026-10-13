@@ -36,3 +36,5 @@ Realer Checkpoint: [18 tatsächlich ausgeführte Checks](server-feedback-checkpo
 | [windows-validation.json](windows-validation.json) | `05a4c0a58511ea90608a34f3b2c36e6d389d3ca115d19e322caba503ff1f12e4` | Kandidatennachweis/Provenienz |
 
 [Abgabeprüfung](handoff-verification.json): 208 qualifizierte Blobs, neun Requirements und alle aktuellen Aktenlinks PASS. Das eigene Resultat ist außerhalb seiner Selbsteinbettung gesichert.
+
+[Veröffentlichungsprüfung nach PR-Verweisen](publication-verification.json), unveränderte qualifizierte Produkt-/Test-/Konfigurationsblobs.
