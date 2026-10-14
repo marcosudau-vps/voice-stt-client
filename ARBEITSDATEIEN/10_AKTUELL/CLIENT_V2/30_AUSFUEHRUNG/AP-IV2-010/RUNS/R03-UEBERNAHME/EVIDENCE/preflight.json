@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "package": "AP-IV2-010",
+  "repository": "marcosudau-vps/voice-stt-client",
+  "pullRequest": 14,
+  "decision": "EXPLICIT_HUMAN_MERGE_APPROVAL",
+  "sourceOriginalPrompt": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+  "approvedHead": "c189afed849964cf1cae91d8046e5983b7b192e4",
+  "approvedTree": "1045084a60107b7c6912cce8b9c6902516571526",
+  "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+  "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+  "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+  "reviewReport": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+  "pass": "ROOT_PASS",
+  "openFindingIds": [],
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "headDifference": {
+    "commitCount": 1,
+    "changedPaths": 12,
+    "classification": "administrative_docs_only",
+    "productChange": false
+  },
+  "ciAtApproval": {
+    "run": 38547047858,
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "allowedAdditionalCommit": "R03 approval/evidence/status administrative only",
+  "finalHeadCi": "PENDING_RECHECK_AFTER_R03_COMMIT",
+  "merge": "PENDING",
+  "scopeExclusions": [
+    "main",
+    "serverPromotion",
+    "release",
+    "tags",
+    "cleanup",
+    "AP-IV2-020"
+  ]
+}

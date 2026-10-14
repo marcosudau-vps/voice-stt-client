@@ -17,7 +17,9 @@ finaler CI. Ab tatsächlicher Übergabe Schreiben/Pushes pausiert. Kein Eigenrev
 Merge, Serverpromotion oder AP-IV2-020-Start. Reale Modell-/Hardware-/Wahrnehmungsgates
 und Server-Distributed offen. Start bleibt `venv/Scripts/python.exe -m voice_stt_client`.
 
-**R02:** [unabhängiger ROOT_PASS](30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md), 7/7 GATE PASS, 0 Findings. **WAITING_FOR_APPROVAL**; PR14-Mergefreigabe fehlt. Reales AP-IV2-020-Gate weiterhin NOT_RUN.
+**R02:** [unabhängiger ROOT_PASS](30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md), 7/7 GATE PASS, 0 Findings. **R03-Freigabe ausdrücklich erteilt**; READY_FOR_CANONICALIZATION, Merge steht noch aus. Reales AP-IV2-020-Gate weiterhin NOT_RUN.
+
+**R03-Übernahmebereit:** [menschlicher Originalprompt](30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md), [Preflightbericht](30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/01_REPORT.md), CI des letzten Docs-Commit noch zu prüfen; kein ACCEPTED vor nachgewiesenem Squash.
 
 <!-- IV2-010-CURRENT-END -->
 

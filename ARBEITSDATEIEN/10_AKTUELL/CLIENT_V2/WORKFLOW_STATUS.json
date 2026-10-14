@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "workflowPhase": "READY_FOR_CANONICALIZATION",
   "packageStatus": "ROOT_PASS",
   "activePackage": "AP-IV2-010",
   "nextPackage": "AP-IV2-020",
@@ -11,18 +11,27 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/14",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R02-ABNAHME",
-    "role": "review",
-    "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+    "id": "R03-UEBERNAHME",
+    "role": "canonicalization",
+    "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
   },
   "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
   "reviewReport": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
-  "humanApproval": null,
+  "humanApproval": {
+    "status": "EXPLICITLY_GRANTED",
+    "source": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+    "approvedHead": "c189afed849964cf1cae91d8046e5983b7b192e4",
+    "approvedTree": "1045084a60107b7c6912cce8b9c6902516571526",
+    "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+    "passReport": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+    "approvedPR": 14,
+    "authorizedAdministrativeNachtrag": true
+  },
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "R02 ROOT_PASS; menschliche PR14-Übernahmefreigabe ausstehend. Nach ausdrücklichem Freigabeprompt aktuelle Head/Base/CI und rein administrativen R02-Nachtrag prüfen, separat Squash ausführen. Kein Merge/AP-IV2-020 durch Review.",
+  "nextAction": "Nach CI des finalen rein administrativen R03-Paketcommits unveränderte PR-Base/Head, erlaubten Review-/Freigabediff und Checks verifizieren, PR #14 genau einmal per Squash mergen, Parent-/Treegleichheit nachweisen. Kein Release/Tag/Servermerge/AP-IV2-020.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
