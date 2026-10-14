@@ -1,3 +1,11 @@
+# AP-IV2-020 – BLOCKED, 2026-10-15
+
+AP010 tatsächlich ACCEPTED (PR14/b80ed8b). Aktiver R01 ab diesem Parent.
+[Paketakte](../../30_AUSFUEHRUNG/AP-IV2-020/00_PAKET.md), [Status](../../WORKFLOW_STATUS.json).
+IV2-020-F01: Produktfixfreigabe nötig; reale Pflichtnachweise offen, kein REVIEW_READY.
+
+## Vorheriger dokumentierter Stand
+
 # Client V2 – AP-IV2-010 / R02-ABNAHME / ROOT_PASS, 2026-10-14
 
 [PR14](https://github.com/marcosudau-vps/voice-stt-client/pull/14), Branch `work/client-v2/ap-iv2-010`, Base `feat/client-v2`.

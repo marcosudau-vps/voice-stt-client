@@ -1,0 +1,22 @@
+{
+  "predecessor": "AP-IV2-010",
+  "pr": {
+    "baseRefName": "feat/client-v2",
+    "headRefOid": "05da00a9b6ca0535e4be93c3062f2551439561b9",
+    "mergeCommit": {
+      "oid": "b80ed8b81ad92bd02ac32553883443d2b7673bcd"
+    },
+    "mergedAt": "2026-10-14T10:21:15Z",
+    "state": "MERGED",
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/14"
+  },
+  "aggregateParents": [
+    "43759d345b2b88354e4f3b383a4833731621d1e3"
+  ],
+  "aggregateTree": "b12a3f4dc1f2c51d2c4a70680e63c988e729f666",
+  "headTree": "b12a3f4dc1f2c51d2c4a70680e63c988e729f666",
+  "newCommits": 1,
+  "review": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+  "approval": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+  "result": "PASS"
+}

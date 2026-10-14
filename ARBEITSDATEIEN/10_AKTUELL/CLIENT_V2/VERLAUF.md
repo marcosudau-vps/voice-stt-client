@@ -146,3 +146,13 @@ Originalprompt für PR #13 wortgleich unter [R03](30_AUSFUEHRUNG/AP-CV2-110/RUNS
 ## 2026-10-14 – AP-IV2-010 R01 – REVIEW_READY
 
 Paar Client0f0687c/Serverada13b0, Produkt unverändert ab43759d3. Windows1354, Server1964/14, Prozess11, Grenz17, Smokes7/7, compileall/diffcheck PASS. PR14; unabhängiger Review und spätere menschliche Übernahme ausstehend. Report: `ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md`. Kein Eigenreview/Merge/Folgepaket.
+
+## 2026-10-15 – AP-IV2-020 / R01-UMSETZUNG: BLOCKED
+
+AP010-Squash b80ed8b nach PASS/Freigabe tatsächlich verifiziert. Lokaler Serverada13b0
+mit555 exakten Blobs, echten Community-/ONNX-Modellen und isolierten Daten bereit;
+V1/VPS geschützt. Windowsbaseline1354, finale1360 und11 Prozessprüfungen PASS.
+Echte Restart-Recovery zweimal FAIL: IV2-020-F01, temporärer HTTP-Vorcheck latcht
+permanent BLOCKED. Noch nicht angewandter enger Clientpatch und gebündelte Realtest-
+und Kalibrierungsabläufe gesichert. Produktänderungsfreigabe nötig. Reale Pflichtgates
+offen; kein REVIEW_READY/PASS. R01 bleibt für dieselbe Fortsetzung zuständig.

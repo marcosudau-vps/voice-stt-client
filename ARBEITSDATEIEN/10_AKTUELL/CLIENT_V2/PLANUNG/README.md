@@ -1,3 +1,18 @@
+# AP-IV2-020 – BLOCKED, 2026-10-15
+
+AP-IV2-010 tatsächlich ACCEPTED: PR14-Squash `b80ed8b`, unabhängiger R02-PASS und
+menschliche R03-Freigabe geprüft. Paketbranch `work/client-v2/ap-iv2-020`.
+Produktcode unverändert. Windowsbaseline1354, finale Windowsregression1360 und
+11 Prozessprüfungen PASS. Lokaler source-qualified Modellserverada13b0 und reale
+ReSpeaker-/USB-/Credential-/Hotkey-/Desktop-/Frozenvorchecks belegt.
+**IV2-020-F01:** temporärer Settings-HTTP-Ausfall beim Serverrestart blockiert
+Recovery dauerhaft. Konkreter enger Clientfix vorbereitet; Produktänderungsfreigabe
+erforderlich. M-/Wakepositive-/Kalibrierungs-/30min100-Gates offen, kein REVIEW_READY.
+[Report](../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md), [gemeinsamer Testablauf](../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/02_GEMEINSAMER_TESTABLAUF.md).
+V1/produktive Server geschützt; keine VPS-Einrichtung, Übernahme oder Releases.
+
+## Vorheriger datierter Stand
+
 # Client V2 – AP-IV2-010 / R01-UMSETZUNG / REVIEW_READY, 2026-10-14
 
 [PR14](https://github.com/marcosudau-vps/voice-stt-client/pull/14), Branch `work/client-v2/ap-iv2-010`, Base `feat/client-v2`.

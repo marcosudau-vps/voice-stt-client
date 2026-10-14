@@ -2,47 +2,40 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "READY_FOR_CANONICALIZATION",
-  "packageStatus": "ROOT_PASS",
-  "activePackage": "AP-IV2-010",
-  "nextPackage": "AP-IV2-020",
-  "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
-  "candidateBranch": "work/client-v2/ap-iv2-010",
-  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/14",
+  "workflowPhase": "BLOCKED",
+  "packageStatus": "BLOCKED",
+  "activePackage": "AP-IV2-020",
+  "nextPackage": null,
+  "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+  "candidateBranch": "work/client-v2/ap-iv2-020",
+  "pullRequest": null,
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R03-UEBERNAHME",
-    "role": "canonicalization",
-    "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
+    "id": "R01-UMSETZUNG",
+    "role": "implementation",
+    "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
-  "reviewReport": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
-  "openFindingIds": [],
-  "humanApproval": {
-    "status": "EXPLICITLY_GRANTED",
-    "source": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
-    "approvedHead": "c189afed849964cf1cae91d8046e5983b7b192e4",
-    "approvedTree": "1045084a60107b7c6912cce8b9c6902516571526",
-    "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
-    "passReport": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
-    "approvedPR": 14,
-    "authorizedAdministrativeNachtrag": true
-  },
-  "writeOwner": null,
-  "blockingReason": null,
-  "nextAction": "Nach CI des finalen rein administrativen R03-Paketcommits unveränderte PR-Base/Head, erlaubten Review-/Freigabediff und Checks verifizieren, PR #14 genau einmal per Squash mergen, Parent-/Treegleichheit nachweisen. Kein Release/Tag/Servermerge/AP-IV2-020.",
+  "reviewedCommit": null,
+  "reviewReport": null,
+  "openFindingIds": [
+    "IV2-020-F01"
+  ],
+  "humanApproval": null,
+  "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
+  "blockingReason": "Reproduzierter permanenter Recoveryblock nach temporärem Settings-GET-Ausfall; Produktfix braucht ausdrückliche Freigabe gemäß Originalauftrag. Reale Pflichtfälle/Kalibrierung/30min100 zusätzlich offen.",
+  "nextAction": "Menschliche Freigabe des konkreten engen Clientfixes aus R01/04_KORREKTURVORSCHLAG.md; danach Fix/Regression/neue EXE/Paarqualifikation und gebündelte Realtests im selben R01.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md",
     "currentCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/00_PROMPT_ORIGINAL.md",
-    "currentImplementationSource": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md"
+    "currentImplementationSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md"
   },
   "candidateSelection": {
-    "candidateId": "AP-IV2-010",
-    "source": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "AusdrÃ¼cklicher Auftrag nach tatsÃ¤chlicher AP110-Ãœbernahme"
+    "candidateId": "AP-IV2-020",
+    "source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "reason": "Ausdrücklicher vollständiger Auftrag nach tatsächlichem AP010-Squash"
   },
   "recovery": null,
   "relatedServerFix": null

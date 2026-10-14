@@ -1,0 +1,238 @@
+{
+  "package": "AP-IV2-020",
+  "cases": [
+    {
+      "id": "M-01",
+      "name": "Manual/mehrere Segmente/Overlap",
+      "requirements": [
+        "REAL-01"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-02",
+      "name": "Wake-only/mehrere IDs",
+      "requirements": [
+        "REAL-01",
+        "REAL-02"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-03",
+      "name": "Both/Trigger-Races",
+      "requirements": [
+        "REAL-01",
+        "REAL-02"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-04",
+      "name": "Phasenmatrix/Hotkeykollision/Watchdog",
+      "requirements": [
+        "REAL-01",
+        "REAL-04"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-05",
+      "name": "Pausen/Restart",
+      "requirements": [
+        "REAL-01",
+        "REAL-03"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-06",
+      "name": "USB/Mute/LED-only",
+      "requirements": [
+        "REAL-03"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-07",
+      "name": "Netz/Server/Logstore",
+      "requirements": [
+        "REAL-03"
+      ],
+      "status": "FAIL",
+      "tester": "Codex/local Windows",
+      "executedAt": null,
+      "clientCommit": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+      "clientBuildSha256": null,
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": "Idle serverrestart twice: permanent settings_preflight_failed after temporary GET outage; preview/final/logstore variants still NOT_RUN",
+      "evidence": [
+        "restart-repro-trace.jsonl",
+        "restart-repro-smoke.json",
+        "repro-transient-preflight.txt.gz"
+      ],
+      "attempts": [],
+      "findingIds": [
+        "IV2-020-F01"
+      ]
+    },
+    {
+      "id": "M-08",
+      "name": "Settings/Drain",
+      "requirements": [
+        "REAL-01"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-09",
+      "name": "Admin/Credential/Export",
+      "requirements": [
+        "REAL-04"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-10",
+      "name": "Frozenfeedback/Bediengefühl",
+      "requirements": [
+        "REAL-04"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-11",
+      "name": "Clipboard/Elevated/Reinsert/Crash",
+      "requirements": [
+        "REAL-04"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-12",
+      "name": "30min/100Activations/Wakegrenze",
+      "requirements": [
+        "REAL-02",
+        "REAL-05"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    }
+  ],
+  "wakeBoundary": "NOT_PROVEN",
+  "calibration": "NOT_PROVEN",
+  "realGate": "NOT_PROVEN",
+  "duration100Activations": "NOT_RUN",
+  "note": "Prechecks are separate evidence and do not mark complete M cases PASS."
+}

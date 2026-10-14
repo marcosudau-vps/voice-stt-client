@@ -1,3 +1,8 @@
+# Nachmergeabschluss, 2026-10-15
+
+**ACCEPTED / CANONICALIZED** auf b80ed8b (PR14). [Git-/PR-Beleg](../AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json).
+Die folgenden datierten Angaben bleiben Herkunft.
+
 # AP-IV2-010 – feste Client-/Serverpaarqualifikation
 
 Status **ROOT_PASS**. Workflow **READY_FOR_CANONICALIZATION**. [PR14](https://github.com/marcosudau-vps/voice-stt-client/pull/14).

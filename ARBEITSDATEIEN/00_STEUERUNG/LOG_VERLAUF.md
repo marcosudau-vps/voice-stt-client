@@ -1,3 +1,13 @@
+## 2026-10-15 – AP-IV2-020 / R01-UMSETZUNG: BLOCKED
+
+AP010-Squash b80ed8b nach PASS/Freigabe tatsächlich verifiziert. Lokaler Serverada13b0
+mit555 exakten Blobs, echten Community-/ONNX-Modellen und isolierten Daten bereit;
+V1/VPS geschützt. Windowsbaseline1354, finale1360 und11 Prozessprüfungen PASS.
+Echte Restart-Recovery zweimal FAIL: IV2-020-F01, temporärer HTTP-Vorcheck latcht
+permanent BLOCKED. Noch nicht angewandter enger Clientpatch und gebündelte Realtest-
+und Kalibrierungsabläufe gesichert. Produktänderungsfreigabe nötig. Reale Pflichtgates
+offen; kein REVIEW_READY/PASS. R01 bleibt für dieselbe Fortsetzung zuständig.
+
 ## 2026-10-14 – AP-CV2-110 / R03-UEBERNAHME: menschliche Mergefreigabe gesichert
 
 Wörtlicher Auftrag „Hiermit wird die Freigabe zun Merge von PR #13, Arbeitspaket AP-CV2-110 erteilt. Bitte führe den Merge durch.“ in [R03-Originalprompt](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md) gesichert. Unabhängiger R02-PASS auf `44cf9a8fd1669242c00997966addc3667d448aa0` / Tree `46a4e6205b735ac202dcd611494d306936f8edc3`, freigegebener Head `84b72e11b64d0d6220fe239614301dfd569d8256` / Tree `b1fa7e771b8c19ae9865eecabc5134d84497f2f9`, kanonischer Parent `62ca35a01fb88b37e16b7003e26c2f9110c131f3`. Vorfreigabe-CI 38531198371 erfolgreich. R03-Nachtrag nur administrativ; endgültige PR-Spitze braucht grüne CI. **READY_FOR_CANONICALIZATION**, noch keine Übernahme/kein AP-IV2-010 vor tatsächlichem Squash und Baumprüfung.
