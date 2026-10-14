@@ -2,35 +2,27 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "READY_FOR_CANONICALIZATION",
-  "packageStatus": "ROOT_PASS",
-  "activePackage": "AP-CV2-110",
-  "nextPackage": "AP-IV2-010",
-  "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
-  "candidateBranch": "work/client-v2/ap-cv2-110",
-  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/13",
+  "workflowPhase": "IMPLEMENTATION_IN_PROGRESS",
+  "packageStatus": "IN_PROGRESS",
+  "activePackage": "AP-IV2-010",
+  "nextPackage": "AP-IV2-020",
+  "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+  "candidateBranch": "work/client-v2/ap-iv2-010",
+  "pullRequest": null,
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R03-UEBERNAHME",
-    "role": "canonicalization",
-    "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
+    "id": "R01-UMSETZUNG",
+    "role": "implementation",
+    "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+  "reviewedCommit": null,
+  "reviewReport": null,
   "openFindingIds": [],
-  "humanApproval": {
-    "status": "EXPLICITLY_GRANTED",
-    "source": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
-    "approvedHead": "84b72e11b64d0d6220fe239614301dfd569d8256",
-    "approvedTree": "b1fa7e771b8c19ae9865eecabc5134d84497f2f9",
-    "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
-    "passReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
-    "approvedPR": 13
-  },
-  "writeOwner": null,
+  "humanApproval": null,
+  "writeOwner": "AP-IV2-010/R01-UMSETZUNG/Codex",
   "blockingReason": null,
-  "nextAction": "Nach frischer CI des finalen Freigabe-Dokumentcommits unveränderte PR-Base/Head prüfen, PR #13 mit Squash and merge übernehmen, Parent-/Treegleichheit nachweisen. Kein Release/Tag/Servermerge/Folgepaketstart.",
+  "nextAction": "Automatisierte feste Paarqualifikation durchführen.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -39,9 +31,9 @@
     "currentImplementationSource": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md"
   },
   "candidateSelection": {
-    "candidateId": "AP-CV2-110",
-    "source": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "Ausdrücklicher AP110-Auftrag nach belegtem AP100-Squash."
+    "candidateId": "AP-IV2-010",
+    "source": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "reason": "Ausdrücklicher Auftrag nach tatsächlicher AP110-Übernahme"
   },
   "recovery": null,
   "relatedServerFix": null
