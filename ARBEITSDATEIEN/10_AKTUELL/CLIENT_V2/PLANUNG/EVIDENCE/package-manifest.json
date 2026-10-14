@@ -797,7 +797,7 @@
         "AP-CV2-110"
       ],
       "path": "ARBEITSPAKETE/AP-IV2-010.md",
-      "status": "REVIEW_READY",
+      "status": "ROOT_PASS",
       "testModules": [
         "test_v2_cross_repository"
       ],
@@ -831,7 +831,11 @@
       "qualifiedCandidateCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
       "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
       "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json",
-      "openFindingIds": []
+      "openFindingIds": [],
+      "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+      "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+      "reviewReport": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+      "reviewEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
     },
     {
       "id": "AP-IV2-020",

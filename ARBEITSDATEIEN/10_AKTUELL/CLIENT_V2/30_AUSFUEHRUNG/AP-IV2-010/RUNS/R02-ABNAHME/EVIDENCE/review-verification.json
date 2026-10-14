@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "reviewedSha": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+  "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+  "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+  "serverSha": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "verdict": "ROOT_PASS",
+  "openFindingIds": [],
+  "requirements": {
+    "GATE-01": "PASS",
+    "GATE-02": "PASS",
+    "GATE-03": "PASS",
+    "GATE-04": "PASS",
+    "GATE-05": "PASS",
+    "GATE-06": "PASS",
+    "GATE-07": "PASS"
+  },
+  "windows": {
+    "runner": "R01-UMSETZUNG",
+    "tests": 1354,
+    "skipped": 0,
+    "exitCode": 0,
+    "reviewerRerun": "NOT_RUN"
+  },
+  "server": {
+    "runner": "R01-UMSETZUNG",
+    "tests": 1964,
+    "optionalSkips": 14,
+    "exitCode": 0
+  },
+  "processTests": 11,
+  "boundaryTests": 17,
+  "smokes": 7,
+  "scenarios": 28,
+  "serverBlobs": 555,
+  "CI": {
+    "runId": 38542826326,
+    "conclusion": "success"
+  },
+  "realHardwareGate": "NOT_RUN_AP-IV2-020",
+  "workflowPhase": "WAITING_FOR_APPROVAL"
+}

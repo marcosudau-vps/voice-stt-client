@@ -13532,7 +13532,7 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
@@ -13549,6 +13549,19 @@
         ],
         "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
         "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
       }
     },
     {
@@ -13559,7 +13572,7 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
@@ -13576,6 +13589,19 @@
         ],
         "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
         "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
       }
     },
     {
@@ -13586,7 +13612,7 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
@@ -13603,6 +13629,19 @@
         ],
         "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
         "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
       }
     },
     {
@@ -13613,7 +13652,7 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
@@ -13629,6 +13668,19 @@
         ],
         "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
         "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
       }
     },
     {
@@ -13639,7 +13691,7 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
@@ -13656,6 +13708,19 @@
         ],
         "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
         "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
       }
     },
     {
@@ -13666,7 +13731,7 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
@@ -13682,6 +13747,19 @@
         ],
         "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
         "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
       }
     },
     {
@@ -13692,7 +13770,7 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "implementationEvidence": {
@@ -13708,6 +13786,19 @@
         ],
         "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
         "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
       }
     },
     {

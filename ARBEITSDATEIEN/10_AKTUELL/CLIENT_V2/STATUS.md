@@ -1,4 +1,4 @@
-# Client V2 – AP-IV2-010 / R01-UMSETZUNG / REVIEW_READY, 2026-10-14
+# Client V2 – AP-IV2-010 / R02-ABNAHME / ROOT_PASS, 2026-10-14
 
 [PR14](https://github.com/marcosudau-vps/voice-stt-client/pull/14), Branch `work/client-v2/ap-iv2-010`, Base `feat/client-v2`.
 AP000 bis AP110 tatsächlich ACCEPTED; kanonischer Parent/unverändertes Clientprodukt
@@ -16,6 +16,8 @@ Nächste Aktion: frischer unabhängiger Gesamtreview auf finalem PR14-Head nach 
 finaler CI. Ab tatsächlicher Übergabe Schreiben/Pushes pausiert. Kein Eigenreview,
 Merge, Serverpromotion oder AP-IV2-020-Start. Reale Modell-/Hardware-/Wahrnehmungsgates
 und Server-Distributed offen. Start bleibt `venv/Scripts/python.exe -m voice_stt_client`.
+
+**R02:** [unabhängiger ROOT_PASS](30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md), 7/7 GATE PASS, 0 Findings. **WAITING_FOR_APPROVAL**; PR14-Mergefreigabe fehlt. Reales AP-IV2-020-Gate weiterhin NOT_RUN.
 
 <!-- IV2-010-CURRENT-END -->
 
