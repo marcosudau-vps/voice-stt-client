@@ -138,3 +138,7 @@ Produktkandidaten-CI38439465278 PASS. Finale Dokumentenspitzen-CI vor Abgabe.
 ## AP-CV2-110-R02 – 2026-10-14 – unabhängiger ROOT_PASS
 
 PR #13: geprüfter Kandidat `44cf9a8fd1669242c00997966addc3667d448aa0`/Tree `46a4e6205b735ac202dcd611494d306936f8edc3`; sieben FINAL-Requirements technisch PASS, keine offenen Pflichtfindings. Fremde Windows-Vollsuite 1353 Tests, gezielte 234, Server 17 und GitHub-CI 38440922508 unabhängig geprüft; eigene Hardwaretests NOT_RUN. [R02-Bericht](30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md). WAITING_FOR_APPROVAL, keine Freigabe/Merge, kein IV2-010.
+
+## AP-CV2-110-R03 – 2026-10-14 – ausdrückliche Squash-Freigabe
+
+Originalprompt für PR #13 wortgleich unter [R03](30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md) gesichert; unabhängiger R02-ROOT_PASS und Head `84b72e11b64d0d6220fe239614301dfd569d8256`, Zielparent `62ca35a01fb88b37e16b7003e26c2f9110c131f3`, [CI38531198371](https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38531198371) erfolgreich. Vor Merge **READY_FOR_CANONICALIZATION**; finale administrative R03-Spitze / CI und danach Squash-/Gitbaumprüfung notwendig. Noch kein ACCEPTED oder AP-IV2-010.

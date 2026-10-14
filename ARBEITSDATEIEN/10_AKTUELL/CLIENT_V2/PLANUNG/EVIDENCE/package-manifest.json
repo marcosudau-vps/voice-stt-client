@@ -777,7 +777,16 @@
       "reviewReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
       "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
       "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
-      "lastIndependentReview": "R02_ROOT_PASS"
+      "lastIndependentReview": "R02_ROOT_PASS",
+      "humanApproval": {
+        "status": "EXPLICITLY_GRANTED",
+        "source": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+        "approvedHead": "84b72e11b64d0d6220fe239614301dfd569d8256",
+        "approvedTree": "b1fa7e771b8c19ae9865eecabc5134d84497f2f9",
+        "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+        "passReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md"
+      },
+      "canonicalizationReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/01_REPORT.md"
     },
     {
       "id": "AP-IV2-010",
