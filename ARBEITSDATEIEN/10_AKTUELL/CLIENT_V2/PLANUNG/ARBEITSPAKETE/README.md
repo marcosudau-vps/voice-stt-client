@@ -1,3 +1,28 @@
+# Client V2 – AP-IV2-010 / R02-ABNAHME / ROOT_PASS, 2026-10-14
+
+[PR14](https://github.com/marcosudau-vps/voice-stt-client/pull/14), Branch `work/client-v2/ap-iv2-010`, Base `feat/client-v2`.
+AP000 bis AP110 tatsächlich ACCEPTED; kanonischer Parent/unverändertes Clientprodukt
+`43759d345b2b88354e4f3b383a4833731621d1e3`. [AP110-Nachmergeprovenienz](../../30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json).
+Qualifiziertes Paar `0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4` / `ada13b011e1d3829f78e7f389e3b927795a2b3be`;
+finale PR-Spitze ergänzt ausschließlich administrative Belege/Unterlagen.
+
+Windows **1354 PASS**, schnelle Serverpytest-unit-Suite **1964 PASS / 14 SKIPPED_EXPECTED**,
+**11** echte Prozessprüfungen, **17** Grenztests, **7/7** Socketsmokes,
+compileall/diffcheck PASS. 28 automatisierte Szenarien geprüft, keine Produktänderung.
+[Report](../../30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md), [vollständige Evidenz](../../30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md),
+[Paketakte](../../30_AUSFUEHRUNG/AP-IV2-010/00_PAKET.md), [Workflowstatus](../../WORKFLOW_STATUS.json).
+
+Nächste Aktion: frischer unabhängiger Gesamtreview auf finalem PR14-Head nach grüner
+finaler CI. Ab tatsächlicher Übergabe Schreiben/Pushes pausiert. Kein Eigenreview,
+Merge, Serverpromotion oder AP-IV2-020-Start. Reale Modell-/Hardware-/Wahrnehmungsgates
+und Server-Distributed offen. Start bleibt `venv/Scripts/python.exe -m voice_stt_client`.
+
+**Unabhängiger R02-ROOT_PASS:** GATE-01..07 PASS, keine Findings, [Review](../../30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md). **R03-Freigabe erteilt / READY_FOR_CANONICALIZATION**: [Originalprompt](../../30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md), [Preflight](../../30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/01_REPORT.md). Squash nach finalem CI-Preflight, kein vorweggenommenes ACCEPTED.
+
+<!-- IV2-010-CURRENT-END -->
+
+## Historischer Stand vor AP-IV2-010
+
 # Aktueller Paketstand, 2026-10-14
 
 AP000 bis AP100 tatsächlich ACCEPTED; Parent `62ca35a01fb88b37e16b7003e26c2f9110c131f3`. AP110 nach unabhängigem [R02-Gesamt-Review](../../30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md) **ROOT_PASS / READY_FOR_CANONICALIZATION**, alle sieben FINAL-Requirements PASS. [Workflowstatus](../../WORKFLOW_STATUS.json). [Menschlicher R03-Übernahmeprompt](../../30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md) liegt vor; der tatsächliche Squash von PR #13 und die Git-/Treeverifikation stehen noch aus. AP-IV2-010 darf erst danach beginnen.

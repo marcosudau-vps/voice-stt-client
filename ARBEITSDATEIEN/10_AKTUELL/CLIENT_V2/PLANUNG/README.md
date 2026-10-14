@@ -1,3 +1,26 @@
+# Client V2 – AP-IV2-010 / R01-UMSETZUNG / REVIEW_READY, 2026-10-14
+
+[PR14](https://github.com/marcosudau-vps/voice-stt-client/pull/14), Branch `work/client-v2/ap-iv2-010`, Base `feat/client-v2`.
+AP000 bis AP110 tatsächlich ACCEPTED; kanonischer Parent/unverändertes Clientprodukt
+`43759d345b2b88354e4f3b383a4833731621d1e3`. [AP110-Nachmergeprovenienz](../30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json).
+Qualifiziertes Paar `0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4` / `ada13b011e1d3829f78e7f389e3b927795a2b3be`;
+finale PR-Spitze ergänzt ausschließlich administrative Belege/Unterlagen.
+
+Windows **1354 PASS**, schnelle Serverpytest-unit-Suite **1964 PASS / 14 SKIPPED_EXPECTED**,
+**11** echte Prozessprüfungen, **17** Grenztests, **7/7** Socketsmokes,
+compileall/diffcheck PASS. 28 automatisierte Szenarien geprüft, keine Produktänderung.
+[Report](../30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md), [vollständige Evidenz](../30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md),
+[Paketakte](../30_AUSFUEHRUNG/AP-IV2-010/00_PAKET.md), [Workflowstatus](../WORKFLOW_STATUS.json).
+
+Nächste Aktion: frischer unabhängiger Gesamtreview auf finalem PR14-Head nach grüner
+finaler CI. Ab tatsächlicher Übergabe Schreiben/Pushes pausiert. Kein Eigenreview,
+Merge, Serverpromotion oder AP-IV2-020-Start. Reale Modell-/Hardware-/Wahrnehmungsgates
+und Server-Distributed offen. Start bleibt `venv/Scripts/python.exe -m voice_stt_client`.
+
+<!-- IV2-010-CURRENT-END -->
+
+## Historischer Stand vor AP-IV2-010
+
 # Client V2 – AP-CV2-110 / R03-UEBERNAHME / READY_FOR_CANONICALIZATION, 2026-10-14
 
 [Paket-PR #13](https://github.com/marcosudau-vps/voice-stt-client/pull/13), Base `feat/client-v2`, Head `work/client-v2/ap-cv2-110`.

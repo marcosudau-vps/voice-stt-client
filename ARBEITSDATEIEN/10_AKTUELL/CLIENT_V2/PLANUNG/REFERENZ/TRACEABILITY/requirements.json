@@ -12831,7 +12831,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -12916,6 +12916,10 @@
         "openFindingIds": [],
         "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
         "finalCI": "38440922508 success"
+      },
+      "canonicalizationEvidence": {
+        "aggregateCommit": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json"
       }
     },
     {
@@ -12926,7 +12930,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13009,6 +13013,10 @@
         "openFindingIds": [],
         "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
         "finalCI": "38440922508 success"
+      },
+      "canonicalizationEvidence": {
+        "aggregateCommit": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json"
       }
     },
     {
@@ -13019,7 +13027,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13106,6 +13114,10 @@
         "openFindingIds": [],
         "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
         "finalCI": "38440922508 success"
+      },
+      "canonicalizationEvidence": {
+        "aggregateCommit": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json"
       }
     },
     {
@@ -13116,7 +13128,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13204,6 +13216,10 @@
         "openFindingIds": [],
         "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
         "finalCI": "38440922508 success"
+      },
+      "canonicalizationEvidence": {
+        "aggregateCommit": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json"
       }
     },
     {
@@ -13214,7 +13230,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13295,6 +13311,10 @@
         "openFindingIds": [],
         "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
         "finalCI": "38440922508 success"
+      },
+      "canonicalizationEvidence": {
+        "aggregateCommit": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json"
       }
     },
     {
@@ -13305,7 +13325,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13384,6 +13404,10 @@
         "openFindingIds": [],
         "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
         "finalCI": "38440922508 success"
+      },
+      "canonicalizationEvidence": {
+        "aggregateCommit": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json"
       }
     },
     {
@@ -13394,7 +13418,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13494,6 +13518,10 @@
         "openFindingIds": [],
         "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
         "finalCI": "38440922508 success"
+      },
+      "canonicalizationEvidence": {
+        "aggregateCommit": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json"
       }
     },
     {
@@ -13504,9 +13532,37 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-iv2-010",
+        "candidateCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+        "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_cross_repository.ProcessCases",
+          "tests.integration.v2_process_harness.ProcessServer"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
+      }
     },
     {
       "id": "GATE-02",
@@ -13516,9 +13572,37 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-iv2-010",
+        "candidateCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+        "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "unittest discover -v -s tests -p test_*.py",
+          "pytest -v tests/unit -ra"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
+      }
     },
     {
       "id": "GATE-03",
@@ -13528,9 +13612,37 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-iv2-010",
+        "candidateCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+        "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_cross_repository.SCENARIOS",
+          "tests.test_v2_cross_repository.Coverage.test_all_automated_scenarios_bind_existing_methods"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
+      }
     },
     {
       "id": "GATE-04",
@@ -13540,9 +13652,36 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-iv2-010",
+        "candidateCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+        "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_cross_repository.ProcessCases.test_autonomous_terminal_recovery_and_stale_callback"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
+      }
     },
     {
       "id": "GATE-05",
@@ -13552,9 +13691,37 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-iv2-010",
+        "candidateCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+        "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.integration.v2_process_server.verify",
+          "process-manifest.json"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
+      }
     },
     {
       "id": "GATE-06",
@@ -13564,9 +13731,36 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-iv2-010",
+        "candidateCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+        "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "source-consistency.json"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
+      }
     },
     {
       "id": "GATE-07",
@@ -13576,9 +13770,36 @@
       "test": "test_v2_cross_repository",
       "source": "Beide Repositorys, festgeschriebene SHAs",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-iv2-010",
+        "candidateCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+        "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+        "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "validation.json: unchanged serverCommit and 555 blobs; no server correction occurred"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json"
+      },
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+        "reviewedTree": "871949fd1bb4e4b9ef0c30fd1cef73103046ca73",
+        "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1354 full PASS",
+        "serverQualification": "1964 PASS / 14 expected skips",
+        "finalCI": "38542826326 success"
+      }
     },
     {
       "id": "REAL-01",

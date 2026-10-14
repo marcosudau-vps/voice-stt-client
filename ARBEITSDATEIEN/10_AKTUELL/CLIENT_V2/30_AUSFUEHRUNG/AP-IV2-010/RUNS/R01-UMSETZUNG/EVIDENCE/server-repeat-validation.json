@@ -1,0 +1,28 @@
+{
+  "candidateCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "name": "server-full-repeat",
+  "command": [
+    "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-v",
+    "tests/unit",
+    "-ra"
+  ],
+  "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0",
+  "exitCode": 0,
+  "durationSeconds": 646.938,
+  "testCount": 1964,
+  "skipped": 14,
+  "log": "server-full-repeat.txt.gz",
+  "sha256": "f95ef49b7f9338b8fb74d862c46f2c63077c5dec935525b2e48867aa0483c4fe",
+  "compressedSha256": "cbe961d9de3489cd32242b305d52defccfdffbaf45e47fb8f259f191a1a21860",
+  "replaces": "server-full (decoder dependency missing)",
+  "runtime": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.10",
+    "executable": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe"
+  },
+  "result": "PASS"
+}

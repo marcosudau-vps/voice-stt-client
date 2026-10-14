@@ -1,0 +1,138 @@
+{
+  "result": "PASS",
+  "clientCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+  "clientTree": "14645a9998a8428b442052b17aa326fe3d5f2171",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "processCases": [
+    {
+      "case": "test_autonomous_terminal_recovery_and_stale_callback",
+      "evidence": "test_autonomous_terminal_recovery_and_stale_callback.json",
+      "clientPid": 33744,
+      "serverPid": 1324,
+      "serverInterpreter": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+      "clientCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+      "advertisedClientCommits": [
+        "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4"
+      ],
+      "boundary": "actual V2Runtime",
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+    },
+    {
+      "case": "test_client_dropped_final_is_incomplete_without_log_paste",
+      "evidence": "test_client_dropped_final_is_incomplete_without_log_paste.json",
+      "clientPid": 33744,
+      "serverPid": 21692,
+      "serverInterpreter": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+      "clientCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+      "advertisedClientCommits": [
+        "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4"
+      ],
+      "boundary": "actual V2Runtime",
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+    },
+    {
+      "case": "test_client_injected_gap_salvages_buffered_final",
+      "evidence": "test_client_injected_gap_salvages_buffered_final.json",
+      "clientPid": 33744,
+      "serverPid": 22944,
+      "serverInterpreter": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+      "clientCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+      "advertisedClientCommits": [
+        "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4"
+      ],
+      "boundary": "actual V2Runtime",
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+    },
+    {
+      "case": "test_device_loss_drain_and_led_isolation",
+      "evidence": "test_device_loss_drain_and_led_isolation.json",
+      "clientPid": 33744,
+      "serverPid": 31964,
+      "serverInterpreter": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+      "clientCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+      "advertisedClientCommits": [
+        "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4"
+      ],
+      "boundary": "actual V2Runtime",
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+    },
+    {
+      "case": "test_lost_finish_ack_retries_identical_without_second_effect",
+      "evidence": "test_lost_finish_ack_retries_identical_without_second_effect.json",
+      "clientPid": 33744,
+      "serverPid": 12400,
+      "serverInterpreter": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+      "clientCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+      "advertisedClientCommits": [
+        "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4"
+      ],
+      "boundary": "actual V2Runtime",
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+    },
+    {
+      "case": "test_negative_admission",
+      "evidence": "test_negative_admission.json",
+      "clientPid": 33744,
+      "serverPid": 16060,
+      "serverInterpreter": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+      "clientCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+      "advertisedClientCommits": [
+        "43759d345b2b88354e4f3b383a4833731621d1e3"
+      ],
+      "boundary": "raw negative admission probes using parent identity",
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+    },
+    {
+      "case": "test_segments_overlap_interim_and_log_dedup",
+      "evidence": "test_segments_overlap_interim_and_log_dedup.json",
+      "clientPid": 33744,
+      "serverPid": 31752,
+      "serverInterpreter": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+      "clientCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+      "advertisedClientCommits": [
+        "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4"
+      ],
+      "boundary": "actual V2Runtime",
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+    },
+    {
+      "case": "test_settings_atomicity_and_admin",
+      "evidence": "test_settings_atomicity_and_admin.json",
+      "clientPid": 33744,
+      "serverPid": 31380,
+      "serverInterpreter": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+      "clientCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+      "advertisedClientCommits": [
+        "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4"
+      ],
+      "boundary": "actual V2Runtime",
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+    },
+    {
+      "case": "test_wake_only_and_shared_admission_race",
+      "evidence": "test_wake_only_and_shared_admission_race.json",
+      "clientPid": 33744,
+      "serverPid": 33428,
+      "serverInterpreter": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+      "clientCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+      "advertisedClientCommits": [
+        "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4"
+      ],
+      "boundary": "actual V2Runtime",
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+    },
+    {
+      "case": "test_wake_sources_settings_and_bootstrap",
+      "evidence": "test_wake_sources_settings_and_bootstrap.json",
+      "clientPid": 33744,
+      "serverPid": 5840,
+      "serverInterpreter": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+      "clientCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+      "advertisedClientCommits": [
+        "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4"
+      ],
+      "boundary": "actual V2Runtime",
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "conclusion": "success",
+  "headSha": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+  "jobs": [
+    {
+      "completedAt": "2026-10-14T09:09:36Z",
+      "conclusion": "success",
+      "databaseId": 115771106190,
+      "name": "Test and build release candidates",
+      "startedAt": "2026-10-14T09:04:39Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-14T09:04:42Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-14T09:04:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:04:43Z",
+          "conclusion": "success",
+          "name": "Enable Windows long paths",
+          "number": 2,
+          "startedAt": "2026-10-14T09:04:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:04:52Z",
+          "conclusion": "success",
+          "name": "Check out repository",
+          "number": 3,
+          "startedAt": "2026-10-14T09:04:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:05:00Z",
+          "conclusion": "success",
+          "name": "Set up Python 3.12",
+          "number": 4,
+          "startedAt": "2026-10-14T09:04:52Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:05:37Z",
+          "conclusion": "success",
+          "name": "Install dependencies",
+          "number": 5,
+          "startedAt": "2026-10-14T09:05:00Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:07:46Z",
+          "conclusion": "success",
+          "name": "Run complete test suite",
+          "number": 6,
+          "startedAt": "2026-10-14T09:05:37Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:07:47Z",
+          "conclusion": "success",
+          "name": "Compile all Python modules",
+          "number": 7,
+          "startedAt": "2026-10-14T09:07:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:09:12Z",
+          "conclusion": "success",
+          "name": "Build and smoke-test executable",
+          "number": 8,
+          "startedAt": "2026-10-14T09:07:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:09:22Z",
+          "conclusion": "success",
+          "name": "Build and validate Python distributions",
+          "number": 9,
+          "startedAt": "2026-10-14T09:09:12Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:09:28Z",
+          "conclusion": "success",
+          "name": "Smoke-test installed wheel namespace and resources",
+          "number": 10,
+          "startedAt": "2026-10-14T09:09:22Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:09:28Z",
+          "conclusion": "success",
+          "name": "Read version",
+          "number": 11,
+          "startedAt": "2026-10-14T09:09:28Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:09:32Z",
+          "conclusion": "success",
+          "name": "Upload release candidates",
+          "number": 12,
+          "startedAt": "2026-10-14T09:09:28Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:09:32Z",
+          "conclusion": "success",
+          "name": "Post Set up Python 3.12",
+          "number": 23,
+          "startedAt": "2026-10-14T09:09:32Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:09:34Z",
+          "conclusion": "success",
+          "name": "Post Check out repository",
+          "number": 24,
+          "startedAt": "2026-10-14T09:09:32Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-14T09:09:34Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 25,
+          "startedAt": "2026-10-14T09:09:34Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38539692570/job/115771106190"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38539692570"
+}

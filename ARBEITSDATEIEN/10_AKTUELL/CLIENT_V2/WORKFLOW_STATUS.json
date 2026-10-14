@@ -4,44 +4,45 @@
   "repository": "marcosudau-vps/voice-stt-client",
   "workflowPhase": "READY_FOR_CANONICALIZATION",
   "packageStatus": "ROOT_PASS",
-  "activePackage": "AP-CV2-110",
-  "nextPackage": "AP-IV2-010",
-  "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
-  "candidateBranch": "work/client-v2/ap-cv2-110",
-  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/13",
+  "activePackage": "AP-IV2-010",
+  "nextPackage": "AP-IV2-020",
+  "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+  "candidateBranch": "work/client-v2/ap-iv2-010",
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/14",
   "selectedCandidate": true,
   "lastRun": {
     "id": "R03-UEBERNAHME",
     "role": "canonicalization",
-    "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
+    "report": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+  "reviewedCommit": "fdb91f3ec7050f27936e5246c8d635e5962a87fa",
+  "reviewReport": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
   "humanApproval": {
     "status": "EXPLICITLY_GRANTED",
-    "source": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
-    "approvedHead": "84b72e11b64d0d6220fe239614301dfd569d8256",
-    "approvedTree": "b1fa7e771b8c19ae9865eecabc5134d84497f2f9",
-    "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
-    "passReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
-    "approvedPR": 13
+    "source": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+    "approvedHead": "c189afed849964cf1cae91d8046e5983b7b192e4",
+    "approvedTree": "1045084a60107b7c6912cce8b9c6902516571526",
+    "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+    "passReport": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/01_REPORT.md",
+    "approvedPR": 14,
+    "authorizedAdministrativeNachtrag": true
   },
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Nach frischer CI des finalen Freigabe-Dokumentcommits unveränderte PR-Base/Head prüfen, PR #13 mit Squash and merge übernehmen, Parent-/Treegleichheit nachweisen. Kein Release/Tag/Servermerge/Folgepaketstart.",
+  "nextAction": "Nach CI des finalen rein administrativen R03-Paketcommits unveränderte PR-Base/Head, erlaubten Review-/Freigabediff und Checks verifizieren, PR #14 genau einmal per Squash mergen, Parent-/Treegleichheit nachweisen. Kein Release/Tag/Servermerge/AP-IV2-020.",
   "workAuthorization": {
-    "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
+    "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md",
     "currentCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/00_PROMPT_ORIGINAL.md",
-    "currentImplementationSource": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md"
+    "currentImplementationSource": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md"
   },
   "candidateSelection": {
-    "candidateId": "AP-CV2-110",
-    "source": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "Ausdrücklicher AP110-Auftrag nach belegtem AP100-Squash."
+    "candidateId": "AP-IV2-010",
+    "source": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "reason": "AusdrÃ¼cklicher Auftrag nach tatsÃ¤chlicher AP110-Ãœbernahme"
   },
   "recovery": null,
   "relatedServerFix": null
