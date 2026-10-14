@@ -1,7 +1,7 @@
-# V2-Desktop und Runtime – AP-CV2-100
+# V2-Desktop und Runtime – AP-CV2-100 / AP-CV2-110
 
 Stand 2026-10-13. Regulärer GUI- und Headless-Start verwenden `V2Runtime`.
-Die unabhängige Paketabnahme steht aus; [Runakte](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/00_PAKET.md).
+AP100 ist unabhängig abgenommen und kanonisch übernommen; [Runakte](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-100/00_PAKET.md).
 
 ## Start und Konfiguration
 
@@ -42,8 +42,9 @@ V2-Profil sichtbar. Es gibt keine gespeicherten Runpausen, Tokens oder Session-I
 | `V2CoreBridge` | Bestehender CoreBridge-Thread und Commandsignale; V2-Controlintents und Qt-Profiltransaktionen |
 | `V2DesktopApplication` | Bestehender SingleInstance-/Tray-/Overlay-/Sound-/LEDrahmen, V2-Rollenhotkeys und V2-Dialog |
 
-V1-Klassen bleiben für Migration und Bestandsregression verfügbar. Ihr Entfernen
-und die abschließende Buildqualifikation gehören AP-CV2-110.
+AP110 entfernt die ausführbaren V1-Controller-/Session-/Headlessklassen.
+Migrationreader, CommandResult und reine alte Darstellungstypen bleiben erhalten;
+[Build-/Identitätsnachweis](protocol-v2-release.md).
 
 ## Reihenfolge, Guards und Nebenwirkungen
 
@@ -127,4 +128,6 @@ Desktop samt Corethread gegen die bytegeprüfte FastAPI-App am Servercommit
 `ada13b011e1d3829f78e7f389e3b927795a2b3be`, einschließlich echtem HTTP, Domain-/Log-WS
 und temporärer SQLite. Recorder/ASR/Scheduler und physische Ausgaben sind benannte
 Grenzen. Reale ASR-/Hardware-/Wahrnehmungsfälle bleiben AP-IV2-020; kompletter
-Crossrepo-Gate AP-IV2-010, finaler V2-Build AP-CV2-110.
+Crossrepo-Gate AP-IV2-010. AP110-Builds und installed/frozen Checkpoint sind im
+[Paketnachweis](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md)
+selbstqualifiziert; unabhängige AP110-Abnahme und kanonische Übernahme offen.

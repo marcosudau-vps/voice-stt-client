@@ -461,9 +461,11 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
             if decision.publish
             and decision.impulse is FeedbackImpulse.TRANSCRIPTION_COMPLETED
         ]
-        self.assertEqual(len(visible_completed), 1)
-        self.assertEqual(visible_completed[0].rule, mapped_rule)
-        self.assertTrue(any(decision.replay for decision in decisions))
+        # V2 domain owns the visible final; live/replayed logs stay diagnostic.
+        # Exact-once domain cues are covered by test_v2_feedback.
+        self.assertEqual(visible_completed, [])
+        self.assertTrue(all(not decision.publish for decision in decisions))
+        self.assertEqual(engine.diagnostic_events, 2)
         self.assertEqual(record.cursor, 24)
         self.assertEqual(json.loads(first.sent[0])["afterCursor"], 0)
         self.assertEqual(json.loads(second.sent[0])["afterCursor"], 0)

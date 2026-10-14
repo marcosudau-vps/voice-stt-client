@@ -120,10 +120,12 @@ def verify_frozen_feedback_assets(exe_path: Path) -> None:
     if not sounds:
         raise BuildError("No packaged feedback WAV files found")
     bundled = {name.replace("\\", "/") for name in CArchiveReader(str(exe_path)).toc}
-    expected = {"voice_stt_client/config.yaml"} | {
+    expected = {"voice_stt_client/config.yaml", "voice_stt_client/build_identity.json"} | {
         f"voice_stt_client/assets/feedback_sounds/debug/{sound.name}"
         for sound in sounds
     }
+    expected |= {f"voice_stt_client/resources/{path.name}" for path in
+                 (REPO_ROOT / 'voice_stt_client/resources').glob('*.json')}
     missing = expected - bundled
     if missing:
         raise BuildError(f"Frozen client is missing package assets: {', '.join(sorted(missing))}")
@@ -144,6 +146,27 @@ def sanitized_build_path() -> str:
         if value.casefold() not in {item.casefold() for item in unique}:
             unique.append(value)
     return os.pathsep.join(unique)
+
+
+def run_frozen_smoke(command: list[str], folder: str, env: dict[str, str], *, timeout: float = 60):
+    """Keep the bootloader alive until timeout cleanup kills its whole tree."""
+    process = subprocess.Popen(command, cwd=folder, env=env, text=True,
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        creationflags=subprocess.CREATE_NO_WINDOW)
+    try:
+        output, _ = process.communicate(timeout=timeout)
+    except subprocess.TimeoutExpired as exc:
+        # subprocess.run kills only the onefile parent; its child can retain
+        # the temporary cwd and mask the timeout with WinError32 on cleanup.
+        subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'],
+            capture_output=True, check=False, creationflags=subprocess.CREATE_NO_WINDOW)
+        if process.poll() is None:
+            process.kill()
+        process.communicate(timeout=10)
+        raise BuildError('Frozen smoke timed out: '+command[1]) from exc
+    if output:
+        print(output, end='')
+    return subprocess.CompletedProcess(command, process.returncode, output)
 
 
 def build(*, clean: bool = False, smoke_test: bool = True, dist_dir: Path | None = None) -> Path:
@@ -172,6 +195,15 @@ def build(*, clean: bool = False, smoke_test: bool = True, dist_dir: Path | None
 
         env = os.environ.copy()
         env["VOICE_STT_VERSION_FILE"] = str(temp_path)
+        # Same stamp logic as wheel/sdist; never a guessed release SHA.
+        import json
+        import runpy
+        # setup.py's identity is deliberately independent of application imports.
+        namespace = runpy.run_path(str(REPO_ROOT / 'setup.py'))
+        identity_path = BUILD_DIR / 'build_identity.json'
+        identity_path.parent.mkdir(parents=True, exist_ok=True)
+        identity_path.write_text(json.dumps(namespace['identity'](), indent=2)+'\n', encoding='utf-8')
+        env['VOICE_STT_BUILD_IDENTITY_FILE'] = str(identity_path)
         env["PATH"] = sanitized_build_path()
         site_dir = REPO_ROOT / "scripts" / "pyinstaller_site"
         existing_python_path = env.get("PYTHONPATH")
@@ -198,18 +230,21 @@ def build(*, clean: bool = False, smoke_test: bool = True, dist_dir: Path | None
 
     if smoke_test:
         verify_frozen_feedback_assets(exe_path)
-        for smoke_argument in ("--version", "--verify-gui-runtime"):
-            result = subprocess.run(
-                [str(exe_path), smoke_argument],
-                cwd=REPO_ROOT,
-                timeout=60,
-                check=False,
-            )
-            if result.returncode != 0:
-                raise BuildError(
-                    f"Executable smoke test {smoke_argument} failed with "
-                    f"exit code {result.returncode}"
-                )
+        with tempfile.TemporaryDirectory(prefix='voice-stt-frozen-smoke-') as folder:
+            for smoke_argument in ("--version", "--verify-gui-runtime"):
+                command = [str(exe_path), smoke_argument]
+                if smoke_argument == '--verify-gui-runtime':
+                    command += ['--verification-output', str(Path(folder)/'probe.json')]
+                smoke_env = os.environ.copy()
+                smoke_env['QT_QPA_PLATFORM'] = 'offscreen'
+                result = run_frozen_smoke(command, folder, smoke_env)
+                if result.returncode != 0:
+                    failure_path = Path(folder)/'probe.json'
+                    detail = failure_path.read_text(encoding='utf8') if failure_path.is_file() else result.stdout
+                    raise BuildError(f"Executable smoke test {smoke_argument} failed with exit code {result.returncode}: {detail}")
+            probe = json.loads((Path(folder)/'probe.json').read_text(encoding='utf-8'))
+            if probe['result'] != 'PASS' or probe['buildIdentity']['clientCommit'] == 'unknown':
+                raise BuildError('Frozen candidate has no qualified source identity')
 
     digest = hashlib.sha256(exe_path.read_bytes()).hexdigest()
     print(f"Built {exe_path.relative_to(REPO_ROOT)} ({exe_path.stat().st_size} bytes)")

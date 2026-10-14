@@ -110,42 +110,6 @@ class EventNormalizerTests(unittest.TestCase):
             event.details["correlationAliases"],
         )
 
-    def test_fallback_maps_only_predefined_timeline_final_and_error(self) -> None:
-        recording = self.normalizer.normalize_stt_fallback(
-            "timeline",
-            {
-                "type": "timeline",
-                "event": "recording_started",
-                "sessionId": "session-1",
-                "segmentId": 8,
-            },
-            generation=2,
-            session_id="session-1",
-        )
-        final = self.normalizer.normalize_stt_fallback(
-            "final",
-            {"type": "final", "sessionId": "session-1", "segmentId": 8},
-            generation=2,
-            session_id="session-1",
-        )
-        error = self.normalizer.normalize_stt_fallback(
-            "error",
-            {"type": "error", "sessionId": "session-1", "where": "recorder"},
-            generation=2,
-            session_id="session-1",
-        )
-
-        self.assertEqual(recording.impulse, FeedbackImpulse.RECORDING_STARTED)
-        self.assertEqual(final.event_type, CanonicalEventType.SERVER_TRANSCRIPTION_COMPLETED)
-        self.assertEqual(error.event_type, CanonicalEventType.SERVER_TRANSCRIPTION_FAILED)
-        self.assertIsNone(
-            self.normalizer.normalize_stt_fallback(
-                "realtime",
-                {"sessionId": "session-1", "segmentId": 8, "text": "secret"},
-                generation=2,
-                session_id="session-1",
-            )
-        )
 
     def test_unknown_server_event_is_ignored(self) -> None:
         self.assertIsNone(

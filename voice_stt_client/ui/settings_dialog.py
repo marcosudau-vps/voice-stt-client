@@ -195,7 +195,7 @@ class SettingsDialog(QDialog):
         *,
         observability=NULL_INGRESS,
         apply_error: Callable[[], str] | None = None,
-        v2_local: bool = False,
+        v2_local: bool = True,
         audio_devices=None,
     ) -> None:
         super().__init__(parent)
@@ -396,15 +396,10 @@ class SettingsDialog(QDialog):
             return editor
         if definition.setting_type == SettingType.BOOLEAN:
             editor = QCheckBox()
-            if definition.path == "session.manual_trigger_enabled":
-                editor.setChecked(bool(self._config.session.effective_manual_trigger_enabled))
-            elif definition.path == "session.wake_word_trigger_enabled":
-                editor.setChecked(bool(self._config.session.wake_word_enabled))
-            else:
-                editor.setChecked(bool(value))
+            editor.setChecked(bool(value))
             return editor
         if definition.setting_type == SettingType.CHOICE:
-            if definition.path in {"session.mode", "logging.level"}:
+            if definition.path == "logging.level":
                 return ChoiceButtons(definition.options, value)
             editor = QComboBox()
             for label, option in definition.options:
@@ -429,13 +424,6 @@ class SettingsDialog(QDialog):
                 editor.setSuffix(f" {definition.unit}")
             return editor
         if definition.setting_type == SettingType.FLOAT:
-            if definition.path in {
-                "dictation_window.initial_speech_timeout",
-                "dictation_window.followup_timeout",
-                "dictation_window.extension_seconds",
-                "dictation_window.timeout_warning_seconds",
-            }:
-                return SliderSpinBox(definition, value)
             editor = QDoubleSpinBox()
             step = float(definition.step or 0.1)
             minimum = float(
@@ -508,10 +496,6 @@ class SettingsDialog(QDialog):
             if editor is None:
                 continue
             value = get_config_value(self._config, path)
-            if path == "session.manual_trigger_enabled":
-                value = self._config.session.effective_manual_trigger_enabled
-            elif path == "session.wake_word_trigger_enabled":
-                value = self._config.session.effective_wake_word_trigger_enabled
             if isinstance(editor, QKeySequenceEdit):
                 editor.setKeySequence(_qt_hotkey_sequence(value))
             elif isinstance(editor, QCheckBox):
@@ -576,15 +560,7 @@ class SettingsDialog(QDialog):
         try:
             for path, definition in self._definitions.items():
                 value = self._editor_value(definition)
-                current_val = (
-                    self._config.session.effective_manual_trigger_enabled
-                    if path == "session.manual_trigger_enabled"
-                    else (
-                        self._config.session.wake_word_enabled
-                        if path == "session.wake_word_trigger_enabled"
-                        else get_config_value(self._config, path)
-                    )
-                )
+                current_val = get_config_value(self._config, path)
                 if value != current_val:
                     changes[path] = value
                     policies.add(definition.apply_policy)

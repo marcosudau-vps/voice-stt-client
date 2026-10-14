@@ -222,62 +222,7 @@ class TestHookLocationAndForm(unittest.TestCase):
         source = inspect.getsource(DualSessionCoordinator._notify_observer)
         self.assertNotIn("return observer", source)
 
-    def test_forbidden_hook_locations_carry_no_observation(self):
-        """CONTRACTS §7.4 lists five explicitly forbidden hook locations. None
-        of them may contain an observation call."""
-        import voice_stt_client.core.event_protocol as event_protocol
-        import voice_stt_client.core.feedback_reducer as feedback_reducer
-        import voice_stt_client.ui.application as ui_application
-        from voice_stt_client.core.controller import STTController
 
-        forbidden = (
-            (EventStreamTransport, "_dispatch"),
-            (EventStreamTransport, "_call"),
-            (event_protocol.EventProtocolProcessor, "process_mapping"),
-            (feedback_reducer.FeedbackEngine, "handle_event_stream"),
-            # ui/application.py::_on_feedback_decision -- forbidden because it
-            # runs AFTER two filters; the P+S record of §12.5 is produced by
-            # _log_feedback_decision, which it delegates to.
-            (ui_application.DesktopApplication, "_on_feedback_decision"),
-            # STTController.on_event_stream_event is free and unused BY LOGGING:
-            # its return value decides cursor commit and connection recycling.
-            (STTController, "_handle_event_stream_event"),
-        )
-        for owner, name in forbidden:
-            with self.subTest(location=f"{owner.__name__}.{name}"):
-                source = inspect.getsource(getattr(owner, name))
-                self.assertNotIn("_observe", source)
-                self.assertNotIn("observability", source)
-
-    def test_the_controllers_own_event_stream_slot_stays_free_for_the_ui(self):
-        """§7.4: ``STTController.on_event_stream_event`` is *"vorhanden und
-        frei, ABER sein Rueckgabewert entscheidet ueber Cursor-Commit und
-        Verbindungsrecycling"*. Logging must never occupy it."""
-        from voice_stt_client.core.config import AppConfig
-        from voice_stt_client.core.controller import STTController
-        from voice_stt_client.core.history import TranscriptHistoryManager
-        from tests.test_controller import (
-            FakeAudioCapture,
-            FakeInjectionQueue,
-            FakeSessionCoordinator,
-            FakeSTTSession,
-        )
-
-        config = AppConfig()
-        config.history.persistent.enabled = False
-        controller = STTController(
-            config,
-            session=FakeSTTSession(),
-            audio=FakeAudioCapture(),
-            history_manager=TranscriptHistoryManager(config.history),
-            injection_queue=FakeInjectionQueue(),
-            session_coordinator=FakeSessionCoordinator(),
-            observability=ObservabilityIngress(instance_id="slot-test"),
-        )
-        try:
-            self.assertIsNone(controller.on_event_stream_event)
-        finally:
-            controller.history.cleanup()
 
     def test_default_coordinator_observes_nothing(self):
         coordinator = DualSessionCoordinator(

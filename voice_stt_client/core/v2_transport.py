@@ -21,6 +21,7 @@ from . import protocol_v2 as p
 from .command_tracker import CommandCompletion, CommandTracker, CommandTimeout, TransportLost
 from .observability.adapters.client_events import ClientEventEmitter
 from .observability.ingress import NULL_INGRESS
+from .version import __version__, __commit__
 
 
 DEFAULT_V2_URL = "wss://stt.voice.marcosudau.com/ws/v2"
@@ -60,8 +61,8 @@ class SessionBinding:
 @dataclass(frozen=True)
 class V2TransportConfig:
     url: str = DEFAULT_V2_URL
-    client_version: str = "2.0.0-desktop"
-    client_commit: str = "unknown"
+    client_version: str = __version__
+    client_commit: str = __commit__
     manual: bool = True
     wake_word: bool = False
     wake_word_ids: tuple[str, ...] = ()

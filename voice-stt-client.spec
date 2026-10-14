@@ -31,6 +31,8 @@ a = Analysis(
     datas=[
         (str(PACKAGE_ROOT / "config.yaml"), "voice_stt_client"),
         (str(ROOT / "VERSION"), "voice_stt_client"),
+        (os.environ['VOICE_STT_BUILD_IDENTITY_FILE'], "voice_stt_client"),
+        (str(PACKAGE_ROOT / 'resources'), 'voice_stt_client/resources'),
         (
             str(FEEDBACK_SOUNDS),
             "voice_stt_client/assets/feedback_sounds/debug",

@@ -673,7 +673,7 @@
         "AP-CV2-090"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-100.md",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "testModules": [
         "test_v2_runtime_integration"
       ],
@@ -723,7 +723,9 @@
       "closedFindingIds": [
         "CV2-100-R03-F01"
       ],
-      "canonicalizationReport": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/01_REPORT.md"
+      "canonicalizationReport": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/01_REPORT.md",
+      "aggregateCommit": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json"
     },
     {
       "id": "AP-CV2-110",
@@ -732,9 +734,15 @@
         "AP-CV2-100"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-110.md",
-      "status": "PLANNED",
+      "status": "ROOT_PASS",
       "testModules": [
-        "test_v2_release"
+        "test_v2_release",
+        "test_v2_runtime_integration",
+        "test_v2_feedback",
+        "test_obs050_settings",
+        "test_obs050_ui",
+        "test_build_script",
+        "test_client_release_guard"
       ],
       "requirements": [
         "FINAL-03",
@@ -758,7 +766,27 @@
         "defaultRuns": 1,
         "scopeNote": "one complete package session; steps are not separate runs"
       },
-      "testModulesRole": "suggested locations; actual coverage and methods required"
+      "testModulesRole": "suggested locations; actual coverage and methods required",
+      "executionReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "candidateBranch": "work/client-v2/ap-cv2-110",
+      "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+      "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+      "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json",
+      "openFindingIds": [],
+      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/13",
+      "reviewReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+      "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+      "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+      "lastIndependentReview": "R02_ROOT_PASS",
+      "humanApproval": {
+        "status": "EXPLICITLY_GRANTED",
+        "source": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+        "approvedHead": "84b72e11b64d0d6220fe239614301dfd569d8256",
+        "approvedTree": "b1fa7e771b8c19ae9865eecabc5134d84497f2f9",
+        "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+        "passReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md"
+      },
+      "canonicalizationReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/01_REPORT.md"
     },
     {
       "id": "AP-IV2-010",

@@ -117,3 +117,28 @@ PR #12 nach R04-Korrektur vollständig gegen Parent dad89bb5d und Kandidat `0d45
 ## 2026-10-13 – AP-CV2-100 / R06-UEBERNAHME: menschliche Squash-Freigabe dokumentiert
 
 Wörtlicher Auftrag „Hiermit wird die Freigabe zun Merge von PR #12, Arbeitspaket AP-CV2-100 erteilt. Bitte führe den Merge durch.“ als [Originalprompt](30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/00_PROMPT_ORIGINAL.md) gesichert. R05-PASS auf 0d45f8e9d3b484631da80be28f31c86ea85ab002; freigegebener Head 4c7be6945ae3f2c52748667963d00a1d5cd30d9f, kanonischer Parent dad89bb5d08e6d34abc5cfab57fc76010c5131dc. Finale PR-CI nach rein administrativem R06-Nachtrag nochmals erforderlich; ACCEPTED erst nach echtem Squash, Git-Parent- und Treeabgleich. Kein AP110-Vorgriff.
+
+## 2026-10-13 – AP-CV2-110 / R01-UMSETZUNG: Legacyabbau und Releasequalifikation / REVIEW_READY
+
+AP100-PASS, menschlichen R06-Auftrag und tatsächlichen PR12-Squash mit Single-Parent/
+Baumgleichheit geprüft; vom kanonischen Parent `62ca35a01fb88b37e16b7003e26c2f9110c131f3` gestartet.
+V1-Controller/Transport/Headless-/Mode-/Timer-/Feedbackfallbackautoritäten entfernt,
+Migrationreader/Utilities erhalten, 251 methodengenaue Ersatzverantwortungen belegt.
+Loggingapply-/Startretryanschlussfehler iterativ korrigiert. Windows1353/gezielte234/
+17 echte Runtime-Serverchecks, compileall/diffcheck, EXE/Wheel/sdist und native
+Windows-GUI-/Hello-/Ressourcencheckpoint für Source/Installed/Rebuilt/Frozen PASS.
+[Report](30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md).
+Frischer unabhängiger Gesamt-Review offen; tatsächliche Übergabe erst nach finaler
+grüner PR-CI, danach Schreiben pausiert. Kein eigener ROOT_PASS, Merge/Publish/Tag,
+Serverpromotion oder AP-IV2-010. Hardware-/ASRgates bleiben explizit offen.
+CI-01 LF-Checkout und CI-02 Frozen-Diagnose/Prozesscleanup im selben R01
+selbstkorrigiert; frühere Belege erhalten, vollständige Neuqualifikation und
+Produktkandidaten-CI38439465278 PASS. Finale Dokumentenspitzen-CI vor Abgabe.
+
+## AP-CV2-110-R02 – 2026-10-14 – unabhängiger ROOT_PASS
+
+PR #13: geprüfter Kandidat `44cf9a8fd1669242c00997966addc3667d448aa0`/Tree `46a4e6205b735ac202dcd611494d306936f8edc3`; sieben FINAL-Requirements technisch PASS, keine offenen Pflichtfindings. Fremde Windows-Vollsuite 1353 Tests, gezielte 234, Server 17 und GitHub-CI 38440922508 unabhängig geprüft; eigene Hardwaretests NOT_RUN. [R02-Bericht](30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md). WAITING_FOR_APPROVAL, keine Freigabe/Merge, kein IV2-010.
+
+## AP-CV2-110-R03 – 2026-10-14 – ausdrückliche Squash-Freigabe
+
+Originalprompt für PR #13 wortgleich unter [R03](30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md) gesichert; unabhängiger R02-ROOT_PASS und Head `84b72e11b64d0d6220fe239614301dfd569d8256`, Zielparent `62ca35a01fb88b37e16b7003e26c2f9110c131f3`, [CI38531198371](https://github.com/marcosudau-vps/voice-stt-client/actions/runs/38531198371) erfolgreich. Vor Merge **READY_FOR_CANONICALIZATION**; finale administrative R03-Spitze / CI und danach Squash-/Gitbaumprüfung notwendig. Noch kein ACCEPTED oder AP-IV2-010.

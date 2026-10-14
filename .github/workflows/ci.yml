@@ -36,7 +36,7 @@ jobs:
       - name: Set up Python 3.12
         uses: actions/setup-python@v7
         with:
-          # 3.12.10 is the qualified Windows V1 build runtime. A patch-level
+          # 3.12.10 is the qualified Windows build runtime. A patch-level
           # change requires a fresh frozen Qt GUI smoke before this is raised.
           python-version: "3.12.10"
           cache: pip
@@ -62,6 +62,7 @@ jobs:
         run: |
           python -m build --sdist --wheel
           python -m twine check dist/*.whl dist/*.tar.gz
+          python scripts/client_release_guard.py candidate --dir dist --expected-commit ${{ github.sha }}
 
       - name: Smoke-test installed wheel namespace and resources
         shell: pwsh
@@ -73,6 +74,10 @@ jobs:
             $env:PYTHONPATH = $target
             python -c "import importlib.util, voice_stt_client; from voice_stt_client.core.config import DEFAULT_CONFIG_PATH; from voice_stt_client.ui.feedback import application_resource_root; assert importlib.util.find_spec('core') is None; assert importlib.util.find_spec('ui') is None; assert DEFAULT_CONFIG_PATH.is_file(); assert (application_resource_root() / 'assets' / 'feedback_sounds' / 'debug' / 'start.wav').is_file(); print(voice_stt_client.__version__)"
             python -m voice_stt_client --version
+            python -m voice_stt_client --verify-gui-runtime --verification-output (Join-Path $env:RUNNER_TEMP "wheel-probe.json")
+            if ($LASTEXITCODE -ne 0) { throw "Installed wheel probe failed" }
+            $probe = Get-Content (Join-Path $env:RUNNER_TEMP "wheel-probe.json") -Raw | ConvertFrom-Json
+            if ($probe.hello.clientCommit -ne '${{ github.sha }}') { throw "Wheel Hello identity mismatch" }
           } finally {
             Pop-Location
           }

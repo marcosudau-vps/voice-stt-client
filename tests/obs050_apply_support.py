@@ -1,29 +1,10 @@
-"""
-Shared fixtures for the OBS-050 apply-chain tests.
-
-Not named ``test_*`` on purpose: this module holds no test cases, and neither
-``pytest`` nor ``unittest discover`` should collect it.
-
-The session double's ``reconfigure`` raises. That is the measurement device
-for ``LOGGING_CONTRACTS_FREEZE_V1.md`` §10.4's hard rule — *"Nachweis:
-apply_runtime_config mit einer Fake-Session, deren reconfigure bei Aufruf
-durchfaellt"*: if a pure observability change ever set ``session_changed``,
-the apply would reach ``reconfigure`` and fail visibly instead of quietly
-reconnecting.
-"""
-
-from __future__ import annotations
-
-import os
-import shutil
+"""Logging preference regression fixtures against the actual V2Runtime."""
 import tempfile
-from typing import Any, Optional
-
-from voice_stt_client.core.config import AppConfig
-from voice_stt_client.core.controller import STTController
-from voice_stt_client.core.history import TranscriptHistoryManager
-from voice_stt_client.core.stt_session import ClientState, SessionState, TransportState
-
+import shutil
+from pathlib import Path
+from voice_stt_client.core.v2_runtime import V2Runtime
+from tests.test_v2_runtime_integration import config_in
+from tests.test_text_injector import MockInjectionBackend
 
 class RecordingIngress:
     """An ``Ingress`` double that records what ``apply_config`` received."""
@@ -32,6 +13,8 @@ class RecordingIngress:
         self.applied: list[Any] = []
         self.events: list[tuple] = []
         self._raises = raises
+
+    def register_aggregate_source(self, *args, **kwargs): pass
 
     def event(self, type, **kwargs):  # noqa: A002
         self.events.append((type, kwargs))
@@ -59,94 +42,12 @@ class IngressWithoutApplyConfig(RecordingIngress):
         return super().__getattribute__(name)
 
 
-class FakeAudio:
-    def __init__(self) -> None:
-        self.on_audio_packet = None
-        self.running = False
 
-    def start(self, *args, **kwargs):
-        self.running = True
-
-    def stop(self, *args, **kwargs):
-        self.running = False
-
-    @property
-    def is_running(self) -> bool:
-        return self.running
-
-
-class FakeSession:
-    def __init__(self) -> None:
-        self.generation = 1
-        self.reconfigure_calls = 0
-        self.state = ClientState(
-            transport=TransportState.READY,
-            ready_ok=True,
-            server_status=SessionState.IDLE,
-            generation=1,
-            session_id="fake-session",
-        )
-
-    @property
-    def is_ready(self) -> bool:
-        return True
-
-    @property
-    def is_streaming(self) -> bool:
-        return False
-
-    async def reconfigure(self, session_config, server_config):
-        self.reconfigure_calls += 1
-        raise RuntimeError("reconfigure must not be reached by a logging change")
-
-    async def stop(self) -> None:
-        return None
-
-    async def invalidate_connection(self, reason: str = "") -> None:
-        return None
-
-
-class FakeCoordinator:
-    def __init__(self) -> None:
-        self.on_event = None
-        self.on_context_change = None
-        self.on_observation = None
-        self.config_updates = []
-
-    async def update_config(self, server_config, event_config) -> None:
-        self.config_updates.append((server_config, event_config))
-
-    async def shutdown(self) -> None:
-        return None
-
-
-def build_controller(
-    *,
-    apply_config_raises: bool = False,
-    apply_config_missing: bool = False,
-    cleanup: Optional[list] = None,
-):
-    """A controller wired to doubles, with a temporary history database."""
+def build_controller(*, apply_config_raises=False, apply_config_missing=False, cleanup=None):
     directory = tempfile.mkdtemp()
-    config = AppConfig()
-    config.history.persistent.db_path = os.path.join(directory, "history.db")
-    history = TranscriptHistoryManager(config.history, db_path=config.history.persistent.db_path)
-
-    ingress: Any
-    if apply_config_missing:
-        ingress = IngressWithoutApplyConfig()
-    else:
-        ingress = RecordingIngress(raises=apply_config_raises)
-
-    session = FakeSession()
-    controller = STTController(
-        config,
-        session=session,
-        audio=FakeAudio(),
-        history_manager=history,
-        session_coordinator=FakeCoordinator(),
-        observability=ingress,
-    )
+    config = config_in(directory)
+    ingress = IngressWithoutApplyConfig() if apply_config_missing else RecordingIngress(raises=apply_config_raises)
+    runtime = V2Runtime(config, observability=ingress, backend=MockInjectionBackend())
     if cleanup is not None:
         cleanup.append(lambda: shutil.rmtree(directory, ignore_errors=True))
-    return controller, session
+    return runtime, runtime.session

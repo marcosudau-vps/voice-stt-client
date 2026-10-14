@@ -1,0 +1,31 @@
+{
+  "command": [
+    "venv/Scripts/python.exe",
+    "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\PLANUNG\\SKILLS\\GEMEINSAM\\scripts\\pruefe_arbeitsakten.py",
+    "--paths",
+    "docs/compatibility.md",
+    "docs/protocol-v2-runtime.md",
+    "docs/protocol-v2-release.md",
+    "docs/PROJEKTUEBERSICHT.md",
+    "README.md",
+    "task.md",
+    "\u00dcBERGABE.md",
+    "ARBEITSDATEIEN/00_STEUERUNG/CURRENT_STATE.md",
+    "ARBEITSDATEIEN/00_STEUERUNG/MASTERPLAN.md",
+    "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\README.md",
+    "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\STATUS.md",
+    "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\PLANUNG\\README.md",
+    "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\VERLAUF.md",
+    "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\PLANUNG\\ARBEITSPAKETE\\README.md",
+    "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\PLANUNG\\REFERENZ\\TRACEABILITY\\TRACEABILITY_MATRIX.md",
+    "--pr-summary",
+    "C:\\Users\\marco\\AppData\\Local\\Temp\\ap-cv2-110-pr-body.md"
+  ],
+  "result": "PASS",
+  "package": "AP-CV2-110",
+  "packageStatus": "REVIEW_READY",
+  "referencedFiles": 25,
+  "markdownFiles": 21,
+  "relativeLinks": 1268,
+  "errors": []
+}

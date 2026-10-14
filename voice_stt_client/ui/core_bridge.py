@@ -12,7 +12,8 @@ from typing import Callable, Optional
 from PySide6.QtCore import QObject, Signal
 
 from voice_stt_client.core.config import AppConfig
-from voice_stt_client.core.controller import CommandResult, STTController
+from voice_stt_client.core.controller import CommandResult
+from voice_stt_client.core.v2_runtime import V2Runtime
 from voice_stt_client.core.event_models import CanonicalEventType
 from voice_stt_client.core.observability.adapters.client_events import ClientEventEmitter
 from voice_stt_client.core.observability.ingress import NULL_INGRESS
@@ -20,7 +21,7 @@ from voice_stt_client.core.reinsertion import ReinsertionResult, ReinsertionStat
 
 logger = logging.getLogger("ui.core_bridge")
 
-ControllerFactory = Callable[[AppConfig], STTController]
+ControllerFactory = Callable[[AppConfig], V2Runtime]
 
 
 class CoreBridge(QObject):
@@ -50,16 +51,16 @@ class CoreBridge(QObject):
         self._observe = ClientEventEmitter(observability, component="ui.core_bridge")
         # CONTRACTS §6: the default factory carries the ingress into the
         # controller, so ``ControllerFactory`` stays ``Callable[[AppConfig],
-        # STTController]`` and an externally supplied factory keeps being
+        # V2Runtime]`` and an externally supplied factory keeps being
         # called with exactly one argument. Such a factory's controller then
         # holds NULL_INGRESS -- which is the documented, intended outcome.
         self._controller_factory = controller_factory or (
-            lambda cfg: STTController(cfg, observability=observability)
+            lambda cfg: V2Runtime(cfg, observability=observability)
         )
         self._lock = threading.Lock()
         self._thread: Optional[threading.Thread] = None
         self._loop: Optional[asyncio.AbstractEventLoop] = None
-        self._controller: Optional[STTController] = None
+        self._controller: Optional[V2Runtime] = None
         self._startup_event = threading.Event()
         self._stopped_event = threading.Event()
         self._accepting_commands = False
@@ -104,7 +105,7 @@ class CoreBridge(QObject):
     def _thread_main(self) -> None:
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
-        controller: Optional[STTController] = None
+        controller: Optional[V2Runtime] = None
         error_message: Optional[str] = None
         try:
             controller = self._controller_factory(self.config)
@@ -181,7 +182,7 @@ class CoreBridge(QObject):
 
     def _get_target(
         self,
-    ) -> tuple[Optional[asyncio.AbstractEventLoop], Optional[STTController]]:
+    ) -> tuple[Optional[asyncio.AbstractEventLoop], Optional[V2Runtime]]:
         with self._lock:
             if not self._accepting_commands:
                 return None, None
@@ -364,7 +365,7 @@ class CoreBridge(QObject):
     def _submit_sync(
         self,
         name: str,
-        callback: Callable[[STTController], object],
+        callback: Callable[[V2Runtime], object],
         *,
         history_result: bool = False,
     ) -> bool:

@@ -4,52 +4,45 @@
   "repository": "marcosudau-vps/voice-stt-client",
   "workflowPhase": "READY_FOR_CANONICALIZATION",
   "packageStatus": "ROOT_PASS",
-  "activePackage": "AP-CV2-100",
-  "nextPackage": "AP-CV2-110",
-  "canonicalParent": "dad89bb5d08e6d34abc5cfab57fc76010c5131dc",
-  "candidateBranch": "work/client-v2/ap-cv2-100",
-  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/12",
+  "activePackage": "AP-CV2-110",
+  "nextPackage": "AP-IV2-010",
+  "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+  "candidateBranch": "work/client-v2/ap-cv2-110",
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/13",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R06-UEBERNAHME",
+    "id": "R03-UEBERNAHME",
     "role": "canonicalization",
-    "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/EVIDENCE/INDEX.md"
+    "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "0d45f8e9d3b484631da80be28f31c86ea85ab002",
-  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md",
+  "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+  "reviewReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
   "humanApproval": {
     "status": "EXPLICITLY_GRANTED",
-    "source": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/00_PROMPT_ORIGINAL.md",
-    "prNumber": 12,
-    "approvedHead": "4c7be6945ae3f2c52748667963d00a1d5cd30d9f",
-    "canonicalParent": "dad89bb5d08e6d34abc5cfab57fc76010c5131dc",
-    "passReport": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md"
+    "source": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+    "approvedHead": "84b72e11b64d0d6220fe239614301dfd569d8256",
+    "approvedTree": "b1fa7e771b8c19ae9865eecabc5134d84497f2f9",
+    "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+    "passReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+    "approvedPR": 13
   },
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "R06-Freigabe dokumentiert: finalen R06-Head und dessen CI prüfen, PR #12 per Squash-and-merge mit SHA-Lease übernehmen, Merge/Parent/Tree und kanonischen Einzelcommit unabhängig aus GitHub nachweisen. Keine zusätzliche AP110-Implementierung.",
+  "nextAction": "Nach frischer CI des finalen Freigabe-Dokumentcommits unveränderte PR-Base/Head prüfen, PR #13 mit Squash and merge übernehmen, Parent-/Treegleichheit nachweisen. Kein Release/Tag/Servermerge/Folgepaketstart.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md",
-    "currentCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/00_PROMPT_ORIGINAL.md"
+    "currentCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/00_PROMPT_ORIGINAL.md",
+    "currentImplementationSource": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md"
   },
   "candidateSelection": {
-    "candidateId": "AP-CV2-100",
-    "source": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "Ausdruecklicher Auftrag nach belegter AP090-Uebernahme."
+    "candidateId": "AP-CV2-110",
+    "source": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "reason": "Ausdrücklicher AP110-Auftrag nach belegtem AP100-Squash."
   },
   "recovery": null,
-  "relatedServerFix": null,
-  "reviewedTree": "aa8e3146f7e05e67694fc2027d712c62ce44cebe",
-  "correctionEvidence": {
-    "findingIds": [
-      "CV2-100-R03-F01"
-    ],
-    "state": "F01_INDEPENDENTLY_CLOSED",
-    "report": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/01_REPORT.md",
-    "independentReview": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md"
-  }
+  "relatedServerFix": null
 }

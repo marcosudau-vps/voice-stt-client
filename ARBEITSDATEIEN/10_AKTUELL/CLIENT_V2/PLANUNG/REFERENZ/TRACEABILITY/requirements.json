@@ -12831,7 +12831,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -12862,7 +12862,61 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/pyproject.toml"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-110",
+        "candidateCommit": "cf42a2a9d96c1ebc88035817a5d529dfe04e4306",
+        "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_release.RuntimeRetirement.test_product_has_no_v1_controller_transport_or_headless_class",
+          "tests.test_v2_release.RuntimeRetirement.test_v1_messages_do_not_become_v2_state",
+          "tests.test_v2_settings_service.Migration.test_versioned_profile_ignores_legacy_mode_extension",
+          "tests.test_v2_results.Migration.test_v1_backup_ids_attempts_origin_and_second_start_idempotent"
+        ],
+        "manualCases": [
+          "1348-test full regression including migration/results/shared utility tests",
+          "251 method-level replacement-responsibility mappings"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+      },
+      "implementationHistory": [
+        {
+          "state": "SUPERSEDED_AFTER_CI_FIXES",
+          "candidateRef": "work/client-v2/ap-cv2-110",
+          "candidateCommit": "2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259",
+          "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+          "run": "R01-UMSETZUNG",
+          "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+          "methods": [
+            "tests.test_v2_release.RuntimeRetirement.test_product_has_no_v1_controller_transport_or_headless_class",
+            "tests.test_v2_release.RuntimeRetirement.test_v1_messages_do_not_become_v2_state",
+            "tests.test_v2_settings_service.Migration.test_versioned_profile_ignores_legacy_mode_extension",
+            "tests.test_v2_results.Migration.test_v1_backup_ids_attempts_origin_and_second_start_idempotent"
+          ],
+          "manualCases": [
+            "1348-test full regression including migration/results/shared utility tests",
+            "251 method-level replacement-responsibility mappings"
+          ],
+          "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+          "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+        }
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "FINAL-04",
@@ -12872,7 +12926,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -12903,7 +12957,59 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/pyproject.toml"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-110",
+        "candidateCommit": "cf42a2a9d96c1ebc88035817a5d529dfe04e4306",
+        "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_release.StartupPreferences.test_failed_start_and_retry_restore_original_bindings_and_profile_bytes",
+          "tests.test_v2_results.Results.test_reinsert_has_separate_manual_attempt_and_clipboard_restore",
+          "tests.test_v2_runtime_integration.QtRuntime.test_local_settings_apply_survives_audit_ingress_failure",
+          "tests.test_ui_application.TestDesktopApplication.test_second_instance_exits_before_ui_start"
+        ],
+        "manualCases": [
+          "legacy-test-successors.json 251 entries verified against actual method AST; full suite PASS"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+      },
+      "implementationHistory": [
+        {
+          "state": "SUPERSEDED_AFTER_CI_FIXES",
+          "candidateRef": "work/client-v2/ap-cv2-110",
+          "candidateCommit": "2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259",
+          "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+          "run": "R01-UMSETZUNG",
+          "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+          "methods": [
+            "tests.test_v2_release.StartupPreferences.test_failed_start_and_retry_restore_original_bindings_and_profile_bytes",
+            "tests.test_v2_results.Results.test_reinsert_has_separate_manual_attempt_and_clipboard_restore",
+            "tests.test_v2_runtime_integration.QtRuntime.test_local_settings_apply_survives_audit_ingress_failure",
+            "tests.test_ui_application.TestDesktopApplication.test_second_instance_exits_before_ui_start"
+          ],
+          "manualCases": [
+            "legacy-test-successors.json 251 entries verified against actual method AST; full suite PASS"
+          ],
+          "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+          "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+        }
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "FINAL-05",
@@ -12913,7 +13019,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -12944,7 +13050,63 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/pyproject.toml"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-110",
+        "candidateCommit": "cf42a2a9d96c1ebc88035817a5d529dfe04e4306",
+        "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_release.RuntimeRetirement.test_fixtures_are_exact_pinned_copies",
+          "tests.test_v2_release.BuildIdentity.test_distribution_guard_rejects_secret_namespace_and_dirty_identity",
+          "tests.test_v2_release.RuntimeRetirement.test_windows_checkout_keeps_pinned_resource_bytes",
+          "tests.test_v2_release.ProbeDiagnostics.test_no_audio_output_decodes_all_actual_assets_through_qt"
+        ],
+        "manualCases": [
+          "pyinstaller-clean",
+          "python-distributions",
+          "release-guard",
+          "source/wheel/rebuilt-wheel/frozen-native-probe resources/icon/sounds"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+      },
+      "implementationHistory": [
+        {
+          "state": "SUPERSEDED_AFTER_CI_FIXES",
+          "candidateRef": "work/client-v2/ap-cv2-110",
+          "candidateCommit": "2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259",
+          "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+          "run": "R01-UMSETZUNG",
+          "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+          "methods": [
+            "tests.test_v2_release.RuntimeRetirement.test_fixtures_are_exact_pinned_copies",
+            "tests.test_v2_release.BuildIdentity.test_distribution_guard_rejects_secret_namespace_and_dirty_identity"
+          ],
+          "manualCases": [
+            "pyinstaller-clean",
+            "python-distributions",
+            "release-guard",
+            "source/wheel/rebuilt-wheel/frozen-native-probe resources/icon/sounds"
+          ],
+          "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+          "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+        }
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "FINAL-06",
@@ -12954,7 +13116,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -12985,7 +13147,64 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/pyproject.toml"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-110",
+        "candidateCommit": "cf42a2a9d96c1ebc88035817a5d529dfe04e4306",
+        "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_release.BuildIdentity.test_transport_hello_uses_canonical_release_identity",
+          "tests.test_v2_release.BuildIdentity.test_installed_stamp_wins_and_invalid_identity_is_rejected",
+          "tests.test_v2_release.BuildIdentity.test_sdist_rebuild_preserves_original_identity",
+          "tests.test_v2_release.BuildIdentity.test_unknown_server_identity_is_not_promoted_to_pinned_proof",
+          "tests.test_v2_release.RuntimeRetirement.test_windows_checkout_keeps_pinned_resource_bytes"
+        ],
+        "manualCases": [
+          "source/wheel/rebuilt-wheel/frozen-native-probe",
+          "release-server.json eight observed Hello identities",
+          "frozen module and wheel/sdist namespace inspection"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+      },
+      "implementationHistory": [
+        {
+          "state": "SUPERSEDED_AFTER_CI_FIXES",
+          "candidateRef": "work/client-v2/ap-cv2-110",
+          "candidateCommit": "2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259",
+          "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+          "run": "R01-UMSETZUNG",
+          "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+          "methods": [
+            "tests.test_v2_release.BuildIdentity.test_transport_hello_uses_canonical_release_identity",
+            "tests.test_v2_release.BuildIdentity.test_installed_stamp_wins_and_invalid_identity_is_rejected",
+            "tests.test_v2_release.BuildIdentity.test_sdist_rebuild_preserves_original_identity",
+            "tests.test_v2_release.BuildIdentity.test_unknown_server_identity_is_not_promoted_to_pinned_proof"
+          ],
+          "manualCases": [
+            "source/wheel/rebuilt-wheel/frozen-native-probe",
+            "release-server.json eight observed Hello identities",
+            "frozen module and wheel/sdist namespace inspection"
+          ],
+          "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+          "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+        }
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "FINAL-07",
@@ -12995,7 +13214,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13026,7 +13245,57 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/pyproject.toml"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-110",
+        "candidateCommit": "cf42a2a9d96c1ebc88035817a5d529dfe04e4306",
+        "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_release.FailureIsolation.test_legacy_endpoint_is_blocked_without_any_connector_call",
+          "tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once"
+        ],
+        "manualCases": [
+          "docs/compatibility.md explicit PASS/NOT_RUN boundaries",
+          "release-server.json legacyRoute raw admission"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+      },
+      "implementationHistory": [
+        {
+          "state": "SUPERSEDED_AFTER_CI_FIXES",
+          "candidateRef": "work/client-v2/ap-cv2-110",
+          "candidateCommit": "2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259",
+          "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+          "run": "R01-UMSETZUNG",
+          "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+          "methods": [
+            "tests.test_v2_release.FailureIsolation.test_legacy_endpoint_is_blocked_without_any_connector_call",
+            "tests.test_v2_transport.Transport.test_http_upgrade_auth_configuration_and_invalid_handshake_block_once"
+          ],
+          "manualCases": [
+            "docs/compatibility.md explicit PASS/NOT_RUN boundaries",
+            "release-server.json legacyRoute raw admission"
+          ],
+          "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+          "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+        }
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "FINAL-08",
@@ -13036,7 +13305,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13067,7 +13336,55 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/pyproject.toml"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-110",
+        "candidateCommit": "cf42a2a9d96c1ebc88035817a5d529dfe04e4306",
+        "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.test_client_release_guard.ClientReleaseGuardTests.test_candidate_has_exact_three_products",
+          "tests.test_v2_release.FailureIsolation.test_packaging_probe_cannot_contact_live_services"
+        ],
+        "manualCases": [
+          "build commands and ci.yml inspected: candidate upload only; no tag/publish/merge operation executed"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+      },
+      "implementationHistory": [
+        {
+          "state": "SUPERSEDED_AFTER_CI_FIXES",
+          "candidateRef": "work/client-v2/ap-cv2-110",
+          "candidateCommit": "2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259",
+          "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+          "run": "R01-UMSETZUNG",
+          "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+          "methods": [
+            "tests.test_client_release_guard.ClientReleaseGuardTests.test_candidate_has_exact_three_products",
+            "tests.test_v2_release.FailureIsolation.test_packaging_probe_cannot_contact_live_services"
+          ],
+          "manualCases": [
+            "build commands and ci.yml inspected: candidate upload only; no tag/publish/merge operation executed"
+          ],
+          "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+          "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+        }
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "FINAL-09",
@@ -13077,7 +13394,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13108,7 +13425,76 @@
           "url": "https://github.com/marcosudau-vps/voice-stt-client/blob/f625904795880ce71acec216e43678f9ec1656d0/pyproject.toml"
         }
       ],
-      "plannedTestRole": "suggested location; actual method and evidence required"
+      "plannedTestRole": "suggested location; actual method and evidence required",
+      "implementationEvidence": {
+        "state": "SELF_CHECK_PASS_REVIEW_READY",
+        "candidateRef": "work/client-v2/ap-cv2-110",
+        "candidateCommit": "cf42a2a9d96c1ebc88035817a5d529dfe04e4306",
+        "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+        "run": "R01-UMSETZUNG",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+        "methods": [
+          "tests.test_v2_release.BuildIdentity.test_distribution_guard_rejects_secret_namespace_and_dirty_identity",
+          "tests.test_v2_runtime_integration.QtRuntime.test_actual_bridge_thread_qt_output_and_native_role_dispatch",
+          "tests.test_v2_release.ProbeDiagnostics.test_probe_failure_returns_nonzero_with_machine_readable_result",
+          "tests.test_build_script.BuildScriptTests.test_real_timeout_releases_temporary_cwd",
+          "tests.test_build_script.BuildScriptTests.test_smoke_timeout_kills_bootloader_tree_before_cleanup"
+        ],
+        "manualCases": [
+          "windows-full",
+          "windows-targeted",
+          "compileall",
+          "pyinstaller-clean",
+          "python-distributions",
+          "twine-check",
+          "wheel-install",
+          "sdist-wheel-rebuild",
+          "frozen-native-probe",
+          "diff-check"
+        ],
+        "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+        "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+      },
+      "implementationHistory": [
+        {
+          "state": "SUPERSEDED_AFTER_CI_FIXES",
+          "candidateRef": "work/client-v2/ap-cv2-110",
+          "candidateCommit": "2b4bb7869f6659434d37d1a7d8b0cba5ba3bd259",
+          "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+          "run": "R01-UMSETZUNG",
+          "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md",
+          "methods": [
+            "tests.test_v2_release.BuildIdentity.test_distribution_guard_rejects_secret_namespace_and_dirty_identity",
+            "tests.test_v2_runtime_integration.QtRuntime.test_actual_bridge_thread_qt_output_and_native_role_dispatch"
+          ],
+          "manualCases": [
+            "windows-full",
+            "windows-targeted",
+            "compileall",
+            "pyinstaller-clean",
+            "python-distributions",
+            "twine-check",
+            "wheel-install",
+            "sdist-wheel-rebuild",
+            "frozen-native-probe",
+            "diff-check"
+          ],
+          "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
+          "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
+        }
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "GATE-01",

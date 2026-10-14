@@ -1,0 +1,401 @@
+{
+  "candidateCommit": "cf42a2a9d96c1ebc88035817a5d529dfe04e4306",
+  "candidateTree": "985986edaef2a1a6fc37091756d13b988adddc7e",
+  "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "runtime": {
+    "executable": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "windows": "sys.getwindowsversion(major=10, minor=0, build=26300, platform=2, service_pack='')"
+  },
+  "commands": [
+    {
+      "name": "windows-full",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py"
+      ],
+      "cwd": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2",
+      "exitCode": 0,
+      "durationSeconds": 178.625,
+      "log": "windows-full.txt.gz",
+      "sha256": "9889e99d985a2ef018e5228a48ff664e5e35e3e5b31558725879b74fcdb97a3a",
+      "testCount": 1353,
+      "compressedSha256": "718777a207a56654e51437291878de5303deb06d4f557c5f6259ace47ec8086f"
+    },
+    {
+      "name": "windows-targeted",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "tests.test_v2_release",
+        "tests.test_v2_runtime_integration",
+        "tests.test_v2_feedback",
+        "tests.test_obs050_settings",
+        "tests.test_obs050_ui",
+        "tests.test_event_stream",
+        "tests.test_build_script",
+        "-v"
+      ],
+      "cwd": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2",
+      "exitCode": 0,
+      "durationSeconds": 74.812,
+      "log": "windows-targeted.txt.gz",
+      "sha256": "f80940e5d28939e7b3e9593698ad8536c415b53533598f84fbc64b58af60d695",
+      "testCount": 234,
+      "compressedSha256": "d7963d3fe726e7627e86ed8a5ea8c321638f940cd449e5cfd4bb814e3b280251"
+    },
+    {
+      "name": "compileall",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "voice_stt_client",
+        "scripts",
+        "tests"
+      ],
+      "cwd": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2",
+      "exitCode": 0,
+      "durationSeconds": 0.219,
+      "log": "compileall.txt.gz",
+      "sha256": "bd909237f3f51a97b7753f81e5d409a8e2997488e7fdaa666a6606b29490849c",
+      "testCount": null,
+      "compressedSha256": "0ba34c4b48a99d88df014da179d1a5915234cefacf78e99012c105f6bac8fcba"
+    },
+    {
+      "name": "server-runtime",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "scripts/check_v2_server_runtime.py",
+        "--server-root",
+        "C:\\Users\\marco\\AppData\\Local\\Temp\\voice-stt-ap-cv2-020-ada13b0",
+        "--server-repository",
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-server\\main"
+      ],
+      "cwd": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2",
+      "exitCode": 0,
+      "durationSeconds": 11.437,
+      "log": "server-runtime.txt.gz",
+      "sha256": "958e9e3791fdcfaeb463e049443e02403e65374a276feb188f9db1f7f6ae4b21",
+      "testCount": null,
+      "compressedSha256": "0b6b689f0efb1c5644cd18da038b964c061978340a2ba6c64390db30cf31b850"
+    },
+    {
+      "name": "pyinstaller-clean",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "scripts/build.py",
+        "--clean"
+      ],
+      "cwd": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2",
+      "exitCode": 0,
+      "durationSeconds": 88.782,
+      "log": "pyinstaller-clean.txt.gz",
+      "sha256": "3ab72dc64e7acda4506125a3734eb3367455a737019eccd14aace7eec577d1e2",
+      "testCount": null,
+      "compressedSha256": "045d3e0d09b7fab22b06b95cce1530af14161c99471ddae891190975ee7a5370"
+    },
+    {
+      "name": "python-distributions",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "build",
+        "--sdist",
+        "--wheel"
+      ],
+      "cwd": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2",
+      "exitCode": 0,
+      "durationSeconds": 14.797,
+      "log": "python-distributions.txt.gz",
+      "sha256": "569150b772e1643688622b11057e0bf12f9a65380408909c2e929c042406e551",
+      "testCount": null,
+      "compressedSha256": "ec34f782a89c4bbd56f2375312902e8f75b71e8f6d8cb176f58454dc9c307103"
+    },
+    {
+      "name": "twine-check",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "twine",
+        "check",
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\dist\\voice_stt_client-1.0.0-py3-none-any.whl",
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\dist\\voice_stt_client-1.0.0.tar.gz"
+      ],
+      "cwd": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2",
+      "exitCode": 0,
+      "durationSeconds": 0.75,
+      "log": "twine-check.txt.gz",
+      "sha256": "42e9190cbc94ac18f992c3cf277bbef81d2463e35512771c40410dae403e9b4e",
+      "testCount": null,
+      "compressedSha256": "fab15d8f95e4b79c8a489dc14c2acf867fa7c156c1d44c4a8cfbbff526ee7b46"
+    },
+    {
+      "name": "release-guard",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "scripts/client_release_guard.py",
+        "candidate",
+        "--dir",
+        "dist",
+        "--expected-commit",
+        "cf42a2a9d96c1ebc88035817a5d529dfe04e4306"
+      ],
+      "cwd": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2",
+      "exitCode": 0,
+      "durationSeconds": 0.5,
+      "log": "release-guard.txt.gz",
+      "sha256": "db2178405f444ca430192d8823f5923990118157fda757e6fb0cef6c1eed012b",
+      "testCount": null,
+      "compressedSha256": "53ef9c97c9aebd549a7957a3be97fe3510da745798707aa1c9830b363fee7123"
+    },
+    {
+      "name": "wheel-install",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "--target",
+        "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r\\wheel-installed",
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\dist\\voice_stt_client-1.0.0-py3-none-any.whl"
+      ],
+      "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r",
+      "exitCode": 0,
+      "durationSeconds": 3.282,
+      "log": "wheel-install.txt.gz",
+      "sha256": "d4102ad47b2b94ab9a7a79d68817eb7da6445b3237e91b2eca49a84345aefcf3",
+      "testCount": null,
+      "compressedSha256": "f37ac2d04bb53dcee4391c166b9f2807b778d4fd461c982c8250ed1f787b1024"
+    },
+    {
+      "name": "sdist-wheel-rebuild",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "build",
+        "--wheel",
+        "--outdir",
+        "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r\\rebuilt"
+      ],
+      "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r\\sdist-source\\voice_stt_client-1.0.0",
+      "exitCode": 0,
+      "durationSeconds": 9.406,
+      "log": "sdist-wheel-rebuild.txt.gz",
+      "sha256": "e3ab766a819164e3c429ce45513af56a408482ead64c04af267404ee8ca38a51",
+      "testCount": null,
+      "compressedSha256": "88133df2481ab9a8caa23351a1614b52ca25925c21ca938883d1280e553b519a"
+    },
+    {
+      "name": "rebuilt-wheel-install",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "--target",
+        "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r\\rebuilt-installed",
+        "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r\\rebuilt\\voice_stt_client-1.0.0-py3-none-any.whl"
+      ],
+      "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r",
+      "exitCode": 0,
+      "durationSeconds": 3.422,
+      "log": "rebuilt-wheel-install.txt.gz",
+      "sha256": "b0648721c9933d70eb8d53d320b2088b9edb023b256b5902d3e867aa2caa3b43",
+      "testCount": null,
+      "compressedSha256": "e417e7dce8775bc8491041c8f2198a0ddc271e550356c01c5ad2e7d6e618e519"
+    },
+    {
+      "name": "source-version",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "voice_stt_client",
+        "--version"
+      ],
+      "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r",
+      "exitCode": 0,
+      "durationSeconds": 0.625,
+      "log": "source-version.txt.gz",
+      "sha256": "10ad75f17ae07c085988d54b3cc401306c7bbc0c7e786aad083aab343016a790",
+      "testCount": null,
+      "compressedSha256": "2facb6f90a48869d4cd553f139bbcd458104aaf8753b2272c82006352d6adfee"
+    },
+    {
+      "name": "source-native-probe",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "voice_stt_client",
+        "--verify-gui-runtime",
+        "--verification-output",
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-CV2-110\\RUNS\\R01-UMSETZUNG\\EVIDENCE\\source-probe.json",
+        "--verification-server",
+        "ws://127.0.0.1:54661/ws/v2"
+      ],
+      "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r",
+      "exitCode": 0,
+      "durationSeconds": 2.407,
+      "log": "source-native-probe.txt.gz",
+      "sha256": "49bc96711d69137f08b56ee58530cbb64dc225be3e0578a1e415752094f76a9a",
+      "testCount": null,
+      "compressedSha256": "99403844c9854cbdc554e9fbe4c744ba312b5d2c2410753867da170bc2afbff6"
+    },
+    {
+      "name": "wheel-version",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "voice_stt_client",
+        "--version"
+      ],
+      "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r",
+      "exitCode": 0,
+      "durationSeconds": 0.437,
+      "log": "wheel-version.txt.gz",
+      "sha256": "10ad75f17ae07c085988d54b3cc401306c7bbc0c7e786aad083aab343016a790",
+      "testCount": null,
+      "compressedSha256": "2facb6f90a48869d4cd553f139bbcd458104aaf8753b2272c82006352d6adfee"
+    },
+    {
+      "name": "wheel-native-probe",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "voice_stt_client",
+        "--verify-gui-runtime",
+        "--verification-output",
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-CV2-110\\RUNS\\R01-UMSETZUNG\\EVIDENCE\\wheel-probe.json",
+        "--verification-server",
+        "ws://127.0.0.1:54661/ws/v2"
+      ],
+      "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r",
+      "exitCode": 0,
+      "durationSeconds": 2.375,
+      "log": "wheel-native-probe.txt.gz",
+      "sha256": "54ee7f7993b3828f4fce53e700f0eff84881cd812aa12872914589580b4da6be",
+      "testCount": null,
+      "compressedSha256": "48d57c5953c1495d2cb8c81f201cf268376a0cb20b47147af274d7b6e08d8826"
+    },
+    {
+      "name": "rebuilt-wheel-version",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "voice_stt_client",
+        "--version"
+      ],
+      "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r",
+      "exitCode": 0,
+      "durationSeconds": 0.438,
+      "log": "rebuilt-wheel-version.txt.gz",
+      "sha256": "10ad75f17ae07c085988d54b3cc401306c7bbc0c7e786aad083aab343016a790",
+      "testCount": null,
+      "compressedSha256": "2facb6f90a48869d4cd553f139bbcd458104aaf8753b2272c82006352d6adfee"
+    },
+    {
+      "name": "rebuilt-wheel-native-probe",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "voice_stt_client",
+        "--verify-gui-runtime",
+        "--verification-output",
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-CV2-110\\RUNS\\R01-UMSETZUNG\\EVIDENCE\\rebuilt-wheel-probe.json",
+        "--verification-server",
+        "ws://127.0.0.1:54661/ws/v2"
+      ],
+      "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r",
+      "exitCode": 0,
+      "durationSeconds": 2.453,
+      "log": "rebuilt-wheel-native-probe.txt.gz",
+      "sha256": "bf88ef4b98394b349250d5abb8abc971dd5563f49fa9ee26952f038365880d35",
+      "testCount": null,
+      "compressedSha256": "4146e4444bede57d3c2975062af68d1fb0717f48bb7f7126852708e084d95c1c"
+    },
+    {
+      "name": "frozen-version",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\dist\\voice-stt-client.exe",
+        "--version"
+      ],
+      "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r",
+      "exitCode": 0,
+      "durationSeconds": 2.64,
+      "log": "frozen-version.txt.gz",
+      "sha256": "8b70741aeeebff8ad225b1f51c80f8cc9b358a1b2faae0ee2f0c2f79d01e5c55",
+      "testCount": null,
+      "compressedSha256": "0d4fb35d200fee14840d911e0736d562f89be337293b98bcf4b42a8cab127278"
+    },
+    {
+      "name": "frozen-native-probe",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\dist\\voice-stt-client.exe",
+        "--verify-gui-runtime",
+        "--verification-output",
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-CV2-110\\RUNS\\R01-UMSETZUNG\\EVIDENCE\\frozen-probe.json",
+        "--verification-server",
+        "ws://127.0.0.1:54661/ws/v2"
+      ],
+      "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\cv2-110-installed-_g974q3r",
+      "exitCode": 0,
+      "durationSeconds": 4.25,
+      "log": "frozen-native-probe.txt.gz",
+      "sha256": "0933717f53b11fbd9c50701b208f250083ba3cc05181a77485e2417260137392",
+      "testCount": null,
+      "compressedSha256": "4eb964c2e55c7325188d21a0a0f5af4205db21f4939443bd63e7d3fdabc27556"
+    },
+    {
+      "name": "diff-check",
+      "command": [
+        "git",
+        "-c",
+        "core.safecrlf=false",
+        "diff",
+        "--check"
+      ],
+      "cwd": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2",
+      "exitCode": 0,
+      "durationSeconds": 0.063,
+      "log": "diff-check.txt.gz",
+      "sha256": "f9139aa238a7f1fa0bb8cd6e48bee2d9e327ef119e33bcd5d013118adbd33b66",
+      "testCount": null,
+      "compressedSha256": "a938d1d9f55ae3f289c12db9ce57911adf29a955b69f36ce716d183d809719b8"
+    }
+  ],
+  "result": "PASS",
+  "artifacts": {
+    "voice_stt_client-1.0.0-py3-none-any.whl": {
+      "path": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\dist\\voice_stt_client-1.0.0-py3-none-any.whl",
+      "size": 1185970,
+      "sha256": "00073cd4f5b1f1b1e20e433380bb1422cff4f3e0d64a7230d1578fd8f1efbeec"
+    },
+    "voice_stt_client-1.0.0.tar.gz": {
+      "path": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\dist\\voice_stt_client-1.0.0.tar.gz",
+      "size": 1148781,
+      "sha256": "99f0231e69d52cbaa5eae3834ccfa9ee39d8002cb64191dbe0fb8f233c981345"
+    },
+    "voice-stt-client.exe": {
+      "path": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\dist\\voice-stt-client.exe",
+      "size": 75579676,
+      "sha256": "dccc449d227e7e3580bbdfa333f7386ac6070f007eee29c40971f863375c6f5d"
+    }
+  },
+  "frozenModules": {
+    "count": 788,
+    "forbidden": [],
+    "containsV2Runtime": true
+  },
+  "receivedHelloCount": 8
+}

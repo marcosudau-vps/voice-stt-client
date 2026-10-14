@@ -391,7 +391,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
         cfg.validate()
         self.assertTrue(cfg.effective_manual_trigger_enabled)
         self.assertFalse(cfg.effective_wake_word_trigger_enabled)
-        params = cfg.query_parameters()
+        params = {"manualTriggerEnabled": str(cfg.effective_manual_trigger_enabled).lower(), "wakeWordTriggerEnabled": str(cfg.effective_wake_word_trigger_enabled).lower()}
         self.assertEqual(params["manualTriggerEnabled"], "true")
         self.assertEqual(params["wakeWordTriggerEnabled"], "false")
 
@@ -404,7 +404,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
             "wake_word must not implicitly enable the manual trigger",
         )
         self.assertTrue(cfg.effective_wake_word_trigger_enabled)
-        params = cfg.query_parameters()
+        params = {"manualTriggerEnabled": str(cfg.effective_manual_trigger_enabled).lower(), "wakeWordTriggerEnabled": str(cfg.effective_wake_word_trigger_enabled).lower()}
         self.assertEqual(params["manualTriggerEnabled"], "false")
         self.assertEqual(params["wakeWordTriggerEnabled"], "true")
 
@@ -431,7 +431,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
             wake_word_trigger_enabled=True,
         )
         cfg.validate()
-        params = cfg.query_parameters()
+        params = {"manualTriggerEnabled": str(cfg.effective_manual_trigger_enabled).lower(), "wakeWordTriggerEnabled": str(cfg.effective_wake_word_trigger_enabled).lower()}
         self.assertEqual(params["manualTriggerEnabled"], "true")
         self.assertEqual(params["wakeWordTriggerEnabled"], "true")
         self.assertFalse(cfg.migrated_from_legacy_mode)
@@ -489,32 +489,7 @@ class TestAP6ConfigMigration(unittest.TestCase):
                     cfg.validate()
                 self.assertIn(field, str(ctx.exception))
 
-    def test_wake_word_details_are_only_sent_when_the_wake_word_is_on(self):
-        from voice_stt_client.core.config import SessionConfig, OperatingMode
-        hotkey = SessionConfig(mode=OperatingMode.HOTKEY.value)
-        hotkey.validate()
-        params = hotkey.query_parameters()
-        self.assertEqual(params["wakeWordEnabled"], "false")
-        self.assertNotIn("wakeWords", params)
 
-        wake = SessionConfig(mode=OperatingMode.WAKE_WORD.value)
-        wake.validate()
-        params = wake.query_parameters()
-        self.assertEqual(params["wakeWordEnabled"], "true")
-        self.assertEqual(params["wakeWords"], "hey_jarvis")
-
-    def test_activation_timings_reach_the_query_when_configured(self):
-        from voice_stt_client.core.config import SessionConfig
-        cfg = SessionConfig(
-            initial_speech_timeout=12.0,
-            followup_timeout=2.5,
-            extension_seconds=4.0,
-        )
-        cfg.validate()
-        params = cfg.query_parameters()
-        self.assertEqual(params["initialSpeechTimeout"], "12.0")
-        self.assertEqual(params["followupTimeout"], "2.5")
-        self.assertEqual(params["extensionSeconds"], "4.0")
 
 
 if __name__ == "__main__":

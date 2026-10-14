@@ -1,3 +1,19 @@
+# Aktueller Paketstand, 2026-10-14
+
+AP000 bis AP100 tatsächlich ACCEPTED; Parent `62ca35a01fb88b37e16b7003e26c2f9110c131f3`. AP110 nach unabhängigem [R02-Gesamt-Review](../../30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md) **ROOT_PASS / READY_FOR_CANONICALIZATION**, alle sieben FINAL-Requirements PASS. [Workflowstatus](../../WORKFLOW_STATUS.json). [Menschlicher R03-Übernahmeprompt](../../30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md) liegt vor; der tatsächliche Squash von PR #13 und die Git-/Treeverifikation stehen noch aus. AP-IV2-010 darf erst danach beginnen.
+
+## Historischer Paketindex vor R02
+
+# Aktueller Paketstand, 2026-10-13
+
+AP000 bis AP100 tatsächlich ACCEPTED, kanonischer Parent `62ca35a01fb88b37e16b7003e26c2f9110c131f3`.
+[AP100-Promotionnachweis](../../30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json).
+AP110 REVIEW_READY nach vollständigem Selbstcheck; [R01-Report](../../30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/01_REPORT.md),
+[Workflowstatus](../../WORKFLOW_STATUS.json). Nächste Aktion unabhängiger AP110-Review;
+keine kanonische Übernahme oder AP-IV2-010 ohne PASS, menschlichen Prompt und echten Squash.
+
+## Historischer Paketindex vor AP100-Übernahme
+
 # Aktueller Paketstand – 2026-10-13
 
 AP000 bis AP090 tatsächlich ACCEPTED; AP100 **ROOT_PASS / READY_FOR_CANONICALIZATION** nach [unabhängigem R05-Review](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md). F01 behoben und unabhängig geschlossen; technische 6/6 Anforderungen PASS. [Workflowstatus](../../WORKFLOW_STATUS.json). [Menschliche R06-Freigabe](../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R06-UEBERNAHME/00_PROMPT_ORIGINAL.md) liegt vor. Squash-Merge nur nach finaler CI-/Head-/Baseprüfung; kein AP110 vor tatsächlicher kanonischer Übernahme.

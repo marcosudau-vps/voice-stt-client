@@ -21,7 +21,7 @@ from voice_stt_client.core.v2_feedback import V2FeedbackConnection
 from voice_stt_client.core.observability.normalizer import from_client_event
 from voice_stt_client.core.observability.adapters.client_events import ClientEventEmitter
 from tests.test_v2_mirror import snapshot, msg, pending, A, B, S
-from tests.test_feedback_reducer import log_result
+from tests.test_event_normalizer import log_result
 
 
 def mapping():
@@ -111,7 +111,7 @@ class DomainFeedback(unittest.TestCase):
         self.assertEqual(sum(d.rule.sound is not None for d in decisions),1)
         for origin in (EventOrigin.LIVE,EventOrigin.REPLAY):
             self.assertIsNone(self.engine.handle_event_stream(log_result('transcription.completed',origin=origin),generation=1,session_id=self.m.session_id))
-        self.assertIsNone(self.engine.handle_stt_fallback('final',{'sessionId':self.m.session_id,'segmentId':1},generation=1,session_id=self.m.session_id))
+        self.assertFalse(hasattr(self.engine, 'handle_stt_fallback'))
         replay=self.engine.handle_reduction(self.reduction)
         self.assertEqual(len(replay),1)
         self.assertFalse(replay[0].rule.led)

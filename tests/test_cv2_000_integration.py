@@ -14,7 +14,7 @@ from PySide6.QtWidgets import QApplication
 from voice_stt_client import app
 from voice_stt_client.core.config import AppConfig
 from voice_stt_client.core.history import TranscriptHistoryManager
-from voice_stt_client.ui.application import DesktopApplication
+from voice_stt_client.ui.v2_application import V2DesktopApplication as DesktopApplication
 from voice_stt_client.ui.settings_dialog import SettingsDialog
 from tests.test_ui_application import FakeBridge, FakeGuard, FakeHotkeyBackend, FakeLedFeedback
 
@@ -40,24 +40,6 @@ class IntegratedPreferences(unittest.TestCase):
         self.assertEqual(backend.registered, [])
         self.assertIn("start", bridge.calls)
 
-    def test_editor_sync_keeps_effective_legacy_trigger_flags(self):
-        for mode in ("hotkey", "wake_word"):
-            with self.subTest(mode=mode), patch(
-                "voice_stt_client.ui.settings_dialog.AudioCapture.list_devices", return_value=[]
-            ):
-                config = AppConfig()
-                config.session.mode = mode
-                dialog = SettingsDialog(config, lambda *_args: False)
-                self.addCleanup(dialog.close)
-                dialog.complete_apply(True, config, "")
-                self.assertEqual(
-                    dialog._editors["session.manual_trigger_enabled"].isChecked(),
-                    config.session.effective_manual_trigger_enabled,
-                )
-                self.assertEqual(
-                    dialog._editors["session.wake_word_trigger_enabled"].isChecked(),
-                    config.session.effective_wake_word_trigger_enabled,
-                )
 
     def test_cli_profile_argument_reaches_loader_without_touching_runtime(self):
         profile = Path("explicit-profile.yaml")

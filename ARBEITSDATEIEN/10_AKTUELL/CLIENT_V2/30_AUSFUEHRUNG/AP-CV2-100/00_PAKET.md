@@ -1,5 +1,12 @@
 # AP-CV2-100 – Paketakte
 
+**Status:** ACCEPTED. Am 2026-10-13 über PR12 nach R05-PASS und menschlichem
+R06-Auftrag tatsächlich kanonisch übernommen als `62ca35a01fb88b37e16b7003e26c2f9110c131f3`.
+[Git-/PR-Startnachweis des Folgepakets](../AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json).
+
+## Historischer Stand unmittelbar vor der Übernahme
+
+
 **Status:** ROOT_PASS / READY_FOR_CANONICALIZATION (menschlicher Mergeauftrag erteilt, Übernahme noch nicht erfolgt). Stand 2026-10-13. F01 im unabhängigen R05-Review geschlossen; menschliche Übernahme offen.
 
 Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`, Branch `work/client-v2/ap-cv2-100`, Server `ada13b0`.

@@ -1,0 +1,166 @@
+{
+  "format": "gzip preserving full original bytes; no trimming/redaction after capture",
+  "logs": [
+    {
+      "file": "baseline-isolated-windows.txt.gz",
+      "size": 51050,
+      "sha256": "91bee4a028420300c45c02803b24b8cd319924e2037f736aaac529e91a8450a7",
+      "rawSha256": "1300ae8aecc607c60ff891b5bdcda3e72325cdf72c47b9ca1207bf7ce1574cdf",
+      "rawBytes": 289375
+    },
+    {
+      "file": "baseline-windows.txt.gz",
+      "size": 51785,
+      "sha256": "7d1afc9eafe25e6b8de9f2e196bf38f491aa984d10ca315cccb04b733bd5126c",
+      "rawSha256": "6f3a50e41d91e2418edd83c619b05dc9fe1ddeca8e21f0e0752fc879323b9d2b",
+      "rawBytes": 306970
+    },
+    {
+      "file": "compileall.txt.gz",
+      "size": 220,
+      "sha256": "eb21c3ad70decce8a631a33aaf6671352077c5cfed4fb9a7965b4cc2e06be8a2",
+      "rawSha256": "bcfbc333a2a2b88745d7663e69e3adbed35a42e1354a22bb96eb74468f9ebcaf",
+      "rawBytes": 330
+    },
+    {
+      "file": "diff-check.txt.gz",
+      "size": 194,
+      "sha256": "b9b570ea3e1a27b3df90c0ccbac7d4609b190132feaffb1d6a547234b9952903",
+      "rawSha256": "6414476bd1e5da557328ae7b7cf49093fb378b37c56a74b7109ced869a795a30",
+      "rawBytes": 216
+    },
+    {
+      "file": "frozen-native-probe.txt.gz",
+      "size": 516,
+      "sha256": "82b3aed52cac9b592aced693ef5f7d8eef28887547bea4eb30a36d5d8f015356",
+      "rawSha256": "314ae66c0c756e49b5c56e292c01f07ab25d4123bb58a229d6e1362d2863ddad",
+      "rawBytes": 807
+    },
+    {
+      "file": "frozen-version.txt.gz",
+      "size": 239,
+      "sha256": "f113783da0cfd43a291e9465864b8b0af0f5c23617c4d0a3b9088f17a036af49",
+      "rawSha256": "563bac5dfb9990668e885fe17fd7cd2fff61a196aab054ba29b8740690e64f61",
+      "rawBytes": 300
+    },
+    {
+      "file": "pyinstaller-clean.txt.gz",
+      "size": 2527,
+      "sha256": "ce585db584367a47aeb48217c82b565fb08834a2404176ce1a0e1ae97b2e6806",
+      "rawSha256": "59cc1c74b9b0d54141f7f873cc5d5c51f4cdc727f04f461aee96599097a76bd1",
+      "rawBytes": 16529
+    },
+    {
+      "file": "python-distributions.txt.gz",
+      "size": 3725,
+      "sha256": "d3e8da54998b0805ef8063b85fcc1901c31df175c87dc2668790024d6b19ddcb",
+      "rawSha256": "5844d4f33ecd9d0a456411772270a5f20c5d7d24e67e21b288db8093be2b4fc6",
+      "rawBytes": 47015
+    },
+    {
+      "file": "rebuilt-wheel-install.txt.gz",
+      "size": 470,
+      "sha256": "f487a4e3208128904d93614e4fb0e6551ec8235ea4121ae4fe4f24ed9562d1f3",
+      "rawSha256": "66a0f5867d82ef3d6bcf7d7b62753046afb0d0c55d218a971e09bc95ffa6cfda",
+      "rawBytes": 944
+    },
+    {
+      "file": "rebuilt-wheel-native-probe.txt.gz",
+      "size": 646,
+      "sha256": "19d73b06bd5ae4187879a541b6aefc637c5b2c4024871da36558411501d2e02c",
+      "rawSha256": "1364e6079b973c99cfc2926bb3e4ea625325bfa7ae7d6be2284e5b9d5e291fc0",
+      "rawBytes": 1192
+    },
+    {
+      "file": "rebuilt-wheel-version.txt.gz",
+      "size": 263,
+      "sha256": "20129e7ee10c565c2268e9e049dcbc4693038dcb9fda9e595d73981481bbb5ad",
+      "rawSha256": "6e09bf04bfb154b7b458dae67bf6fe77e39540c261f64aff3e33e82fa5473bd0",
+      "rawBytes": 316
+    },
+    {
+      "file": "release-guard.txt.gz",
+      "size": 434,
+      "sha256": "c78f3439fe67d2db0236f2ba3e789ab47517204a6cd658f0a8893b181ff68d5d",
+      "rawSha256": "3ede3951f4b7d8a8c439ba9610fd990a1653d95b1a4ac846dac0c30ca414391b",
+      "rawBytes": 785
+    },
+    {
+      "file": "release-server.txt.gz",
+      "size": 409,
+      "sha256": "f2b1bcfda7068b2c47d1973d616ebb3836a2cda66a28e2f0c3f2a192bc5dc74c",
+      "rawSha256": "fb07f0dc538eabfd53df41207d591306af88379b242e36ebcb1e88d0964d8635",
+      "rawBytes": 865
+    },
+    {
+      "file": "sdist-wheel-rebuild.txt.gz",
+      "size": 3018,
+      "sha256": "04b97a22bcf47d7c750690ab2b62e4c95a82be2b5b56584dde903c23576a2200",
+      "rawSha256": "86de792a4f8212aa86e0a6f721e33279b5505e455768232d6421e27e70549b91",
+      "rawBytes": 32267
+    },
+    {
+      "file": "server-runtime.txt.gz",
+      "size": 3233,
+      "sha256": "18720f9cbf1da301a6c3f54ddd2a9f4d774db51a83dfc8a5d3d4e5b2e3d3243e",
+      "rawSha256": "29bf69e03e410f78a1cb20c7daf565a42424281e18a324a9fe990f82647acc9c",
+      "rawBytes": 6910
+    },
+    {
+      "file": "source-native-probe.txt.gz",
+      "size": 620,
+      "sha256": "967a73c67110e56d33e3804265baf3046b45fe6a0985b57aad6aa03b79706d7a",
+      "rawSha256": "eb25deeeeb82d93df6d3d132bd9fd3033a7ad966dd4019f6df6378d3c85e5b06",
+      "rawBytes": 1174
+    },
+    {
+      "file": "source-version.txt.gz",
+      "size": 263,
+      "sha256": "20129e7ee10c565c2268e9e049dcbc4693038dcb9fda9e595d73981481bbb5ad",
+      "rawSha256": "6e09bf04bfb154b7b458dae67bf6fe77e39540c261f64aff3e33e82fa5473bd0",
+      "rawBytes": 316
+    },
+    {
+      "file": "twine-check.txt.gz",
+      "size": 288,
+      "sha256": "aed3f752eb6b778add8da66054c0d96dbad3b646ffc3914ec697429754c36374",
+      "rawSha256": "1cea3d37f3d688fe0c37b73a67a7af847d5a21e835e49905faa8501f7823d218",
+      "rawBytes": 784
+    },
+    {
+      "file": "wheel-install.txt.gz",
+      "size": 464,
+      "sha256": "2b14b84a0e8c9940131c3a83ac76cd111f6adf55d29150b91fea8a95b1324d5a",
+      "rawSha256": "beabbb11643148b4d23e9970ef5ef6749ee604a6b8da67261c9ec9caddb72fab",
+      "rawBytes": 949
+    },
+    {
+      "file": "wheel-native-probe.txt.gz",
+      "size": 640,
+      "sha256": "ecb35c552a68aec4e928badccff229115fb9fe30ec2c3260d955524e9cc08607",
+      "rawSha256": "664c169d79f5dbd5f31fd396e42b09f38b858bfe63829f6e864f41662350526d",
+      "rawBytes": 1182
+    },
+    {
+      "file": "wheel-version.txt.gz",
+      "size": 263,
+      "sha256": "20129e7ee10c565c2268e9e049dcbc4693038dcb9fda9e595d73981481bbb5ad",
+      "rawSha256": "6e09bf04bfb154b7b458dae67bf6fe77e39540c261f64aff3e33e82fa5473bd0",
+      "rawBytes": 316
+    },
+    {
+      "file": "windows-full.txt.gz",
+      "size": 4985,
+      "sha256": "92692c9d5f383da2e3c13e26581cfc062148ff2471b2eb6715bab4cdfd161a1b",
+      "rawSha256": "b82ee8a40521193fe67e0df44ea501a2e15510a460d2961c0bbab563aaf38b59",
+      "rawBytes": 48827
+    },
+    {
+      "file": "windows-targeted.txt.gz",
+      "size": 8585,
+      "sha256": "735d4b64bd89abcfa75ba0db35b1030ce2a3c60678f6b55137e563dfb76c357e",
+      "rawSha256": "a470639ba12a62b47f6674e2ec78ecceaa48ce72b22f8049b291aa98cd684361",
+      "rawBytes": 41706
+    }
+  ]
+}

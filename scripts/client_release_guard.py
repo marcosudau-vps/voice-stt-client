@@ -1,4 +1,4 @@
-"""Strict candidate/PyPI checks for the first client release."""
+"""Strict candidate/PyPI checks; validation alone never publishes a build."""
 
 from __future__ import annotations
 
@@ -7,13 +7,16 @@ import hashlib
 import json
 import os
 import shutil
+import re
+import tarfile
+import zipfile
 import urllib.error
 import urllib.request
 from pathlib import Path
 
 
 PROJECT = "voice-stt-client"
-VERSION = "1.0.0"
+VERSION = (Path(__file__).resolve().parents[1] / 'VERSION').read_text(encoding='utf8').strip()
 
 
 def sha256(path: Path) -> str:
@@ -31,7 +34,7 @@ def candidate_files(directory: Path) -> dict[str, Path]:
     }
     found = {kind: list(directory.rglob(name)) for kind, name in expected.items()}
     exe = list(directory.rglob("voice-stt-client.exe")) + list(
-        directory.rglob("voice-stt-client-v1.0.0-windows-x64.exe")
+        directory.rglob(f"voice-stt-client-v{VERSION}-windows-x64.exe")
     )
     found["exe"] = exe
     if any(len(matches) != 1 for matches in found.values()):
@@ -40,6 +43,43 @@ def candidate_files(directory: Path) -> dict[str, Path]:
     if len(all_products) != 3:
         raise ValueError("candidate contains unexpected executable or Python distribution")
     return {kind: matches[0] for kind, matches in found.items()}
+
+
+def validate_distributions(files: dict[str, Path], expected_commit: str | None = None) -> dict:
+    """Inspect shipped files, not the checkout or an ancestor's Git metadata."""
+    identities = {}
+    required = {'voice_stt_client/config.yaml', 'voice_stt_client/build_identity.json',
+        'voice_stt_client/resources/protocol-v2-vectors.json',
+        'voice_stt_client/resources/protocol-v2-client-fixtures.json',
+        'voice_stt_client/resources/protocol-v2-provenance.json'}
+    for kind in ('wheel', 'sdist'):
+        if kind == 'wheel':
+            with zipfile.ZipFile(files[kind]) as archive:
+                content = {name: archive.read(name) for name in archive.namelist() if not name.endswith('/')}
+        else:
+            with tarfile.open(files[kind]) as archive:
+                content = {member.name.split('/', 1)[1]: archive.extractfile(member).read()
+                    for member in archive.getmembers() if member.isfile()}
+        if not required <= content.keys():
+            raise ValueError(f'{kind} missing resources: {sorted(required-content.keys())}')
+        if len([name for name in content if name.endswith('.wav')]) != 8:
+            raise ValueError(f'{kind} must ship eight sound assets')
+        for name in content:
+            parts = Path(name).parts
+            if (name.startswith(('core/', 'ui/', 'tests/', 'ARBEITSDATEIEN/'))
+                    or any(part in {'.env', 'client.log', '__pycache__'} for part in parts)
+                    or 'simulator' in name.lower() or name.endswith(('.sqlite', '.db', '.pyc'))):
+                raise ValueError(f'{kind} contains forbidden file: {name}')
+        identity = json.loads(content['voice_stt_client/build_identity.json'])
+        if (identity.get('schemaVersion') != 1 or identity.get('version') != VERSION
+                or identity.get('sourceDirty') is not False
+                or re.fullmatch(r'[0-9a-f]{40}', identity.get('clientCommit', '')) is None
+                or expected_commit is not None and identity['clientCommit'] != expected_commit):
+            raise ValueError(f'{kind} source identity is not qualified')
+        identities[kind] = identity
+    if identities['wheel'] != identities['sdist']:
+        raise ValueError('wheel and sdist identity differ')
+    return identities
 
 
 def pypi_states(files: dict[str, Path], *, fetch=None) -> dict[str, str]:
@@ -83,9 +123,11 @@ def main() -> int:
     parser.add_argument("mode", choices=["candidate", "stage", "verify"])
     parser.add_argument("--dir", type=Path, required=True)
     parser.add_argument("--stage-dir", type=Path)
+    parser.add_argument('--expected-commit')
     args = parser.parse_args()
     files = candidate_files(args.dir)
     if args.mode == "candidate":
+        validate_distributions(files, args.expected_commit)
         print(json.dumps({kind: {"name": p.name, "sha256": sha256(p)} for kind, p in files.items()}))
         return 0
     states = pypi_states({kind: files[kind] for kind in ("wheel", "sdist")})

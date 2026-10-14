@@ -1,5 +1,5 @@
 server:
-  url: wss://stt.voice.marcosudau.com/ws/transcribe
+  url: wss://stt.voice.marcosudau.com/ws/v2
   health_url: https://stt.voice.marcosudau.com/health
   reconnect_min_delay: 0.5
   reconnect_max_delay: 30.0
@@ -27,50 +27,9 @@ event_stream:
   cursor_persistence_enabled: true
   cursor_path:
 
-# Session-lokale Triggerquellen. Manual und Wake Word sind zwei unabhängige
-# Schalter; mindestens einer muss aktiv sein. Der Server bestätigt die
-# effektiven Werte in hello.activationConfig und hello.sessionConfig.
-#
-#   manual_trigger_enabled: true   -> Hotkey darf eine Activation öffnen
-#   wake_word_trigger_enabled: true-> Wake Word darf eine Activation öffnen
-#   beide false                    -> ungültig, wird abgelehnt
-#
-# Bleiben beide Felder leer, entscheidet das Legacy-Feld `mode`:
-#   mode: hotkey    -> manual=true,  wake_word=false
-#   mode: wake_word -> manual=false, wake_word=true
-# Eine stillschweigende Migration auf true/true findet nicht statt.
-# V2 migration is explicit and backed up via v2_profile.migrate_config_file.
-# The resulting v2_profile is authoritative for SettingsService; these legacy
-# values continue to support the existing application until AP-CV2-100.
+# V2 profile is authoritative after explicit, backed-up migration.
+# Legacy session/dictation_window values are read only from existing user files.
 v2_profile: null
-session:
-  # Legacy-Feld. Nur noch für die Migration alter Konfigurationen ausgewertet.
-  mode: hotkey
-  manual_trigger_enabled:
-  wake_word_trigger_enabled:
-  # Zeitwerte der serverseitigen Activation. Leer lassen, um die Serverdefaults
-  # zu übernehmen (15 / 3 / 5 Sekunden).
-  initial_speech_timeout:
-  followup_timeout:
-  extension_seconds:
-  wake_word_backend:
-  wake_words: hey_jarvis
-  wake_word_inference_framework:
-  wake_word_sensitivity:
-  wake_word_activation_delay:
-  wake_word_timeout:
-  wake_word_buffer_duration:
-  wake_word_followup_window:
-
-# Lokale Darstellung des Diktatfensters. Gegen einen Server mit
-# Activation-Contract ist der Server die Autorität; diese Werte steuern dann nur
-# noch die Anzeige. Der Server-VAD liefert recording_started / recording_ended;
-# im Client läuft kein zweites VAD-Modell.
-dictation_window:
-  initial_speech_timeout: 15.0
-  followup_timeout: 3.0
-  extension_seconds: 15.0
-  timeout_warning_seconds: 3.0
 audio:
   device: null
   sample_rate: 16000
