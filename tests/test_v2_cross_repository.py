@@ -29,8 +29,8 @@ from tests.integration.v2_process_harness import ROOT, ProcessServer
 # violations and OS failure paths additionally run in deterministic core tests.
 SCENARIOS = {
     'SC-01': ['ProcessCases.test_segments_overlap_interim_and_log_dedup'],
-    'SC-02': ['ProcessCases.test_wake_sources_settings_and_bootstrap'],
-    'SC-03': ['ProcessCases.test_wake_sources_settings_and_bootstrap'],
+    'SC-02': ['ProcessCases.test_wake_only_and_shared_admission_race'],
+    'SC-03': ['ProcessCases.test_wake_only_and_shared_admission_race'],
     'SC-04': ['ProcessCases.test_segments_overlap_interim_and_log_dedup'],
     'SC-05': ['tests.test_v2_mirror.Mirror.test_terminal_before_close_does_not_release_foreground'],
     'SC-06': ['tests.test_v2_mirror.Mirror.test_b_start_before_a_close_and_old_final_during_b'],
@@ -265,6 +265,15 @@ class _ProcessCases(unittest.IsolatedAsyncioTestCase):
             changes={'wakeWord.noiseSuppressionEnabled':True,'wakeWord.vadThreshold':.5})
         await r.settings.refresh_session()
         self.assertFalse(r.settings.report().effective['wakeWord.noiseSuppressionEnabled'])
+        old = r.session.binding
+        await r.session.reconnect(old,'qualification_NS_no_individual_start')
+        await until(lambda: r.session.binding is not None and r.session.binding is not old and r.is_ready)
+        revision=r.mirror.mirror.view.settings_revision
+        await r.session.request(p.CommandType.SETTINGS_PATCH,baseSettingsRevision=revision,
+            changes={'wakeWord.noiseSuppressionEnabled':True,'wakeWord.vadThreshold':.5})
+        await r.settings.refresh_session()
+        self.assertFalse(r.settings.report().effective['wakeWord.noiseSuppressionEnabled'])
+        self.assertEqual(r.settings.report().effective['wakeWord.vadThreshold'],0)
         await r.controls.set_pause('manual',True)
         await r.controls.set_pause('wakeWord',False); await self.settled()
         self.assertTrue((await self.control('wake'))['accepted'])
@@ -272,6 +281,31 @@ class _ProcessCases(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(r.mirror.mirror.view.input.primary_source,'wake_word')
         self.assertIsNone(await r.controls.press('primary'))
         await r.controls.press('secondary'); await self.settled()
+
+    async def test_wake_only_and_shared_admission_race(self):
+        r=await self.start(manual=False,wake=True)
+        self.assertIsNone(await r.controls.press('primary'))
+        # Actual continuous capture path stays available in wake-only idle.
+        r.audio._stream.emit()
+        self.assertTrue((await self.control('wake'))['accepted'])
+        await until(lambda: r.mirror.mirror.view.input.activation_id is not None)
+        await self.settled()
+        self.assertEqual(r.mirror.mirror.view.input.primary_source,'wake_word')
+        await r.controls.press('secondary'); await self.settled()
+        self.assertEqual(r.mirror.mirror.view.input.phase,p.InputPhase.IDLE)
+        await r.shutdown(); await self.running
+        r=await self.start(manual=True,wake=True)
+        before=set(r.mirror.mirror.view.activations)
+        await asyncio.gather(self.control('wake'),r.controls.press('primary'))
+        await until(lambda: r.mirror.mirror.view.input.activation_id is not None)
+        await self.settled()
+        self.assertEqual(len(set(r.mirror.mirror.view.activations)-before),1)
+        self.assertIn(r.mirror.mirror.view.input.primary_source,('manual','wake_word'))
+        sid=await self.record(); job=await self.flush()
+        await self.control('complete',index=job,text='synthetic race final')
+        await until(lambda: len(self.backend.set_calls)==1)
+        self.assertEqual(r.get_recent_entries()[0].segment_id,sid)
+        await self.finish()
 
     async def test_settings_atomicity_and_admin(self):
         r = await self.start()

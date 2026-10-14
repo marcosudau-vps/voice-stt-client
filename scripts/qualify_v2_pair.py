@@ -15,6 +15,8 @@ import re
 import subprocess
 import sys
 import time
+import threading
+from concurrent.futures import ThreadPoolExecutor
 
 ROOT = Path(__file__).resolve().parents[1]
 SERVER = 'ada13b011e1d3829f78e7f389e3b927795a2b3be'
@@ -32,6 +34,7 @@ def run(args):
     env.pop('IV2_PROCESS_GATE',None)
     py = str(ROOT/'venv/Scripts/python.exe')
     entries=[]
+    report_lock=threading.Lock()
     report=dict(clientProductCommit=CLIENT,serverCommit=SERVER,
         candidateCommit=git('rev-parse','HEAD'),candidateTree=git('rev-parse','HEAD^{tree}'),
         diff=git('diff','--binary',CLIENT), runtime=dict(python=sys.version,
@@ -53,13 +56,17 @@ def run(args):
         compressed=path.with_suffix('.txt.gz'); compressed.write_bytes(packed)
         path.unlink()
         count=re.search(r'Ran (\d+) tests',text)
+        pytest_count=re.search(r'(\d+) passed',text)
+        skipped=re.search(r'(\d+) skipped',text)
         entry=dict(name=name,command=command,cwd=str(cwd),exitCode=code,
             durationSeconds=round(time.monotonic()-start,3),log=compressed.name,
             sha256=hashlib.sha256(raw).hexdigest(),compressedSha256=hashlib.sha256(packed).hexdigest(),
-            testCount=int(count[1]) if count else None)
-        entries.append(entry)
-        report['result']='IN_PROGRESS'
-        (args.evidence/'validation.json').write_text(json.dumps(report,indent=2),encoding='utf8')
+            testCount=int(count[1]) if count else (int(pytest_count[1]) if pytest_count else None),
+            skipped=int(skipped[1]) if skipped else 0)
+        with report_lock:
+            entries.append(entry)
+            report['result']='IN_PROGRESS'
+            (args.evidence/'validation.json').write_text(json.dumps(report,indent=2),encoding='utf8')
         print(name,code,flush=True)
         return code
 
@@ -84,6 +91,12 @@ def run(args):
     if vector.read_bytes()!=(args.server_root/'tests/contracts/protocol-v2-vectors.json').read_bytes():
         raise AssertionError('Cross-repository vectors differ')
     report['vectorSha256']=hashlib.sha256(vector.read_bytes()).hexdigest()
+    # Independent full server regression can run beside the client/socket
+    # checks: separate interpreters, ports, state/data roots and environments.
+    serverpy=str(args.server_root/'venv/Scripts/python.exe')
+    executor=ThreadPoolExecutor(max_workers=1)
+    server_regression=executor.submit(command,'server-full',
+        [serverpy,'-m','pytest','-v','tests/unit','-ra'],cwd=args.server_root,timeout=1800)
     command('client-full',[py,'-m','unittest','discover','-v','-s','tests','-p','test_*.py'])
     process_env=dict(env,IV2_PROCESS_GATE='1',IV2_SERVER_ROOT=str(args.server_root),
         IV2_SERVER_REPOSITORY=str(args.server_repository),IV2_EVIDENCE=str(args.evidence))
@@ -96,8 +109,8 @@ def run(args):
     for smoke in ('transport','audio','controls','results','settings','feedback','runtime'):
         command('server-'+smoke,[py,'scripts/check_v2_server_'+smoke+'.py',
             '--server-root',str(args.server_root),'--server-repository',str(args.server_repository)],timeout=180)
-    serverpy=str(args.server_root/'venv/Scripts/python.exe')
-    command('server-full',[serverpy,'-m','pytest','-v','tests/unit','-ra'],cwd=args.server_root,timeout=900)
+    server_regression.result()
+    executor.shutdown()
     command('compileall',[py,'-m','compileall','-q','voice_stt_client','scripts','tests'])
     command('diff-check',['git','-c','core.safecrlf=false','diff','--check'])
     command('client-environment',[py,'-m','pip','freeze'])
