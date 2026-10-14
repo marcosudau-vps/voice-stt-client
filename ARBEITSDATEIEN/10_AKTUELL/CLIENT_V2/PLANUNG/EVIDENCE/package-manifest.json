@@ -734,7 +734,7 @@
         "AP-CV2-100"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-110.md",
-      "status": "REVIEW_READY",
+      "status": "ROOT_PASS",
       "testModules": [
         "test_v2_release",
         "test_v2_runtime_integration",
@@ -773,7 +773,11 @@
       "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
       "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json",
       "openFindingIds": [],
-      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/13"
+      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/13",
+      "reviewReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+      "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+      "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+      "lastIndependentReview": "R02_ROOT_PASS"
     },
     {
       "id": "AP-IV2-010",

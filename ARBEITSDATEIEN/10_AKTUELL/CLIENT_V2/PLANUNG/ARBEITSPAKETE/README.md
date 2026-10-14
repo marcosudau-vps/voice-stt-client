@@ -1,3 +1,9 @@
+# Aktueller Paketstand, 2026-10-14
+
+AP000 bis AP100 tatsächlich ACCEPTED; Parent `62ca35a01fb88b37e16b7003e26c2f9110c131f3`. AP110 nach unabhängigem [R02-Gesamt-Review](../../30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md) **ROOT_PASS / WAITING_FOR_APPROVAL**, alle sieben FINAL-Requirements PASS. [Workflowstatus](../../WORKFLOW_STATUS.json). Menschlicher Übernahmeprompt und tatsächlicher Squash von PR #13 stehen aus. AP-IV2-010 darf erst danach beginnen.
+
+## Historischer Paketindex vor R02
+
 # Aktueller Paketstand, 2026-10-13
 
 AP000 bis AP100 tatsächlich ACCEPTED, kanonischer Parent `62ca35a01fb88b37e16b7003e26c2f9110c131f3`.

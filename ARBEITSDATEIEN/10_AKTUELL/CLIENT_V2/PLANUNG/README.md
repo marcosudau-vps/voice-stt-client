@@ -1,4 +1,4 @@
-# Client V2 – AP-CV2-110 / R01-UMSETZUNG / REVIEW_READY, 2026-10-13
+# Client V2 – AP-CV2-110 / R02-ABNAHME / ROOT_PASS, 2026-10-14
 
 [Paket-PR #13](https://github.com/marcosudau-vps/voice-stt-client/pull/13), Base `feat/client-v2`, Head `work/client-v2/ap-cv2-110`.
 
@@ -22,10 +22,7 @@ Bekannte Legacy-Profile und History werden mit Backup migriert; kein V1-Fallback
 Builds liegen lokal unter dist, kein veröffentlichter Release. Keine realen
 ASR-/Mikrofon-/USB-/Fremdanwendungs-/Wahrnehmungsgates behauptet.
 
-**Nächste Aktion:** frischer unabhängiger AP110-Gesamt-Review auf der endgültigen
-PR-Spitze nach grüner finaler CI. Schreiben ab tatsächlicher Übergabe pausiert.
-Kein eigener ROOT_PASS, Merge oder Folgepaketstart. AP-IV2-010/AP-IV2-020 und
-Server-Distributed bleiben offen; AP-IV2-010 erst nach tatsächlicher AP110-Übernahme.
+**Aktueller Reviewabschluss (2026-10-14):** [AP110 R02 unabhängiger ROOT_PASS](../30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md) auf `44cf9a8fd1669242c00997966addc3667d448aa0`; FINAL-03 bis FINAL-09 technisch PASS, keine offenen Pflichtfindings. **WAITING_FOR_APPROVAL** – erst ausdrücklicher Auftrag zur Einzelübernahme von PR #13, dann Git-/CI-Prüfung und Squash. Kein AP-IV2-010-Start zuvor.
 
 ---
 

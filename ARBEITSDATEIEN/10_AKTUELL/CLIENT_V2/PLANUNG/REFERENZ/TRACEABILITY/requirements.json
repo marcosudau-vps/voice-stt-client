@@ -12831,7 +12831,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -12904,7 +12904,19 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "FINAL-04",
@@ -12914,7 +12926,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -12985,7 +12997,19 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "FINAL-05",
@@ -12995,7 +13019,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13070,7 +13094,19 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "FINAL-06",
@@ -13080,7 +13116,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13156,7 +13192,19 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "FINAL-07",
@@ -13166,7 +13214,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13235,7 +13283,19 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "FINAL-08",
@@ -13245,7 +13305,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13312,7 +13372,19 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "FINAL-09",
@@ -13322,7 +13394,7 @@
       "test": "test_v2_release",
       "source": "Client voice_stt_client/app.py @ f625904; Client scripts/build.py @ f625904; Client voice-stt-client.spec @ f625904; Client pyproject.toml @ f625904",
       "kind": "CLIENT-SOLL",
-      "status": "CLIENT OPEN",
+      "status": "ROOT_PASS",
       "sourceRefs": [
         {
           "repository": "marcosudau-vps/voice-stt-client",
@@ -13410,7 +13482,19 @@
           "windowsValidation": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/windows-validation.json",
           "checkpointEvidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/release-server.json"
         }
-      ]
+      ],
+      "reviewEvidence": {
+        "state": "ROOT_PASS",
+        "run": "R02-ABNAHME",
+        "result": "ROOT_PASS",
+        "reviewedCommit": "44cf9a8fd1669242c00997966addc3667d448aa0",
+        "reviewedTree": "46a4e6205b735ac202dcd611494d306936f8edc3",
+        "report": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
+        "openFindingIds": [],
+        "externalWindowsQualification": "1353 full / 234 targeted, externally run and independently validated",
+        "finalCI": "38440922508 success"
+      }
     },
     {
       "id": "GATE-01",
