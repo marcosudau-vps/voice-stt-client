@@ -797,7 +797,7 @@
         "AP-CV2-110"
       ],
       "path": "ARBEITSPAKETE/AP-IV2-010.md",
-      "status": "IN_PROGRESS",
+      "status": "REVIEW_READY",
       "testModules": [
         "test_v2_cross_repository"
       ],
@@ -826,7 +826,12 @@
       "testModulesRole": "suggested locations; actual coverage and methods required",
       "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
       "candidateBranch": "work/client-v2/ap-iv2-010",
-      "executionReport": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md"
+      "executionReport": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/14",
+      "qualifiedCandidateCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+      "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/validation.json",
+      "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/process-manifest.json",
+      "openFindingIds": []
     },
     {
       "id": "AP-IV2-020",

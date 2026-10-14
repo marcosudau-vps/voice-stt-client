@@ -5,6 +5,18 @@ auf `/ws/v2`. V1-Controller, V1-WebSocket-/Headlessklassen, URL-Query-Steuerung,
 lokale Diktattimer und STT-Feedbackfallback sind entfernt. Logs dienen Diagnose;
 fachliche Autorität haben V2-Snapshot/Events und ihre Session-/Generationguards.
 
+## AP-IV2-010 – festes Paar, 2026-10-14
+
+Client `0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4` / Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`: automatisierter Selbstcheck PASS,
+REVIEW_READY. Clientprodukt bytegleich mit kanonischem Parent `43759d345b2b88354e4f3b383a4833731621d1e3`.
+11 getrennte Prozessprüfungen, 17 Grenzfälle, sieben Socketsmokes,
+Windows1354 und Server1964/14 qualifiziert.
+`serverCommit=unknown` durch tatsächliches Prozess-/Quellmanifest kompensiert.
+[Report und Skipgrenzen](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md),
+[Harness](protocol-v2-integration.md). Keine Produktmigration geändert.
+Source-/Wheel-/Frozenbelege AP110 behalten ihre damalige Artefaktidentität.
+Reale ASR-/Hardware-/Langlaufabnahme bleibt IV2-020.
+
 ## Profile und Daten
 
 Paketdefaults kommen aus `voice_stt_client/config.yaml`. `--config` hat Vorrang

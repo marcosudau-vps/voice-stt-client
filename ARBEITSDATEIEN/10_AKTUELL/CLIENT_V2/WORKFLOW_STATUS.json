@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "IMPLEMENTATION_IN_PROGRESS",
-  "packageStatus": "IN_PROGRESS",
+  "workflowPhase": "REVIEW_READY",
+  "packageStatus": "REVIEW_READY",
   "activePackage": "AP-IV2-010",
   "nextPackage": "AP-IV2-020",
   "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
   "candidateBranch": "work/client-v2/ap-iv2-010",
-  "pullRequest": null,
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/14",
   "selectedCandidate": true,
   "lastRun": {
     "id": "R01-UMSETZUNG",
@@ -20,20 +20,20 @@
   "reviewReport": null,
   "openFindingIds": [],
   "humanApproval": null,
-  "writeOwner": "AP-IV2-010/R01-UMSETZUNG/Codex",
+  "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Automatisierte feste Paarqualifikation durchführen.",
+  "nextAction": "Frischer unabhängiger AP-IV2-010-Gesamtreview auf endgültigem PR14-Head nach grüner finaler CI. Kein Eigenreview/Merge/AP-IV2-020.",
   "workAuthorization": {
-    "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Übergabekommentaren; spätere ausdrücklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Übernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
+    "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md",
     "currentCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/00_PROMPT_ORIGINAL.md",
-    "currentImplementationSource": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md"
+    "currentImplementationSource": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md"
   },
   "candidateSelection": {
     "candidateId": "AP-IV2-010",
     "source": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "Ausdrücklicher Auftrag nach tatsächlicher AP110-Übernahme"
+    "reason": "AusdrÃ¼cklicher Auftrag nach tatsÃ¤chlicher AP110-Ãœbernahme"
   },
   "recovery": null,
   "relatedServerFix": null

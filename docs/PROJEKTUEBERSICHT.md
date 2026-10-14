@@ -1,6 +1,6 @@
 # RealtimeSTT Client V2 – Projektübersicht
 
-Stand 2026-10-13. Windows-Client mit Python3.12/PySide6, Qt im Main Thread,
+Stand 2026-10-14. Windows-Client mit Python3.12/PySide6, Qt im Main Thread,
 asyncio-Core im eigenen Thread, nativen Win32-Hotkeys, Clipboard/SendInput und
 SQLite-Historie. Host `stt.voice.marcosudau.com`, Desktopendpoint `/ws/v2`.
 
@@ -19,5 +19,8 @@ lokale Diktattimer sind entfernt. Rollen und Phasen bleiben quellenneutral.
 [Bedienung und Build](../README.md), [Migration und Kompatibilitätsmatrix](compatibility.md),
 [Runtimeinterfaces](protocol-v2-runtime.md), [Paketierung](protocol-v2-release.md).
 Aktive verbindliche Planung: [CLIENT_V2](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/PLANUNG/README.md).
-AP-IV2-010, AP-IV2-020 und Server-Distributed bleiben offen. Ein Build-/Selbstcheck
+AP110 ist tatsächlich auf `43759d3` übernommen. AP-IV2-010 liegt als automatisiert
+geprüftes festes Paar in [PR14](https://github.com/marcosudau-vps/voice-stt-client/pull/14) REVIEW_READY vor;
+[Nachweise](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md).
+Unabhängige Abnahme/Übernahme, AP-IV2-020 und Server-Distributed bleiben offen. Ein Build-/Selbstcheck
 ersetzt weder unabhängigen ROOT_PASS noch menschliche kanonische Übernahme.

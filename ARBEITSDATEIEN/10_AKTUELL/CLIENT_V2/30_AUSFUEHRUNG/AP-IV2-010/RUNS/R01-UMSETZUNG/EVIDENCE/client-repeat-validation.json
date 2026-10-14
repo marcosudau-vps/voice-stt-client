@@ -1,0 +1,30 @@
+{
+  "candidateCommit": "0f0687c21f87a3778c3d7979e0bd7cde4ee8a1c4",
+  "candidateTree": "14645a9998a8428b442052b17aa326fe3d5f2171",
+  "runtime": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "executable": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe"
+  },
+  "name": "client-full-repeat",
+  "command": [
+    "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests",
+    "-p",
+    "test_*.py"
+  ],
+  "cwd": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2",
+  "exitCode": 0,
+  "durationSeconds": 205.875,
+  "testCount": 1354,
+  "log": "client-full-repeat.txt.gz",
+  "sha256": "97acb2851c7f6441a7ac68d74d62e58f275793e96a3bd919dd81bfbea17f3b69",
+  "compressedSha256": "034619da02f6f65676e5368efb9a91035f572514ffa6449177ff3718482f72ca",
+  "replaces": "client-full (Git HEAD changed during initial execution)",
+  "result": "PASS"
+}
