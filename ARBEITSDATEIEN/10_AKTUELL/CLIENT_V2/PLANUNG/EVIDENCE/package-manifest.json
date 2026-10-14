@@ -882,7 +882,8 @@
         "IV2-020-F01"
       ],
       "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/client-full.json",
-      "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json"
+      "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/15"
     },
     {
       "id": "AP-SV2-FIX",

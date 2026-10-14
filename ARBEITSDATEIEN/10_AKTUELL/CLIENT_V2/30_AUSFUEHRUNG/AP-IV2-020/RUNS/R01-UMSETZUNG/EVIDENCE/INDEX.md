@@ -163,3 +163,5 @@ Sie ersetzen keine Realfälle. `accessToken` ist redigiert, Testtexte sind synth
 - [Redaktionsprüfung](redaction-check.json)
 - [Diffprüfung](diff-check.json), [kompletter Log](diff-check.txt.gz)
 - [Aktenprüfung](work-records.json), [kompletter Log](work-records.txt.gz)
+
+- [Draft-Abgabeidentität und nächste Aktion](submission.json)

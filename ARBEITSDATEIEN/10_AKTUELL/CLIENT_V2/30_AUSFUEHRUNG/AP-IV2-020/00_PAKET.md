@@ -21,3 +21,6 @@ Reale Pflichtfälle bleiben bis zur Durchführung NOT_RUN/NOT_PROVEN.
 
 Offener Produktbefund IV2-020-F01; [konkreter Fixvorschlag](RUNS/R01-UMSETZUNG/04_KORREKTURVORSCHLAG.md).
 Keine fachliche Abgabe. R01-Schreibhoheit bleibt für autorisierte Fortsetzung erhalten.
+
+Kumulativer [Draft-PR #15](https://github.com/marcosudau-vps/voice-stt-client/pull/15), Base feat/client-v2.
+BLOCKED, kein REVIEW_READY; R01 behält Schreibhoheit für die genehmigte Fortsetzung.

@@ -120,3 +120,9 @@ CLI-Schritt; Vorbereitungen speichern kein allgemeines Mikrofonaudio.
 Draft-PR dient Sicherung/Koordination und ist nicht reviewbereit. Nach menschlicher
 Freigabe nur den benannten Fix umsetzen, neu bauen/qualifizieren, dann dieselbe
 interaktive Kalibrierung fortsetzen. Kein Eigenreview oder Merge.
+
+## Bereitstellung
+
+[Kumulativer Draft-PR #15](https://github.com/marcosudau-vps/voice-stt-client/pull/15), Base feat/client-v2.
+Quell-/Test-/Evidenzkandidat d5c621f, nachfolgender PR-Verweisnachtrag rein administrativ.
+[Abgabeidentität](EVIDENCE/submission.json). Kein Reviewauftrag/Schreibrechtswechsel.
