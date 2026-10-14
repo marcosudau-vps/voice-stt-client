@@ -734,7 +734,7 @@
         "AP-CV2-100"
       ],
       "path": "ARBEITSPAKETE/AP-CV2-110.md",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "testModules": [
         "test_v2_release",
         "test_v2_runtime_integration",
@@ -786,7 +786,9 @@
         "canonicalParent": "62ca35a01fb88b37e16b7003e26c2f9110c131f3",
         "passReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R02-ABNAHME/01_REPORT.md"
       },
-      "canonicalizationReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/01_REPORT.md"
+      "canonicalizationReport": "30_AUSFUEHRUNG/AP-CV2-110/RUNS/R03-UEBERNAHME/01_REPORT.md",
+      "aggregateCommit": "43759d345b2b88354e4f3b383a4833731621d1e3",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json"
     },
     {
       "id": "AP-IV2-010",
@@ -795,7 +797,7 @@
         "AP-CV2-110"
       ],
       "path": "ARBEITSPAKETE/AP-IV2-010.md",
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "testModules": [
         "test_v2_cross_repository"
       ],
@@ -821,7 +823,10 @@
         "defaultRuns": 1,
         "scopeNote": "one complete package session; steps are not separate runs"
       },
-      "testModulesRole": "suggested locations; actual coverage and methods required"
+      "testModulesRole": "suggested locations; actual coverage and methods required",
+      "canonicalParent": "43759d345b2b88354e4f3b383a4833731621d1e3",
+      "candidateBranch": "work/client-v2/ap-iv2-010",
+      "executionReport": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md"
     },
     {
       "id": "AP-IV2-020",

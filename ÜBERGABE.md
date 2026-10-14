@@ -1,3 +1,25 @@
+# Client V2 – AP-IV2-010 / R01-UMSETZUNG / IN_PROGRESS, 2026-10-14
+
+AP000 bis AP110 tatsächlich ACCEPTED. Aktueller Parent und unverändertes Clientprodukt
+`43759d345b2b88354e4f3b383a4833731621d1e3`; Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`.
+[AP110-Nachmergeprovenienz](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json): unabhängiger PASS, menschlicher Prompt,
+PR13-Squash, ein neuer Single-Parent-Commit und Baumgleichheit bestätigt.
+
+AP-IV2-010 läuft auf `work/client-v2/ap-iv2-010`: [Paketakte](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-010/00_PAKET.md),
+[Report](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md), [Evidenz](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md),
+[Workflowstatus](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json).
+Getrennte echte Prozesse, `/ws/v2`, V2-HTTP und `/ws/logs`; Modell-/Recorder-/Scheduler-/
+PortAudio-/Clipboardgrenzen kontrolliert. Alle 28 automatisierten Szenarien gebunden.
+Kandidat `6c969a9`: Windows-/Servervollregression und kumulative Prozessqualifikation laufen.
+Kein Produktfix im Gate; reale ASR-/Hardware-/Wahrnehmungsgates bleiben AP-IV2-020.
+
+Nächste Aktion: vollständige Tests und kandidatgebundene Abgabe. Kein Eigenreview,
+Merge, Serverpromotion oder Folgepaketstart. Start bleibt `venv/Scripts/python.exe -m voice_stt_client`.
+
+<!-- IV2-010-CURRENT-END -->
+
+## Historischer Stand vor AP-IV2-010
+
 # Client V2 – AP-CV2-110 / R03-UEBERNAHME / READY_FOR_CANONICALIZATION, 2026-10-14
 
 [Paket-PR #13](https://github.com/marcosudau-vps/voice-stt-client/pull/13), Base `feat/client-v2`, Head `work/client-v2/ap-cv2-110`.
