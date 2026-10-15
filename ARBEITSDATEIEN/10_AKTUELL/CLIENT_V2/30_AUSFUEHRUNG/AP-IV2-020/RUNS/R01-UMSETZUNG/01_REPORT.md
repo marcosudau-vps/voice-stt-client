@@ -1,3 +1,13 @@
+# AP-IV2-020 / R01-UMSETZUNG – IN_PROGRESS (Fortsetzung)
+
+Die [ausdrückliche Scope-Freigabe](ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md)
+erlaubt eng begrenzte Produkt-/Testkorrekturen für Reconnect/Recovery.
+Maßgeblicher Fortsetzungsstand: [Audit und Korrekturen](05_RECONNECT_AUDIT.md).
+Derselbe R01, Branch und Draft-PR #15 bleiben aktiv. Neue technische Qualifikation
+läuft; reale M-Fälle und gemeinsame Kalibrierung bleiben offen. Kein REVIEW_READY.
+
+## Historischer Zwischenstand vor Scope-Freigabe
+
 # AP-IV2-020 / R01-UMSETZUNG – BLOCKED
 
 Stand 2026-10-15. Ein Umsetzer, derselbe laufende Auftrag. **Kein REVIEW_READY,

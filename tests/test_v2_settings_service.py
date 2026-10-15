@@ -287,7 +287,7 @@ class Service(unittest.IsolatedAsyncioTestCase):
         async def cleanup():
             await session.stop(); await service.close(); await asyncio.gather(task, return_exceptions=True)
         self.addAsyncCleanup(cleanup)
-        await until(lambda: session.is_ready or task.done())
+        await until(lambda: session.is_ready or task.done() or session.status.state.value == "backoff")
         return session, service, socket, http
 
     async def test_preflight_then_na_patch_snapshot_suppression_ready(self):

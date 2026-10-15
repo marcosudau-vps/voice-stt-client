@@ -1,3 +1,10 @@
+# Statusnachtrag zur Fortsetzung
+
+Die [menschliche Scope-Freigabe](ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md)
+hebt den nachstehenden historischen Freigabevorbehalt im beschriebenen engen
+Reconnect-/Recovery-Scope auf. Umsetzung und neue Nachweise im [Audit](05_RECONNECT_AUDIT.md).
+Der ursprüngliche Vorschlag bleibt als damaliger Stand erhalten.
+
 # IV2-020-F01 – vorübergehender Settings-HTTP-Ausfall blockiert Recovery dauerhaft
 
 **Offener Produktbefund / FAIL. Produktcode unverändert. Freigabe erforderlich.**

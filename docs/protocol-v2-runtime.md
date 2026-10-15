@@ -131,3 +131,10 @@ Grenzen. Reale ASR-/Hardware-/Wahrnehmungsfälle bleiben AP-IV2-020; kompletter
 Crossrepo-Gate AP-IV2-010. AP110-Builds und installed/frozen Checkpoint sind im
 [Paketnachweis](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md)
 selbstqualifiziert; unabhängige AP110-Abnahme und kanonische Übernahme offen.
+
+## AP-IV2-020 – Shutdown und Reconnect
+
+Nach Beginn des Shutdown weist `reconnect_server()` einen Aufruf mit
+`core_unavailable` ab. Erwartete Transportcancellation durch den eigenen Shutdown
+entweicht nicht aus `run()`; externe Cancellation und unerwartete Runnerfehler
+bleiben davon getrennt.

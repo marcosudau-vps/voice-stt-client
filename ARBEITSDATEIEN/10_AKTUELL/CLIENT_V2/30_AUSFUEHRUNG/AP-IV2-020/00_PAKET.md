@@ -1,11 +1,11 @@
 # AP-IV2-020 – reale Windows-, Modell- und Hardwarequalifikation
 
-Status **BLOCKED**, Workflow **BLOCKED**, 2026-10-15.
+Status **IN_PROGRESS**, Workflow **IMPLEMENTATION_IN_PROGRESS**, 2026-10-15.
 Rolle: ein Umsetzer, R01-UMSETZUNG. Schreibhoheit: Codex in dieser Session.
 Branch `work/client-v2/ap-iv2-020`, Base `feat/client-v2`, tatsächlicher Parent
 `b80ed8b81ad92bd02ac32553883443d2b7673bcd`.
 Serverbasis `ada13b011e1d3829f78e7f389e3b927795a2b3be`.
-Qualifiziertes Clientprodukt unverändert gegenüber AP-IV2-010/AP110.
+Clientprodukt erhält ausdrücklich freigegebene enge Recoverykorrekturen; neue Qualifikation erforderlich.
 
 [Vertrag](../../PLANUNG/ARBEITSPAKETE/AP-IV2-020.md), Planung Revision 10,
 Rollenregelversion 7. Keine Produktcodeänderung ohne gesonderte Freigabe.
@@ -23,4 +23,8 @@ Offener Produktbefund IV2-020-F01; [konkreter Fixvorschlag](RUNS/R01-UMSETZUNG/0
 Keine fachliche Abgabe. R01-Schreibhoheit bleibt für autorisierte Fortsetzung erhalten.
 
 Kumulativer [Draft-PR #15](https://github.com/marcosudau-vps/voice-stt-client/pull/15), Base feat/client-v2.
-BLOCKED, kein REVIEW_READY; R01 behält Schreibhoheit für die genehmigte Fortsetzung.
+IN_PROGRESS, kein REVIEW_READY; R01 behält Schreibhoheit für die genehmigte Fortsetzung.
+
+## Scope-Ausnahme bei Fortsetzung R01 (2026-10-15)
+
+Der [menschliche Fortsetzungsauftrag](RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md) erlaubt eng auf Client-Reconnect/Recovery begrenzte Produktcode- und Testkorrekturen einschließlich weiterer nachgewiesener zusammenhängender Fehler. Dies ersetzt die ursprüngliche Produktcode-Sperre ausschließlich in diesem Scope. Derselbe R01, Paketbranch und Draft-PR #15 bleiben aktiv. Neue Produktidentität erfordert neue Windows-, Build- und Paarqualifikation; bisherige Nachweise bleiben historische Evidenz. Keine Servercodeänderung, Protokoll-/Sicherheitsänderung, Promotion, Release, Tags oder kanonische Übernahme freigegeben. Keine unabhängige Abnahme vorweggenommen.

@@ -28,6 +28,9 @@ def git(*args):
 
 
 def run(args):
+    client = args.client_product_commit
+    if not re.fullmatch(r'[0-9a-f]{40}', client) or git('rev-parse', client+'^{commit}') != client:
+        raise ValueError('Client product identity must be an exact existing commit SHA')
     args.evidence.mkdir(parents=True,exist_ok=True)
     env = dict(os.environ,PYTHONUTF8='1',QT_QPA_PLATFORM='offscreen',
                OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1')
@@ -35,9 +38,9 @@ def run(args):
     py = str(ROOT/'venv/Scripts/python.exe')
     entries=[]
     report_lock=threading.Lock()
-    report=dict(clientProductCommit=CLIENT,serverCommit=SERVER,
+    report=dict(clientProductCommit=client,serverCommit=SERVER,
         candidateCommit=git('rev-parse','HEAD'),candidateTree=git('rev-parse','HEAD^{tree}'),
-        diff=git('diff','--binary',CLIENT), runtime=dict(python=sys.version,
+        diff=git('diff','--binary',client), runtime=dict(python=sys.version,
         executable=sys.executable,platform=platform.platform()),commands=entries)
     def command(name,command,*,cwd=ROOT,custom_env=env,timeout=900):
         path=args.evidence/(name+'.txt')
@@ -86,7 +89,7 @@ def run(args):
     report['serverSourceHashes']=hashes
     # No product changes in this gate, staged or unstaged.
     for scope in ('voice_stt_client','requirements.txt','requirements-dev.txt','setup.py','VERSION'):
-        if git('diff',CLIENT,'--',scope): raise AssertionError('Product changed in gate: '+scope)
+        if git('diff',client,'--',scope): raise AssertionError('Product changed in gate: '+scope)
     vector=ROOT/'tests/contracts/protocol-v2-vectors.json'
     if vector.read_bytes()!=(args.server_root/'tests/contracts/protocol-v2-vectors.json').read_bytes():
         raise AssertionError('Cross-repository vectors differ')
@@ -125,6 +128,8 @@ def run(args):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--client-product-commit', default=CLIENT,
+        help='Exact qualified product commit; defaults to the original AP-IV2-010 product')
     for name in ('server-root','server-repository','evidence'):
         parser.add_argument('--'+name,required=True,type=Path)
     args=parser.parse_args()

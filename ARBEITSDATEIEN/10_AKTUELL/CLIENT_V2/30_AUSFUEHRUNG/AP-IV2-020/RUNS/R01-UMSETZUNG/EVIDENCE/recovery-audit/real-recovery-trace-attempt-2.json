@@ -1,0 +1,935 @@
+[
+  {
+    "kind": "transport",
+    "seconds": 0.312,
+    "state": "connecting",
+    "reason": "",
+    "generation": 1
+  },
+  {
+    "kind": "http_fault",
+    "seconds": 0.343,
+    "status": 408
+  },
+  {
+    "kind": "transport",
+    "seconds": 0.343,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 1
+  },
+  {
+    "kind": "transport",
+    "seconds": 0.531,
+    "state": "connecting",
+    "reason": "",
+    "generation": 2
+  },
+  {
+    "kind": "http_fault",
+    "seconds": 0.562,
+    "status": 429
+  },
+  {
+    "kind": "transport",
+    "seconds": 0.562,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 2
+  },
+  {
+    "kind": "transport",
+    "seconds": 0.812,
+    "state": "connecting",
+    "reason": "",
+    "generation": 3
+  },
+  {
+    "kind": "http_fault",
+    "seconds": 0.843,
+    "status": 500
+  },
+  {
+    "kind": "transport",
+    "seconds": 0.843,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 3
+  },
+  {
+    "kind": "transport",
+    "seconds": 1.421,
+    "state": "connecting",
+    "reason": "",
+    "generation": 4
+  },
+  {
+    "kind": "http_fault",
+    "seconds": 1.468,
+    "status": 502
+  },
+  {
+    "kind": "transport",
+    "seconds": 1.468,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 4
+  },
+  {
+    "kind": "transport",
+    "seconds": 2.468,
+    "state": "connecting",
+    "reason": "",
+    "generation": 5
+  },
+  {
+    "kind": "http_fault",
+    "seconds": 2.5,
+    "status": 503
+  },
+  {
+    "kind": "transport",
+    "seconds": 2.5,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 5
+  },
+  {
+    "kind": "transport",
+    "seconds": 3.515,
+    "state": "connecting",
+    "reason": "",
+    "generation": 6
+  },
+  {
+    "kind": "http_fault",
+    "seconds": 3.562,
+    "status": 504
+  },
+  {
+    "kind": "transport",
+    "seconds": 3.562,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 6
+  },
+  {
+    "kind": "transport",
+    "seconds": 4.312,
+    "state": "connecting",
+    "reason": "",
+    "generation": 7
+  },
+  {
+    "kind": "http_fault",
+    "seconds": 4.359,
+    "status": "timeout"
+  },
+  {
+    "kind": "transport",
+    "seconds": 4.671,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 7
+  },
+  {
+    "kind": "transport",
+    "seconds": 5.671,
+    "state": "connecting",
+    "reason": "",
+    "generation": 8
+  },
+  {
+    "kind": "transport",
+    "seconds": 5.89,
+    "state": "accepting",
+    "reason": "",
+    "generation": 8
+  },
+  {
+    "kind": "transport",
+    "seconds": 6.078,
+    "state": "configuring",
+    "reason": "",
+    "generation": 8
+  },
+  {
+    "kind": "real_patch_ack_dropped",
+    "seconds": 6.093,
+    "commandId": "2f2a0cda-6a24-4032-937c-21824e4f1680"
+  },
+  {
+    "kind": "real_patch_ack_dropped",
+    "seconds": 6.5,
+    "commandId": "2f2a0cda-6a24-4032-937c-21824e4f1680"
+  },
+  {
+    "kind": "transport",
+    "seconds": 6.906,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 8
+  },
+  {
+    "kind": "transport",
+    "seconds": 7.625,
+    "state": "connecting",
+    "reason": "",
+    "generation": 9
+  },
+  {
+    "kind": "transport",
+    "seconds": 7.968,
+    "state": "accepting",
+    "reason": "",
+    "generation": 9
+  },
+  {
+    "kind": "transport",
+    "seconds": 8.0,
+    "state": "configuring",
+    "reason": "",
+    "generation": 9
+  },
+  {
+    "kind": "transport",
+    "seconds": 8.0,
+    "state": "ready",
+    "reason": "",
+    "generation": 9
+  },
+  {
+    "kind": "restart",
+    "seconds": 9.187,
+    "cycle": 1
+  },
+  {
+    "kind": "transport",
+    "seconds": 9.328,
+    "state": "backoff",
+    "reason": "user_reconnect",
+    "generation": 9
+  },
+  {
+    "kind": "transport",
+    "seconds": 9.328,
+    "state": "backoff",
+    "reason": "user_reconnect",
+    "generation": 9
+  },
+  {
+    "kind": "transport",
+    "seconds": 9.328,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 9
+  },
+  {
+    "kind": "transport",
+    "seconds": 9.468,
+    "state": "connecting",
+    "reason": "",
+    "generation": 10
+  },
+  {
+    "kind": "transport",
+    "seconds": 9.515,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 10
+  },
+  {
+    "kind": "transport",
+    "seconds": 9.765,
+    "state": "connecting",
+    "reason": "",
+    "generation": 11
+  },
+  {
+    "kind": "transport",
+    "seconds": 9.843,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 11
+  },
+  {
+    "kind": "transport",
+    "seconds": 10.515,
+    "state": "connecting",
+    "reason": "",
+    "generation": 12
+  },
+  {
+    "kind": "transport",
+    "seconds": 10.593,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 12
+  },
+  {
+    "kind": "transport",
+    "seconds": 11.546,
+    "state": "connecting",
+    "reason": "",
+    "generation": 13
+  },
+  {
+    "kind": "transport",
+    "seconds": 11.609,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 13
+  },
+  {
+    "kind": "transport",
+    "seconds": 12.609,
+    "state": "connecting",
+    "reason": "",
+    "generation": 14
+  },
+  {
+    "kind": "transport",
+    "seconds": 12.656,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 14
+  },
+  {
+    "kind": "transport",
+    "seconds": 13.593,
+    "state": "connecting",
+    "reason": "",
+    "generation": 15
+  },
+  {
+    "kind": "transport",
+    "seconds": 13.625,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 15
+  },
+  {
+    "kind": "transport",
+    "seconds": 14.375,
+    "state": "connecting",
+    "reason": "",
+    "generation": 16
+  },
+  {
+    "kind": "transport",
+    "seconds": 14.421,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 16
+  },
+  {
+    "kind": "transport",
+    "seconds": 15.421,
+    "state": "connecting",
+    "reason": "",
+    "generation": 17
+  },
+  {
+    "kind": "transport",
+    "seconds": 15.453,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 17
+  },
+  {
+    "kind": "transport",
+    "seconds": 16.265,
+    "state": "connecting",
+    "reason": "",
+    "generation": 18
+  },
+  {
+    "kind": "transport",
+    "seconds": 16.296,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 18
+  },
+  {
+    "kind": "transport",
+    "seconds": 17.312,
+    "state": "connecting",
+    "reason": "",
+    "generation": 19
+  },
+  {
+    "kind": "transport",
+    "seconds": 17.359,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 19
+  },
+  {
+    "kind": "transport",
+    "seconds": 18.359,
+    "state": "connecting",
+    "reason": "",
+    "generation": 20
+  },
+  {
+    "kind": "transport",
+    "seconds": 18.421,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 20
+  },
+  {
+    "kind": "transport",
+    "seconds": 19.156,
+    "state": "connecting",
+    "reason": "",
+    "generation": 21
+  },
+  {
+    "kind": "transport",
+    "seconds": 19.203,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 21
+  },
+  {
+    "kind": "transport",
+    "seconds": 20.125,
+    "state": "connecting",
+    "reason": "",
+    "generation": 22
+  },
+  {
+    "kind": "transport",
+    "seconds": 20.187,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 22
+  },
+  {
+    "kind": "transport",
+    "seconds": 21.203,
+    "state": "connecting",
+    "reason": "",
+    "generation": 23
+  },
+  {
+    "kind": "transport",
+    "seconds": 21.265,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 23
+  },
+  {
+    "kind": "transport",
+    "seconds": 22.0,
+    "state": "connecting",
+    "reason": "",
+    "generation": 24
+  },
+  {
+    "kind": "transport",
+    "seconds": 22.046,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 24
+  },
+  {
+    "kind": "transport",
+    "seconds": 22.875,
+    "state": "connecting",
+    "reason": "",
+    "generation": 25
+  },
+  {
+    "kind": "transport",
+    "seconds": 23.0,
+    "state": "accepting",
+    "reason": "",
+    "generation": 25
+  },
+  {
+    "kind": "transport",
+    "seconds": 25.812,
+    "state": "configuring",
+    "reason": "",
+    "generation": 25
+  },
+  {
+    "kind": "transport",
+    "seconds": 25.843,
+    "state": "ready",
+    "reason": "",
+    "generation": 25
+  },
+  {
+    "kind": "restart",
+    "seconds": 26.843,
+    "cycle": 2
+  },
+  {
+    "kind": "transport",
+    "seconds": 27.015,
+    "state": "backoff",
+    "reason": "user_reconnect",
+    "generation": 25
+  },
+  {
+    "kind": "transport",
+    "seconds": 27.015,
+    "state": "backoff",
+    "reason": "user_reconnect",
+    "generation": 25
+  },
+  {
+    "kind": "transport",
+    "seconds": 27.015,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 25
+  },
+  {
+    "kind": "transport",
+    "seconds": 27.187,
+    "state": "connecting",
+    "reason": "",
+    "generation": 26
+  },
+  {
+    "kind": "transport",
+    "seconds": 27.234,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 26
+  },
+  {
+    "kind": "transport",
+    "seconds": 27.562,
+    "state": "connecting",
+    "reason": "",
+    "generation": 27
+  },
+  {
+    "kind": "transport",
+    "seconds": 27.609,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 27
+  },
+  {
+    "kind": "transport",
+    "seconds": 28.171,
+    "state": "connecting",
+    "reason": "",
+    "generation": 28
+  },
+  {
+    "kind": "transport",
+    "seconds": 28.218,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 28
+  },
+  {
+    "kind": "transport",
+    "seconds": 29.234,
+    "state": "connecting",
+    "reason": "",
+    "generation": 29
+  },
+  {
+    "kind": "transport",
+    "seconds": 29.328,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 29
+  },
+  {
+    "kind": "transport",
+    "seconds": 30.343,
+    "state": "connecting",
+    "reason": "",
+    "generation": 30
+  },
+  {
+    "kind": "transport",
+    "seconds": 30.375,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 30
+  },
+  {
+    "kind": "transport",
+    "seconds": 31.39,
+    "state": "connecting",
+    "reason": "",
+    "generation": 31
+  },
+  {
+    "kind": "transport",
+    "seconds": 31.453,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 31
+  },
+  {
+    "kind": "transport",
+    "seconds": 32.453,
+    "state": "connecting",
+    "reason": "",
+    "generation": 32
+  },
+  {
+    "kind": "transport",
+    "seconds": 32.484,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 32
+  },
+  {
+    "kind": "transport",
+    "seconds": 33.375,
+    "state": "connecting",
+    "reason": "",
+    "generation": 33
+  },
+  {
+    "kind": "transport",
+    "seconds": 33.437,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 33
+  },
+  {
+    "kind": "transport",
+    "seconds": 34.421,
+    "state": "connecting",
+    "reason": "",
+    "generation": 34
+  },
+  {
+    "kind": "transport",
+    "seconds": 34.468,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 34
+  },
+  {
+    "kind": "transport",
+    "seconds": 35.453,
+    "state": "connecting",
+    "reason": "",
+    "generation": 35
+  },
+  {
+    "kind": "transport",
+    "seconds": 35.5,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 35
+  },
+  {
+    "kind": "transport",
+    "seconds": 36.234,
+    "state": "connecting",
+    "reason": "",
+    "generation": 36
+  },
+  {
+    "kind": "transport",
+    "seconds": 36.296,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 36
+  },
+  {
+    "kind": "transport",
+    "seconds": 37.281,
+    "state": "connecting",
+    "reason": "",
+    "generation": 37
+  },
+  {
+    "kind": "transport",
+    "seconds": 37.343,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 37
+  },
+  {
+    "kind": "transport",
+    "seconds": 38.343,
+    "state": "connecting",
+    "reason": "",
+    "generation": 38
+  },
+  {
+    "kind": "transport",
+    "seconds": 38.468,
+    "state": "accepting",
+    "reason": "",
+    "generation": 38
+  },
+  {
+    "kind": "transport",
+    "seconds": 40.656,
+    "state": "configuring",
+    "reason": "",
+    "generation": 38
+  },
+  {
+    "kind": "transport",
+    "seconds": 40.671,
+    "state": "ready",
+    "reason": "",
+    "generation": 38
+  },
+  {
+    "kind": "restart",
+    "seconds": 41.64,
+    "cycle": 3
+  },
+  {
+    "kind": "transport",
+    "seconds": 41.75,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 38
+  },
+  {
+    "kind": "transport",
+    "seconds": 41.937,
+    "state": "connecting",
+    "reason": "",
+    "generation": 39
+  },
+  {
+    "kind": "transport",
+    "seconds": 41.984,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 39
+  },
+  {
+    "kind": "transport",
+    "seconds": 42.25,
+    "state": "connecting",
+    "reason": "",
+    "generation": 40
+  },
+  {
+    "kind": "transport",
+    "seconds": 42.312,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 40
+  },
+  {
+    "kind": "transport",
+    "seconds": 42.843,
+    "state": "connecting",
+    "reason": "",
+    "generation": 41
+  },
+  {
+    "kind": "transport",
+    "seconds": 42.875,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 41
+  },
+  {
+    "kind": "transport",
+    "seconds": 43.859,
+    "state": "connecting",
+    "reason": "",
+    "generation": 42
+  },
+  {
+    "kind": "transport",
+    "seconds": 43.921,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 42
+  },
+  {
+    "kind": "transport",
+    "seconds": 44.64,
+    "state": "connecting",
+    "reason": "",
+    "generation": 43
+  },
+  {
+    "kind": "transport",
+    "seconds": 44.703,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 43
+  },
+  {
+    "kind": "transport",
+    "seconds": 45.718,
+    "state": "connecting",
+    "reason": "",
+    "generation": 44
+  },
+  {
+    "kind": "transport",
+    "seconds": 45.75,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 44
+  },
+  {
+    "kind": "transport",
+    "seconds": 46.765,
+    "state": "connecting",
+    "reason": "",
+    "generation": 45
+  },
+  {
+    "kind": "transport",
+    "seconds": 46.812,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 45
+  },
+  {
+    "kind": "transport",
+    "seconds": 47.593,
+    "state": "connecting",
+    "reason": "",
+    "generation": 46
+  },
+  {
+    "kind": "transport",
+    "seconds": 47.64,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 46
+  },
+  {
+    "kind": "transport",
+    "seconds": 48.625,
+    "state": "connecting",
+    "reason": "",
+    "generation": 47
+  },
+  {
+    "kind": "transport",
+    "seconds": 48.687,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 47
+  },
+  {
+    "kind": "transport",
+    "seconds": 49.687,
+    "state": "connecting",
+    "reason": "",
+    "generation": 48
+  },
+  {
+    "kind": "transport",
+    "seconds": 49.75,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 48
+  },
+  {
+    "kind": "transport",
+    "seconds": 50.546,
+    "state": "connecting",
+    "reason": "",
+    "generation": 49
+  },
+  {
+    "kind": "transport",
+    "seconds": 50.609,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 49
+  },
+  {
+    "kind": "transport",
+    "seconds": 51.609,
+    "state": "connecting",
+    "reason": "",
+    "generation": 50
+  },
+  {
+    "kind": "transport",
+    "seconds": 51.687,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 50
+  },
+  {
+    "kind": "transport",
+    "seconds": 52.687,
+    "state": "connecting",
+    "reason": "",
+    "generation": 51
+  },
+  {
+    "kind": "transport",
+    "seconds": 52.812,
+    "state": "accepting",
+    "reason": "",
+    "generation": 51
+  },
+  {
+    "kind": "transport",
+    "seconds": 54.875,
+    "state": "configuring",
+    "reason": "",
+    "generation": 51
+  },
+  {
+    "kind": "transport",
+    "seconds": 54.89,
+    "state": "ready",
+    "reason": "",
+    "generation": 51
+  },
+  {
+    "kind": "transport",
+    "seconds": 55.89,
+    "state": "backoff",
+    "reason": "user_reconnect",
+    "generation": 51
+  },
+  {
+    "kind": "transport",
+    "seconds": 55.89,
+    "state": "backoff",
+    "reason": "network_lost",
+    "generation": 51
+  },
+  {
+    "kind": "transport",
+    "seconds": 56.015,
+    "state": "connecting",
+    "reason": "",
+    "generation": 52
+  },
+  {
+    "kind": "http_fault",
+    "seconds": 56.062,
+    "status": "timeout"
+  },
+  {
+    "kind": "transport",
+    "seconds": 56.078,
+    "state": "stopping",
+    "reason": "",
+    "generation": 52
+  },
+  {
+    "kind": "transport",
+    "seconds": 56.078,
+    "state": "closed",
+    "reason": "",
+    "generation": 52
+  }
+]

@@ -140,6 +140,7 @@ class V2MediaConnection:
         self._loop = None
         self._task = self._sender = None
         self._capture_operation = None
+        self._capture_lock = asyncio.Lock()
         self._log_shutdown_task = None
         self._reported_available = None
         self._overflow_at_last_send = 0
@@ -259,17 +260,25 @@ class V2MediaConnection:
         await self._capture_call(self.capture.stop)
 
     async def _capture_call(self, operation):
-        # Cancelling the asyncio owner doesn't cancel a native PortAudio call.
-        # Keep its task so close can join it before calling stop on the device.
-        previous = self._capture_operation
-        if previous is not None:
-            await asyncio.shield(previous)
-        task = self._capture_operation = asyncio.create_task(asyncio.to_thread(operation))
-        try:
-            return await asyncio.shield(task)
-        finally:
-            if task.done() and self._capture_operation is task:
-                self._capture_operation = None
+        async with self._capture_lock:
+            # Cancelling the asyncio owner doesn't cancel a native PortAudio call.
+            # Keep its task so close can join it before calling stop on the device.
+            previous = self._capture_operation
+            if previous is not None:
+                try:
+                    await asyncio.shield(previous)
+                finally:
+                    # A cancelled owner may leave a failing native probe behind.
+                    # Report that failure once, then allow a later device retry.
+                    # Keep the barrier while the native operation is still running.
+                    if previous.done() and self._capture_operation is previous:
+                        self._capture_operation = None
+            task = self._capture_operation = asyncio.create_task(asyncio.to_thread(operation))
+            try:
+                return await asyncio.shield(task)
+            finally:
+                if task.done() and self._capture_operation is task:
+                    self._capture_operation = None
 
     async def _lifecycle(self):
         try:

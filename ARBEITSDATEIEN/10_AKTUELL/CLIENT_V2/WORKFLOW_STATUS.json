@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "BLOCKED",
-  "packageStatus": "BLOCKED",
+  "workflowPhase": "IMPLEMENTATION_IN_PROGRESS",
+  "packageStatus": "IN_PROGRESS",
   "activePackage": "AP-IV2-020",
   "nextPackage": null,
   "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
@@ -19,18 +19,28 @@
   "reviewedCommit": null,
   "reviewReport": null,
   "openFindingIds": [
-    "IV2-020-F01"
+    "IV2-020-F01",
+    "IV2-020-F02",
+    "IV2-020-F03",
+    "IV2-020-F04",
+    "IV2-020-F05",
+    "IV2-020-F06",
+    "IV2-020-F07",
+    "IV2-020-F08",
+    "IV2-020-F09",
+    "IV2-020-F10"
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "Reproduzierter permanenter Recoveryblock nach temporärem Settings-GET-Ausfall; Produktfix braucht ausdrückliche Freigabe gemäß Originalauftrag. Reale Pflichtfälle/Kalibrierung/30min100 zusätzlich offen.",
-  "nextAction": "Menschliche Freigabe des konkreten engen Clientfixes aus R01/04_KORREKTURVORSCHLAG.md; danach Fix/Regression/neue EXE/Paarqualifikation und gebündelte Realtests im selben R01.",
+  "blockingReason": null,
+  "nextAction": "R01 fortsetzen: Reconnect/Recovery auditieren und eng begrenzt korrigieren; neuen Produktstand vollständig requalifizieren, danach gebündelte Realtests/Kalibrierung.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md",
     "currentCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/00_PROMPT_ORIGINAL.md",
-    "currentImplementationSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md"
+    "currentImplementationSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
+    "reconnectRecoverySource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md"
   },
   "candidateSelection": {
     "candidateId": "AP-IV2-020",

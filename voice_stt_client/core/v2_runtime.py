@@ -282,7 +282,7 @@ class V2Runtime:
             stopped = asyncio.create_task(self._stop.wait())
             try:
                 done, _ = await asyncio.wait((stopped, self._runner), return_when=asyncio.FIRST_COMPLETED)
-                if self._runner in done:
+                if self._runner in done and not self._stop.is_set():
                     await self._runner
             finally:
                 stopped.cancel()
@@ -345,6 +345,8 @@ class V2Runtime:
         return self.history.clear_entries()
 
     async def reconnect_server(self):
+        if self._closing:
+            return CommandResult(False, 'core_unavailable')
         v = self.mirror.mirror.view
         if v.input.activation_id or any(a.status == 'draining' for a in v.activations.values()):
             return CommandResult(False, 'apply_choice_required', 'Eingabe oder Ergebnisse offen; V2-Einstellungen verwenden.')

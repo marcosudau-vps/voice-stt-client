@@ -1,3 +1,14 @@
+# AP-IV2-020 R01 – Fortsetzung / IN_PROGRESS
+
+[Scope-Freigabe](../ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md),
+[systematischer Audit und Findingzuordnung](../05_RECONNECT_AUDIT.md).
+Neue Recoverybelege unter `recovery-audit/`, jeweils JSON mit Runtime/Befehl/
+Vorher-Nachherquellhashes und vollständigem .txt.gz-Log. Rote Repros und gescheiterte
+Hilfsmittelversuche bleiben erkennbar. Vorfixbelege unten sind historisch.
+Kein REVIEW_READY, kein ROOT_PASS, keine menschliche Realabnahme.
+
+## Historischer Evidenzindex vor Produktkorrektur
+
 # AP-IV2-020 R01 – Evidenz / BLOCKED
 
 Basis b80ed8b81ad92bd02ac32553883443d2b7673bcd, Tree

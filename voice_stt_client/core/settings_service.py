@@ -10,6 +10,7 @@ import asyncio
 from collections.abc import Mapping
 from copy import deepcopy
 from dataclasses import dataclass, replace
+from http.client import IncompleteRead
 import json
 import math
 import ssl
@@ -133,6 +134,11 @@ class SettingsHTTP:
                 status = response.code
                 if 300 <= status < 400:
                     raise SettingsError("http_redirect_forbidden", status=status)
+                # Error documents may be HTML, empty, or truncated by a proxy.
+                # Status is authoritative; never require a success schema here.
+                # In particular a failed PATCH is returned once, never retried.
+                if status != 200:
+                    return HttpResponse(status, {})
                 content = response.read(self.max_bytes + 1)
                 if len(content) > self.max_bytes:
                     raise SettingsError("http_response_too_large", status=status)
@@ -145,7 +151,10 @@ class SettingsHTTP:
                 return HttpResponse(status, result)
         except SettingsError:
             raise
-        except (URLError, OSError, ValueError):
+        except (URLError, OSError, ValueError, IncompleteRead) as error:
+            if isinstance(error, ssl.SSLCertVerificationError) or (
+                    isinstance(error, URLError) and isinstance(error.reason, ssl.SSLCertVerificationError)):
+                raise SettingsError("http_tls_verification_failed") from None
             raise SettingsError("http_outcome_unknown" if method != "GET" else "http_unavailable") from None
 
 
@@ -448,7 +457,16 @@ class SettingsService:
                 self._session_refresh_task = None
 
     async def prepare(self, session):
-        await self.load_metadata()
+        try:
+            await self.load_metadata()
+        except SettingsError as error:
+            if (error.code in ("http_unavailable", "http_timeout", "http_worker_busy")
+                    or error.code == "http_read_failed" and error.status is not None
+                    and (error.status in (408, 429) or 500 <= error.status < 600)):
+                # Only idempotent metadata GETs reach this boundary. The
+                # transport owns bounded backoff and a fresh preflight/Hello.
+                raise OSError("settings_metadata_temporarily_unavailable") from None
+            raise
         # Only unresolved wake aliases are automatically repairable by metadata.
         profile = migrate_profile({"v2_profile": self.profile.__dict__}, self.catalog)
         profile.require_ready()
@@ -581,7 +599,12 @@ class SettingsService:
 
     async def bootstrap(self, session, binding):
         """Media owns availability first; transport restores desired pauses last."""
-        report = await self.apply_session(binding)
+        try:
+            report = await self.apply_session(binding)
+        except SettingsError as error:
+            if error.code == "settings_snapshot_timeout":
+                raise TimeoutError("settings_snapshot_timeout") from None
+            raise
         # Startup cannot have an open activation under the two suppression bits.
         if report.pending and any(key in NA_KEYS for key in report.pending):
             raise SettingsError("bootstrap_settings_not_effective")
