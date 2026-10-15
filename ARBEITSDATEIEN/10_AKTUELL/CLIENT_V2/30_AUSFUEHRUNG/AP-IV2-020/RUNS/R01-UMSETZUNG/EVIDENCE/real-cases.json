@@ -123,7 +123,7 @@
       "tester": "Codex/local Windows",
       "executedAt": null,
       "clientCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
-      "clientBuildSha256": "137a8fc259e05f3a90f23c2babbf4325419bc9cc4195d123b4db6159cae85226",
+      "clientBuildSha256": null,
       "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
       "configurationSha256": null,
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
@@ -159,7 +159,8 @@
           ]
         }
       ],
-      "findingIds": []
+      "findingIds": [],
+      "qualifiedFrozenArtifactReference": "recovery-audit/build/artifacts.json; not a frozen M-07 execution claim"
     },
     {
       "id": "M-08",
