@@ -3,8 +3,9 @@
 Die [ausdrückliche Scope-Freigabe](ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md)
 erlaubt eng begrenzte Produkt-/Testkorrekturen für Reconnect/Recovery.
 Maßgeblicher Fortsetzungsstand: [Audit und Korrekturen](05_RECONNECT_AUDIT.md).
-Derselbe R01, Branch und Draft-PR #15 bleiben aktiv. Neue technische Qualifikation
-läuft; reale M-Fälle und gemeinsame Kalibrierung bleiben offen. Kein REVIEW_READY.
+Derselbe R01, Branch und Draft-PR #15 bleiben aktiv. Neue technische Qualifikation ist vollständig grün (1373 Windows-Tests,
+1964 Server-Unit-Tests mit14 ausgewiesenen optionalen Skips,11 Prozessfälle,
+neue EXE/Wheel/sdist und native Frozenprüfung). Zehn technische Findings geschlossen; reale M-Fälle und gemeinsame Kalibrierung bleiben offen. Kein REVIEW_READY.
 
 ## Historischer Zwischenstand vor Scope-Freigabe
 

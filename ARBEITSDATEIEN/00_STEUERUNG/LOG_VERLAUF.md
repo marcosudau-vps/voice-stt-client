@@ -1,3 +1,14 @@
+## 2026-10-15 – AP-IV2-020 / R01 fortgesetzt: Recovery technisch requalifiziert
+
+Ausdrückliche enge Scope-Ausnahme gesichert; derselbe Branch/R01/Draft-PR15.
+Zehn nachgewiesene Client-Reconnect-/Recoveryfehler korrigiert, rote Repros und
+Regressionen dokumentiert. Produkt41ca761, neue EXE/Wheel/sdist identitätsgebunden.
+1373 Windows-Tests,11 Prozessfälle,1964 Server-Unit-Tests/14 optionale Skips,
+native und reale lokale Modell-/Recoveryprüfungen grün. Drei Serverneustarts,
+kein vorzeitiges PCM/Triggerfenster, Run-Pausen erhalten. V1/VPS unberührt.
+Phase C vorbereitet; echte M-Gates/Kalibrierung/30min100 offen, kein REVIEW_READY.
+[Audit](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/05_RECONNECT_AUDIT.md).
+
 ## 2026-10-15 – AP-IV2-020 / R01-UMSETZUNG: BLOCKED
 
 AP010-Squash b80ed8b nach PASS/Freigabe tatsächlich verifiziert. Lokaler Serverada13b0

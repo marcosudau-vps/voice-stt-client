@@ -7,6 +7,19 @@ Vorher-Nachherquellhashes und vollständigem .txt.gz-Log. Rote Repros und gesche
 Hilfsmittelversuche bleiben erkennbar. Vorfixbelege unten sind historisch.
 Kein REVIEW_READY, kein ROOT_PASS, keine menschliche Realabnahme.
 
+## Maßgebliche neue Belege
+
+- [Qualifikationsübersicht und Quellbindung](recovery-audit/qualification-summary.json), [zehn technische Findings](recovery-audit/findings.json).
+- [Finale Windowsvollsuite](recovery-audit/client-full-final-environment.json), [vollständiger Log](recovery-audit/client-full-final-environment.txt.gz):1373 PASS/0 Skips.
+- [Paarqualifikation](recovery-audit/pair/validation.json), alle komprimierten Voll- und Szenariologs im selben Ordner; Server1964 PASS/14 einzeln ausgewiesene Skips.
+- [Reale Recovery/HTTP/Ack/Neustarts/Shutdown](recovery-audit/real-recovery.json), [vollständiger Log](recovery-audit/real-recovery-final.txt.gz), [redigierte Spur](recovery-audit/real-recovery-trace.json).
+- [ReSpeaker-Desktoprestart](recovery-audit/native/desktop-smoke.json), [Identität](recovery-audit/native/desktop-identity.json), [Spur](recovery-audit/native/desktop-trace.jsonl).
+- [Reale neue ASR-Pipeline](recovery-audit/native/real-audio-pipeline.json), [Golden-EN](recovery-audit/native/real-golden.txt.gz), [echte Modelladmission](recovery-audit/native/real-admission.json).
+- [Neue Artefaktidentitäten](recovery-audit/build/artifacts.json), [Build](recovery-audit/build/pyinstaller-serialized.json), [Paketprüfung](recovery-audit/build/release-guard.json), [native Frozen-GUI](recovery-audit/build/frozen-native-runtime.json).
+- [Echter Watchdog bei PCM-Stall](recovery-audit/real-watchdog-stalled-media.json), [Helfer](recovery-audit/watchdog_stalled_media.py): zulässige Fristen, echte Uhr/ASR, kein menschlicher Dauersprachbeleg.
+- [Native Hotkeys](recovery-audit/native/windows-hotkeys.txt.gz), [native Settings/Credential Manager](recovery-audit/native/windows-settings.txt.gz).
+- [Neue Parameter](recovery-audit/native/parameter-inventory.json), [Serverinventar](recovery-audit/native/real-server-inventory.json).
+
 ## Historischer Evidenzindex vor Produktkorrektur
 
 # AP-IV2-020 R01 – Evidenz / BLOCKED

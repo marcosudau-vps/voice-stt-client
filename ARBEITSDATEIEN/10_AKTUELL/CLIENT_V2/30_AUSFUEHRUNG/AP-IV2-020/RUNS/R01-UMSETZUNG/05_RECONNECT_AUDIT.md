@@ -1,7 +1,8 @@
 # Reconnect-/Recovery-Audit – Fortsetzung R01
 
-Status: IN_PROGRESS. Technische Nachweise werden am korrigierten Kandidaten neu
-erhoben. Kein ROOT_PASS, keine Realabnahme und noch kein REVIEW_READY.
+Status: technischer Audit abgeschlossen; AP-IV2-020 bleibt IN_PROGRESS.
+Alle zehn Findings sind CLOSED_TECHNICAL am korrigierten Produkt; eigenständige
+Abnahme und reale Paketpflichtfälle bleiben offen. Kein ROOT_PASS, keine Realabnahme und noch kein REVIEW_READY.
 
 ## Auftrag und Baseline
 
@@ -34,7 +35,8 @@ erhalten; der frühere Freigabevorbehalt ist durch den Zusatzauftrag aufgehoben.
 
 ## Nachgewiesene Findings und eng begrenzte Korrekturen
 
-Alle Findings bleiben bis zu ihrem erforderlichen grünen Nachweis offen.
+Die Findings wurden erst nach der folgenden vollständigen technischen
+Requalifikation als CLOSED_TECHNICAL geschlossen.
 Rote Tests sind Fehlernachweise, kein Paket-PASS.
 
 | Finding | Reproduzierte Ursache | Korrektur / dauerhafte Regression |
@@ -89,3 +91,50 @@ Die realen Pflichtfälle M-01 bis M-12, menschliche Wahrnehmung/Kalibrierung und
 30 Minuten/100 abgeschlossene Aktivierungen bleiben separat verpflichtend.
 Dieser Recoverylauf ersetzt sie nicht. Neue Build-/Paar-/Vollsuitennachweise
 werden nach endgültiger Produktkorrektur ergänzt.
+
+## Konsolidiertes technisches Ergebnis (2026-10-15)
+
+Produktcommit `41ca7612db526532509ecab65ff9d7d182da565c`, Tree
+`e698089f7975ff6464300ab103e718f0992eb0d5`, Server unverändert ada13b0.
+[Maschinenlesbare Qualifikation](EVIDENCE/recovery-audit/qualification-summary.json),
+[Findingregister](EVIDENCE/recovery-audit/findings.json).
+
+- Vollständige Windows-Clientsuite am endgültigen Stand: **1373 PASS, keine Skips**,
+  [vollständiger Log](EVIDENCE/recovery-audit/client-full-final-environment.txt.gz).
+- [Paarqualifikation](EVIDENCE/recovery-audit/pair/validation.json): 11 getrennte
+  Prozessfälle, 17 ergänzende Szenariobindungen, sieben Server-Smokes PASS;
+  1964 Server-Unit-Tests PASS, 14 optionale Skips einzeln im vollständigen Log und
+  Qualifikationssummary ausgewiesen. Vektorbytegleichheit explizit geprüft;
+  echte ausgewählte Modelle separat nachgewiesen, keine Skip-Umdeutung.
+- [Echter Recoverylauf](EVIDENCE/recovery-audit/real-recovery.json): GET408/429/5xx
+  mit HTML, HTTPtimeout und tatsächlich angewandter Session-PATCH mit zweimal
+  verworfenem identischem Ack; neue Session statt Übertragung alter Mutation.
+  Drei Neustarts samt überlagerten Reconnects: 14,703 / 15,750 / 15,859 Sekunden
+  einschließlich Wiederaufnahme von PCM. Beide Run-Pausen und 4000ms Sessionwunsch
+  jeweils bestätigt. Tasks an den vier Messpunkten konstant8, Pending0, Queue0,
+  keine Overflows; Shutdown während Preflight0,250s. RSS etwa64,3→67,2MB,
+  Private Bytes410,9→414,7MB; dieser kurze Aufbauverlauf ist kein30min-Leaknachweis.
+- [Nativer Desktoprestart](EVIDENCE/recovery-audit/native/desktop-trace.jsonl)
+  mit tatsächlichem ReSpeaker/Qt/Core/Logstream PASS; keine Aktivierung/Injektion.
+- Reale ASR-Pipeline PASS, Final0,406s nach Referenzaudioende (ein Smoke,
+  keine SLA oder deutsche Qualitätsabnahme); Golden-EN erwarteter Wortlaut exakt,
+  RTF0,122. Manual/Wake/Both mit echten Modellen neu admitted.
+- Native Win32hotkeys und native Settings-Qt/Vaultkontrollen erneut PASS.
+- [Neue Artefakte](EVIDENCE/recovery-audit/build/artifacts.json): EXE, Wheel, sdist
+  auf sauberen Produktcommit41ca761 gebunden; Paketguard und Twine PASS,
+  [native Frozen-GUI am realen Server](EVIDENCE/recovery-audit/build/frozen-native-runtime.json) PASS.
+- Buildorchestrierungsfehler offengelegt: gleichzeitiger `test_build_script`
+  überschrieb `build/build_identity.json` mit Testidentität `a*40`. Erster Build
+  deshalb verworfen; [Beleg](EVIDENCE/recovery-audit/build/contaminated-build.json).
+  Neuer Build nach Clientsuite seriell erfolgreich, keine Produktkorrektur daran.
+  Fehlende reine Buildabhängigkeit wheel0.45.1 ausschließlich in Projektvenv ergänzt;
+  anschließend abschließende vollständige Windowsregression erneut grün.
+
+Der echte Vorcommit-Recoverylauf ist über alle protokollierten Quellhashes an den
+Produktcommit gebunden (nur Git-EOL-Normalisierung), nicht anhand einer
+vermuteten Gleichheit. Nachfolgende Akten-/Belegnachträge verändern das Produkt
+nicht. V1, VPS und produktive Serverzustände blieben unangetastet.
+
+Nächste Aktion ist die bereits vorbereitete gemeinsame Testphase. Alle vollständigen
+M-Fälle, echte Wakepositive/Nutzsprachgrenze, Wahrnehmung/Kalibrierung und finaler
+30min-/100Activations-Lauf bleiben NOT_RUN/NOT_PROVEN. Kein REVIEW_READY.

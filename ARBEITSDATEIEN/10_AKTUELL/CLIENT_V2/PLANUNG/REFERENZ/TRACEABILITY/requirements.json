@@ -13809,11 +13809,12 @@
       "test": "M-01..M-12; native prechecks separately evidenced, no complete M PASS",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "NOT_PROVEN / BLOCKED",
+      "status": "NOT_PROVEN / REAL_TESTS_OPEN",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json"
+      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json"
     },
     {
       "id": "REAL-02",
@@ -13823,11 +13824,12 @@
       "test": "M-01..M-12; native prechecks separately evidenced, no complete M PASS",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "NOT_PROVEN / BLOCKED",
+      "status": "NOT_PROVEN / REAL_TESTS_OPEN",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json"
+      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json"
     },
     {
       "id": "REAL-03",
@@ -13837,11 +13839,12 @@
       "test": "M-01..M-12; native prechecks separately evidenced, no complete M PASS",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "FAIL / IV2-020-F01",
+      "status": "NOT_PROVEN / REAL_TESTS_OPEN",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json"
+      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json"
     },
     {
       "id": "REAL-04",
@@ -13851,11 +13854,12 @@
       "test": "M-01..M-12; native prechecks separately evidenced, no complete M PASS",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "NOT_PROVEN / BLOCKED",
+      "status": "NOT_PROVEN / REAL_TESTS_OPEN",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json"
+      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json"
     },
     {
       "id": "REAL-05",
@@ -13865,11 +13869,12 @@
       "test": "M-01..M-12; native prechecks separately evidenced, no complete M PASS",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "NOT_PROVEN / BLOCKED",
+      "status": "NOT_PROVEN / REAL_TESTS_OPEN",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json"
+      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json"
     },
     {
       "id": "REAL-06",
@@ -13879,11 +13884,12 @@
       "test": "M-01..M-12; native prechecks separately evidenced, no complete M PASS",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "NOT_PROVEN / BLOCKED",
+      "status": "NOT_PROVEN / REAL_TESTS_OPEN",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json"
+      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json"
     },
     {
       "id": "RUNTIME-01",

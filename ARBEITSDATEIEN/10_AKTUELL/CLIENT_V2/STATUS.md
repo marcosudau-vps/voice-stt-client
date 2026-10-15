@@ -1,14 +1,16 @@
-# AP-IV2-020 – IN_PROGRESS, Fortsetzung R01, 2026-10-15
+# AP-IV2-020 – IN_PROGRESS, Phase C vorbereitet, 2026-10-15
 
-AP-IV2-010 tatsächlich ACCEPTED, kanonischer Parent `b80ed8b` unverändert.
-Paketbranch `work/client-v2/ap-iv2-020`, kumulativer Draft-PR #15.
-Die ausdrückliche Scope-Freigabe erlaubt enge Client-Reconnect-/Recoverykorrekturen
-im selben R01. Systematischer Audit, rote Fehlernachweise und Regressionen laufen;
-neue Produkt-/Build-/Paar-/Windowsqualifikation ersetzt keine offenen Realfälle.
-Die bisherigen 1360 grünen Windowsprüfungen sind historische Vorfix-Evidenz.
-M-/Wakepositive-/Kalibrierungs-/30min100-Gates bleiben offen, kein REVIEW_READY.
+Kanonischer Parent `b80ed8b` unverändert, Vorgänger AP010 tatsächlich ACCEPTED.
+Paketbranch `work/client-v2/ap-iv2-020`, kumulativer Draft-PR #15, derselbe R01.
+Ausdrücklich freigegebener Reconnect-/Recovery-Audit abgeschlossen: zehn technische
+Findings behoben. Produktcommit `41ca761`, neue EXE/Wheel/sdist sauber gebunden.
+1373 Windows-Tests ohne Skips, 11 Prozessfälle, alle sieben Server-Smokes PASS;
+1964 Server-Unit-Tests PASS/14 ausgewiesene optionale Skips. Echter ReSpeaker- und
+Desktop-Reconnect, HTTP-/Ackausfall, drei Neustarts, Shutdown und Frozen-GUI grün.
+M-Fälle, echte Wakepositive/Nutzsprachgrenze, Wahrnehmung/Kalibrierung und30min100
+bleiben NOT_RUN/NOT_PROVEN. Nächste Aktion: gemeinsamer erster Sprach-/Windowsblock.
 [Report](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md), [gemeinsamer Testablauf](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/02_GEMEINSAMER_TESTABLAUF.md).
-V1 und produktive Server geschützt; Server nur lokal, keine Übernahme/Releases.
+V1/VPS geschützt; Server nur lokal. Kein REVIEW_READY, Eigenreview, Merge oder Release.
 
 ## Vorheriger datierter Stand
 

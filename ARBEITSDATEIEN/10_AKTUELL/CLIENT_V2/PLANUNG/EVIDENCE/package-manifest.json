@@ -878,22 +878,12 @@
       "candidateBranch": "work/client-v2/ap-iv2-020",
       "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "openFindingIds": [
-        "IV2-020-F01",
-        "IV2-020-F02",
-        "IV2-020-F03",
-        "IV2-020-F04",
-        "IV2-020-F05",
-        "IV2-020-F06",
-        "IV2-020-F07",
-        "IV2-020-F08",
-        "IV2-020-F09",
-        "IV2-020-F10"
-      ],
-      "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/client-full.json",
+      "openFindingIds": [],
+      "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/client-full-final-environment.json",
       "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
       "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/15",
-      "recoveryAudit": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/05_RECONNECT_AUDIT.md"
+      "recoveryAudit": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/05_RECONNECT_AUDIT.md",
+      "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json"
     },
     {
       "id": "AP-SV2-FIX",

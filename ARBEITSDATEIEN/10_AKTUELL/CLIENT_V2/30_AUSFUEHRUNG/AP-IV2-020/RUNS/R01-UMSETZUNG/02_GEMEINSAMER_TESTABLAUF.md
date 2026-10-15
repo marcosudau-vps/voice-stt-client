@@ -8,7 +8,9 @@ je Versuch Zeit, Build/Server/Config, tatsächliche Aktion, Wirkung und Herkunft
 
 ## Isolierte Testumgebung
 
-- Produkt unverändert gegenüber AP-IV2-010; Frozen-EXE durch bekannten SHA256 gebunden.
+- Korrigiertes Produkt `41ca7612db526532509ecab65ff9d7d182da565c`; Frozen-EXE
+  SHA256 `137a8fc259e05f3a90f23c2babbf4325419bc9cc4195d123b4db6159cae85226`,
+  `dist-feedback-rc-iv2-020-recovery/voice-stt-client.exe`; [neue Qualifikation](EVIDENCE/recovery-audit/qualification-summary.json).
 - Lokaler Server `127.0.0.1:18020`, exakt ada13b0, Community-DE-64-L, eigene Datenvolume.
 - Clientprofile, History, LEFX-Zustand, Cursor, Logs und Samples ausschließlich unter
   `%LOCALAPPDATA%/VoiceSTT-Qualification/AP-IV2-020/`.
@@ -16,7 +18,7 @@ je Versuch Zeit, Build/Server/Config, tatsächliche Aktion, Wirkung und Herkunft
   Testprofile zu überschreiben. Source-Sitzung: `run --mode manual|wake|both`.
 - Hotkeys: **Strg+Umschalt+F8** Primary, **F9** Secondary/Finish, **F10** Wakepause,
   **F11** Wiedereinfügen, **F12** Overlay, jeweils dieselben Modifier.
-- Source-Messsitzung verwendet unveränderte Desktop/Core/Win32-/Audio-/USB-Komponenten.
+- Source-Messsitzung instrumentiert die tatsächlichen korrigierten Desktop/Core-/Win32-/Audio-/USB-Komponenten.
   Frozen-Bedienung wird gesondert geprüft; Sourcebelege werden nicht als Frozen ausgegeben.
 - Rohaufnahmen und private Transkripte bleiben lokal außerhalb Git. Ins öffentliche
   Protokoll kommen nur geeignete Zustands-/Score-/Timingwerte und ausdrücklich gewählte
@@ -112,3 +114,25 @@ Nach relevanter Kalibrieränderung betroffene Nachweise neu erstellen. Abschlie�
 vollständige Windowsregression, compileall, Diff-/Aktenprüfung und Traceability.
 Pflichtlücken bleiben NOT_RUN/NOT_PROVEN, Fehler FAIL. Erst vollständige Abgabe
 REVIEW_READY; unabhängiger Review und menschliche kanonische Übernahme folgen separat.
+
+## Technischer Abschluss vor Beginn der gemeinsamen Blöcke
+
+Die Reconnectfindings F01 bis F10 sind technisch korrigiert und requalifiziert;
+[Findingregister](EVIDENCE/recovery-audit/findings.json). Der Paketstatus ist weiter
+IN_PROGRESS, die fünf Blöcke wurden noch nicht als menschlich durchgeführt erfasst.
+Es ist keine weitere allgemeine Fortsetzungsfreigabe erforderlich. Nächste nötige
+menschliche Aktion: einen leeren Testeditor fokussieren und die zwei vereinbarten
+Testsätze mit den vorbereiteten Hotkeys sprechen. Der Agent startet/überwacht,
+liest Metriken selbst und leitet anschließend gebündelt weiter.
+
+Watchdogmechanismus autonom ergänzt: echte Referenzsprache (4s), danach kontrollierter
+PCM-Stillstand bei bestehendem WS; reale Warnung und Ablauf nach legaler 60s-Frist,
+anschließend echte Finalverarbeitung. Keine Erhöhung der 30s-Segmentgrenze. Dieser
+gezielte Medienfehler ist kein 60s-Dauersprach- oder menschlicher Feedbackbeleg.
+
+Der vorbereitete separate `EVIDENCE/recovery-audit/human_test_editor.py` stellt
+auf Wunsch des Testablaufs ein echtes Windows-Textziel bereit. Sein Zustand
+(inklusive ausschließlich vereinbartem Testtext) bleibt unter dem isolierten
+AppData-Testroot; der Agent liest ihn selbst. Es ist nur ein menschlicher Klick
+zum Fokussieren nötig. Der Helfer injiziert nichts und verändert kein Clipboard.
+Sein eigener Offscreen-Vorcheck ist kein realer Pastebeleg.

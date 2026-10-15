@@ -18,22 +18,11 @@
   },
   "reviewedCommit": null,
   "reviewReport": null,
-  "openFindingIds": [
-    "IV2-020-F01",
-    "IV2-020-F02",
-    "IV2-020-F03",
-    "IV2-020-F04",
-    "IV2-020-F05",
-    "IV2-020-F06",
-    "IV2-020-F07",
-    "IV2-020-F08",
-    "IV2-020-F09",
-    "IV2-020-F10"
-  ],
+  "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "R01 fortsetzen: Reconnect/Recovery auditieren und eng begrenzt korrigieren; neuen Produktstand vollständig requalifizieren, danach gebündelte Realtests/Kalibrierung.",
+  "nextAction": "Phase C im selben R01: Testeditor fokussieren, gebündelte Sprach-/Windows-/ReSpeaker-Realtests und interaktive Kalibrierung; danach finaler30min100-Lauf und betroffene Nachqualifikation. Kein REVIEW_READY.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -48,5 +37,7 @@
     "reason": "Ausdrücklicher vollständiger Auftrag nach tatsächlichem AP010-Squash"
   },
   "recovery": null,
-  "relatedServerFix": null
+  "relatedServerFix": null,
+  "technicalProductCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json"
 }

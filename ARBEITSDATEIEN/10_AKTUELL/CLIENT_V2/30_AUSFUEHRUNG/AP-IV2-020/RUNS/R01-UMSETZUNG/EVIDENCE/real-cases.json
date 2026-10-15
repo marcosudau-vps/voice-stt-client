@@ -119,24 +119,47 @@
       "requirements": [
         "REAL-03"
       ],
-      "status": "FAIL",
+      "status": "NOT_PROVEN",
       "tester": "Codex/local Windows",
       "executedAt": null,
-      "clientCommit": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
-      "clientBuildSha256": null,
+      "clientCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "clientBuildSha256": "137a8fc259e05f3a90f23c2babbf4325419bc9cc4195d123b4db6159cae85226",
       "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
       "configurationSha256": null,
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
-      "actualResult": "Idle serverrestart twice: permanent settings_preflight_failed after temporary GET outage; preview/final/logstore variants still NOT_RUN",
+      "actualResult": "Historical F01 FAIL retained in attempts, now technically CLOSED after real idle restart/HTTP/ack/shutdown recovery and native desktop restart. Required preview/final/logstore variants still NOT_RUN.",
       "evidence": [
-        "restart-repro-trace.jsonl",
-        "restart-repro-smoke.json",
-        "repro-transient-preflight.txt.gz"
+        "recovery-audit/real-recovery.json",
+        "recovery-audit/native/desktop-trace.jsonl",
+        "recovery-audit/findings.json"
       ],
-      "attempts": [],
-      "findingIds": [
-        "IV2-020-F01"
-      ]
+      "attempts": [
+        {
+          "id": "M-07",
+          "name": "Netz/Server/Logstore",
+          "requirements": [
+            "REAL-03"
+          ],
+          "status": "FAIL",
+          "tester": "Codex/local Windows",
+          "executedAt": null,
+          "clientCommit": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+          "clientBuildSha256": null,
+          "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+          "configurationSha256": null,
+          "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+          "actualResult": "Idle serverrestart twice: permanent settings_preflight_failed after temporary GET outage; preview/final/logstore variants still NOT_RUN",
+          "evidence": [
+            "restart-repro-trace.jsonl",
+            "restart-repro-smoke.json",
+            "repro-transient-preflight.txt.gz"
+          ],
+          "findingIds": [
+            "IV2-020-F01"
+          ]
+        }
+      ],
+      "findingIds": []
     },
     {
       "id": "M-08",
@@ -234,5 +257,7 @@
   "calibration": "NOT_PROVEN",
   "realGate": "NOT_PROVEN",
   "duration100Activations": "NOT_RUN",
-  "note": "Prechecks are separate evidence and do not mark complete M cases PASS."
+  "note": "Prechecks are separate evidence and do not mark complete M cases PASS.",
+  "currentTechnicalQualification": "recovery-audit/qualification-summary.json",
+  "humanExecution": "NOT_RUN; no completed M PASS"
 }

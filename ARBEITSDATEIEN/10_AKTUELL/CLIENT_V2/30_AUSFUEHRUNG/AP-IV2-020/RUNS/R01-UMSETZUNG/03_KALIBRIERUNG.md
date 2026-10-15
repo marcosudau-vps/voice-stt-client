@@ -68,3 +68,18 @@ Konfiguration wird als reproduzierbare Paketkonfiguration gesichert.
 Pro-Modell: erster lokaler Pro16-Versuch scheiterte am Lizenzlimit „Maximum connections
 reached“ und wurde beendet. Community-DE64 ist real bereit. Dieser Unterschied wird
 nicht als gleichwertige Pro16-Qualifikation ausgegeben; Modellentscheidung vor Finalgate.
+
+## Nachtrag nach Reconnectkorrektur
+
+[Neues Parameterinventar](EVIDENCE/recovery-audit/native/parameter-inventory.json)
+und [effektiver Serverstand](EVIDENCE/recovery-audit/native/real-server-inventory.json)
+gehören zum korrigierten Produkt. Keine Timingdefaults geändert. 4000ms Follow-up
+im Recoveryharness und 60000/30000/5000ms Watchdog im Medien-Stallversuch sind
+wegwerfbare Session-Testwerte, keine gewählte Kalibrierung.
+
+Der [Medien-Stallnachweis](EVIDENCE/recovery-audit/real-watchdog-stalled-media.json)
+belegt reale Warnung, Ablauf und ASR-Finalisierung ohne Änderung der Servergrenzen.
+Bei durchgehendem PCM präemptiert weiterhin der 30s-Hardcut die 60s-Frist;
+Grenz-/Dauersprach- und menschliche Wahrnehmungsaussagen werden daraus nicht erfunden.
+Die Produktausnahme erlaubt ausschließlich Recoverykorrekturen; eine etwaige
+spätere Änderung ausgelieferter UX-Defaults bleibt gebündelt gesondert vorzulegen.

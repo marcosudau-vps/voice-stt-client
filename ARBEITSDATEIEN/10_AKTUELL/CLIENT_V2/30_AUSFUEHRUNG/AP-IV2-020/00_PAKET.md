@@ -19,7 +19,7 @@ AP-IV2-010 nach unabhängigem R02-ROOT_PASS und menschlichem R03-Prompt
 tatsächlich per PR14-Squash übernommen. Nachmergebeleg in dieser Akte.
 Reale Pflichtfälle bleiben bis zur Durchführung NOT_RUN/NOT_PROVEN.
 
-Offener Produktbefund IV2-020-F01; [konkreter Fixvorschlag](RUNS/R01-UMSETZUNG/04_KORREKTURVORSCHLAG.md).
+Zehn technische Reconnect-/Recoveryfindings behoben; [Audit und neue Qualifikation](RUNS/R01-UMSETZUNG/05_RECONNECT_AUDIT.md).
 Keine fachliche Abgabe. R01-Schreibhoheit bleibt für autorisierte Fortsetzung erhalten.
 
 Kumulativer [Draft-PR #15](https://github.com/marcosudau-vps/voice-stt-client/pull/15), Base feat/client-v2.
