@@ -1,3 +1,12 @@
+<!-- AP-IV2-020-PHASE-C-20261015 -->
+AP-IV2-020/R01 IN_PROGRESS: reale Manual-/Followupvergleiche dokumentiert,5000ms
+menschlich passend; isolierte Manual/Wake/Both-Profile gespeichert. M01-Overlap offen.
+Testclient sauber beendet wegen Hostcommitreserve<1GB nach tatsächlichem PowerShell-OOM;
+Mensch schließt unbenötigte Apps, Agent prüft danach und startet Wakeblock.
+IV2-020-UX01: append_space=true wirkungslos, außerhalb Recoveryfreigabe; noch kein Fix.
+[Belege](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md).
+Kein vollständiger M-PASS oder REVIEW_READY.
+
 # AP-IV2-020 – IN_PROGRESS, Phase C vorbereitet, 2026-10-15
 
 Kanonischer Parent `b80ed8b` unverändert, Vorgänger AP010 tatsächlich ACCEPTED.

@@ -18,11 +18,13 @@
   },
   "reviewedCommit": null,
   "reviewReport": null,
-  "openFindingIds": [],
+  "openFindingIds": [
+    "IV2-020-UX01"
+  ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "Phase C im selben R01: Testeditor fokussieren, gebündelte Sprach-/Windows-/ReSpeaker-Realtests und interaktive Kalibrierung; danach finaler30min100-Lauf und betroffene Nachqualifikation. Kein REVIEW_READY.",
+  "nextAction": "Phase C: 5000ms Follow-up menschlich gewählt. Vor Wakeblock Hostspeicherreserve nach menschlichem Schließen unbenötigter Apps prüfen; Client sauber beendet. UX01 außerhalb Recoveryfreigabe gebündelt zur Entscheidung sammeln. M-Overlap und weitere Realfälle offen; kein REVIEW_READY.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

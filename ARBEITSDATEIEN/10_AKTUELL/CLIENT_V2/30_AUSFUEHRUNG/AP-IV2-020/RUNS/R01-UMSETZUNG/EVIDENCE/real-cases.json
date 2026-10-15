@@ -7,17 +7,26 @@
       "requirements": [
         "REAL-01"
       ],
-      "status": "NOT_RUN",
-      "tester": null,
-      "executedAt": null,
-      "clientCommit": null,
+      "status": "NOT_PROVEN",
+      "tester": "Human: deliberate speech and native hotkeys; Codex: instrumentation/history/editor evaluation",
+      "executedAt": "2026-10-15T03:50:31.794483+00:00",
+      "clientCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
       "clientBuildSha256": null,
-      "serverCommit": null,
-      "configurationSha256": null,
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "configurationSha256": "13a6dfdba365290c076d6941a08d1fd7ee0925d0c4010b4da2c4a13c78fa30a2",
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
-      "actualResult": null,
-      "evidence": [],
-      "attempts": []
+      "actualResult": "Real German manual speech, 4 deliberate attempts/7 finals, one command_sent injection each; two agreed phrases visible. Tester requests 5000ms follow-up comparison. Full M01 overlap and final calibration choice pending.",
+      "evidence": [
+        "human/manual-followup-3000.json"
+      ],
+      "attempts": [
+        {
+          "status": "PARTIAL",
+          "evidence": "human/manual-followup-3000.json",
+          "sourceCommit": "7bcbb82bcb608a2f4c0a67e4157aefdc8527b27d",
+          "boundaries": "Source desktop, not Frozen; no old-final/new-activation overlap demonstrated."
+        }
+      ]
     },
     {
       "id": "M-02",
@@ -260,5 +269,5 @@
   "duration100Activations": "NOT_RUN",
   "note": "Prechecks are separate evidence and do not mark complete M cases PASS.",
   "currentTechnicalQualification": "recovery-audit/qualification-summary.json",
-  "humanExecution": "NOT_RUN; no completed M PASS"
+  "humanExecution": "IN_PROGRESS; real manual baseline completed; no complete M PASS"
 }

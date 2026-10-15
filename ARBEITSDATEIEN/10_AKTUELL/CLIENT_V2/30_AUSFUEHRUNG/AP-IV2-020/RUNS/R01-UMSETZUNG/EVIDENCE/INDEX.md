@@ -5,7 +5,15 @@
 Neue Recoverybelege unter `recovery-audit/`, jeweils JSON mit Runtime/Befehl/
 Vorher-Nachherquellhashes und vollständigem .txt.gz-Log. Rote Repros und gescheiterte
 Hilfsmittelversuche bleiben erkennbar. Vorfixbelege unten sind historisch.
-Kein REVIEW_READY, kein ROOT_PASS, keine menschliche Realabnahme.
+Kein REVIEW_READY, kein ROOT_PASS, keine vollständige menschliche Realabnahme.
+
+Gemeinsame Phase läuft: [echte Manualbaseline](human/manual-followup-3000.json),
+[gewünschte5000ms-Variante](human/manual-followup-5000-configuration.json).
+[5000ms-Vergleich](human/manual-followup-5000.json) menschlich passend;
+[reproduzierbare Profile](human/calibrated-profiles.json). M-01 bleibt wegen
+offenem Overlap NOT_PROVEN. [Hostspeichergrenze](human/host-memory-constraint.json)
+vor Wakeblock und [passiver Eventbeobachter](human/observed_session.py) mit
+Identitäts-/Scoreallowlist; keine Rohtexte oder Tokens.
 
 ## Maßgebliche neue Belege
 

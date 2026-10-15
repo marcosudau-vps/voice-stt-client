@@ -1,0 +1,20 @@
+{
+  "findings": [
+    {
+      "id": "IV2-020-UX01",
+      "status": "OPEN_SCOPE_DECISION_PENDING",
+      "summary": "Configured append_space=true has no effect on consecutive final insertions.",
+      "observed": "Two agreed sentences inserted as adjacent period/uppercase letter, no separator; reproduced in both 3000ms and 5000ms native Windows trials.",
+      "effectiveConfiguredAppendSpace": true,
+      "qualifiedProductCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "evidence": [
+        "manual-followup-3000.json",
+        "manual-followup-5000.json"
+      ],
+      "sourceCause": "text_injector.TextInjectionQueue enqueues entry.text unchanged; _process_job writes job.text unchanged. append_space appears in config/settings metadata only; no runtime consumer.",
+      "proposedScope": "Honor existing preference solely in the queued injection text at the existing boundary; preserve authoritative history/final text and identities; include automatic and manual reinsertion and trailing-whitespace controls. Exact implementation after bundled scope approval and focused red regression.",
+      "authorization": "Not included in reconnect/recovery exception. No product change applied. Bundle with other real UX findings for explicit decision.",
+      "qualificationImpact": "Requires new product/build qualification if approved; current manual proof remains tied to previous product."
+    }
+  ]
+}

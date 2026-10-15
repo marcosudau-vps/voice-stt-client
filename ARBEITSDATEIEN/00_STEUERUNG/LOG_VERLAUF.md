@@ -2260,3 +2260,5 @@ Wörtlicher Auftrag „Hiermit wird die Freigabe zun Merge von PR #12, Arbeitspa
 ## 2026-10-14 – AP-IV2-010 R01 – REVIEW_READY
 
 Paar Client0f0687c/Serverada13b0, Produkt unverändert ab43759d3. Windows1354, Server1964/14, Prozess11, Grenz17, Smokes7/7, compileall/diffcheck PASS. PR14; unabhängiger Review und spätere menschliche Übernahme ausstehend. Report: `ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md`. Kein Eigenreview/Merge/Folgepaket.
+
+2026-10-15 AP-IV2-020/R01 Phase C: echte Manualbaseline und Followup3000/5000ms verglichen; Auftraggeber wählt5000ms. Sourceprodukt41ca761 unverändert, isolierte Profile gesichert. M01-Overlap und weitere M-Fälle offen. UX01 append_space ohne Wirkung außerhalb Recoveryfreigabe dokumentiert. Nach realem PowerShell-OOM nur0,95GB Hostcommitreserve; eigener Testclient sauber beendet, menschliches Freigeben unbenötigten Appspeichers angefragt, dann Wakeblock. Kein REVIEW_READY.

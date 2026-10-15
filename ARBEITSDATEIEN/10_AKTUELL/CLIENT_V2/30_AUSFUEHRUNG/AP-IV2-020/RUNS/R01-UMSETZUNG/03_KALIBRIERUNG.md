@@ -1,6 +1,6 @@
 # Tatsächliche Parameter und Kalibrierung
 
-Stand 2026-10-15. **Noch keine menschlich bestätigten Varianten oder finalen Defaults.**
+Stand 2026-10-15. **Gemeinsame Kalibrierung läuft; noch keine final gewählten Defaults.**
 Vollständige maschinenlesbare Quellen: [Client/LEFX](EVIDENCE/parameter-inventory.json),
 [Serverregistry/effektive Defaults](EVIDENCE/real-server-inventory.json),
 [reale Serverkonfiguration](EVIDENCE/local-server-build.json).
@@ -10,7 +10,7 @@ Vollständige maschinenlesbare Quellen: [Client/LEFX](EVIDENCE/parameter-invento
 | Parameter | Ausgang / zulässige Grenze | Autorität / Wirkung | Geplante Vergleichswerte, noch ungetestet |
 | --- | --- | --- | --- |
 | InitialSpeechTimeout | 15000; 100..3600000 ms | Server, session next_activation | 8000 / 15000 / 20000 ms |
-| FollowupTimeout | 3000; 100..60000 ms | Server, session next_activation | 2000 / 3000 / 4000 ms |
+| FollowupTimeout | 3000; 100..60000 ms | Server, session next_activation | 3000 / 5000 ms (5000 vom Auftraggeber gewünscht) |
 | Watchdog Initial/Refresh/Warning | 600000/180000/30000 ms; Initial≥60000, Refresh≥30000, Warning≥5000 und strikt kleiner als beide | Server, session next_activation, keine VAD-Verlängerung | Pflichtvorcheck 60000/30000/5000; danach Ausgang wiederherstellen |
 | ClosingRecoveryTimeout | 5000; 1000..30000 ms | technische Servergrenze | zunächst unverändert; Fehler-/Lastbeleg erforderlich |
 | Wake sensitivity | 0,5; 0..1 | Server, session next_activation | 0,35 / 0,5 / 0,65 |
@@ -83,3 +83,32 @@ Bei durchgehendem PCM präemptiert weiterhin der 30s-Hardcut die 60s-Frist;
 Grenz-/Dauersprach- und menschliche Wahrnehmungsaussagen werden daraus nicht erfunden.
 Die Produktausnahme erlaubt ausschließlich Recoverykorrekturen; eine etwaige
 spätere Änderung ausgelieferter UX-Defaults bleibt gebündelt gesondert vorzulegen.
+
+## Erste reale Bedienprobe / Follow-up
+
+[Baselinebeleg](EVIDENCE/human/manual-followup-3000.json): echter Windows-Sourceclient
+(Produktbaum41ca761), ReSpeaker, lokaler ada13b0 und reale DE-ASR. Vier vom
+Auftraggeber bestätigte Wiederholungen, sieben Finals, jeweils genau ein automatischer
+Einfügeversuch `command_sent`. Beide vereinbarten Sätze korrekt im nativen Testeditor.
+Kein vollständiger M-01-PASS: Overlap noch offen.
+
+Bewertung3000ms: beim Durchsprechen passend, für Denkpausen möglicherweise eng.
+Auf ausdrücklichen Wunsch Vergleich5000ms im isolierten Profil als
+`activation.followupTimeoutMs=5000` gespeichert; Sessionbootstrap bestätigt.
+[Konfigurationsbindung](EVIDENCE/human/manual-followup-5000-configuration.json).
+Variante mit ungefähr vier Sekunden Denkpause und automatischem Ablauf erfolgreich;
+menschliche Wahl5000ms unten dokumentiert.
+
+[Zusatzbefund IV2-020-UX01](EVIDENCE/human/ux-findings.json): Zwischen den Finals fehlt ein Leerzeichen, obwohl
+`text_injection.append_space=true` eingestellt ist. Kein Verbraucher dieses
+Parameters im aktuellen Produktpfad gefunden; Queue schreibt `job.text` unverändert.
+Außerhalb der Recoveryfreigabe: keine stille Produktkorrektur. Reproduzierbarer
+Nachweis und eng begrenzter Vorschlag werden mit weiteren UX-Befunden gebündelt.
+
+**Menschlich gewählter Follow-up-Wert:5000ms.** Rückmeldung: „Fertig – fünf
+Sekunden passen“. [Variantenbeleg](EVIDENCE/human/manual-followup-5000.json):
+3,906s reale Segmentpause blieb in einer Activation, automatisches Inputclose
+5,015s nach Aufnahmeende; zwei Finals jeweils einmal eingefügt. Der Wert wird
+in den isolierten Manual/Wake/Both-Profilen reproduzierbar hinterlegt. Keine
+Änderung ausgelieferter oder serverseitiger Defaults; endgültige Gesamtqualifikation
+und gegebenenfalls gebündelte Defaultfreigabe bleiben offen.

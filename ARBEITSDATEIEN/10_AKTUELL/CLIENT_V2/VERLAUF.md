@@ -167,3 +167,5 @@ native und reale lokale Modell-/Recoveryprüfungen grün. Drei Serverneustarts,
 kein vorzeitiges PCM/Triggerfenster, Run-Pausen erhalten. V1/VPS unberührt.
 Phase C vorbereitet; echte M-Gates/Kalibrierung/30min100 offen, kein REVIEW_READY.
 [Audit](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/05_RECONNECT_AUDIT.md).
+
+2026-10-15 AP-IV2-020/R01 Phase C: echte Manualbaseline und Followup3000/5000ms verglichen; Auftraggeber wählt5000ms. Sourceprodukt41ca761 unverändert, isolierte Profile gesichert. M01-Overlap und weitere M-Fälle offen. UX01 append_space ohne Wirkung außerhalb Recoveryfreigabe dokumentiert. Nach realem PowerShell-OOM nur0,95GB Hostcommitreserve; eigener Testclient sauber beendet, menschliches Freigeben unbenötigten Appspeichers angefragt, dann Wakeblock. Kein REVIEW_READY.

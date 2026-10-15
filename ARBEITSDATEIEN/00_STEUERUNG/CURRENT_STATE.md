@@ -1,4 +1,4 @@
-# AP-IV2-020 – IN_PROGRESS, Phase C vorbereitet, 2026-10-15
+# AP-IV2-020 – IN_PROGRESS, Phase C läuft, 2026-10-15
 
 Kanonischer Parent `b80ed8b` unverändert, Vorgänger AP010 tatsächlich ACCEPTED.
 Paketbranch `work/client-v2/ap-iv2-020`, kumulativer Draft-PR #15, derselbe R01.
@@ -8,7 +8,9 @@ Findings behoben. Produktcommit `41ca761`, neue EXE/Wheel/sdist sauber gebunden.
 1964 Server-Unit-Tests PASS/14 ausgewiesene optionale Skips. Echter ReSpeaker- und
 Desktop-Reconnect, HTTP-/Ackausfall, drei Neustarts, Shutdown und Frozen-GUI grün.
 M-Fälle, echte Wakepositive/Nutzsprachgrenze, Wahrnehmung/Kalibrierung und30min100
-bleiben NOT_RUN/NOT_PROVEN. Nächste Aktion: gemeinsamer erster Sprach-/Windowsblock.
+bleiben NOT_RUN/NOT_PROVEN. Manualbaseline real erfolgt, Follow-up5000ms menschlich gewählt.
+Nächste Aktion: Hostspeicherreserve herstellen/prüfen, dann Wakeblock; Testclient beendet.
+Neuer UX01-Leerzeichenbefund liegt außerhalb Recoveryfreigabe, gebündelte Entscheidung folgt.
 [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md), [gemeinsamer Testablauf](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/02_GEMEINSAMER_TESTABLAUF.md).
 V1/VPS geschützt; Server nur lokal. Kein REVIEW_READY, Eigenreview, Merge oder Release.
 

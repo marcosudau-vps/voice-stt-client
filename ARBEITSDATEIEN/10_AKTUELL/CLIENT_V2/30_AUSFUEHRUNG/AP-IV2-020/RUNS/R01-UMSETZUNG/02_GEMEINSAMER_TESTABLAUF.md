@@ -1,6 +1,6 @@
 # Gemeinsamer Test- und Kalibrierungsablauf
 
-Stand 2026-10-15, R01 bleibt derselbe Umsetzungsauftrag. **Vorbereitet, noch nicht durchgeführt.**
+Stand 2026-10-15, R01 bleibt derselbe Umsetzungsauftrag. **In Durchführung: erster Manual-/Follow-up-Block aktiv.**
 Verbindliche Kriterien: [M-01 bis M-12](../../../../PLANUNG/REFERENZ/QUALIFIKATION/TEST_UND_ABNAHMEPLAN.md).
 Die maschinenlesbare [Fallakte](EVIDENCE/real-cases.json) ist das Ergebnisregister.
 Vorchecks ergeben keinen M-PASS. Der Agent liest die Diagnosen selbst und ergänzt

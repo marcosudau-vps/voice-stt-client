@@ -7,6 +7,21 @@ Derselbe R01, Branch und Draft-PR #15 bleiben aktiv. Neue technische Qualifikati
 1964 Server-Unit-Tests mit14 ausgewiesenen optionalen Skips,11 Prozessfälle,
 neue EXE/Wheel/sdist und native Frozenprüfung). Zehn technische Findings geschlossen; reale M-Fälle und gemeinsame Kalibrierung bleiben offen. Kein REVIEW_READY.
 
+## Gemeinsame Phase C – aktueller Zwischenstand
+
+Reale Manualprobe durchgeführt: sieben Finals in vier bewusst wiederholten
+Activations, jeweils genau ein Einfügeversuch. [3000ms](EVIDENCE/human/manual-followup-3000.json)
+und [5000ms](EVIDENCE/human/manual-followup-5000.json) verglichen; Auftraggeber
+bestätigt5000ms als passend. Isolierte Manual/Wake/Both-Profile entsprechend
+gesichert, keine Produkt-/Serverdefaults geändert. M-01 bleibt wegen Overlap offen.
+Separater UX-Befund: `append_space=true` ohne Wirkung; außerhalb Recoveryfreigabe.
+
+Vor Wakeblock [reale Hostspeichergrenze](EVIDENCE/human/host-memory-constraint.json):
+PowerShellstart mit OutOfMemoryException, nach sauberem Ende des Testclients nur
+0,95GB bis Commitlimit. Mensch soll unbenötigte Anwendungen nach Sicherung schließen;
+Agent prüft Reserve und startet dann Wake/Both. Keine eigene oder produktive
+Installation beeinträchtigt. Kein vollständiger M-PASS und kein REVIEW_READY.
+
 ## Historischer Zwischenstand vor Scope-Freigabe
 
 # AP-IV2-020 / R01-UMSETZUNG – BLOCKED
