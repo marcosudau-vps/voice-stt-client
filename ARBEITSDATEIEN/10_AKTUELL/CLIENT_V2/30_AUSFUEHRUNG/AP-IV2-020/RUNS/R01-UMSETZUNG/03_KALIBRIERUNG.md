@@ -112,3 +112,26 @@ Sekunden passen“. [Variantenbeleg](EVIDENCE/human/manual-followup-5000.json):
 in den isolierten Manual/Wake/Both-Profilen reproduzierbar hinterlegt. Keine
 Änderung ausgelieferter oder serverseitiger Defaults; endgültige Gesamtqualifikation
 und gegebenenfalls gebündelte Defaultfreigabe bleiben offen.
+
+## Wake-/Nutzsprachgrenze: echte Aufnahmen und vorhandener Pre-Roll
+
+[Sechs bewusst aufgenommene, ausdrücklich zur Wiederverwendung freigegebene WAVs](EVIDENCE/human/samples/README.md)
+mit Herkunft/Hashes versioniert. Erste Datei enthält laut menschlicher Bestätigung
+kein Wakewort: vor Countdownende gesprochen. Drei gültige positive und drei
+negative Samples. Kein falsches Detector-FAIL für die fehlende Wakeaufnahme.
+
+[Echte Scores/Predictionframes](EVIDENCE/human/wake-scores-summary.json) und
+[ASR-/Wirevergleich](EVIDENCE/human/wake-replay-calibration.json): bei Pre-Roll0
+fehlen im direkten Jarvissatz „der“ und bei Alexa „die gelbe“. Vollständige
+Manual-ASR desselben Audios enthält beide vollständigen Nutzsätze.160ms
+behebt Jarvis, Alexa beginnt weiterhin mit „Elbe“.320 und480ms erhalten beide
+Nutzsätze vollständig, ohne Wakewort im Final. Kleinster bisher erfolgreicher
+Versuchswert320ms wird als **Live-Testkandidat**, noch nicht als endgültiger
+Wert, in den isolierten Manual/Wake/Both-Profilen hinterlegt. Kein Serverdefault
+oder Produktcode verändert; dieser vorhandene Sessionparameter ist zulässige
+Kalibrierung. Menschliche Livebewertung und phonetische Annotation bleiben offen.
+
+Drei Negativproben ohne Wake/Activation; drei gültige positive Samples mit
+jeweils genau einer echten Activation. Mehrere qualifizierte Alexa-Scoreregionen
+im Offlineharness sind keine doppelten Runtimeactivations. Schwelle0,5, Frames1,
+Cooldown0 und Gain1 bleiben mangels belegtem Änderungsbedarf zunächst bestehen.

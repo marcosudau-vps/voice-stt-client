@@ -1,6 +1,6 @@
 {
   "timeUtc": "2026-10-15T04:05:39.790041+00:00",
-  "status": "WAITING_FOR_HOST_MEMORY_HEADROOM",
+  "status": "RESOLVED_FOR_NEXT_TEST",
   "observedFailure": "PowerShell7 startup failed with System.OutOfMemoryException before executing documentation-only command. Windows PowerShell5 fallback succeeded.",
   "physicalMemoryBytes": 32316284928,
   "availablePhysicalBytesAfterClientStop": 3691700224,
@@ -9,5 +9,13 @@
   "activeClientBeforeStopPrivateBytes": 466173952,
   "testServerMemoryDocker": "1006MiB",
   "actions": "Stopped only own source testclient cleanly. Requested human to save work and close unused large applications. No foreign processes, V1 or production containers stopped. Wake model startup deferred.",
-  "impact": "Manual speech/followup traces remained ready with zero capture drops/overflows. No application failure inferred. Final stability qualification must include adequate host memory reserve."
+  "impact": "Manual speech/followup traces remained ready with zero capture drops/overflows. No application failure inferred. Final stability qualification must include adequate host memory reserve.",
+  "resolution": {
+    "timeUtc": "2026-10-15T04:09:33.349779+00:00",
+    "humanAction": "Erledigt – Speicher erneut prüfen",
+    "availablePhysicalBytes": 10784206848,
+    "commitLimitBytes": 57648615424,
+    "availableCommitBytes": 11464990720,
+    "assessment": "About 10.7GiB commit reserve after human closed unused apps; resume isolated wake block."
+  }
 }

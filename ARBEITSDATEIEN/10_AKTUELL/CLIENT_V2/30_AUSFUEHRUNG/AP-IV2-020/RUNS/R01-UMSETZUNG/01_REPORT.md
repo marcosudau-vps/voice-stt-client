@@ -18,8 +18,13 @@ Separater UX-Befund: `append_space=true` ohne Wirkung; außerhalb Recoveryfreiga
 
 Vor Wakeblock [reale Hostspeichergrenze](EVIDENCE/human/host-memory-constraint.json):
 PowerShellstart mit OutOfMemoryException, nach sauberem Ende des Testclients nur
-0,95GB bis Commitlimit. Mensch soll unbenötigte Anwendungen nach Sicherung schließen;
-Agent prüft Reserve und startet dann Wake/Both. Keine eigene oder produktive
+0,95GB bis Commitlimit. Mensch hat unbenötigte Anwendungen geschlossen; erneute
+Prüfung ergibt10,7GiB Commitreserve. Wakeclient ist bereit mit bestätigten5000ms,
+erster Wakeversuch ausgewertet. Beide IDs erkannt, keine sichtbare Injektion, weil
+der Mensch das Editorfeld nicht fokussiert hatte. Danach sechs bewusst gestartete
+WAVs aufgenommen und auf ausdrücklichen Wunsch mit Messskripten versioniert.
+Echte Replays: Pre-Roll0 schneidet Wortanfänge,160ms reicht für Alexa nicht,
+320/480ms erhalten beide direkten Nutzsätze.320ms für Liveprüfung vorbereitet. Keine eigene oder produktive
 Installation beeinträchtigt. Kein vollständiger M-PASS und kein REVIEW_READY.
 
 ## Historischer Zwischenstand vor Scope-Freigabe

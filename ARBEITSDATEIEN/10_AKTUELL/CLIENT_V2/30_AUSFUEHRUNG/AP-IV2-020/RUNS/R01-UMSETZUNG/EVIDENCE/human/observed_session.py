@@ -5,6 +5,7 @@ modified. The observer chains existing callbacks; transport/reducers/audio and
 Windows side effects remain production-owned. Raw text/tokens are never logged.
 """
 import argparse
+import asyncio
 from datetime import UTC, datetime
 import hashlib
 import json
@@ -42,6 +43,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--mode', choices=('manual', 'wake', 'both'), default='wake')
     parser.add_argument('--self-check', action='store_true')
+    parser.add_argument('--wait-for-editor-state', type=Path)
+    parser.add_argument('--stop-after', type=int, default=0)
     args = parser.parse_args()
     if args.self_check:
         from types import SimpleNamespace
@@ -55,6 +58,24 @@ def main():
         print('PASS: explicit identity/settings allowlist; text hashed; tokens excluded')
         return
     local = Path(os.environ['LOCALAPPDATA']) / 'VoiceSTT-Qualification/AP-IV2-020'
+    focus_gate = None
+    if not 0 <= args.stop_after <= 100:
+        parser.error('--stop-after must be 0..100')
+    if args.wait_for_editor_state:
+        state_file = args.wait_for_editor_state.resolve()
+        if not state_file.is_relative_to((local / 'editors').resolve()):
+            parser.error('Only the owned test editor state is allowed')
+        deadline = time.monotonic() + 120
+        print('Waiting for operator to focus the owned test editor', flush=True)
+        while True:
+            state = json.loads(state_file.read_text(encoding='utf8'))
+            fresh = abs((datetime.now(UTC) - datetime.fromisoformat(state['timeUtc'])).total_seconds()) < 2
+            if fresh and state['foreground']:
+                focus_gate = {k: v for k, v in state.items() if k != 'testText'}
+                break
+            if time.monotonic() >= deadline:
+                raise TimeoutError('Owned editor was not focused; desktop not started')
+            time.sleep(.1)
     os.environ['VOICESTT_CLIENT_HOME'] = str(local / 'client')
     from voice_stt_client.core import v2_runtime
     from scripts.qualify_v2_session import run
@@ -63,6 +84,7 @@ def main():
     trace = folder / 'events.jsonl'
     (local / 'active-observation.json').write_text(json.dumps(dict(
         folder=str(folder), pid=os.getpid(), mode=args.mode,
+        initialEditorFocus=focus_gate, stopAfterTerminalActivations=args.stop_after,
         helperSha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())), encoding='utf8')
     original = v2_runtime.V2Runtime
 
@@ -79,6 +101,34 @@ def main():
                     handle.write(json.dumps(record, ensure_ascii=True) + '\n')
 
             self.session.on_message = receive
+            if args.stop_after:
+                original_run = self.run
+
+                async def stop_when_finished():
+                    deadline = time.monotonic() + 180
+                    while not self.is_closing:
+                        terminal = sum(a.status in ('completed', 'cancelled', 'failed')
+                                       for a in self.mirror.mirror.view.activations.values())
+                        if terminal >= args.stop_after or time.monotonic() >= deadline:
+                            await asyncio.sleep(3)  # allow actual queued paste to complete
+                            inbox = local / 'commands'
+                            inbox.mkdir(exist_ok=True)
+                            command = dict(action='stop', case='bounded-human-trial',
+                                           observedTerminalCount=terminal)
+                            (inbox / f'bounded-stop-{os.getpid()}-{time.monotonic_ns()}.json').write_text(
+                                json.dumps(command), encoding='utf8')
+                            return
+                        await asyncio.sleep(.05)
+
+                async def bounded_run():
+                    watcher = asyncio.create_task(stop_when_finished(), name='qualification-bounded-stop')
+                    try:
+                        return await original_run()
+                    finally:
+                        watcher.cancel()
+                        await asyncio.gather(watcher, return_exceptions=True)
+
+                self.run = bounded_run
 
     v2_runtime.V2Runtime = ObservedRuntime
     try:

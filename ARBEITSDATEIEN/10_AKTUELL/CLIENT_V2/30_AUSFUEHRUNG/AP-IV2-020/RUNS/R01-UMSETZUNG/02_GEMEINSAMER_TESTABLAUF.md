@@ -23,6 +23,9 @@ je Versuch Zeit, Build/Server/Config, tatsächliche Aktion, Wirkung und Herkunft
 - Rohaufnahmen und private Transkripte bleiben lokal außerhalb Git. Ins öffentliche
   Protokoll kommen nur geeignete Zustands-/Score-/Timingwerte und ausdrücklich gewählte
   kurze Testtexte. Keine allgemeine Hintergrundaufnahme speichern.
+  Ausnahme auf ausdrücklichen [Nutzerwunsch](ZUSATZPROMPTS/004_TESTAUFNAHMEN_REPO.md):
+  sechs bewusste Sprach-Testfixtures mit Metadaten/Hashes unter
+  [samples/](EVIDENCE/human/samples/README.md) wiederverwendbar versioniert.
 
 ## Block 1: leeres Textziel, manuelle Aufnahme und Windowsfunktionen
 

@@ -1,0 +1,27 @@
+{
+  "case": "alexa_pause",
+  "startedAtUtc": "2026-10-15T04:15:39.025669+00:00",
+  "startMonotonic": 78766.046,
+  "finishedAtUtc": "2026-10-15T04:15:48.192490+00:00",
+  "frames": 144000,
+  "sampleRate": 16000,
+  "channels": 1,
+  "durationSeconds": 9,
+  "device": {
+    "index": 9,
+    "name": "Freisprechtelefon mit Echoausschaltung (reSpeaker XVF3800 4-Mic Array)",
+    "channels": 2,
+    "default_samplerate": 44100.0,
+    "is_default": false
+  },
+  "sha256": "abae5a687cee97d120487c2a601509aba41d056b4428966959a1ef1e467b09b3",
+  "operatorInitiated": true,
+  "origin": "Deliberate human speech via real ReSpeaker",
+  "peakAbsolute": 11104,
+  "captureStatus": "None",
+  "inputOverflow": false,
+  "expectedWakePhrase": "Alexa",
+  "expectedUserPhrase": "Die grüne Lampe steht neben dem Fenster.",
+  "requestedPause": true,
+  "boundaryAnnotation": "PENDING; requested timing is not measured phonetic timing"
+}

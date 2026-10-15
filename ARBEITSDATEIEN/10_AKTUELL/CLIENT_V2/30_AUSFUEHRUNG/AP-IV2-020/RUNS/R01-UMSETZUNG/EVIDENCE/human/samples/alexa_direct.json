@@ -1,0 +1,27 @@
+{
+  "case": "alexa_direct",
+  "startedAtUtc": "2026-10-15T04:16:23.074800+00:00",
+  "startMonotonic": 78810.093,
+  "finishedAtUtc": "2026-10-15T04:16:32.227193+00:00",
+  "frames": 144000,
+  "sampleRate": 16000,
+  "channels": 1,
+  "durationSeconds": 9,
+  "device": {
+    "index": 9,
+    "name": "Freisprechtelefon mit Echoausschaltung (reSpeaker XVF3800 4-Mic Array)",
+    "channels": 2,
+    "default_samplerate": 44100.0,
+    "is_default": false
+  },
+  "sha256": "3e314b00bca0698f29afd61700d708d1cddc8d985a6c690dd81d9c260898b009",
+  "operatorInitiated": true,
+  "origin": "Deliberate human speech via real ReSpeaker",
+  "peakAbsolute": 6872,
+  "captureStatus": "None",
+  "inputOverflow": false,
+  "expectedWakePhrase": "Alexa",
+  "expectedUserPhrase": "Die gelbe Tasche steht vor der Tür.",
+  "requestedPause": false,
+  "boundaryAnnotation": "PENDING; requested timing is not measured phonetic timing"
+}

@@ -13,7 +13,9 @@ Gemeinsame Phase läuft: [echte Manualbaseline](human/manual-followup-3000.json)
 [reproduzierbare Profile](human/calibrated-profiles.json). M-01 bleibt wegen
 offenem Overlap NOT_PROVEN. [Hostspeichergrenze](human/host-memory-constraint.json)
 vor Wakeblock und [passiver Eventbeobachter](human/observed_session.py) mit
-Identitäts-/Scoreallowlist; keine Rohtexte oder Tokens.
+Identitäts-/Scoreallowlist; keine Tokens.
+[Gemeinsame Phase mit ausdrücklich freigegebenen sechs Sprach-Testfixtures](human/INDEX.md):
+Herkunft/Hashes, wiederverwendbare Skripte und tatsächliche Modell-/ASR-Messwerte.
 
 ## Maßgebliche neue Belege
 

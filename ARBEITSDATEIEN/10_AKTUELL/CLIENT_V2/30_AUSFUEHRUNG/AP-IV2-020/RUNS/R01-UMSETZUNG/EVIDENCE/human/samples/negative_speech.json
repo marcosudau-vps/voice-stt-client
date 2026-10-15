@@ -1,0 +1,27 @@
+{
+  "case": "negative_speech",
+  "startedAtUtc": "2026-10-15T04:16:52.781587+00:00",
+  "startMonotonic": 78839.812,
+  "finishedAtUtc": "2026-10-15T04:17:01.969014+00:00",
+  "frames": 144000,
+  "sampleRate": 16000,
+  "channels": 1,
+  "durationSeconds": 9,
+  "device": {
+    "index": 9,
+    "name": "Freisprechtelefon mit Echoausschaltung (reSpeaker XVF3800 4-Mic Array)",
+    "channels": 2,
+    "default_samplerate": 44100.0,
+    "is_default": false
+  },
+  "sha256": "fcc98db947a08c7cc3e1146dcf4b3dbc756bfe638e4bbfbbe2364ec0744d0bbc",
+  "operatorInitiated": true,
+  "origin": "Deliberate human speech via real ReSpeaker",
+  "peakAbsolute": 7309,
+  "captureStatus": "None",
+  "inputOverflow": false,
+  "expectedWakePhrase": "",
+  "expectedUserPhrase": "Heute ist ein guter Tag für einen Spaziergang.",
+  "requestedPause": false,
+  "boundaryAnnotation": "PENDING; requested timing is not measured phonetic timing"
+}

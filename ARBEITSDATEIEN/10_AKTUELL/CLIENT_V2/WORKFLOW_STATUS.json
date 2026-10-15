@@ -24,14 +24,15 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "Phase C: 5000ms Follow-up menschlich gewählt. Vor Wakeblock Hostspeicherreserve nach menschlichem Schließen unbenötigter Apps prüfen; Client sauber beendet. UX01 außerhalb Recoveryfreigabe gebündelt zur Entscheidung sammeln. M-Overlap und weitere Realfälle offen; kein REVIEW_READY.",
+  "nextAction": "Phase C: sechs reale Sprach-Testfixtures auf ausdrücklichen Wunsch versioniert; echte Scores/ASR-Replays0/160/320/480ms. Menschlich gewählter Followup5000ms, PreRoll320ms als gemessener Livekandidat; frischen Wake-/Controltest erst nach geprüftem Fokus starten. UX01-Korrektur/ausgelieferte Defaults gebündelt entscheiden. Keine vollständige M-Abnahme.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md",
     "currentCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/00_PROMPT_ORIGINAL.md",
     "currentImplementationSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reconnectRecoverySource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md"
+    "reconnectRecoverySource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md",
+    "testFixturesSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/004_TESTAUFNAHMEN_REPO.md"
   },
   "candidateSelection": {
     "candidateId": "AP-IV2-020",

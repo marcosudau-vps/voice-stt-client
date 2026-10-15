@@ -9,7 +9,9 @@ Findings behoben. Produktcommit `41ca761`, neue EXE/Wheel/sdist sauber gebunden.
 Desktop-Reconnect, HTTP-/Ackausfall, drei Neustarts, Shutdown und Frozen-GUI grün.
 M-Fälle, echte Wakepositive/Nutzsprachgrenze, Wahrnehmung/Kalibrierung und30min100
 bleiben NOT_RUN/NOT_PROVEN. Manualbaseline real erfolgt, Follow-up5000ms menschlich gewählt.
-Nächste Aktion: Hostspeicherreserve herstellen/prüfen, dann Wakeblock; Testclient beendet.
+Hostspeicherreserve nach menschlicher Aktion wiederhergestellt; Wakeclient bereit.
+Sechs bewusste Audiofixtures auf ausdrücklichen Wunsch versioniert. Reale ASR-Replays zeigen
+320ms Pre-Roll als geeigneten Livekandidaten; neue Wake-/Controlprobe mit Fokusbarriere folgt.
 Neuer UX01-Leerzeichenbefund liegt außerhalb Recoveryfreigabe, gebündelte Entscheidung folgt.
 [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md), [gemeinsamer Testablauf](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/02_GEMEINSAMER_TESTABLAUF.md).
 V1/VPS geschützt; Server nur lokal. Kein REVIEW_READY, Eigenreview, Merge oder Release.

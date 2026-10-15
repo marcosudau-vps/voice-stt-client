@@ -35,16 +35,18 @@
         "REAL-01",
         "REAL-02"
       ],
-      "status": "NOT_RUN",
-      "tester": null,
-      "executedAt": null,
-      "clientCommit": null,
+      "status": "NOT_PROVEN",
+      "tester": "Human speech; Codex native desktop/observer/history evaluation",
+      "executedAt": "2026-10-15T04:09:35.652364+00:00",
+      "clientCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
       "clientBuildSha256": null,
-      "serverCommit": null,
-      "configurationSha256": null,
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "configurationSha256": "ac4d0419badaf7967ead6b93f7d8c0fa5e8c83725f599399dcf328018cd10a94",
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
-      "actualResult": null,
-      "evidence": [],
+      "actualResult": "Both canonical selected IDs detected; all agreed user phrases appear somewhere among nine finals/four activations. Not a controlled one-to-one three-case trial. Every final has one command_sent attempt. Own intended editor stayed empty; actual target unconfirmed. No raw audio captured, so immediate phonetic boundary cannot be inferred.",
+      "evidence": [
+        "human/wake-first-live.json"
+      ],
       "attempts": []
     },
     {

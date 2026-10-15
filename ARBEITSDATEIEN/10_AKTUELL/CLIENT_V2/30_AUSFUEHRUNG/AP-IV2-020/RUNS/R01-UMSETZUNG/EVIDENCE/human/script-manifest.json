@@ -1,0 +1,23 @@
+{
+  "scope": "Test and measurement helpers only; no product files modified",
+  "scripts": [
+    {
+      "file": "observed_session.py",
+      "sha256": "545af832684d48afbd8feacc89fa0f19f4837ec67065f65fae31f568dfcd6999"
+    },
+    {
+      "file": "record_wake_samples.py",
+      "sha256": "f2aa2e6a85a6cf10997620d989b253fd0783f8c5a08a579b1f7d4d3d1e5e58ed"
+    },
+    {
+      "file": "replay_real_samples.py",
+      "sha256": "43584d1d85f2e35de796dbeabead1d786843a2447c00b06c5a2c35fb63552fee"
+    },
+    {
+      "file": "score_real_wake.py",
+      "sha256": "4e3550312217ebf8fbb01fb183c29468c35184b03a8e55d4df03fe90158f0823"
+    }
+  ],
+  "reproduction": "samples/README.md",
+  "fixtureAuthorization": "../../ZUSATZPROMPTS/004_TESTAUFNAHMEN_REPO.md"
+}

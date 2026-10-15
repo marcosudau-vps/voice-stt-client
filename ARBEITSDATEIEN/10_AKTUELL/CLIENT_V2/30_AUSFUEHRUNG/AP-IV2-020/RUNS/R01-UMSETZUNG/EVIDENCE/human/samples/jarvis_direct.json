@@ -1,0 +1,27 @@
+{
+  "case": "jarvis_direct",
+  "startedAtUtc": "2026-10-15T04:16:01.345060+00:00",
+  "startMonotonic": 78788.375,
+  "finishedAtUtc": "2026-10-15T04:16:10.525996+00:00",
+  "frames": 144000,
+  "sampleRate": 16000,
+  "channels": 1,
+  "durationSeconds": 9,
+  "device": {
+    "index": 9,
+    "name": "Freisprechtelefon mit Echoausschaltung (reSpeaker XVF3800 4-Mic Array)",
+    "channels": 2,
+    "default_samplerate": 44100.0,
+    "is_default": false
+  },
+  "sha256": "98e3f96e35cb736b5176c96159cf6e2416d50eb739faa2380320e181caf6d9b2",
+  "operatorInitiated": true,
+  "origin": "Deliberate human speech via real ReSpeaker",
+  "peakAbsolute": 6561,
+  "captureStatus": "None",
+  "inputOverflow": false,
+  "expectedWakePhrase": "Hey Jarvis",
+  "expectedUserPhrase": "Der rote Ball liegt auf dem Boden.",
+  "requestedPause": false,
+  "boundaryAnnotation": "PENDING; requested timing is not measured phonetic timing"
+}
