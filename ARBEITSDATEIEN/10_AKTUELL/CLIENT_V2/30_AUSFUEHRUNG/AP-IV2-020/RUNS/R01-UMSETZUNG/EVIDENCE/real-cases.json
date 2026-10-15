@@ -138,11 +138,12 @@
       "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
       "configurationSha256": null,
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
-      "actualResult": "Historical F01 FAIL retained in attempts, now technically CLOSED after real idle restart/HTTP/ack/shutdown recovery and native desktop restart. Required preview/final/logstore variants still NOT_RUN.",
+      "actualResult": "Real logstore disk-full subcase PASS: 30 actual SQLite errors, activation ack16ms, nonempty real ASR final, unchanged STT session/generation, pending0. Complete M07 still NOT_PROVEN.",
       "evidence": [
         "recovery-audit/real-recovery.json",
         "recovery-audit/native/desktop-trace.jsonl",
-        "recovery-audit/findings.json"
+        "recovery-audit/findings.json",
+        "ux01/logstore-diskfull.json"
       ],
       "attempts": [
         {
@@ -168,6 +169,12 @@
           "findingIds": [
             "IV2-020-F01"
           ]
+        },
+        {
+          "status": "PARTIAL_LOGSTORE_INDEPENDENCE_PASS",
+          "clientCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+          "evidence": "ux01/logstore-diskfull.json",
+          "boundaries": "Separate pinned local server, same real models; actual isolated tmpfs ENOSPC and SQLite failure, consented real WAV replay, real production STT+log transports; no live Mic/native paste. Log is in backoff at end; full log recovery not demonstrated. Preview/final network variants still open."
         }
       ],
       "findingIds": [],

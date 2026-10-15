@@ -3,8 +3,8 @@
 Kanonischer Parent `b80ed8b` unverändert, Vorgänger AP010 tatsächlich ACCEPTED.
 Paketbranch `work/client-v2/ap-iv2-020`, kumulativer Draft-PR #15, derselbe R01.
 Ausdrücklich freigegebener Reconnect-/Recovery-Audit abgeschlossen: zehn technische
-Findings behoben. Produktcommit `41ca761`, neue EXE/Wheel/sdist sauber gebunden.
-1373 Windows-Tests ohne Skips, 11 Prozessfälle, alle sieben Server-Smokes PASS;
+Findings behoben. Recoveryprodukt41ca761 historisch; zusätzlicher freigegebener UX01-Fix am Produkt `17261e6`, neue EXE/Wheel/sdist sauber gebunden.
+1378 Windows-Tests ohne Skips, 11 Prozessfälle, alle sieben Server-Smokes PASS;
 1964 Server-Unit-Tests PASS/14 ausgewiesene optionale Skips. Echter ReSpeaker- und
 Desktop-Reconnect, HTTP-/Ackausfall, drei Neustarts, Shutdown und Frozen-GUI grün.
 M-Fälle, echte Wakepositive/Nutzsprachgrenze, Wahrnehmung/Kalibrierung und30min100
@@ -12,9 +12,12 @@ bleiben NOT_RUN/NOT_PROVEN. Manualbaseline real erfolgt, Follow-up5000ms menschl
 Hostspeicherreserve nach menschlicher Aktion wiederhergestellt; Wakeclient bereit.
 Sechs bewusste Audiofixtures auf ausdrücklichen Wunsch versioniert. Reale ASR-Replays zeigen
 320ms Pre-Roll als geeigneten Livekandidaten; neue Wake-/Controlprobe mit Fokusbarriere folgt.
-UX01-Leerzeichenkorrektur zusätzlich ausdrücklich freigegeben; gezielte100 PASS, volle neue Produkt-/Buildrequalifikation läuft.
+UX01 ausdrücklich freigegeben und umgesetzt; gezielte100 und neue volle Produkt-/Build-/Paarrequalifikation PASS. Native UX01-Ausgabebestätigung noch offen.
 [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md), [gemeinsamer Testablauf](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/02_GEMEINSAMER_TESTABLAUF.md).
 V1/VPS geschützt; Server nur lokal. Kein REVIEW_READY, Eigenreview, Merge oder Release.
+
+
+Neuer Produkt-/Build-/Paarstand17261e6 autonom qualifiziert; native Ausgabebestätigung und vollständige Realgates bleiben offen. Der nächste Ein-Klick-Block steht im Testeditor bereit.
 
 ## Vorheriger datierter Stand
 

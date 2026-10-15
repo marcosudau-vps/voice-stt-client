@@ -1,3 +1,7 @@
+## Neue Produktausnahme UX01 – laufende Requalifikation
+
+[UX01-Evidenzindex](ux01/INDEX.md), Produkt17261e65afeda3f2c7412d5bfe6006b76863acdb. Neue Windows1378 ohne Skips, neue EXE/Wheel/sdist, native Desktop-/ReSpeaker-Recovery, reale HTTP-/Ack-/Restartfälle und natives Settings/Hotkey grün. Realer separater SQLite-ENOSPC-Fall ohne STT-Lock grün. Vollständiger neuer Paarlauf PASS: Windows1378/0skips, Server1964/14 erwartete optionale Skips,11 Prozessfälle,17 Grenztests,7/7 Smokes. Native Ausgabe mit Leerzeichen benötigt noch den gebündelten menschlichen Fokus-Klick. Direkte Wakephrase-Nutzsätze im Modellreplay exakt; Alexa-Pausenaufnahme weicht vom geplanten Text ab, im manuellen Vergleich jedoch derselbe Nutztext. Kein vollständiges Realgate-PASS.
+
 # AP-IV2-020 R01 – Fortsetzung / IN_PROGRESS
 
 [Scope-Freigabe](../ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md),

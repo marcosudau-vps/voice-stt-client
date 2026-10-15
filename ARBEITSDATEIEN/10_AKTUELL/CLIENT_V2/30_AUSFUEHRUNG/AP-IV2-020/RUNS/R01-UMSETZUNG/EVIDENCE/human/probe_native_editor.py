@@ -28,6 +28,7 @@ def main():
     parser.add_argument('--state', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--append-space', action='store_true')
+    parser.add_argument('--guided-continuation', action='store_true')
     args = parser.parse_args()
     local = Path(os.environ['LOCALAPPDATA']) / 'VoiceSTT-Qualification/AP-IV2-020'
     os.environ['VOICESTT_CLIENT_HOME'] = str(local / 'client')
@@ -120,6 +121,8 @@ def main():
         args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
         message = ('Einfügen erfolgreich.\nBitte im Chat „Testtext sichtbar“ melden.' if passed else
                    'Prüfung beendet; Text nicht korrekt angekommen.\nBitte im Chat „Nichts sichtbar“ melden.')
+        if passed and args.guided_continuation:
+            message = 'EINFÜGEPROBE ERFOLGREICH\n• Bitte warten; der Sprachtest startet gleich.'
         (args.state.parent/'command.json').write_text(json.dumps(dict(action='instruction', text=message)), encoding='utf8')
         print(json.dumps(dict(result=result['result'], nativeCalls=len(native_calls))), flush=True)
     finally:

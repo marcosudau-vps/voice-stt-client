@@ -1,0 +1,149 @@
+{
+  "status": "AUTONOMOUS_TECHNICAL_PASS_NATIVE_OUTPUT_CONFIRMATION_OPEN",
+  "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+  "productTree": "c054fb6bb93b438feb405e61defcad1d4f3e84ac",
+  "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "builds": [
+    {
+      "file": "voice-stt-client.exe",
+      "size": 75669532,
+      "sha256": "56fe943b8dff3cacd554dc6ee8c5adc537bdd4fdbe397c65e1357ce80ba5160a"
+    },
+    {
+      "file": "voice_stt_client-1.0.0-py3-none-any.whl",
+      "size": 1186625,
+      "sha256": "97974de220929692baa555e974749db86eb8dee5b283526afef83b83b71b50bb"
+    },
+    {
+      "file": "voice_stt_client-1.0.0.tar.gz",
+      "size": 1149366,
+      "sha256": "16db696a4d9ade178335740c76868a8a7693c09043fe6525ad7adba5499f8934"
+    }
+  ],
+  "checks": [
+    {
+      "name": "real-recovery",
+      "evidence": "real-recovery.json",
+      "result": "PASS",
+      "exitCode": 0,
+      "seconds": 78.532
+    },
+    {
+      "name": "native-desktop-restart",
+      "evidence": "native-desktop-restart.json",
+      "result": "PASS",
+      "exitCode": 0,
+      "seconds": 43.125
+    },
+    {
+      "name": "frozen-native-real-server",
+      "evidence": "frozen-native-real-server.json",
+      "result": "PASS",
+      "exitCode": 0,
+      "seconds": 5.516
+    },
+    {
+      "name": "wheel-install",
+      "evidence": "wheel-install.json",
+      "result": "PASS",
+      "exitCode": 0,
+      "seconds": 5.797
+    },
+    {
+      "name": "wheel-runtime",
+      "evidence": "wheel-runtime.json",
+      "result": "PASS",
+      "exitCode": 0,
+      "seconds": 4.437
+    },
+    {
+      "name": "twine",
+      "evidence": "twine.json",
+      "result": "PASS",
+      "exitCode": 0,
+      "seconds": 1.25
+    },
+    {
+      "name": "windows-hotkeys",
+      "evidence": "windows-hotkeys.json",
+      "result": "PASS",
+      "exitCode": 0,
+      "seconds": 3.078
+    },
+    {
+      "name": "windows-settings",
+      "evidence": "windows-settings.json",
+      "result": "PASS",
+      "exitCode": 0,
+      "seconds": 12.391
+    },
+    {
+      "name": "logstore-diskfull-run",
+      "evidence": "logstore-diskfull-run.json",
+      "result": "PASS",
+      "exitCode": 0,
+      "seconds": 53.266
+    }
+  ],
+  "pairResult": "PASS",
+  "pairEvidence": "pair/validation.json",
+  "windows": {
+    "name": "client-full",
+    "command": [
+      "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-v",
+      "-s",
+      "tests",
+      "-p",
+      "test_*.py"
+    ],
+    "cwd": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2",
+    "exitCode": 0,
+    "durationSeconds": 231.672,
+    "log": "client-full.txt.gz",
+    "sha256": "f8b1ca78f37070781ae737a3ba18b752c9e6df608da6d89c774918798df01f66",
+    "compressedSha256": "563b5fb3d69515fa837e14148fdebb07ea7f868aa9833635ce437791568fcabe",
+    "testCount": 1378,
+    "skipped": 0
+  },
+  "server": {
+    "name": "server-full",
+    "command": [
+      "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-v",
+      "tests/unit",
+      "-ra"
+    ],
+    "cwd": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0",
+    "exitCode": 0,
+    "durationSeconds": 746.094,
+    "log": "server-full.txt.gz",
+    "sha256": "e51a92e428eff25c4db999944df89cd5d1c73576c35185727f8a3dabbfc0e5a5",
+    "compressedSha256": "b51838d1dc6705fce2e3c4cb743a468937b4b5e689df7036f2f0e5ba67dc972f",
+    "testCount": 1964,
+    "skipped": 14
+  },
+  "ux01Status": "FIX_IMPLEMENTED_REQUIRED_NATIVE_CONFIRMATION_PENDING",
+  "realCases": "NOT_PROVEN: all complete M01..M12 gates still open",
+  "calibration": {
+    "followupMs": 5000,
+    "preRollMs": 320,
+    "preRollDecision": "candidate, final human evaluation pending",
+    "globalDefaultsChanged": false
+  },
+  "modelReplay": {
+    "directPositiveExact": 2,
+    "negativeNoActivation": 3,
+    "alexaPausePlannedTarget": "FAIL",
+    "alexaPauseManualBaselinePreserved": "PASS",
+    "actualSpokenWording": "NOT_PROVEN"
+  },
+  "nativePaste": "NOT_RUN without operator focus; guarded one-click trial prepared",
+  "reviewReady": false
+}

@@ -24,7 +24,7 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "UX01 ausdrücklich freigegeben: kleiner Ausgabepayloadfix und fünf dauerhafte komponierte Regressionen umgesetzt, gezielte100 PASS. Volle Windows-/Build-/Paarrequalifikation läuft; UX01 bis zu allen erforderlichen Nachweisen offen. Danach gemeinsame Realtests fortsetzen; Followup5000ms gewählt, PreRoll320ms Kandidat.",
+  "nextAction": "Phase C fortsetzen: vorbereiteter Ein-Klick-Block mit echter nativer UX01-Leerzeichenprobe und zwei geführten Wake-Sätzen. Autonome neue Windows-/Build-/Paarrequalifikation PASS an17261e6. UX01 bis nativer Ausgabebestätigung offen; vollständige M-Fälle und30min100 weiterhin NOT_PROVEN.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -42,6 +42,6 @@
   },
   "recovery": null,
   "relatedServerFix": null,
-  "technicalProductCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
-  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json"
+  "technicalProductCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/ux01/qualification-summary.json"
 }

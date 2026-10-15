@@ -1,3 +1,9 @@
+## Aktueller Fortsetzungsblock am neuen Produkt17261e6
+
+Neue EXE `dist-feedback-rc-iv2-020-ux01/voice-stt-client.exe`, SHA256 `56fe943b8dff3cacd554dc6ee8c5adc537bdd4fdbe397c65e1357ce80ba5160a`; [neue autonome Qualifikation](EVIDENCE/ux01/qualification-summary.json). Die folgende frühere Produkt41-Angabe bleibt Herkunft der bereits durchgeführten Teilversuche. Neue Realbelege werden jeweils ausdrücklich neu gebunden.
+
+Der Helfer `EVIDENCE/human/guided_output_trial.py` bündelt einen Startklick im eigenen Testeditor, eine tatsächliche native Leerzeichenprobe und danach zwei Wake-Sätze. Pro Schritt stehen nur die aktuelle Phrase und F9 direkt im Fenster. Der Testzielguard verhindert Seiteneinfügungen bei Fokusverlust; dies wäre ein sichtbarer fehlgeschlagener/übersprungener Testversuch, kein künstlicher Erfolg. Produktseitiges Fokusverhalten bleibt unverändert. Erst beim Hinweis FERTIG in den Chat wechseln.
+
 # Gemeinsamer Test- und Kalibrierungsablauf
 
 Stand 2026-10-15, R01 bleibt derselbe Umsetzungsauftrag. **In Durchführung: erster Manual-/Follow-up-Block aktiv.**

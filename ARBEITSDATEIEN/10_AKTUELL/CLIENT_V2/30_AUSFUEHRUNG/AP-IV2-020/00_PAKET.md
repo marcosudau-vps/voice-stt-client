@@ -28,3 +28,7 @@ IN_PROGRESS, kein REVIEW_READY; R01 behält Schreibhoheit für die genehmigte Fo
 ## Scope-Ausnahme bei Fortsetzung R01 (2026-10-15)
 
 Der [menschliche Fortsetzungsauftrag](RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md) erlaubt eng auf Client-Reconnect/Recovery begrenzte Produktcode- und Testkorrekturen einschließlich weiterer nachgewiesener zusammenhängender Fehler. Dies ersetzt die ursprüngliche Produktcode-Sperre ausschließlich in diesem Scope. Derselbe R01, Paketbranch und Draft-PR #15 bleiben aktiv. Neue Produktidentität erfordert neue Windows-, Build- und Paarqualifikation; bisherige Nachweise bleiben historische Evidenz. Keine Servercodeänderung, Protokoll-/Sicherheitsänderung, Promotion, Release, Tags oder kanonische Übernahme freigegeben. Keine unabhängige Abnahme vorweggenommen.
+
+## Zusätzliche Produktausnahme UX01, gleicher R01
+
+[Ausdrücklich freigegeben](RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/006_UX01_FREIGABE.md): bestehende Einstellung Leerzeichen anhängen wirksam machen, rohe Finals/History/Deduplizierung erhalten, dauerhafte Regressionen und neue Produkt-/Buildqualifikation. Produkt17261e6, neue [Evidenz](RUNS/R01-UMSETZUNG/EVIDENCE/ux01/INDEX.md). Keine sonstige Erweiterung der ursprünglichen Qualifikationsausnahme. Reale Pflichtfälle bleiben bis zur vollständigen Durchführung offen.

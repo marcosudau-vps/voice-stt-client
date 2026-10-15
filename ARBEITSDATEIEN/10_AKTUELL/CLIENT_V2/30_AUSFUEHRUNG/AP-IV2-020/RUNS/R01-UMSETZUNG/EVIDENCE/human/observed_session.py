@@ -36,6 +36,7 @@ def safe_event(binding, event):
     effective = payload.get('effectiveSettings')
     if effective is not None:
         result['effectiveFollowupMs'] = effective.get('activation.followupTimeoutMs')
+        result['effectivePreRollMs'] = effective.get('wakeWord.preRollMs')
     return result
 
 
@@ -52,8 +53,10 @@ def main():
         record = safe_event(SimpleNamespace(generation=2), SimpleNamespace(
             type='transcription.completed', payload=dict(activationId='a',
             text='deliberate test', logAccess='secret', accessToken='secret',
-            effectiveSettings={'activation.followupTimeoutMs': 5000, 'private': 'secret'})))
+            effectiveSettings={'activation.followupTimeoutMs': 5000,
+                               'wakeWord.preRollMs': 320, 'private': 'secret'})))
         assert record['activationId'] == 'a' and record['effectiveFollowupMs'] == 5000
+        assert record['effectivePreRollMs'] == 320
         assert record['textLength'] == 15 and 'text' not in record
         assert 'secret' not in json.dumps(record)
         print('PASS: explicit identity/settings allowlist; text hashed; tokens excluded')
@@ -97,6 +100,31 @@ def main():
 
     class ObservedRuntime(original):
         def __init__(self, *values, **options):
+            if args.editor_guided:
+                from voice_stt_client.core.text_injector import CtypesWindowsInjectionBackend
+
+                class OwnEditorBackend(CtypesWindowsInjectionBackend):
+                    # Test target guard only. A focus loss is an actual failed/skipped
+                    # test attempt, never a synthetic successful native paste.
+                    def target_focused(backend, hwnd):
+                        _, pid = backend.get_window_thread_process_id(hwnd)
+                        current = json.loads(state_file.read_text(encoding='utf8'))
+                        fresh = abs((datetime.now(UTC) - datetime.fromisoformat(
+                            current['timeUtc'])).total_seconds()) < 2
+                        return bool(fresh and pid == focus_gate['pid']
+                                    and current.get('editorHasFocus'))
+
+                    def get_foreground_window(backend):
+                        hwnd = super().get_foreground_window()
+                        return hwnd if backend.target_focused(hwnd) else 0
+
+                    def send_input_keyboard(backend, events):
+                        hwnd = super().get_foreground_window()
+                        if not backend.target_focused(hwnd):
+                            return 0
+                        return super().send_input_keyboard(events)
+
+                options['backend'] = OwnEditorBackend()
             super().__init__(*values, **options)
             previous = self.session.on_message
 

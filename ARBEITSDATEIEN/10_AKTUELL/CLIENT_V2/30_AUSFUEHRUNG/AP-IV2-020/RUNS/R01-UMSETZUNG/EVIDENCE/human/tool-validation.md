@@ -34,3 +34,10 @@ erweitert: startet Audio erst nach frischem foreground-State des eigenen
 Testeditors; nach zwei Terminalactivations plus3s läuft die vorhandene Qt-Stop-
 Schnittstelle. Zusätzlicher begrenzter Testwatcher, kein Produktcode. Syntax und
 Serializer-Selbstcheck PASS; echte bounded Liveprüfung steht noch aus.
+
+## Ergänzungen UX01/Produkt17261e6
+
+- `check_append_space.py` ist nach dem Fix als Greencheck wiederverwendbar; historische Patchvorschau auf bereits korrigiertem Code wird ausdrücklich abgewiesen. Echter Queuepfad vier Fälle PASS, unveränderliche Jobs erhalten.
+- `observed_session.py` protokolliert zusätzlich den tatsächlichen effektiven Pre-Roll; Allowlist-/Geheimnisausschluss-Selbstprüfung PASS. Geführte Läufe verwenden einen ausdrücklich benannten Testzielguard um den echten nativen Backend: Bei fremdem Vordergrund/fehlendem Feldfokus keine Seiteneinfügung und kein künstlicher Erfolg. Sonst echter Clipboard-/SendInputpfad.
+- `guided_output_trial.py` bündelt eine tatsächliche native Ausgabekorrekturprobe mit zwei Wakeaufgaben nach nur einem Startklick. Keine Wiederholung unklarer Einfügungen; bei fehlgeschlagener Probe kein Sprachclientstart. Syntaxprüfung PASS, menschlicher Lauf noch ausstehend.
+- `logstore_diskfull.py` wurde gegen echten gepinnten Server, echte Modelle und tatsächlichen SQLite-ENOSPC erfolgreich ausgeführt. Kein Serverproduktcode geändert, nur zusätzliche eigene Instanz mit begrenztem tmpfs. Vollständige Logtransport-Erholung blieb beim Ende in Backoff unbewiesen.
