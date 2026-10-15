@@ -16,6 +16,7 @@ import sys
 import threading
 import time
 import uuid
+from editor_state import owned_editor_path, read_editor_state
 
 ROOT = next(p for p in Path(__file__).resolve().parents
             if (p / 'scripts/qualify_v2_session.py').is_file())
@@ -32,14 +33,13 @@ def main():
     args = parser.parse_args()
     local = Path(os.environ['LOCALAPPDATA']) / 'VoiceSTT-Qualification/AP-IV2-020'
     os.environ['VOICESTT_CLIENT_HOME'] = str(local / 'client')
-    if not args.state.resolve().is_relative_to((local / 'editors').resolve()):
-        parser.error('Only the owned editor state is allowed')
+    args.state = owned_editor_path(args.state, local)
     from voice_stt_client.core.config import AppConfig
     from voice_stt_client.core.history import TranscriptHistoryManager
     from voice_stt_client.core.text_injector import (
         TextInjectionQueue, CtypesWindowsInjectionBackend, clipboard_session)
     from scripts.qualify_v2_real import identity
-    state = lambda: json.loads(args.state.read_text(encoding='utf8'))
+    state = lambda: read_editor_state(args.state)
     deadline = time.monotonic() + 600
     print('Waiting for operator Start button in own diagnostic editor', flush=True)
     while True:

@@ -1,0 +1,9 @@
+{
+  "status": "TEST_HELPER_HARDENED",
+  "productDefect": false,
+  "confirmed": "Prior attempt2 failed with PermissionError errno13 opening the editor state before arming or native I/O. No native proof and no voice client start.",
+  "rootCause": "Underlying file-sharing/packaged-AppData access cause not conclusively reproduced. Logical and resolved paths both readable now, including in a child.",
+  "change": "Preserve logical path for file I/O; resolved path only for own-directory containment. Bounded retries only for diagnostic file access, fail closed on persistent or unexpected I/O errors. No paste retry.",
+  "tests": "editor-diagnostic-reader-regression.json",
+  "fullProductRegression": "Unchanged product17261e6 retains its full qualification; these changes are isolated evidence helpers."
+}

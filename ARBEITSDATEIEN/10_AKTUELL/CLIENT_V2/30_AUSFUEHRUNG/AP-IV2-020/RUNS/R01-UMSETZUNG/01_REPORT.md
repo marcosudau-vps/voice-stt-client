@@ -1,3 +1,9 @@
+## Wiederholung und sichtbare Checkliste, 15.10.2026
+
+Der [menschliche Fortsetzungswunsch007](ZUSATZPROMPTS/007_WIEDERHOLUNG_UND_CHECKLISTE.md) verlangt Wiederholung des letzten kurzen Blocks und eine laufend gepflegte Liste. [Checkliste07](07_TESTCHECKLISTE.md) trennt technische PASS-Nachweise von offenen/partiellen realen M-Fällen. Ein frischer eigener Testeditor ersetzt den inzwischen beendeten alten Editor.
+
+Der frühere Startversuch2 scheiterte vor der Freigabe/Einfügung mit tatsächlichem PermissionError beim Lesen der Diagnose; der Produktpfad war nicht gestartet. [Befund](EVIDENCE/ux01/editor-read-finding.json): zugrunde liegende Freigabe-/AppData-Ursache nicht sicher reproduziert. Der reine Testhelfer behält den logischen I/O-Pfad und liest die atomar ersetzte Diagnose bei erwarteten vorübergehenden Zugriffskonflikten begrenzt erneut. Kein Clipboard-/SendInput-Retry. Dauerhafte/andere Fehler blockieren. [Vier Helferregressionen](EVIDENCE/ux01/editor-diagnostic-reader-regression.json) und [500 tatsächliche Kindprozess-Lesezugriffe](EVIDENCE/ux01/editor-diagnostic-live-validation.json) PASS. Keine Produktänderung gegenüber17261e6; dessen volle Windows-/Build-/Paarqualifikation bleibt eindeutig gebunden.
+
 ## Neuer technischer Stand17261e6, 2026-10-15
 
 UX01-Produktkorrektur und dauerhafte Regressionen umgesetzt. [Neue technische Qualifikation](EVIDENCE/ux01/qualification-summary.json): Windows1378 ohne Skips, Server1964/14 ausgewiesene optionale Skips,11 reale Prozessfälle,17 Grenztests und7/7 Smokes PASS. EXE SHA256 `56fe943b8dff3cacd554dc6ee8c5adc537bdd4fdbe397c65e1357ce80ba5160a`, Wheel/sdist und Releaseguard/Twine PASS. Neue Frozen-/Wheel-Laufzeit, echte ReSpeaker-/Desktop-Recovery, reales HTTP-/Ack-/Restart-/Shutdown und natives Hotkey/Credential grün. Serverpin und kanonischer Parent unverändert. Lokaler feat-Branch ist veraltet; maßgebliche Remote-Base/merge-base b80ed8b wurde erneut per ls-remote bestätigt.

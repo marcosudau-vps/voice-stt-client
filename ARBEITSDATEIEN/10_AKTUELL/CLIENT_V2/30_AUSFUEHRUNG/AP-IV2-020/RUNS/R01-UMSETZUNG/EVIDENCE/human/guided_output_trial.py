@@ -12,6 +12,7 @@ from pathlib import Path
 import subprocess
 import sys
 import time
+from editor_state import owned_editor_path, read_editor_state
 
 
 def main():
@@ -20,9 +21,7 @@ def main():
     parser.add_argument('--evidence', type=Path, required=True)
     args = parser.parse_args()
     local = Path(os.environ['LOCALAPPDATA'])/'VoiceSTT-Qualification/AP-IV2-020'
-    state = args.state.resolve()
-    if not state.is_relative_to((local/'editors').resolve()):
-        parser.error('Only own diagnostic editor allowed')
+    state = owned_editor_path(args.state, local)
     if not args.evidence.is_dir():
         parser.error('Evidence directory must already exist')
     folder = Path(__file__).resolve().parent
@@ -38,7 +37,8 @@ def main():
         '• Danach erscheint jeweils genau eine Sprechaufgabe.\n'
         '• Bitte im Testfenster bleiben; nicht in den Chat wechseln.'))
     helpers = {name: hashlib.sha256((folder/name).read_bytes()).hexdigest()
-               for name in ('guided_output_trial.py','probe_native_editor.py','observed_session.py')}
+               for name in ('guided_output_trial.py','probe_native_editor.py',
+                            'observed_session.py','editor_state.py')}
     native = subprocess.run([sys.executable, str(folder/'probe_native_editor.py'),
         '--state', str(state), '--out', str(result_path), '--append-space',
         '--guided-continuation'], timeout=650)
@@ -49,7 +49,7 @@ def main():
         raise RuntimeError('Native attempt failed; no retry and no speech client started')
     command(dict(action='clear'))
     deadline = time.monotonic()+3
-    while json.loads(state.read_text(encoding='utf8'))['characters']:
+    while read_editor_state(state)['characters']:
         if time.monotonic()>deadline:
             raise TimeoutError('Editor clear was not observed')
         time.sleep(.05)

@@ -6,16 +6,20 @@
       "sha256": "9f9b5bdba236ffa3e02ac76ae1a35f4f9dcddecd19af53e2ed7dc61002ac54cc"
     },
     {
+      "file": "editor_state.py",
+      "sha256": "64d09a79fe277f2992c4fe383e9da03a5c4bda47e09e9dc5765ebd0c193586a4"
+    },
+    {
       "file": "guided_output_trial.py",
-      "sha256": "4c6ef03e4923206c9925018374aec83ffaa62709a8a78e43b53954287ae7bb88"
+      "sha256": "6b39c754fb3f57d8cc868c3f2dea21dc850879d36e798a3b7437f1363126b1d0"
     },
     {
       "file": "observed_session.py",
-      "sha256": "a553a7591558664b4f2ac0aae5a9d9b9cf574f74801e378c3656dd7337a29a59"
+      "sha256": "7f00b2f5200d907e9a4fd38f06878543af29926862342526f9cb9a6e7a58c708"
     },
     {
       "file": "probe_native_editor.py",
-      "sha256": "499770e0084bfe804416016ec248723e3ec37b31bccc1030bb2ac9a4057b8273"
+      "sha256": "bb9b3709e5c5720b9c3c6508d1b7ca5db54f0000bbbea354b468c0ddc116cc19"
     },
     {
       "file": "record_wake_samples.py",
@@ -28,6 +32,10 @@
     {
       "file": "score_real_wake.py",
       "sha256": "4e3550312217ebf8fbb01fb183c29468c35184b03a8e55d4df03fe90158f0823"
+    },
+    {
+      "file": "test_editor_state.py",
+      "sha256": "340325a05e8d583cf23d0ef78e3f1b12afcc7941a4243e49f3f78aa331e3e819"
     }
   ],
   "reproduction": "samples/README.md",

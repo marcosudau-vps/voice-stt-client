@@ -1,3 +1,5 @@
+[Fortlaufende gemeinsame Checkliste](../07_TESTCHECKLISTE.md): jetziger Block native Leerzeichenprobe plus zwei direkte Wake-Sätze. Die vollständigen M-Fälle bleiben offen; Häkchen erst nach tatsächlichen Nachweisen. [Helfer-I/O-Regression](ux01/editor-diagnostic-reader-regression.json) und [realer Diagnose-Lesetest](ux01/editor-diagnostic-live-validation.json) sichern die Wiederholung.
+
 ## Neue Produktausnahme UX01 – laufende Requalifikation
 
 [UX01-Evidenzindex](ux01/INDEX.md), Produkt17261e65afeda3f2c7412d5bfe6006b76863acdb. Neue Windows1378 ohne Skips, neue EXE/Wheel/sdist, native Desktop-/ReSpeaker-Recovery, reale HTTP-/Ack-/Restartfälle und natives Settings/Hotkey grün. Realer separater SQLite-ENOSPC-Fall ohne STT-Lock grün. Vollständiger neuer Paarlauf PASS: Windows1378/0skips, Server1964/14 erwartete optionale Skips,11 Prozessfälle,17 Grenztests,7/7 Smokes. Native Ausgabe mit Leerzeichen benötigt noch den gebündelten menschlichen Fokus-Klick. Direkte Wakephrase-Nutzsätze im Modellreplay exakt; Alexa-Pausenaufnahme weicht vom geplanten Text ab, im manuellen Vergleich jedoch derselbe Nutztext. Kein vollständiges Realgate-PASS.

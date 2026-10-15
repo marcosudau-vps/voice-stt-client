@@ -24,7 +24,7 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "Phase C fortsetzen: vorbereiteter Ein-Klick-Block mit echter nativer UX01-Leerzeichenprobe und zwei geführten Wake-Sätzen. Autonome neue Windows-/Build-/Paarrequalifikation PASS an17261e6. UX01 bis nativer Ausgabebestätigung offen; vollständige M-Fälle und30min100 weiterhin NOT_PROVEN.",
+  "nextAction": "Auf menschlichen Wunsch letzten Ein-Klick-Block mit frischem Testeditor wiederholen: native UX01-Leerzeichenprobe, danach zwei direkte Wake-Sätze. Fortlaufende Checkliste07_TESTCHECKLISTE.md im selben R01 pflegen. Vier Diagnosehelfer-Regressionen und500 reale Lesezugriffe PASS; Produkt17261e6 unverändert. Komplette Realgates bleiben NOT_PROVEN.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

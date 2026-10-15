@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 import sys
 import time
+from editor_state import owned_editor_path, read_editor_state
 
 ROOT = next(p for p in Path(__file__).resolve().parents
             if (p / 'scripts/qualify_v2_session.py').is_file())
@@ -68,13 +69,11 @@ def main():
     if args.editor_guided and not args.wait_for_editor_state:
         parser.error('--editor-guided requires the owned editor state')
     if args.wait_for_editor_state:
-        state_file = args.wait_for_editor_state.resolve()
-        if not state_file.is_relative_to((local / 'editors').resolve()):
-            parser.error('Only the owned test editor state is allowed')
+        state_file = owned_editor_path(args.wait_for_editor_state, local)
         deadline = time.monotonic() + 120
         print('Waiting for operator to focus the owned test editor', flush=True)
         while True:
-            state = json.loads(state_file.read_text(encoding='utf8'))
+            state = read_editor_state(state_file)
             fresh = abs((datetime.now(UTC) - datetime.fromisoformat(state['timeUtc'])).total_seconds()) < 2
             if (fresh and state['foreground'] and state.get('editorHasFocus', False)
                     and (not args.editor_guided or state.get('operatorReady', False))):
@@ -108,7 +107,7 @@ def main():
                     # test attempt, never a synthetic successful native paste.
                     def target_focused(backend, hwnd):
                         _, pid = backend.get_window_thread_process_id(hwnd)
-                        current = json.loads(state_file.read_text(encoding='utf8'))
+                        current = read_editor_state(state_file)
                         fresh = abs((datetime.now(UTC) - datetime.fromisoformat(
                             current['timeUtc'])).total_seconds()) < 2
                         return bool(fresh and pid == focus_gate['pid']
