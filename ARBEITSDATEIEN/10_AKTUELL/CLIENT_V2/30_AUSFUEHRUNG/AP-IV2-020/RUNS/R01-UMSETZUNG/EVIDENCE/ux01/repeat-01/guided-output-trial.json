@@ -1,0 +1,13 @@
+{
+  "nativeResult": "PASS",
+  "voiceProcessExitCode": 0,
+  "helperSha256": {
+    "guided_output_trial.py": "6b39c754fb3f57d8cc868c3f2dea21dc850879d36e798a3b7437f1363126b1d0",
+    "probe_native_editor.py": "bb9b3709e5c5720b9c3c6508d1b7ca5db54f0000bbbea354b468c0ddc116cc19",
+    "observed_session.py": "7f00b2f5200d907e9a4fd38f06878543af29926862342526f9cb9a6e7a58c708",
+    "editor_state.py": "64d09a79fe277f2992c4fe383e9da03a5c4bda47e09e9dc5765ebd0c193586a4"
+  },
+  "nativeEvidence": "native-editor-spaced.json",
+  "boundaries": "One operator click: real native UX01 paste, then two guided Wake phrases.\n\nUses the unchanged product via existing test observers, never runs two clients\nat once. Guarded own target only, bounded children, no automatic paste retry.\nFull raw editor text stays local; reports retain explicit helper identities.\n",
+  "voiceFunctionalResult": "PENDING_TRACE_AND_HUMAN_EVALUATION"
+}

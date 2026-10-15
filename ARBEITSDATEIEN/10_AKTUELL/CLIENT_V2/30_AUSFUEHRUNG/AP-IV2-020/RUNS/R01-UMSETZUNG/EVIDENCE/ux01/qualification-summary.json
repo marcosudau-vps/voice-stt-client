@@ -1,5 +1,5 @@
 {
-  "status": "AUTONOMOUS_TECHNICAL_PASS_NATIVE_OUTPUT_CONFIRMATION_OPEN",
+  "status": "TECHNICAL_QUALIFICATION_PASS_REAL_CASES_OPEN",
   "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
   "productTree": "c054fb6bb93b438feb405e61defcad1d4f3e84ac",
   "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
@@ -129,7 +129,7 @@
     "testCount": 1964,
     "skipped": 14
   },
-  "ux01Status": "FIX_IMPLEMENTED_REQUIRED_NATIVE_CONFIRMATION_PENDING",
+  "ux01Status": "CLOSED_NATIVE_OUTPUT_AND_REQUIRED_TECHNICAL_REQUALIFICATION_PASS",
   "realCases": "NOT_PROVEN: all complete M01..M12 gates still open",
   "calibration": {
     "followupMs": 5000,
@@ -144,6 +144,6 @@
     "alexaPauseManualBaselinePreserved": "PASS",
     "actualSpokenWording": "NOT_PROVEN"
   },
-  "nativePaste": "NOT_RUN without operator focus; guarded one-click trial prepared",
+  "nativePaste": "PASS: repeat-01/native-editor-spaced.json, exact40-character output, one actual SendInput4-event sequence, history text preserved",
   "reviewReady": false
 }

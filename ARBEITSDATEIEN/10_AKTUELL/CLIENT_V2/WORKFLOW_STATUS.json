@@ -18,13 +18,11 @@
   },
   "reviewedCommit": null,
   "reviewReport": null,
-  "openFindingIds": [
-    "IV2-020-UX01"
-  ],
+  "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "Auf menschlichen Wunsch letzten Ein-Klick-Block mit frischem Testeditor wiederholen: native UX01-Leerzeichenprobe, danach zwei direkte Wake-Sätze. Fortlaufende Checkliste07_TESTCHECKLISTE.md im selben R01 pflegen. Vier Diagnosehelfer-Regressionen und500 reale Lesezugriffe PASS; Produkt17261e6 unverändert. Komplette Realgates bleiben NOT_PROVEN.",
+  "nextAction": "UX01 nach neuer technischer Requalifikation und tatsächlicher nativer Ausgabe geschlossen. Sprachversuch ohne menschliche Aktivierung beendet; nur die zwei Wake-Sätze mit eigenem Sprachtest-Start wiederholen. Checkliste07 pflegen, vollständige M-Gates weiterhin offen.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

@@ -1,4 +1,4 @@
-"""One operator click: real native UX01 paste, then two guided Wake phrases.
+"""Separate operator starts for native paste and the guided Wake phrases.
 
 Uses the unchanged product via existing test observers, never runs two clients
 at once. Guarded own target only, bounded children, no automatic paste retry.
@@ -11,8 +11,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
-import time
-from editor_state import owned_editor_path, read_editor_state
+from editor_state import owned_editor_path
 
 
 def main():
@@ -34,7 +33,7 @@ def main():
     command(dict(action='prepare', buttonText='Testblock starten', text=
         'KURZER TESTBLOCK\n• „Testblock starten“ klicken.\n'
         '• Die Einfügeprobe läuft automatisch.\n'
-        '• Danach erscheint jeweils genau eine Sprechaufgabe.\n'
+        '• Danach den Sprachtest mit eigenem Knopf starten.\n'
         '• Bitte im Testfenster bleiben; nicht in den Chat wechseln.'))
     helpers = {name: hashlib.sha256((folder/name).read_bytes()).hexdigest()
                for name in ('guided_output_trial.py','probe_native_editor.py',
@@ -47,15 +46,15 @@ def main():
     proof = json.loads(result_path.read_text(encoding='utf8'))
     if proof['result'] != 'PASS':
         raise RuntimeError('Native attempt failed; no retry and no speech client started')
-    command(dict(action='clear'))
-    deadline = time.monotonic()+3
-    while read_editor_state(state)['characters']:
-        if time.monotonic()>deadline:
-            raise TimeoutError('Editor clear was not observed')
-        time.sleep(.05)
+    command(dict(action='prepare', buttonText='Sprachtest starten', text=
+        'EINFÜGEPROBE BESTANDEN – SPRACHTEST NOCH NICHT GESTARTET\n'
+        '• In Ruhe bereitmachen.\n'
+        '• Erst „Sprachtest starten“ klicken.\n'
+        '• Auf „CLIENT BEREIT“ warten, dann nur den angezeigten Satz sprechen.\n'
+        '• Nach jedem Satz Strg+Umschalt+F9 drücken.'))
     voice = subprocess.run([sys.executable, str(folder/'observed_session.py'),
         '--mode','wake','--wait-for-editor-state',str(state),
-        '--stop-after','2','--editor-guided'], timeout=310)
+        '--stop-after','2','--editor-guided','--arm-timeout','600'], timeout=820)
     output = dict(nativeResult='PASS', voiceProcessExitCode=voice.returncode,
                   helperSha256=helpers, nativeEvidence=result_path.name,
                   boundaries=__doc__, voiceFunctionalResult='PENDING_TRACE_AND_HUMAN_EVALUATION')

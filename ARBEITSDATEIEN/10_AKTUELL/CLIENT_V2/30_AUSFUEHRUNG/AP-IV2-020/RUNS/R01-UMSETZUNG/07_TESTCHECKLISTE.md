@@ -6,24 +6,24 @@ Ich pflege die Häkchen nach den tatsächlichen Nachweisen. „Teilweise geprüf
 bedeutet noch keinen vollständig bestandenen Pflichtfall. Derselbe R01 und
 [Draft-PR15](https://github.com/marcosudau-vps/voice-stt-client/pull/15) bleiben aktiv.
 
-## Jetzt: letzten kurzen Test wiederholen
+## Jetzt: nur die beiden Wake-Sätze wiederholen
 
-- [ ] Im frischen Testeditor **„Testblock starten“** klicken.
-- [ ] Automatische native Einfügeprobe mit Leerzeichen erfolgreich.
+- [ ] **„Sprachtest starten“** klicken, wenn du für die zwei Sätze bereit bist.
+- [x] Automatische native Einfügeprobe mit Leerzeichen erfolgreich.
 - [ ] „Hey Jarvis“ + roter Ball vollständig, ohne Rufwort im Editor.
 - [ ] „Alexa“ + gelbe Tasche vollständig, ohne Rufwort im Editor.
 - [ ] Beide Finals mit Leerzeichen getrennt; F9-Steuerung und Fokus nachgewiesen.
 - [ ] Dein Urteil zu **320ms Pre-Roll** und direktem Sprechbeginn festhalten.
 
 Die jeweilige kurze Aktion steht im Testfenster. Erst nach **FERTIG** zurück
-in den Chat wechseln. Die Einfügeprobe und der Sprachclient laufen nacheinander.
+in den Chat wechseln. Die Einfügeprobe ist bereits bestanden. Der neue Sprachtest wartet auf seinen eigenen Startknopf.
 
 ## Bereits erledigt
 
 - [x] Git-Baseline, tatsächlich übernommener Vorgänger und Paketbranch geprüft.
 - [x] Isolierter **lokaler** Server mit gepinntem Stand und echten Modellen bereit.
 - [x] Zehn nachgewiesene Reconnect-/Recoveryfehler behoben und regressionsgesichert.
-- [x] UX01-Codekorrektur: vorhandene Einstellung „Leerzeichen anhängen“ wirkt.
+- [x] UX01 vollständig technisch nachgewiesen, einschließlich echter nativer Ausgabe mit Leerzeichen.
 - [x] 100 gezielte Tests, einschließlich fünf neuer Ausgabe-/History-Regressionen, grün.
 - [x] Neuer Produktstand17261e6: **1378 Windows-Tests**, keine Skips, grün.
 - [x] Paarlauf:1964 Server-Tests/14 begründete optionale Skips,11 Prozessfälle,

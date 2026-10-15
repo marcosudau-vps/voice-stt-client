@@ -48,7 +48,10 @@ def main():
     parser.add_argument('--wait-for-editor-state', type=Path)
     parser.add_argument('--stop-after', type=int, default=0)
     parser.add_argument('--editor-guided', action='store_true')
+    parser.add_argument('--arm-timeout', type=int, default=120)
     args = parser.parse_args()
+    if not 10 <= args.arm_timeout <= 1800:
+        parser.error('--arm-timeout must be 10..1800 seconds')
     if args.self_check:
         from types import SimpleNamespace
         record = safe_event(SimpleNamespace(generation=2), SimpleNamespace(
@@ -70,7 +73,7 @@ def main():
         parser.error('--editor-guided requires the owned editor state')
     if args.wait_for_editor_state:
         state_file = owned_editor_path(args.wait_for_editor_state, local)
-        deadline = time.monotonic() + 120
+        deadline = time.monotonic() + args.arm_timeout
         print('Waiting for operator to focus the owned test editor', flush=True)
         while True:
             state = read_editor_state(state_file)

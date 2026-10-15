@@ -122,7 +122,7 @@ def main():
         message = ('Einfügen erfolgreich.\nBitte im Chat „Testtext sichtbar“ melden.' if passed else
                    'Prüfung beendet; Text nicht korrekt angekommen.\nBitte im Chat „Nichts sichtbar“ melden.')
         if passed and args.guided_continuation:
-            message = 'EINFÜGEPROBE ERFOLGREICH\n• Bitte warten; der Sprachtest startet gleich.'
+            message = 'EINFÜGEPROBE ERFOLGREICH\n• Der Sprachtest erhält einen eigenen Startknopf.'
         (args.state.parent/'command.json').write_text(json.dumps(dict(action='instruction', text=message)), encoding='utf8')
         print(json.dumps(dict(result=result['result'], nativeCalls=len(native_calls))), flush=True)
     finally:

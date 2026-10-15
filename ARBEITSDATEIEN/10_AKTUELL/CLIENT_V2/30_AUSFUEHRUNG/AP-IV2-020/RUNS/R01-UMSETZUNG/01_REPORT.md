@@ -1,3 +1,9 @@
+## Native UX01-Bestätigung und expliziter Sprachstart
+
+[Echte native Probe](EVIDENCE/ux01/repeat-01/native-editor-spaced.json) PASS: genau40Zeichen mit angehängtem Leerzeichen im eigenen fokussierten Editor, ein command_sent-Versuch, vier tatsächliche SendInput-Ereignisse, autoritativer Text unverändert. [Quellhashbindung](EVIDENCE/ux01/repeat-01/native-product-binding.json) an vollständig qualifiziertes Produkt17261e6 exakt. **UX01 geschlossen.** Dies schließt keine vollständige M-Fallabnahme ein.
+
+Der Auftraggeber war nach der Einfügeprobe abgelenkt und hatte einen weiteren Knopfdruck erwartet. Der automatisch angeschlossene Sprachlauf hatte null Activations/Finals und wurde normal beendet; [Bewertung](EVIDENCE/ux01/repeat-01/voice-attempt-assessment.json) NOT_RUN_HUMAN_SPEECH, kein funktionales PASS aus Exit0. Zur Entlastung erhält Sprache einen eigenen sichtbaren Startknopf; die bereits erfolgreiche native Probe wird nicht unnötig wiederholt. Reine Testhelferänderung, Produkt unverändert. [Gate-Selbstprüfungen](EVIDENCE/ux01/voice-ready-gate-check.json) PASS; die [Checkliste](07_TESTCHECKLISTE.md) ist aktualisiert.
+
 ## Wiederholung und sichtbare Checkliste, 15.10.2026
 
 Der [menschliche Fortsetzungswunsch007](ZUSATZPROMPTS/007_WIEDERHOLUNG_UND_CHECKLISTE.md) verlangt Wiederholung des letzten kurzen Blocks und eine laufend gepflegte Liste. [Checkliste07](07_TESTCHECKLISTE.md) trennt technische PASS-Nachweise von offenen/partiellen realen M-Fällen. Ein frischer eigener Testeditor ersetzt den inzwischen beendeten alten Editor.

@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+  "nativeEvidence": "native-editor-spaced.json",
+  "nativeSourceHead": "d152526de743c532d3f28125be82466b74fc6a23",
+  "qualifiedSourceHashEquality": true,
+  "reference": "../real-recovery.json",
+  "reason": "Exact source file hashes from native proof equal the requalified product source manifest. Only evidence helpers/docs changed."
+}

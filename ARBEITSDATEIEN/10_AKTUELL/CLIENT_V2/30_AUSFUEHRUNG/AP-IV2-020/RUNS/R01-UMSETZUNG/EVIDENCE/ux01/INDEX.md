@@ -1,8 +1,12 @@
+## Aktualisierung: UX01 geschlossen, Sprache wird getrennt gestartet
+
+[Native Bestätigung](repeat-01/native-editor-spaced.json) und [exakte Produktbindung](repeat-01/native-product-binding.json) PASS. Der automatisch gestartete Sprachversuch hatte null Activations/Finals, menschlicher Übergang verpasst, daher [NOT_RUN_HUMAN_SPEECH](repeat-01/voice-attempt-assessment.json). Native Probe nicht erneut nötig; nur zwei Wake-Sätze nach explizitem Sprachstart offen.
+
 # UX01 – Produktkorrektur und erneute Qualifikation
 
 Die [ausdrückliche Freigabe006](../../ZUSATZPROMPTS/006_UX01_FREIGABE.md)
 erlaubt diese begrenzte Ausnahmekorrektur im selben AP020/R01.
-Status: **autonome technische Qualifikation PASS; native Ausgabebestätigung offen**, kein vollständiges Realgate-PASS.
+Status: **technische Qualifikation einschließlich nativer Ausgabebestätigung PASS**, kein vollständiges Realgate-PASS.
 
 - [Vorherige relevante Baseline](../human/ux01-current-product-baseline.json):
   67 bestehende Injection-/Reinsertiontests PASS am alten Produkt.

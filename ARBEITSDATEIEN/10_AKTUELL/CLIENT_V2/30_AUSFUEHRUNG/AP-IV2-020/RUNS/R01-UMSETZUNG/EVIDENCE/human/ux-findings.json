@@ -2,11 +2,11 @@
   "findings": [
     {
       "id": "IV2-020-UX01",
-      "status": "FIXED_AWAITING_REQUIRED_REQUALIFICATION",
+      "status": "CLOSED",
       "summary": "Configured append_space=true has no effect on consecutive final insertions.",
       "observed": "Two agreed sentences inserted as adjacent period/uppercase letter, no separator; reproduced in both 3000ms and 5000ms native Windows trials.",
       "effectiveConfiguredAppendSpace": true,
-      "qualifiedProductCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "qualifiedProductCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
       "evidence": [
         "manual-followup-3000.json",
         "manual-followup-5000.json",
@@ -16,14 +16,15 @@
       "sourceCause": "text_injector.TextInjectionQueue enqueues entry.text unchanged; _process_job writes job.text unchanged. append_space appears in config/settings metadata only; no runtime consumer.",
       "proposedScope": "Honor existing preference solely in the queued injection text at the existing boundary; preserve authoritative history/final text and identities; include automatic and manual reinsertion and trailing-whitespace controls. Exact implementation after bundled scope approval and focused red regression.",
       "authorization": "Explicit human grant: ../../ZUSATZPROMPTS/006_UX01_FREIGABE.md",
-      "qualificationImpact": "New source/product/build qualification in progress; previous 41ca761 evidence remains historical.",
+      "qualificationImpact": "New full Windows/build/pair qualification PASS; real native spaced output PASS. Remaining complete M-gates open.",
       "reproduction": "append-space-red.json",
       "unappliedPreview": "append-space-preview.json",
       "concreteProposal": "../../06_SCOPE_VORSCHLAG_UX01.md",
       "unappliedPatch": "append-space-proposed.patch.gz",
       "implementation": "Only local Clipboard payload gets one space when enabled and no existing trailing whitespace; authoritative text and IDs unchanged.",
       "regression": "tests/test_text_injector_spacing.py (repository-relative)",
-      "targetedEvidence": "ux01-targeted-green-final.json"
+      "targetedEvidence": "ux01-targeted-green-final.json",
+      "nativeEvidence": "../ux01/repeat-01/native-editor-spaced.json"
     }
   ]
 }
