@@ -2,8 +2,16 @@
   "scope": "Test and measurement helpers only; no product files modified",
   "scripts": [
     {
+      "file": "check_append_space.py",
+      "sha256": "9f9b5bdba236ffa3e02ac76ae1a35f4f9dcddecd19af53e2ed7dc61002ac54cc"
+    },
+    {
       "file": "observed_session.py",
-      "sha256": "545af832684d48afbd8feacc89fa0f19f4837ec67065f65fae31f568dfcd6999"
+      "sha256": "848ddff0697ef222a8dbb57c3205bbbf4de45f591e0374914c507dc5ed17a875"
+    },
+    {
+      "file": "probe_native_editor.py",
+      "sha256": "412cbf87b0e4d6c5de2df01b86e8526656856179ea907d0fc62c81b72da7e8d5"
     },
     {
       "file": "record_wake_samples.py",
@@ -19,5 +27,9 @@
     }
   ],
   "reproduction": "samples/README.md",
-  "fixtureAuthorization": "../../ZUSATZPROMPTS/004_TESTAUFNAHMEN_REPO.md"
+  "fixtureAuthorization": "../../ZUSATZPROMPTS/004_TESTAUFNAHMEN_REPO.md",
+  "editorHelper": {
+    "file": "../recovery-audit/human_test_editor.py",
+    "sha256": "f7a7c1346652825fbfbb0919a759ea7b57112f8b19aa985b7b6ca19ee5ccec1d"
+  }
 }

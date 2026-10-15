@@ -686,6 +686,10 @@ class TextInjectionQueue:
             diagnostics["error_phase"] = "validation"
             return "skipped", "Empty text", diagnostics
 
+        payload_text = job.text
+        if self.config.text_injection.append_space and not payload_text[-1].isspace():
+            payload_text += " "
+
         restore_cfg = self.config.clipboard
         restore_previous = restore_cfg.restore_previous
         backup_text = None
@@ -713,7 +717,7 @@ class TextInjectionQueue:
         try:
             with clipboard_session(self.backend, self.config, self.backend.get_owner_window()):
                 self.backend.empty_clipboard()
-                if self.backend.set_clipboard_data_unicode(job.text):
+                if self.backend.set_clipboard_data_unicode(payload_text):
                     clipboard_written = True
                 else:
                     if restore_previous and backup_success:

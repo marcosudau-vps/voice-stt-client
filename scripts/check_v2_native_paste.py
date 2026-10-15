@@ -24,7 +24,7 @@ from scripts.qualify_v2_real import LOCAL, identity, save
 TEXT='AP-IV2-020 Clipboardprüfung äöü 123.'
 
 
-def target(folder):
+def target(folder, append_space=False):
     from PySide6.QtWidgets import QApplication,QPlainTextEdit
     from PySide6.QtCore import QTimer
     from voice_stt_client.core.text_injector import CtypesWindowsInjectionBackend
@@ -32,6 +32,7 @@ def target(folder):
     editor=QPlainTextEdit();editor.setWindowTitle('AP-IV2-020 – isoliertes Einfügeziel')
     editor.resize(650,240);editor.show();editor.activateWindow();editor.setFocus()
     backend=CtypesWindowsInjectionBackend()
+    payload=TEXT + (' ' if append_space else '')
     locked=False
     def update():
         nonlocal locked
@@ -39,7 +40,7 @@ def target(folder):
             locked=backend.open_clipboard(int(editor.winId()))
         text=editor.toPlainText()
         save(folder/'target.json',dict(pid=os.getpid(),hwnd=int(editor.winId()),
-            characters=len(text),firstExact=text==TEXT,reinsertExact=text==TEXT+TEXT,
+            characters=len(text),firstExact=text==payload,reinsertExact=text==payload+payload,
             clipboardLocked=locked))
         if (folder/'stop.request').exists():
             if locked:backend.close_clipboard()
@@ -51,12 +52,16 @@ def target(folder):
         if locked:backend.close_clipboard()
 
 
-def check(evidence, focus_timeout=8):
+def check(evidence, focus_timeout=8, append_space=False):
     from PySide6.QtWidgets import QApplication
     from PySide6.QtCore import QMimeData
     from voice_stt_client.core.config import AppConfig,DEFAULT_CONFIG_PATH
     from voice_stt_client.core.history import TranscriptHistoryManager
     from voice_stt_client.core.text_injector import CtypesWindowsInjectionBackend,TextInjectionQueue
+    from voice_stt_client.core import protocol_v2 as p
+    from voice_stt_client.core.activation_mirror import ActivationMirror
+    from voice_stt_client.core.final_results import V2ResultService
+    from tests.test_v2_mirror import msg,snapshot
     app=QApplication([])
     clipboard=app.clipboard()
     original=QMimeData()
@@ -71,12 +76,13 @@ def check(evidence, focus_timeout=8):
     folder.mkdir(parents=True)
     config=AppConfig._load_single(DEFAULT_CONFIG_PATH)
     config.clipboard.restore_previous=False
-    config.text_injection.append_space=False
+    config.text_injection.append_space=append_space
     config.history.persistent.db_path=str(folder/'history.sqlite')
     config.history.persistent.store_all=True
     history=TranscriptHistoryManager(config.history)
     backend=None;queue=None
-    child=subprocess.Popen([sys.executable,str(Path(__file__)), '--target',str(folder)],
+    child=subprocess.Popen([sys.executable,str(Path(__file__)), '--target',str(folder)]
+                           + (['--append-space'] if append_space else []),
                            env=dict(os.environ,QT_QPA_PLATFORM='windows'))
     def wait(predicate,timeout=8):
         deadline=time.monotonic()+timeout
@@ -115,16 +121,19 @@ def check(evidence, focus_timeout=8):
         queue=TextInjectionQueue(config,history,backend)
         queue.on_attempt_result=attempts.append
         queue.start()
-        entry=history.add_entry_with_status(str(uuid.uuid4()),str(uuid.uuid4()),TEXT,
-            protocol_version=2,activation_id=str(uuid.uuid4()),segment_sequence=1,
-            event_id=str(uuid.uuid4()),event_seq=1,primary_source='manual',activation_sequence=1).entry
-        if not queue.enqueue_reserved(entry):raise RuntimeError('Reservation refused')
+        mirror=ActivationMirror()
+        service=V2ResultService(history,queue)
+        service.consume(mirror.begin(1,snapshot(),1))
+        reduction=mirror.consume(1,msg(p.EventType.COMPLETED,1,text=TEXT),1)
+        outcomes=service.consume(reduction)
+        if [o.status for o in outcomes]!=['queued']:raise RuntimeError('Final admission refused')
+        entry=history.get_memory_entries()[0]
         wait(lambda:len(attempts)==1)
         wait(lambda:observed().get('firstExact'))
         checks['separate_process_exact_unicode_paste']=attempts[0].status=='command_sent'
         # Automatic duplicate is rejected before another clipboard operation.
-        duplicate=queue.enqueue_reserved(entry)
-        checks['automatic_duplicate_rejected']=not duplicate
+        duplicate=service.consume(reduction)
+        checks['automatic_duplicate_rejected']=[o.status for o in duplicate]==['deduplicated']
         if not queue.enqueue_manual(entry):raise RuntimeError('Explicit reinsert refused')
         wait(lambda:len(attempts)==2)
         wait(lambda:observed().get('reinsertExact'))
@@ -159,6 +168,8 @@ def check(evidence, focus_timeout=8):
     verdict=('NOT_RUN' if run_error and not attempts else
              'PASS' if not run_error and checks and all(v is True for v in checks.values()) else 'FAIL')
     result=dict(identity=identity(),tester='Codex on native Windows',checks=checks,errorType=run_error,
+        appendSpace=append_space,authoritativeHistoryTextPreserved=all(
+            e.text==TEXT for e in history.get_memory_entries()),
         attempts=[dict(status=a.status,source=a.source) for a in attempts],
         result=verdict,
         boundaries=__doc__,targetProcessSeparate=True,privateClipboardSaved=False,
@@ -173,6 +184,7 @@ if __name__=='__main__':
     parser.add_argument('--target',type=Path)
     parser.add_argument('--evidence',type=Path)
     parser.add_argument('--focus-timeout',type=float,default=8)
+    parser.add_argument('--append-space',action='store_true')
     args=parser.parse_args()
-    if args.target:target(args.target)
-    else:raise SystemExit(check(args.evidence,args.focus_timeout))
+    if args.target:target(args.target,args.append_space)
+    else:raise SystemExit(check(args.evidence,args.focus_timeout,args.append_space))

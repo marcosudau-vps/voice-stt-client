@@ -1,3 +1,9 @@
+## Fortschreibung UX01, 2026-10-15
+
+[Zusatzfreigabe006](ZUSATZPROMPTS/006_UX01_FREIGABE.md) erweitert den Produktscope eng auf die bestehende Einstellung Leerzeichen anhängen. Fünf dauerhafte komponierte Regressionen in `tests/test_text_injector_spacing.py` führen autoritative Mirrorfinals über Finalconsumer, echte SQLite und seriellen Queueworker bis zur ersetzten Win32-Grenze. Drei Fälle reproduzierten das fehlende Leerzeichen vor der Produktkorrektur. Unveränderte Finals/History/IDs, Replaydeduplizierung, explizite Wiedereinfügung, False, vorhandener Whitespace und Clipboardrestore werden geprüft. Produktfix bildet ausschließlich den lokalen Ausgabepayload; vorhandene Rohtext-Testfixtures schalten die Einstellung ausdrücklich aus. [Gezielte100 PASS](EVIDENCE/human/ux01-targeted-green-final.json). Neue Voll-/Build-/Paarqualifikation läuft; UX01 bleibt bis dahin offen. Die vorherigen 41ca761-Qualifikationen bleiben historisch gebunden.
+
+Menschlicher geführter Wakebefund: „Beide Sätze vollständig“. [Technischer Lauf](EVIDENCE/human/guided-wake-320.json) belegt die erste echte Einfügung; vor der zweiten war der eigene Editor nicht mehr im Vordergrund. Diese Abweichung ist dokumentiert und bleibt Teilnachweis. Kein vollständiger M02-PASS.
+
 # AP-IV2-020 / R01-UMSETZUNG – IN_PROGRESS (Fortsetzung)
 
 Die [ausdrückliche Scope-Freigabe](ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md)

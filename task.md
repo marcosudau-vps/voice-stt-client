@@ -1,3 +1,9 @@
+## AP-IV2-020/R01 – UX01 zusätzlich freigegeben, 2026-10-15
+
+- Bestehende Einstellung Leerzeichen anhängen im gemeinsamen Ausgabepfad umgesetzt; autoritative Texte/History unverändert.
+- Fünf dauerhafte komponierte Regressionen: vorher drei rote Fehler, danach gezielte100 PASS. Volle Windows-/Build-/Paarqualifikation läuft.
+- Mensch bestätigt beide Wake-Nutzsätze vollständig; technische Zielevidenz teilweise wegen Fokuswechsel. Reale Pflichtgates bleiben offen.
+
 <!-- AP-IV2-020-PHASE-C-20261015 -->
 AP-IV2-020/R01 IN_PROGRESS: reale Manual-/Followupvergleiche dokumentiert,5000ms
 menschlich passend; isolierte Manual/Wake/Both-Profile gespeichert. M01-Overlap offen.

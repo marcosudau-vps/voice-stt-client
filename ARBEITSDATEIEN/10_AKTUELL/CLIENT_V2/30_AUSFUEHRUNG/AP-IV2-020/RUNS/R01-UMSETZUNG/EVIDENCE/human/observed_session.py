@@ -45,6 +45,7 @@ def main():
     parser.add_argument('--self-check', action='store_true')
     parser.add_argument('--wait-for-editor-state', type=Path)
     parser.add_argument('--stop-after', type=int, default=0)
+    parser.add_argument('--editor-guided', action='store_true')
     args = parser.parse_args()
     if args.self_check:
         from types import SimpleNamespace
@@ -61,6 +62,8 @@ def main():
     focus_gate = None
     if not 0 <= args.stop_after <= 100:
         parser.error('--stop-after must be 0..100')
+    if args.editor_guided and not args.wait_for_editor_state:
+        parser.error('--editor-guided requires the owned editor state')
     if args.wait_for_editor_state:
         state_file = args.wait_for_editor_state.resolve()
         if not state_file.is_relative_to((local / 'editors').resolve()):
@@ -70,7 +73,8 @@ def main():
         while True:
             state = json.loads(state_file.read_text(encoding='utf8'))
             fresh = abs((datetime.now(UTC) - datetime.fromisoformat(state['timeUtc'])).total_seconds()) < 2
-            if fresh and state['foreground']:
+            if (fresh and state['foreground'] and state.get('editorHasFocus', False)
+                    and (not args.editor_guided or state.get('operatorReady', False))):
                 focus_gate = {k: v for k, v in state.items() if k != 'testText'}
                 break
             if time.monotonic() >= deadline:
@@ -87,6 +91,9 @@ def main():
         initialEditorFocus=focus_gate, stopAfterTerminalActivations=args.stop_after,
         helperSha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())), encoding='utf8')
     original = v2_runtime.V2Runtime
+    def editor_instruction(text):
+        (state_file.parent/'command.json').write_text(json.dumps(dict(
+            action='instruction', text=text)), encoding='utf8')
 
     class ObservedRuntime(original):
         def __init__(self, *values, **options):
@@ -99,8 +106,35 @@ def main():
                 record.update(timeUtc=datetime.now(UTC).isoformat(), monotonic=time.monotonic())
                 with trace.open('a', encoding='utf8') as handle:
                     handle.write(json.dumps(record, ensure_ascii=True) + '\n')
+                if args.editor_guided and str(event.type) in (
+                        'activation.completed', 'activation.cancelled', 'activation.failed'):
+                    count = sum(a.status in ('completed', 'cancelled', 'failed')
+                                for a in self.mirror.mirror.view.activations.values())
+                    if count == 1:
+                        editor_instruction('SCHRITT 2 VON 2\n'
+                            '• Ohne Pause sprechen:\nAlexa die gelbe Tasche steht vor der Tür.\n'
+                            '• Danach Strg+Umschalt+F9 drücken.\n'
+                            '• Anschließend warten, bis hier „Fertig“ steht.')
+                    elif count >= 2:
+                        editor_instruction('BITTE KURZ WARTEN\n• Der Testclient wird beendet.\n'
+                                           '• Danach erscheint hier „FERTIG“.')
 
             self.session.on_message = receive
+            if args.editor_guided:
+                previous_status = self.session.on_status
+                shown = False
+
+                def status(value):
+                    nonlocal shown
+                    previous_status(value)
+                    if str(value.state) == 'ready' and not shown:
+                        shown = True
+                        editor_instruction('SCHRITT 1 VON 2 – CLIENT BEREIT\n'
+                            '• Ohne Pause sprechen:\nHey Jarvis der rote Ball liegt auf dem Boden.\n'
+                            '• Danach Strg+Umschalt+F9 drücken.\n'
+                            '• Auf die nächste Aufgabe hier im Fenster warten.')
+
+                self.session.on_status = status
             if args.stop_after:
                 original_run = self.run
 
@@ -135,6 +169,9 @@ def main():
         run(args.mode)
     finally:
         v2_runtime.V2Runtime = original
+        if args.editor_guided:
+            editor_instruction('FERTIG – TESTCLIENT BEENDET\n'
+                               '• Jetzt bitte im Chat das Ergebnis melden.')
 
 
 if __name__ == '__main__':

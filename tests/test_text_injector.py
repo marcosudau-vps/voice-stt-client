@@ -171,6 +171,8 @@ class TestTextInjector(unittest.TestCase):
 
         # Default configuration
         self.config = AppConfig()
+        # These tests exercise exact Clipboard payloads; spacing has its own suite.
+        self.config.text_injection.append_space = False
         self.config.text_injection.paste_delay_ms = 0
         self.config.clipboard.restore_delay_ms = 0
         self.config.clipboard.open_retries = 2
