@@ -1867,5 +1867,26 @@
     "Legacy session/dictation_window fields are migration inputs, not V2 timing authorities.",
     "Packaged LED brightness=192 and sounds_enabled=true override dataclass 64/false.",
     "NA session wishes re-bootstrap on reconnect; NS noise/VAD require isolated server defaults; reconnect plus session patch cannot activate them."
+  ],
+  "subsequentProductParameters": [
+    {
+      "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+      "key": "MODIFIER_RELEASE_TIMEOUT_S",
+      "value": 1.5,
+      "unit": "seconds",
+      "authority": "client_internal",
+      "configurable": false,
+      "source": "voice_stt_client/core/text_injector.py",
+      "purpose": "Shared bounded wait for held modifiers, shutdown-aware"
+    },
+    {
+      "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+      "key": "MODIFIER_POLL_INTERVAL_S",
+      "value": 0.01,
+      "unit": "seconds",
+      "authority": "client_internal",
+      "configurable": false,
+      "source": "voice_stt_client/core/text_injector.py"
+    }
   ]
 }

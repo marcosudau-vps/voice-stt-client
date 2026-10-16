@@ -1,3 +1,9 @@
+## Aktueller Produktstand d95043e: technische Requalifikation PASS
+
+[UX02-Gesamtbeleg](ux02/qualification-summary.json), [vollständiger Index](ux02/INDEX.md), [Buildidentitäten/Hashes](ux02/build/artifacts.json), [reale neue Modellreplays](ux02/real-model-replay-summary.json). Windows1390/Server1964+14 erwartete Skips, elf Prozessfälle/17 Grenztests/sieben Smokes, reale Recovery-/Desktop-/Win32-/Credential- und Buildprüfungen grün. UX02 benötigt noch physischen Halte-/Freigabenachweis; vollständige M01..M12/30min100/Kalibrierung offen. Keine Übertragung älterer vollständiger Hardwarequalifikation.
+
+### Frühere Zwischenstände und Beleggruppen
+
 ## Aktuell: dauerhafter Testclient fertig, UX02 offen
 
 [Testclient](../../../../../../../../tests/manual/v2/README.md), [zehn Helferprüfungen/Qt/Windows1378 PASS](ux01/manual-tool-permanent/summary.json). Feste Schritte, wandernder Fokus, Vorbereitung8s und Timer rechts. [Manualprobe](ux01/repeatable-manual-20261016-01/assessment.json): F8/F9 PASS, Zieleinfügung FAIL durch gehaltenes Shift. [Nicht angewandter Scopevorschlag](../08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md). BLOCKED bezüglich vollständiger Qualifikation; kein geänderter Produktcode.

@@ -1,3 +1,9 @@
+## Nächste Einzelaufgabe: physische Tastenfreigabe am Produkt d95043e
+
+UX02 ausdrücklich freigegeben, umgesetzt und vollständig technisch requalifiziert. Die eigene Testoberfläche zeigt vor Start acht Schritte. Nur Tastentest: auf eigenen Start/8s Vorbereitung warten, bei hervorgehobener Aufforderung Strg+Umschalt+F9 kurz drücken und alle Tasten loslassen; erwartete Ausgabe **„Modifiertastenprobe erfolgreich.“**. Danach selbst Wiederholen oder Übernehmen wählen. Keine Sprache nötig. Native Tastenzustände, Clipboard, SendInput und tatsächliche Ausgabe prüft der Agent; kein automatisches PASS aus Übernehmen. Erst nach Prüfung folgt die nächste getrennt startbare Sprachaufgabe. [Belege](EVIDENCE/ux02/qualification-summary.json).
+
+### Frühere Fortsetzungsstände
+
 ## Dauerhafte Oberfläche und aktueller Halt
 
 [Startanleitung](../../../../../../../tests/manual/v2/README.md); Vorschau `venv/Scripts/python.exe -m tests.manual.v2 --preview`. Feste acht Schritte, wandernder Fokus, grüner Satz und Timer rechts. Acht Sekunden ruhige Vorbereitung, unveränderte Produktfristen. Weitere echte Einfügeversuche nach Entscheidung zum [Modifiertastenbefund UX02](08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md) bündeln.

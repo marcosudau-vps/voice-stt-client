@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "profiles": [
+    {
+      "mode": "manual",
+      "sourceSha256": "8126a82ebb4f9ed33ceba281eb843363ccef4f059375c5497a8692d6ed2b6942",
+      "followupMs": 5000,
+      "preRollMs": 320,
+      "appendSpace": true
+    },
+    {
+      "mode": "wake",
+      "sourceSha256": "8ed919d1273994d882de29e39c3efa3edb81a53880f3a7fcbe192f387bebfd88",
+      "followupMs": 5000,
+      "preRollMs": 320,
+      "appendSpace": true
+    },
+    {
+      "mode": "both",
+      "sourceSha256": "bada66534d22c91ddcd695d8d55138dd2cdbffe96bff887f4c26b443eafab357",
+      "followupMs": 5000,
+      "preRollMs": 320,
+      "appendSpace": true
+    }
+  ],
+  "boundaries": "Existing isolated test profiles read and roundtripped through temporary files; no source profile/V1/global server modification."
+}

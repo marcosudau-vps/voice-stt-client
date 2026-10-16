@@ -1,6 +1,6 @@
-## AP-IV2-020/R01 – IN_PROGRESS nach UX02-Freigabe, 16.10.2026
+## AP-IV2-020/R01 – IN_PROGRESS, UX02 technisch requalifiziert, 16.10.2026
 
-UX02 samt Tests/Requalifikation ausdrücklich freigegeben. Native begrenzte Modifierfreigabe umgesetzt, zwölf neue dauerhafte Regressionen/112 gezielte Tests PASS. Finale volle Windows-/Build-/Serverpaarqualifikation folgt; realer Halte-/Freigabefall und übrige Realgates weiter offen. Kein REVIEW_READY, gleiche R01/Paketbranch/PR15.
+Produkt d95043e nach freigegebener Modifierkorrektur:1390 Windows-Tests/0 Skips,1964 Servertests/14 erwartete optionale Skips,11 Prozessfälle,17 Grenztests,7 Socketsmokes PASS. EXE/Wheel/sdist und native Produkt-/Serverlaufzeit erneut qualifiziert; reale Recovery, ReSpeaker-Desktop-Neustart und sechs Modellreplays neu gebunden. UX02 bleibt bis physischer Tastenprobe offen. Nächster Schritt: eigener Start im vorbereiteten Editor,8s Vorbereitung, echte Ctrl+Shift+F9-Freigabe; dann weitere gebündelte Realgates/Kalibrierung. Kein REVIEW_READY, gleicher R01/Paketbranch/PR15.
 
 ### Vorheriger Zwischenstand
 

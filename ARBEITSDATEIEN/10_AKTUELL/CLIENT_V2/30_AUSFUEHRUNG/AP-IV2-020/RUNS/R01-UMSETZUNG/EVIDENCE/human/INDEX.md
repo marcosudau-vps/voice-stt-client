@@ -1,3 +1,11 @@
+## Aktuell: UX02 technisch requalifiziert, physischer Nachweis offen
+
+[Produkt d95043e und Gesamtbelege](../ux02/qualification-summary.json), [Freigabe012](../../ZUSATZPROMPTS/012_UX02_FREIGABE.md). [Native Tastenprobe](native_modifier_trial.py), [passender GUIadapter](native_modifier_editor.py), tatsächliche Qt-/Veredicttests/Compile in [UX02-Index](../ux02/INDEX.md). Nur eigenes Testziel/echte physische Modifier/native Produktqueue; kein Mikrofon/Modell nötig. Neuer eigener Start nach jeder Wiederholung,8s ruhige Vorbereitung, anschließend eigenes Übernehmen. START erst nach laufendem Controller; GUI allein startet keine Testqueue.
+
+Aufruf aus dem Repository mit Projektvenv: zuerst native_modifier_editor.py; dessen ausgegebene eigene state.json an native_modifier_trial.py --state <state.json> --evidence <neues-Verzeichnis> --prepare-seconds 8 übergeben. Bestehende Belege werden nicht überschrieben. --self-check prüft Helfer ohne Eingaben; GUIadapter unterstützt --self-check. Die permanente allgemeine Oberfläche bleibt unter tests/manual/v2.
+
+### Frühere chronologische Zwischenstände
+
 ## Aktuell: dauerhafter Testclient fertig, UX02 offen
 
 [Testclient](../../../../../../../../../tests/manual/v2/README.md), [zehn Helferprüfungen/Qt/Windows1378 PASS](../ux01/manual-tool-permanent/summary.json). Feste Schritte, wandernder Fokus, Vorbereitung8s und Timer rechts. [Manualprobe](../ux01/repeatable-manual-20261016-01/assessment.json): F8/F9 PASS, Zieleinfügung FAIL durch gehaltenes Shift. [Nicht angewandter Scopevorschlag](../../08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md). BLOCKED bezüglich vollständiger Qualifikation; kein geänderter Produktcode.

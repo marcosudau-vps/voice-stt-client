@@ -1,6 +1,6 @@
 # AP-IV2-020 – unsere Testcheckliste
 
-**Stand: 16.10.2026 · Testoberfläche fertig · UX02-Ausnahme offen · Realgates offen**
+**Stand: 16.10.2026 · UX02 freigegeben und technisch requalifiziert · reale Tastenprobe und Realgates offen**
 
 Ich pflege die Häkchen nach den tatsächlichen Nachweisen. „Teilweise geprüft“
 bedeutet noch keinen vollständig bestandenen Pflichtfall. Derselbe R01 und
@@ -44,11 +44,10 @@ Die zwei getrennten Sitzungen sind ein erfolgreicher Teilnachweis, noch kein vol
 - [x] Roter Nachweis und konkreter Scopevorschlag vorbereitet.
 - [x] Menschliche UX02-Freigabe erteilt; Korrektur und zwölf dauerhafte Regressionen umgesetzt.
 - [x] Zwölf neue Regressionen, insgesamt112 gezielte Tests grün.
-- [ ] Neue vollständige Produkt-/Build-/Paarqualifikation.
+- [x] Produkt d95043e neu qualifiziert:1390 Windows-Tests,1964 Servertests/14 erwartete Skips,11 Prozessfälle,17 Grenztests,7/7 Smokes; EXE/Wheel/sdist und native Laufzeit grün.
 - [ ] Anschließend gezielter realer Halte-/Freigabetest und übrige Hardwareblöcke.
 
-Die letzte Zieleinfügung ist **FAIL**; der Finish-Hotkey funktioniert. Die neue
-Oberfläche ist unabhängig davon fertig; ihre Vorschau startet keinen Sprachclient.
+Die letzte Zieleinfügung am früheren Produkt17261e6 war **FAIL**; der Finish-Hotkey funktioniert. Am korrigierten Produkt d95043e ist die reale Tastenprobe noch offen. [Neue technische Belege](EVIDENCE/ux02/qualification-summary.json).
 
 ## Bereits erledigt
 

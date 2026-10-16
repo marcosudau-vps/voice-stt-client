@@ -1,5 +1,5 @@
 {
-  "scope": "Test and measurement helpers only; no product files modified",
+  "scope": "Test and measurement helpers only; product UX02 changes are separately authorized in prompt012 and qualified under ux02.",
   "scripts": [
     {
       "file": "check_append_space.py",
@@ -16,6 +16,14 @@
     {
       "file": "guided_output_trial.py",
       "sha256": "5b64d000237eef7845843e5f61f36a4fff079a1ad29919a111c270baf5ad7da1"
+    },
+    {
+      "file": "native_modifier_editor.py",
+      "sha256": "e4ff72b192d5c7de563906c73b4cdf8a42fb12d936992d20a689610d7e0044d5"
+    },
+    {
+      "file": "native_modifier_trial.py",
+      "sha256": "305e3d30d067398ed2d1ca958cfab54951582a371ab911c22b736438cd20272c"
     },
     {
       "file": "observed_session.py",

@@ -24,7 +24,7 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "UX02 ausdrücklich freigegeben: begrenzte native Modifierfreigabe implementieren, dauerhafte Regressionen rot/grün, vollen finalen Windows-/Build-/Paarstand qualifizieren; dann echte Halte-/Freigabeprobe über dauerhaften Testclient und übrige Realgates.",
+  "nextAction": "UX02 implementiert und technisch am Produkt d95043e vollständig requalifiziert. Nächster notwendiger Schritt: menschliche physische Ctrl+Shift+F9-Halte-/Freigabeprobe im eigenen start-/wiederholbaren Editor; danach übrige gebündelte Realgates und Kalibrierung. Finding bleibt bis nativem Nachweis offen.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -43,6 +43,6 @@
   },
   "recovery": null,
   "relatedServerFix": null,
-  "technicalProductCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
-  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/ux01/qualification-summary.json"
+  "technicalProductCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/ux02/qualification-summary.json"
 }
