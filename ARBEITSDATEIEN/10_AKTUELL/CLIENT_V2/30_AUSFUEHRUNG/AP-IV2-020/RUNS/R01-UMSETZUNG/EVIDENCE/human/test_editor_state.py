@@ -5,10 +5,29 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from editor_state import owned_editor_path, read_editor_state
+from editor_state import owned_editor_path, read_editor_state, operator_started
+from datetime import datetime, UTC, timedelta
 
 
 class EditorReads(unittest.TestCase):
+    def test_preview_and_old_task_cannot_start_next_task(self):
+        state = dict(timeUtc=datetime.now(UTC).isoformat(), foreground=True,
+                     editorHasFocus=True, operatorReady=False, taskId='two')
+        self.assertFalse(operator_started(state, 'two'))
+        state.update(operatorReady=True, taskId='one')
+        self.assertFalse(operator_started(state, 'two'))
+        state['taskId'] = 'two'
+        self.assertTrue(operator_started(state, 'two'))
+
+    def test_stale_or_unfocused_click_is_not_accepted(self):
+        state = dict(timeUtc=datetime.now(UTC).isoformat(), foreground=True,
+                     editorHasFocus=True, operatorReady=True, taskId='one')
+        for flag in ('foreground','editorHasFocus','operatorReady'):
+            with self.subTest(flag=flag):
+                self.assertFalse(operator_started(dict(state, **{flag:False}), 'one'))
+        state['timeUtc'] = (datetime.now(UTC)-timedelta(seconds=10)).isoformat()
+        self.assertFalse(operator_started(state, 'one'))
+
     def test_transient_permission_and_missing_file_then_fresh_state(self):
         with patch.object(Path, 'read_text', side_effect=[
                 PermissionError(13, 'controlled sharing fault'),

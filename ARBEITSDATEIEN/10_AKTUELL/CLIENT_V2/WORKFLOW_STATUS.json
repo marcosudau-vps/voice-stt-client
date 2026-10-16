@@ -22,7 +22,7 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "UX01 nach neuer technischer Requalifikation und tatsächlicher nativer Ausgabe geschlossen. Sprachversuch ohne menschliche Aktivierung beendet; nur die zwei Wake-Sätze mit eigenem Sprachtest-Start wiederholen. Checkliste07 pflegen, vollständige M-Gates weiterhin offen.",
+  "nextAction": "Je Einzelaufgabe vollständige Satz-/Tastenvorschau vor eigenem Startklick. Zwei Wake-Einzelversuche mit vollständig gestopptem Client dazwischen; erster Text bleibt. Testhelferprüfungen6+Qt+CLI PASS, Produkt17261e6 unverändert. UX01 geschlossen; gesamte Realgates weiter offen.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

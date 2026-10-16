@@ -1,6 +1,6 @@
 # AP-IV2-020 – unsere Testcheckliste
 
-**Stand: 15.10.2026 · Technische Qualifikation grün · Gemeinsame Realtests offen**
+**Stand: 16.10.2026 · Technische Qualifikation grün · Gemeinsame Realtests offen**
 
 Ich pflege die Häkchen nach den tatsächlichen Nachweisen. „Teilweise geprüft“
 bedeutet noch keinen vollständig bestandenen Pflichtfall. Derselbe R01 und
@@ -8,15 +8,15 @@ bedeutet noch keinen vollständig bestandenen Pflichtfall. Derselbe R01 und
 
 ## Jetzt: nur die beiden Wake-Sätze wiederholen
 
-- [ ] **„Sprachtest starten“** klicken, wenn du für die zwei Sätze bereit bist.
+- [ ] Aufgabe1 vorher lesen und bewusst **„Aufgabe 1 starten“** klicken.
+- [ ] Aufgabe2 vorher lesen und separat **„Aufgabe 2 starten“** klicken.
 - [x] Automatische native Einfügeprobe mit Leerzeichen erfolgreich.
 - [ ] „Hey Jarvis“ + roter Ball vollständig, ohne Rufwort im Editor.
 - [ ] „Alexa“ + gelbe Tasche vollständig, ohne Rufwort im Editor.
 - [ ] Beide Finals mit Leerzeichen getrennt; F9-Steuerung und Fokus nachgewiesen.
 - [ ] Dein Urteil zu **320ms Pre-Roll** und direktem Sprechbeginn festhalten.
 
-Die jeweilige kurze Aktion steht im Testfenster. Erst nach **FERTIG** zurück
-in den Chat wechseln. Die Einfügeprobe ist bereits bestanden. Der neue Sprachtest wartet auf seinen eigenen Startknopf.
+Satz und Tastenfolge stehen **vor jedem Start** im Testfenster. Jede Einzelaufgabe hat ihren eigenen Klick; zwischen den Aufgaben ist der Sprachclient aus. Der erste Text bleibt erhalten. Erst nach **FERTIG** zurück in den Chat wechseln. Die Einfügeprobe ist bereits bestanden.
 
 ## Bereits erledigt
 

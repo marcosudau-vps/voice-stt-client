@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 import sys
 import time
-from editor_state import owned_editor_path, read_editor_state
+from editor_state import owned_editor_path, read_editor_state, operator_started
 
 ROOT = next(p for p in Path(__file__).resolve().parents
             if (p / 'scripts/qualify_v2_session.py').is_file())
@@ -49,9 +49,13 @@ def main():
     parser.add_argument('--stop-after', type=int, default=0)
     parser.add_argument('--editor-guided', action='store_true')
     parser.add_argument('--arm-timeout', type=int, default=120)
+    parser.add_argument('--editor-case', choices=('jarvis', 'alexa'))
+    parser.add_argument('--expected-task-id')
     args = parser.parse_args()
     if not 10 <= args.arm_timeout <= 1800:
         parser.error('--arm-timeout must be 10..1800 seconds')
+    if args.editor_guided and (not args.editor_case or args.stop_after != 1):
+        parser.error('Guided tasks require one --editor-case and --stop-after 1; each task needs its own start')
     if args.self_check:
         from types import SimpleNamespace
         record = safe_event(SimpleNamespace(generation=2), SimpleNamespace(
@@ -78,8 +82,9 @@ def main():
         while True:
             state = read_editor_state(state_file)
             fresh = abs((datetime.now(UTC) - datetime.fromisoformat(state['timeUtc'])).total_seconds()) < 2
-            if (fresh and state['foreground'] and state.get('editorHasFocus', False)
-                    and (not args.editor_guided or state.get('operatorReady', False))):
+            started = (operator_started(state, args.expected_task_id) if args.editor_guided
+                       else fresh and state['foreground'] and state.get('editorHasFocus', False))
+            if started:
                 focus_gate = {k: v for k, v in state.items() if k != 'testText'}
                 break
             if time.monotonic() >= deadline:
@@ -94,6 +99,7 @@ def main():
     (local / 'active-observation.json').write_text(json.dumps(dict(
         folder=str(folder), pid=os.getpid(), mode=args.mode,
         initialEditorFocus=focus_gate, stopAfterTerminalActivations=args.stop_after,
+        taskId=args.expected_task_id, editorCase=args.editor_case,
         helperSha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())), encoding='utf8')
     original = v2_runtime.V2Runtime
     def editor_instruction(text):
@@ -140,12 +146,7 @@ def main():
                         'activation.completed', 'activation.cancelled', 'activation.failed'):
                     count = sum(a.status in ('completed', 'cancelled', 'failed')
                                 for a in self.mirror.mirror.view.activations.values())
-                    if count == 1:
-                        editor_instruction('SCHRITT 2 VON 2\n'
-                            '• Ohne Pause sprechen:\nAlexa die gelbe Tasche steht vor der Tür.\n'
-                            '• Danach Strg+Umschalt+F9 drücken.\n'
-                            '• Anschließend warten, bis hier „Fertig“ steht.')
-                    elif count >= 2:
+                    if count >= 1:
                         editor_instruction('BITTE KURZ WARTEN\n• Der Testclient wird beendet.\n'
                                            '• Danach erscheint hier „FERTIG“.')
 
@@ -159,8 +160,11 @@ def main():
                     previous_status(value)
                     if str(value.state) == 'ready' and not shown:
                         shown = True
-                        editor_instruction('SCHRITT 1 VON 2 – CLIENT BEREIT\n'
-                            '• Ohne Pause sprechen:\nHey Jarvis der rote Ball liegt auf dem Boden.\n'
+                        phrase = ('Hey Jarvis der rote Ball liegt auf dem Boden.'
+                                  if args.editor_case == 'jarvis' else
+                                  'Alexa die gelbe Tasche steht vor der Tür.')
+                        editor_instruction('CLIENT BEREIT – JETZT SPRECHEN\n'
+                            '• Ohne Pause sprechen:\n'+phrase+'\n'
                             '• Danach Strg+Umschalt+F9 drücken.\n'
                             '• Auf die nächste Aufgabe hier im Fenster warten.')
 
@@ -200,8 +204,8 @@ def main():
     finally:
         v2_runtime.V2Runtime = original
         if args.editor_guided:
-            editor_instruction('FERTIG – TESTCLIENT BEENDET\n'
-                               '• Jetzt bitte im Chat das Ergebnis melden.')
+            editor_instruction('AUFGABE BEENDET – TESTCLIENT AUS\n'
+                               '• Die nächste Aufgabe benötigt wieder deinen Start.')
 
 
 if __name__ == '__main__':

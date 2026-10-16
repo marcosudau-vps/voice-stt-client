@@ -7,15 +7,15 @@
     },
     {
       "file": "editor_state.py",
-      "sha256": "64d09a79fe277f2992c4fe383e9da03a5c4bda47e09e9dc5765ebd0c193586a4"
+      "sha256": "ef93b63adfcf14feec6830ae5026d4eee11f5978b882c9979e71ccf3458c828d"
     },
     {
       "file": "guided_output_trial.py",
-      "sha256": "d7a1175dca889b0b7bf72387192d44aee69bde0e4d6519bd85797feb73e97af4"
+      "sha256": "5b64d000237eef7845843e5f61f36a4fff079a1ad29919a111c270baf5ad7da1"
     },
     {
       "file": "observed_session.py",
-      "sha256": "bb37918ab10de92aa3c8d86bddfcd7d7c5cb12d4cdc8f698e79cac770d7a9cbe"
+      "sha256": "9c323a91d4b53e5e6f06241243830255446fa44698598181b2265c9d99534c31"
     },
     {
       "file": "probe_native_editor.py",
@@ -34,14 +34,18 @@
       "sha256": "4e3550312217ebf8fbb01fb183c29468c35184b03a8e55d4df03fe90158f0823"
     },
     {
+      "file": "stepped_wake_trial.py",
+      "sha256": "c6bb11eaa3336ae343dd454249909b6be4088c4aefd9e6c9265fd855a33b818c"
+    },
+    {
       "file": "test_editor_state.py",
-      "sha256": "340325a05e8d583cf23d0ef78e3f1b12afcc7941a4243e49f3f78aa331e3e819"
+      "sha256": "37f26848628512fceb66c837d59970a7f0892e015c8728a14bd6641db27a6f24"
     }
   ],
   "reproduction": "samples/README.md",
   "fixtureAuthorization": "../../ZUSATZPROMPTS/004_TESTAUFNAHMEN_REPO.md",
   "editorHelper": {
     "file": "../recovery-audit/human_test_editor.py",
-    "sha256": "f7a7c1346652825fbfbb0919a759ea7b57112f8b19aa985b7b6ca19ee5ccec1d"
+    "sha256": "c549c17e590f58cdadef6e7e8286a66cd3e59f7eeea10370a76645a876296a28"
   }
 }

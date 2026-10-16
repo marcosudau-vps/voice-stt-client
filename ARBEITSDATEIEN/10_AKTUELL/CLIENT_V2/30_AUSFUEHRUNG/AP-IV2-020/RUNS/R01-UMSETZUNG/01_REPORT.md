@@ -1,3 +1,9 @@
+## Aufgabenweise Vorschau und ausdrücklicher Start, 16.10.2026
+
+[Bedienvorgabe008](ZUSATZPROMPTS/008_AUFGABEN_START_UND_VORSCHAU.md) umgesetzt: Satz und Schritte vorab sichtbar, eigener Start für jede Aufgabe, zwischen den Aufgaben vollständig beendeter Client, erster Text bei zweiter Aufgabe erhalten. Nur Testhelfer verändert. `stepped_wake_trial.py` nutzt pro Aufgabe eine eigene tatsächliche Produktsession; diese beiden Einzelversuche beweisen für sich keine vollständige Same-Session-M02-/M12-Qualifikation.
+
+[Helferprüfungen](EVIDENCE/ux01/task-start-controls/summary.json): sechs dauerhafte Gate-/I/O-Regressionen PASS, echte Qt-Widget-Selbstprüfung für Vorschau/voneinander getrennte Klicks/kein Autostart/Texterhalt PASS, alte automatische Zwei-Aufgaben-CLI wird vor Clientstart abgewiesen. Das sind Helferprüfungen, keine Sprach-/Hardware-PASS. Produkt17261e6 unverändert und dessen Qualifikation erhalten. Der vorige voice-repeat02 lief ohne Startklick in den Vorbereitungs-Timeout; keine neue Clientausführung daraus abgeleitet.
+
 ## Native UX01-Bestätigung und expliziter Sprachstart
 
 [Echte native Probe](EVIDENCE/ux01/repeat-01/native-editor-spaced.json) PASS: genau40Zeichen mit angehängtem Leerzeichen im eigenen fokussierten Editor, ein command_sent-Versuch, vier tatsächliche SendInput-Ereignisse, autoritativer Text unverändert. [Quellhashbindung](EVIDENCE/ux01/repeat-01/native-product-binding.json) an vollständig qualifiziertes Produkt17261e6 exakt. **UX01 geschlossen.** Dies schließt keine vollständige M-Fallabnahme ein.

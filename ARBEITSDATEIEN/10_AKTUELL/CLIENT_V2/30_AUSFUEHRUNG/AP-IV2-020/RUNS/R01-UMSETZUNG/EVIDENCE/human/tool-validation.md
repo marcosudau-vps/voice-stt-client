@@ -45,3 +45,7 @@ Serializer-Selbstcheck PASS; echte bounded Liveprüfung steht noch aus.
 ## Wiederholung und Diagnose-Dateizugriff
 
 Der dokumentierte Startversuch2 zeigt PermissionError errno13 vor arming/native I/O. Zugrunde liegende Windows-/AppData-Zugriffssituation derzeit nicht sicher reproduzierbar; logische und aufgelöste Pfade funktionieren nun auch im Kindprozess. `editor_state.py` behält den logischen Pfad und prüft per resolve nur die eigene Pfadgrenze. Ausschließlich erwartete Diagnose-Lesefehler werden maximal2s wiederholt; keine Einfügung wird wiederholt. Vier dauerhafte Helfertests (transient/permanent/unerwartet/Pfadgrenze) und500 reale Kindprozess-Lesezugriffe auf den laufend aktualisierten neuen Qt-Editor PASS. `guided_output_trial.py`, native Probe und Observer nutzen denselben Helfer. Kein Produktcode geändert; kein neuer vollständiger Realgate-PASS.
+
+## Expliziter Start jeder Einzelaufgabe, 16.10.2026
+
+`stepped_wake_trial.py` stellt Satz/Tastenfolge vorab bereit. Der Observer verlangt für geführte Versuche genau eine Case-ID, einen Terminalstopp und einen passenden frischen Taskstart. Alter Startstatus einer anderen Aufgabe reicht nicht. Sechs Gate-/Leseprüfungen, Qt-Selbstprüfung (Vorschau vor Klick, keine automatische Folgestartwirkung, Texterhalt) und CLI-Negativtest PASS. Jeder tatsächliche Versuch startet eine neue Produktsession erst nach seinem eigenen Klick; diese Testgrenze wird im Report ausgewiesen.

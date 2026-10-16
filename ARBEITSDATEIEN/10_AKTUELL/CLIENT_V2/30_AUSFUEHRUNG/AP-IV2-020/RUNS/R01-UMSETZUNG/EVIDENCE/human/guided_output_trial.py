@@ -52,9 +52,8 @@ def main():
         '• Erst „Sprachtest starten“ klicken.\n'
         '• Auf „CLIENT BEREIT“ warten, dann nur den angezeigten Satz sprechen.\n'
         '• Nach jedem Satz Strg+Umschalt+F9 drücken.'))
-    voice = subprocess.run([sys.executable, str(folder/'observed_session.py'),
-        '--mode','wake','--wait-for-editor-state',str(state),
-        '--stop-after','2','--editor-guided','--arm-timeout','600'], timeout=820)
+    voice = subprocess.run([sys.executable, str(folder/'stepped_wake_trial.py'),
+        '--state',str(state), '--evidence',str(args.evidence/'wake-tasks')], timeout=4100)
     output = dict(nativeResult='PASS', voiceProcessExitCode=voice.returncode,
                   helperSha256=helpers, nativeEvidence=result_path.name,
                   boundaries=__doc__, voiceFunctionalResult='PENDING_TRACE_AND_HUMAN_EVALUATION')

@@ -46,11 +46,12 @@ def run(self_check=False):
     elevated = bool(ctypes.windll.shell32.IsUserAnAdmin())
     layout.addWidget(QLabel('Testziel '+('mit erhöhten Rechten' if elevated else 'mit normalen Rechten')+
         '. Nur vereinbarte Testsätze verwenden. Die aktuelle Aktion steht direkt darunter.'))
-    instruction = QLabel('Einfügen ohne Sprache prüfen.\nBitte „Einfügeprüfung starten“ klicken und danach warten.')
+    instruction = QLabel('VORBEREITUNG\nDie Aufgabe und der vollständige Satz erscheinen vor dem Start.')
     instruction.setWordWrap(True)
     instruction.setStyleSheet('font-size: 18px; padding: 8px;')
     layout.addWidget(instruction)
-    start_button = QPushButton('Einfügeprüfung starten')
+    start_button = QPushButton('Vorbereitung läuft')
+    start_button.setEnabled(False)
     layout.addWidget(start_button)
     editor = TestEditor()
     editor.setPlaceholderText('Hier erscheinen die finalen Transkriptionen.')
@@ -64,6 +65,9 @@ def run(self_check=False):
     changes = 0
     last_state = None
     operator_ready = False
+    task_id = None
+    start_sequence = 0
+    clear_on_start = True
     def snapshot():
         nonlocal last_state
         # Deliberately chosen test text stays local; only counters/hashes are
@@ -75,6 +79,7 @@ def run(self_check=False):
         data = dict(pid=os.getpid(), elevated=elevated, timeUtc=datetime.now(UTC).isoformat(),
                     foreground=foreground == int(window.winId()), editorHasFocus=editor.hasFocus(),
                     operatorReady=operator_ready,
+                    taskId=task_id, startSequence=start_sequence,
                     foregroundPid=target_pid.value, diagnosticTrace=str(root/'events.jsonl'),
                     changes=changes, characters=len(value), sha256=hashlib.sha256(value.encode()).hexdigest(),
                     testText=value, helperOnly=self_check)
@@ -91,12 +96,14 @@ def run(self_check=False):
         snapshot()
     editor.textChanged.connect(changed)
     def start():
-        nonlocal operator_ready
-        editor.clear()
+        nonlocal operator_ready, start_sequence
+        if clear_on_start:
+            editor.clear()
+        start_sequence += 1
         start_button.setEnabled(False)
         editor.setFocus(Qt.FocusReason.OtherFocusReason)
         operator_ready = True
-        diagnostic('operator_start')
+        diagnostic('operator_start', taskId=task_id, startSequence=start_sequence)
         snapshot()
     start_button.clicked.connect(start)
     timer = QTimer()
@@ -105,7 +112,7 @@ def run(self_check=False):
     timer.start()
     control = root/'command.json'
     def command():
-        nonlocal operator_ready
+        nonlocal operator_ready, task_id, clear_on_start
         if control.exists():
             value = json.loads(control.read_text(encoding='utf8'))
             action = value.get('action')
@@ -118,6 +125,8 @@ def run(self_check=False):
                 instruction.setText(value['text'])
             elif action == 'prepare':
                 operator_ready = False
+                task_id = value.get('taskId')
+                clear_on_start = value.get('clearOnStart', True)
                 instruction.setText(value['text'])
                 start_button.setText(value.get('buttonText', 'Test starten'))
                 start_button.setEnabled(True)
@@ -134,11 +143,27 @@ def run(self_check=False):
     QTimer.singleShot(2*60*60*1000, app.quit)
     if self_check:
         def check():
+            def prepare(task, clear):
+                control.write_text(json.dumps(dict(action='prepare', taskId=task,
+                    text='VOR DEM START: vereinbarter Testsatz', clearOnStart=clear)), encoding='utf8')
+                command()
+            prepare('one', True)
+            assert not operator_ready and start_sequence == 0
+            assert instruction.text().startswith('VOR DEM START')
+            start_button.click()
+            assert operator_ready and start_sequence == 1
             editor.setPlainText('Vereinbarter Prüftext äöü ß')
+            prepare('two', False)
+            assert not operator_ready and start_sequence == 1
+            assert editor.toPlainText() == 'Vereinbarter Prüftext äöü ß'
+            app.processEvents()
+            assert not operator_ready and start_sequence == 1
+            start_button.click()
+            assert operator_ready and start_sequence == 2
             snapshot()
             data = json.loads((root/'state.json').read_text(encoding='utf8'))
-            assert data['testText'] == editor.toPlainText() and data['changes'] == 1
-            print('HELPER_SELF_CHECK_PASS (no native paste or M-case proof)', flush=True)
+            assert data['testText'] == editor.toPlainText() and data['taskId'] == 'two'
+            print('HELPER_SELF_CHECK_PASS: preview before start, separate clicks, no auto-start, text retained (no native paste or M-case proof)', flush=True)
             app.quit()
         QTimer.singleShot(100, check)
     app.exec()
