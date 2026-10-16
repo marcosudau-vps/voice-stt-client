@@ -1,3 +1,7 @@
+## Livebestätigung mit getrennten Startknöpfen, 16.10.2026
+
+[Bewerteter Durchgang](stepped-20261016-01/assessment.json), [unveränderter Prozessbericht](stepped-20261016-01/stepped-trial.json), vollständige minimierte Event-/Ack-/Metrik- und Quellidentitätsprotokolle daneben als `.json.gz`. Beide direkten Nutzsätze vollständig und sichtbar mit Leerzeichen, Nutzerbestätigung stimmt mit Editorhash überein. Zwei separate Sitzungen; F9 mangels Activationack und wegen timed_out unbewiesen. Quelle exakt Produkt17261e6, M02 insgesamt offen. [Neue passive Hotkeydiagnose vorgeprüft](hotkey-task-precheck/summary.json).
+
 ## Aktualisierung: UX01 geschlossen, Sprache wird getrennt gestartet
 
 [Native Bestätigung](repeat-01/native-editor-spaced.json) und [exakte Produktbindung](repeat-01/native-product-binding.json) PASS. Der automatisch gestartete Sprachversuch hatte null Activations/Finals, menschlicher Übergang verpasst, daher [NOT_RUN_HUMAN_SPEECH](repeat-01/voice-attempt-assessment.json). Native Probe nicht erneut nötig; nur zwei Wake-Sätze nach explizitem Sprachstart offen.

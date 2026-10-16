@@ -1,3 +1,7 @@
+## AP-IV2-020/R01 – bestätigte einzelne Wake-Aufgaben, 16.10.2026
+
+Beide direkten Nutzsätze im eigenen Editor vollständig und mit Leerzeichen, tatsächlich getrennt gestartet, Quellhashbindung an Produkt17261e6 exakt. UX01 geschlossen. F9 nicht als Finish quittiert, beide Fenster per Timeout; gezielter Manual-F8/F9-Test mit Satzvorschau/eigenem Start vorbereitet. Vollständige M-Fälle bleiben offen. Technische Qualifikation unverändert grün; keine Produktänderung.
+
 ## AP-IV2-020/R01 – autonomer neuer Stand17261e6 qualifiziert
 
 Windows1378 ohne Skips, Server1964/14 erwartete optionale Skips,11 Prozessfälle,17 Grenzen und7/7 Smokes PASS. Neue EXE/Wheel/sdist, Frozen/Wheel-Runtime, reale ReSpeaker-Recovery, HTTP/Ack/Restart/Shutdown und native Hotkeys/Credentials PASS. UX01 wartet noch auf echte native Ausgabebestätigung mit aktivierter Einstellung. Vorbereiteter Ein-Klick-Block: native Probe und zwei kurze geführte Wake-Sätze. Alle vollständigen M-Gates und30min100 bleiben offen; kein REVIEW_READY.

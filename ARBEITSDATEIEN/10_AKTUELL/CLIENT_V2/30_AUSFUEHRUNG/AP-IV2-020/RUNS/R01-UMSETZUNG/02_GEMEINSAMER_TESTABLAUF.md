@@ -1,3 +1,7 @@
+## Maßgeblicher Bedienablauf ab 16.10.2026
+
+Jede Einzelaufgabe zeigt Satz und Tastenfolge **vor** ihrem eigenen Startknopf. Keine automatisch startende Folgeaufgabe. Zwischen den beiden abgeschlossenen Wake-Aufgaben war der Client aus. [Ergebnis](EVIDENCE/ux01/stepped-20261016-01/assessment.json) bestätigt vollständige Nutzsätze mit Leerzeichen; F9 endete nicht als protokollierter Finish-Befehl. Nächste einzelne Aufgabe: `stepped_wake_trial.py --cases manual`, mit sichtbarer Bestätigung für tatsächlichen F8/F9-Empfang. [Fortlaufende Checkliste](07_TESTCHECKLISTE.md). Ältere automatische Ablaufbeschreibungen unten sind historische Versuchsbeschreibungen.
+
 ## Aktueller Fortsetzungsblock am neuen Produkt17261e6
 
 Neue EXE `dist-feedback-rc-iv2-020-ux01/voice-stt-client.exe`, SHA256 `56fe943b8dff3cacd554dc6ee8c5adc537bdd4fdbe397c65e1357ce80ba5160a`; [neue autonome Qualifikation](EVIDENCE/ux01/qualification-summary.json). Die folgende frühere Produkt41-Angabe bleibt Herkunft der bereits durchgeführten Teilversuche. Neue Realbelege werden jeweils ausdrücklich neu gebunden.

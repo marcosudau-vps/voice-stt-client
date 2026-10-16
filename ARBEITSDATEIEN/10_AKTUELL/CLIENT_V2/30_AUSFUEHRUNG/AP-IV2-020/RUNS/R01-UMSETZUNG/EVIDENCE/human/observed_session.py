@@ -12,6 +12,7 @@ import json
 import os
 from pathlib import Path
 import sys
+import threading
 import time
 from editor_state import owned_editor_path, read_editor_state, operator_started
 
@@ -49,13 +50,15 @@ def main():
     parser.add_argument('--stop-after', type=int, default=0)
     parser.add_argument('--editor-guided', action='store_true')
     parser.add_argument('--arm-timeout', type=int, default=120)
-    parser.add_argument('--editor-case', choices=('jarvis', 'alexa'))
+    parser.add_argument('--editor-case', choices=('jarvis', 'alexa', 'manual'))
     parser.add_argument('--expected-task-id')
     args = parser.parse_args()
     if not 10 <= args.arm_timeout <= 1800:
         parser.error('--arm-timeout must be 10..1800 seconds')
     if args.editor_guided and (not args.editor_case or args.stop_after != 1):
         parser.error('Guided tasks require one --editor-case and --stop-after 1; each task needs its own start')
+    if args.editor_guided and ((args.editor_case == 'manual') != (args.mode == 'manual')):
+        parser.error('The manual task requires manual mode; wake tasks require wake/both mode')
     if args.self_check:
         from types import SimpleNamespace
         record = safe_event(SimpleNamespace(generation=2), SimpleNamespace(
@@ -92,6 +95,7 @@ def main():
             time.sleep(.1)
     os.environ['VOICESTT_CLIENT_HOME'] = str(local / 'client')
     from voice_stt_client.core import v2_runtime
+    from voice_stt_client.ui import v2_core_bridge
     from scripts.qualify_v2_session import run
     folder = local / 'observations' / datetime.now().strftime('%Y%m%d-%H%M%S')
     folder.mkdir(parents=True)
@@ -102,9 +106,43 @@ def main():
         taskId=args.expected_task_id, editorCase=args.editor_case,
         helperSha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())), encoding='utf8')
     original = v2_runtime.V2Runtime
+    original_bridge = v2_core_bridge.V2CoreBridge
+    instruction_lock = threading.Lock()
+    control_seen = {'secondary': False}
     def editor_instruction(text):
-        (state_file.parent/'command.json').write_text(json.dumps(dict(
-            action='instruction', text=text)), encoding='utf8')
+        with instruction_lock:
+            path = state_file.parent/'command.json'
+            temporary = path.with_suffix('.observer.tmp')
+            temporary.write_text(json.dumps(dict(action='instruction', text=text)), encoding='utf8')
+            temporary.replace(path)
+
+    def diagnostic(kind, **fields):
+        with trace.open('a', encoding='utf8') as handle:
+            handle.write(json.dumps(dict(type=kind, timeUtc=datetime.now(UTC).isoformat(),
+                monotonic=time.monotonic(), **fields), ensure_ascii=True)+'\n')
+
+    class ObservedBridge(original_bridge):
+        def _remember_view(self, view):
+            super()._remember_view(view)
+            keys = (view.controls.enabled, view.controls.primary_key, view.controls.secondary_key)
+            if view.ready and getattr(self, '_observed_controls', None) != keys:
+                self._observed_controls = keys
+                diagnostic('controls.confirmed', enabled=keys[0], primaryKey=keys[1], secondaryKey=keys[2],
+                    primaryAction=str(view.controls.primary_action), secondaryAction=str(view.controls.secondary_action))
+
+        def press_control(self, slot):
+            # Observe the actual native-hotkey callback, with no injected impulse.
+            view = self._published_view
+            diagnostic('control.received', slot=str(slot), ready=bool(view and view.ready),
+                generation=view.generation if view else None,
+                phase=str(view.mirror.input.phase) if view else None,
+                activationId=view.mirror.input.activation_id if view else None)
+            if str(slot) == 'secondary':
+                control_seen['secondary'] = True
+            result = super().press_control(slot)
+            if args.editor_guided and args.editor_case == 'manual' and str(slot) == 'secondary':
+                editor_instruction('F9 IM CLIENT ANGEKOMMEN\n• Bitte schweigen.\n• Abschluss und Einfügung werden geprüft.')
+            return result
 
     class ObservedRuntime(original):
         def __init__(self, *values, **options):
@@ -142,15 +180,33 @@ def main():
                 record.update(timeUtc=datetime.now(UTC).isoformat(), monotonic=time.monotonic())
                 with trace.open('a', encoding='utf8') as handle:
                     handle.write(json.dumps(record, ensure_ascii=True) + '\n')
+                if args.editor_guided and args.editor_case == 'manual' and str(event.type) == 'activation.started':
+                    editor_instruction('F8 ANGEKOMMEN – JETZT SPRECHEN\n'
+                        '• Dies ist die manuelle Hotkeyprobe.\n'
+                        '• DIREKT am Satzende Strg+Umschalt+F9 drücken.\n'
+                        '• Erwartet: „F9 IM CLIENT ANGEKOMMEN“.')
                 if args.editor_guided and str(event.type) in (
                         'activation.completed', 'activation.cancelled', 'activation.failed'):
                     count = sum(a.status in ('completed', 'cancelled', 'failed')
                                 for a in self.mirror.mirror.view.activations.values())
                     if count >= 1:
-                        editor_instruction('BITTE KURZ WARTEN\n• Der Testclient wird beendet.\n'
+                        prefix = ('F9 ANGEKOMMEN – BITTE KURZ WARTEN' if args.editor_case == 'manual'
+                                  and control_seen['secondary'] else 'BITTE KURZ WARTEN')
+                        editor_instruction(prefix+'\n• Der Testclient wird beendet.\n'
                                            '• Danach erscheint hier „FERTIG“.')
 
             self.session.on_message = receive
+            previous_completion = self.session.on_completion
+
+            def completed(value):
+                if previous_completion:
+                    previous_completion(value)
+                diagnostic('command.completed', commandType=str(value.command.type),
+                    action=value.command.payload.get('action'), commandId=value.command.commandId,
+                    accepted=value.ack.accepted, result=str(value.ack.result),
+                    activationId=value.ack.activationId, inputPhase=str(value.ack.inputPhase))
+
+            self.session.on_completion = completed
             if args.editor_guided:
                 previous_status = self.session.on_status
                 shown = False
@@ -160,13 +216,20 @@ def main():
                     previous_status(value)
                     if str(value.state) == 'ready' and not shown:
                         shown = True
-                        phrase = ('Hey Jarvis der rote Ball liegt auf dem Boden.'
-                                  if args.editor_case == 'jarvis' else
-                                  'Alexa die gelbe Tasche steht vor der Tür.')
-                        editor_instruction('CLIENT BEREIT – JETZT SPRECHEN\n'
-                            '• Ohne Pause sprechen:\n'+phrase+'\n'
-                            '• Danach Strg+Umschalt+F9 drücken.\n'
-                            '• Auf die nächste Aufgabe hier im Fenster warten.')
+                        if args.editor_case == 'manual':
+                            editor_instruction('CLIENT BEREIT – HOTKEYTEST\n'
+                                '• Jetzt Strg+Umschalt+F8 drücken.\n'
+                                '• Bei „F8 ANGEKOMMEN“ sprechen:\nDies ist die manuelle Hotkeyprobe.\n'
+                                '• DIREKT am Satzende Strg+Umschalt+F9 drücken.\n'
+                                '• Im Fenster bleiben; keine automatische nächste Aufgabe.')
+                        else:
+                            phrase = ('Hey Jarvis der rote Ball liegt auf dem Boden.'
+                                      if args.editor_case == 'jarvis' else
+                                      'Alexa die gelbe Tasche steht vor der Tür.')
+                            editor_instruction('CLIENT BEREIT – JETZT SPRECHEN\n'
+                                '• Ohne Pause sprechen:\n'+phrase+'\n'
+                                '• Danach Strg+Umschalt+F9 drücken.\n'
+                                '• Auf die nächste Aufgabe hier im Fenster warten.')
 
                 self.session.on_status = status
             if args.stop_after:
@@ -199,10 +262,12 @@ def main():
                 self.run = bounded_run
 
     v2_runtime.V2Runtime = ObservedRuntime
+    v2_core_bridge.V2CoreBridge = ObservedBridge
     try:
         run(args.mode)
     finally:
         v2_runtime.V2Runtime = original
+        v2_core_bridge.V2CoreBridge = original_bridge
         if args.editor_guided:
             editor_instruction('AUFGABE BEENDET – TESTCLIENT AUS\n'
                                '• Die nächste Aufgabe benötigt wieder deinen Start.')

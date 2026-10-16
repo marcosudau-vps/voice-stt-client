@@ -12,12 +12,12 @@ bleiben NOT_RUN/NOT_PROVEN. Manualbaseline real erfolgt, Follow-up5000ms menschl
 Hostspeicherreserve nach menschlicher Aktion wiederhergestellt; Wakeclient bereit.
 Sechs bewusste Audiofixtures auf ausdrücklichen Wunsch versioniert. Reale ASR-Replays zeigen
 320ms Pre-Roll als geeigneten Livekandidaten; neue Wake-/Controlprobe mit Fokusbarriere folgt.
-UX01 ausdrücklich freigegeben und umgesetzt; gezielte100 und neue volle Produkt-/Build-/Paarrequalifikation PASS. Native UX01-Ausgabebestätigung noch offen.
+UX01 ausdrücklich freigegeben und umgesetzt; gezielte100 und neue volle Produkt-/Build-/Paarrequalifikation PASS. Native UX01-Ausgabebestätigung erfolgreich; UX01 geschlossen.
 [Report](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md), [gemeinsamer Testablauf](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/02_GEMEINSAMER_TESTABLAUF.md).
 V1/VPS geschützt; Server nur lokal. Kein REVIEW_READY, Eigenreview, Merge oder Release.
 
 
-Neuer Produkt-/Build-/Paarstand17261e6 autonom qualifiziert; native Ausgabebestätigung und vollständige Realgates bleiben offen. Der nächste Ein-Klick-Block steht im Testeditor bereit.
+Neuer Produkt-/Build-/Paarstand17261e6 autonom qualifiziert; native Ausgabe und zwei einzeln gestartete direkte Wake-Nutzsätze mit Leerzeichen bestätigt. F9 und vollständige Realgates bleiben offen; nächster Einzeltest mit eigenem Start vorbereitet.
 
 ## Vorheriger datierter Stand
 

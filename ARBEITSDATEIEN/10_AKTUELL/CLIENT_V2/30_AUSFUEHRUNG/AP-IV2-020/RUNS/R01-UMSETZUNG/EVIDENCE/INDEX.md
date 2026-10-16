@@ -1,3 +1,7 @@
+## Aktuell: bestätigte Wake-Einzelsätze und nächster Hotkeyteil
+
+[Zwei bewusst separat gestartete Liveversuche](ux01/stepped-20261016-01/assessment.json): vollständige Nutzsätze, zwei native Einfügungen,71Zeichen mit Leerzeichen und tatsächlicher menschlicher Bestätigung PASS am unveränderten qualifizierten Produkt17261e6. F9-Finish weiterhin NOT_PROVEN; beide Eingaben per Timeout. [Vorbereitete Hotkeydiagnose und Helferprüfungen](ux01/hotkey-task-precheck/summary.json). UX01 bereits geschlossen. [Aktuelle Checkliste](../07_TESTCHECKLISTE.md), vollständige M-Gates weiterhin offen.
+
 [Fortlaufende gemeinsame Checkliste](../07_TESTCHECKLISTE.md): jetziger Block native Leerzeichenprobe plus zwei direkte Wake-Sätze. Die vollständigen M-Fälle bleiben offen; Häkchen erst nach tatsächlichen Nachweisen. [Helfer-I/O-Regression](ux01/editor-diagnostic-reader-regression.json) und [realer Diagnose-Lesetest](ux01/editor-diagnostic-live-validation.json) sichern die Wiederholung.
 
 ## Neue Produktausnahme UX01 – laufende Requalifikation

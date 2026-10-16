@@ -10,16 +10,24 @@
       "sha256": "ef93b63adfcf14feec6830ae5026d4eee11f5978b882c9979e71ccf3458c828d"
     },
     {
+      "file": "evaluate_stepped_trial.py",
+      "sha256": "a89a9667fac40f89f3f01e96b469e4b67abbb573abe29ce0608faa754699e991"
+    },
+    {
       "file": "guided_output_trial.py",
       "sha256": "5b64d000237eef7845843e5f61f36a4fff079a1ad29919a111c270baf5ad7da1"
     },
     {
       "file": "observed_session.py",
-      "sha256": "9c323a91d4b53e5e6f06241243830255446fa44698598181b2265c9d99534c31"
+      "sha256": "b0c7d82e9f17926e717fc7997a8549c7cd14bfdd4f0b4706c83c3c7cb4a0c527"
     },
     {
       "file": "probe_native_editor.py",
       "sha256": "e44d3620a3698db5304a19ac98e5dfa60fa5d60923b6c24872abee56f39093c0"
+    },
+    {
+      "file": "probe_test_bindings.py",
+      "sha256": "da3fe37f2bf342df6ab313bc0153f6dc92ae75a503222fccea2e7cf814671923"
     },
     {
       "file": "record_wake_samples.py",
@@ -35,7 +43,7 @@
     },
     {
       "file": "stepped_wake_trial.py",
-      "sha256": "c6bb11eaa3336ae343dd454249909b6be4088c4aefd9e6c9265fd855a33b818c"
+      "sha256": "6ea9a5db3cc5d3c065d2ef4787f23c8b895927b648916b7fd6ef7b6782300368"
     },
     {
       "file": "test_editor_state.py",

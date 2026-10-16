@@ -1,3 +1,11 @@
+## Zwei einzeln gestartete Live-Wake-Aufgaben bestätigt, 16.10.2026
+
+[Auswertung](EVIDENCE/ux01/stepped-20261016-01/assessment.json): beide tatsächlichen Startklicks1/2, zwei vollständig beendete separate Produktsitzungen, kanonische IDs hey_jarvis/alexa mit Scores0,99658/0,99884, jeweils genau eine Activation/ein Final/ein command_sent-Einfügeversuch. Genau71Zeichen im eigenen Editor, beide Nutzsätze exakt und ohne Rufwort, Leerzeichen getrennt; Mensch bestätigt **„Beide vollständig, mit Leerzeichen“**. ReSpeaker und echte Modelle, tatsächliche native Paste-Ereignisse; unveränderte autoritative History. Sämtliche gemessenen Produktsourcehashes entsprechen exakt Produkt17261e6. Effektive Settings nach Bootstrap5000/320 in beiden Sitzungen. Keine Audioüberläufe, Capture-Drops oder ausstehenden Commands/Einfügungen am Ende.
+
+F9 ausdrücklich **NOT_PROVEN**: kein Activation-Command-Ack, beide input_closed=timed_out nachjeweils5003ms ab recording_ended. Kein behaupteter Hotkeydefekt ohne reproduzierten Fehler. Nur direkte Nutzsprachvollständigkeit/Spaced Output PASS; M02 insgesamt weiterhin NOT_PROVEN (getrennte Sitzungen, Controls/Grenzannotation offen). Keine phonetische Echtzeitannotation ohne Rohaufnahme.
+
+Nächster gezielter Test: eine manuelle F8/F9-Aufgabe mit Satz-/Tastenvorschau und eigenem Start, tatsächlichen nativen Controlcallbacks und semantischen Acks als zusätzliche passive Diagnose. [Vorprüfungen](EVIDENCE/ux01/hotkey-task-precheck/summary.json): sechs Gate-/I/O-Regressionen, Qt-Startkontrollen, Manual-/Wake-CLI und Compile PASS; beide konkreten Ctrl+Shift+F8/F9-Bindings temporär erfolgreich registriert und freigegeben. Keine Eingabe, Mikrofon- oder Fremdregistrierungsänderung beim Binding-Vorcheck. Produktcode unverändert. Dieselbe R01, kein vollständiger M-PASS/REVIEW_READY.
+
 ## Aufgabenweise Vorschau und ausdrücklicher Start, 16.10.2026
 
 [Bedienvorgabe008](ZUSATZPROMPTS/008_AUFGABEN_START_UND_VORSCHAU.md) umgesetzt: Satz und Schritte vorab sichtbar, eigener Start für jede Aufgabe, zwischen den Aufgaben vollständig beendeter Client, erster Text bei zweiter Aufgabe erhalten. Nur Testhelfer verändert. `stepped_wake_trial.py` nutzt pro Aufgabe eine eigene tatsächliche Produktsession; diese beiden Einzelversuche beweisen für sich keine vollständige Same-Session-M02-/M12-Qualifikation.

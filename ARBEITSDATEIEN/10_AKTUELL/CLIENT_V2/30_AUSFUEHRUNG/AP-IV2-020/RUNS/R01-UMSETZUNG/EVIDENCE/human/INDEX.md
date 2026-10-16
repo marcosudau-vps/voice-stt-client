@@ -1,3 +1,7 @@
+## Aktueller bestätigter Liveversuch
+
+[Zwei getrennt gestartete Wake-Aufgaben](../ux01/stepped-20261016-01/assessment.json) PASS für unmittelbare vollständige Nutzsätze, tatsächliche native Ausgabe und Leerzeichentrennung. User: „Beide vollständig, mit Leerzeichen“. F9/kompletter M02 weiter offen. [Wiederverwendbare Auswertung](evaluate_stepped_trial.py) exportiert nur vereinbarte Fälle/Hashes und minimierte Diagnosen, keine vollständige History. [Konkreter nativer Binding-Vorcheck](probe_test_bindings.py), [Ergebnisse](../ux01/hotkey-task-precheck/summary.json). UX01 ist ausdrücklich freigegeben und nach technischer Requalifikation/nativer Ausgabe geschlossen; frühere Vorschlagsstände unten historisch.
+
 # Gemeinsame Realtests und wiederverwendbare Werkzeuge
 
 [Manual3000](manual-followup-3000.json), [menschlich gewählte5000ms](manual-followup-5000.json),

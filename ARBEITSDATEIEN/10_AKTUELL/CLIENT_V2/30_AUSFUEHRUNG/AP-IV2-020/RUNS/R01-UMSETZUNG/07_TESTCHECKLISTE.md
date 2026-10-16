@@ -6,17 +6,30 @@ Ich pflege die Häkchen nach den tatsächlichen Nachweisen. „Teilweise geprüf
 bedeutet noch keinen vollständig bestandenen Pflichtfall. Derselbe R01 und
 [Draft-PR15](https://github.com/marcosudau-vps/voice-stt-client/pull/15) bleiben aktiv.
 
-## Jetzt: nur die beiden Wake-Sätze wiederholen
+## Gerade bestätigt: beide Wake-Sätze
 
-- [ ] Aufgabe1 vorher lesen und bewusst **„Aufgabe 1 starten“** klicken.
-- [ ] Aufgabe2 vorher lesen und separat **„Aufgabe 2 starten“** klicken.
-- [x] Automatische native Einfügeprobe mit Leerzeichen erfolgreich.
-- [ ] „Hey Jarvis“ + roter Ball vollständig, ohne Rufwort im Editor.
-- [ ] „Alexa“ + gelbe Tasche vollständig, ohne Rufwort im Editor.
-- [ ] Beide Finals mit Leerzeichen getrennt; F9-Steuerung und Fokus nachgewiesen.
-- [ ] Dein Urteil zu **320ms Pre-Roll** und direktem Sprechbeginn festhalten.
+- [x] Aufgabe 1 und Aufgabe 2 vorher gelesen und jeweils selbst gestartet.
+- [x] „Hey Jarvis“ + roter Ball vollständig, ohne Rufwort im Editor.
+- [x] „Alexa“ + gelbe Tasche vollständig, ohne Rufwort im Editor.
+- [x] Beide Nutzsätze mit Leerzeichen getrennt; zwei echte native Einfügungen.
+- [x] Menschliche Bestätigung: **„Beide vollständig, mit Leerzeichen“**.
+- [x] Effektiv **5000ms Nachsprechfenster / 320ms Pre-Roll** in beiden Sitzungen bestätigt.
+- [ ] F9 als tatsächlichen Finish-Befehl nachweisen: beide bisherigen Eingaben endeten per Timeout.
+- [ ] Endgültiges Gefühl zu Pre-Roll und dem übrigen Feedback gemeinsam bewerten.
 
-Satz und Tastenfolge stehen **vor jedem Start** im Testfenster. Jede Einzelaufgabe hat ihren eigenen Klick; zwischen den Aufgaben ist der Sprachclient aus. Der erste Text bleibt erhalten. Erst nach **FERTIG** zurück in den Chat wechseln. Die Einfügeprobe ist bereits bestanden.
+[Auswertung mit Quellbindung, Messwerten und Diagnosen](EVIDENCE/ux01/stepped-20261016-01/assessment.json).
+Die zwei getrennten Sitzungen sind ein erfolgreicher Teilnachweis, noch kein vollständiger M-02.
+
+## Jetzt: eine kurze manuelle Hotkeyprobe
+
+- [ ] Vorschau und Satz **vorher in Ruhe lesen**.
+- [ ] Eigenen Startknopf klicken; auf **CLIENT BEREIT** warten.
+- [ ] **Strg+Umschalt+F8**, bei **F8 ANGEKOMMEN** den angezeigten Satz sprechen.
+- [ ] **Direkt am Satzende Strg+Umschalt+F9** drücken.
+- [ ] Auf **FERTIG** warten; der Agent prüft Tastenempfang, Ack, Lebenszyklus und Einfügung.
+
+Jede weitere Aufgabe benötigt erneut deinen eigenen Start. Kein automatischer Folgetest.
+Die native Leerzeichenprobe und die beiden erfolgreichen Wake-Sätze werden dafür nicht wiederholt.
 
 ## Bereits erledigt
 

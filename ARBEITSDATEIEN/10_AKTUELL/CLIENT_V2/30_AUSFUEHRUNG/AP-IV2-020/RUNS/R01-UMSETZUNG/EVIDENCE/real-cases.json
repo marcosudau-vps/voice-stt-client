@@ -43,11 +43,20 @@
       "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
       "configurationSha256": "ac4d0419badaf7967ead6b93f7d8c0fa5e8c83725f599399dcf328018cd10a94",
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
-      "actualResult": "Both canonical selected IDs detected; all agreed user phrases appear somewhere among nine finals/four activations. Not a controlled one-to-one three-case trial. Every final has one command_sent attempt. Own intended editor stayed empty; actual target unconfirmed. No raw audio captured, so immediate phonetic boundary cannot be inferred.",
+      "actualResult": "Latest controlled direct Jarvis/Alexa phrases complete without wake text, visible spaced output confirmed by human and editor hash. One activation/final/native attempt each. Separate sessions; both inputs timed out without a finish command, so controls and complete M02 remain NOT_PROVEN. Earlier attempts retained.",
       "evidence": [
-        "human/wake-first-live.json"
+        "human/wake-first-live.json",
+        "ux01/stepped-20261016-01/assessment.json"
       ],
-      "attempts": []
+      "attempts": [
+        {
+          "status": "PARTIAL",
+          "evidence": "ux01/stepped-20261016-01/assessment.json",
+          "sourceCommit": "e95d871a498f07d99fea2bc4ace57c616504abc0",
+          "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+          "boundaries": "Two separate sessions. Direct phrases and native spaced output PASS; hotkey finish/complete M02 NOT_PROVEN."
+        }
+      ]
     },
     {
       "id": "M-03",

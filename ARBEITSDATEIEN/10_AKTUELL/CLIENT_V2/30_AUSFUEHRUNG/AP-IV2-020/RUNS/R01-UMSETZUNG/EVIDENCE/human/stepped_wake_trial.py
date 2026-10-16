@@ -18,6 +18,7 @@ from editor_state import owned_editor_path, read_editor_state
 CASES = (
     ('jarvis', 'Hey Jarvis der rote Ball liegt auf dem Boden.'),
     ('alexa', 'Alexa die gelbe Tasche steht vor der Tür.'),
+    ('manual', 'Dies ist die manuelle Hotkeyprobe.'),
 )
 
 
@@ -26,6 +27,7 @@ def main():
     parser.add_argument('--state', type=Path, required=True)
     parser.add_argument('--evidence', type=Path, required=True)
     parser.add_argument('--arm-timeout', type=int, default=1800)
+    parser.add_argument('--cases', choices=('jarvis','alexa','manual'), nargs='+', default=['jarvis','alexa'])
     args = parser.parse_args()
     if not 10 <= args.arm_timeout <= 1800:
         parser.error('--arm-timeout must be 10..1800')
@@ -50,17 +52,20 @@ def main():
                 raise TimeoutError('Editor did not acknowledge task preview')
             time.sleep(.05)
     save()
-    for index, (case, phrase) in enumerate(CASES, 1):
+    cases = [(case, dict(CASES)[case]) for case in args.cases]
+    for index, (case, phrase) in enumerate(cases, 1):
         task_id = args.evidence.name+'-'+case
         prior_start_sequence = read_editor_state(state)['startSequence']
         control(dict(action='prepare', taskId=task_id, clearOnStart=index==1,
             buttonText=f'Aufgabe {index} starten', text=
-                f'AUFGABE {index} VON 2 – NOCH NICHT GESTARTET\n\n'
+                f'AUFGABE {index} VON {len(cases)} – NOCH NICHT GESTARTET\n\n'
                 f'Diesen Satz vorher in Ruhe lesen:\n„{phrase}“\n\n'
                 f'• Wenn bereit: „Aufgabe {index} starten“ klicken.\n'
                 '• Auf „CLIENT BEREIT“ warten.\n'
-                '• Dann den Satz ohne Pause zwischen Rufwort und Nutzsatz sprechen.\n'
-                '• Am Satzende Strg+Umschalt+F9 drücken.\n'
+                + ('• Strg+Umschalt+F8 drücken; auf „F8 ANGEKOMMEN“ warten.\n'
+                   '• Dann den Satz oben sprechen.\n' if case == 'manual' else
+                   '• Dann den Satz ohne Pause zwischen Rufwort und Nutzsatz sprechen.\n') +
+                '• DIREKT am Satzende Strg+Umschalt+F9 drücken.\n'
                 '• Danach warten. Die nächste Aufgabe braucht wieder einen Klick.'))
         deadline = time.monotonic()+5
         while read_editor_state(state).get('taskId') != task_id:
@@ -73,7 +78,7 @@ def main():
         save()
         print('TASK_PREPARED', task_id, flush=True)
         child = subprocess.run([sys.executable, str(Path(__file__).with_name('observed_session.py')),
-            '--mode','wake','--wait-for-editor-state',str(state), '--stop-after','1',
+            '--mode','manual' if case == 'manual' else 'wake','--wait-for-editor-state',str(state), '--stop-after','1',
             '--editor-guided','--editor-case',case,'--expected-task-id',task_id,
             '--arm-timeout',str(args.arm_timeout)], timeout=args.arm_timeout+240)
         row['processExitCode'] = child.returncode
@@ -93,7 +98,8 @@ def main():
             return child.returncode
     report['result'] = 'PROCESSES_COMPLETED_FUNCTIONAL_EVALUATION_PENDING'
     save()
-    control(dict(action='instruction',text='FERTIG – BEIDE TESTCLIENTS BEENDET\n• Jetzt bitte im Chat das Ergebnis melden.'))
+    final = 'FERTIG – TESTCLIENT BEENDET' if len(cases)==1 else 'FERTIG – BEIDE TESTCLIENTS BEENDET'
+    control(dict(action='instruction',text=final+'\n• Jetzt bitte im Chat das Ergebnis melden.'))
     return 0
 
 
