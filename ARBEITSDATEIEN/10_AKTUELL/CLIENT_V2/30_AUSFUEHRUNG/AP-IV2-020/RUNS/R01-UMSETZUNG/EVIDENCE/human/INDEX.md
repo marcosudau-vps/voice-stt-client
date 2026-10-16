@@ -1,3 +1,9 @@
+## Freies Ausprobieren und Settingsnavigation
+
+[Freie isolierte Both-Instanz](free-exploration-20261016-01.json), [offene Feedbackwerte](feedback-calibration-20261016-01.json). [Navigation aller genannten Tabs / lokale Metadaten vollständig](../settings-navigation/summary.json), [Qt-Probe](check_settings_navigation.py). Lokale Tabs liegen hinter dem langen Knopf im ersten V2-Tab. [Korrigierter Explorationsstarter mit regulärem Logmanager](explore_with_logging.py): --mode both, --self-check ohne Hardware. Noch keine native Log-UI-Bestätigung; laufende Instanz unverändert, T01 offen. Keine Rohtexte/History der freien Versuche exportieren.
+
+### Vorheriger Zwischenstand
+
 ## Aktueller Manual-Sprachpfad bestanden
 
 [Neuer Liveversuch am Produkt d95043e](../ux02/manual-voice-20261016-01/assessment.json), [Auswerter](evaluate_manual_trial.py). Tatsächliche F8/F9-Callbacks und Acks, gleiches Segment/Final, eine native Ausgabe ohne Shift. Mensch bestätigt vollständigen Satz und hat GUI-Übernahme betätigt. Erkannter Bindestrich in „Hotkey-Probe“ bleibt explizite orthografische ASR-Abweichung. Quelle enthält keine neue Produktänderung; vollständige M-Gates weiter offen.

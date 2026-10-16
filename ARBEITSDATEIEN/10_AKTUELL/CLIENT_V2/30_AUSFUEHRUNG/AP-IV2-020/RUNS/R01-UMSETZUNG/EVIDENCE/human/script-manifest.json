@@ -6,6 +6,10 @@
       "sha256": "9f9b5bdba236ffa3e02ac76ae1a35f4f9dcddecd19af53e2ed7dc61002ac54cc"
     },
     {
+      "file": "check_settings_navigation.py",
+      "sha256": "bb36d6f50609f996284436a4027577c7c4b267cf3ec68d184c90062add1de514"
+    },
+    {
       "file": "editor_state.py",
       "sha256": "07b9c8cf59090cb51970d5cbfa15d489d2005b02ebda31176949bba338f4fd84"
     },
@@ -16,6 +20,10 @@
     {
       "file": "evaluate_stepped_trial.py",
       "sha256": "a89a9667fac40f89f3f01e96b469e4b67abbb573abe29ce0608faa754699e991"
+    },
+    {
+      "file": "explore_with_logging.py",
+      "sha256": "a6653ac715fb154a242003f66e069e835b0c38a0d54208038c814f31cedd38ca"
     },
     {
       "file": "guided_output_trial.py",

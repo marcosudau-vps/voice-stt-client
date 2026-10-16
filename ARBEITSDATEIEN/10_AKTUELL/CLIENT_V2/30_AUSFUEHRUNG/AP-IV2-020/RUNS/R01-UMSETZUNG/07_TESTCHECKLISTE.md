@@ -1,3 +1,13 @@
+## Aktuell: freies Ausprobieren
+
+- [x] Isolierte Both-Instanz mit LED/Sound/Overlay zum freien Ausprobieren gestartet.
+- [x] Vermeintlich fehlende Tabs geprüft: alle im zweiten lokalen Dialog vorhanden.
+- [x] Qt-Klicknachweis und Abgleich aller26 lokalen Metadatenfelder grün.
+- [ ] LED-/Soundbewertung aus dem freien Ausprobieren erhalten.
+- [ ] Overlayänderungswunsch konkretisieren; derzeit2s Ausblendung.
+- [ ] Teststarter T01: Logmanagerkorrektur vorbereitet/geprüft, nach abgestimmtem Neustart echte Logansicht bestätigen.
+
+
 # AP-IV2-020 – unsere Testcheckliste
 
 **Stand: 16.10.2026 · UX02 technisch und real bestätigt / geschlossen · übrige Realgates offen**

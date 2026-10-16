@@ -18,11 +18,13 @@
   },
   "reviewedCommit": null,
   "reviewReport": null,
-  "openFindingIds": [],
+  "openFindingIds": [
+    "IV2-020-T01"
+  ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "UX02 geschlossen und nachfolgender realer Manual-F8→Sprache→F9-/Native-Ausgabepfad PASS, eigener Start und GUI-Übernahme belegt. Gebündelte Mehrsatz-/Trigger-/Hardware-Realtests und subjektive Kalibrierung fortsetzen. Alle vollständigen M-Gates/30min100 weiter offen; kein allgemeiner Folgeauftrag erforderlich.",
+  "nextAction": "Freie Both-Probesitzung aktiv, menschliche LED-/Sound-/Overlaybewertung offen. T01 Teststarter-Logmanagerlücke korrigierter Adapter vorbereitet; nach passendem Neustartzeitpunkt echte Logansicht/Manager/Shutdown prüfen und erst dann schließen. Keine Produktänderung/kein Buildwechsel; danach übrige Realgates/Kalibrierung.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

@@ -1,3 +1,9 @@
+## Freie Feedbackprobe und Einstellungstabs
+
+[Freie Instanz](human/free-exploration-20261016-01.json), [menschliche Kalibrierungsrückmeldung](human/feedback-calibration-20261016-01.json), [Qt-Settingsnavigation](settings-navigation/summary.json). Kein genannter Tab entfernt; zweiter lokaler Dialog über Knopf. Testharness-Logmanagerlücke T01 festgestellt und Korrektur vorbereitet, native Log-UI-Bestätigung noch offen. Keine vollständige M-/Feedbackabnahme behauptet.
+
+### Vorheriger Zwischenstand
+
 ## Neuer Live-Sprachpfad am korrigierten Produkt bestanden
 
 [Manual-F8/F9-/ASR-/Native-Ausgabe](ux02/manual-voice-20261016-01/assessment.json), [menschlich bestätigt](../ZUSATZPROMPTS/014_MANUAL_SPRACHPFAD_BESTAETIGUNG.md). Ein Final und genau ein unveränderter nativer Zieltext samt Leerzeichen; erkannter Bindestrich statt geplanter Zusammenschreibung explizit dokumentiert. Vollständige M-Fälle/Kalibrierung weiterhin offen.
