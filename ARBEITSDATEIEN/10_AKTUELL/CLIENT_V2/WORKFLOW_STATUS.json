@@ -22,7 +22,7 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "Zwei einzeln gestartete Live-Wake-Nutzsätze vollständig, Leerzeichen/nativer Zielhash bestätigt. F9 endete bisher nur per Timeout: gezielte einzelne Manual-F8/F9-Aufgabe mit eigener Vorschau/Start und passiver Control-/Ackdiagnose durchführen. Produkt17261e6 unverändert; vollständige Realgates bleiben offen.",
+  "nextAction": "Gemeinsame Manual-F8/F9-Probe im neuen Testeditor: persistenter großer grüner Satz, eigene Starts, Wiederholen/Abbrechen und ausdrückliche Übernahme. Acht Helferregressionen/Qt PASS. Voriger Manualversuch null Activations/Finals, NOT_PROVEN; Produkt17261e6 unverändert und volle technische Qualifikation erhalten. Vollständige M-Gates offen.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

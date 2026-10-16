@@ -20,13 +20,24 @@ bedeutet noch keinen vollständig bestandenen Pflichtfall. Derselbe R01 und
 [Auswertung mit Quellbindung, Messwerten und Diagnosen](EVIDENCE/ux01/stepped-20261016-01/assessment.json).
 Die zwei getrennten Sitzungen sind ein erfolgreicher Teilnachweis, noch kein vollständiger M-02.
 
+## Neue Bedienhilfen fertig
+
+- [x] Eigener **großer grüner Satzbereich**, vor Start und während des Versuchs sichtbar.
+- [x] **Aufgabe wiederholen** bereitet denselben Fall neu vor; Start wieder selbst klicken.
+- [x] **Versuch abbrechen** beendet zuerst den laufenden Testclient.
+- [x] Nach dem Versuch selbst **Wiederholen** oder **Übernehmen** wählen; kein Autostart.
+- [x] Jeder Versuch separat erhalten; vorher übernommener Text bleibt bestehen.
+- [x] Acht Helferregressionen und tatsächliche Qt-Widgetprüfung grün.
+
 ## Jetzt: eine kurze manuelle Hotkeyprobe
 
 - [ ] Vorschau und Satz **vorher in Ruhe lesen**.
 - [ ] Eigenen Startknopf klicken; auf **CLIENT BEREIT** warten.
 - [ ] **Strg+Umschalt+F8**, bei **F8 ANGEKOMMEN** den angezeigten Satz sprechen.
 - [ ] **Direkt am Satzende Strg+Umschalt+F9** drücken.
-- [ ] Auf **FERTIG** warten; der Agent prüft Tastenempfang, Ack, Lebenszyklus und Einfügung.
+- [ ] Bei Problemen selbst **Wiederholen** oder **Abbrechen** wählen.
+- [ ] Bei gelungenem Versuch **Übernehmen / Testblock abschließen** wählen; danach FERTIG.
+- [ ] Der Agent prüft Tastenempfang, Ack, Lebenszyklus und Einfügung.
 
 Jede weitere Aufgabe benötigt erneut deinen eigenen Start. Kein automatischer Folgetest.
 Die native Leerzeichenprobe und die beiden erfolgreichen Wake-Sätze werden dafür nicht wiederholt.

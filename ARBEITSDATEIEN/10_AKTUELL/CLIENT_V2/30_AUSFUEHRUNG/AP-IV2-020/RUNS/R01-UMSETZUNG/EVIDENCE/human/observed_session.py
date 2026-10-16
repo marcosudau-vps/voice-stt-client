@@ -84,6 +84,10 @@ def main():
         print('Waiting for operator to focus the owned test editor', flush=True)
         while True:
             state = read_editor_state(state_file)
+            if (state.get('requestAction') == 'abort'
+                    and state.get('requestTaskId') == args.expected_task_id):
+                print('OPERATOR_ABORTED_BEFORE_CLIENT_START', flush=True)
+                return
             fresh = abs((datetime.now(UTC) - datetime.fromisoformat(state['timeUtc'])).total_seconds()) < 2
             started = (operator_started(state, args.expected_task_id) if args.editor_guided
                        else fresh and state['foreground'] and state.get('editorHasFocus', False))
@@ -113,7 +117,8 @@ def main():
         with instruction_lock:
             path = state_file.parent/'command.json'
             temporary = path.with_suffix('.observer.tmp')
-            temporary.write_text(json.dumps(dict(action='instruction', text=text)), encoding='utf8')
+            temporary.write_text(json.dumps(dict(action='instruction', text=text,
+                taskId=args.expected_task_id)), encoding='utf8')
             temporary.replace(path)
 
     def diagnostic(kind, **fields):
@@ -122,6 +127,23 @@ def main():
                 monotonic=time.monotonic(), **fields), ensure_ascii=True)+'\n')
 
     class ObservedBridge(original_bridge):
+        def __init__(self, *values, **options):
+            super().__init__(*values, **options)
+            if args.editor_guided:
+                from PySide6.QtCore import QTimer
+                from PySide6.QtWidgets import QApplication
+                self._operator_abort_timer = QTimer(self)
+                self._operator_abort_timer.setInterval(100)
+                def check_abort():
+                    current = read_editor_state(state_file)
+                    if (current.get('requestAction') == 'abort'
+                            and current.get('requestTaskId') == args.expected_task_id):
+                        self._operator_abort_timer.stop()
+                        diagnostic('operator.abort', taskId=args.expected_task_id)
+                        QApplication.instance().quit()
+                self._operator_abort_timer.timeout.connect(check_abort)
+                self._operator_abort_timer.start()
+
         def _remember_view(self, view):
             super()._remember_view(view)
             keys = (view.controls.enabled, view.controls.primary_key, view.controls.secondary_key)
@@ -182,7 +204,7 @@ def main():
                     handle.write(json.dumps(record, ensure_ascii=True) + '\n')
                 if args.editor_guided and args.editor_case == 'manual' and str(event.type) == 'activation.started':
                     editor_instruction('F8 ANGEKOMMEN – JETZT SPRECHEN\n'
-                        '• Dies ist die manuelle Hotkeyprobe.\n'
+                        '• Den grünen Satz unten sprechen.\n'
                         '• DIREKT am Satzende Strg+Umschalt+F9 drücken.\n'
                         '• Erwartet: „F9 IM CLIENT ANGEKOMMEN“.')
                 if args.editor_guided and str(event.type) in (
@@ -207,37 +229,27 @@ def main():
                     activationId=value.ack.activationId, inputPhase=str(value.ack.inputPhase))
 
             self.session.on_completion = completed
-            if args.editor_guided:
-                previous_status = self.session.on_status
-                shown = False
-
-                def status(value):
-                    nonlocal shown
-                    previous_status(value)
-                    if str(value.state) == 'ready' and not shown:
-                        shown = True
-                        if args.editor_case == 'manual':
-                            editor_instruction('CLIENT BEREIT – HOTKEYTEST\n'
-                                '• Jetzt Strg+Umschalt+F8 drücken.\n'
-                                '• Bei „F8 ANGEKOMMEN“ sprechen:\nDies ist die manuelle Hotkeyprobe.\n'
-                                '• DIREKT am Satzende Strg+Umschalt+F9 drücken.\n'
-                                '• Im Fenster bleiben; keine automatische nächste Aufgabe.')
-                        else:
-                            phrase = ('Hey Jarvis der rote Ball liegt auf dem Boden.'
-                                      if args.editor_case == 'jarvis' else
-                                      'Alexa die gelbe Tasche steht vor der Tür.')
-                            editor_instruction('CLIENT BEREIT – JETZT SPRECHEN\n'
-                                '• Ohne Pause sprechen:\n'+phrase+'\n'
-                                '• Danach Strg+Umschalt+F9 drücken.\n'
-                                '• Auf die nächste Aufgabe hier im Fenster warten.')
-
-                self.session.on_status = status
             if args.stop_after:
                 original_run = self.run
 
                 async def stop_when_finished():
                     deadline = time.monotonic() + 180
+                    shown = False
                     while not self.is_closing:
+                        if args.editor_guided and not shown and self.is_ready and self.media.audio_available:
+                            shown = True
+                            diagnostic('guided.client_ready', audioAvailable=True, runtimeReady=True)
+                            if args.editor_case == 'manual':
+                                editor_instruction('CLIENT BEREIT – HOTKEYTEST\n'
+                                    '• Jetzt Strg+Umschalt+F8 drücken.\n'
+                                    '• Bei „F8 ANGEKOMMEN“ den grünen Satz sprechen.\n'
+                                    '• Direkt am Satzende Strg+Umschalt+F9 drücken.\n'
+                                    '• Bei Bedarf „Versuch abbrechen“; danach in Ruhe neu starten.')
+                            else:
+                                editor_instruction('CLIENT BEREIT – JETZT SPRECHEN\n'
+                                    '• Den grünen Satz ohne Pause zwischen Rufwort und Nutzsatz sprechen.\n'
+                                    '• Danach Strg+Umschalt+F9 drücken.\n'
+                                    '• Bei Bedarf „Versuch abbrechen“; danach in Ruhe neu starten.')
                         terminal = sum(a.status in ('completed', 'cancelled', 'failed')
                                        for a in self.mirror.mirror.view.activations.values())
                         if terminal >= args.stop_after or time.monotonic() >= deadline:

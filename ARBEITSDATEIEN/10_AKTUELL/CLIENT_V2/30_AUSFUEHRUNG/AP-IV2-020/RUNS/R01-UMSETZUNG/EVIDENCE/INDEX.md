@@ -1,3 +1,7 @@
+## Neue Bedienhilfen für die gemeinsame Durchführung
+
+[Wiederholen/Abbrechen und grünes persistentes Satzfeld geprüft](ux01/repeat-controls/summary.json). [Voriger manueller Teilversuch NOT_PROVEN](ux01/manual-hotkey-20261016-01/assessment.json), null Activations/Finals, Secondary nur idle; kein nachgewiesener Produktfehler. Neuer Einzelversuch bleibt bis tatsächlicher Bedienung und Auswertung offen.
+
 ## Aktuell: bestätigte Wake-Einzelsätze und nächster Hotkeyteil
 
 [Zwei bewusst separat gestartete Liveversuche](ux01/stepped-20261016-01/assessment.json): vollständige Nutzsätze, zwei native Einfügungen,71Zeichen mit Leerzeichen und tatsächlicher menschlicher Bestätigung PASS am unveränderten qualifizierten Produkt17261e6. F9-Finish weiterhin NOT_PROVEN; beide Eingaben per Timeout. [Vorbereitete Hotkeydiagnose und Helferprüfungen](ux01/hotkey-task-precheck/summary.json). UX01 bereits geschlossen. [Aktuelle Checkliste](../07_TESTCHECKLISTE.md), vollständige M-Gates weiterhin offen.

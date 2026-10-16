@@ -1,3 +1,7 @@
+## Wiederholbare Aufgaben mit grünem Satzfeld
+
+Satz und Anleitung sind schon vor Start sichtbar; der Satz bleibt während des Versuchs groß und grün. Nach dem Versuch **Aufgabe wiederholen** oder **Versuch übernehmen** wählen. Wiederholen bereitet nur die Vorschau vor; der nächste Lauf braucht einen eigenen Startklick. Während des Laufs kann **Versuch abbrechen und neu vorbereiten** gewählt werden. Erst nach beendetem bisherigen Client wird die neue Vorschau aktiviert. Jede Wiederholung separat protokolliert. Am Blockende **Versuch übernehmen / Testblock abschließen**, dann erscheint FERTIG. Keine Produktfristen dafür verlängert. [Helfernachweise](EVIDENCE/ux01/repeat-controls/summary.json).
+
 ## Maßgeblicher Bedienablauf ab 16.10.2026
 
 Jede Einzelaufgabe zeigt Satz und Tastenfolge **vor** ihrem eigenen Startknopf. Keine automatisch startende Folgeaufgabe. Zwischen den beiden abgeschlossenen Wake-Aufgaben war der Client aus. [Ergebnis](EVIDENCE/ux01/stepped-20261016-01/assessment.json) bestätigt vollständige Nutzsätze mit Leerzeichen; F9 endete nicht als protokollierter Finish-Befehl. Nächste einzelne Aufgabe: `stepped_wake_trial.py --cases manual`, mit sichtbarer Bestätigung für tatsächlichen F8/F9-Empfang. [Fortlaufende Checkliste](07_TESTCHECKLISTE.md). Ältere automatische Ablaufbeschreibungen unten sind historische Versuchsbeschreibungen.
