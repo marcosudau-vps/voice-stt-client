@@ -1,6 +1,6 @@
 # AP-IV2-020 – unsere Testcheckliste
 
-**Stand: 16.10.2026 · Technische Qualifikation grün · Gemeinsame Realtests offen**
+**Stand: 16.10.2026 · Testoberfläche fertig · UX02-Ausnahme offen · Realgates offen**
 
 Ich pflege die Häkchen nach den tatsächlichen Nachweisen. „Teilweise geprüft“
 bedeutet noch keinen vollständig bestandenen Pflichtfall. Derselbe R01 und
@@ -14,7 +14,7 @@ bedeutet noch keinen vollständig bestandenen Pflichtfall. Derselbe R01 und
 - [x] Beide Nutzsätze mit Leerzeichen getrennt; zwei echte native Einfügungen.
 - [x] Menschliche Bestätigung: **„Beide vollständig, mit Leerzeichen“**.
 - [x] Effektiv **5000ms Nachsprechfenster / 320ms Pre-Roll** in beiden Sitzungen bestätigt.
-- [ ] F9 als tatsächlichen Finish-Befehl nachweisen: beide bisherigen Eingaben endeten per Timeout.
+- [x] F8/F9 im neuen Manualdurchlauf tatsächlich applied und input_closed=finished. Wake-only-Controlteil separat offen.
 - [ ] Endgültiges Gefühl zu Pre-Roll und dem übrigen Feedback gemeinsam bewerten.
 
 [Auswertung mit Quellbindung, Messwerten und Diagnosen](EVIDENCE/ux01/stepped-20261016-01/assessment.json).
@@ -29,18 +29,25 @@ Die zwei getrennten Sitzungen sind ein erfolgreicher Teilnachweis, noch kein vol
 - [x] Jeder Versuch separat erhalten; vorher übernommener Text bleibt bestehen.
 - [x] Acht Helferregressionen und tatsächliche Qt-Widgetprüfung grün.
 
-## Jetzt: eine kurze manuelle Hotkeyprobe
+## Dauerhafter Testclient fertig
 
-- [ ] Vorschau und Satz **vorher in Ruhe lesen**.
-- [ ] Eigenen Startknopf klicken; auf **CLIENT BEREIT** warten.
-- [ ] **Strg+Umschalt+F8**, bei **F8 ANGEKOMMEN** den angezeigten Satz sprechen.
-- [ ] **Direkt am Satzende Strg+Umschalt+F9** drücken.
-- [ ] Bei Problemen selbst **Wiederholen** oder **Abbrechen** wählen.
-- [ ] Bei gelungenem Versuch **Übernehmen / Testblock abschließen** wählen; danach FERTIG.
-- [ ] Der Agent prüft Tastenempfang, Ack, Lebenszyklus und Einfügung.
+- [x] [Code und Startanleitung](../../../../../../../tests/manual/v2/README.md) unter `tests/manual/v2` gespeichert.
+- [x] Alle Schritte vorher sichtbar; aktueller Fokus wandert nach unten.
+- [x] Satz beim Sprechen kräftig grün; künftige Schritte abgedunkelt.
+- [x] Timer rechts und acht Sekunden entspannte Vorbereitung.
+- [x] Zehn Helferregressionen, echte Qt-Prüfung und volle1378Windows-Regression grün.
 
-Jede weitere Aufgabe benötigt erneut deinen eigenen Start. Kein automatischer Folgetest.
-Die native Leerzeichenprobe und die beiden erfolgreichen Wake-Sätze werden dafür nicht wiederholt.
+## Jetzt offen: zusätzliche Produktkorrektur UX02
+
+- [x] F8/F9-Controlpfad tatsächlich nachgewiesen.
+- [x] Fehlende Einfügung untersucht: gehaltenes Shift verändert Ctrl+V zu Ctrl+Shift+V.
+- [x] Roter Nachweis und konkreter Scopevorschlag vorbereitet.
+- [ ] Menschliche Entscheidung zur [engen Produktausnahme](08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md).
+- [ ] Danach Korrektur, Regressionen und neue Produkt-/Build-/Paarqualifikation.
+- [ ] Anschließend gezielter realer Halte-/Freigabetest und übrige Hardwareblöcke.
+
+Die letzte Zieleinfügung ist **FAIL**; der Finish-Hotkey funktioniert. Die neue
+Oberfläche ist unabhängig davon fertig; ihre Vorschau startet keinen Sprachclient.
 
 ## Bereits erledigt
 

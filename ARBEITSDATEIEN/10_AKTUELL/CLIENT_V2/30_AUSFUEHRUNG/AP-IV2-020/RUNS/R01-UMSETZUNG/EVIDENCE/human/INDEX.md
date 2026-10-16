@@ -1,3 +1,7 @@
+## Aktuell: dauerhafter Testclient fertig, UX02 offen
+
+[Testclient](../../../../../../../../../tests/manual/v2/README.md), [zehn Helferprüfungen/Qt/Windows1378 PASS](../ux01/manual-tool-permanent/summary.json). Feste Schritte, wandernder Fokus, Vorbereitung8s und Timer rechts. [Manualprobe](../ux01/repeatable-manual-20261016-01/assessment.json): F8/F9 PASS, Zieleinfügung FAIL durch gehaltenes Shift. [Nicht angewandter Scopevorschlag](../../08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md). BLOCKED bezüglich vollständiger Qualifikation; kein geänderter Produktcode.
+
 ## Wiederholbare Einzelaufgaben
 
 [Controller](stepped_wake_trial.py) wartet ohne Vorlesetimer auf jeden eigenen Start. [Dauerhafte Controllerregressionen](test_stepped_controls.py), [acht Helfertests und Qt-Selbstprüfung](../ux01/repeat-controls/summary.json). Separates großes grünes Satzfeld; Wiederholen, Abbrechen und explizite Übernahme. Attempt-IDs verhindern alte Requests/Statusmeldungen; keine automatische funktionale Erfolgswertung aus Übernehmen oder Exit0. Produkt unverändert.

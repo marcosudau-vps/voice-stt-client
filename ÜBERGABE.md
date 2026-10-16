@@ -1,3 +1,9 @@
+## AP-IV2-020/R01 – BLOCKED durch UX02, 16.10.2026
+
+[Testclient](tests/manual/v2/README.md) fertig: feste Schritte, wandernder Fokus, Countdown8s, eigener Start/Wiederholen/Abbrechen. Zehn Helferprüfungen/Qt und volle1378Windows-Regression PASS. Manuelle F8/F9-Steuerung PASS, Zieleinfügung FAIL (Shift gehalten). Produktausnahme noch nicht freigegeben; Produkt17261e6 unverändert. Derselbe R01/Branch/Draft-PR15; kein REVIEW_READY. [Aktueller Report](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md).
+
+### Vorheriger datierter Zwischenstand
+
 **Aktualisierung16.10.:** UX01 nativ bestätigt und geschlossen. Zwei einzeln gestartete direkte Wake-Nutzsätze vollständig, ohne Rufwort und mit Leerzeichen bestätigt. F9-Finish mangels Commandack noch unbewiesen; gezielter einzelner Manualtest mit eigener Vorschau/Start folgt. Produkt17261e6 unverändert; vollständige M-Gates/30min100 weiter offen.
 
 # AP-IV2-020 – IN_PROGRESS, Phase C läuft, 2026-10-15

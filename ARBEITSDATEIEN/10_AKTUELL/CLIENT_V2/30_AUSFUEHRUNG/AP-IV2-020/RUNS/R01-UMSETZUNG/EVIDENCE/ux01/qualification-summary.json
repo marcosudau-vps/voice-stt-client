@@ -1,5 +1,5 @@
 {
-  "status": "TECHNICAL_QUALIFICATION_PASS_REAL_CASES_OPEN",
+  "status": "TECHNICAL_REGRESSION_PASS_REAL_OUTPUT_FAIL_UX02_OPEN",
   "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
   "productTree": "c054fb6bb93b438feb405e61defcad1d4f3e84ac",
   "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
@@ -130,7 +130,7 @@
     "skipped": 14
   },
   "ux01Status": "CLOSED_NATIVE_OUTPUT_AND_REQUIRED_TECHNICAL_REQUALIFICATION_PASS",
-  "realCases": "NOT_PROVEN: all complete M01..M12 gates still open",
+  "realCases": "M11 FAIL due held modifier; other complete M-gates NOT_RUN/NOT_PROVEN",
   "calibration": {
     "followupMs": 5000,
     "preRollMs": 320,
@@ -151,5 +151,10 @@
     "directPhraseAndSpacedOutput": "PASS",
     "hotkeyFinish": "NOT_PROVEN",
     "completeM02": "NOT_PROVEN"
-  }
+  },
+  "openFindingIds": [
+    "IV2-020-UX02"
+  ],
+  "manualToolEvidence": "manual-tool-permanent/summary.json",
+  "modifierEvidence": "repeatable-manual-20261016-01/assessment.json"
 }

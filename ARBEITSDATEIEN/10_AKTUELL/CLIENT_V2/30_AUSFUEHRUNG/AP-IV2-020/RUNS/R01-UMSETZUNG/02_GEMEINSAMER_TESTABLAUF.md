@@ -1,3 +1,7 @@
+## Dauerhafte Oberfläche und aktueller Halt
+
+[Startanleitung](../../../../../../../tests/manual/v2/README.md); Vorschau `venv/Scripts/python.exe -m tests.manual.v2 --preview`. Feste acht Schritte, wandernder Fokus, grüner Satz und Timer rechts. Acht Sekunden ruhige Vorbereitung, unveränderte Produktfristen. Weitere echte Einfügeversuche nach Entscheidung zum [Modifiertastenbefund UX02](08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md) bündeln.
+
 ## Wiederholbare Aufgaben mit grünem Satzfeld
 
 Satz und Anleitung sind schon vor Start sichtbar; der Satz bleibt während des Versuchs groß und grün. Nach dem Versuch **Aufgabe wiederholen** oder **Versuch übernehmen** wählen. Wiederholen bereitet nur die Vorschau vor; der nächste Lauf braucht einen eigenen Startklick. Während des Laufs kann **Versuch abbrechen und neu vorbereiten** gewählt werden. Erst nach beendetem bisherigen Client wird die neue Vorschau aktiviert. Jede Wiederholung separat protokolliert. Am Blockende **Versuch übernehmen / Testblock abschließen**, dann erscheint FERTIG. Keine Produktfristen dafür verlängert. [Helfernachweise](EVIDENCE/ux01/repeat-controls/summary.json).

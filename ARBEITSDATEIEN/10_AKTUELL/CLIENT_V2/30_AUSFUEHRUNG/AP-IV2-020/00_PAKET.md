@@ -1,6 +1,6 @@
 # AP-IV2-020 – reale Windows-, Modell- und Hardwarequalifikation
 
-Status **IN_PROGRESS**, Workflow **IMPLEMENTATION_IN_PROGRESS**, 2026-10-15.
+Status **BLOCKED**, Workflow **BLOCKED**, 2026-10-15.
 Rolle: ein Umsetzer, R01-UMSETZUNG. Schreibhoheit: Codex in dieser Session.
 Branch `work/client-v2/ap-iv2-020`, Base `feat/client-v2`, tatsächlicher Parent
 `b80ed8b81ad92bd02ac32553883443d2b7673bcd`.

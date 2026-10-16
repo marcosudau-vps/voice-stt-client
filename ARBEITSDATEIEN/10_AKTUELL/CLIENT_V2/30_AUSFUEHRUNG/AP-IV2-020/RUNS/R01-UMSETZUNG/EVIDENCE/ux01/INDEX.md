@@ -1,3 +1,7 @@
+## Aktuell: dauerhafter Testclient fertig, UX02 offen
+
+[Testclient](../../../../../../../../../tests/manual/v2/README.md), [zehn Helferprüfungen/Qt/Windows1378 PASS](manual-tool-permanent/summary.json). Feste Schritte, wandernder Fokus, Vorbereitung8s und Timer rechts. [Manualprobe](repeatable-manual-20261016-01/assessment.json): F8/F9 PASS, Zieleinfügung FAIL durch gehaltenes Shift. [Nicht angewandter Scopevorschlag](../../08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md). BLOCKED bezüglich vollständiger Qualifikation; kein geänderter Produktcode.
+
 ## Livebestätigung mit getrennten Startknöpfen, 16.10.2026
 
 [Bewerteter Durchgang](stepped-20261016-01/assessment.json), [unveränderter Prozessbericht](stepped-20261016-01/stepped-trial.json), vollständige minimierte Event-/Ack-/Metrik- und Quellidentitätsprotokolle daneben als `.json.gz`. Beide direkten Nutzsätze vollständig und sichtbar mit Leerzeichen, Nutzerbestätigung stimmt mit Editorhash überein. Zwei separate Sitzungen; F9 mangels Activationack und wegen timed_out unbewiesen. Quelle exakt Produkt17261e6, M02 insgesamt offen. [Neue passive Hotkeydiagnose vorgeprüft](hotkey-task-precheck/summary.json).

@@ -1,3 +1,9 @@
+## AP-IV2-020/R01 – BLOCKED durch UX02, 16.10.2026
+
+[Testclient](tests/manual/v2/README.md) fertig: feste Schritte, wandernder Fokus, Countdown8s, eigener Start/Wiederholen/Abbrechen. Zehn Helferprüfungen/Qt und volle1378Windows-Regression PASS. Manuelle F8/F9-Steuerung PASS, Zieleinfügung FAIL (Shift gehalten). Produktausnahme noch nicht freigegeben; Produkt17261e6 unverändert. Derselbe R01/Branch/Draft-PR15; kein REVIEW_READY. [Aktueller Report](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md).
+
+### Vorheriger datierter Zwischenstand
+
 ## AP-IV2-020/R01 – bestätigte einzelne Wake-Aufgaben, 16.10.2026
 
 Beide direkten Nutzsätze im eigenen Editor vollständig und mit Leerzeichen, tatsächlich getrennt gestartet, Quellhashbindung an Produkt17261e6 exakt. UX01 geschlossen. F9 nicht als Finish quittiert, beide Fenster per Timeout; gezielter Manual-F8/F9-Test mit Satzvorschau/eigenem Start vorbereitet. Vollständige M-Fälle bleiben offen. Technische Qualifikation unverändert grün; keine Produktänderung.

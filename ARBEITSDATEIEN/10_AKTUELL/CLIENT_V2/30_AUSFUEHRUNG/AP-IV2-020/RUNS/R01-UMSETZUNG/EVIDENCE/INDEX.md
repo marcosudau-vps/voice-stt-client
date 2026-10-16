@@ -1,3 +1,7 @@
+## Aktuell: dauerhafter Testclient fertig, UX02 offen
+
+[Testclient](../../../../../../../../tests/manual/v2/README.md), [zehn Helferprüfungen/Qt/Windows1378 PASS](ux01/manual-tool-permanent/summary.json). Feste Schritte, wandernder Fokus, Vorbereitung8s und Timer rechts. [Manualprobe](ux01/repeatable-manual-20261016-01/assessment.json): F8/F9 PASS, Zieleinfügung FAIL durch gehaltenes Shift. [Nicht angewandter Scopevorschlag](../08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md). BLOCKED bezüglich vollständiger Qualifikation; kein geänderter Produktcode.
+
 ## Neue Bedienhilfen für die gemeinsame Durchführung
 
 [Wiederholen/Abbrechen und grünes persistentes Satzfeld geprüft](ux01/repeat-controls/summary.json). [Voriger manueller Teilversuch NOT_PROVEN](ux01/manual-hotkey-20261016-01/assessment.json), null Activations/Finals, Secondary nur idle; kein nachgewiesener Produktfehler. Neuer Einzelversuch bleibt bis tatsächlicher Bedienung und Auswertung offen.

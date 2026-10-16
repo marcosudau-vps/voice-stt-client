@@ -7,7 +7,7 @@
     },
     {
       "file": "editor_state.py",
-      "sha256": "ef93b63adfcf14feec6830ae5026d4eee11f5978b882c9979e71ccf3458c828d"
+      "sha256": "07b9c8cf59090cb51970d5cbfa15d489d2005b02ebda31176949bba338f4fd84"
     },
     {
       "file": "evaluate_stepped_trial.py",
@@ -19,7 +19,7 @@
     },
     {
       "file": "observed_session.py",
-      "sha256": "3a3b3157a2944c70cbfbc96d1862104f564895c6c887e5b6b82ead41d085d12d"
+      "sha256": "5cd2d5df5fb6b74e4faa1669b58ef50c537ddde44f7c672cb415904b61388dd4"
     },
     {
       "file": "probe_native_editor.py",
@@ -38,20 +38,24 @@
       "sha256": "43584d1d85f2e35de796dbeabead1d786843a2447c00b06c5a2c35fb63552fee"
     },
     {
+      "file": "repro_held_shift.py",
+      "sha256": "d39af2f0455116d300ade0a72c28af67c6c4a47426ce68abb98aabfa7df16a9e"
+    },
+    {
       "file": "score_real_wake.py",
       "sha256": "4e3550312217ebf8fbb01fb183c29468c35184b03a8e55d4df03fe90158f0823"
     },
     {
       "file": "stepped_wake_trial.py",
-      "sha256": "274ad08b0d8204c57d1987a421cd4f3effe9ad52dec0581a9d778e5009165c10"
+      "sha256": "fef8cc83d28f294da55b00ba70a130347ccf8972d84d880f2e8b274fb6ac6d1f"
     },
     {
       "file": "test_editor_state.py",
-      "sha256": "37f26848628512fceb66c837d59970a7f0892e015c8728a14bd6641db27a6f24"
+      "sha256": "d2b2488ff86ce5bb04cfada46dcc3e317e9c80bab6aaee0b817fcbc3080c1b07"
     },
     {
       "file": "test_stepped_controls.py",
-      "sha256": "d042d8efec888d6f98fac5e2d9d1c5677aa811aec57b34ec65b78c661de2b119"
+      "sha256": "044263f64ca76dba64a14b1ed731fa1c1b89df1c64ff29f875d3f4a03e439652"
     }
   ],
   "reproduction": "samples/README.md",
@@ -59,5 +63,6 @@
   "editorHelper": {
     "file": "../recovery-audit/human_test_editor.py",
     "sha256": "c549c17e590f58cdadef6e7e8286a66cd3e59f7eeea10370a76645a876296a28"
-  }
+  },
+  "maintainedManualTool": "tests/manual/v2 (repository-relative)"
 }

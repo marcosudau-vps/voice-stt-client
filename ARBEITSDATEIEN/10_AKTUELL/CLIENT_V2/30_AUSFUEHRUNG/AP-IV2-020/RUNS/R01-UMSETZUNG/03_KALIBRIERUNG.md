@@ -1,3 +1,7 @@
+## Entspannte Teststeuerung
+
+Acht Sekunden Bereitmachen vor Sprechaufforderung, mit `tests.manual.v2 --prepare-seconds 0..30` einstellbar. Nur Testorchestrierung: Follow-up5000ms/Pre-Roll320ms/Sicherheitsgrenzen unverändert. Sichtbare Restzeit zählt tatsächliche Mirrorfrist ab; bei Laden unbekannter Dauer wird verstrichene Wartezeit angezeigt. Lesen/Ergebnisentscheidung ohne kurzen Folgetimer. UX02 verhindert derzeit die vollständige native Ausgabequalifikation.
+
 ## Livebestätigung am Produkt17261e6, 16.10.2026
 
 [Zwei getrennt gestartete direkte Wake-Nutzsätze](EVIDENCE/ux01/stepped-20261016-01/assessment.json) mit effektiv5000ms Follow-up/320ms Pre-Roll: Jarvis und Alexa jeweils vollständig, ohne Rufwort, sichtbar mit Leerzeichentrennung. Mensch bestätigt „Beide vollständig, mit Leerzeichen“. Dies stützt den320ms-Livekandidaten und ist keine ausdrückliche Endwahl aller Wake-/Feedbackparameter. Keine neue Rohaufnahme/Grenzannotation. F9-Steuerung bleibt separat nachzuweisen; natürlicher Timeoutjeweils5003ms ab recording_ended gemessen. Keine Produkt-/Serverdefaults geändert.

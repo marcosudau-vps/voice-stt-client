@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "IMPLEMENTATION_IN_PROGRESS",
-  "packageStatus": "IN_PROGRESS",
+  "workflowPhase": "BLOCKED",
+  "packageStatus": "BLOCKED",
   "activePackage": "AP-IV2-020",
   "nextPackage": null,
   "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
@@ -18,11 +18,13 @@
   },
   "reviewedCommit": null,
   "reviewReport": null,
-  "openFindingIds": [],
+  "openFindingIds": [
+    "IV2-020-UX02"
+  ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": null,
-  "nextAction": "Gemeinsame Manual-F8/F9-Probe im neuen Testeditor: persistenter großer grüner Satz, eigene Starts, Wiederholen/Abbrechen und ausdrückliche Übernahme. Acht Helferregressionen/Qt PASS. Voriger Manualversuch null Activations/Finals, NOT_PROVEN; Produkt17261e6 unverändert und volle technische Qualifikation erhalten. Vollständige M-Gates offen.",
+  "blockingReason": "Realer nativer Paste mit gehaltenem Shift fehlgeschlagen; Produktausnahme UX02 noch nicht freigegeben. UI-Auftrag vollständig erledigt; übrige Realgates offen.",
+  "nextAction": "Mensch entscheidet über konkreten UX02-Scope (08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md). Danach gleicher R01/PR15: Korrektur und Requalifikation. Dauerhafter Testclient tests/manual/v2 fertig; Vorschau ohne Sprachclient geöffnet.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
