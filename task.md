@@ -1,3 +1,9 @@
+## AP-IV2-020/R01 – IN_PROGRESS nach UX02-Freigabe, 16.10.2026
+
+UX02 samt Tests/Requalifikation ausdrücklich freigegeben. Native begrenzte Modifierfreigabe umgesetzt, zwölf neue dauerhafte Regressionen/112 gezielte Tests PASS. Finale volle Windows-/Build-/Serverpaarqualifikation folgt; realer Halte-/Freigabefall und übrige Realgates weiter offen. Kein REVIEW_READY, gleiche R01/Paketbranch/PR15.
+
+### Vorheriger Zwischenstand
+
 ## AP-IV2-020/R01 – BLOCKED durch UX02, 16.10.2026
 
 [Testclient](tests/manual/v2/README.md) fertig: feste Schritte, wandernder Fokus, Countdown8s, eigener Start/Wiederholen/Abbrechen. Zehn Helferprüfungen/Qt und volle1378Windows-Regression PASS. Manuelle F8/F9-Steuerung PASS, Zieleinfügung FAIL (Shift gehalten). Produktausnahme noch nicht freigegeben; Produkt17261e6 unverändert. Derselbe R01/Branch/Draft-PR15; kein REVIEW_READY. [Aktueller Report](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md).

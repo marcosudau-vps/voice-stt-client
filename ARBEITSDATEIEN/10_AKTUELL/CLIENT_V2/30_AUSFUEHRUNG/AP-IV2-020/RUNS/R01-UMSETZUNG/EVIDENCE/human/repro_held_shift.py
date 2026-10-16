@@ -6,6 +6,7 @@ recorded Ctrl+Shift+V with no insertion. This diagnostic must fail before fix.
 from pathlib import Path
 import sys
 import unittest
+import threading
 
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'voice_stt_client').is_dir())
 sys.path.insert(0,str(ROOT))
@@ -19,6 +20,7 @@ class HeldShift(unittest.TestCase):
 
     def test_shift_from_finish_hotkey_must_not_suppress_paste(self):
         held={0x10}  # Actual live editor observed shiftHeld=True.
+        self.backend.get_pressed_modifiers=lambda:tuple(held)
         delivered=[]
         native=self.backend.send_input_keyboard
         def send(events):
@@ -29,6 +31,9 @@ class HeldShift(unittest.TestCase):
                     delivered.append(self.backend.clipboard_data)
             return native(events)
         self.backend.send_input_keyboard=send
+        release=threading.Timer(.1,lambda:held.discard(0x10))
+        release.start()
+        self.addCleanup(lambda:release.join(1))
         self.final('Bewusste Testprobe.')
         entry=self.history.get_persistent_entries()[0]
         self.assertEqual(entry.attempts[0].status,'command_sent')

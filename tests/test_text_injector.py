@@ -67,6 +67,7 @@ class MockInjectionBackend(WindowsInjectionBackend):
         self.exception_on_set = False
         self.exception_on_send_input = False
         self.exception_on_seq_number = False
+        self.seq_failure_after = 1
 
         self.set_fail = False
         self.exception_on_create_owner = False
@@ -132,7 +133,7 @@ class MockInjectionBackend(WindowsInjectionBackend):
 
     def get_clipboard_sequence_number(self) -> int:
         self.seq_calls = getattr(self, "seq_calls", 0) + 1
-        if self.exception_on_seq_number and self.seq_calls > 1:
+        if self.exception_on_seq_number and self.seq_calls > self.seq_failure_after:
             raise RuntimeError("Sequence number exception simulated")
         self.event_log.append(("get_sequence_number", self.sequence_number))
         return self.sequence_number
@@ -152,6 +153,9 @@ class MockInjectionBackend(WindowsInjectionBackend):
         self.send_input_calls.append(events)
         self.event_log.append(("send_input_keyboard", events))
         return self.send_input_result
+
+    def get_pressed_modifiers(self) -> Tuple[int, ...]:
+        return ()
 
 # -------------------------------------------------------------------
 # Test Cases
@@ -757,6 +761,7 @@ class TestTextInjector(unittest.TestCase):
         q = self._create_queue()
         q.start()
         e1 = self.history.add_entry("sess_1", 1, "command sent")
+        self.backend.seq_failure_after = 2  # after write + pre-paste validation, in restore
         q.enqueue(e1)
         q.stop()
 
@@ -791,6 +796,7 @@ class TestTextInjector(unittest.TestCase):
         q = self._create_queue()
         q.start()
         e3 = self.history.add_entry("sess_1", 3, "failed text")
+        self.backend.seq_failure_after = 2  # preserve the intended restore fault after SendInput
         q.enqueue(e3)
         q.stop()
 

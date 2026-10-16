@@ -40,6 +40,10 @@ Between two jobs the queue depth does not change, so a timer would add records
 without adding information.
 """
 
+MODIFIER_RELEASE_TIMEOUT_S = 1.5
+MODIFIER_POLL_INTERVAL_S = 0.01
+MODIFIER_VKEYS = (0x10, 0x11, 0x12, 0x5B, 0x5C)  # Shift, Ctrl, Alt, either Win
+
 # -------------------------------------------------------------------
 # SendInput Ctypes Structures (Win32)
 # -------------------------------------------------------------------
@@ -181,6 +185,11 @@ class WindowsInjectionBackend(abc.ABC):
     def send_input_keyboard(self, events: List[Tuple[int, bool]]) -> int:
         pass
 
+    @abc.abstractmethod
+    def get_pressed_modifiers(self) -> Tuple[int, ...]:
+        """Currently held modifiers, not the unreliable recently-pressed bit."""
+        pass
+
 
 class CtypesWindowsInjectionBackend(WindowsInjectionBackend):
     """Real implementation of the Windows backend using ctypes with full type signatures."""
@@ -252,6 +261,9 @@ class CtypesWindowsInjectionBackend(WindowsInjectionBackend):
         # 14. SendInput
         self.user32.SendInput.argtypes = [wintypes.UINT, ctypes.c_void_p, ctypes.c_int]
         self.user32.SendInput.restype = wintypes.UINT
+
+        self.user32.GetAsyncKeyState.argtypes = [ctypes.c_int]
+        self.user32.GetAsyncKeyState.restype = wintypes.SHORT
 
         # 15. CreateWindowExW
         self.user32.CreateWindowExW.argtypes = [
@@ -361,6 +373,9 @@ class CtypesWindowsInjectionBackend(WindowsInjectionBackend):
         arr = (INPUT * len(inputs))(*inputs)
         res = self.user32.SendInput(len(inputs), arr, ctypes.sizeof(INPUT))
         return int(res)
+
+    def get_pressed_modifiers(self) -> Tuple[int, ...]:
+        return tuple(key for key in MODIFIER_VKEYS if self.user32.GetAsyncKeyState(key) & 0x8000)
 
 # -------------------------------------------------------------------
 # Clipboard Session Context Manager
@@ -695,6 +710,44 @@ class TextInjectionQueue:
         backup_text = None
         backup_success = False
 
+        modifier_deadline = None
+        deferred_target = None
+
+        def modifier_barrier(expected_sequence=None):
+            nonlocal modifier_deadline, deferred_target
+            if not self.backend.get_pressed_modifiers():
+                return None
+            if deferred_target is None:
+                deferred_target = self.backend.get_foreground_window()
+            if not deferred_target:
+                return "No foreground window while waiting for modifiers"
+            if expected_sequence is None:
+                expected_sequence = self.backend.get_clipboard_sequence_number()
+            if modifier_deadline is None:
+                modifier_deadline = time.monotonic() + MODIFIER_RELEASE_TIMEOUT_S
+            while self.backend.get_pressed_modifiers():
+                with self._lock:
+                    if self._state in (QueueState.STOPPING, QueueState.STOPPED):
+                        return "Queue stopped while waiting for modifiers"
+                remaining = modifier_deadline - time.monotonic()
+                if remaining <= 0:
+                    return "Modifier release timeout"
+                time.sleep(min(MODIFIER_POLL_INTERVAL_S, remaining))
+            with self._lock:
+                if self._state in (QueueState.STOPPING, QueueState.STOPPED):
+                    return "Queue stopped while waiting for modifiers"
+            if self.backend.get_foreground_window() != deferred_target:
+                return "Foreground changed while waiting for modifiers"
+            if self.backend.get_clipboard_sequence_number() != expected_sequence:
+                return "Clipboard changed while waiting for modifiers"
+            return None
+
+        # Do not touch the user's clipboard while the Finish hotkey is held.
+        diagnostics["error_phase"] = "modifier_release"
+        blocked = modifier_barrier()
+        if blocked:
+            return "skipped", blocked, diagnostics
+
         # 2. Try backing up existing clipboard unicode text
         if restore_previous:
             diagnostics["error_phase"] = "clipboard_backup"
@@ -743,6 +796,15 @@ class TextInjectionQueue:
         paste_delay = self.config.text_injection.paste_delay_ms / 1000.0
         time.sleep(paste_delay)
 
+        # A modifier may also be pressed during the configured paste delay.
+        # Reuse the same deadline; never retry a SendInput or retarget a wait.
+        diagnostics["error_phase"] = "modifier_release"
+        blocked = modifier_barrier(seq_after_write)
+        if blocked:
+            if restore_previous and backup_success:
+                self._restore_clipboard(backup_text, seq_after_write)
+            return "skipped", blocked, diagnostics
+
         # 6. Capture foreground window
         diagnostics["error_phase"] = "foreground_lookup"
         hwnd = self.backend.get_foreground_window()
@@ -752,8 +814,17 @@ class TextInjectionQueue:
                 self._restore_clipboard(backup_text, seq_after_write)
             return "skipped", "No foreground window", diagnostics
 
+        if deferred_target is not None and hwnd != deferred_target:
+            if restore_previous and backup_success:
+                self._restore_clipboard(backup_text, seq_after_write)
+            return "skipped", "Foreground changed while waiting for modifiers", diagnostics
+
         tid, pid = self.backend.get_window_thread_process_id(hwnd)
         diagnostics["pid"] = pid
+
+        diagnostics["error_phase"] = "clipboard_validation"
+        if self.backend.get_clipboard_sequence_number() != seq_after_write:
+            return "skipped", "Clipboard changed before paste", diagnostics
 
         # 7. Simulate Ctrl+V via SendInput
         diagnostics["error_phase"] = "send_input"

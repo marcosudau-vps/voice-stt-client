@@ -1,3 +1,5 @@
+**Fortschreibung:** [Menschliche Freigabe012](ZUSATZPROMPTS/012_UX02_FREIGABE.md) erteilt. Umsetzung/Requalifikation im selben R01 läuft; ursprünglicher Vorschlag unten bleibt Herkunft.
+
 # IV2-020-UX02 – zusätzliche Produktausnahme erforderlich
 
 Status: **OPEN_SCOPE_APPROVAL_REQUIRED**. Derselbe AP-IV2-020/R01, Paketbranch und Draft-PR15. Produktcode unverändert; noch keine Korrektur angewandt.

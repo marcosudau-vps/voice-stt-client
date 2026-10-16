@@ -42,8 +42,9 @@ Die zwei getrennten Sitzungen sind ein erfolgreicher Teilnachweis, noch kein vol
 - [x] F8/F9-Controlpfad tatsächlich nachgewiesen.
 - [x] Fehlende Einfügung untersucht: gehaltenes Shift verändert Ctrl+V zu Ctrl+Shift+V.
 - [x] Roter Nachweis und konkreter Scopevorschlag vorbereitet.
-- [ ] Menschliche Entscheidung zur [engen Produktausnahme](08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md).
-- [ ] Danach Korrektur, Regressionen und neue Produkt-/Build-/Paarqualifikation.
+- [x] Menschliche UX02-Freigabe erteilt; Korrektur und zwölf dauerhafte Regressionen umgesetzt.
+- [x] Zwölf neue Regressionen, insgesamt112 gezielte Tests grün.
+- [ ] Neue vollständige Produkt-/Build-/Paarqualifikation.
 - [ ] Anschließend gezielter realer Halte-/Freigabetest und übrige Hardwareblöcke.
 
 Die letzte Zieleinfügung ist **FAIL**; der Finish-Hotkey funktioniert. Die neue

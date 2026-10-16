@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "BLOCKED",
-  "packageStatus": "BLOCKED",
+  "workflowPhase": "IMPLEMENTATION_IN_PROGRESS",
+  "packageStatus": "IN_PROGRESS",
   "activePackage": "AP-IV2-020",
   "nextPackage": null,
   "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
@@ -23,8 +23,8 @@
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "Realer nativer Paste mit gehaltenem Shift fehlgeschlagen; Produktausnahme UX02 noch nicht freigegeben. UI-Auftrag vollständig erledigt; übrige Realgates offen.",
-  "nextAction": "Mensch entscheidet über konkreten UX02-Scope (08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md). Danach gleicher R01/PR15: Korrektur und Requalifikation. Dauerhafter Testclient tests/manual/v2 fertig; Vorschau ohne Sprachclient geöffnet.",
+  "blockingReason": null,
+  "nextAction": "UX02 ausdrücklich freigegeben: begrenzte native Modifierfreigabe implementieren, dauerhafte Regressionen rot/grün, vollen finalen Windows-/Build-/Paarstand qualifizieren; dann echte Halte-/Freigabeprobe über dauerhaften Testclient und übrige Realgates.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -33,7 +33,8 @@
     "currentImplementationSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "reconnectRecoverySource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md",
     "testFixturesSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/004_TESTAUFNAHMEN_REPO.md",
-    "ux01Source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/006_UX01_FREIGABE.md"
+    "ux01Source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/006_UX01_FREIGABE.md",
+    "ux02Source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/012_UX02_FREIGABE.md"
   },
   "candidateSelection": {
     "candidateId": "AP-IV2-020",

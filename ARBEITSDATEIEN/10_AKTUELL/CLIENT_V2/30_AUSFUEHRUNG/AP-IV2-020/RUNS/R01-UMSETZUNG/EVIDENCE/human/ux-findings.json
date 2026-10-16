@@ -28,14 +28,17 @@
     },
     {
       "id": "IV2-020-UX02",
-      "status": "OPEN_SCOPE_APPROVAL_REQUIRED",
+      "status": "IMPLEMENTED_PENDING_TECHNICAL_AND_NATIVE_QUALIFICATION",
       "summary": "Held Shift from Finish hotkey changes synthetic Ctrl+V to Ctrl+Shift+V; no text in actual Qt editor.",
       "evidence": [
         "../ux01/repeatable-manual-20261016-01/assessment.json",
         "../ux01/modifier-finding/held-shift-red.json"
       ],
       "concreteProposal": "../../08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md",
-      "productChanged": false
+      "productChanged": false,
+      "authorization": "../../ZUSATZPROMPTS/012_UX02_FREIGABE.md",
+      "regression": "tests/test_text_injector_modifiers.py",
+      "targetedEvidence": "../ux02/targeted-green-final.json"
     }
   ]
 }
