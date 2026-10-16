@@ -1,3 +1,9 @@
+## Aktueller Manual-Sprachpfad bestanden
+
+[Neuer Liveversuch am Produkt d95043e](../ux02/manual-voice-20261016-01/assessment.json), [Auswerter](evaluate_manual_trial.py). Tatsächliche F8/F9-Callbacks und Acks, gleiches Segment/Final, eine native Ausgabe ohne Shift. Mensch bestätigt vollständigen Satz und hat GUI-Übernahme betätigt. Erkannter Bindestrich in „Hotkey-Probe“ bleibt explizite orthografische ASR-Abweichung. Quelle enthält keine neue Produktänderung; vollständige M-Gates weiter offen.
+
+### Vorheriger Zwischenstand
+
 ## Aktuell: UX02 real bestanden und geschlossen
 
 [Physische Tastenprobe](../ux02/native-physical-20261016-01/assessment.json) und [menschliche Chatbestätigung](../../ZUSATZPROMPTS/013_UX02_NATIVE_BESTAETIGUNG.md) PASS. Produktworker sah tatsächlich Shift/Ctrl und deren Freigabe nach250ms; exakte native Ausgabe. Aktueller d950-Quellstand vollständig identisch mit1390er Qualifikation. Nächster Einzeltest: bestehender wiederholbarer Manual-Sprachpfad mit eigenem Start,8s Vorbereitung und sichtbaren Schritten. Keine allgemeine Fortsetzungsfreigabe nötig.

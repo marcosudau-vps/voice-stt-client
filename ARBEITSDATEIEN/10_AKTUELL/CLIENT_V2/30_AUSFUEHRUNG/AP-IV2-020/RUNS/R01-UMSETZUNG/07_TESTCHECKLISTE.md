@@ -46,9 +46,10 @@ Die zwei getrennten Sitzungen sind ein erfolgreicher Teilnachweis, noch kein vol
 - [x] Zwölf neue Regressionen, insgesamt112 gezielte Tests grün.
 - [x] Produkt d95043e neu qualifiziert:1390 Windows-Tests,1964 Servertests/14 erwartete Skips,11 Prozessfälle,17 Grenztests,7/7 Smokes; EXE/Wheel/sdist und native Laufzeit grün.
 - [x] Reale physische Shift/Ctrl-Halte-/Freigabeprobe:250ms Wartezeit, genau eine korrekte native Ausgabe, Mensch bestätigt; UX02 geschlossen.
-- [ ] Nächster Sprachpfad F8→Satz→F9 am korrigierten Produkt und übrige Hardwareblöcke.
+- [x] Reales F8→Satz→F9→Einfügen am korrigierten Produkt: echte Acks, ein Final und genau eine vollständige native Ausgabe; Mensch bestätigt.
+- [ ] Mehrsatz-/Triggerprüfungen, übrige Hardwareblöcke und Endkalibrierung.
 
-Die letzte Zieleinfügung am früheren Produkt17261e6 war **FAIL**; der Finish-Hotkey funktioniert. Am korrigierten Produkt d95043e ist die reale Tastenprobe jetzt **PASS** und UX02 geschlossen; der ASR-/F8/F9-Sprachpfad folgt separat. [Neue technische Belege](EVIDENCE/ux02/qualification-summary.json).
+Die letzte Zieleinfügung am früheren Produkt17261e6 war **FAIL**; der Finish-Hotkey funktioniert. Am korrigierten Produkt d95043e ist die reale Tastenprobe jetzt **PASS** und UX02 geschlossen; der reale ASR-/F8/F9-Sprachpfad ist ebenfalls **PASS**. ASR-Bindestrich in „Hotkey-Probe“ bleibt als orthografische Abweichung vom geplanten Satz ausgewiesen. [Neue technische Belege](EVIDENCE/ux02/qualification-summary.json).
 
 ## Bereits erledigt
 
@@ -93,6 +94,6 @@ Die letzte Zieleinfügung am früheren Produkt17261e6 war **FAIL**; der Finish-H
 Aktuell **0/12 vollständige reale M-Pflichtfälle abgeschlossen**. Einzelne erfolgreiche
 Teilversuche sind erhalten. Keine Übernahme älterer Belege als pauschaler PASS.
 
-[Mess- und Qualifikationsnachweise](EVIDENCE/ux01/qualification-summary.json) ·
+[Aktuelle Mess- und Qualifikationsnachweise](EVIDENCE/ux02/qualification-summary.json) ·
 [Fallakte M-01 bis M-12](EVIDENCE/real-cases.json) ·
 [Kalibrierung](03_KALIBRIERUNG.md)

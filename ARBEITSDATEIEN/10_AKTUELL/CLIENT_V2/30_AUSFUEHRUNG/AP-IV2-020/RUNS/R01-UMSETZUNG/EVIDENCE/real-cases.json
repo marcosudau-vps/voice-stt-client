@@ -15,7 +15,7 @@
       "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
       "configurationSha256": "13a6dfdba365290c076d6941a08d1fd7ee0925d0c4010b4da2c4a13c78fa30a2",
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
-      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open.",
+      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open. New d950 live single-segment manual controls/native output PASS; full remaining case still open.",
       "evidence": [
         "human/manual-followup-3000.json",
         "ux01/repeatable-manual-20261016-01/assessment.json"
@@ -33,6 +33,13 @@
           "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
           "status": "PARTIAL",
           "boundaries": "Actual manual F8/F9 control PASS; native output FAIL due held Shift (UX02). Remaining full-case steps not run."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+          "sourceCommit": "8445851c96c367e6647c7bd9f41f946bda463894",
+          "evidence": "ux02/manual-voice-20261016-01/assessment.json",
+          "boundaries": "One real manual F8 Activate/F9 Finish, one ASR final/history/native paste PASS; complete case remains NOT_PROVEN. Planned spelling hyphen differs; authoritative text preserved."
         }
       ]
     },
@@ -100,7 +107,7 @@
       "serverCommit": null,
       "configurationSha256": null,
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
-      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open.",
+      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open. New d950 live single-segment manual controls/native output PASS; full remaining case still open.",
       "evidence": [
         "ux01/repeatable-manual-20261016-01/assessment.json"
       ],
@@ -111,6 +118,13 @@
           "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
           "status": "PARTIAL",
           "boundaries": "Actual manual F8/F9 control PASS; native output FAIL due held Shift (UX02). Remaining full-case steps not run."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+          "sourceCommit": "8445851c96c367e6647c7bd9f41f946bda463894",
+          "evidence": "ux02/manual-voice-20261016-01/assessment.json",
+          "boundaries": "One real manual F8 Activate/F9 Finish, one ASR final/history/native paste PASS; complete case remains NOT_PROVEN. Planned spelling hyphen differs; authoritative text preserved."
         }
       ]
     },
@@ -275,7 +289,7 @@
       "serverCommit": null,
       "configurationSha256": null,
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
-      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open. Current corrected product d95043e: full native case not yet qualified; historical FAIL is not erased. UX02 physical modifier probe now PASS/CLOSED with exact native output and human confirmation; complete M11 remains NOT_PROVEN.",
+      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open. Current corrected product d95043e: full native case not yet qualified; historical FAIL is not erased. UX02 physical modifier probe now PASS/CLOSED with exact native output and human confirmation; complete M11 remains NOT_PROVEN. New d950 live single-segment manual controls/native output PASS; full remaining case still open.",
       "evidence": [
         "ux01/repeatable-manual-20261016-01/assessment.json"
       ],
@@ -293,6 +307,13 @@
           "sourceCommit": "8c8e36b931b26db8d705bf94d9dad8e9acd5d43c",
           "evidence": "ux02/native-physical-20261016-01/assessment.json",
           "boundaries": "Actual physical modifier release/native paste PASS closes UX02 only; normal/elevated/conflict/reinsert/crash full M11 remains open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+          "sourceCommit": "8445851c96c367e6647c7bd9f41f946bda463894",
+          "evidence": "ux02/manual-voice-20261016-01/assessment.json",
+          "boundaries": "One real manual F8 Activate/F9 Finish, one ASR final/history/native paste PASS; complete case remains NOT_PROVEN. Planned spelling hyphen differs; authoritative text preserved."
         }
       ],
       "previousProductResult": "FAIL at 17261e6; preserved in attempts/evidence"
@@ -325,5 +346,6 @@
   "currentTechnicalQualification": "ux02/qualification-summary.json",
   "humanExecution": "IN_PROGRESS; real manual baseline completed; no complete M PASS",
   "currentProductCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
-  "currentNativeModifierQualification": "ux02/native-physical-20261016-01/assessment.json"
+  "currentNativeModifierQualification": "ux02/native-physical-20261016-01/assessment.json",
+  "currentLiveManualQualification": "ux02/manual-voice-20261016-01/assessment.json"
 }

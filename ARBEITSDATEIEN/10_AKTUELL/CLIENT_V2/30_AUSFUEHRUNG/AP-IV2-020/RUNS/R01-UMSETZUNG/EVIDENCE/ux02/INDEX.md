@@ -1,3 +1,9 @@
+## Zusätzlicher echter Manual-Sprachpfad PASS
+
+[Auswertung und Originalereignisse](manual-voice-20261016-01/assessment.json), [eigener Start/Übernahme](manual-voice-20261016-01/stepped-trial.json), [Controller](manual-voice-control.json), [Auswertungslog](manual-voice-assessment.json). F8 activate/F9 finish applied, gleicher Lifecycle, genau ein echtes Final/History/Paste, regulärer Shutdown. Erkannter Final exakt eingefügt; Bindestrichabweichung zum Plan bleibt false im ASR-Exact-Match. Erstes Assessment und initialer Auswerter separat erhalten; keine verlorene Provenienz. Kein vollständiger M01/M04/M11/M12-PASS.
+
+### Vorheriger Zwischenstand
+
 ## Physische Bestätigung: UX02 CLOSED
 
 [Assessment PASS](native-physical-20261016-01/assessment.json), [vollständiger Versuch](native-physical-20261016-01/attempt-001.json), [menschliche Chatannahme](native-physical-20261016-01/human-decision-chat.json), [Finalisierung](native-physical-20261016-01/finalization.json). Reales Shift/Ctrl250ms gehalten, dann freigegeben; genau eine native Ausgabe/exakter33-Zeichen-Zieltext. Produktworker sauber beendet. Äußerer [Controllerprozess](native-physical-control.json) nach Chatannahme gezielt beendet, weil nur noch GUIannahme wartete: erwarteter Nichtnull-Exit/Command-FAIL bleibt erhalten, kein Produkt-FAIL. Vollständige M-Gates bleiben offen.

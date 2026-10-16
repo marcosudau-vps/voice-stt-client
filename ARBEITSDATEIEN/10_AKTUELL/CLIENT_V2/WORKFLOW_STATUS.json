@@ -22,7 +22,7 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "UX02 geschlossen: volle neue technische Qualifikation und physischer nativer Halte-/Freigabenachweis PASS, menschliche Ausgabe bestätigt. Ohne allgemeinen Folgeauftrag gebündelte Windows-/ReSpeaker-Realtests und Kalibrierung fortsetzen; nächste Einzelaufgabe tatsächlicher Manual-F8/F9-Sprachpfad am korrigierten Produkt d95043e, eigener Start im Testeditor. Alle vollständigen M-Gates/30min100 weiter offen.",
+  "nextAction": "UX02 geschlossen und nachfolgender realer Manual-F8→Sprache→F9-/Native-Ausgabepfad PASS, eigener Start und GUI-Übernahme belegt. Gebündelte Mehrsatz-/Trigger-/Hardware-Realtests und subjektive Kalibrierung fortsetzen. Alle vollständigen M-Gates/30min100 weiter offen; kein allgemeiner Folgeauftrag erforderlich.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

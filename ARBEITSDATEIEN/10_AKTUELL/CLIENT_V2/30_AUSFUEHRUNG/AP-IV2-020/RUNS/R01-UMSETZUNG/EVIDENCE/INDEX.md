@@ -1,3 +1,9 @@
+## Neuer Live-Sprachpfad am korrigierten Produkt bestanden
+
+[Manual-F8/F9-/ASR-/Native-Ausgabe](ux02/manual-voice-20261016-01/assessment.json), [menschlich bestätigt](../ZUSATZPROMPTS/014_MANUAL_SPRACHPFAD_BESTAETIGUNG.md). Ein Final und genau ein unveränderter nativer Zieltext samt Leerzeichen; erkannter Bindestrich statt geplanter Zusammenschreibung explizit dokumentiert. Vollständige M-Fälle/Kalibrierung weiterhin offen.
+
+### Vorheriger Zwischenstand
+
 ## UX02 physisch bestätigt und geschlossen
 
 [250ms tatsächlicher Halte-/Freigabenachweis und exakte native Ausgabe](ux02/native-physical-20261016-01/assessment.json), [menschliche Chatbestätigung](../ZUSATZPROMPTS/013_UX02_NATIVE_BESTAETIGUNG.md), [saubere Quieszenz-/Hotkeybereinigung](ux02/native-physical-20261016-01/finalization.json). Äußerer Helferprozess bewusst nach Chatabschluss statt GUIklick beendet; dessen Nichtnull-Exit bleibt separat dokumentiert. [Gesamtbeleg aktualisiert](ux02/qualification-summary.json). Übrige M-Gates/Kalibrierung weiterhin offen.

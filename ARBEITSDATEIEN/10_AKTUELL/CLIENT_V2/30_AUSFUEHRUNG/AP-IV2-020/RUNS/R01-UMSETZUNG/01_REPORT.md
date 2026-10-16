@@ -1,3 +1,13 @@
+## Manueller F8→Sprache→F9→Native-Paste-Pfad am korrigierten Produkt PASS
+
+[Liveauswertung](EVIDENCE/ux02/manual-voice-20261016-01/assessment.json): eigener Start2 und tatsächlicher GUI-Übernahmeklick, Quellcommit8445851 mit vollständig identischem qualifiziertem d95043e-Quellmanifest. Reales Mikrofon/ReSpeaker, ASR und gepinnter lokaler Server. F8 im idle → activate accepted/applied; F9 in segment_active → finish accepted/applied an derselben Activation; input_closed=finished. Genau ein Segment/Final/Historyeintrag und ein command_sent, ein tatsächlicher Paste-Key ohne Shift/Alt und ein MIME-Paste. Erkannter35-Zeichen-Finaltext plus Leerzeichen exakt im36-Zeichen-Ziel angekommen; Session regulär beendet. [Menschliche Bestätigung014](ZUSATZPROMPTS/014_MANUAL_SPRACHPFAD_BESTAETIGUNG.md): „Satz vollständig, Testblock übernommen“.
+
+Geplanter Wortlaut nicht byteidentisch: ASR schreibt „Hotkey-Probe“ mit Bindestrich statt „Hotkeyprobe“. Diese orthografische Abweichung bleibt explizit false beim Exact-Match; erkannter autoritativer Final und History/Paste sind unverändert gleich. Kein behaupteter exakt geplanter ASR-Wortlaut. [Wiederverwendbarer rein lesender Auswerter](EVIDENCE/human/evaluate_manual_trial.py) exportiert nur ausgewählte Sessiondaten/Hashes, keine fremde History. Erstes Assessment und passender initialer Auswerter sind separat erhalten; Beschreibungsfeld danach auf explizite Fallunterscheidung präzisiert und neu ausgewertet.
+
+Dieser Erfolg schließt den zuletzt fehlgeschlagenen einfachen Sprachpfad am korrigierten Produkt. Vollständige M01-Mehrsegment-/Overlapprüfung, M04-Phasenmatrix, M11-Gesamtfall, weitere Realgates und subjektive Endkalibrierung bleiben offen. Keine neue Produktänderung, keine erneute Vollsuite für reine Akten-/Auswerterergänzung notwendig.
+
+### Vorheriger Zwischenstand
+
 ## UX02 geschlossen: reale physische Tastenfreigabe und native Ausgabe PASS, 16.10.2026
 
 [Realer Nachweis](EVIDENCE/ux02/native-physical-20261016-01/assessment.json) am Quellcommit8c8e36b mit **vollständig identischem Produkt-/Test-/Skriptmanifest** zum qualifizierten Produkt d95043e: der tatsächliche Produktworker sieht physisches Shift+Ctrl, wartet250ms auf Freigabe, anschließend genau vier native SendInput-Ereignisse bei freien Modifiertasten. Genau ein Paste-Key ohne Shift/Alt und ein tatsächlicher MIME-Paste; exakter33-Zeichen-Zieltext einschließlich Leerzeichen. Autoritativer Text/IDs erhalten, Worker vor Ergebnisanzeige beendet. Mensch bestätigt [„Text sichtbar, Testblock abgeschlossen“](ZUSATZPROMPTS/013_UX02_NATIVE_BESTAETIGUNG.md). **IV2-020-UX02 CLOSED**; komplette M-Fälle bleiben offen.

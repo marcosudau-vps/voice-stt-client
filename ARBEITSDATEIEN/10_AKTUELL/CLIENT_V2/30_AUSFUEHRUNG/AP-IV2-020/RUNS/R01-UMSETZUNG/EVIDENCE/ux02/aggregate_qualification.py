@@ -116,6 +116,18 @@ def main():
             physicalModifierTest='PASS', nativeEvidence='native-physical-20261016-01/assessment.json',
             findingUX02='CLOSED', humanConfirmation='native-physical-20261016-01/human-decision-chat.json')
         result['boundaries'][0] = 'Technical checks and actual physical UX02 native confirmation PASS. This closes UX02 only; complete M-cases remain open.'
+    manual = HERE/'manual-voice-20261016-01'
+    if (manual/'assessment.json').exists():
+        assessment = read(manual/'assessment.json')
+        assert assessment['result'] == 'PASS_CONTROL_AND_NATIVE_OUTPUT'
+        assert assessment['productCommit'] == PRODUCT and assessment['qualifiedFullSourceManifestMatch']
+        assert assessment['authoritativeFinalHistoryExact'] and assessment['recognizedFinalAndSpaceExactlyInEditor']
+        assert assessment['inputClosedReason'] == 'finished' and assessment['sessionStopped']
+        assert assessment['nativePasteCount'] == 1 and not assessment['shiftHeldAtPaste']
+        assert assessment['evaluatorSha256'] == digest(HERE.parent/'human/evaluate_manual_trial.py')
+        result['additionalLiveManualEvidence'] = 'manual-voice-20261016-01/assessment.json'
+        result['liveManualControlsAndNativeOutput'] = 'PASS'
+        result['liveManualPlannedSpellingExact'] = assessment['plannedPhraseExactMatch']
     (HERE/'qualification-summary.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf8')
     print('PASS: final technical evidence, full logs, source identities, binary hashes and server pair verified;', result['physicalModifierTest'], 'physical confirmation; full real gates open')
 
