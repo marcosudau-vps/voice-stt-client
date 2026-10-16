@@ -1,3 +1,8 @@
+## UX02 reale technische Wartezeit bestätigt
+
+Physisch gehaltenes Shift/Ctrl wurde250ms lang vom Produktworker beobachtet; danach erfolgte eine korrekte native Einfügung ohne Modifier. Mensch bestätigt sichtbaren Text. Technische Grenze1,5s/Poll10ms unverändert, keine neue Default-/Timinganpassung daraus. Nur UX02 geschlossen; übrige subjektive Kalibrierung/Realqualifikation offen.
+
+
 ## UX02: zusätzliche technische Einfügegrenze, 16.10.2026
 
 Am Produkt d95043e: MODIFIER_RELEASE_TIMEOUT_S=1,5s, MODIFIER_POLL_INTERVAL_S=0,01s, Shift/Ctrl/Alt/beide Windows-Tasten. Clientinterne technische Wartegrenze, keine neue frei editierbare Einstellung; keine Änderung von Protokoll-/Serverfristen. Ein gemeinsames Zeitbudget für beide Barrieren, bei Shutdown oder Fokus-/Clipboardwechsel überspringen. Gehaltene Modifier verzögern Einfügung, nicht Final/History. Gezielte Timeout-/Shutdown-/Ownershiptests und volle1390er Regression PASS; physische Wahrnehmung/Bestätigung offen. Acht Sekunden Vorbereitungszeit der Testoberfläche separat, keine Produktkalibrierung. [Aktuelle Qualifikation/Profile](EVIDENCE/ux02/qualification-summary.json).

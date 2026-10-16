@@ -1,6 +1,6 @@
 # AP-IV2-020 – unsere Testcheckliste
 
-**Stand: 16.10.2026 · UX02 freigegeben und technisch requalifiziert · reale Tastenprobe und Realgates offen**
+**Stand: 16.10.2026 · UX02 technisch und real bestätigt / geschlossen · übrige Realgates offen**
 
 Ich pflege die Häkchen nach den tatsächlichen Nachweisen. „Teilweise geprüft“
 bedeutet noch keinen vollständig bestandenen Pflichtfall. Derselbe R01 und
@@ -37,7 +37,7 @@ Die zwei getrennten Sitzungen sind ein erfolgreicher Teilnachweis, noch kein vol
 - [x] Timer rechts und acht Sekunden entspannte Vorbereitung.
 - [x] Zehn Helferregressionen, echte Qt-Prüfung und volle1378Windows-Regression grün.
 
-## Jetzt offen: zusätzliche Produktkorrektur UX02
+## Erledigt: zusätzliche Produktkorrektur UX02
 
 - [x] F8/F9-Controlpfad tatsächlich nachgewiesen.
 - [x] Fehlende Einfügung untersucht: gehaltenes Shift verändert Ctrl+V zu Ctrl+Shift+V.
@@ -45,9 +45,10 @@ Die zwei getrennten Sitzungen sind ein erfolgreicher Teilnachweis, noch kein vol
 - [x] Menschliche UX02-Freigabe erteilt; Korrektur und zwölf dauerhafte Regressionen umgesetzt.
 - [x] Zwölf neue Regressionen, insgesamt112 gezielte Tests grün.
 - [x] Produkt d95043e neu qualifiziert:1390 Windows-Tests,1964 Servertests/14 erwartete Skips,11 Prozessfälle,17 Grenztests,7/7 Smokes; EXE/Wheel/sdist und native Laufzeit grün.
-- [ ] Anschließend gezielter realer Halte-/Freigabetest und übrige Hardwareblöcke.
+- [x] Reale physische Shift/Ctrl-Halte-/Freigabeprobe:250ms Wartezeit, genau eine korrekte native Ausgabe, Mensch bestätigt; UX02 geschlossen.
+- [ ] Nächster Sprachpfad F8→Satz→F9 am korrigierten Produkt und übrige Hardwareblöcke.
 
-Die letzte Zieleinfügung am früheren Produkt17261e6 war **FAIL**; der Finish-Hotkey funktioniert. Am korrigierten Produkt d95043e ist die reale Tastenprobe noch offen. [Neue technische Belege](EVIDENCE/ux02/qualification-summary.json).
+Die letzte Zieleinfügung am früheren Produkt17261e6 war **FAIL**; der Finish-Hotkey funktioniert. Am korrigierten Produkt d95043e ist die reale Tastenprobe jetzt **PASS** und UX02 geschlossen; der ASR-/F8/F9-Sprachpfad folgt separat. [Neue technische Belege](EVIDENCE/ux02/qualification-summary.json).
 
 ## Bereits erledigt
 

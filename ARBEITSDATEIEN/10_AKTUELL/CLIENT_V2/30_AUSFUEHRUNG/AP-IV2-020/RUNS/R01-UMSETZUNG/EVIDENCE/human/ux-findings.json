@@ -28,7 +28,7 @@
     },
     {
       "id": "IV2-020-UX02",
-      "status": "TECHNICAL_REQUALIFICATION_PASS_NATIVE_CONFIRMATION_PENDING",
+      "status": "CLOSED",
       "summary": "Held Shift from Finish hotkey changes synthetic Ctrl+V to Ctrl+Shift+V; no text in actual Qt editor.",
       "evidence": [
         "../ux01/repeatable-manual-20261016-01/assessment.json",
@@ -42,7 +42,9 @@
       "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
       "technicalEvidence": "../ux02/qualification-summary.json",
       "implementation": "Existing serial product worker waits at most 1.5 seconds for physical Shift/Ctrl/Alt/Win release, 10ms polling, bounded shutdown; captures focus/clipboard ownership before waiting and revalidates before paste. No synthetic key-up or replay.",
-      "nativeEvidence": "NOT_RUN; prepared native_modifier_trial.py + native_modifier_editor.py"
+      "nativeEvidence": "../ux02/native-physical-20261016-01/assessment.json",
+      "humanConfirmation": "../../ZUSATZPROMPTS/013_UX02_NATIVE_BESTAETIGUNG.md",
+      "qualificationImpact": "New full Windows/build/server pair PASS; physical held-key/release and exact actual native output PASS. Remaining full M-cases open."
     }
   ]
 }

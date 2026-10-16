@@ -1,3 +1,9 @@
+## Physische Bestätigung: UX02 CLOSED
+
+[Assessment PASS](native-physical-20261016-01/assessment.json), [vollständiger Versuch](native-physical-20261016-01/attempt-001.json), [menschliche Chatannahme](native-physical-20261016-01/human-decision-chat.json), [Finalisierung](native-physical-20261016-01/finalization.json). Reales Shift/Ctrl250ms gehalten, dann freigegeben; genau eine native Ausgabe/exakter33-Zeichen-Zieltext. Produktworker sauber beendet. Äußerer [Controllerprozess](native-physical-control.json) nach Chatannahme gezielt beendet, weil nur noch GUIannahme wartete: erwarteter Nichtnull-Exit/Command-FAIL bleibt erhalten, kein Produkt-FAIL. Vollständige M-Gates bleiben offen.
+
+### Vorheriger Zwischenstand
+
 # UX02 – freigegebene Modifiertastenkorrektur
 
 [Zusatzfreigabe012](../../ZUSATZPROMPTS/012_UX02_FREIGABE.md), gleicher R01/Branch/PR15. **Produkt d95043e technisch PASS; physische Bestätigung offen.**

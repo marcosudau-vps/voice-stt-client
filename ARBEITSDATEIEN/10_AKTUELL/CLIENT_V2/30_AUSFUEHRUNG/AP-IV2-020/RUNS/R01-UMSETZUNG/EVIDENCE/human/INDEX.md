@@ -1,3 +1,9 @@
+## Aktuell: UX02 real bestanden und geschlossen
+
+[Physische Tastenprobe](../ux02/native-physical-20261016-01/assessment.json) und [menschliche Chatbestätigung](../../ZUSATZPROMPTS/013_UX02_NATIVE_BESTAETIGUNG.md) PASS. Produktworker sah tatsächlich Shift/Ctrl und deren Freigabe nach250ms; exakte native Ausgabe. Aktueller d950-Quellstand vollständig identisch mit1390er Qualifikation. Nächster Einzeltest: bestehender wiederholbarer Manual-Sprachpfad mit eigenem Start,8s Vorbereitung und sichtbaren Schritten. Keine allgemeine Fortsetzungsfreigabe nötig.
+
+### Vorheriger Zwischenstand
+
 ## Aktuell: UX02 technisch requalifiziert, physischer Nachweis offen
 
 [Produkt d95043e und Gesamtbelege](../ux02/qualification-summary.json), [Freigabe012](../../ZUSATZPROMPTS/012_UX02_FREIGABE.md). [Native Tastenprobe](native_modifier_trial.py), [passender GUIadapter](native_modifier_editor.py), tatsächliche Qt-/Veredicttests/Compile in [UX02-Index](../ux02/INDEX.md). Nur eigenes Testziel/echte physische Modifier/native Produktqueue; kein Mikrofon/Modell nötig. Neuer eigener Start nach jeder Wiederholung,8s ruhige Vorbereitung, anschließend eigenes Übernehmen. START erst nach laufendem Controller; GUI allein startet keine Testqueue.

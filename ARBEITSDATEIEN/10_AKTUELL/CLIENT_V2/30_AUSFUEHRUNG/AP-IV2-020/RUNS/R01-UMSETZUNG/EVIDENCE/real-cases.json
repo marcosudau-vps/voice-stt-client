@@ -275,7 +275,7 @@
       "serverCommit": null,
       "configurationSha256": null,
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
-      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open. Current corrected product d95043e: full native case not yet qualified; historical FAIL is not erased.",
+      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open. Current corrected product d95043e: full native case not yet qualified; historical FAIL is not erased. UX02 physical modifier probe now PASS/CLOSED with exact native output and human confirmation; complete M11 remains NOT_PROVEN.",
       "evidence": [
         "ux01/repeatable-manual-20261016-01/assessment.json"
       ],
@@ -286,6 +286,13 @@
           "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
           "status": "FAIL",
           "boundaries": "Actual manual F8/F9 control PASS; native output FAIL due held Shift (UX02). Remaining full-case steps not run."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+          "sourceCommit": "8c8e36b931b26db8d705bf94d9dad8e9acd5d43c",
+          "evidence": "ux02/native-physical-20261016-01/assessment.json",
+          "boundaries": "Actual physical modifier release/native paste PASS closes UX02 only; normal/elevated/conflict/reinsert/crash full M11 remains open."
         }
       ],
       "previousProductResult": "FAIL at 17261e6; preserved in attempts/evidence"
@@ -317,5 +324,6 @@
   "note": "Prechecks are separate evidence and do not mark complete M cases PASS.",
   "currentTechnicalQualification": "ux02/qualification-summary.json",
   "humanExecution": "IN_PROGRESS; real manual baseline completed; no complete M PASS",
-  "currentProductCommit": "d95043e96051d4022b297099391a4fdff0dcc12b"
+  "currentProductCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+  "currentNativeModifierQualification": "ux02/native-physical-20261016-01/assessment.json"
 }

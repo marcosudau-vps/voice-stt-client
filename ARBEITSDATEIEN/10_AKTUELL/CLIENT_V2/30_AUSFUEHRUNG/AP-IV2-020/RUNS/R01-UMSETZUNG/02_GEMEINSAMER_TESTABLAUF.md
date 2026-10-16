@@ -1,3 +1,9 @@
+## Aktuell: Tastenprobe bestanden, nächste Aufgabe Manual-Sprachpfad
+
+UX02 geschlossen: tatsächlich gehaltene Modifier250ms beobachtet, danach freie Tasten/exakter nativer Zieltext, menschliche Bestätigung. Nächste Einzelaufgabe im vorhandenen Editor: Satz vorher lesen, eigener Start, tatsächliche Client-/Audiobereitschaft plus8s Bereitmachen, dann F8, markierten Satz sprechen, direkt am Satzende F9 kurz drücken und alle Tasten loslassen. Ergebnis selbst wiederholen oder übernehmen. Kein automatischer Folgetest. Der Agent prüft tatsächliche Callback-/Ack-/Segment-/Einfügeereignisse; kein vollständiger M-PASS allein aus dieser Einzelprobe.
+
+### Vorherige Vorbereitung
+
 ## Nächste Einzelaufgabe: physische Tastenfreigabe am Produkt d95043e
 
 UX02 ausdrücklich freigegeben, umgesetzt und vollständig technisch requalifiziert. Die eigene Testoberfläche zeigt vor Start acht Schritte. Nur Tastentest: auf eigenen Start/8s Vorbereitung warten, bei hervorgehobener Aufforderung Strg+Umschalt+F9 kurz drücken und alle Tasten loslassen; erwartete Ausgabe **„Modifiertastenprobe erfolgreich.“**. Danach selbst Wiederholen oder Übernehmen wählen. Keine Sprache nötig. Native Tastenzustände, Clipboard, SendInput und tatsächliche Ausgabe prüft der Agent; kein automatisches PASS aus Übernehmen. Erst nach Prüfung folgt die nächste getrennt startbare Sprachaufgabe. [Belege](EVIDENCE/ux02/qualification-summary.json).

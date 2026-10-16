@@ -1,6 +1,6 @@
 {
-  "status": "TECHNICAL_REQUALIFICATION_PASS_NATIVE_CONFIRMATION_PENDING",
-  "timeUtc": "2026-10-16T04:28:13.601264+00:00",
+  "status": "TECHNICAL_REQUALIFICATION_AND_UX02_NATIVE_PASS_REAL_GATES_OPEN",
+  "timeUtc": "2026-10-16T04:58:23.355294+00:00",
   "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
   "productTree": "413467dffb8b98a15c77617a34ed097d21b216df",
   "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
@@ -221,10 +221,10 @@
     26.422
   ],
   "recoveryShutdownSeconds": 0.422,
-  "physicalModifierTest": "NOT_RUN",
+  "physicalModifierTest": "PASS",
   "completeRealCases": "NOT_PROVEN",
   "boundaries": [
-    "Technical regression/build/runtime checks PASS; UX02 remains open until physical held-key/release proof.",
+    "Technical checks and actual physical UX02 native confirmation PASS. This closes UX02 only; complete M-cases remain open.",
     "Frozen/Wheel probes deliberately use unavailable capture, not live speech; separate native desktop probe uses actual ReSpeaker.",
     "Model replay is real human fixtures and real local models, not live capture or native paste.",
     "Previous product172 live results stay historical; no transfer of complete M-case qualification.",
@@ -232,5 +232,8 @@
     "Recovery detail filename collision is documented in real-recovery-summary.json; high-resolution resource samples not claimed from it."
   ],
   "release": "NOT_PUBLISHED",
-  "reviewReady": false
+  "reviewReady": false,
+  "nativeEvidence": "native-physical-20261016-01/assessment.json",
+  "findingUX02": "CLOSED",
+  "humanConfirmation": "native-physical-20261016-01/human-decision-chat.json"
 }

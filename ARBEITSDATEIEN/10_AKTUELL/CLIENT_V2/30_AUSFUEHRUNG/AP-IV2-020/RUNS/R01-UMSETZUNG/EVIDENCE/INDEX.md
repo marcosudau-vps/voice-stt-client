@@ -1,3 +1,9 @@
+## UX02 physisch bestätigt und geschlossen
+
+[250ms tatsächlicher Halte-/Freigabenachweis und exakte native Ausgabe](ux02/native-physical-20261016-01/assessment.json), [menschliche Chatbestätigung](../ZUSATZPROMPTS/013_UX02_NATIVE_BESTAETIGUNG.md), [saubere Quieszenz-/Hotkeybereinigung](ux02/native-physical-20261016-01/finalization.json). Äußerer Helferprozess bewusst nach Chatabschluss statt GUIklick beendet; dessen Nichtnull-Exit bleibt separat dokumentiert. [Gesamtbeleg aktualisiert](ux02/qualification-summary.json). Übrige M-Gates/Kalibrierung weiterhin offen.
+
+### Vorheriger technischer Zwischenstand
+
 ## Aktueller Produktstand d95043e: technische Requalifikation PASS
 
 [UX02-Gesamtbeleg](ux02/qualification-summary.json), [vollständiger Index](ux02/INDEX.md), [Buildidentitäten/Hashes](ux02/build/artifacts.json), [reale neue Modellreplays](ux02/real-model-replay-summary.json). Windows1390/Server1964+14 erwartete Skips, elf Prozessfälle/17 Grenztests/sieben Smokes, reale Recovery-/Desktop-/Win32-/Credential- und Buildprüfungen grün. UX02 benötigt noch physischen Halte-/Freigabenachweis; vollständige M01..M12/30min100/Kalibrierung offen. Keine Übertragung älterer vollständiger Hardwarequalifikation.

@@ -97,8 +97,27 @@ def main():
                     'M-01..M-12, subjective calibration and 30min/100 real activations remain open.',
                     'Recovery detail filename collision is documented in real-recovery-summary.json; high-resolution resource samples not claimed from it.'],
         release='NOT_PUBLISHED', reviewReady=False)
+    native = HERE/'native-physical-20261016-01'
+    if (native/'assessment.json').exists():
+        assessment = read(native/'assessment.json')
+        attempt = read(native/'attempt-001.json')
+        decision = read(native/'human-decision-chat.json')
+        cleanup = read(native/'finalization.json')
+        assert assessment['result'] == attempt['result'] == cleanup['result'] == 'PASS'
+        assert assessment['productCommit'] == PRODUCT
+        assert attempt['identity']['sourceSha256'] == current
+        assert attempt['physicalModifierObservedByProductWorker'] and attempt['workerStopped']
+        assert attempt['actualSha256'] == attempt['expectedSha256']
+        assert attempt['authoritativeTextPreserved'] and decision['decision'] == 'accept'
+        assert cleanup['hotkeyReservationReleasedAndReregistered']
+        assert attempt['helperSha256'] == digest(HERE.parent/'human/native_modifier_trial.py')
+        assert attempt['editorAdapterSha256'] == digest(HERE.parent/'human/native_modifier_editor.py')
+        result.update(status='TECHNICAL_REQUALIFICATION_AND_UX02_NATIVE_PASS_REAL_GATES_OPEN',
+            physicalModifierTest='PASS', nativeEvidence='native-physical-20261016-01/assessment.json',
+            findingUX02='CLOSED', humanConfirmation='native-physical-20261016-01/human-decision-chat.json')
+        result['boundaries'][0] = 'Technical checks and actual physical UX02 native confirmation PASS. This closes UX02 only; complete M-cases remain open.'
     (HERE/'qualification-summary.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf8')
-    print('PASS: final technical evidence, full logs, source identities, binary hashes and server pair verified; native confirmation pending')
+    print('PASS: final technical evidence, full logs, source identities, binary hashes and server pair verified;', result['physicalModifierTest'], 'physical confirmation; full real gates open')
 
 
 if __name__ == '__main__':
