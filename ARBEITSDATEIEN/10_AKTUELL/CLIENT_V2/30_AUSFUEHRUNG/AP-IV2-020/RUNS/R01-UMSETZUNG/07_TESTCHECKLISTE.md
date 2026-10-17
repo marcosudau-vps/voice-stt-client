@@ -1,3 +1,13 @@
+## Neu: UX03-Beendigungston technisch belegt, 18.10.2026
+
+- [x] Direkter Fixauftrag dokumentiert; Ursache am fehlenden input_closed-Feedbackpfad reproduziert.
+- [x] Korrektur am Produkt7bb5646;76 gezielte und1398 Windows-Tests PASS.
+- [x] Vollständige neue Paar-/Build-/native EXE-/Wheelqualifikation PASS.
+- [x] Echte ReSpeaker-/lokale Serverprobe:15s ohne Nutzsprache, genau ein nativer Stop-Playerlauf.
+- [x] Vollständige [Sound-/LED-/Triggerübersicht](10_FEEDBACK_UEBERSICHT.md) erstellt.
+- [ ] Menschlich bestätigen, dass der Stoppton beim Schließen hörbar/passend ist.
+- [ ] Wake-Schwellwert kontrolliert vergleichen;0,85 ist noch nicht übernommen.
+
 ## Aktuell: freies Ausprobieren
 
 - [x] Isolierte Both-Instanz mit LED/Sound/Overlay zum freien Ausprobieren gestartet.

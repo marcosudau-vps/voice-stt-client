@@ -1,0 +1,90 @@
+{
+  "operatorReport": "Repeated actual Alexa utterances during the session; exact attempt count not given.",
+  "hits": [
+    {
+      "timeUtc": "2026-10-17T22:53:22.788973+00:00",
+      "activationId": "2ca8ea34-c377-43d7-b657-df30aabcafcc",
+      "wakeWordId": "alexa",
+      "score": 0.9083224534988403,
+      "eventId": "ecdda5c4-e485-47f9-961e-5f9b01701521",
+      "eventSeq": 3,
+      "sessionId": "e543294f-f13b-4fbd-8365-41938f9c2a63"
+    },
+    {
+      "timeUtc": "2026-10-17T22:54:30.898626+00:00",
+      "activationId": "243fef74-d2c3-4cf8-8e0a-8388a8d1da1a",
+      "wakeWordId": "alexa",
+      "score": 0.999915599822998,
+      "eventId": "ec027194-d176-4007-8d35-d7b2ef7a5a1e",
+      "eventSeq": 7,
+      "sessionId": "e543294f-f13b-4fbd-8365-41938f9c2a63"
+    },
+    {
+      "timeUtc": "2026-10-17T22:55:56.843816+00:00",
+      "activationId": "35799c7b-a56c-48ee-8ac7-d91f32f4eff5",
+      "wakeWordId": "alexa",
+      "score": 0.9596390724182129,
+      "eventId": "fb147f7a-2766-49bf-87df-2032ea914185",
+      "eventSeq": 11,
+      "sessionId": "e543294f-f13b-4fbd-8365-41938f9c2a63"
+    },
+    {
+      "timeUtc": "2026-10-17T22:57:55.727897+00:00",
+      "activationId": "565f6819-b2cb-4750-927f-93b7a635daf6",
+      "wakeWordId": "alexa",
+      "score": 0.9958004951477051,
+      "eventId": "40a67236-928f-454e-a26d-bd4a283bf427",
+      "eventSeq": 15,
+      "sessionId": "e543294f-f13b-4fbd-8365-41938f9c2a63"
+    },
+    {
+      "timeUtc": "2026-10-17T22:58:16.540307+00:00",
+      "activationId": "8fadd03f-2d52-4916-ad7b-d0b4ebc64d08",
+      "wakeWordId": "alexa",
+      "score": 0.9999873638153076,
+      "eventId": "de5bac80-ae0e-4604-877a-5a4c758672dd",
+      "eventSeq": 19,
+      "sessionId": "e543294f-f13b-4fbd-8365-41938f9c2a63"
+    },
+    {
+      "timeUtc": "2026-10-17T22:58:39.528277+00:00",
+      "activationId": "40b6b30c-6fe4-4a37-8256-028280018485",
+      "wakeWordId": "alexa",
+      "score": 0.9982554316520691,
+      "eventId": "f3106959-8fea-4f91-b08a-6d73e2b96028",
+      "eventSeq": 23,
+      "sessionId": "e543294f-f13b-4fbd-8365-41938f9c2a63"
+    },
+    {
+      "timeUtc": "2026-10-17T22:59:07.965274+00:00",
+      "activationId": "a3804178-31d9-4b75-9194-5f214fef2dbd",
+      "wakeWordId": "alexa",
+      "score": 0.9993883967399597,
+      "eventId": "d1fec84e-e70e-4b7c-b908-e8e35e2284a4",
+      "eventSeq": 27,
+      "sessionId": "e543294f-f13b-4fbd-8365-41938f9c2a63"
+    },
+    {
+      "timeUtc": "2026-10-17T22:59:29.343514+00:00",
+      "activationId": "8e54e387-d229-4b93-a783-a5c36b571ac0",
+      "wakeWordId": "alexa",
+      "score": 0.9999939203262329,
+      "eventId": "88a2a8c0-da79-458a-af3b-fb26d7003269",
+      "eventSeq": 31,
+      "sessionId": "e543294f-f13b-4fbd-8365-41938f9c2a63"
+    }
+  ],
+  "min": 0.9083224534988403,
+  "max": 0.9999939203262329,
+  "falseAlarmScores": [
+    0.767410397529602,
+    0.6464421153068542
+  ],
+  "candidateThreshold": 0.85,
+  "offlineRetainedObservedHits": 8,
+  "offlineRetainedKnownFalseAlarms": 0,
+  "thresholdApplied": false,
+  "limitations": "Model scores are not calibrated probabilities. Only accepted detections logged; no recall/false-positive rate estimate. At least some utterances overlapped the preceding full regression; no controlled noise/CPU baseline.",
+  "thresholdScope": "The same session score threshold applies to every selected wake word, including Hey Jarvis. Hey Jarvis must be retested too.",
+  "offlineComparisonBoundary": "Comparison of accepted logged scores only, not a re-run of prediction-frame runs/trailing-edge arbitration. Raising the threshold can change hit timing and audio boundary; real positive/negative and direct-following-speech tests remain required."
+}

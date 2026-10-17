@@ -32,3 +32,16 @@ Der [menschliche Fortsetzungsauftrag](RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/002_RECON
 ## Zusätzliche Produktausnahme UX01, gleicher R01
 
 [Ausdrücklich freigegeben](RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/006_UX01_FREIGABE.md): bestehende Einstellung Leerzeichen anhängen wirksam machen, rohe Finals/History/Deduplizierung erhalten, dauerhafte Regressionen und neue Produkt-/Buildqualifikation. Produkt17261e6, neue [Evidenz](RUNS/R01-UMSETZUNG/EVIDENCE/ux01/INDEX.md). Keine sonstige Erweiterung der ursprünglichen Qualifikationsausnahme. Reale Pflichtfälle bleiben bis zur vollständigen Durchführung offen.
+
+## Zusätzliche Produktausnahmen UX02 und UX03, gleicher R01
+
+UX02 ist [ausdrücklich freigegeben](RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/012_UX02_FREIGABE.md)
+und am Produktd95043e technisch sowie physisch belegt: begrenztes Warten auf
+freigegebene Modifiertasten vor nativer Einfügung, keine künstlichen Key-Ups.
+
+UX03 ist durch den [direkten Fixauftrag vom18.10.2026](RUNS/R01-UMSETZUNG/09_UX03_CLOSE_SOUND.md)
+freigegeben: fehlenden Beendigungston an serverbestätigtem Eingabeschluss
+korrigieren, einschließlich Regression und neuer Kandidaten-/Buildqualifikation.
+Produkt7bb5646, [Belege](RUNS/R01-UMSETZUNG/EVIDENCE/ux03-close-sound/assessment.json).
+Kein Server-/Wirewechsel. Die ergänzte [Sound-/LED-/Triggerübersicht](RUNS/R01-UMSETZUNG/10_FEEDBACK_UEBERSICHT.md)
+unterscheidet wirkliche V2-Ausgaben von lediglich deklarierten Regeln.

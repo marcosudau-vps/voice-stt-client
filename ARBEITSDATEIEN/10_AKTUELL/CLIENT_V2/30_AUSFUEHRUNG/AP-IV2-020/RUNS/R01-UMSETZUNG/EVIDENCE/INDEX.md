@@ -1,3 +1,22 @@
+## UX03: Beendigungston korrigiert und native Ausgabe belegt, 18.10.2026
+
+[Freigabe/Befund](../09_UX03_CLOSE_SOUND.md),
+[vollstaendige Sound-/LED-/Triggeruebersicht](../10_FEEDBACK_UEBERSICHT.md),
+[acht echte protokollierte Alexa-Treffer](ux03-close-sound/alexa-observed-hits.json),
+[Repro rot](ux03-close-sound/red-close-sound.json),
+[gezielte76 PASS](ux03-close-sound/green-close-sound.json),
+[native QSoundEffect-Probe](ux03-close-sound/native-probe.json),
+[Stand und Grenzen](ux03-close-sound/assessment.json).
+Produkt7bb5646 technisch neu qualifiziert: Windows1398/0 Skips, Server1964/14
+erwartete Skips,11 Prozessfaelle,17 Grenzen und7/7 Socketsmokes PASS.
+[Paarlauf](ux03-close-sound/pair/validation.json),
+[neue Builds](ux03-close-sound/build/artifacts.json),
+[native EXE](ux03-close-sound/frozen-native-runtime.json),
+[nativ installiertes Wheel](ux03-close-sound/wheel-native-runtime.json),
+[wirksames Mapping/SDK-/WAV-Inventar](ux03-close-sound/feedback-inventory.json). Ein realer no-speech
+Timeout erzeugt genau einen nativen Stop-Playerlauf, menschliches Hoeren noch
+offen. Kein voller Realgates-PASS und kein REVIEW_READY.
+
 ## Klickbarer Teststarter und Alexa-Fehlalarme, 18.10.2026
 
 [Dauerhafter Startknopf/Anleitung](human/STARTER_README.md), [Code](human/test_instance_launcher.py),

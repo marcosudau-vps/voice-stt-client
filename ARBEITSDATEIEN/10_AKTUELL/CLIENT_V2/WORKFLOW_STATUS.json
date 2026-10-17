@@ -19,12 +19,13 @@
   "reviewedCommit": null,
   "reviewReport": null,
   "openFindingIds": [
-    "IV2-020-T01"
+    "IV2-020-T01",
+    "IV2-020-UX03"
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "Klickbarer isolierter Teststarter vorhanden; Both-Instanz bereit. Echte Alexa-Aufrufe mit dokumentierten Fehlalarmen vergleichen, danach vorhandene Wake-Parameter kontrolliert kalibrieren. T01-Logmanager real aktiv; sichtbare Log-UI/Shutdown-Bestaetigung und uebrige Realgates offen. Kein Produkt-/Buildwechsel oder REVIEW_READY.",
+  "nextAction": "UX03 technisch korrigiert und am Produkt7bb5646 neu qualifiziert:1398 Windows/1964 Server+14 erwartete Skips,11 Prozesse,17 Grenzen,7/7 Smokes, neue Builds/native EXE/Wheel und nativer Stop-Renderer PASS. Menschliche Hoerbestätigung fehlt. Sound-/LED-/Triggerübersicht10 bereit; danach gemeinsame Endkalibrierung/übrige Realgates. T01 sichtbare Log-UI-Bestätigung offen; kein REVIEW_READY.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -34,7 +35,8 @@
     "reconnectRecoverySource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md",
     "testFixturesSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/004_TESTAUFNAHMEN_REPO.md",
     "ux01Source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/006_UX01_FREIGABE.md",
-    "ux02Source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/012_UX02_FREIGABE.md"
+    "ux02Source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/012_UX02_FREIGABE.md",
+    "ux03Source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/09_UX03_CLOSE_SOUND.md"
   },
   "candidateSelection": {
     "candidateId": "AP-IV2-020",
@@ -43,6 +45,6 @@
   },
   "recovery": null,
   "relatedServerFix": null,
-  "technicalProductCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
-  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/ux02/qualification-summary.json"
+  "technicalProductCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/ux03-close-sound/assessment.json"
 }

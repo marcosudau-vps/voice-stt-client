@@ -347,5 +347,12 @@
   "humanExecution": "IN_PROGRESS; real manual baseline completed; no complete M PASS",
   "currentProductCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
   "currentNativeModifierQualification": "ux02/native-physical-20261016-01/assessment.json",
-  "currentLiveManualQualification": "ux02/manual-voice-20261016-01/assessment.json"
+  "currentLiveManualQualification": "ux02/manual-voice-20261016-01/assessment.json",
+  "ux03Supplement": {
+    "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+    "evidence": "ux03-close-sound/assessment.json",
+    "nativeRenderer": "PASS, actual no-speech initial timeout -> one STOP player run",
+    "humanHearing": "NOT_PROVEN",
+    "fullCases": "NOT_PROVEN; existing dated attempts retained, no unverified transfer to new build"
+  }
 }

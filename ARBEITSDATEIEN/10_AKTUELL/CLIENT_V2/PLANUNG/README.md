@@ -1,3 +1,19 @@
+## AP-IV2-020/R01 – UX03 technisch korrigiert, Realgates offen, 18.10.2026
+
+Neues qualifiziertes Produkt `7bb564690911d52f6dfe884955ddeb6a27eea6ad`. Fehlender Stoppton bei
+serverbestätigtem Eingabeschluss (`finished`/`timed_out`) behoben, direkt
+freigegeben im selben R01. 76 gezielte/1398 volle Windows-Tests PASS,1964 Server/
+14 erwartete Skips,11 Prozessfälle,17 Grenzen,7/7 Smokes. Neue EXE/Wheel/sdist
+und native EXE-/Wheel-Laufzeit am lokalen gepinnten Server PASS. Echte
+ReSpeaker-/Qt-Probe: genau ein Stop-Playerlauf, Ready/playing=true; menschliches
+Hören noch NOT_PROVEN. UX03 und T01-Hör-/Log-UI-Bestätigung offen; übrige
+M-Fälle/30min100/Endkalibrierung weiter NOT_RUN/NOT_PROVEN. Kein REVIEW_READY.
+[Aktuelle Sound-/LED-/Triggerübersicht](../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/10_FEEDBACK_UEBERSICHT.md). Acht Alexa-Treffer mit
+Scores0,908322..0,999994; Schwelle0,85 nur ungesetzter Offlinekandidat.
+Dauerhafter Desktopstarter bleibt verfügbar. V1/VPS geschützt; gleicher PR15.
+
+### Vorheriger Zwischenstand
+
 # AP-IV2-020 – IN_PROGRESS, Phase C vorbereitet, 2026-10-15
 
 Kanonischer Parent `b80ed8b` unverändert, Vorgänger AP010 tatsächlich ACCEPTED.

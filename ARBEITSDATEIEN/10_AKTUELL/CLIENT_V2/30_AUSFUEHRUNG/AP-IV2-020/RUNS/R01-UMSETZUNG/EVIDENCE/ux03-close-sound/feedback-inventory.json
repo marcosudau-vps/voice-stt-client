@@ -1,0 +1,647 @@
+{
+  "timeUtc": "2026-10-17T23:20:34.966069+00:00",
+  "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+  "selectedProfileSha256": "bada66534d22c91ddcd695d8d55138dd2cdbffe96bff887f4c26b443eafab357",
+  "led": {
+    "brightness": 192,
+    "fps": 30.0,
+    "sink": "respeaker"
+  },
+  "sounds": [
+    {
+      "configurationKey": "feedback.wake_word_sound",
+      "asset": "assets/feedback_sounds/debug/wake_word.wav",
+      "durationMs": 800.0,
+      "sha256": "8f31f3fa50fa8e6535df62f0fdb0d30bf37bf15e2a0a7af6ca7b44f5c6ed2e48"
+    },
+    {
+      "configurationKey": "feedback.start_sound",
+      "asset": "assets/feedback_sounds/debug/start.wav",
+      "durationMs": 900.0,
+      "sha256": "f3629f74e38d9d3f969288cba26f1d25ff9cc33ac1d7b62d41165a3c3e095f5a"
+    },
+    {
+      "configurationKey": "feedback.stop_sound",
+      "asset": "assets/feedback_sounds/debug/stop.wav",
+      "durationMs": 661.146,
+      "sha256": "048af76ab6f2b48bcad3a78f135cfac6d6a181640b6649710504b74c539150ba"
+    },
+    {
+      "configurationKey": "feedback.complete_sound",
+      "asset": "assets/feedback_sounds/debug/complete.wav",
+      "durationMs": 2300.0,
+      "sha256": "b855eb625c0b0324f8f78c8ed8b1256f0c036f5ccd43f58ae9c1137c4383f845"
+    },
+    {
+      "configurationKey": "feedback.cancel_sound",
+      "asset": "assets/feedback_sounds/debug/cancel.wav",
+      "durationMs": 1343.438,
+      "sha256": "a6c68a352b52330a627166ba0f6385afb5d5f54776e5494bf6b981b087f8fc49"
+    },
+    {
+      "configurationKey": "feedback.warning_sound",
+      "asset": "assets/feedback_sounds/debug/warning.wav",
+      "durationMs": 1314.521,
+      "sha256": "bcc20aafc809373bfdd5f99cb3101ea0d6ded03f6b6118cb32bea5aabe201d1c"
+    },
+    {
+      "configurationKey": "feedback.error_sound",
+      "asset": "assets/feedback_sounds/debug/error.wav",
+      "durationMs": 2000.0,
+      "sha256": "b1ee8a7f222bee3e9437601ec3f32285cb46e3eb8de72c9743a324da3268a7d0"
+    },
+    {
+      "configurationKey": "feedback.timeout_tick_sound",
+      "asset": "assets/feedback_sounds/debug/timeout_tick.wav",
+      "durationMs": 3000.0,
+      "sha256": "d610c2bd4ea5b4e374e18bb10f6b2ef75eb2971a5f0ea5ed0b29359ce894c5a8"
+    }
+  ],
+  "effectiveMapping": {
+    "schema_version": 2,
+    "events": {
+      "server.wakeword.detected": {
+        "led": [
+          {
+            "emit_event": "wakeword_detected"
+          },
+          {
+            "set_state": "waiting"
+          }
+        ],
+        "sound": {
+          "cue": "wake_word",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.waiting_for_speech"
+        }
+      },
+      "server.recording.started": {
+        "led": {
+          "set_state": "listening"
+        },
+        "sound": {
+          "cue": "start",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.recording"
+        }
+      },
+      "server.recording.ended": {
+        "led": {
+          "set_state": "thinking"
+        },
+        "sound": {
+          "cue": "stop",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.finalizing"
+        }
+      },
+      "server.transcription.started": {
+        "led": {
+          "set_state": "thinking"
+        },
+        "app": {
+          "action": "indicator.finalizing"
+        }
+      },
+      "server.transcription.completed": {
+        "led": [
+          {
+            "emit_event": "success_event",
+            "config": {
+              "duration_ms": 700
+            }
+          },
+          {
+            "set_state": "ready_state"
+          }
+        ],
+        "sound": {
+          "cue": "complete",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.success"
+        }
+      },
+      "server.transcription.discarded": {
+        "led": [
+          {
+            "emit_event": "reject_event"
+          },
+          {
+            "set_state": "ready_state"
+          }
+        ],
+        "sound": {
+          "cue": "cancel",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.idle"
+        }
+      },
+      "server.transcription.failed": {
+        "led": [
+          {
+            "emit_event": "error_event",
+            "config": {
+              "duration_ms": 1200
+            }
+          },
+          {
+            "set_state": "ready_state"
+          }
+        ],
+        "sound": {
+          "cue": "error",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.error"
+        }
+      },
+      "server.transcription.cancelled": {
+        "led": [
+          {
+            "emit_event": "reject_event"
+          },
+          {
+            "set_state": "ready_state"
+          }
+        ],
+        "sound": {
+          "cue": "cancel",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.idle"
+        }
+      },
+      "server.transcription.rejected": {
+        "led": [
+          {
+            "emit_event": "reject_event"
+          },
+          {
+            "set_state": "ready_state"
+          }
+        ],
+        "sound": {
+          "cue": "error",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.error"
+        }
+      },
+      "client.hotkey.accepted": {
+        "led": [
+          {
+            "emit_event": "wakeword_detected"
+          },
+          {
+            "set_state": "waiting"
+          }
+        ],
+        "sound": {
+          "cue": "wake_word",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.waiting_for_speech"
+        }
+      },
+      "client.action.blocked": {
+        "led": {
+          "emit_event": "warn_event"
+        },
+        "sound": {
+          "cue": "warning",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.warning"
+        }
+      },
+      "client.dictation.interrupted": {
+        "led": [
+          {
+            "emit_event": "warn_event",
+            "config": {
+              "duration_ms": 1000
+            }
+          },
+          {
+            "set_state": "ready_state"
+          }
+        ],
+        "sound": {
+          "cue": "warning",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.warning"
+        }
+      },
+      "client.dictation.timeout_warning": {
+        "led": {
+          "set_overlay": "countdown_ring",
+          "config": {
+            "duration_ms": 3000,
+            "colors": [
+              "#00C066",
+              "#FFE000",
+              "#FF0000"
+            ],
+            "brightness": 1.0
+          }
+        },
+        "sound": {
+          "cue": "timeout_tick",
+          "volume": 0.85
+        }
+      },
+      "client.dictation.timeout_warning_cleared": {
+        "led": {
+          "set_overlay": "countdown_ring",
+          "config": {
+            "duration_ms": 1,
+            "colors": [
+              "#000000",
+              "#000000"
+            ],
+            "brightness": 0.0
+          }
+        },
+        "sound": {
+          "cue": "timeout_tick",
+          "volume": 1.0,
+          "action": "stop"
+        }
+      },
+      "client.transport.disconnected": {
+        "led": {
+          "set_state": "reconnect_network_state"
+        },
+        "sound": {
+          "cue": "warning",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.warning"
+        }
+      },
+      "client.event_stream.connecting": {},
+      "client.event_stream.replaying": {},
+      "client.event_stream.live": {},
+      "client.event_stream.degraded": {},
+      "client.microphone.lost": {
+        "led": {
+          "set_state": "reconnect_mic_state"
+        },
+        "sound": {
+          "cue": "warning",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.warning"
+        }
+      },
+      "client.microphone.recovered": {
+        "led": [
+          {
+            "emit_event": "success_event"
+          },
+          {
+            "set_state": "ready_state"
+          }
+        ],
+        "sound": {
+          "cue": "complete",
+          "volume": 1.0
+        }
+      },
+      "client.injection.accepted": {
+        "led": {
+          "emit_event": "init_event"
+        }
+      },
+      "client.injection.succeeded": {
+        "led": {
+          "emit_event": "success_event"
+        }
+      },
+      "client.injection.failed": {
+        "led": {
+          "emit_event": "error_event"
+        },
+        "sound": {
+          "cue": "error",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.error"
+        }
+      },
+      "client.tts.started": {
+        "led": {
+          "set_state": "speaking"
+        },
+        "sound": {
+          "cue": "start",
+          "volume": 0.8
+        }
+      },
+      "client.tts.stopped": {
+        "led": {
+          "set_state": "ready_state"
+        },
+        "sound": {
+          "cue": "stop",
+          "volume": 0.8
+        }
+      },
+      "client.tts.failed": {
+        "led": {
+          "emit_event": "error_event"
+        },
+        "sound": {
+          "cue": "error",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.error"
+        }
+      },
+      "client.led.unavailable": {
+        "sound": {
+          "cue": "warning",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.warning"
+        }
+      },
+      "client.sound.failed": {
+        "app": {
+          "action": "indicator.warning"
+        }
+      },
+      "client.configuration.invalid": {
+        "led": {
+          "emit_event": "error_event"
+        },
+        "app": {
+          "action": "indicator.error"
+        }
+      },
+      "client.lifecycle.started": {
+        "led": [
+          {
+            "emit_event": "init_event"
+          },
+          {
+            "set_state": "ready_state"
+          }
+        ],
+        "sound": {
+          "cue": "start",
+          "volume": 1.0
+        }
+      },
+      "client.lifecycle.stopping": {
+        "led": {
+          "clear_state": "primary"
+        },
+        "app": {
+          "action": "indicator.idle"
+        }
+      },
+      "server.activation.started": {
+        "led": [
+          {
+            "emit_event": "wakeword_detected"
+          },
+          {
+            "set_state": "waiting"
+          }
+        ],
+        "sound": {
+          "cue": "wake_word",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.waiting_for_speech"
+        }
+      },
+      "server.input.idle": {
+        "led": [
+          {
+            "emit_event": "reject_event"
+          },
+          {
+            "set_state": "ready_state"
+          }
+        ],
+        "sound": {
+          "cue": "cancel",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.idle"
+        }
+      },
+      "server.input.waiting": {
+        "led": [
+          {
+            "emit_event": "wakeword_detected"
+          },
+          {
+            "set_state": "waiting"
+          }
+        ],
+        "sound": {
+          "cue": "wake_word",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.waiting_for_speech"
+        }
+      },
+      "server.input.followup": {
+        "led": [
+          {
+            "emit_event": "wakeword_detected"
+          },
+          {
+            "set_state": "waiting"
+          }
+        ],
+        "sound": {
+          "cue": "wake_word",
+          "volume": 1.0
+        },
+        "app": {
+          "action": "indicator.waiting_for_speech"
+        }
+      },
+      "server.input.closing": {
+        "led": {
+          "set_state": "thinking"
+        },
+        "app": {
+          "action": "indicator.finalizing"
+        }
+      },
+      "server.input.closed": {
+        "sound": {
+          "cue": "stop",
+          "volume": 1.0
+        }
+      }
+    }
+  },
+  "lefxArchiveSha256": "4deb98f477ea574a2afc67233afce8dce18f0a5b85ee830f6e5ed43b7676595f",
+  "lefxDefaults": {
+    "ready_state": {
+      "description": "The device is idle and waiting to be addressed.",
+      "parameters": {
+        "brightness": 0.55,
+        "color": "#00C066",
+        "min_brightness": 0.16,
+        "speed": 0.45
+      }
+    },
+    "waiting": {
+      "description": "The device is waiting for an external step to finish.",
+      "parameters": {
+        "brightness": 0.7,
+        "color": "#00D0D0",
+        "reverse": false,
+        "speed": 0.28
+      }
+    },
+    "listening": {
+      "description": "The device is capturing speech.",
+      "parameters": {
+        "brightness": 0.68,
+        "color": "#00D0D0",
+        "min_brightness": 0.22,
+        "speed": 0.65
+      }
+    },
+    "thinking": {
+      "description": "The device is generating a response.",
+      "parameters": {
+        "brightness": 0.76,
+        "color": "#8000FF",
+        "falloff": 0.55,
+        "reverse": false,
+        "speed": 0.48,
+        "width": 5
+      }
+    },
+    "wakeword_detected": {
+      "description": "Announces that the wake word was recognised.",
+      "parameters": {
+        "brightness": 1.0,
+        "color": "#00D0D0",
+        "duration_ms": 300
+      }
+    },
+    "success_event": {
+      "description": "Announces that an action completed successfully.",
+      "parameters": {
+        "brightness": 0.95,
+        "color": "#00C066",
+        "duration_ms": 520
+      }
+    },
+    "reject_event": {
+      "description": "Announces that an input was refused.",
+      "parameters": {
+        "brightness": 1.0,
+        "color": "#FF0000",
+        "duration_ms": 460
+      }
+    },
+    "error_event": {
+      "description": "Announces that something went wrong.",
+      "parameters": {
+        "brightness": 1.0,
+        "color": "#FF0000",
+        "duration_ms": 900,
+        "pulse_count": 3,
+        "repeat_count": 1
+      }
+    },
+    "warn_event": {
+      "description": "Announces a condition that deserves attention but is not a failure.",
+      "parameters": {
+        "brightness": 0.85,
+        "color": "#FFE000",
+        "duration_ms": 1000,
+        "pulse_count": 2
+      }
+    },
+    "countdown_ring": {
+      "description": "Empties the ring over a fixed duration, shifting colour as it goes.",
+      "parameters": {
+        "brightness": 0.9,
+        "colors": [
+          "#00C066",
+          "#FFE000",
+          "#FF0000"
+        ],
+        "duration_ms": 10000,
+        "reverse": false
+      }
+    },
+    "reconnect_network_state": {
+      "description": "The device lost its network connection and is retrying.",
+      "parameters": {
+        "brightness": 0.85,
+        "color": "#FFE000",
+        "min_brightness": 0.2,
+        "secondary_color": "#4A3C00",
+        "speed": 0.42
+      }
+    },
+    "reconnect_mic_state": {
+      "description": "The device lost its audio hardware and is retrying.",
+      "parameters": {
+        "brightness": 0.88,
+        "color": "#FF8000",
+        "min_brightness": 0.2,
+        "secondary_color": "#4A2400",
+        "speed": 0.46
+      }
+    },
+    "init_event": {
+      "description": "Announces that the device has started.",
+      "parameters": {
+        "brightness": 0.95,
+        "color": "#3399FF",
+        "duration_ms": 1400,
+        "secondary_color": "#FFFFFF"
+      }
+    },
+    "speaking": {
+      "description": "The device is playing audio back.",
+      "parameters": {
+        "brightness": 0.9,
+        "color": "#00A0FF",
+        "min_brightness": 0.18,
+        "segment_length": 2,
+        "speed": 1.25
+      }
+    }
+  },
+  "boundary": "Effective mapping includes rules not emitted by the V2 engine. Reachability and phase-vs-impulse filtering are documented in ../../10_FEEDBACK_UEBERSICHT.md. Catalogue parameters are defaults; mapping overrides (e.g. success 700ms/error1200ms) take precedence."
+}

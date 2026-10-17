@@ -1,3 +1,21 @@
+## UX03-Produktsoundkorrektur, 18.10.2026
+
+Ausdrueckliche direkte Freigabe, [Originalauftrag und enger Scope](09_UX03_CLOSE_SOUND.md).
+Produktkandidat7bb5646: fehlender V2-input_closed-Soundpfad ergaenzt; bestehender
+Stoppsound/Benutzerregeln bleiben massgeblich. 76 gezielte und1398 vollstaendige
+Windows-Tests PASS. Echte lokale Server-/ReSpeaker-/Qt-QSoundEffect-Probe:
+ein no-speech Timeout, ein Stoppton, Renderer playing=true. Menschliche
+Hoerbewertung noch NOT_PROVEN. Paar PASS:1964 Server/14 erwartete Skips,11
+Prozessfaelle,17 Grenzen und7/7 Smokes. EXE/Wheel/sdist, Releaseguard/Twine
+und native EXE-/Wheel-Laufzeit mit gepinntem Server PASS.
+[Aktuelle Evidenz](EVIDENCE/ux03-close-sound/assessment.json),
+[gewuenschte vollstaendige Sound-/LED-/Triggeruebersicht](10_FEEDBACK_UEBERSICHT.md).
+Acht protokollierte Alexa-Aufrufe: Scores0,908322..0,999994; zwei bekannte
+Fehlalarme0,767410/0,646442. Schwelle0,85 nur Offlinekandidat, nicht gesetzt.
+Keine Aussage zur Erkennungsquote ohne genaue Versuchszahl/akustische Labels.
+
+### Vorheriger Zwischenstand
+
 ## AP-IV2-020/R01 – klickbarer Teststarter, 18.10.2026
 
 Isolierte Both-Instanz mit Logdienst erneut bereit; dauerhaftes Startfenster mit

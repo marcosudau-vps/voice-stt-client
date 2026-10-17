@@ -50,10 +50,14 @@ bis zum fehlenden STOP-Player reproduziert.
 
 ## Qualifikationsgrenze
 
-76 gezielte Tests PASS. Neue Vollsuite, Produkt-/Serverpaar, Builds und native
-Soundausgabe sind am neuen Kandidaten erneut zu prüfen. UX03 bis dahin OPEN;
-menschliche Hörbestätigung bleibt ein eigener Beleg. Frühere Hardwarebelege
-bleiben historisch und werden nicht als vollständige Qualifikation übertragen.
+76 gezielte und1398 Windows-Tests PASS/0 Skips;1964 Servertests PASS/14 erwartete
+optionale Skips,11 Prozessfälle,17 Grenzen und7 Socketsmokes am Produkt7bb5646
+neu belegt. EXE/Wheel/sdist, Releaseguard/Twine sowie native EXE-/Wheel-
+Serverlaufzeiten PASS. Echter no-speech Timeout: genau ein Stop-Playerlauf,
+QSoundEffect Ready/playing=true, ca.14ms nach empfangenem Close.
+[Gesamtbeleg](EVIDENCE/ux03-close-sound/assessment.json). Technische Korrektur
+belegt; UX03 bleibt bis zur menschlichen Hörbestätigung offen. Frühere
+Hardwarebelege bleiben historisch; übrige Pflichtfälle werden nicht übertragen.
 Ein Wake-Schwellwert0,85 trennt die acht protokollierten positiven Treffer von
 den zwei bekannten Fehlalarmen nur in dieser Stichprobe. Er wurde nicht gesetzt;
 kein Nachweis von Recall oder allgemeiner Fehlalarmrate.
