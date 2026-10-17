@@ -14,8 +14,7 @@ erwartete Skips,11 Prozessfaelle,17 Grenzen und7/7 Socketsmokes PASS.
 [native EXE](ux03-close-sound/frozen-native-runtime.json),
 [nativ installiertes Wheel](ux03-close-sound/wheel-native-runtime.json),
 [wirksames Mapping/SDK-/WAV-Inventar](ux03-close-sound/feedback-inventory.json). Ein realer no-speech
-Timeout erzeugt genau einen nativen Stop-Playerlauf, menschliches Hoeren noch
-offen. Kein voller Realgates-PASS und kein REVIEW_READY.
+Timeout erzeugt genau einen nativen Stop-Playerlauf. [Menschliche Hörbestätigung](ux03-close-sound/human-hearing-confirmed.json) am realen Alexa-Durchlauf: UX03 CLOSED. Kein voller Realgates-PASS und kein REVIEW_READY.
 
 ## Klickbarer Teststarter und Alexa-Fehlalarme, 18.10.2026
 

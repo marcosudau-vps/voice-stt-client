@@ -5,7 +5,7 @@ Produktkandidat7bb5646: fehlender V2-input_closed-Soundpfad ergaenzt; bestehende
 Stoppsound/Benutzerregeln bleiben massgeblich. 76 gezielte und1398 vollstaendige
 Windows-Tests PASS. Echte lokale Server-/ReSpeaker-/Qt-QSoundEffect-Probe:
 ein no-speech Timeout, ein Stoppton, Renderer playing=true. Menschliche
-Hoerbewertung noch NOT_PROVEN. Paar PASS:1964 Server/14 erwartete Skips,11
+Hoerbewertung nun PASS: „Ja, Stoppton hörbar“. [Tatsächlicher Alexa-Durchlauf](EVIDENCE/ux03-close-sound/human-hearing-confirmed.json) am18.10. um01:26:46 MESZ, Close01:27:01, genau ein nativer Stop-Playerlauf; UX03 CLOSED. Paar PASS:1964 Server/14 erwartete Skips,11
 Prozessfaelle,17 Grenzen und7/7 Smokes. EXE/Wheel/sdist, Releaseguard/Twine
 und native EXE-/Wheel-Laufzeit mit gepinntem Server PASS.
 [Aktuelle Evidenz](EVIDENCE/ux03-close-sound/assessment.json),

@@ -19,13 +19,12 @@
   "reviewedCommit": null,
   "reviewReport": null,
   "openFindingIds": [
-    "IV2-020-T01",
-    "IV2-020-UX03"
+    "IV2-020-T01"
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "UX03 technisch korrigiert und am Produkt7bb5646 neu qualifiziert:1398 Windows/1964 Server+14 erwartete Skips,11 Prozesse,17 Grenzen,7/7 Smokes, neue Builds/native EXE/Wheel und nativer Stop-Renderer PASS. Menschliche Hoerbestätigung fehlt. Sound-/LED-/Triggerübersicht10 bereit; danach gemeinsame Endkalibrierung/übrige Realgates. T01 sichtbare Log-UI-Bestätigung offen; kein REVIEW_READY.",
+  "nextAction": "UX03 CLOSED: Stoppton am neuen Produkt7bb5646 technisch/nativ und menschlich hörbar bestätigt. Feedbackkalibrierung (Lautstärke/Dauer/LED/Overlay), kontrollierter Wake-Schwellwertvergleich und übrige Realgates fortsetzen. T01 sichtbare Log-UI-Bestätigung offen; kein REVIEW_READY.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

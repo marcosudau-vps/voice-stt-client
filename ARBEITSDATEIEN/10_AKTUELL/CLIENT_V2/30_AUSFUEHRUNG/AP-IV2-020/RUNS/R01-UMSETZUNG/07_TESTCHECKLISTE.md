@@ -5,7 +5,8 @@
 - [x] Vollständige neue Paar-/Build-/native EXE-/Wheelqualifikation PASS.
 - [x] Echte ReSpeaker-/lokale Serverprobe:15s ohne Nutzsprache, genau ein nativer Stop-Playerlauf.
 - [x] Vollständige [Sound-/LED-/Triggerübersicht](10_FEEDBACK_UEBERSICHT.md) erstellt.
-- [ ] Menschlich bestätigen, dass der Stoppton beim Schließen hörbar/passend ist.
+- [x] Menschlich bestätigt: „Ja, Stoppton hörbar“; korrelierter Alexa-Durchlauf mit genau einem Stop-Playerlauf, UX03 CLOSED.
+- [ ] Lautstärke/Dauer des Stopptons und übriges Feedback abschließend abstimmen.
 - [ ] Wake-Schwellwert kontrolliert vergleichen;0,85 ist noch nicht übernommen.
 
 ## Aktuell: freies Ausprobieren

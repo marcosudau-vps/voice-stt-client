@@ -1,5 +1,5 @@
 {
-  "status": "TECHNICAL_REQUALIFICATION_PASS_HUMAN_HEARING_AND_REAL_GATES_OPEN",
+  "status": "UX03_CLOSED_TECHNICAL_AND_HUMAN_HEARING_PASS_REAL_GATES_OPEN",
   "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
   "oldQualifiedProduct": "d95043e96051d4022b297099391a4fdff0dcc12b",
   "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
@@ -9,7 +9,7 @@
   "nativeStopPlaying": true,
   "nativeStopCueCount": 1,
   "observedCloseToPlayingMs": 13.89,
-  "humanHearing": "NOT_PROVEN",
+  "humanHearing": "PASS",
   "build": "PASS",
   "fullRealQualification": "NOT_PROVEN",
   "helperSha256": "5d11cfd4dcd79d51ff67459a8a231d3acb1203d8ae002295d7c7eff5d552ddfc",
@@ -125,5 +125,7 @@
       "tests": null,
       "skipped": 0
     }
-  ]
+  ],
+  "humanHearingEvidence": "human-hearing-confirmed.json",
+  "findingStatus": "CLOSED"
 }

@@ -6,7 +6,7 @@ freigegeben im selben R01. 76 gezielte/1398 volle Windows-Tests PASS,1964 Server
 14 erwartete Skips,11 Prozessfälle,17 Grenzen,7/7 Smokes. Neue EXE/Wheel/sdist
 und native EXE-/Wheel-Laufzeit am lokalen gepinnten Server PASS. Echte
 ReSpeaker-/Qt-Probe: genau ein Stop-Playerlauf, Ready/playing=true; menschliches
-Hören noch NOT_PROVEN. UX03 und T01-Hör-/Log-UI-Bestätigung offen; übrige
+Hören am echten Alexa→15s-Timeout bestätigt: UX03 CLOSED. T01-Log-UI-Bestätigung offen; übrige
 M-Fälle/30min100/Endkalibrierung weiter NOT_RUN/NOT_PROVEN. Kein REVIEW_READY.
 [Aktuelle Sound-/LED-/Triggerübersicht](../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/10_FEEDBACK_UEBERSICHT.md). Acht Alexa-Treffer mit
 Scores0,908322..0,999994; Schwelle0,85 nur ungesetzter Offlinekandidat.

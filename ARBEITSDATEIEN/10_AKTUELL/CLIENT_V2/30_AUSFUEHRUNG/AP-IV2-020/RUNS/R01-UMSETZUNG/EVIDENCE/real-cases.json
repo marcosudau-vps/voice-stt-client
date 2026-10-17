@@ -352,7 +352,8 @@
     "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
     "evidence": "ux03-close-sound/assessment.json",
     "nativeRenderer": "PASS, actual no-speech initial timeout -> one STOP player run",
-    "humanHearing": "NOT_PROVEN",
-    "fullCases": "NOT_PROVEN; existing dated attempts retained, no unverified transfer to new build"
+    "humanHearing": "PASS; human-hearing-confirmed.json",
+    "fullCases": "NOT_PROVEN; existing dated attempts retained, no unverified transfer to new build",
+    "findingStatus": "CLOSED"
   }
 }

@@ -56,7 +56,7 @@ neu belegt. EXE/Wheel/sdist, Releaseguard/Twine sowie native EXE-/Wheel-
 Serverlaufzeiten PASS. Echter no-speech Timeout: genau ein Stop-Playerlauf,
 QSoundEffect Ready/playing=true, ca.14ms nach empfangenem Close.
 [Gesamtbeleg](EVIDENCE/ux03-close-sound/assessment.json). Technische Korrektur
-belegt; UX03 bleibt bis zur menschlichen Hörbestätigung offen. Frühere
+belegt und [menschlich hörbar bestätigt](EVIDENCE/ux03-close-sound/human-hearing-confirmed.json): UX03 CLOSED. Lautstärke-/Dauerkalibrierung bleibt getrennt. Frühere
 Hardwarebelege bleiben historisch; übrige Pflichtfälle werden nicht übertragen.
 Ein Wake-Schwellwert0,85 trennt die acht protokollierten positiven Treffer von
 den zwei bekannten Fehlalarmen nur in dieser Stichprobe. Er wurde nicht gesetzt;

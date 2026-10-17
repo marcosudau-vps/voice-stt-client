@@ -1,0 +1,138 @@
+{
+  "findingId": "IV2-020-UX03",
+  "result": "PASS",
+  "humanAnswerVerbatim": "Ja, Stoppton hörbar",
+  "answerReceivedAtUtc": "2026-10-17T23:41:58.816084+00:00",
+  "tester": "Human: deliberate Alexa utterance and hearing confirmation; Codex: event/native playback correlation",
+  "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+  "sessionId": "c585545f-5b3b-4bb2-b04b-41b20afb832e",
+  "activationId": "836ce7c8-40ec-44b3-8d73-704eed3ff9fe",
+  "wakeScore": 0.996999979019165,
+  "events": [
+    {
+      "type": "activation.started",
+      "generation": 1,
+      "sessionId": "c585545f-5b3b-4bb2-b04b-41b20afb832e",
+      "activationId": "836ce7c8-40ec-44b3-8d73-704eed3ff9fe",
+      "eventId": "5d51bb12-707f-47d9-b1c2-c096d3650dc1",
+      "eventSeq": 5,
+      "stateVersion": 7,
+      "occurredAtUnixMs": 1792279606516,
+      "primarySource": "wake_word",
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320,
+      "timeUtc": "2026-10-17T23:26:46.520537+00:00",
+      "monotonic": 84449.343
+    },
+    {
+      "type": "wakeword.detected",
+      "generation": 1,
+      "sessionId": "c585545f-5b3b-4bb2-b04b-41b20afb832e",
+      "activationId": "836ce7c8-40ec-44b3-8d73-704eed3ff9fe",
+      "eventId": "3fb2f989-df86-443a-aa8b-8c844c2312c9",
+      "eventSeq": 6,
+      "stateVersion": 8,
+      "occurredAtUnixMs": 1792279606519,
+      "wakeWordId": "alexa",
+      "score": 0.996999979019165,
+      "primarySource": "wake_word",
+      "timeUtc": "2026-10-17T23:26:46.547169+00:00",
+      "monotonic": 84449.359
+    },
+    {
+      "type": "command.completed",
+      "timeUtc": "2026-10-17T23:26:46.550638+00:00",
+      "monotonic": 84449.375,
+      "commandType": "session.snapshot.request",
+      "action": null,
+      "commandId": "72347c44-6797-4334-b42b-b8ad7bf34cfe",
+      "accepted": true,
+      "result": "applied",
+      "activationId": "836ce7c8-40ec-44b3-8d73-704eed3ff9fe",
+      "inputPhase": "waiting_first_speech"
+    },
+    {
+      "type": "command.completed",
+      "timeUtc": "2026-10-17T23:26:46.567158+00:00",
+      "monotonic": 84449.39,
+      "commandType": "session.snapshot.request",
+      "action": null,
+      "commandId": "814523ce-0379-4c02-b8f3-8e57b0340e10",
+      "accepted": true,
+      "result": "applied",
+      "activationId": "836ce7c8-40ec-44b3-8d73-704eed3ff9fe",
+      "inputPhase": "waiting_first_speech"
+    },
+    {
+      "type": "activation.completed",
+      "generation": 1,
+      "sessionId": "c585545f-5b3b-4bb2-b04b-41b20afb832e",
+      "activationId": "836ce7c8-40ec-44b3-8d73-704eed3ff9fe",
+      "eventId": "eddc5567-de3c-4a50-a028-6e7a7d08ca4e",
+      "eventSeq": 7,
+      "stateVersion": 10,
+      "occurredAtUnixMs": 1792279621515,
+      "timeUtc": "2026-10-17T23:27:01.520872+00:00",
+      "monotonic": 84464.343
+    },
+    {
+      "type": "activation.input_closed",
+      "generation": 1,
+      "sessionId": "c585545f-5b3b-4bb2-b04b-41b20afb832e",
+      "activationId": "836ce7c8-40ec-44b3-8d73-704eed3ff9fe",
+      "eventId": "7c10e508-51fe-441c-86be-1978e174810d",
+      "eventSeq": 8,
+      "stateVersion": 11,
+      "occurredAtUnixMs": 1792279621517,
+      "reason": "timed_out",
+      "timeUtc": "2026-10-17T23:27:01.549409+00:00",
+      "monotonic": 84464.359
+    }
+  ],
+  "soundEvents": [
+    {
+      "timeUtc": "2026-10-17T23:26:46.528542+00:00",
+      "kind": "playing",
+      "cue": "wake_word",
+      "playing": true,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-17T23:26:46.529543+00:00",
+      "kind": "cue",
+      "cue": "wake_word",
+      "action": "play",
+      "accepted": true
+    },
+    {
+      "timeUtc": "2026-10-17T23:26:47.315115+00:00",
+      "kind": "playing",
+      "cue": "wake_word",
+      "playing": false,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-17T23:27:01.559912+00:00",
+      "kind": "playing",
+      "cue": "stop",
+      "playing": true,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-17T23:27:01.561413+00:00",
+      "kind": "cue",
+      "cue": "stop",
+      "action": "play",
+      "accepted": true
+    },
+    {
+      "timeUtc": "2026-10-17T23:27:02.216257+00:00",
+      "kind": "playing",
+      "cue": "stop",
+      "playing": false,
+      "status": "Ready"
+    }
+  ],
+  "method": "Only one Alexa activation in the corrected observed session; matching 15s timeout and one STOP cue/renderer run. Human reply arrived after the recorded event; receipt time is not execution time.",
+  "limitation": "Audibility confirmed; subjective volume/duration/LED/overall calibration and full M cases not inferred."
+}
