@@ -1,3 +1,20 @@
+## AP-IV2-020/R01 – klickbarer Teststarter, 18.10.2026
+
+Isolierte Both-Instanz mit Logdienst erneut bereit; dauerhaftes Startfenster mit
+Desktopverknüpfung **V2-Testinstanz** hinzugefügt. Start-/Doppelstart-, Profil- und
+Containergrenzen sowie echter Qt-Klick gezielt geprüft (5 PASS). Erneute volle
+Windows-Regression1390 PASS/0 Skips, Managerbootstrap-Retry PASS; frühere
+Speicherfehlernachweise erhalten. Nur Testhilfen,
+kein Produkt-/Build- oder Kalibrierwertwechsel. [Anleitung](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/human/STARTER_README.md).
+Zwei separate Alexa-Fehlalarme vom17.10. um21:20 gesichert; Scores0,767/0,646,
+null Sprachsegmente, akustischer Auslöser nicht bewiesen. Echte positive
+Vergleichsversuche und übrige Realgates weiter offen; kein REVIEW_READY.
+Overlayklarstellung: Der V2-Statuspfad blendet nicht über `fade_after: 2.0` aus;
+dieser Dateiwert ist kein wirksamer V2-Anzeigedauerregler. T01-Manager real aktiv,
+sichtbare menschliche Bestätigung der Logansicht weiterhin offen.
+
+### Vorheriger Zwischenstand
+
 ## AP-IV2-020/R01 – IN_PROGRESS, UX02 technisch und real geschlossen, 16.10.2026
 
 Produkt d95043e nach freigegebener Modifierkorrektur:1390 Windows-Tests/0 Skips,1964 Servertests/14 erwartete optionale Skips,11 Prozessfälle,17 Grenztests,7 Socketsmokes PASS. EXE/Wheel/sdist und native Produkt-/Serverlaufzeit erneut qualifiziert; reale Recovery, ReSpeaker-Desktop-Neustart und sechs Modellreplays neu gebunden. Physische Modifierprobe PASS:250ms tatsächliche Halte-/Freigabe, exakte einmalige native Ausgabe/menschlich bestätigt; UX02 CLOSED. Zusätzlich realer Manual-F8→Sprache→F9-Pfad PASS: ein erkannter Final exakt nativ eingefügt/menschlich bestätigt. Freie isolierte Both-Instanz für LED/Sound/Overlay aktiv. Genannte Einstellungstabs über zweiten lokalen Dialog vorhanden; Teststarter-Logmanagerlücke T01 festgestellt, Korrektur vorbereitet/gezielt geprüft, native Bestätigung nach abgestimmtem Neustart offen. Übrige Realgates/Kalibrierung weiter offen. Kein REVIEW_READY, gleicher R01/Paketbranch/PR15.

@@ -1,3 +1,16 @@
+## Klickbarer Teststarter und Alexa-Fehlalarme, 18.10.2026
+
+[Dauerhafter Startknopf/Anleitung](human/STARTER_README.md), [Code](human/test_instance_launcher.py),
+[Helferregression](clickable-starter-20261018/launcher-checks.json),
+[neue volle Windows1390-Regression](clickable-starter-20261018/client-full.json),
+[Managerbootstrap erneut PASS](clickable-starter-20261018/managed-bootstrap-retry.json),
+[native Starteranzeige und Helferhashes](clickable-starter-20261018/summary.json).
+Native Starteroberfläche geöffnet; bestehende freie Instanz bleibt unverändert.
+[Zwei getrennte Alexa-Fehlaktivierungen](wake-false-activation-20261017/assessment.json)
+vom17.10. um21:20:02/21:20:17 MESZ, Scores0,767410/0,646442, jeweils15s
+initial_speech_timeout und null Sprachsegmente. Kein Audio-Rohbeleg; Rückkopplung
+oder sonstiger akustischer Auslöser nicht bewiesen. Positive Vergleichsversuche offen.
+
 ## Freie Feedbackprobe und Einstellungstabs
 
 [Freie Instanz](human/free-exploration-20261016-01.json), [menschliche Kalibrierungsrückmeldung](human/feedback-calibration-20261016-01.json), [Qt-Settingsnavigation](settings-navigation/summary.json). Kein genannter Tab entfernt; zweiter lokaler Dialog über Knopf. Testharness-Logmanagerlücke T01 festgestellt und Korrektur vorbereitet, native Log-UI-Bestätigung noch offen. Keine vollständige M-/Feedbackabnahme behauptet.

@@ -4,7 +4,9 @@
 - [x] Vermeintlich fehlende Tabs geprüft: alle im zweiten lokalen Dialog vorhanden.
 - [x] Qt-Klicknachweis und Abgleich aller26 lokalen Metadatenfelder grün.
 - [ ] LED-/Soundbewertung aus dem freien Ausprobieren erhalten.
-- [ ] Overlayänderungswunsch konkretisieren; derzeit2s Ausblendung.
+- [ ] Overlayänderungswunsch konkretisieren; V2-Statusoverlay bleibt sichtbar. YAML `fade_after: 2.0` gehört zum älteren Finaltextpfad und steuert diese V2-Sichtbarkeit nicht.
+- [x] Dauerhafter klickbarer Starter und Desktopverknüpfung zum eigenständigen Start der isolierten Instanz vorhanden; Start-/Statusanzeige und Einstellungszugriff.
+- [ ] Alexa-Fehlalarme vom17.10. um21:20 mit echten positiven Aufrufen vergleichen; zwei getrennte Wake-Auslösungen mit Scores0,767/0,646 gesichert, akustische Ursache offen.
 - [ ] Teststarter T01: Logmanagerkorrektur vorbereitet/geprüft, nach abgestimmtem Neustart echte Logansicht bestätigen.
 
 

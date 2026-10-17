@@ -24,7 +24,7 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "Freie Both-Probesitzung aktiv, menschliche LED-/Sound-/Overlaybewertung offen. T01 Teststarter-Logmanagerlücke korrigierter Adapter vorbereitet; nach passendem Neustartzeitpunkt echte Logansicht/Manager/Shutdown prüfen und erst dann schließen. Keine Produktänderung/kein Buildwechsel; danach übrige Realgates/Kalibrierung.",
+  "nextAction": "Klickbarer isolierter Teststarter vorhanden; Both-Instanz bereit. Echte Alexa-Aufrufe mit dokumentierten Fehlalarmen vergleichen, danach vorhandene Wake-Parameter kontrolliert kalibrieren. T01-Logmanager real aktiv; sichtbare Log-UI/Shutdown-Bestaetigung und uebrige Realgates offen. Kein Produkt-/Buildwechsel oder REVIEW_READY.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

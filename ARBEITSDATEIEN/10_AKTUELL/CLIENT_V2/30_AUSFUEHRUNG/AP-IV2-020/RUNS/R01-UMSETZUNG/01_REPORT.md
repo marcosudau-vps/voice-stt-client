@@ -1,3 +1,20 @@
+## AP-IV2-020/R01 – klickbarer Teststarter, 18.10.2026
+
+Isolierte Both-Instanz mit Logdienst erneut bereit; dauerhaftes Startfenster mit
+Desktopverknüpfung **V2-Testinstanz** hinzugefügt. Start-/Doppelstart-, Profil- und
+Containergrenzen sowie echter Qt-Klick gezielt geprüft (5 PASS). Erneute volle
+Windows-Regression1390 PASS/0 Skips, Managerbootstrap-Retry PASS; frühere
+Speicherfehlernachweise erhalten. Nur Testhilfen,
+kein Produkt-/Build- oder Kalibrierwertwechsel. [Anleitung](EVIDENCE/human/STARTER_README.md).
+Zwei separate Alexa-Fehlalarme vom17.10. um21:20 gesichert; Scores0,767/0,646,
+null Sprachsegmente, akustischer Auslöser nicht bewiesen. Echte positive
+Vergleichsversuche und übrige Realgates weiter offen; kein REVIEW_READY.
+Overlayklarstellung: Der V2-Statuspfad blendet nicht über `fade_after: 2.0` aus;
+dieser Dateiwert ist kein wirksamer V2-Anzeigedauerregler. T01-Manager real aktiv,
+sichtbare menschliche Bestätigung der Logansicht weiterhin offen.
+
+### Vorheriger Zwischenstand
+
 ## Freies Ausprobieren und Prüfung der Einstellungstabs, 16.10.2026
 
 [Feedback015](ZUSATZPROMPTS/015_FREIES_AUSPROBIEREN_FEEDBACK.md): LEDs nicht beobachtet, Sound explizit frei ausprobieren, Overlayanzeige/-dauer ändern (Details offen). [Isolierte Both-Instanz](EVIDENCE/human/free-exploration-20261016-01.json) am unveränderten qualifizierten d950-Produkt gestartet: Quelle b756a39, Session20261016-110745, PID56884, lokaler gepinnter Server, Mikrofon/LED bereit, Sound/Overlay eingeschaltet. Freier Fokus-Paste in ein geöffnetes separates leeres Notepad, keine zeitgesteuerte Folgeaufgabe/Fehlereinbringung. Freie Sprache/History bleiben lokal, keine Veröffentlichungsfreigabe oder formale M-/Kalibrierungsabnahme daraus.

@@ -6,7 +6,7 @@ the regular app.main normally owns. Constructor wrappers supply dependencies;
 the product classes retain their behavior methods.
 """
 import argparse
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 import os
 import sys
 from types import SimpleNamespace
@@ -14,6 +14,10 @@ from unittest.mock import patch
 
 ROOT = next(p for p in Path(__file__).resolve().parents if (p/'voice_stt_client').is_dir())
 sys.path.insert(0, str(ROOT))
+
+
+def isolated_target(logical, physical, home, physical_roots):
+    return logical.is_relative_to(home) and any(physical.is_relative_to(root) for root in physical_roots)
 
 
 def managed_types(runtime, bridge, desktop, manager):
@@ -55,6 +59,13 @@ def main():
             explicit = object()
             assert cls(observability=explicit).kwargs['observability'] is explicit
         assert types[2]().kwargs['observability_manager'] is manager
+        home = PureWindowsPath('C:/Local/VoiceSTT-Qualification/AP-IV2-020')
+        cache = PureWindowsPath('C:/Local/Packages/OpenAI.Codex_test/LocalCache/Local/VoiceSTT-Qualification/AP-IV2-020')
+        foreign = PureWindowsPath('C:/Local/V1')
+        assert isolated_target(home/'client/logs', home/'client/logs', home, [home, cache])
+        assert isolated_target(home/'client/logs', cache/'client/logs', home, [home, cache])
+        assert not isolated_target(home/'client/logs', foreign/'logs', home, [home, cache])
+        assert not isolated_target(foreign/'logs', cache/'client/logs', home, [home, cache])
         print('PASS: shared real-manager ingress reaches Runtime, Bridge and Desktop; manager reaches log UI; explicit options preserved. No GUI/device/server/store was started.')
         return 0
     local = Path(os.environ['LOCALAPPDATA'])/'VoiceSTT-Qualification/AP-IV2-020'
@@ -68,11 +79,16 @@ def main():
     config = AppConfig.load(local/('client-'+args.mode+'.yaml'))
     if config.server.url != 'ws://127.0.0.1:18020/ws/v2':
         raise ValueError('Only the pinned isolated local qualification server is allowed')
-    if not Path(config.logging.log_dir).resolve().is_relative_to(local.resolve()):
-        raise ValueError('Qualification log store must remain inside its isolated home')
-    for name in (config.history.persistent.db_path, config.event_stream.cursor_path):
-        if not name or not Path(name).resolve().is_relative_to(local.resolve()):
-            raise ValueError('Qualification history and cursor must remain isolated')
+    # Windows package virtualization may redirect an existing child directory
+    # while resolve(home) still returns the unredirected logical parent.
+    # Accept only the same qualification subtree inside known Codex caches;
+    # require logical containment too, and reject targets in any V1 directory.
+    roots = [local.resolve()]
+    roots.extend(package/'LocalCache/Local/VoiceSTT-Qualification/AP-IV2-020'
+                 for package in (Path(os.environ['LOCALAPPDATA'])/'Packages').glob('OpenAI.Codex_*'))
+    for name in (config.logging.log_dir, config.history.persistent.db_path, config.event_stream.cursor_path):
+        if not name or not isolated_target(Path(name).absolute(), Path(name).resolve(), local.absolute(), roots):
+            raise ValueError('Qualification logs, history and cursor must remain inside the isolated home or its own Windows package cache')
     if config.logging.observability.store_transcription_content or config.logging.observability.store_raw_payload:
         raise ValueError('Free exploration requires content/payload logging disabled')
     manager = ObservabilityManager(config.logging.observability, log_dir=config.logging.log_dir)
@@ -81,7 +97,7 @@ def main():
     previous_argv = sys.argv
     try:
         manager.start()
-        setup_logging(config.logging, observability=manager.ingress)
+        setup_logging(config.logging, observability=manager)
         with patch.object(v2_runtime, 'V2Runtime', runtime), \
              patch.object(v2_core_bridge, 'V2CoreBridge', bridge), \
              patch.object(v2_application, 'V2DesktopApplication', desktop):

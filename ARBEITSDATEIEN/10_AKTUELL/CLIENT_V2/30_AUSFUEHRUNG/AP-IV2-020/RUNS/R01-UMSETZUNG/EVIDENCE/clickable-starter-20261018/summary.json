@@ -1,0 +1,32 @@
+{
+  "recordedAtUtc": "2026-10-17T22:54:30.002211+00:00",
+  "helperSha256": {
+    "test_instance_launcher.py": "cf18570c3520623316df2941dfecb1a0f6c3c7f3d8788c374a9d8031bc77c531",
+    "test_instance_launcher_checks.py": "9409ec46a8cc1cfef4908a55f576dd1f9b82840c6f56930b41eadac8bab26d0c",
+    "Start-V2-Testinstanz.cmd": "fddd89c084b39b28c6b11a7c3b0f885f18ebe2947946d2479c3bcd1466b3fed7",
+    "STARTER_README.md": "450459bf2ba78a907cdc894c27488886b16cb1cc94fadc9249b3d1a38a0b0e45",
+    "explore_with_logging.py": "ffc915982623f0d5a40dc7fc8b209d900f56dd31c4c52406df753d18e936c833",
+    "test_exploration_logging.py": "49ede5b9d89535496f391390008a8248b4e7f9fd6b0d2aec92eea1de5a063131"
+  },
+  "nativeWindow": {
+    "title": "V2-Testinstanz \u2013 Start und Status",
+    "pid": 41808,
+    "responding": true
+  },
+  "existingInstance": {
+    "mutexPresent": true,
+    "status": "CLIENT BEREIT \u2013 du kannst jetzt sprechen."
+  },
+  "desktopShortcut": "V2-Testinstanz.lnk",
+  "productChanged": false,
+  "calibrationChanged": false,
+  "managedBootstrapRetry": "PASS",
+  "earlierFailedBootstrapRunPreserved": "../settings-navigation/managed-bootstrap-final-regression.json",
+  "limitations": "GUI click/launch command and guard paths tested with mocked startup. Current existing client left running. No forced real stop/start or cold Docker restart in this task; native ready status observed. Other AP real gates remain open.",
+  "windowsRegression": {
+    "result": "PASS",
+    "tests": 1390,
+    "evidence": "client-full.json",
+    "durationSeconds": 226.453
+  }
+}
