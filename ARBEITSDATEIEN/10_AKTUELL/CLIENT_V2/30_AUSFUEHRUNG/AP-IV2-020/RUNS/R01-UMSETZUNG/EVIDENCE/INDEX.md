@@ -1,3 +1,7 @@
+## Stoppton-Dauer und -Lautstärke bestätigt, LED-Details offen
+
+[Originalantwort und angenommene bestehende Werte](ux03-close-sound/human-feedback-calibration.json): „Beides passt“. Keine Produkt-/Konfigurationsänderung. LED-Änderung gewünscht, genaue Phase/Wirkung noch offen; keine vollständige Feedbackabnahme.
+
 ## UX03: Beendigungston korrigiert und native Ausgabe belegt, 18.10.2026
 
 [Freigabe/Befund](../09_UX03_CLOSE_SOUND.md),

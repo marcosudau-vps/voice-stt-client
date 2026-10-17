@@ -1,3 +1,14 @@
+## Stoppton-Kalibrierung bestätigt; LED-Wunsch offen, 18.10.2026
+
+Menschlich „Beides passt“ für Lautstärke/Dauer des Stopptons. Bestehende
+Stop-WAV661,146ms und Mappinglautstärke1,0 unverändert akzeptiert; kein neuer
+Default-/Konfigurations-/Produktwechsel. [Kalibrierungsbeleg](EVIDENCE/ux03-close-sound/human-feedback-calibration.json).
+LED-Rückmeldung: „Änderung gewünscht“; Phase und gewünschte Veränderung werden
+gezielt erfragt. Kein konkreter LED-Wert aus dieser Antwort abgeleitet.
+Übriges Feedback und die vollständigen Realgates bleiben offen.
+
+### Vorheriger Zwischenstand
+
 ## UX03-Produktsoundkorrektur, 18.10.2026
 
 Ausdrueckliche direkte Freigabe, [Originalauftrag und enger Scope](09_UX03_CLOSE_SOUND.md).

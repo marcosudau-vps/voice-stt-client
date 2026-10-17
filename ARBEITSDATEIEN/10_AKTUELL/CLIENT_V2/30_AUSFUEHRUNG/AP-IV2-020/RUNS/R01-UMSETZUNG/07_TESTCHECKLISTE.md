@@ -6,7 +6,9 @@
 - [x] Echte ReSpeaker-/lokale Serverprobe:15s ohne Nutzsprache, genau ein nativer Stop-Playerlauf.
 - [x] Vollständige [Sound-/LED-/Triggerübersicht](10_FEEDBACK_UEBERSICHT.md) erstellt.
 - [x] Menschlich bestätigt: „Ja, Stoppton hörbar“; korrelierter Alexa-Durchlauf mit genau einem Stop-Playerlauf, UX03 CLOSED.
-- [ ] Lautstärke/Dauer des Stopptons und übriges Feedback abschließend abstimmen.
+- [x] Stoppton-Lautstärke und -Dauer bestätigt: „Beides passt“; bestehende WAV661ms und Mappinglautstärke1,0 bleiben.
+- [ ] LED-Änderungswunsch konkretisieren; Farbe/Helligkeit/Animation/Timing noch nicht benannt.
+- [ ] Übriges Sound-/LED-/Overlayfeedback abschließend abstimmen.
 - [ ] Wake-Schwellwert kontrolliert vergleichen;0,85 ist noch nicht übernommen.
 
 ## Aktuell: freies Ausprobieren
