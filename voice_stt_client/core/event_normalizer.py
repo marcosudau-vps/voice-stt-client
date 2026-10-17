@@ -131,6 +131,7 @@ class EventNormalizer:
         from . import protocol_v2 as p
         semantics = {
             p.EventType.ACTIVATION_STARTED: (CanonicalEventType.SERVER_ACTIVATION_STARTED, FeedbackImpulse.WAKE_WORD_DETECTED),
+            p.EventType.INPUT_CLOSED: (CanonicalEventType.SERVER_INPUT_CLOSED, None),
             p.EventType.RECORDING_STARTED: (CanonicalEventType.SERVER_RECORDING_STARTED, FeedbackImpulse.RECORDING_STARTED),
             p.EventType.RECORDING_ENDED: (CanonicalEventType.SERVER_RECORDING_ENDED, FeedbackImpulse.RECORDING_ENDED),
             p.EventType.COMPLETED: (CanonicalEventType.SERVER_TRANSCRIPTION_COMPLETED, FeedbackImpulse.TRANSCRIPTION_COMPLETED),
@@ -143,6 +144,10 @@ class EventNormalizer:
         }
         semantic = semantics.get(event.type)
         if semantic is None:
+            return None
+        if event.type == p.EventType.INPUT_CLOSED and event.payload['reason'] not in ('finished', 'timed_out'):
+            # Cancellation/failure already owns its cue. Unknown recovery
+            # reasons remain diagnostic, never an implied normal completion.
             return None
         self._validate_generation(generation)
         d = event.payload
@@ -160,7 +165,8 @@ class EventNormalizer:
             impulse=impulse, event_id=event.eventId, correlation_id=correlation,
             details={"generation": generation, "sessionId": event.sessionId,
                      "activationId": aid, "segmentId": sid,
-                     "segmentSequence": sequence, "commandId": None,
+                     "segmentSequence": sequence,
+                     "commandId": d.get('causedByCommandId') if event.type == p.EventType.INPUT_CLOSED else None,
                      "eventSeq": event.eventSeq})
 
     def normalize_event_stream(

@@ -71,6 +71,13 @@ History ändert keine Dedupidentität. Späte Finals von A lassen Foreground B
 unverändert. Queuefehler werden thread-safe als sekundäre Diagnose zurückgeführt.
 Sound-/LEDfehler ändern weder Session noch Audioverfügbarkeit.
 
+Das serverbestätigte Schließen der Vordergrundeingabe mit `finished` oder
+`timed_out` löst einmalig `server.input.closed` aus, auch ohne Sprachsegment.
+Fehlt diese interne Mappingregel, wird ausschließlich der vorhandene
+Stoppsound samt Lautstärke übernommen; eine explizite Regel bleibt erhalten.
+Activationterminals, Snapshots, Resync und alte Hintergrundaktivierungen lösen
+keinen zweiten Beendigungston aus. Cancel-/Fehlerfeedback bleibt getrennt.
+
 ## Threads, Apply und Shutdown
 
 Qt lebt im Main Thread; sämtliche fachlichen Mutable Services auf der bestehenden
