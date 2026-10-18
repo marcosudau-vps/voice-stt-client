@@ -1,0 +1,51 @@
+{
+  "result": "PASS",
+  "session": {
+    "pid": 40364,
+    "folder": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\sessions\\20261018-020836",
+    "mode": "both"
+  },
+  "metrics": {
+    "kind": "metrics",
+    "monotonic": 87037.281,
+    "timeUtc": "2026-10-18T00:09:54.459407+00:00",
+    "generation": 1,
+    "ready": true,
+    "transport": "ready",
+    "reason": "",
+    "phase": "idle",
+    "activationId": null,
+    "media": {
+      "sent": 1904,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": true,
+      "led_available": true,
+      "log_failure": null
+    },
+    "capture": {
+      "chunks_captured": 1904,
+      "chunks_dropped_capture_queue": 0,
+      "overflow_count": 0,
+      "underflow_count": 0,
+      "capture_queue_depth": 0
+    },
+    "tasks": 10,
+    "commands": 0,
+    "trackerPending": 0,
+    "memory": {
+      "workingSetBytes": 121044992,
+      "privateBytes": 127635456
+    },
+    "activations": 0,
+    "segments": 0,
+    "terminalActivations": 0,
+    "injectionQueue": 0
+  },
+  "profileSha256": "ff535d4a444d3dbd0ca10509e43fdd1a319e2683ba2dc06931b6c1c29b70f2bb",
+  "boundary": "Real ReSpeaker/audio/server ready; optical appearance and human preference NOT_PROVEN."
+}

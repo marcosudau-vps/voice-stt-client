@@ -24,7 +24,7 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": null,
-  "nextAction": "UX03 CLOSED; Stoppton-Lautstärke/Dauer menschlich bestätigt, bestehende Werte unverändert. Konkrete Phase/Wirkung der gewünschten LED-Änderung erfragen und danach zulässige Konfigurationsvariante vorbereiten. Übrige Sound-/Overlay-/Wakekalibrierung und Realgates/T01 offen; kein REVIEW_READY.",
+  "nextAction": "Weiße LED-Konfigurationsvariante läuft isoliert: zwölf Helligkeitsstufen,1,5 Umdrehungen/s, Idle vorläufig weiß; Aktivierungsblitz erhalten. Menschliche Bewertung von Tempo/Lichtmenge und anschließend übrige Phasen gemeinsam durchgehen. Farbprofilbericht11 gespeichert, Profile nicht implementiert. Übrige Kalibrierung, Realgates und T01 offen; kein REVIEW_READY.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

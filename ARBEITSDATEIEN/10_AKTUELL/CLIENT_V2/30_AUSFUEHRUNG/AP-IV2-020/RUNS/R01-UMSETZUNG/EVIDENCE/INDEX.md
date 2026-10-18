@@ -1,3 +1,14 @@
+## LED-Vergleich Weiß / Farbprofiluntersuchung, 18.10.2026
+
+[Bericht](../11_FARBPROFILE_UNTERSUCHUNG.md),
+[wiederverwendbarer Helfer](human/led_waiting_variant.py),
+[SDK-Frames](led-white-variant/check.json),
+[isolierte Anwendung/Profilhash](led-white-variant/applied.json),
+[native Bereitschaft](led-white-variant/native-ready.json),
+[114 Feedback-/LED-/Triggerprüfungen](led-white-variant/feedback-regression.json),
+[vollständiger Testlog](led-white-variant/feedback-regression.txt.gz).
+Optische Wirkung/menschliche Akzeptanz noch NOT_PROVEN; Produkt unverändert.
+
 ## Stoppton-Dauer und -Lautstärke bestätigt, LED-Details offen
 
 [Originalantwort und angenommene bestehende Werte](ux03-close-sound/human-feedback-calibration.json): „Beides passt“. Keine Produkt-/Konfigurationsänderung. LED-Änderung gewünscht, genaue Phase/Wirkung noch offen; keine vollständige Feedbackabnahme.

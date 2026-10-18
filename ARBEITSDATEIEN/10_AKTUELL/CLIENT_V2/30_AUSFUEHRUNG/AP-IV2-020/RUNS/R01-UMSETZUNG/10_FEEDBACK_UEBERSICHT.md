@@ -1,3 +1,11 @@
+## Aktive Vergleichsvariante vom 18.10.2026
+
+Die nachfolgende Übersicht beschreibt den bisherigen Ausgangsstand. Im isolierten
+Both-Testprofil sind inzwischen Idle vorläufig weiß und Warten/Follow-up eine
+weiße Zwölf-LED-Helligkeitsrampe mit1,5 Umdrehungen/s. Aktivierungsblitz und
+Sounds bleiben unverändert. [Details und Farbprofilbericht](11_FARBPROFILE_UNTERSUCHUNG.md).
+Diese Variante ist noch nicht menschlich abgenommen.
+
 # Tatsächliche Sounds, LED-Effekte und Auslöser
 
 Stand 18.10.2026, Produktkandidat7bb5646 mit UX03-Korrektur; isoliertes

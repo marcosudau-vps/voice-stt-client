@@ -1,3 +1,18 @@
+## Weiße LED-Vergleichsvariante vorbereitet, 18.10.2026
+
+Nutzerwunsch konkretisiert: Aktivierungsblitz erhalten; statt Einzelpunkt zwölf
+LEDs mit 10..90%,100%,100%,100%, wesentlich schneller, zunächst Weiß.
+Isoliertes Both-Profil: waiting/followup `palette_cycle`,1,5 Runden/s;
+Idle vorläufig weiß bei bestehender Atmung. Globale Helligkeit192 unverändert.
+Produkt7bb5646 unverändert; keine Farbprofilimplementierung.
+[Untersuchung und konkreter künftiger Farbprofilweg](11_FARBPROFILE_UNTERSUCHUNG.md),
+[Konfigurations-/Framebeleg](EVIDENCE/led-white-variant/applied.json),
+[reale ReSpeaker-/Serverbereitschaft](EVIDENCE/led-white-variant/native-ready.json),
+[Feedbackregression](EVIDENCE/led-white-variant/feedback-regression.json).
+Menschliche optische Bewertung offen; kein vollständiger Hardware-PASS.
+
+### Vorheriger Zwischenstand
+
 ## Stoppton-Kalibrierung bestätigt; LED-Wunsch offen, 18.10.2026
 
 Menschlich „Beides passt“ für Lautstärke/Dauer des Stopptons. Bestehende
