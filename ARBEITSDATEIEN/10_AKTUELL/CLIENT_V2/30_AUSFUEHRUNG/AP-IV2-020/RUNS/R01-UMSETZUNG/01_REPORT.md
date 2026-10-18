@@ -1,3 +1,7 @@
+## Server-Issue7 angelegt, 18.10.2026
+
+Auf ausdrücklichen Nutzerwunsch [Server-Issue7](https://github.com/marcosudau-vps/voice-stt-server/issues/7) mit genauer Beschreibung und allen W01-Belegen erstellt; Remoteinhalt und commitgebundene Client-Belegpfade verifiziert. Kein Server-FIX beauftragt/gestartet, BLOCKED / SERVER_FIX_REQUIRED bleibt. [Akte](12_WAKE_REAKTIVIERUNG_W01.md).
+
 ## AP-IV2-020/R01 – BLOCKED / SERVER_FIX_REQUIRED, 18.10.2026
 
 IV2-020-W01: zwei echte serverseitige Alexa-Activations nach einmaliger Wakephrase;

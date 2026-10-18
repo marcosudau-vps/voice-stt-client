@@ -110,3 +110,7 @@ Serverpromotion“ unter „Nicht freigegeben“. Der verbindliche
 [Serverfixablauf](../../../../PLANUNG/SKILLS/GEMEINSAM/references/SONDERFAELLE_UND_WIEDERAUFNAHME.md)
 §3 verlangt einen tatsächlichen Serverauftrag. Deshalb ist hier nur die
 vollständige Diagnose gesichert; eine Fixinstanz muss gesondert beauftragt werden.
+
+## Server-Issue auf ausdrücklichen Wunsch erstellt
+
+[voice-stt-server#7](https://github.com/marcosudau-vps/voice-stt-server/issues/7) enthält Livezeitlinie, Scores/IDs, konkrete Quellverweise, vollständigen echten Modellvergleich, Fixture/Reprohelfer, Grenzen und Abnahmekriterien. [Gesicherter Issueinhalt](EVIDENCE/wake-retrigger-20261018/server-issue-body.md), [Remoteprüfung](EVIDENCE/wake-retrigger-20261018/server-issue.json). Nur Issueanlage autorisiert, kein Server-FIX gestartet.

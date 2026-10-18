@@ -25,7 +25,7 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": "IV2-020-W01: zwei autoritative Alexa-Activations bei einmaliger menschlicher Wakephrase; pausierter Modellzustand reproduziert nach Rearm einen Treffer bei digitaler Stille. Serverfix gesondert zu beauftragen.",
-  "nextAction": "Gesonderten engen Server-FIX-Auftrag/Freigabe einholen; vorher keine Serverproduktänderung. Repro und Korrekturweg12 gesichert. Clientprodukt7bb5646 und Parent unverändert; LED-Muster grundsätzlich positiv bewertet. Übrige Realgates und T01 bleiben offen; kein REVIEW_READY.",
+  "nextAction": "Server-Issue7 mit vollständigem W01-Befund, echtem Modellrepro und commitgebundenen Belegen auf ausdrücklichen Wunsch erstellt. Server-FIX noch nicht beauftragt/instanziiert; SERVER_FIX_REQUIRED bleibt. Keine Serverproduktänderung/Promotion. Rückkehr zu AP-IV2-020 nach verifizierter Korrektur und Paarqualifikation.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -46,7 +46,7 @@
   "recovery": null,
   "relatedServerFix": {
     "id": null,
-    "repository": null,
+    "repository": "marcosudau-vps/voice-stt-server",
     "branch": null,
     "record": null,
     "statusPath": null,
@@ -57,7 +57,8 @@
       "branch": "work/client-v2/ap-iv2-020",
       "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
       "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd"
-    }
+    },
+    "issue": "https://github.com/marcosudau-vps/voice-stt-server/issues/7"
   },
   "technicalProductCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
   "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/ux03-close-sound/assessment.json"

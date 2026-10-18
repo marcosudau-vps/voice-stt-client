@@ -1,3 +1,7 @@
+## Server-Issue7 dokumentiert
+
+[Server-Issue](https://github.com/marcosudau-vps/voice-stt-server/issues/7), [exakter Issueinhalt](wake-retrigger-20261018/server-issue-body.md), [verifizierte Remoteanlage](wake-retrigger-20261018/server-issue.json). Kein Implementierungsauftrag.
+
 ## IV2-020-W01 – SERVER_FIX_REQUIRED, 18.10.2026
 
 [Finding/Korrekturweg](../12_WAKE_REAKTIVIERUNG_W01.md),
