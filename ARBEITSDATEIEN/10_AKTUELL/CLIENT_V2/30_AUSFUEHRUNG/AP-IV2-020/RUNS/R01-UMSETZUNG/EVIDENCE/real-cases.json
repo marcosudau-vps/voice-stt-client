@@ -259,7 +259,7 @@
     },
     {
       "id": "M-10",
-      "name": "Frozenfeedback/Bediengefühl",
+      "name": "Frozenfeedback/BediengefÃ¼hl",
       "requirements": [
         "REAL-04"
       ],
@@ -363,6 +363,7 @@
     "contentMismatchFound": false,
     "qualificationUse": "No automatic full PASS. Commit/content mismatch invalid; unbound server-dependent individual claims NOT_PROVEN. Client-only claims retain their scope.",
     "additionalServer": "REMOVED_BY_HUMAN_REQUEST",
-    "newServerAuthorized": false
+    "newServerAuthorized": false,
+    "explicitlyInvalidatedEarlyRecords": "server-identity-audit-20261018/early-image-exclusions.json"
   }
 }

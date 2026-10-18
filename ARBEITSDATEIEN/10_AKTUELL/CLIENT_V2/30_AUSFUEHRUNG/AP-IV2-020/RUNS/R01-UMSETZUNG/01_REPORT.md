@@ -1,3 +1,13 @@
+## Audit-Nachtrag: fünf frühe Modellläufe nicht qualifikationsgültig
+
+Die zeitliche Trennung des älteren Imagesb617cfa vom quellgeprüften5aaa17e ergibt:
+real-wake-artifacts/resources/negative sowie real-golden-asr/stable vom14.10.
+um22:46–22:47UTC sind ohne eigene ausreichende Runtimebindung **ungültig als
+Serverqualifikation**. Rohdaten bleiben erhalten, fünf Overrides im Auditindex.
+Ältere Quelle:459 Byteabweichungen, nach CRLF-Normalisierung keine weiteren
+Unterschiede. Kein anderer Produktcommit bewiesen; spätere555-Blobprüfung darf
+nicht rückwirkend übertragen werden. [Details/Ausschlüsse](16_SERVER_COMMIT_AUDIT.md).
+
 ## Zusätzlicher Server entfernt, Commit-Audit gesichert, 18.10.2026
 
 [Menschlicher Auftrag](ZUSATZPROMPTS/015_SERVERENTFERNUNG_UND_COMMITAUDIT.md):
@@ -6,11 +16,11 @@ Kein passender AP020-Container/-Tag/benanntes Volume mehr vorhanden. Andere Serv
 und gemeinsame Modelldateien unverändert. Starter deaktiviert, drei Prüfungen PASS;
 keine erneute externe Datei-/Profilanlage oder Servererstellung.
 
-[Audit aller364 JSON-Akten](16_SERVER_COMMIT_AUDIT.md): Referenzserverada13b0,
+[Audit aller363 JSON-Akten](16_SERVER_COMMIT_AUDIT.md): Referenzserverada13b0,
 555 Gitblobs unabhängig erneut identisch;56 Quellmanifeste ohne Abweichung,
 zehn Akten mit passender aufgezeichneter Serverantwort.24 Commitdeklarationen
 allein keine Einzelattestierung (drei davon zusätzlich durch gehashte historische
-Admissionguards belegt);274 Akten ohne eigenes Serverattest nach ihrem tatsächlichen
+Admissionguards belegt);273 Akten ohne eigenes Serverattest nach ihrem tatsächlichen
 Scope bewerten. Kein anderer Servercommit gefunden, kein pauschaler Gesamt-PASS.
 Abweichende/nicht belegbare serverabhängige Qualifikationsansprüche sind nicht
 abnahmewirksam. Neue Serverwahl/Laufzeitablage vor weiteren Realtests nötig.

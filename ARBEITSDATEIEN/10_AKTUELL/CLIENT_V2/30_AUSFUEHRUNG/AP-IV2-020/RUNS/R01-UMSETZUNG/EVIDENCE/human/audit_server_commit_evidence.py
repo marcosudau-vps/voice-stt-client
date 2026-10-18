@@ -50,6 +50,7 @@ def main():
     parser.add_argument('--retained-source', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
+    args.output = args.output.absolute()
     assert args.output.absolute().is_relative_to(ROOT)
     tree = subprocess.check_output(['git', '-C', str(args.repository), 'ls-tree', '-rz', PIN])
     expected, archive_bad = {}, []
@@ -137,6 +138,15 @@ def main():
             'sha256': hashlib.sha256(raw).hexdigest(), 'identityAssessment': state,
             'serverCommitFields': [{'field': p, 'value': v} for p, v in meaningful],
             'mismatches': mismatches, 'modelFreeWireUnknownFields': len(fixture_unknown)})
+    exclusion_file = args.output.parent/'early-image-exclusions.json'
+    excluded = {}
+    if exclusion_file.exists():
+        excluded = {row['record']: row for row in json.loads(exclusion_file.read_text())['records']}
+    for row in records:
+        if row['record'] in excluded:
+            row['qualificationUseOverride'] = excluded[row['record']]['qualificationOverride']
+            row['qualificationOverrideReason'] = excluded[row['record']]['reason']
+    assert all(not row['record'].startswith(args.output.parent.relative_to(EVIDENCE).as_posix()+'/') for row in records)
     result = {'timeUtc': datetime.now(timezone.utc).isoformat(),
         'requiredServerCommit': PIN,
         'requiredSource': 'PLANUNG/ARBEITSPAKETE/AP-IV2-020.md: Referenzserver',
@@ -146,6 +156,7 @@ def main():
         'sourceMapChecks': maps, 'historicalAdmissionGuardChecks': guarded, 'records': records,
         'counts': dict(Counter(r['identityAssessment'] for r in records)),
         'mismatchingRecords': [r['record'] for r in records if r['identityAssessment'].startswith('INVALID')],
+        'explicitlyInvalidatedEarlyRecords': sorted(excluded),
         'policy': 'Mismatch is invalid as required-server qualification. Declaration-only and unattested individual records cannot independently qualify the server; use only explicit reviewed bindings or mark NOT_PROVEN. Client-only tests/raw captures/admin records require no server commit and are not invalidated in their own scope. Wire unknown in model-free process fixtures is not evidence of a different source commit. Historical test PASS is not automatically a current product or full hardware PASS.',
         'noServerStartedOrModified': True}
     args.output.parent.mkdir(parents=True, exist_ok=True)

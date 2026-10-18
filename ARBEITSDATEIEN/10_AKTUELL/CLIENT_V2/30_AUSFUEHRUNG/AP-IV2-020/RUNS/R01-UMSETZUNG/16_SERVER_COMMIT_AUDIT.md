@@ -49,19 +49,19 @@ Gleicher Commit ersetzt keine Konfigurations-/Modell-/Buildqualifikation.
 
 ## Vollständiges Akteninventar und Befund
 
-Der Auditor hat sämtliche zum Auditzeitpunkt vorhandenen **364 JSON-Akten**
+Der Auditor hat sämtliche zum Auditzeitpunkt vorhandenen **363 JSON-Akten**
 im R01-Evidenzbereich indexiert, mit Dateihash und allen expliziten
 Servercommitfeldern. Darin enthaltene Server-Quellmanifeste wurden gegen den
 erneut geprüften Gitinhalt verglichen. Komplette Listen stehen im
 [maschinenlesbaren Inventar](EVIDENCE/server-identity-audit-20261018/inventory.json).
-Die Zahl bezeichnet Akten, nicht364 unabhängige Testfälle.
+Die Zahl bezeichnet Akten, nicht363 unabhängige Testfälle.
 
 | Nachweisart | Anzahl Akten/Manifeste | Commitbewertung |
 | --- | ---: | --- |
 | Explizite vollständige oder relevante Server-Quellmanifeste | 56 | alle Inhalte stimmen mit dem Pin überein |
 | Tatsächlich aufgezeichnete Serverantworten im Inventar bzw. nativen Runtimebericht | 10 | gemeldeter Commit stimmt mit dem Pin überein |
 | Commit nur als deklarierter Wert, keine eigene Laufzeit-/Quellattestierung in dieser Akte | 24 | allein nicht ausreichend als Serverqualifikation |
-| Kein eigener Serveridentitätsnachweis in dieser Akte | 274 | keine eigenständige Serverqualifikation; nach Testart unterscheiden |
+| Kein eigener Serveridentitätsnachweis in dieser Akte | 273 | keine eigenständige Serverqualifikation; nach Testart unterscheiden |
 | Festgestellter abweichender Commit oder abweichendes Server-Quellmanifest | 0 | keine inhaltliche Commitabweichung gefunden |
 
 Zusätzlich wurden bei sieben technischen Laufakten die aufgezeichneten
@@ -100,6 +100,36 @@ dort separat gehasht und dem Pin zugeordnet. `unknown` ist somit kein Nachweis
 eines anderen Quellcommits, aber auch kein erfolgreicher realer
 Runtime-Identitätsnachweis. Diese Fälle bleiben Modellfrei-/Protokolltests.
 
+## Früheres Image: fünf Ergebnisse ausdrücklich nicht qualifikationsgültig
+
+Die zeitliche Zuordnung trennt das ältere entfernte Image
+`b617cfa7edeff3981c59e52adc36e04289c230561f437ed0a4dd1b76cb509de9`
+vom später vollständig quellgeprüften Image5aaa17e. Für das ältere Image liegt
+kein gleichwertiger historischer555-Dateien-Laufzeitabgleich vor.
+
+Die erhaltene ältere `source/`-Variante weicht bei459 von555 Dateien auf
+Byteebene von `source-exact/` ab. Alle diese Unterschiede verschwinden nach
+CRLF/LF-Normalisierung; darüber hinaus wurde in der erhaltenen Variante keine
+Quelltextabweichung gefunden. Das ist kein Beweis eines anderen Produktcommits,
+ersetzt aber die fehlende genaue historische Runtimezuordnung nicht.
+
+Folgende frühe Docker-Modellläufe vor dem neuen quellgeprüften Build sind
+**als erforderliche Serverqualifikation ungültig / Identität NOT_PROVEN**:
+
+| Ursprüngliche Akte | Beginn UTC14.10.2026 | Rohresultat |
+| --- | --- | --- |
+| `real-wake-artifacts.json` | 22:46:09 | PASS |
+| `real-wake-resources.json` | 22:46:10 | PASS |
+| `real-golden-asr.json` | 22:46:22 | FAIL |
+| `real-wake-negative.json` | 22:46:32 | PASS |
+| `real-golden-asr-stable.json` | 22:47:15 | PASS |
+
+[Explizite Ausschlussliste mit Quelldifferenzen](EVIDENCE/server-identity-audit-20261018/early-image-exclusions.json).
+Jede dieser fünf Akten hat im Auditindex einen `qualificationUseOverride`.
+Original-PASS/FAIL ist ausschließlich historischer Messbefund. Spätere
+`*-exact`-Läufe und erneute Qualifikationen werden anhand ihrer eigenen Belege
+beurteilt; ein späterer Pinbeleg heilt keinen früher ungebundenen Lauf.
+
 ## Konsequenz für Gültigkeit und Abnahme
 
 - **Kein abweichender Serverproduktcommit wurde gefunden.** Die vorhandenen
@@ -110,7 +140,7 @@ Runtime-Identitätsnachweis. Diese Fälle bleiben Modellfrei-/Protokolltests.
   einer belastbaren Zuordnung verwendet werden; ohne diese bleibt der konkrete
   serverabhängige Anspruch **NOT_PROVEN**. Ihre tatsächlichen Beobachtungen
   werden nicht gelöscht oder zu bestandenen Pflichtfällen umgedeutet.
-- Für die274 Akten ohne eigenen Servernachweis gilt ebenfalls: soweit eine
+- Für die273 Akten ohne eigenen Servernachweis gilt ebenfalls: soweit eine
   serverabhängige Qualifikationsbehauptung betroffen ist und keine geprüfte
   Bindung vorliegt, ist sie **nicht abnahmewirksam**. Darunter befinden sich
   jedoch auch reine Client-/Build-/Hilfsmittel-/Rohaufnahme-/Administrationsakten,

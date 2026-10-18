@@ -1,5 +1,5 @@
 {
-  "timeUtc": "2026-10-18T03:47:28.731288+00:00",
+  "timeUtc": "2026-10-18T03:51:05.189107+00:00",
   "requiredServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
   "requiredSource": "PLANUNG/ARBEITSPAKETE/AP-IV2-020.md: Referenzserver",
   "retainedArchive": {
@@ -1024,7 +1024,7 @@
     },
     {
       "record": "real-cases.json",
-      "sha256": "062c9805d933ac1e4ecf57daa3cc2f20070c398691900b4c780e58ce47ec85cd",
+      "sha256": "4163f5147cd7ad438698f90744400fb3a98e6355194fca642262d14317b4cfe4",
       "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
       "serverCommitFields": [
         {
@@ -1053,7 +1053,9 @@
       "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
       "serverCommitFields": [],
       "mismatches": [],
-      "modelFreeWireUnknownFields": 0
+      "modelFreeWireUnknownFields": 0,
+      "qualificationUseOverride": "INVALID_SERVER_RUNTIME_IDENTITY_NOT_PROVEN",
+      "qualificationOverrideReason": "Predates source-exact verified build. Earlier image/source variant is not retroactively covered by later 555-blob runtime verification."
     },
     {
       "record": "real-golden-asr.json",
@@ -1061,7 +1063,9 @@
       "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
       "serverCommitFields": [],
       "mismatches": [],
-      "modelFreeWireUnknownFields": 0
+      "modelFreeWireUnknownFields": 0,
+      "qualificationUseOverride": "INVALID_SERVER_RUNTIME_IDENTITY_NOT_PROVEN",
+      "qualificationOverrideReason": "Predates source-exact verified build. Earlier image/source variant is not retroactively covered by later 555-blob runtime verification."
     },
     {
       "record": "real-golden-exact.json",
@@ -1094,7 +1098,9 @@
       "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
       "serverCommitFields": [],
       "mismatches": [],
-      "modelFreeWireUnknownFields": 0
+      "modelFreeWireUnknownFields": 0,
+      "qualificationUseOverride": "INVALID_SERVER_RUNTIME_IDENTITY_NOT_PROVEN",
+      "qualificationOverrideReason": "Predates source-exact verified build. Earlier image/source variant is not retroactively covered by later 555-blob runtime verification."
     },
     {
       "record": "real-wake-negative.json",
@@ -1102,7 +1108,9 @@
       "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
       "serverCommitFields": [],
       "mismatches": [],
-      "modelFreeWireUnknownFields": 0
+      "modelFreeWireUnknownFields": 0,
+      "qualificationUseOverride": "INVALID_SERVER_RUNTIME_IDENTITY_NOT_PROVEN",
+      "qualificationOverrideReason": "Predates source-exact verified build. Earlier image/source variant is not retroactively covered by later 555-blob runtime verification."
     },
     {
       "record": "real-wake-resources.json",
@@ -1110,7 +1118,9 @@
       "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
       "serverCommitFields": [],
       "mismatches": [],
-      "modelFreeWireUnknownFields": 0
+      "modelFreeWireUnknownFields": 0,
+      "qualificationUseOverride": "INVALID_SERVER_RUNTIME_IDENTITY_NOT_PROVEN",
+      "qualificationOverrideReason": "Predates source-exact verified build. Earlier image/source variant is not retroactively covered by later 555-blob runtime verification."
     },
     {
       "record": "real-watchdog-run.json",
@@ -1797,14 +1807,6 @@
     {
       "record": "restart-repro-smoke.json",
       "sha256": "e3f32462babf59f1f748d00c9da26830d4606f9d86e2ac8c45c5a7ae4a428581",
-      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
-      "serverCommitFields": [],
-      "mismatches": [],
-      "modelFreeWireUnknownFields": 0
-    },
-    {
-      "record": "server-identity-audit-20261018/inventory.json",
-      "sha256": "c9788d5b42abf999dfac14f37cce8e3ec06c3bd2df7f6c942515e8304da14a2f",
       "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
       "serverCommitFields": [],
       "mismatches": [],
@@ -4077,12 +4079,19 @@
     }
   ],
   "counts": {
-    "NO_SERVER_ATTESTATION_IN_THIS_RECORD": 274,
+    "NO_SERVER_ATTESTATION_IN_THIS_RECORD": 273,
     "SERVER_REPORTED_PIN_RECORDED": 10,
     "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION": 24,
     "SERVER_CONTENT_PIN_CONFIRMED": 56
   },
   "mismatchingRecords": [],
+  "explicitlyInvalidatedEarlyRecords": [
+    "real-golden-asr-stable.json",
+    "real-golden-asr.json",
+    "real-wake-artifacts.json",
+    "real-wake-negative.json",
+    "real-wake-resources.json"
+  ],
   "policy": "Mismatch is invalid as required-server qualification. Declaration-only and unattested individual records cannot independently qualify the server; use only explicit reviewed bindings or mark NOT_PROVEN. Client-only tests/raw captures/admin records require no server commit and are not invalidated in their own scope. Wire unknown in model-free process fixtures is not evidence of a different source commit. Historical test PASS is not automatically a current product or full hardware PASS.",
   "noServerStartedOrModified": true
 }

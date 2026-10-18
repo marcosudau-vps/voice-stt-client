@@ -26,9 +26,9 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": "IV2-020-W01: zwei autoritative Alexa-Activations bei einmaliger menschlicher Wakephrase; pausierter Modellzustand reproduziert nach Rearm einen Treffer bei digitaler Stille. Serverfix gesondert zu beauftragen.",
-  "nextAction": "Keine Wiederanlage des entfernten Qualifikationsservers. Historischer Commit-Audit16 maßgeblich: ada13b0 inhaltlich bestätigt; serverabhängige Einzelansprüche ohne belastbare Bindung nicht abnahmewirksam. Vor Realtests tatsächliches gewünschtes Serverziel und zulässige Ablage klären. W01/Issue7 weiter SERVER_FIX_REQUIRED; kein Server-FIX oder neuer Testserver beauftragt.",
+  "nextAction": "Keine Wiederanlage des entfernten Qualifikationsservers. Historischer Commit-Audit16 maÃŸgeblich: ada13b0 inhaltlich bestÃ¤tigt; serverabhÃ¤ngige EinzelansprÃ¼che ohne belastbare Bindung nicht abnahmewirksam. Vor Realtests tatsÃ¤chliches gewÃ¼nschtes Serverziel und zulÃ¤ssige Ablage klÃ¤ren. W01/Issue7 weiter SERVER_FIX_REQUIRED; kein Server-FIX oder neuer Testserver beauftragt.",
   "workAuthorization": {
-    "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
+    "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
     "additionalCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md",
     "currentCorrectionSource": "30_AUSFUEHRUNG/AP-CV2-100/RUNS/R04-KORREKTUR/00_PROMPT_ORIGINAL.md",
@@ -43,7 +43,7 @@
   "candidateSelection": {
     "candidateId": "AP-IV2-020",
     "source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
-    "reason": "Ausdrücklicher vollständiger Auftrag nach tatsächlichem AP010-Squash"
+    "reason": "AusdrÃ¼cklicher vollstÃ¤ndiger Auftrag nach tatsÃ¤chlichem AP010-Squash"
   },
   "recovery": null,
   "relatedServerFix": {
@@ -84,6 +84,8 @@
     "recreationAuthorized": false,
     "removalReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/15_SERVER_ENTFERNT.md",
     "identityAudit": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/16_SERVER_COMMIT_AUDIT.md",
-    "expectedServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+    "expectedServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+    "invalidatedEarlyTests": 5,
+    "invalidatedEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-identity-audit-20261018/early-image-exclusions.json"
   }
 }
