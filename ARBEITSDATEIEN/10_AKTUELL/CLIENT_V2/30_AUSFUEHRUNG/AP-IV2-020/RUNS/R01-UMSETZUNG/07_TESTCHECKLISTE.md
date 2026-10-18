@@ -18,7 +18,7 @@
 - [x] Qt-Klicknachweis und Abgleich aller26 lokalen Metadatenfelder grün.
 - [ ] LED-/Soundbewertung aus dem freien Ausprobieren erhalten.
 - [ ] Overlayänderungswunsch konkretisieren; V2-Statusoverlay bleibt sichtbar. YAML `fade_after: 2.0` gehört zum älteren Finaltextpfad und steuert diese V2-Sichtbarkeit nicht.
-- [x] Dauerhafter klickbarer Starter und Desktopverknüpfung zum eigenständigen Start der isolierten Instanz vorhanden; Start-/Statusanzeige und Einstellungszugriff.
+- [ ] Desktopstarter T02: normaler Windows-Doppelklickstart FAIL (Profil im Codex-Packagecache); frühere Mock-/Agentenkontextchecks reichen nicht. [Befund und notwendige Nachprüfung](14_STARTER_SERVERZIEL_UND_ABLAGE.md).
 - [ ] Alexa-Fehlalarme vom17.10. um21:20 mit echten positiven Aufrufen vergleichen; zwei getrennte Wake-Auslösungen mit Scores0,767/0,646 gesichert, akustische Ursache offen.
 - [ ] Teststarter T01: Logmanagerkorrektur vorbereitet/geprüft, nach abgestimmtem Neustart echte Logansicht bestätigen.
 

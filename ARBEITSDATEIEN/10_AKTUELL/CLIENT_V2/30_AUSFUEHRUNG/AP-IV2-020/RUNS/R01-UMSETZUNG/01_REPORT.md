@@ -1,3 +1,17 @@
+## Starter-/Serverziel-/Ablageprüfung, 18.10.2026
+
+[Prüfbericht14](14_STARTER_SERVERZIEL_UND_ABLAGE.md): T02 bestätigt: Desktopstarter
+findet logisches AppData-Profil nicht, tatsächliche Datei liegt im Codex-Packagecache.
+Bisher kein qualifizierter echter Desktop-Doppelklickstart außerhalb des Agenten.
+Äußerer V2-Dialog besitzt HTTP-Originlabel, bleibt bei erstem Ladefehler ohne View
+aber leer; lokaler Unterdialog blendet Serverfelder aus. Beide Fehlerpfade gezielt
+reproduziert, keine Produkt-/externen Dateiänderungen oder Prozessstarts.
+Letzte Session nutzte127.0.0.1:18020; Trace bis regulärem Clientende04:59:59 MESZ
+ohne vorausgehenden Verbindungsverlust. Genutzter Container weiterhin aktiv;
+welchen Server der Mensch beendet hat ist noch abzugleichen. Kein neuer
+Reconnectdefekt/PASS behauptet. Spezifischer AppData-Pfad war eine Agentenwahl
+auf Basis des Isolationsauftrags, keine ausdrücklich erteilte Pfadfreigabe.
+
 ## Letzter TV-/Hotkey-/Overlayfall dokumentiert, 18.10.2026
 
 [IV2-020-O01](13_TV_WAKE_FINISH_UND_HINTERGRUND.md): unerwünschter Alexa-Treffer

@@ -20,12 +20,13 @@
   "reviewReport": null,
   "openFindingIds": [
     "IV2-020-T01",
-    "IV2-020-W01"
+    "IV2-020-W01",
+    "IV2-020-T02"
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": "IV2-020-W01: zwei autoritative Alexa-Activations bei einmaliger menschlicher Wakephrase; pausierter Modellzustand reproduziert nach Rearm einen Treffer bei digitaler Stille. Serverfix gesondert zu beauftragen.",
-  "nextAction": "Server-Issue7/W01 bleibt SERVER_FIX_REQUIRED ohne Server-FIX-Auftrag. Zusätzlich O01 dokumentiert: TV-Wake und F9=finish statt beabsichtigtem Cancel; offener Verarbeitungsabschluss weiter einzugrenzen. Keine Hotkey-/Produktänderung; volle Realgates/T01 offen.",
+  "nextAction": "T02/Desktopstart und verbindliche Ablage klären; menschlich gestoppten Server mit tatsächlich genutztem18020-Qualifikationscontainer abgleichen. Keine weiteren externen Schreib-/Startvorgänge ohne geklärte Ablage. W01/Server-Issue7 bleibt SERVER_FIX_REQUIRED, kein Server-FIX beauftragt; O01 und Realgates offen.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -68,6 +69,12 @@
       "status": "OPEN_INVESTIGATION",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/13_TV_WAKE_FINISH_UND_HINTERGRUND.md",
       "summary": "Unintended Alexa score0.834205 with TV context; operator intended abort but actual F9 action finish. Background terminal missing for at least299.7s; pure overlay/cancel bug not proven."
+    },
+    {
+      "id": "IV2-020-O02",
+      "status": "PARTIALLY_PROVEN",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/14_STARTER_SERVERZIEL_UND_ABLAGE.md",
+      "summary": "T02 normal-desktop launcher cannot find Codex-virtualized AppData profile; empty origin label on failed first settings load reproduced. Held client was ready to loopback18020 until regular shutdown; human-stopped server identity unknown. No external writes or restarts during audit."
     }
   ]
 }

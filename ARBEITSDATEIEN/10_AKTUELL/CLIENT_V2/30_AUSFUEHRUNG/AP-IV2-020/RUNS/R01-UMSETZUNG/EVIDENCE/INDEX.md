@@ -1,3 +1,13 @@
+## Starter-/Serverziel-/Ablageprüfung T02
+
+[Prüfbericht](../14_STARTER_SERVERZIEL_UND_ABLAGE.md),
+[Pfadauflösung/Trace/Container/Autorisierung](launcher-context-20261018/assessment.json),
+[gezielte echte Helper-/Qt-Fehlerpfade](launcher-context-20261018/probe.json),
+[menschlicher Screenshot](launcher-context-20261018/human-starter-error.png),
+[wiederverwendbarer Prüfhelfer](human/probe_launcher_settings_context.py).
+Desktop-Kontextfehler bestätigt; kein externer Schreib-/Startvorgang in dieser
+Diagnose. Korrektur noch offen, Reconnectverdacht nicht nachgewiesen.
+
 ## Letzter TV-/Hotkey-/Overlayfall O01
 
 [Auswertung](../13_TV_WAKE_FINISH_UND_HINTERGRUND.md),
