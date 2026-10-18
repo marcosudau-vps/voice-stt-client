@@ -1,3 +1,14 @@
+## IV2-020-W01 – SERVER_FIX_REQUIRED, 18.10.2026
+
+[Finding/Korrekturweg](../12_WAKE_REAKTIVIERUNG_W01.md),
+[Livekorrelation](wake-retrigger-20261018/live-analysis.json),
+[echter Modellvergleich](wake-retrigger-20261018/rearm-replay-result.json),
+[Aufruf/Identität](wake-retrigger-20261018/rearm-replay.json),
+[vollständiger Log](wake-retrigger-20261018/rearm-replay.txt.gz),
+[Quellenhashes](wake-retrigger-20261018/inspected-server-sources.json),
+[wiederverwendbarer Reprohelfer](human/probe_wake_rearm.py).
+Fall FAIL; Serverkorrektur nicht freigegeben/instanziiert. Kein vollständiger PASS.
+
 ## LED-Vergleich Weiß / Farbprofiluntersuchung, 18.10.2026
 
 [Bericht](../11_FARBPROFILE_UNTERSUCHUNG.md),

@@ -1,6 +1,6 @@
 # AP-IV2-020 – reale Windows-, Modell- und Hardwarequalifikation
 
-Status **IN_PROGRESS**, Workflow **IMPLEMENTATION_IN_PROGRESS**, 2026-10-15.
+Status **BLOCKED**, Workflow **SERVER_FIX_REQUIRED**, 2026-10-18.
 Rolle: ein Umsetzer, R01-UMSETZUNG. Schreibhoheit: Codex in dieser Session.
 Branch `work/client-v2/ap-iv2-020`, Base `feat/client-v2`, tatsächlicher Parent
 `b80ed8b81ad92bd02ac32553883443d2b7673bcd`.
@@ -45,3 +45,7 @@ korrigieren, einschließlich Regression und neuer Kandidaten-/Buildqualifikation
 Produkt7bb5646, [Belege](RUNS/R01-UMSETZUNG/EVIDENCE/ux03-close-sound/assessment.json).
 Kein Server-/Wirewechsel. Die ergänzte [Sound-/LED-/Triggerübersicht](RUNS/R01-UMSETZUNG/10_FEEDBACK_UEBERSICHT.md)
 unterscheidet wirkliche V2-Ausgaben von lediglich deklarierten Regeln.
+
+## Serverblocker IV2-020-W01
+
+[Livebefund, echter Modellrepro und konkreter Korrekturweg](RUNS/R01-UMSETZUNG/12_WAKE_REAKTIVIERUNG_W01.md). Serverfix noch nicht beauftragt/instanziiert; Clientprodukt/Parent unverändert. Kein REVIEW_READY.

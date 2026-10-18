@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "IMPLEMENTATION_IN_PROGRESS",
-  "packageStatus": "IN_PROGRESS",
+  "workflowPhase": "SERVER_FIX_REQUIRED",
+  "packageStatus": "BLOCKED",
   "activePackage": "AP-IV2-020",
   "nextPackage": null,
   "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
@@ -19,12 +19,13 @@
   "reviewedCommit": null,
   "reviewReport": null,
   "openFindingIds": [
-    "IV2-020-T01"
+    "IV2-020-T01",
+    "IV2-020-W01"
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": null,
-  "nextAction": "Weiße LED-Konfigurationsvariante läuft isoliert: zwölf Helligkeitsstufen,1,5 Umdrehungen/s, Idle vorläufig weiß; Aktivierungsblitz erhalten. Menschliche Bewertung von Tempo/Lichtmenge und anschließend übrige Phasen gemeinsam durchgehen. Farbprofilbericht11 gespeichert, Profile nicht implementiert. Übrige Kalibrierung, Realgates und T01 offen; kein REVIEW_READY.",
+  "blockingReason": "IV2-020-W01: zwei autoritative Alexa-Activations bei einmaliger menschlicher Wakephrase; pausierter Modellzustand reproduziert nach Rearm einen Treffer bei digitaler Stille. Serverfix gesondert zu beauftragen.",
+  "nextAction": "Gesonderten engen Server-FIX-Auftrag/Freigabe einholen; vorher keine Serverproduktänderung. Repro und Korrekturweg12 gesichert. Clientprodukt7bb5646 und Parent unverändert; LED-Muster grundsätzlich positiv bewertet. Übrige Realgates und T01 bleiben offen; kein REVIEW_READY.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -43,7 +44,21 @@
     "reason": "Ausdrücklicher vollständiger Auftrag nach tatsächlichem AP010-Squash"
   },
   "recovery": null,
-  "relatedServerFix": null,
+  "relatedServerFix": {
+    "id": null,
+    "repository": null,
+    "branch": null,
+    "record": null,
+    "statusPath": null,
+    "state": "NOT_INSTANTIATED_AWAITING_SERVER_AUTHORIZATION",
+    "clientFinding": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/12_WAKE_REAKTIVIERUNG_W01.md",
+    "serverBaseline": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+    "returnClient": {
+      "branch": "work/client-v2/ap-iv2-020",
+      "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+      "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd"
+    }
+  },
   "technicalProductCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
   "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/ux03-close-sound/assessment.json"
 }

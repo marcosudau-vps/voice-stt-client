@@ -1,3 +1,15 @@
+## AP-IV2-020/R01 – BLOCKED / SERVER_FIX_REQUIRED, 18.10.2026
+
+IV2-020-W01: zwei echte serverseitige Alexa-Activations nach einmaliger Wakephrase;
+zweiter Start303ms nach Timeout, Score0,991943. Echter Modellreplay reproduziert
+nach Inferenzpause/Freigabe zweiten Treffer bei digitaler Stille nach240ms;
+Resetkontrolle ohne zweiten Treffer. Exakte historische akustische Ursache ohne
+PCM NOT_PROVEN. Serverfix gesondert zu beauftragen; kein Servercode geändert.
+Clientprodukt7bb5646, Parent und Draft-PR15 bleiben unverändert. LED-Muster
+menschlich grundsätzlich positiv bewertet. Realgates/T01 offen, kein REVIEW_READY.
+
+### Vorheriger Zwischenstand
+
 ## AP-IV2-020/R01 – UX03 technisch korrigiert, Realgates offen, 18.10.2026
 
 Neues qualifiziertes Produkt `7bb564690911d52f6dfe884955ddeb6a27eea6ad`. Fehlender Stoppton bei
