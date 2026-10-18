@@ -1,3 +1,11 @@
+## Aktuell: zusätzliche Serverinstanz entfernt
+
+- [x] Eigene AP020-Servercontainer/-images/zugeordnete Datenvolumes auf Wunsch entfernt.
+- [x] Starter ohne Server-/Clientstartfunktion, drei gezielte Prüfungen PASS.
+- [x] Historischer Commit-Audit:555 Gitblobs/56 Manifeste passen zuada13b0.
+- [ ] Serverabhängige Einzelqualifikation nur mit belegter Bindung verwenden.
+- [ ] Tatsächlich gewünschtes Serverziel und zulässige Laufzeitablage vor weiteren Tests festlegen.
+
 ## Neu: UX03-Beendigungston technisch belegt, 18.10.2026
 
 - [x] Direkter Fixauftrag dokumentiert; Ursache am fehlenden input_closed-Feedbackpfad reproduziert.

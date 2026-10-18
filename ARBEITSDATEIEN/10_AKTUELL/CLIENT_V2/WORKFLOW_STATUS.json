@@ -26,7 +26,7 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": "IV2-020-W01: zwei autoritative Alexa-Activations bei einmaliger menschlicher Wakephrase; pausierter Modellzustand reproduziert nach Rearm einen Treffer bei digitaler Stille. Serverfix gesondert zu beauftragen.",
-  "nextAction": "T02/Desktopstart und verbindliche Ablage klären; menschlich gestoppten Server mit tatsächlich genutztem18020-Qualifikationscontainer abgleichen. Keine weiteren externen Schreib-/Startvorgänge ohne geklärte Ablage. W01/Server-Issue7 bleibt SERVER_FIX_REQUIRED, kein Server-FIX beauftragt; O01 und Realgates offen.",
+  "nextAction": "Keine Wiederanlage des entfernten Qualifikationsservers. Historischer Commit-Audit16 maßgeblich: ada13b0 inhaltlich bestätigt; serverabhängige Einzelansprüche ohne belastbare Bindung nicht abnahmewirksam. Vor Realtests tatsächliches gewünschtes Serverziel und zulässige Ablage klären. W01/Issue7 weiter SERVER_FIX_REQUIRED; kein Server-FIX oder neuer Testserver beauftragt.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt Ãœbergabekommentaren; spÃ¤tere ausdrÃ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische Ãœbernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -37,7 +37,8 @@
     "testFixturesSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/004_TESTAUFNAHMEN_REPO.md",
     "ux01Source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/006_UX01_FREIGABE.md",
     "ux02Source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/012_UX02_FREIGABE.md",
-    "ux03Source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/09_UX03_CLOSE_SOUND.md"
+    "ux03Source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/09_UX03_CLOSE_SOUND.md",
+    "serverRemovalAndAuditSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/015_SERVERENTFERNUNG_UND_COMMITAUDIT.md"
   },
   "candidateSelection": {
     "candidateId": "AP-IV2-020",
@@ -76,5 +77,13 @@
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/14_STARTER_SERVERZIEL_UND_ABLAGE.md",
       "summary": "T02 normal-desktop launcher cannot find Codex-virtualized AppData profile; empty origin label on failed first settings load reproduced. Held client was ready to loopback18020 until regular shutdown; human-stopped server identity unknown. No external writes or restarts during audit."
     }
-  ]
+  ],
+  "testInfrastructure": {
+    "additionalServer": "REMOVED_BY_EXPLICIT_HUMAN_REQUEST",
+    "launcher": "DEACTIVATED",
+    "recreationAuthorized": false,
+    "removalReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/15_SERVER_ENTFERNT.md",
+    "identityAudit": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/16_SERVER_COMMIT_AUDIT.md",
+    "expectedServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+  }
 }

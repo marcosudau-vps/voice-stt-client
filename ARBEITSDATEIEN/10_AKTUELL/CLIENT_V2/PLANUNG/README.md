@@ -1,3 +1,14 @@
+## AP-IV2-020/R01 – zusätzlicher Server entfernt, 18.10.2026
+
+Auf ausdrücklichen Wunsch eigene AP020-Servercontainer, zugeordnete Images und
+Datenvolumes entfernt; Starter deaktiviert. Keine Wiederanlage oder andere
+Serverwahl ohne neuen Auftrag. Historischer Commit-Audit: Referenzada13b0,
+555 Gitblobs/56 Quellnachweise identisch; serverabhängige Einzelansprüche ohne
+belastbare Bindung nicht abnahmewirksam. W01/Issue7 und Realgates bleiben offen,
+BLOCKED / SERVER_FIX_REQUIRED. Berichte15/16 im selben R01 sind maßgeblich.
+
+### Vorheriger Zwischenstand
+
 ## AP-IV2-020/R01 – BLOCKED / SERVER_FIX_REQUIRED, 18.10.2026
 
 IV2-020-W01: zwei echte serverseitige Alexa-Activations nach einmaliger Wakephrase;

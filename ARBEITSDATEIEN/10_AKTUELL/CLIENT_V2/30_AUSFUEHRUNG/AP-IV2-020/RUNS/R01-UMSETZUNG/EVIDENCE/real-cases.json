@@ -355,5 +355,14 @@
     "humanHearing": "PASS; human-hearing-confirmed.json",
     "fullCases": "NOT_PROVEN; existing dated attempts retained, no unverified transfer to new build",
     "findingStatus": "CLOSED"
+  },
+  "serverIdentityAudit": {
+    "report": "../16_SERVER_COMMIT_AUDIT.md",
+    "inventory": "server-identity-audit-20261018/inventory.json",
+    "expectedServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+    "contentMismatchFound": false,
+    "qualificationUse": "No automatic full PASS. Commit/content mismatch invalid; unbound server-dependent individual claims NOT_PROVEN. Client-only claims retain their scope.",
+    "additionalServer": "REMOVED_BY_HUMAN_REQUEST",
+    "newServerAuthorized": false
   }
 }

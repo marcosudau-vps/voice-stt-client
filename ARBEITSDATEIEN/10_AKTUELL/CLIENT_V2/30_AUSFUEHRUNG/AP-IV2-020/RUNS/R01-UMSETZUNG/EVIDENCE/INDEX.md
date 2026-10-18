@@ -1,3 +1,15 @@
+## Menschlich angeordnete Serverentfernung und Commit-Audit
+
+[Entfernung](../15_SERVER_ENTFERNT.md),
+[exakte Ressourcen/Nachkontrolle](server-removal-20261018/removed-resources.json),
+[drei Prüfungen deaktivierter Starter](server-removal-20261018/retired-launcher.json),
+[vollständiger Testlog](server-removal-20261018/retired-launcher.txt.gz).
+[Commit-Audit/Gültigkeitsregeln](../16_SERVER_COMMIT_AUDIT.md),
+[komplettes364-Akten-Inventar/555-Blobabgleich/56 Quellprüfungen](server-identity-audit-20261018/inventory.json),
+[wiederverwendbarer Auditor](human/audit_server_commit_evidence.py).
+Keine neue Instanz, kein ungebundener Gesamt-PASS. Nicht belegbare serverabhängige
+Einzelansprüche bleiben NOT_PROVEN; bei Commitabweichung ungültig.
+
 ## Starter-/Serverziel-/Ablageprüfung T02
 
 [Prüfbericht](../14_STARTER_SERVERZIEL_UND_ABLAGE.md),

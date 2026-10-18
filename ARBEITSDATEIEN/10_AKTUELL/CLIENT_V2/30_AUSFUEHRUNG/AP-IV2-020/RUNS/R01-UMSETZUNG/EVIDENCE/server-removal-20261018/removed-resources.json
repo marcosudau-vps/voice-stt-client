@@ -1,0 +1,33 @@
+{
+  "timeUtc": "2026-10-18T03:42:43.022297+00:00",
+  "result": "REMOVED",
+  "authorization": "Explicit human request to immediately remove the additionally created qualification server. Subsequent instruction requires historical server-commit audit; no recreation authorized.",
+  "removedContainers": [
+    "e743d3c6edd64d4b2afbb130765597b6acd0e7fe6b43a4d91d1985f79fdb81f1",
+    "899dc3d2b9124705804440fd201af7875e9a662c50dec0aed11ecfd237f7838f"
+  ],
+  "removedImages": [
+    "sha256:5aaa17e9963fea4c3109027a2ce141b2037b5eadfe7cbd91ff39a9f15626ff20",
+    "sha256:b617cfa7edeff3981c59e52adc36e04289c230561f437ed0a4dd1b76cb509de9"
+  ],
+  "removedVolumes": [
+    "voicestt-qualification-iv2-020-free-data",
+    "voicestt-qualification-iv2-020-data",
+    "efc41ca179199c3da3fec5b02e5c71d1aafc85630517c7a316d5e01af92acbdd"
+  ],
+  "verification": {
+    "matchingContainers": 0,
+    "matchingNamedVolumes": 0,
+    "matchingTaggedImages": 0
+  },
+  "existingLocalContainerUnchanged": {
+    "name": "/voice-stt-local-server",
+    "id": "fe2f336f09f5198df70f9c8e9baba677ad0000872225e78c494b927c566365d6",
+    "running": true,
+    "startedAt": "2026-10-17T00:00:59.4827078Z"
+  },
+  "boundModelsPreserved": true,
+  "evidencePreserved": true,
+  "launcher": "Deactivated in repository. No Docker/profile/subprocess/IPC code remains. Existing shortcut opens information only; no external shortcut write. An already-open older launcher cannot recreate a missing container (its code had start, not create).",
+  "boundaries": "No Docker-wide prune; no deletion of unrelated containers, images, volumes or shared models. Retained source/evidence/cache files were read for the requested audit, not restarted or migrated."
+}

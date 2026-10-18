@@ -1,3 +1,21 @@
+## Zusätzlicher Server entfernt, Commit-Audit gesichert, 18.10.2026
+
+[Menschlicher Auftrag](ZUSATZPROMPTS/015_SERVERENTFERNUNG_UND_COMMITAUDIT.md):
+[beide eigenen Docker-Testcontainer, zwei Images und zugeordnete Volumes entfernt](15_SERVER_ENTFERNT.md).
+Kein passender AP020-Container/-Tag/benanntes Volume mehr vorhanden. Andere Server
+und gemeinsame Modelldateien unverändert. Starter deaktiviert, drei Prüfungen PASS;
+keine erneute externe Datei-/Profilanlage oder Servererstellung.
+
+[Audit aller364 JSON-Akten](16_SERVER_COMMIT_AUDIT.md): Referenzserverada13b0,
+555 Gitblobs unabhängig erneut identisch;56 Quellmanifeste ohne Abweichung,
+zehn Akten mit passender aufgezeichneter Serverantwort.24 Commitdeklarationen
+allein keine Einzelattestierung (drei davon zusätzlich durch gehashte historische
+Admissionguards belegt);274 Akten ohne eigenes Serverattest nach ihrem tatsächlichen
+Scope bewerten. Kein anderer Servercommit gefunden, kein pauschaler Gesamt-PASS.
+Abweichende/nicht belegbare serverabhängige Qualifikationsansprüche sind nicht
+abnahmewirksam. Neue Serverwahl/Laufzeitablage vor weiteren Realtests nötig.
+W01/T01/T02/O01 und volle Realgates bleiben offen; BLOCKED, kein REVIEW_READY.
+
 ## Starter-/Serverziel-/Ablageprüfung, 18.10.2026
 
 [Prüfbericht14](14_STARTER_SERVERZIEL_UND_ABLAGE.md): T02 bestätigt: Desktopstarter
