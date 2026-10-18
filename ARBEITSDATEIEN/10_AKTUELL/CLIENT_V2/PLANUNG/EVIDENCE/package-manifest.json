@@ -797,7 +797,7 @@
         "AP-CV2-110"
       ],
       "path": "ARBEITSPAKETE/AP-IV2-010.md",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "testModules": [
         "test_v2_cross_repository"
       ],
@@ -838,7 +838,10 @@
       "reviewEvidence": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md",
       "approvalPrompt": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/00_PROMPT_ORIGINAL.md",
       "canonicalizationReport": "30_AUSFUEHRUNG/AP-IV2-010/RUNS/R03-UEBERNAHME/01_REPORT.md",
-      "humanApprovalStatus": "EXPLICITLY_GRANTED_PRE_MERGE"
+      "humanApprovalStatus": "EXPLICITLY_GRANTED_PRE_MERGE",
+      "canonicalCommit": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+      "canonicalTree": "b12a3f4dc1f2c51d2c4a70680e63c988e729f666",
+      "canonicalizationEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/start-provenance.json"
     },
     {
       "id": "AP-IV2-020",
@@ -847,7 +850,7 @@
         "AP-IV2-010"
       ],
       "path": "ARBEITSPAKETE/AP-IV2-020.md",
-      "status": "PLANNED",
+      "status": "IN_PROGRESS",
       "testModules": [],
       "requirements": [
         "REAL-01",
@@ -871,7 +874,16 @@
         "defaultRuns": 1,
         "scopeNote": "one complete package session; steps are not separate runs"
       },
-      "testModulesRole": "suggested locations; actual coverage and methods required"
+      "testModulesRole": "suggested locations; actual coverage and methods required",
+      "candidateBranch": "work/client-v2/ap-iv2-020",
+      "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
+      "openFindingIds": [],
+      "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/client-full-final-environment.json",
+      "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/15",
+      "recoveryAudit": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/05_RECONNECT_AUDIT.md",
+      "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json"
     },
     {
       "id": "AP-SV2-FIX",

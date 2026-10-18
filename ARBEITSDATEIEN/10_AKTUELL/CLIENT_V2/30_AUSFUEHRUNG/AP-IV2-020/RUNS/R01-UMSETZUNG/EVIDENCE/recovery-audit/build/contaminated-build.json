@@ -1,0 +1,8 @@
+{
+  "result": "FAIL",
+  "sha256": "dcbcb574b666c7375f312eb97379da25ff25f4a7ff691d146873b2eeb0420cf5",
+  "embeddedIdentity": {
+    "clientCommit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "cause": "Concurrent tests/test_build_script.py mocked identity overwrote shared build/build_identity.json while PyInstaller ran. Orchestration interference; do not qualify or use this artifact. Serialize rebuild after client suite."
+}

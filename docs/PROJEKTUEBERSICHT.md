@@ -1,3 +1,19 @@
+# AP-IV2-020 – IN_PROGRESS, Phase C vorbereitet, 2026-10-15
+
+Kanonischer Parent `b80ed8b` unverändert, Vorgänger AP010 tatsächlich ACCEPTED.
+Paketbranch `work/client-v2/ap-iv2-020`, kumulativer Draft-PR #15, derselbe R01.
+Ausdrücklich freigegebener Reconnect-/Recovery-Audit abgeschlossen: zehn technische
+Findings behoben. Produktcommit `41ca761`, neue EXE/Wheel/sdist sauber gebunden.
+1373 Windows-Tests ohne Skips, 11 Prozessfälle, alle sieben Server-Smokes PASS;
+1964 Server-Unit-Tests PASS/14 ausgewiesene optionale Skips. Echter ReSpeaker- und
+Desktop-Reconnect, HTTP-/Ackausfall, drei Neustarts, Shutdown und Frozen-GUI grün.
+M-Fälle, echte Wakepositive/Nutzsprachgrenze, Wahrnehmung/Kalibrierung und30min100
+bleiben NOT_RUN/NOT_PROVEN. Nächste Aktion: gemeinsamer erster Sprach-/Windowsblock.
+[Report](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md), [gemeinsamer Testablauf](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/02_GEMEINSAMER_TESTABLAUF.md).
+V1/VPS geschützt; Server nur lokal. Kein REVIEW_READY, Eigenreview, Merge oder Release.
+
+## Vorheriger datierter Stand
+
 # RealtimeSTT Client V2 – Projektübersicht
 
 Stand 2026-10-14. Windows-Client mit Python3.12/PySide6, Qt im Main Thread,

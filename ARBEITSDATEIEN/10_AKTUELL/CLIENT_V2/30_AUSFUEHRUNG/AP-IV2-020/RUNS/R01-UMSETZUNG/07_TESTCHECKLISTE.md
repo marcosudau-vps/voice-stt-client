@@ -1,0 +1,124 @@
+## Neu: UX03-Beendigungston technisch belegt, 18.10.2026
+
+- [x] Direkter Fixauftrag dokumentiert; Ursache am fehlenden input_closed-Feedbackpfad reproduziert.
+- [x] Korrektur am Produkt7bb5646;76 gezielte und1398 Windows-Tests PASS.
+- [x] Vollständige neue Paar-/Build-/native EXE-/Wheelqualifikation PASS.
+- [x] Echte ReSpeaker-/lokale Serverprobe:15s ohne Nutzsprache, genau ein nativer Stop-Playerlauf.
+- [x] Vollständige [Sound-/LED-/Triggerübersicht](10_FEEDBACK_UEBERSICHT.md) erstellt.
+- [x] Menschlich bestätigt: „Ja, Stoppton hörbar“; korrelierter Alexa-Durchlauf mit genau einem Stop-Playerlauf, UX03 CLOSED.
+- [x] Stoppton-Lautstärke und -Dauer bestätigt: „Beides passt“; bestehende WAV661ms und Mappinglautstärke1,0 bleiben.
+- [ ] LED-Änderungswunsch konkretisieren; Farbe/Helligkeit/Animation/Timing noch nicht benannt.
+- [ ] Übriges Sound-/LED-/Overlayfeedback abschließend abstimmen.
+- [ ] Wake-Schwellwert kontrolliert vergleichen;0,85 ist noch nicht übernommen.
+
+## Aktuell: freies Ausprobieren
+
+- [x] Isolierte Both-Instanz mit LED/Sound/Overlay zum freien Ausprobieren gestartet.
+- [x] Vermeintlich fehlende Tabs geprüft: alle im zweiten lokalen Dialog vorhanden.
+- [x] Qt-Klicknachweis und Abgleich aller26 lokalen Metadatenfelder grün.
+- [ ] LED-/Soundbewertung aus dem freien Ausprobieren erhalten.
+- [ ] Overlayänderungswunsch konkretisieren; V2-Statusoverlay bleibt sichtbar. YAML `fade_after: 2.0` gehört zum älteren Finaltextpfad und steuert diese V2-Sichtbarkeit nicht.
+- [x] Dauerhafter klickbarer Starter und Desktopverknüpfung zum eigenständigen Start der isolierten Instanz vorhanden; Start-/Statusanzeige und Einstellungszugriff.
+- [ ] Alexa-Fehlalarme vom17.10. um21:20 mit echten positiven Aufrufen vergleichen; zwei getrennte Wake-Auslösungen mit Scores0,767/0,646 gesichert, akustische Ursache offen.
+- [ ] Teststarter T01: Logmanagerkorrektur vorbereitet/geprüft, nach abgestimmtem Neustart echte Logansicht bestätigen.
+
+
+# AP-IV2-020 – unsere Testcheckliste
+
+**Stand: 16.10.2026 · UX02 technisch und real bestätigt / geschlossen · übrige Realgates offen**
+
+Ich pflege die Häkchen nach den tatsächlichen Nachweisen. „Teilweise geprüft“
+bedeutet noch keinen vollständig bestandenen Pflichtfall. Derselbe R01 und
+[Draft-PR15](https://github.com/marcosudau-vps/voice-stt-client/pull/15) bleiben aktiv.
+
+## Gerade bestätigt: beide Wake-Sätze
+
+- [x] Aufgabe 1 und Aufgabe 2 vorher gelesen und jeweils selbst gestartet.
+- [x] „Hey Jarvis“ + roter Ball vollständig, ohne Rufwort im Editor.
+- [x] „Alexa“ + gelbe Tasche vollständig, ohne Rufwort im Editor.
+- [x] Beide Nutzsätze mit Leerzeichen getrennt; zwei echte native Einfügungen.
+- [x] Menschliche Bestätigung: **„Beide vollständig, mit Leerzeichen“**.
+- [x] Effektiv **5000ms Nachsprechfenster / 320ms Pre-Roll** in beiden Sitzungen bestätigt.
+- [x] F8/F9 im neuen Manualdurchlauf tatsächlich applied und input_closed=finished. Wake-only-Controlteil separat offen.
+- [ ] Endgültiges Gefühl zu Pre-Roll und dem übrigen Feedback gemeinsam bewerten.
+
+[Auswertung mit Quellbindung, Messwerten und Diagnosen](EVIDENCE/ux01/stepped-20261016-01/assessment.json).
+Die zwei getrennten Sitzungen sind ein erfolgreicher Teilnachweis, noch kein vollständiger M-02.
+
+## Neue Bedienhilfen fertig
+
+- [x] Eigener **großer grüner Satzbereich**, vor Start und während des Versuchs sichtbar.
+- [x] **Aufgabe wiederholen** bereitet denselben Fall neu vor; Start wieder selbst klicken.
+- [x] **Versuch abbrechen** beendet zuerst den laufenden Testclient.
+- [x] Nach dem Versuch selbst **Wiederholen** oder **Übernehmen** wählen; kein Autostart.
+- [x] Jeder Versuch separat erhalten; vorher übernommener Text bleibt bestehen.
+- [x] Acht Helferregressionen und tatsächliche Qt-Widgetprüfung grün.
+
+## Dauerhafter Testclient fertig
+
+- [x] [Code und Startanleitung](../../../../../../../tests/manual/v2/README.md) unter `tests/manual/v2` gespeichert.
+- [x] Alle Schritte vorher sichtbar; aktueller Fokus wandert nach unten.
+- [x] Satz beim Sprechen kräftig grün; künftige Schritte abgedunkelt.
+- [x] Timer rechts und acht Sekunden entspannte Vorbereitung.
+- [x] Zehn Helferregressionen, echte Qt-Prüfung und volle1378Windows-Regression grün.
+
+## Erledigt: zusätzliche Produktkorrektur UX02
+
+- [x] F8/F9-Controlpfad tatsächlich nachgewiesen.
+- [x] Fehlende Einfügung untersucht: gehaltenes Shift verändert Ctrl+V zu Ctrl+Shift+V.
+- [x] Roter Nachweis und konkreter Scopevorschlag vorbereitet.
+- [x] Menschliche UX02-Freigabe erteilt; Korrektur und zwölf dauerhafte Regressionen umgesetzt.
+- [x] Zwölf neue Regressionen, insgesamt112 gezielte Tests grün.
+- [x] Produkt d95043e neu qualifiziert:1390 Windows-Tests,1964 Servertests/14 erwartete Skips,11 Prozessfälle,17 Grenztests,7/7 Smokes; EXE/Wheel/sdist und native Laufzeit grün.
+- [x] Reale physische Shift/Ctrl-Halte-/Freigabeprobe:250ms Wartezeit, genau eine korrekte native Ausgabe, Mensch bestätigt; UX02 geschlossen.
+- [x] Reales F8→Satz→F9→Einfügen am korrigierten Produkt: echte Acks, ein Final und genau eine vollständige native Ausgabe; Mensch bestätigt.
+- [ ] Mehrsatz-/Triggerprüfungen, übrige Hardwareblöcke und Endkalibrierung.
+
+Die letzte Zieleinfügung am früheren Produkt17261e6 war **FAIL**; der Finish-Hotkey funktioniert. Am korrigierten Produkt d95043e ist die reale Tastenprobe jetzt **PASS** und UX02 geschlossen; der reale ASR-/F8/F9-Sprachpfad ist ebenfalls **PASS**. ASR-Bindestrich in „Hotkey-Probe“ bleibt als orthografische Abweichung vom geplanten Satz ausgewiesen. [Neue technische Belege](EVIDENCE/ux02/qualification-summary.json).
+
+## Bereits erledigt
+
+- [x] Git-Baseline, tatsächlich übernommener Vorgänger und Paketbranch geprüft.
+- [x] Isolierter **lokaler** Server mit gepinntem Stand und echten Modellen bereit.
+- [x] Zehn nachgewiesene Reconnect-/Recoveryfehler behoben und regressionsgesichert.
+- [x] UX01 vollständig technisch nachgewiesen, einschließlich echter nativer Ausgabe mit Leerzeichen.
+- [x] 100 gezielte Tests, einschließlich fünf neuer Ausgabe-/History-Regressionen, grün.
+- [x] Neuer Produktstand17261e6: **1378 Windows-Tests**, keine Skips, grün.
+- [x] Paarlauf:1964 Server-Tests/14 begründete optionale Skips,11 Prozessfälle,
+  17 Grenztests und sieben Server-Smokes grün.
+- [x] Neue EXE/Wheel/sdist gebaut; Buildidentitäten und Runtime geprüft.
+- [x] Native ReSpeaker-/Desktop-Recovery, Hotkey- und Credential-Vorprüfungen grün.
+- [x] Echter separater SQLite-Schreibausfall getestet: STT läuft weiter.
+- [x] **Fünf Sekunden Nachsprechfenster** von dir gewählt; in Testprofilen gespeichert.
+- [x] Sechs bewusst aufgenommene Sprachproben samt wiederverwendbaren Helfern versioniert.
+- [x] Modellreplay: zwei direkte Wake-Nutzsätze vollständig; drei Negativclips ohne Aktivierung.
+
+## Noch gemeinsam zu prüfen
+
+- [ ] **Bedienung und Trigger** — Manual mit mehreren Sätzen, Start vor altem Final,
+  Hotkey/Wake-Rennen, Refresh/Finish/Cancel und Watchdog. M-01/M-03/M-04 teilweise vorbereitet.
+- [ ] **Pausen und Hardware** — Runpausen, Hardware-Mute, USB abziehen/verbinden,
+  LED-Ausfall bei weiterlaufendem Mikrofon. M-05/M-06.
+- [ ] **Fehler und Settings** — Netz-/Serverausfall bei Vorschau und ausstehendem Final,
+  Logerholung sowie Settings bei Aufnahme/Drain. M-07/M-08 teilweise technisch geprüft.
+- [ ] **Windows-Bedienoberfläche** — Credential-Abläufe/Export, Frozen-Tray/Overlay,
+  LED-/Soundgefühl, normale und erhöhte Einfügeziele, Wiedereinfügung. M-09/M-10/M-11 teilweise vorgeprüft.
+- [ ] **Sprachproben annotieren** — tatsächliches Wakeende/Nutzsprachbeginn und Wortlaut
+  der Alexa-Pausenaufnahme gemeinsam bestätigen; deren geplanter Zieltext wurde nicht exakt erkannt.
+- [ ] **Dauerlauf** — mindestens30Minuten/100 abgeschlossene Activations mit Ressourcen-,
+  Latenz-, Wake- und Recoverymessung. M-12.
+- [ ] **Finale Kalibrierung** — Wake/Pre-Roll, Nachsprechfenster, Trigger, LED, Sound und
+  Overlay gemeinsam bestätigen und reproduzierbare Werte sichern.
+
+## Danach selbstständig durch den Agenten
+
+- [ ] Betroffene Regressionen nach Änderungen wiederholen; finalen Stand eindeutig binden.
+- [ ] Fallakte, Messwerte, Traceability und PR-Nachweise vervollständigen.
+- [ ] Erst bei erfüllten Pflichtkriterien **REVIEW_READY** für unabhängige Abnahme melden.
+
+Aktuell **0/12 vollständige reale M-Pflichtfälle abgeschlossen**. Einzelne erfolgreiche
+Teilversuche sind erhalten. Keine Übernahme älterer Belege als pauschaler PASS.
+
+[Aktuelle Mess- und Qualifikationsnachweise](EVIDENCE/ux02/qualification-summary.json) ·
+[Fallakte M-01 bis M-12](EVIDENCE/real-cases.json) ·
+[Kalibrierung](03_KALIBRIERUNG.md)

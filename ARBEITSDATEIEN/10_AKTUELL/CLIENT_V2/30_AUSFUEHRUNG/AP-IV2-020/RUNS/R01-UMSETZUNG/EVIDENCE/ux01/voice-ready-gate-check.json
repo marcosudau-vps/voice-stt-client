@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "armTimeout": 120,
+      "expectedExit": 0,
+      "actualExit": 0
+    },
+    {
+      "armTimeout": 600,
+      "expectedExit": 0,
+      "actualExit": 0
+    },
+    {
+      "armTimeout": 1,
+      "expectedExit": 2,
+      "actualExit": 2
+    }
+  ],
+  "liveMicrophoneOpened": false,
+  "scope": "Test observer argument validation and allowlist self-check only; real speech still pending"
+}

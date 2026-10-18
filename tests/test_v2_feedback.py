@@ -439,6 +439,25 @@ class QtOutput(unittest.TestCase):
         self.assertEqual(len(failures),2)
         self.assertEqual(self.tray.status_action.text(),'Wartet auf Sprache')
 
+    def test_empty_activation_timeout_reaches_sound_adapter_exactly_once(self):
+        from voice_stt_client.core.config import AppConfig
+        from voice_stt_client.core.feedback_mapping import SoundCueId
+        from voice_stt_client.ui.feedback import SoundFeedback
+        from tests.test_feedback_ui import FakeSoundEffect
+        config = AppConfig._load_single(DEFAULT_CONFIG_PATH)
+        adapter = SoundFeedback(config.feedback, effect_factory=FakeSoundEffect)
+        self.port.sound = adapter
+        d = self.domain
+        self.apply(d.start(source='wake_word'))
+        self.apply(d.send(p.EventType.ACTIVATION_COMPLETED))
+        closing = d.send(p.EventType.INPUT_CLOSED, reason='timed_out', acceptedSegmentCount=0)
+        self.apply(closing)
+        self.apply(closing)
+        self.apply(d.engine.handle_reduction(d.reduction))
+        self.assertIn(SoundCueId.STOP, adapter._effects)
+        self.assertEqual(adapter._effects[SoundCueId.STOP].play_count, 1)
+        self.assertTrue(adapter._effects[SoundCueId.STOP].source().toLocalFile().endswith('stop.wav'))
+
     def test_queued_foreign_thread_delivers_only_on_main_and_close_invalidates(self):
         decisions=self.domain.start()
         main=threading.get_ident(); touched=[]

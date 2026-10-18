@@ -1,0 +1,26 @@
+{
+  "result": "PASS",
+  "restarts": [
+    {
+      "cycle": 1,
+      "recoverySeconds": 41.172,
+      "generation": 44,
+      "sessionId": "4e70cff8-b10a-4e9c-a01d-f7ca846d3ac5"
+    },
+    {
+      "cycle": 2,
+      "recoverySeconds": 30.313,
+      "generation": 70,
+      "sessionId": "f36a6b94-8bb7-40e1-8e10-128e75499770"
+    },
+    {
+      "cycle": 3,
+      "recoverySeconds": 26.422,
+      "generation": 93,
+      "sessionId": "d3be32d9-dbc8-456f-a5cf-5a6b4a22311a"
+    }
+  ],
+  "shutdownSeconds": 0.422,
+  "source": "real-recovery.txt.gz",
+  "note": "Script detail JSON was overwritten by outer command metadata using the same filename; full stdout and separate trace are retained. No high-resolution resource samples claimed from this file."
+}

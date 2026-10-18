@@ -1,0 +1,5 @@
+{
+  "result": "FAIL",
+  "samples": 35,
+  "boundaries": "Actual microphone -> continuous V2 audio -> real local model server, native desktop and core thread; no activation, paste, LED output or sound playback."
+}

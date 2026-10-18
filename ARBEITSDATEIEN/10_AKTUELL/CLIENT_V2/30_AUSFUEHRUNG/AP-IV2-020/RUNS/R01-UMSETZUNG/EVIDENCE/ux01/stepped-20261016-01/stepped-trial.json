@@ -1,0 +1,29 @@
+{
+  "boundaries": "Preview + explicit Start for every task; client fully stops between tasks.\n\nReal product and microphone only after that task's own click. The next preview\ndoes not start recording. Two separate sessions are intentional; this alone\ndoes not prove the complete same-session M02 or M12 qualification.\n",
+  "result": "PROCESSES_COMPLETED_FUNCTIONAL_EVALUATION_PENDING",
+  "tasks": [
+    {
+      "taskId": "stepped-20261016-01-jarvis",
+      "case": "jarvis",
+      "phrase": "Hey Jarvis der rote Ball liegt auf dem Boden.",
+      "startSequenceBefore": 0,
+      "result": "PROCESS_COMPLETED_FUNCTIONAL_EVALUATION_PENDING",
+      "processExitCode": 0,
+      "observation": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\observations\\20261016-043724",
+      "observerSha256": "9c323a91d4b53e5e6f06241243830255446fa44698598181b2265c9d99534c31",
+      "actualStartSequence": 1
+    },
+    {
+      "taskId": "stepped-20261016-01-alexa",
+      "case": "alexa",
+      "phrase": "Alexa die gelbe Tasche steht vor der T\u00fcr.",
+      "startSequenceBefore": 1,
+      "result": "PROCESS_COMPLETED_FUNCTIONAL_EVALUATION_PENDING",
+      "processExitCode": 0,
+      "observation": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\observations\\20261016-043841",
+      "observerSha256": "9c323a91d4b53e5e6f06241243830255446fa44698598181b2265c9d99534c31",
+      "actualStartSequence": 2
+    }
+  ],
+  "helperSha256": "c6bb11eaa3336ae343dd454249909b6be4088c4aefd9e6c9265fd855a33b818c"
+}

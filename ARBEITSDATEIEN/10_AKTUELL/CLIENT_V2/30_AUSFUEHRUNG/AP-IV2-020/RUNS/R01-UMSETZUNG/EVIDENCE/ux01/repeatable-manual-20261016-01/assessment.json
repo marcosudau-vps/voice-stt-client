@@ -1,0 +1,63 @@
+{
+  "status": "PARTIAL_CONTROL_PASS_NATIVE_OUTPUT_FAIL",
+  "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+  "sourceHead": "b09c77a5e4702ad7773de8d0f83a026bc5b57d30",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "configSha256": "8126a82ebb4f9ed33ceba281eb843363ccef4f059375c5497a8692d6ed2b6942",
+  "qualifiedSourceHashEqualityAtExecution": true,
+  "humanFeedback": "Okay, der Durchlauf ist beendet. Das ist schon viel besser so.",
+  "humanFeedbackMeaning": "Positive assessment of trial UI; not explicit successful text-insertion confirmation.",
+  "activationCount": 1,
+  "finalCount": 1,
+  "controls": [
+    {
+      "type": "control.received",
+      "timeUtc": "2026-10-16T03:14:10.608936+00:00",
+      "monotonic": 161480.828,
+      "slot": "primary",
+      "ready": true,
+      "generation": 1,
+      "phase": "idle",
+      "activationId": null
+    },
+    {
+      "type": "control.received",
+      "timeUtc": "2026-10-16T03:14:15.401532+00:00",
+      "monotonic": 161485.609,
+      "slot": "secondary",
+      "ready": true,
+      "generation": 1,
+      "phase": "segment_active",
+      "activationId": "5197964b-a432-421d-bceb-d6d7e6dd2f94"
+    }
+  ],
+  "activationAcks": [],
+  "inputClosedReasons": [
+    "finished"
+  ],
+  "history": {
+    "id": "df56ab7464e7437fbf7e9379abc2603e",
+    "text_length": 34,
+    "segment_id": "2a8c4185-e300-4dc3-98fc-5f222e79f3da",
+    "activation_id": "5197964b-a432-421d-bceb-d6d7e6dd2f94",
+    "textSha256": "f3cf9e00af002b52717178bc0b5565f813d580f775980ba67c39a1c15af657d6"
+  },
+  "injectionAttempts": [
+    {
+      "status": "command_sent",
+      "source": "automatic",
+      "error": null
+    }
+  ],
+  "editorCharacters": 0,
+  "editorNativePasteKeyCount": 1,
+  "editorPasteMimeCount": 0,
+  "shiftHeldAtPaste": true,
+  "controlResult": "PASS: primary activate and secondary finish applied to same activation; input_closed=finished",
+  "nativeOutputResult": "FAIL: actual Ctrl+Shift+V observed, no MIME paste and no text inserted",
+  "finding": "IV2-020-UX02",
+  "fullM01": "NOT_PROVEN",
+  "fullM04": "NOT_PROVEN",
+  "fullM11": "FAIL",
+  "sessionStopped": true
+}

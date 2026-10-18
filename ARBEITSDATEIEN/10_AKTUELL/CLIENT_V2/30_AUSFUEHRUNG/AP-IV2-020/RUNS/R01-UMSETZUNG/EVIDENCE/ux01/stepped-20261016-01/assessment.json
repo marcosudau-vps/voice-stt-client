@@ -1,0 +1,232 @@
+{
+  "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "evaluatedAtUtc": "2026-10-16T02:45:53.997558+00:00",
+  "evaluatorSha256": "a89a9667fac40f89f3f01e96b469e4b67abbb573abe29ce0608faa754699e991",
+  "humanFeedback": "Beide vollständig, mit Leerzeichen",
+  "humanFeedbackOrigin": "Actual user reply in this R01 chat",
+  "tasks": [
+    {
+      "case": "jarvis",
+      "taskId": "stepped-20261016-01-jarvis",
+      "operatorStartSequence": 1,
+      "sessionId": "dbcb945b-886c-4565-86b5-1dcb5bc73205",
+      "activationId": "50b47601-5ef2-4674-a12c-a11fcc6485a5",
+      "wakeWordId": "hey_jarvis",
+      "score": 0.9965805411338806,
+      "configurationSha256": "8ed919d1273994d882de29e39c3efa3edb81a53880f3a7fcbe192f387bebfd88",
+      "sourceHead": "e95d871a498f07d99fea2bc4ace57c616504abc0",
+      "qualifiedSourceHashEquality": true,
+      "finalExact": true,
+      "rawHistoryExact": true,
+      "history": {
+        "id": "c3e61e95e97743d986cb00898912f3bf",
+        "session_id": "dbcb945b-886c-4565-86b5-1dcb5bc73205",
+        "segment_id": "e57c6779-7f69-4b27-b42c-4efb1648ae6e",
+        "activation_id": "50b47601-5ef2-4674-a12c-a11fcc6485a5",
+        "text_length": 34,
+        "textSha256": "ac6db91fc242f04460821087521764f660a47168930bede0285f5a562746bea1"
+      },
+      "injectionAttempts": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "error": null
+        }
+      ],
+      "eventCounts": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "wakeword.detected": 1,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "transcription.interim": 2,
+        "segment.recording_ended": 1,
+        "transcription.accepted": 1,
+        "transcription.completed": 1,
+        "activation.completed": 1,
+        "activation.input_closed": 1
+      },
+      "inputClosedReason": "timed_out",
+      "nativeFinishCommandAcknowledgements": 0,
+      "finalAfterRecordingEndedMs": 47.0,
+      "followupUntilCloseMs": 5003,
+      "effectiveSettingsConfirmed": true,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320,
+      "metricsSamples": 26,
+      "maxTasks": 13,
+      "lastTasks": 11,
+      "maxPrivateBytes": 457383936,
+      "lastTrackerPending": 0,
+      "lastInjectionQueue": 0,
+      "lastMedia": {
+        "sent": 603,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "lastCapture": {
+        "chunks_captured": 603,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "processExitCode": 0,
+      "sessionStopped": true,
+      "directPhraseAndOutputResult": "PASS"
+    },
+    {
+      "case": "alexa",
+      "taskId": "stepped-20261016-01-alexa",
+      "operatorStartSequence": 2,
+      "sessionId": "ca3f6f7d-79b8-4a7d-8a73-690f5f4bf140",
+      "activationId": "49eba50b-97c0-4072-9566-86f22ed255da",
+      "wakeWordId": "alexa",
+      "score": 0.9988383054733276,
+      "configurationSha256": "8ed919d1273994d882de29e39c3efa3edb81a53880f3a7fcbe192f387bebfd88",
+      "sourceHead": "e95d871a498f07d99fea2bc4ace57c616504abc0",
+      "qualifiedSourceHashEquality": true,
+      "finalExact": true,
+      "rawHistoryExact": true,
+      "history": {
+        "id": "08cdac7b99fa46829c3818164fd7ab9a",
+        "session_id": "ca3f6f7d-79b8-4a7d-8a73-690f5f4bf140",
+        "segment_id": "132cb55b-1c0f-4b44-8eec-962ac33fabf2",
+        "activation_id": "49eba50b-97c0-4072-9566-86f22ed255da",
+        "text_length": 35,
+        "textSha256": "868690bc1ca856ec49459dbfcabc20f4e3a83e62a5d1eb578bcbab3e62e1db47"
+      },
+      "injectionAttempts": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "error": null
+        }
+      ],
+      "eventCounts": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "wakeword.detected": 1,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "transcription.interim": 16,
+        "segment.recording_ended": 1,
+        "transcription.accepted": 1,
+        "transcription.completed": 1,
+        "activation.completed": 1,
+        "activation.input_closed": 1
+      },
+      "inputClosedReason": "timed_out",
+      "nativeFinishCommandAcknowledgements": 0,
+      "finalAfterRecordingEndedMs": 47.0,
+      "followupUntilCloseMs": 5003,
+      "effectiveSettingsConfirmed": true,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320,
+      "metricsSamples": 16,
+      "maxTasks": 11,
+      "lastTasks": 10,
+      "maxPrivateBytes": 457539584,
+      "lastTrackerPending": 0,
+      "lastInjectionQueue": 0,
+      "lastMedia": {
+        "sent": 358,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "lastCapture": {
+        "chunks_captured": 358,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "processExitCode": 0,
+      "sessionStopped": true,
+      "directPhraseAndOutputResult": "PASS"
+    }
+  ],
+  "editor": {
+    "characters": 71,
+    "sha256": "76b7e0678b0257b9e23fceeda16943d4e5dc1c364ae511ea31cac7c01271e186",
+    "expectedCharacters": 71,
+    "exact": true,
+    "nativePasteKeyCount": 2,
+    "nativePasteMimeCount": 2,
+    "actualSeparateStarts": [
+      {
+        "kind": "operator_start",
+        "timeUtc": "2026-10-16T02:37:23.237919+00:00",
+        "monotonic": 159273.453,
+        "taskId": "stepped-20261016-01-jarvis",
+        "startSequence": 1
+      },
+      {
+        "kind": "operator_start",
+        "timeUtc": "2026-10-16T02:38:40.921045+00:00",
+        "monotonic": 159351.14,
+        "taskId": "stepped-20261016-01-alexa",
+        "startSequence": 2
+      }
+    ]
+  },
+  "directPhraseAndSpacedOutputResult": "PASS",
+  "hotkeyFinish": "NOT_PROVEN: both input windows timed out; no activation command acknowledged",
+  "completeM02": "NOT_PROVEN: separate sessions, controls/phonetic annotation still open",
+  "completeM12": "NOT_PROVEN: not a 30min/100-activation run",
+  "boundaries": "Human live speech and visible-output confirmation; real ReSpeaker, models, native clipboard/SendInput. No raw audio recorded. Source run; frozen build separately qualified. No claim of all-parameter subjective acceptance.",
+  "files": [
+    {
+      "file": "jarvis-events.json.gz",
+      "uncompressedSha256": "3a2428baca89d5c5909361854470e4c0a8ba91d025e203f512fb1914e3d0d108",
+      "sha256": "3a24bfa431fa4e23039d43fb260f3349392b252898840b5c5f1a70eebdcf3d25"
+    },
+    {
+      "file": "jarvis-trace.json.gz",
+      "uncompressedSha256": "6d367fc671e56802e2c1ec291c2a8c09dfae97a1bc77822d9ccd3b9a493f97a5",
+      "sha256": "6727c9c706ee9c6bc4235a75d79c36ad09b8f7ca111d2e57155525a8f1210bd7"
+    },
+    {
+      "file": "jarvis-identity.json.gz",
+      "uncompressedSha256": "b8758b4f6771d518d8f931d91e1d42d4aec24cc5795c4eaa17d3de5a6edf1a56",
+      "sha256": "0fdf00aa2f147739807571dde9f8331b221cff00f18d262d6b39de0dc613c9e5"
+    },
+    {
+      "file": "alexa-events.json.gz",
+      "uncompressedSha256": "68e6d0d7d95c5ff590a4a86795dc785909146cb65b0c76a388b2f447ae2c70e2",
+      "sha256": "bc55533b6a65f84f443751ab5137aa181f2a750728790e09c37551e034905818"
+    },
+    {
+      "file": "alexa-trace.json.gz",
+      "uncompressedSha256": "4c3f42dae165334ee4b1960266733ae1434c445a911904fc1db9f9dfacabf563",
+      "sha256": "319166d6823b3715b967804c86fdfbe05d65ab5ad03eb2592159f9afb26b447e"
+    },
+    {
+      "file": "alexa-identity.json.gz",
+      "uncompressedSha256": "de4a8ff228952bbba8ae0010c786ea4d807a7f5b20ef134f8000110e08490d1d",
+      "sha256": "a1b1d4d12b884212a6f62b35351e08ba90e8847b78db76459757eed08ce1fdd6"
+    },
+    {
+      "file": "editor-events.json.gz",
+      "uncompressedSha256": "41b00739c70692a9700bce37a7cd676d067c6124e8e27b3760100d346ba3eac2",
+      "sha256": "f301a659934942b11257607737c0c48c656698c0427d63a17271ca7bdaa6087f"
+    }
+  ]
+}

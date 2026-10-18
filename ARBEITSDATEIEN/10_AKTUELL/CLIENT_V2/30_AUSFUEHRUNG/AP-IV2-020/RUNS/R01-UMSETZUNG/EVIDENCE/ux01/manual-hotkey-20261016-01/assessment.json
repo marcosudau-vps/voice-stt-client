@@ -1,0 +1,33 @@
+{
+  "status": "NOT_PROVEN",
+  "reason": "Operator requests repeatable tasks and clearer timing instructions; Codex stopped only this isolated qualification session gracefully.",
+  "humanFeedback": "hat sich ein weiteres praktisches Problem gezeigt, und zwar ich muss die Aufgaben irgendwie wiederholen können, wenn da mal nicht klappt. Dafür ist da mit den Timings alles noch zu dünn.",
+  "activationCount": 0,
+  "finalCount": 0,
+  "controls": [
+    {
+      "type": "controls.confirmed",
+      "timeUtc": "2026-10-16T03:01:57.644270+00:00",
+      "monotonic": 160747.859,
+      "enabled": true,
+      "primaryKey": "Ctrl+Shift+F8",
+      "secondaryKey": "Ctrl+Shift+F9",
+      "primaryAction": "refresh",
+      "secondaryAction": "finish"
+    },
+    {
+      "type": "control.received",
+      "timeUtc": "2026-10-16T03:02:06.996397+00:00",
+      "monotonic": 160757.203,
+      "slot": "secondary",
+      "ready": true,
+      "generation": 1,
+      "phase": "idle",
+      "activationId": null
+    }
+  ],
+  "sessionStopped": true,
+  "processExitMeaning": "Exit0 from instrumentation is not functional PASS",
+  "productDefect": "NOT_PROVEN",
+  "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb"
+}

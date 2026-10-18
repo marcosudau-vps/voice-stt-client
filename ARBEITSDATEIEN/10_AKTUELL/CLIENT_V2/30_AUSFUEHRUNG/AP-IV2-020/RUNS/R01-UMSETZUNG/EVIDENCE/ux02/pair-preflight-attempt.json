@@ -1,0 +1,8 @@
+{
+  "result": "NOT_RUN_PREFLIGHT_FAILED",
+  "scriptExitCode": 1,
+  "gitExitCode": 128,
+  "cause": "Server repository parent directory supplied instead of actual main checkout. Failed during ls-tree before any client/server tests or mutations.",
+  "incorrectRepository": "P:/GithubRepos/marcosudau-vps/voice-stt-server",
+  "correctRepository": "P:/GithubRepos/marcosudau-vps/voice-stt-server/main"
+}

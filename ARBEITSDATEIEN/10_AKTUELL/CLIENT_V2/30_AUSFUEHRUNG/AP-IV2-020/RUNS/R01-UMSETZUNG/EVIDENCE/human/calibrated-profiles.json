@@ -1,0 +1,88 @@
+{
+  "status": "INTERMEDIATE_HUMAN_CHOICE",
+  "followupTimeoutMs": 5000,
+  "profiles": {
+    "manual": {
+      "sha256": "7285045372cf660ee8e226ce9e4a0c36f93a17b7437a756fedd4920cddd72255",
+      "v2_profile": {
+        "schema_version": 2,
+        "manual": true,
+        "wake_word": false,
+        "wake_word_ids": [],
+        "desired_settings": {
+          "activation.followupTimeoutMs": 5000
+        },
+        "controls": {
+          "primary_key": "Ctrl+Shift+F8",
+          "primary_action": "refresh",
+          "secondary_key": "Ctrl+Shift+F9",
+          "secondary_action": "finish",
+          "wake_pause_key": "Ctrl+Shift+F10",
+          "reinsert_last_key": "Ctrl+Shift+F11",
+          "overlay_toggle_key": "Ctrl+Shift+F12",
+          "enabled": true
+        },
+        "unresolved": {},
+        "retired": {},
+        "issues": []
+      }
+    },
+    "wake": {
+      "sha256": "ac4d0419badaf7967ead6b93f7d8c0fa5e8c83725f599399dcf328018cd10a94",
+      "v2_profile": {
+        "schema_version": 2,
+        "manual": false,
+        "wake_word": true,
+        "wake_word_ids": [
+          "hey_jarvis",
+          "alexa"
+        ],
+        "desired_settings": {
+          "activation.followupTimeoutMs": 5000
+        },
+        "controls": {
+          "primary_key": "Ctrl+Shift+F8",
+          "primary_action": "refresh",
+          "secondary_key": "Ctrl+Shift+F9",
+          "secondary_action": "finish",
+          "wake_pause_key": "Ctrl+Shift+F10",
+          "reinsert_last_key": "Ctrl+Shift+F11",
+          "overlay_toggle_key": "Ctrl+Shift+F12",
+          "enabled": true
+        },
+        "unresolved": {},
+        "retired": {},
+        "issues": []
+      }
+    },
+    "both": {
+      "sha256": "1a0b4fe35b8fde03c70708c47fe1babdbe0025592444385bc336d7c251fa521b",
+      "v2_profile": {
+        "schema_version": 2,
+        "manual": true,
+        "wake_word": true,
+        "wake_word_ids": [
+          "hey_jarvis",
+          "alexa"
+        ],
+        "desired_settings": {
+          "activation.followupTimeoutMs": 5000
+        },
+        "controls": {
+          "primary_key": "Ctrl+Shift+F8",
+          "primary_action": "refresh",
+          "secondary_key": "Ctrl+Shift+F9",
+          "secondary_action": "finish",
+          "wake_pause_key": "Ctrl+Shift+F10",
+          "reinsert_last_key": "Ctrl+Shift+F11",
+          "overlay_toggle_key": "Ctrl+Shift+F12",
+          "enabled": true
+        },
+        "unresolved": {},
+        "retired": {},
+        "issues": []
+      }
+    }
+  },
+  "boundaries": "Only isolated test profiles; not shipped product/server defaults; other calibration groups pending"
+}

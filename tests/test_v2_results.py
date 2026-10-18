@@ -156,6 +156,8 @@ class Results(unittest.TestCase):
         self.db=Path(self.tmp.name)/'history.sqlite'
         self.config=AppConfig()
         self.config.history.persistent=HistoryPersistentConfig(enabled=True,store_all=True,max_entries=0,retention_days=0)
+        # Result-order assertions use raw output; spacing is covered separately.
+        self.config.text_injection.append_space=False
         self.config.text_injection.paste_delay_ms=0
         self.config.clipboard.restore_delay_ms=0
         self.history=TranscriptHistoryManager(self.config.history,str(self.db))

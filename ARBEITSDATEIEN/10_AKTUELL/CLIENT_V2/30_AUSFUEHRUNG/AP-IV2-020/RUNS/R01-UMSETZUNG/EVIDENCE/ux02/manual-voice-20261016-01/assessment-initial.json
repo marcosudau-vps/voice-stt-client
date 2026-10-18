@@ -1,0 +1,172 @@
+{
+  "result": "PASS_CONTROL_AND_NATIVE_OUTPUT",
+  "evaluatedAtUtc": "2026-10-16T05:05:54.852369+00:00",
+  "evaluatorSha256": "9d38f1dbbae2c41f35b3d5bde8a5059c1534000f5b4f5c66b7472bbb1cf3fe22",
+  "humanFeedback": "Satz vollstaendig, Testblock uebernommen",
+  "humanFeedbackOrigin": "Actual human reply in R01 chat",
+  "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+  "sourceCommit": "8445851c96c367e6647c7bd9f41f946bda463894",
+  "qualifiedFullSourceManifestMatch": true,
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "configurationSha256": "8126a82ebb4f9ed33ceba281eb843363ccef4f059375c5497a8692d6ed2b6942",
+  "sessionId": "f1b81ee6-16f3-4f9a-97e3-8f46500c13ed",
+  "activationId": "f511e428-2424-4b0d-a8af-60640ade6095",
+  "segmentId": "e58fc2d0-0bbd-4a54-b4c7-e539504ee509",
+  "operatorStartSequence": 2,
+  "nativeControls": [
+    {
+      "type": "control.received",
+      "timeUtc": "2026-10-16T05:02:37.762110+00:00",
+      "monotonic": 167987.968,
+      "slot": "primary",
+      "ready": true,
+      "generation": 1,
+      "phase": "idle",
+      "activationId": null
+    },
+    {
+      "type": "control.received",
+      "timeUtc": "2026-10-16T05:02:41.428488+00:00",
+      "monotonic": 167991.64,
+      "slot": "secondary",
+      "ready": true,
+      "generation": 1,
+      "phase": "segment_active",
+      "activationId": "f511e428-2424-4b0d-a8af-60640ade6095"
+    }
+  ],
+  "activationAcks": [
+    {
+      "type": "command.completed",
+      "timeUtc": "2026-10-16T05:02:37.845145+00:00",
+      "monotonic": 167988.062,
+      "commandType": "activation.command",
+      "action": "activate",
+      "commandId": "a438b595-83df-4c5e-a401-050a7846a472",
+      "accepted": true,
+      "result": "applied",
+      "activationId": "f511e428-2424-4b0d-a8af-60640ade6095",
+      "inputPhase": "waiting_first_speech"
+    },
+    {
+      "type": "command.completed",
+      "timeUtc": "2026-10-16T05:02:41.466077+00:00",
+      "monotonic": 167991.671,
+      "commandType": "activation.command",
+      "action": "finish",
+      "commandId": "9b896e3a-bc76-4a0f-9404-ca6dda36b67b",
+      "accepted": true,
+      "result": "applied",
+      "activationId": "f511e428-2424-4b0d-a8af-60640ade6095",
+      "inputPhase": "closing_input"
+    }
+  ],
+  "inputClosedReason": "finished",
+  "finalAfterRecordingEndedMs": 281.0,
+  "expectedPlannedPhraseSha256": "a242ecaeedd40c274b35c568ab5adbedb4f6840a11c6181b10d9c831c5a554c8",
+  "actualFinalSha256": "e6a4b8e80d390118fed46ef21900a7ff406b311532f1947fb1c66a708eaefa34",
+  "plannedPhraseExactMatch": false,
+  "plannedDifference": "ASR wrote Hotkey-Probe with a hyphen; planned phrase used Hotkeyprobe. Human confirms complete content. Exact planned spelling is not claimed.",
+  "authoritativeFinalHistoryExact": true,
+  "recognizedFinalAndSpaceExactlyInEditor": true,
+  "editorCharacters": 36,
+  "editorSha256": "7fe0df3d9d246a770a84cb55fba39cddc5c93f9a8526c0409724e130057dc575",
+  "nativePasteCount": 1,
+  "shiftHeldAtPaste": false,
+  "altHeldAtPaste": false,
+  "injectionAttempts": [
+    {
+      "status": "command_sent",
+      "source": "automatic",
+      "error": null
+    }
+  ],
+  "eventCounts": {
+    "command.completed": 12,
+    "session.snapshot": 8,
+    "settings.changed": 1,
+    "controls.confirmed": 1,
+    "guided.preparation_started": 1,
+    "guided.client_ready": 1,
+    "control.received": 2,
+    "activation.started": 1,
+    "activation.phase_changed": 2,
+    "segment.recording_started": 1,
+    "transcription.interim": 14,
+    "segment.recording_ended": 1,
+    "activation.input_closed": 1,
+    "transcription.accepted": 1,
+    "transcription.completed": 1,
+    "activation.completed": 1
+  },
+  "metricsSamples": 17,
+  "peakTasks": 11,
+  "peakPrivateBytes": 459968512,
+  "lastMetrics": {
+    "kind": "metrics",
+    "monotonic": 167994.625,
+    "timeUtc": "2026-10-16T05:02:44.416113+00:00",
+    "generation": 1,
+    "ready": true,
+    "transport": "ready",
+    "reason": "",
+    "phase": "idle",
+    "activationId": null,
+    "media": {
+      "sent": 384,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": true,
+      "led_available": true,
+      "log_failure": null
+    },
+    "capture": {
+      "chunks_captured": 384,
+      "chunks_dropped_capture_queue": 0,
+      "overflow_count": 0,
+      "underflow_count": 0,
+      "capture_queue_depth": 0
+    },
+    "tasks": 11,
+    "commands": 0,
+    "trackerPending": 0,
+    "memory": {
+      "workingSetBytes": 119881728,
+      "privateBytes": 459968512
+    },
+    "activations": 1,
+    "segments": 1,
+    "terminalActivations": 1,
+    "injectionQueue": 0
+  },
+  "sessionStopped": true,
+  "processExitCode": 0,
+  "operatorDecision": "accept",
+  "boundaries": "Live human speech, real ReSpeaker/ASR/server/native hotkeys/Clipboard/SendInput/owned editor. Source desktop, not Frozen. One activation/segment; full M01 multi-segment/overlap, M04 phase matrix and M12 remain NOT_PROVEN.",
+  "files": [
+    {
+      "file": "events.json.gz",
+      "sha256": "80512c04bfe636fc12fc086d0b18f3f6910cb3afa5e008f486aa8ef3c0f080ba",
+      "uncompressedSha256": "89a24dede00874722d7f9b5a1d04595f5d7e84812e16054ffc43666f1b4339b6"
+    },
+    {
+      "file": "trace.json.gz",
+      "sha256": "294bf7ff59115a91d5cfd3100f2db42bb650b16854635f8be509adb61077df6c",
+      "uncompressedSha256": "e9c44617de9b2edc07cf4ee7663edf4c266aca97dda626ada0deea9335d44d82"
+    },
+    {
+      "file": "identity.json.gz",
+      "sha256": "8adec2d587673ba5f1708909789aade25d69675d52955961984b6ee6e3b3203f",
+      "uncompressedSha256": "5799b459abe99ed94bb2c54a86510d9e80a5f2023cddcb0958a3dd3e4a0661ef"
+    },
+    {
+      "file": "editor-events.json.gz",
+      "sha256": "b207091932da45c06e06b39a0e0a5592de748a3f43a8e02971bf0ed97a3a5531",
+      "uncompressedSha256": "3320acf1734e0ff254c9bec1f962c1134d91aa957050ca464f3be78480d734da"
+    }
+  ]
+}

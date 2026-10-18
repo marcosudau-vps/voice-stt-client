@@ -1,0 +1,229 @@
+{
+  "timeUtc": "2026-10-17T23:06:06.895813+00:00",
+  "session": {
+    "pid": 39240,
+    "folder": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\sessions\\20261018-010545",
+    "mode": "both"
+  },
+  "observation": {
+    "folder": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\observations\\20261018-010544",
+    "pid": 39240,
+    "mode": "both",
+    "initialEditorFocus": null,
+    "stopAfterTerminalActivations": 0,
+    "taskId": null,
+    "editorCase": null,
+    "helperSha256": "4af707d792cb38e47545f79ad31970e0b16c1314a023a08a5bd3deb392658a1f"
+  },
+  "probe": {
+    "folder": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\feedback-probes\\20261018-010544",
+    "pid": 39240,
+    "helperSha256": "5d11cfd4dcd79d51ff67459a8a231d3acb1203d8ae002295d7c7eff5d552ddfc"
+  },
+  "events": [
+    {
+      "type": "control.received",
+      "timeUtc": "2026-10-17T23:06:06.994915+00:00",
+      "monotonic": 83209.812,
+      "slot": "primary",
+      "ready": true,
+      "generation": 1,
+      "phase": "idle",
+      "activationId": null
+    },
+    {
+      "type": "activation.started",
+      "generation": 1,
+      "sessionId": "c585545f-5b3b-4bb2-b04b-41b20afb832e",
+      "activationId": "f35cfcc3-8229-402c-b225-e1c67a095f48",
+      "eventId": "c87cb6d9-7c54-43e5-8a64-7cd9cbddfd86",
+      "eventSeq": 2,
+      "stateVersion": 3,
+      "occurredAtUnixMs": 1792278367003,
+      "primarySource": "manual",
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320,
+      "timeUtc": "2026-10-17T23:06:07.009936+00:00",
+      "monotonic": 83209.828
+    },
+    {
+      "type": "command.completed",
+      "timeUtc": "2026-10-17T23:06:07.117419+00:00",
+      "monotonic": 83209.937,
+      "commandType": "activation.command",
+      "action": "activate",
+      "commandId": "9abecf03-c397-4b19-ada5-257b6bd2c2b3",
+      "accepted": true,
+      "result": "applied",
+      "activationId": "f35cfcc3-8229-402c-b225-e1c67a095f48",
+      "inputPhase": "waiting_first_speech"
+    },
+    {
+      "type": "command.completed",
+      "timeUtc": "2026-10-17T23:06:07.133445+00:00",
+      "monotonic": 83209.953,
+      "commandType": "session.snapshot.request",
+      "action": null,
+      "commandId": "0e8a781b-d0bb-40c3-8066-60d0b0016689",
+      "accepted": true,
+      "result": "applied",
+      "activationId": "f35cfcc3-8229-402c-b225-e1c67a095f48",
+      "inputPhase": "waiting_first_speech"
+    },
+    {
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "c585545f-5b3b-4bb2-b04b-41b20afb832e",
+      "stateVersion": 3,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320,
+      "timeUtc": "2026-10-17T23:06:07.135448+00:00",
+      "monotonic": 83209.953
+    },
+    {
+      "type": "command.completed",
+      "timeUtc": "2026-10-17T23:06:07.144960+00:00",
+      "monotonic": 83209.968,
+      "commandType": "session.snapshot.request",
+      "action": null,
+      "commandId": "d4b66cf8-576a-4bae-b3ba-ba6c391a836e",
+      "accepted": true,
+      "result": "applied",
+      "activationId": "f35cfcc3-8229-402c-b225-e1c67a095f48",
+      "inputPhase": "waiting_first_speech"
+    },
+    {
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "c585545f-5b3b-4bb2-b04b-41b20afb832e",
+      "stateVersion": 3,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320,
+      "timeUtc": "2026-10-17T23:06:07.146963+00:00",
+      "monotonic": 83209.968
+    },
+    {
+      "type": "activation.completed",
+      "generation": 1,
+      "sessionId": "c585545f-5b3b-4bb2-b04b-41b20afb832e",
+      "activationId": "f35cfcc3-8229-402c-b225-e1c67a095f48",
+      "eventId": "e74fe2c8-39ad-48df-a80a-7bdec61844c0",
+      "eventSeq": 3,
+      "stateVersion": 5,
+      "occurredAtUnixMs": 1792278382003,
+      "timeUtc": "2026-10-17T23:06:22.016051+00:00",
+      "monotonic": 83224.828
+    },
+    {
+      "type": "activation.input_closed",
+      "generation": 1,
+      "sessionId": "c585545f-5b3b-4bb2-b04b-41b20afb832e",
+      "activationId": "f35cfcc3-8229-402c-b225-e1c67a095f48",
+      "eventId": "011afe37-6785-4821-8d56-cab549b0dd85",
+      "eventSeq": 4,
+      "stateVersion": 6,
+      "occurredAtUnixMs": 1792278382005,
+      "reason": "timed_out",
+      "timeUtc": "2026-10-17T23:06:22.051808+00:00",
+      "monotonic": 83224.875
+    },
+    {
+      "type": "command.completed",
+      "timeUtc": "2026-10-17T23:06:22.077230+00:00",
+      "monotonic": 83224.89,
+      "commandType": "session.snapshot.request",
+      "action": null,
+      "commandId": "a2a6534f-652b-4421-a965-7c3391a42747",
+      "accepted": true,
+      "result": "applied",
+      "activationId": null,
+      "inputPhase": "idle"
+    },
+    {
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "c585545f-5b3b-4bb2-b04b-41b20afb832e",
+      "stateVersion": 6,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320,
+      "timeUtc": "2026-10-17T23:06:22.079218+00:00",
+      "monotonic": 83224.89
+    }
+  ],
+  "soundEvents": [
+    {
+      "timeUtc": "2026-10-17T23:06:07.119426+00:00",
+      "kind": "status",
+      "cue": "wake_word",
+      "playing": false,
+      "status": "Loading"
+    },
+    {
+      "timeUtc": "2026-10-17T23:06:07.121433+00:00",
+      "kind": "cue",
+      "cue": "wake_word",
+      "action": "play",
+      "accepted": true
+    },
+    {
+      "timeUtc": "2026-10-17T23:06:07.172009+00:00",
+      "kind": "status",
+      "cue": "wake_word",
+      "playing": false,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-17T23:06:07.173016+00:00",
+      "kind": "playing",
+      "cue": "wake_word",
+      "playing": true,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-17T23:06:07.970343+00:00",
+      "kind": "playing",
+      "cue": "wake_word",
+      "playing": false,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-17T23:06:22.056316+00:00",
+      "kind": "status",
+      "cue": "stop",
+      "playing": false,
+      "status": "Loading"
+    },
+    {
+      "timeUtc": "2026-10-17T23:06:22.056816+00:00",
+      "kind": "cue",
+      "cue": "stop",
+      "action": "play",
+      "accepted": true
+    },
+    {
+      "timeUtc": "2026-10-17T23:06:22.063715+00:00",
+      "kind": "status",
+      "cue": "stop",
+      "playing": false,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-17T23:06:22.065698+00:00",
+      "kind": "playing",
+      "cue": "stop",
+      "playing": true,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-17T23:06:22.732763+00:00",
+      "kind": "playing",
+      "cue": "stop",
+      "playing": false,
+      "status": "Ready"
+    }
+  ],
+  "boundaries": "Actual pinned local server, ReSpeaker capture, production mirror/engine/queued Qt output/QSoundEffect. Controlled primary with no requested speech. Native playing=true is renderer evidence; human hearing NOT_PROVEN."
+}

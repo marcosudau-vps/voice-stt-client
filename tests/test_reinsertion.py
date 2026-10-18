@@ -134,6 +134,9 @@ class MockInjectionBackend(WindowsInjectionBackend):
     def send_input_keyboard(self, events) -> int:
         return len(events)
 
+    def get_pressed_modifiers(self):
+        return ()
+
 
 class TestTranscriptReinsertionService(unittest.TestCase):
     """Test suite for TranscriptReinsertionService."""

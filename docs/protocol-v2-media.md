@@ -102,3 +102,10 @@ Der echte Servercheckpoint nutzt ada13b0, reale FastAPI/WebSockets/SQLite/
 PCM-Decodierung/Resampling/Controller, synthetische PortAudioeingabe und einen
 modellfreien Recorder. Reales Mikrofon, Wake-Engine, ASRqualität und physische
 USB-/LED-/Mutefälle bleiben spätere IV2-Nachweise.
+
+## AP-IV2-020 – Native Recovery
+
+Native Probe-/Start-/Stop-/Rekonfigurationsaufrufe werden vollständig serialisiert.
+Ownercancellation behält den laufenden nativen Task als Barrier. Ein nachträglicher
+Fehler wird beobachtet und der fertige Task danach freigegeben, damit spätere
+Gerätewiederkehr möglich bleibt.

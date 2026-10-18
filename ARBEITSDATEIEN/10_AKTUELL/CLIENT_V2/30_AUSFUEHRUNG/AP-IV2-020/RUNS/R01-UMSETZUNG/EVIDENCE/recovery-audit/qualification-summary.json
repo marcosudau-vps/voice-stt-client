@@ -1,0 +1,139 @@
+{
+  "status": "TECHNICAL_QUALIFICATION_PASS_REAL_CASES_OPEN",
+  "productCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+  "productTree": "e698089f7975ff6464300ab103e718f0992eb0d5",
+  "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "clientFull": {
+    "count": 1373,
+    "skipped": 0,
+    "exitCode": 0,
+    "seconds": 202.672,
+    "evidence": "client-full-final-environment.json"
+  },
+  "checks": [
+    {
+      "name": "real-recovery-final",
+      "result": "PASS",
+      "exitCode": 0,
+      "durationSeconds": 57.609,
+      "evidence": "real-recovery-final.json"
+    },
+    {
+      "name": "client-full-final-environment",
+      "result": "PASS",
+      "exitCode": 0,
+      "durationSeconds": 202.672,
+      "evidence": "client-full-final-environment.json"
+    },
+    {
+      "name": "native/desktop-restart",
+      "result": "PASS",
+      "exitCode": 0,
+      "durationSeconds": 43.047,
+      "evidence": "native/desktop-restart.json"
+    },
+    {
+      "name": "native/real-asr-pipeline",
+      "result": "PASS",
+      "exitCode": 0,
+      "durationSeconds": 10.625,
+      "evidence": "native/real-asr-pipeline.json"
+    },
+    {
+      "name": "native/real-golden",
+      "result": "PASS",
+      "exitCode": 0,
+      "durationSeconds": 14.11,
+      "evidence": "native/real-golden.json"
+    },
+    {
+      "name": "native/windows-hotkeys",
+      "result": "PASS",
+      "exitCode": 0,
+      "durationSeconds": 3.297,
+      "evidence": "native/windows-hotkeys.json"
+    },
+    {
+      "name": "native/windows-settings",
+      "result": "PASS",
+      "exitCode": 0,
+      "durationSeconds": 14.343,
+      "evidence": "native/windows-settings.json"
+    },
+    {
+      "name": "build/pyinstaller-serialized",
+      "result": "PASS",
+      "exitCode": 0,
+      "durationSeconds": 109.468,
+      "evidence": "build/pyinstaller-serialized.json"
+    },
+    {
+      "name": "build/distributions-serialized",
+      "result": "PASS",
+      "exitCode": 0,
+      "durationSeconds": 7.422,
+      "evidence": "build/distributions-serialized.json"
+    },
+    {
+      "name": "build/release-guard",
+      "result": "PASS",
+      "exitCode": 0,
+      "durationSeconds": 0.875,
+      "evidence": "build/release-guard.json"
+    },
+    {
+      "name": "build/twine-check",
+      "result": "PASS",
+      "exitCode": 0,
+      "durationSeconds": 2.015,
+      "evidence": "build/twine-check.json"
+    },
+    {
+      "name": "build/frozen-native-real-server",
+      "result": "PASS",
+      "exitCode": 0,
+      "durationSeconds": 6.516,
+      "evidence": "build/frozen-native-real-server.json"
+    }
+  ],
+  "pair": "pair/validation.json",
+  "serverFastSuite": {
+    "passed": 1964,
+    "skipped": 14,
+    "skipReasons": [
+      "SKIPPED [1] tests\\unit\\test_additional_transcription_engines.py:809: Set VOICESTT_RUN_COHERE_TRANSCRIBE=1 to run the Cohere smoke test",
+      "SKIPPED [1] tests\\unit\\test_additional_transcription_engines.py:829: Set VOICESTT_RUN_GRANITE_SPEECH=1 to run the Granite smoke test",
+      "SKIPPED [1] tests\\unit\\test_additional_transcription_engines.py:866: Set VOICESTT_RUN_MOONSHINE=1 to run the Moonshine smoke test",
+      "SKIPPED [1] tests\\unit\\test_additional_transcription_engines.py:791: Set VOICESTT_RUN_PARAKEET=1 to run the Parakeet smoke test",
+      "SKIPPED [1] tests\\unit\\test_additional_transcription_engines.py:848: Set VOICESTT_RUN_QWEN3_ASR=1 to run the Qwen3-ASR smoke test",
+      "SKIPPED [1] tests\\unit\\test_audio_fixtures.py:156: Set VOICESTT_RUN_GOLDEN_TRANSCRIPTION=1 to run the slow real-model transcription test",
+      "SKIPPED [1] tests\\unit\\test_fastapi_server_multi_user_asr_integration.py:688: set VOICESTT_RUN_FASTAPI_MULTI_USER_ASR=1 or VOICESTT_RUN_FASTAPI_MULTI_USER_PERF=1 to run real-engine multi-user ASR load test",
+      "SKIPPED [1] tests\\unit\\test_kroko_onnx_engine.py:779: Set VOICESTT_RUN_KROKO_ONNX=1 to run the Kroko-ONNX smoke test",
+      "SKIPPED [1] tests\\unit\\test_openai_whisper_engine.py:240: Set VOICESTT_RUN_OPENAI_WHISPER=1 to run the slow openai-whisper golden transcription test",
+      "SKIPPED [1] tests\\unit\\test_protocol_v2_contract.py:64: set VOICESTT_PROTOCOL_V2_VECTORS to compare against the planning original",
+      "SKIPPED [1] tests\\unit\\test_sherpa_onnx_engine.py:361: Set VOICESTT_RUN_SHERPA_ONNX_MOONSHINE=1 to run the sherpa-onnx Moonshine smoke test",
+      "SKIPPED [1] tests\\unit\\test_sherpa_onnx_engine.py:332: Set VOICESTT_RUN_SHERPA_ONNX_PARAKEET=1 to run the sherpa-onnx Parakeet smoke test",
+      "SKIPPED [1] tests\\unit\\test_silero_vad_backend.py:182: silero-vad, onnxruntime, and torch are required",
+      "SKIPPED [1] tests\\unit\\test_whisper_cpp_engine.py:275: Set VOICESTT_RUN_WHISPER_CPP=1 to run the slow whisper.cpp golden transcription test"
+    ],
+    "classification": "Optional engines/golden/multi-user loads not selected in this Windows model-free unit lane; real selected Kroko Golden/pipeline separately PASS; explicit cross-repository vector byte equality checked by pair runner. No skip closes a real M case."
+  },
+  "precommitRealRecoverySourceBinding": {
+    "result": "PASS",
+    "files": 222,
+    "normalization": "Only Git EOL normalization; hashes bind exact tested working bytes, normalized blobs equal product commit."
+  },
+  "hardwareAndCalibration": "M-01..M-12 NOT_RUN/NOT_PROVEN except separately scoped autonomous prechecks; no human speech/perception yet; 30min100 NOT_RUN",
+  "build": "build/artifacts.json",
+  "nonProductEvidenceHelpers": {
+    "watchdog_stalled_media.py": {
+      "sha256": "18bdabc264e521384ae6764ab238b90e523676c0e8aa99ecca0b7c481fe2f5d1",
+      "scope": "Standalone qualification instrument, not shipped product; does not alter qualified product/test/scripts tree"
+    },
+    "human_test_editor.py": {
+      "sha256": "0cf6a7b8bd2e1a51a028ee691b4b46bfbd8af86d8f845c5a006aaeced1ccc4cd",
+      "scope": "Standalone qualification instrument, not shipped product; does not alter qualified product/test/scripts tree"
+    }
+  }
+}

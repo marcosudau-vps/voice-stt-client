@@ -1,0 +1,46 @@
+{
+  "navigation": {
+    "result": "PASS_NAVIGATION_ONLY",
+    "outerTabs": [
+      "Lokale Trigger & Bedienung",
+      "Session",
+      "Serververwaltung"
+    ],
+    "navigationButton": "Lokale Geräte, Verlauf, Zwischenablage, Darstellung und Diagnose …",
+    "localDialogVisibleAfterActualClick": true,
+    "localTabs": [
+      "Verlauf",
+      "Allgemein",
+      "Geräte & Audio",
+      "Erscheinungsbild & Feedback",
+      "Logging & Diagnose"
+    ],
+    "expectedLocalSettingCount": 26,
+    "localEditorCount": 35,
+    "missingLocalSettings": [],
+    "localFieldsByCategory": {
+      "Allgemein": 4,
+      "Geräte & Audio": 2,
+      "Erscheinungsbild & Feedback": 20
+    },
+    "boundaries": "Actual Qt dialogs and button click with inert settings port; all current local metadata fields accounted for. No server, microphone, live-instance interaction, saved configuration changes, full V1 parity or logging-service functionality claim."
+  },
+  "productCodeChanged": false,
+  "findings": [
+    {
+      "id": "IV2-020-NAV01",
+      "status": "OBSERVATION",
+      "kind": "Discoverability",
+      "summary": "Local tabs are in a second dialog behind the long local-settings button; no named tab removed. Full V1 parity is not proved by metadata coverage."
+    },
+    {
+      "id": "IV2-020-T01",
+      "status": "FIX_PREPARED_PENDING_NATIVE_LOG_UI",
+      "kind": "Qualification harness",
+      "summary": "qualify_v2_session creates the desktop without ObservabilityManager; logging tab exists but Logs anzeigen has no query source in this test composition. Regular app.main starts the manager.",
+      "correction": "../human/explore_with_logging.py",
+      "checks": "Constructor dependency wiring and compilation PASS; native managed desktop/query view still NOT_RUN. Current exploratory session intentionally unchanged until agreed restart."
+    }
+  ],
+  "boundaries": "No product change; UI probe is actual Qt navigation with inert service port. Local metadata coverage26 fields plus history-specific controls; not a full V1/V2 feature parity or complete M09/M10 gate."
+}

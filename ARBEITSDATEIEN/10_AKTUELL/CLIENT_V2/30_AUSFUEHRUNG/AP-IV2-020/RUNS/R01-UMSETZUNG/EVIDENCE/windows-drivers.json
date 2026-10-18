@@ -1,0 +1,65 @@
+[
+  {
+    "DeviceName": "HID-compliant vendor-defined device",
+    "Manufacturer": "(Standard system devices)",
+    "DriverVersion": "10.0.26100.9711",
+    "DriverDate": "2006-06-21T02:00:00+02:00",
+    "InfName": "input.inf"
+  },
+  {
+    "DeviceName": "HID-compliant vendor-defined device",
+    "Manufacturer": "(Standard system devices)",
+    "DriverVersion": "10.0.26100.9711",
+    "DriverDate": "2006-06-21T02:00:00+02:00",
+    "InfName": "input.inf"
+  },
+  {
+    "DeviceName": "HID-compliant consumer control device",
+    "Manufacturer": "Microsoft",
+    "DriverVersion": "10.0.26100.1",
+    "DriverDate": "2006-06-21T02:00:00+02:00",
+    "InfName": "hidserv.inf"
+  },
+  {
+    "DeviceName": "HID-compliant phone",
+    "Manufacturer": "(Standard system devices)",
+    "DriverVersion": "10.0.26100.9711",
+    "DriverDate": "2006-06-21T02:00:00+02:00",
+    "InfName": "input.inf"
+  },
+  {
+    "DeviceName": "USB Input Device",
+    "Manufacturer": "(Standard system devices)",
+    "DriverVersion": "10.0.26100.9711",
+    "DriverDate": "2006-06-21T02:00:00+02:00",
+    "InfName": "input.inf"
+  },
+  {
+    "DeviceName": "WinUsb Device",
+    "Manufacturer": "WinUsb Device",
+    "DriverVersion": "10.0.26100.9549",
+    "DriverDate": "2006-06-21T02:00:00+02:00",
+    "InfName": "winusb.inf"
+  },
+  {
+    "DeviceName": "WinUsb Device",
+    "Manufacturer": "WinUsb Device",
+    "DriverVersion": "10.0.26100.9549",
+    "DriverDate": "2006-06-21T02:00:00+02:00",
+    "InfName": "winusb.inf"
+  },
+  {
+    "DeviceName": "USB Audio 2.0",
+    "Manufacturer": "Microsoft",
+    "DriverVersion": "10.0.26100.9711",
+    "DriverDate": "2026-10-10T02:00:00+02:00",
+    "InfName": "usbaudio2.inf"
+  },
+  {
+    "DeviceName": "USB Composite Device",
+    "Manufacturer": "(Standard-USB-Hostcontroller)",
+    "DriverVersion": "10.0.26100.9711",
+    "DriverDate": "2006-06-21T02:00:00+02:00",
+    "InfName": "usb.inf"
+  }
+]

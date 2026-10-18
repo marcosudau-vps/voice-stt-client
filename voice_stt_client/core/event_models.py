@@ -71,6 +71,7 @@ class CanonicalEventType(str, Enum):
 
     SERVER_WAKE_WORD_DETECTED = "server.wakeword.detected"
     SERVER_ACTIVATION_STARTED = "server.activation.started"
+    SERVER_INPUT_CLOSED = "server.input.closed"
     SERVER_INPUT_IDLE = "server.input.idle"
     SERVER_INPUT_WAITING = "server.input.waiting"
     SERVER_INPUT_FOLLOWUP = "server.input.followup"

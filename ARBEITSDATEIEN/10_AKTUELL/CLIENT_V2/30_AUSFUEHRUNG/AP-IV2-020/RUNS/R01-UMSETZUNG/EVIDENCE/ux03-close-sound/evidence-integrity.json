@@ -1,0 +1,26 @@
+{
+  "result": "PASS",
+  "pairLogHashesVerified": [
+    "client-full",
+    "cross-process",
+    "scenario-boundaries",
+    "server-transport",
+    "server-audio",
+    "server-controls",
+    "server-results",
+    "server-settings",
+    "server-feedback",
+    "server-runtime",
+    "server-full",
+    "compileall",
+    "diff-check",
+    "client-environment",
+    "server-environment"
+  ],
+  "activeSourceSession": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\sessions\\20261018-010545",
+  "ready": true,
+  "audio": true,
+  "led": true,
+  "phase": "idle",
+  "qualificationScope": "Technical native renderer/build/pair; human hearing and complete AP real gates NOT_PROVEN."
+}

@@ -146,3 +146,28 @@ Originalprompt für PR #13 wortgleich unter [R03](30_AUSFUEHRUNG/AP-CV2-110/RUNS
 ## 2026-10-14 – AP-IV2-010 R01 – REVIEW_READY
 
 Paar Client0f0687c/Serverada13b0, Produkt unverändert ab43759d3. Windows1354, Server1964/14, Prozess11, Grenz17, Smokes7/7, compileall/diffcheck PASS. PR14; unabhängiger Review und spätere menschliche Übernahme ausstehend. Report: `ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-010/RUNS/R01-UMSETZUNG/01_REPORT.md`. Kein Eigenreview/Merge/Folgepaket.
+
+## 2026-10-15 – AP-IV2-020 / R01-UMSETZUNG: BLOCKED
+
+AP010-Squash b80ed8b nach PASS/Freigabe tatsächlich verifiziert. Lokaler Serverada13b0
+mit555 exakten Blobs, echten Community-/ONNX-Modellen und isolierten Daten bereit;
+V1/VPS geschützt. Windowsbaseline1354, finale1360 und11 Prozessprüfungen PASS.
+Echte Restart-Recovery zweimal FAIL: IV2-020-F01, temporärer HTTP-Vorcheck latcht
+permanent BLOCKED. Noch nicht angewandter enger Clientpatch und gebündelte Realtest-
+und Kalibrierungsabläufe gesichert. Produktänderungsfreigabe nötig. Reale Pflichtgates
+offen; kein REVIEW_READY/PASS. R01 bleibt für dieselbe Fortsetzung zuständig.
+
+## 2026-10-15 – AP-IV2-020 / R01 fortgesetzt: Recovery technisch requalifiziert
+
+Ausdrückliche enge Scope-Ausnahme gesichert; derselbe Branch/R01/Draft-PR15.
+Zehn nachgewiesene Client-Reconnect-/Recoveryfehler korrigiert, rote Repros und
+Regressionen dokumentiert. Produkt41ca761, neue EXE/Wheel/sdist identitätsgebunden.
+1373 Windows-Tests,11 Prozessfälle,1964 Server-Unit-Tests/14 optionale Skips,
+native und reale lokale Modell-/Recoveryprüfungen grün. Drei Serverneustarts,
+kein vorzeitiges PCM/Triggerfenster, Run-Pausen erhalten. V1/VPS unberührt.
+Phase C vorbereitet; echte M-Gates/Kalibrierung/30min100 offen, kein REVIEW_READY.
+[Audit](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/05_RECONNECT_AUDIT.md).
+
+2026-10-15 AP-IV2-020/R01 Phase C: echte Manualbaseline und Followup3000/5000ms verglichen; Auftraggeber wählt5000ms. Sourceprodukt41ca761 unverändert, isolierte Profile gesichert. M01-Overlap und weitere M-Fälle offen. UX01 append_space ohne Wirkung außerhalb Recoveryfreigabe dokumentiert. Nach realem PowerShell-OOM nur0,95GB Hostcommitreserve; eigener Testclient sauber beendet, menschliches Freigeben unbenötigten Appspeichers angefragt, dann Wakeblock. Kein REVIEW_READY.
+
+2026-10-15 AP-IV2-020/R01 Phase C: Hostspeicher nach menschlicher Aktion wieder frei, erster echter Wakeversuch ausgewertet. Sechs bewusst aufgenommene WAVs auf ausdrücklichen Nutzerwunsch004 bytegleich mit Manifest/Hashes und Messskripten versioniert. Erste Jarvis-Pauseaufnahme laut Mensch ohne Wakeanteil, Negativkontrolle. Echte ONNX-Frames und V2/Kroko-Replays0/160/320/480ms:320ms erhält beide direkten Nutzsätze, Livebestätigung offen. Produkt41ca761 unverändert, kein vollständiger M-PASS/REVIEW_READY.

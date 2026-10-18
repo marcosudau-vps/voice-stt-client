@@ -1,0 +1,21 @@
+{
+  "capturedAtUtc": "2026-10-17T19:22:52.657154+00:00",
+  "windowUtc": [
+    "2026-10-17T19:19:30",
+    "2026-10-17T19:21:00"
+  ],
+  "timezone": "Europe/Berlin UTC+02:00",
+  "operatorReport": "No speech at the time; unsolicited activation observed repeatedly.",
+  "sessionId": "a7972506-d5ba-41f2-a240-332815eaba60",
+  "qualifiedProduct": "d95043e96051d4022b297099391a4fdff0dcc12b",
+  "result": "Two distinct server-side Alexa wake detections, each initial_speech_timeout with zero accepted segments; false activations according to operator report.",
+  "rootCause": "NOT_PROVEN: no retained input audio for this interval; no acoustic stimulus reconstruction. Feedback-induced retrigger is a hypothesis only.",
+  "secondWakeAfterFirstCloseMs": 199,
+  "settingsChanged": false,
+  "processesRestarted": false,
+  "evidence": {
+    "observed-events.json": "0d19b5ef57a7aae6255b0a0d89cea646ed59f830b7b6877f19b989fe49cdee29",
+    "server-domain-events.json": "144b42b994604c2b8f96c0bc2c9c644d67d55682f93b1a3aed5dc2460c5f246f",
+    "server-settings-observed-after.json": "086176da4b96d0d5b29e439930200c6ef7bb6298b48e13bc87a0895ea2f05295"
+  }
+}

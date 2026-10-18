@@ -1,0 +1,10 @@
+{
+  "wakeSha256": "f49b4fac668b77fb64f0eb5951a133071f554d629df890d5abda6a3b08dac9f3",
+  "manualSha256": "c67d070146a2a8fa5cb76995c62548d0e2149497180683e544f6cf8da6ab133c",
+  "wakeAfterRemovingBaselineWakeExact": true,
+  "plannedTargetExact": false,
+  "assessment": "ASR output differs from the planned prompt in the same way with and without Wake trimming. Wake preserves the full manual baseline user output. Actual spoken wording requires human annotation; no new client defect inferred and planned-target mismatch remains FAIL.",
+  "wakeBoundaryResult": "PASS",
+  "qualityResult": "NOT_PROVEN_ACTUAL_SPOKEN_WORDING",
+  "rawAudioFixture": "../human/samples/alexa_pause.wav"
+}

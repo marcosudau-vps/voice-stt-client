@@ -187,6 +187,7 @@ class FeedbackEngine:
                 self._v2_persistent_rule = FeedbackRule()
                 self._v2_issues = ()
                 self._v2_observed = ()
+            previous_view = self._v2_view
             self._v2_view = view
             decisions = [self._v2_project()]
             finals = {f.event_id for f in reduction.finals}
@@ -219,6 +220,14 @@ class FeedbackEngine:
                     continue
                 if raw.type == p.EventType.COMPLETED and raw.eventId not in finals:
                     continue
+                if raw.type == p.EventType.INPUT_CLOSED:
+                    if (fresh or previous_view.state != MirrorState.READY
+                        or view.state != MirrorState.READY
+                        or previous_view.input.activation_id != raw.payload['activationId']):
+                        continue
+                    activation = view.activations.get(raw.payload['activationId'])
+                    if activation and activation.status in ('cancelled', 'failed'):
+                        continue
                 segment = view.segments.get(raw.payload.get('segmentId'))
                 if raw.type in (p.EventType.RECORDING_STARTED, p.EventType.RECORDING_ENDED):
                     if (not segment or segment.status in SEGMENT_TERMINALS

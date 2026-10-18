@@ -26,4 +26,19 @@ Bei notwendiger Persistenz und fehlgeschlagener Reservierung findet keine Einfü
 
 Bestehende Clipboard-/SendInputmechanik, Konflikterkennung und Restore bleiben erhalten. SendInputfehler, einschließlich möglicher Blockierung durch ein höher privilegiertes Ziel, werden als failed protokolliert. Es gibt keine neue Privilegienanhebung oder Zielkontrolle. command_sent bezeichnet einen abgesandten Einfügebefehl, keinen Beweis der Übernahme durch eine fremde Anwendung. Reinsert ist eine neue ausdrückliche Benutzernebenwirkung mit source=manual.
 
+Ergänzung AP-IV2-020/UX01, 2026-10-15: Die bestehende Einstellung
+`text_injection.append_space` (Default True, „Leerzeichen anhängen“) ergänzt
+ausschließlich im Clipboard-Ausgabetext ein Leerzeichen, wenn der nichtleere
+Originaltext noch nicht mit Whitespace endet. Vorhandene Leerzeichen, Tabs und
+Zeilenumbrüche bleiben exakt erhalten. Bei False wird der Originaltext exakt
+ausgegeben. Dies gilt auch für bewusst angeforderte Wiedereinfügung.
+Finaltext, unveränderlicher Queuejob, Historytext/-länge, Herkunft und
+Deduplizierung behalten den Originaltext. Der Clipboard-Restorevertrag gilt
+unverändert. [Freigabe und Nachweise](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/ux01/INDEX.md).
+
 [Runakte](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-060/RUNS/R01-UMSETZUNG/01_REPORT.md): echte temporäre SQLite-Dateien, fünf Prozessabbrüche und gepinnter Server über TCP/WebSocket bis zum echten Clientworker. Recorder-/Modellergebnisse und Clipboard/SendInput sind benannte Testadapter. Echte Mikrofon-/ASR-/Fokus-/Anwendungsabnahme folgt in AP-IV2-020. API-Keys und Nutzeraudio bleiben außerhalb der Repositorybelege.
+
+
+## Held hotkey modifiers before native paste
+
+The serial injection worker waits up to1.5seconds for Shift, Ctrl, Alt and either Windows key to be released. It reads the current GetAsyncKeyState high-bit, polls every10ms and skips a held-key wait on shutdown. No synthetic key-up, extra worker, or automatic retry is introduced. Focus/clipboard changes during a deferred paste skip that attempt; clipboard sequence is validated again before SendInput. Raw finals/history/identities and append-space semantics remain unchanged. A skipped timeout never implies command_sent. command_sent still denotes OS input submission, not independently confirmed target insertion.

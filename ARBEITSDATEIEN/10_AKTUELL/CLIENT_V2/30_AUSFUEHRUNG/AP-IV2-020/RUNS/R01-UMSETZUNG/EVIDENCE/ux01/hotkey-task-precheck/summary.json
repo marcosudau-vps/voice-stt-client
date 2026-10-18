@@ -1,0 +1,55 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "exact-test-key-availability",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "exact-test-key-availability.json"
+    },
+    {
+      "name": "final-helper-compile",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "final-helper-compile.json"
+    },
+    {
+      "name": "final-observer-manual-cli",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "final-observer-manual-cli.json"
+    },
+    {
+      "name": "helper-compile",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "helper-compile.json"
+    },
+    {
+      "name": "helper-regression",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "helper-regression.json"
+    },
+    {
+      "name": "observer-manual-cli",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "observer-manual-cli.json"
+    },
+    {
+      "name": "observer-wake-cli",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "observer-wake-cli.json"
+    },
+    {
+      "name": "qt-start-controls",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "qt-start-controls.json"
+    }
+  ],
+  "productChanged": false,
+  "boundaries": "Helper/native binding prechecks; no human speech/hotkey or complete M-case PASS."
+}

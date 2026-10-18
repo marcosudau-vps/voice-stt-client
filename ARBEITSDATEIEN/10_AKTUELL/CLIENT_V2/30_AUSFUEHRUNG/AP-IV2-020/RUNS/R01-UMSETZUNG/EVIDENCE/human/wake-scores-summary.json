@@ -1,0 +1,1063 @@
+{
+  "status": "PARTIAL_NOT_ACCEPTANCE",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "helperSha256": "4e3550312217ebf8fbb01fb183c29468c35184b03a8e55d4df03fe90158f0823",
+  "source": "Unmodified pinned server calibration tool and real selected ONNX models",
+  "measurement": "scores",
+  "backend": "onnx",
+  "environment": {
+    "os": "Linux 6.6.87.2-microsoft-standard-WSL2 (#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025)",
+    "machine": "x86_64",
+    "python": "3.12.3",
+    "openwakeword": "0.6.0",
+    "onnxruntime": "1.29.0"
+  },
+  "method": "Real selected ONNX models and unchanged server calibration tool; passively recorded prediction frames, unchanged tracker policy sweeps. No live microphone or new human repetitions; input WAV hashes supplied by host.",
+  "fullTrace": "wake-scores-full.json.gz",
+  "fullTraceUncompressedSha256": "4ade426a08f0a3908a278ae6d3fe6c4c863023da5411b93167152153308dae00",
+  "threshold": 0.5,
+  "minFrames": 1,
+  "traces": [
+    {
+      "audio": "jarvis_pause.wav",
+      "durationSeconds": 9.0,
+      "chunks": 281,
+      "predictionFrames": 112,
+      "maxScorePerWakeWord": {
+        "alexa": 0.001411,
+        "hey_jarvis": 0.001066
+      },
+      "predictionFramesAboveThreshold": 0,
+      "finalizedWakeHits": [],
+      "logicalHitCount": 0,
+      "measuredFramePolicySweeps": [
+        {
+          "sensitivity": 0.35,
+          "minFrames": 1,
+          "hits": [],
+          "logicalHitCount": 0
+        },
+        {
+          "sensitivity": 0.5,
+          "minFrames": 1,
+          "hits": [],
+          "logicalHitCount": 0
+        },
+        {
+          "sensitivity": 0.65,
+          "minFrames": 1,
+          "hits": [],
+          "logicalHitCount": 0
+        },
+        {
+          "sensitivity": 0.5,
+          "minFrames": 2,
+          "hits": [],
+          "logicalHitCount": 0
+        }
+      ],
+      "audioSha256": "bd1a14bf88fd6c47ef73511ef01f95a9c0c6cb679d280388a37ca4f3da7aa1b5"
+    },
+    {
+      "audio": "alexa_pause.wav",
+      "durationSeconds": 9.0,
+      "chunks": 281,
+      "predictionFrames": 112,
+      "maxScorePerWakeWord": {
+        "alexa": 0.999742,
+        "hey_jarvis": 0.000986
+      },
+      "predictionFramesAboveThreshold": 9,
+      "finalizedWakeHits": [
+        {
+          "wakeWordId": "alexa",
+          "peakScore": 0.999742,
+          "startFrameIndex": 13,
+          "qualificationFrameIndex": 13,
+          "finalizationFrameIndex": 21,
+          "predictionFrameCount": 8,
+          "zeroPointSeconds": 1.68,
+          "boundary": {
+            "sampleRate": 16000,
+            "operationalZeroPointSample": 26880,
+            "historyStartSample": 0,
+            "releaseSample": 26880,
+            "preRollSamples": 0,
+            "releasedPreRollSamples": 0,
+            "preRollClamped": false,
+            "boundaryBasis": "operational_zero_point",
+            "boundaryDefined": true
+          }
+        },
+        {
+          "wakeWordId": "alexa",
+          "peakScore": 0.830983,
+          "startFrameIndex": 23,
+          "qualificationFrameIndex": 23,
+          "finalizationFrameIndex": 24,
+          "predictionFrameCount": 1,
+          "zeroPointSeconds": 1.92,
+          "boundary": {
+            "sampleRate": 16000,
+            "operationalZeroPointSample": 30720,
+            "historyStartSample": 0,
+            "releaseSample": 30720,
+            "preRollSamples": 0,
+            "releasedPreRollSamples": 0,
+            "preRollClamped": false,
+            "boundaryBasis": "operational_zero_point",
+            "boundaryDefined": true
+          }
+        }
+      ],
+      "logicalHitCount": 2,
+      "measuredFramePolicySweeps": [
+        {
+          "sensitivity": 0.35,
+          "minFrames": 1,
+          "hits": [
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.9997421503067017,
+              "zeroPointSample": 26880,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 26880,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 25600,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 24320,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            },
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.8309826850891113,
+              "zeroPointSample": 32000,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 32000,
+                  "historyStartSample": 0,
+                  "releaseSample": 32000,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 32000,
+                  "historyStartSample": 0,
+                  "releaseSample": 30720,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 32000,
+                  "historyStartSample": 0,
+                  "releaseSample": 29440,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            }
+          ],
+          "logicalHitCount": 2
+        },
+        {
+          "sensitivity": 0.5,
+          "minFrames": 1,
+          "hits": [
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.9997421503067017,
+              "zeroPointSample": 26880,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 26880,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 25600,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 24320,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            },
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.8309826850891113,
+              "zeroPointSample": 30720,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 30720,
+                  "historyStartSample": 0,
+                  "releaseSample": 30720,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 30720,
+                  "historyStartSample": 0,
+                  "releaseSample": 29440,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 30720,
+                  "historyStartSample": 0,
+                  "releaseSample": 28160,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            }
+          ],
+          "logicalHitCount": 2
+        },
+        {
+          "sensitivity": 0.65,
+          "minFrames": 1,
+          "hits": [
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.9997421503067017,
+              "zeroPointSample": 26880,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 26880,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 25600,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 24320,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            },
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.8309826850891113,
+              "zeroPointSample": 30720,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 30720,
+                  "historyStartSample": 0,
+                  "releaseSample": 30720,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 30720,
+                  "historyStartSample": 0,
+                  "releaseSample": 29440,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 30720,
+                  "historyStartSample": 0,
+                  "releaseSample": 28160,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            }
+          ],
+          "logicalHitCount": 2
+        },
+        {
+          "sensitivity": 0.5,
+          "minFrames": 2,
+          "hits": [
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.9997421503067017,
+              "zeroPointSample": 26880,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 26880,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 25600,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 24320,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            }
+          ],
+          "logicalHitCount": 1
+        }
+      ],
+      "audioSha256": "abae5a687cee97d120487c2a601509aba41d056b4428966959a1ef1e467b09b3"
+    },
+    {
+      "audio": "jarvis_direct.wav",
+      "durationSeconds": 9.0,
+      "chunks": 281,
+      "predictionFrames": 112,
+      "maxScorePerWakeWord": {
+        "alexa": 0.006942,
+        "hey_jarvis": 0.987128
+      },
+      "predictionFramesAboveThreshold": 2,
+      "finalizedWakeHits": [
+        {
+          "wakeWordId": "hey_jarvis",
+          "peakScore": 0.987128,
+          "startFrameIndex": 16,
+          "qualificationFrameIndex": 16,
+          "finalizationFrameIndex": 18,
+          "predictionFrameCount": 2,
+          "zeroPointSeconds": 1.44,
+          "boundary": {
+            "sampleRate": 16000,
+            "operationalZeroPointSample": 23040,
+            "historyStartSample": 0,
+            "releaseSample": 23040,
+            "preRollSamples": 0,
+            "releasedPreRollSamples": 0,
+            "preRollClamped": false,
+            "boundaryBasis": "operational_zero_point",
+            "boundaryDefined": true
+          }
+        }
+      ],
+      "logicalHitCount": 1,
+      "measuredFramePolicySweeps": [
+        {
+          "sensitivity": 0.35,
+          "minFrames": 1,
+          "hits": [
+            {
+              "wakeWordId": "hey_jarvis",
+              "peakScore": 0.9871283769607544,
+              "zeroPointSample": 23040,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 23040,
+                  "historyStartSample": 0,
+                  "releaseSample": 23040,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 23040,
+                  "historyStartSample": 0,
+                  "releaseSample": 21760,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 23040,
+                  "historyStartSample": 0,
+                  "releaseSample": 20480,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            }
+          ],
+          "logicalHitCount": 1
+        },
+        {
+          "sensitivity": 0.5,
+          "minFrames": 1,
+          "hits": [
+            {
+              "wakeWordId": "hey_jarvis",
+              "peakScore": 0.9871283769607544,
+              "zeroPointSample": 23040,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 23040,
+                  "historyStartSample": 0,
+                  "releaseSample": 23040,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 23040,
+                  "historyStartSample": 0,
+                  "releaseSample": 21760,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 23040,
+                  "historyStartSample": 0,
+                  "releaseSample": 20480,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            }
+          ],
+          "logicalHitCount": 1
+        },
+        {
+          "sensitivity": 0.65,
+          "minFrames": 1,
+          "hits": [
+            {
+              "wakeWordId": "hey_jarvis",
+              "peakScore": 0.9871283769607544,
+              "zeroPointSample": 23040,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 23040,
+                  "historyStartSample": 0,
+                  "releaseSample": 23040,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 23040,
+                  "historyStartSample": 0,
+                  "releaseSample": 21760,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 23040,
+                  "historyStartSample": 0,
+                  "releaseSample": 20480,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            }
+          ],
+          "logicalHitCount": 1
+        },
+        {
+          "sensitivity": 0.5,
+          "minFrames": 2,
+          "hits": [
+            {
+              "wakeWordId": "hey_jarvis",
+              "peakScore": 0.9871283769607544,
+              "zeroPointSample": 23040,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 23040,
+                  "historyStartSample": 0,
+                  "releaseSample": 23040,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 23040,
+                  "historyStartSample": 0,
+                  "releaseSample": 21760,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 23040,
+                  "historyStartSample": 0,
+                  "releaseSample": 20480,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            }
+          ],
+          "logicalHitCount": 1
+        }
+      ],
+      "audioSha256": "98e3f96e35cb736b5176c96159cf6e2416d50eb739faa2380320e181caf6d9b2"
+    },
+    {
+      "audio": "alexa_direct.wav",
+      "durationSeconds": 9.0,
+      "chunks": 281,
+      "predictionFrames": 112,
+      "maxScorePerWakeWord": {
+        "alexa": 0.999798,
+        "hey_jarvis": 0.001028
+      },
+      "predictionFramesAboveThreshold": 9,
+      "finalizedWakeHits": [
+        {
+          "wakeWordId": "alexa",
+          "peakScore": 0.999798,
+          "startFrameIndex": 13,
+          "qualificationFrameIndex": 13,
+          "finalizationFrameIndex": 21,
+          "predictionFrameCount": 8,
+          "zeroPointSeconds": 1.68,
+          "boundary": {
+            "sampleRate": 16000,
+            "operationalZeroPointSample": 26880,
+            "historyStartSample": 0,
+            "releaseSample": 26880,
+            "preRollSamples": 0,
+            "releasedPreRollSamples": 0,
+            "preRollClamped": false,
+            "boundaryBasis": "operational_zero_point",
+            "boundaryDefined": true
+          }
+        },
+        {
+          "wakeWordId": "alexa",
+          "peakScore": 0.586027,
+          "startFrameIndex": 23,
+          "qualificationFrameIndex": 23,
+          "finalizationFrameIndex": 24,
+          "predictionFrameCount": 1,
+          "zeroPointSeconds": 1.92,
+          "boundary": {
+            "sampleRate": 16000,
+            "operationalZeroPointSample": 30720,
+            "historyStartSample": 0,
+            "releaseSample": 30720,
+            "preRollSamples": 0,
+            "releasedPreRollSamples": 0,
+            "preRollClamped": false,
+            "boundaryBasis": "operational_zero_point",
+            "boundaryDefined": true
+          }
+        }
+      ],
+      "logicalHitCount": 2,
+      "measuredFramePolicySweeps": [
+        {
+          "sensitivity": 0.35,
+          "minFrames": 1,
+          "hits": [
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.9997975826263428,
+              "zeroPointSample": 26880,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 26880,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 25600,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 24320,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            },
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.5860269069671631,
+              "zeroPointSample": 30720,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 30720,
+                  "historyStartSample": 0,
+                  "releaseSample": 30720,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 30720,
+                  "historyStartSample": 0,
+                  "releaseSample": 29440,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 30720,
+                  "historyStartSample": 0,
+                  "releaseSample": 28160,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            }
+          ],
+          "logicalHitCount": 2
+        },
+        {
+          "sensitivity": 0.5,
+          "minFrames": 1,
+          "hits": [
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.9997975826263428,
+              "zeroPointSample": 26880,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 26880,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 25600,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 24320,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            },
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.5860269069671631,
+              "zeroPointSample": 30720,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 30720,
+                  "historyStartSample": 0,
+                  "releaseSample": 30720,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 30720,
+                  "historyStartSample": 0,
+                  "releaseSample": 29440,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 30720,
+                  "historyStartSample": 0,
+                  "releaseSample": 28160,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            }
+          ],
+          "logicalHitCount": 2
+        },
+        {
+          "sensitivity": 0.65,
+          "minFrames": 1,
+          "hits": [
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.9997975826263428,
+              "zeroPointSample": 26880,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 26880,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 25600,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 24320,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            }
+          ],
+          "logicalHitCount": 1
+        },
+        {
+          "sensitivity": 0.5,
+          "minFrames": 2,
+          "hits": [
+            {
+              "wakeWordId": "alexa",
+              "peakScore": 0.9997975826263428,
+              "zeroPointSample": 26880,
+              "releaseCandidates": [
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 26880,
+                  "preRollSamples": 0,
+                  "releasedPreRollSamples": 0,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 25600,
+                  "preRollSamples": 1280,
+                  "releasedPreRollSamples": 1280,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                },
+                {
+                  "sampleRate": 16000,
+                  "operationalZeroPointSample": 26880,
+                  "historyStartSample": 0,
+                  "releaseSample": 24320,
+                  "preRollSamples": 2560,
+                  "releasedPreRollSamples": 2560,
+                  "preRollClamped": false,
+                  "boundaryBasis": "operational_zero_point",
+                  "boundaryDefined": true
+                }
+              ]
+            }
+          ],
+          "logicalHitCount": 1
+        }
+      ],
+      "audioSha256": "3e314b00bca0698f29afd61700d708d1cddc8d985a6c690dd81d9c260898b009"
+    },
+    {
+      "audio": "negative_speech.wav",
+      "durationSeconds": 9.0,
+      "chunks": 281,
+      "predictionFrames": 112,
+      "maxScorePerWakeWord": {
+        "alexa": 0.004937,
+        "hey_jarvis": 0.001012
+      },
+      "predictionFramesAboveThreshold": 0,
+      "finalizedWakeHits": [],
+      "logicalHitCount": 0,
+      "measuredFramePolicySweeps": [
+        {
+          "sensitivity": 0.35,
+          "minFrames": 1,
+          "hits": [],
+          "logicalHitCount": 0
+        },
+        {
+          "sensitivity": 0.5,
+          "minFrames": 1,
+          "hits": [],
+          "logicalHitCount": 0
+        },
+        {
+          "sensitivity": 0.65,
+          "minFrames": 1,
+          "hits": [],
+          "logicalHitCount": 0
+        },
+        {
+          "sensitivity": 0.5,
+          "minFrames": 2,
+          "hits": [],
+          "logicalHitCount": 0
+        }
+      ],
+      "audioSha256": "fcc98db947a08c7cc3e1146dcf4b3dbc756bfe638e4bbfbbe2364ec0744d0bbc"
+    },
+    {
+      "audio": "unselected_phrase.wav",
+      "durationSeconds": 9.0,
+      "chunks": 281,
+      "predictionFrames": 112,
+      "maxScorePerWakeWord": {
+        "alexa": 0.007853,
+        "hey_jarvis": 0.001032
+      },
+      "predictionFramesAboveThreshold": 0,
+      "finalizedWakeHits": [],
+      "logicalHitCount": 0,
+      "measuredFramePolicySweeps": [
+        {
+          "sensitivity": 0.35,
+          "minFrames": 1,
+          "hits": [],
+          "logicalHitCount": 0
+        },
+        {
+          "sensitivity": 0.5,
+          "minFrames": 1,
+          "hits": [],
+          "logicalHitCount": 0
+        },
+        {
+          "sensitivity": 0.65,
+          "minFrames": 1,
+          "hits": [],
+          "logicalHitCount": 0
+        },
+        {
+          "sensitivity": 0.5,
+          "minFrames": 2,
+          "hits": [],
+          "logicalHitCount": 0
+        }
+      ],
+      "audioSha256": "9c64ead8cd6007f6b02b037c675e35e1666ee0a3e2e346daaddc44023e25fd93"
+    }
+  ],
+  "limits": [
+    "Offline prediction regions are not live activation counts; runtime admission/latch must be checked separately.",
+    "First jarvis_pause intentionally reclassified as negative user speech: human confirms wake phrase spoken before recorder countdown ended. Not a detector false negative.",
+    "No phonetic boundary PASS from detector scores alone.",
+    "Replaying one recording is not a new independent human utterance."
+  ]
+}

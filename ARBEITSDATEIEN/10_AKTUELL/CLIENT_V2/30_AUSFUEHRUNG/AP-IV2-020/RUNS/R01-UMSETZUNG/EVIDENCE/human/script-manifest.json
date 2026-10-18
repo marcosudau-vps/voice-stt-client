@@ -1,0 +1,88 @@
+{
+  "scope": "Test and measurement helpers only; product UX02 changes are separately authorized in prompt012 and qualified under ux02.",
+  "scripts": [
+    {
+      "file": "check_append_space.py",
+      "sha256": "9f9b5bdba236ffa3e02ac76ae1a35f4f9dcddecd19af53e2ed7dc61002ac54cc"
+    },
+    {
+      "file": "check_settings_navigation.py",
+      "sha256": "bb36d6f50609f996284436a4027577c7c4b267cf3ec68d184c90062add1de514"
+    },
+    {
+      "file": "editor_state.py",
+      "sha256": "07b9c8cf59090cb51970d5cbfa15d489d2005b02ebda31176949bba338f4fd84"
+    },
+    {
+      "file": "evaluate_manual_trial.py",
+      "sha256": "54384c442e95ee7deda03c5f6ce410de3237387f48cc98ee0795eddf766eddbf"
+    },
+    {
+      "file": "evaluate_stepped_trial.py",
+      "sha256": "a89a9667fac40f89f3f01e96b469e4b67abbb573abe29ce0608faa754699e991"
+    },
+    {
+      "file": "explore_with_logging.py",
+      "sha256": "a6653ac715fb154a242003f66e069e835b0c38a0d54208038c814f31cedd38ca"
+    },
+    {
+      "file": "guided_output_trial.py",
+      "sha256": "5b64d000237eef7845843e5f61f36a4fff079a1ad29919a111c270baf5ad7da1"
+    },
+    {
+      "file": "native_modifier_editor.py",
+      "sha256": "e4ff72b192d5c7de563906c73b4cdf8a42fb12d936992d20a689610d7e0044d5"
+    },
+    {
+      "file": "native_modifier_trial.py",
+      "sha256": "305e3d30d067398ed2d1ca958cfab54951582a371ab911c22b736438cd20272c"
+    },
+    {
+      "file": "observed_session.py",
+      "sha256": "5cd2d5df5fb6b74e4faa1669b58ef50c537ddde44f7c672cb415904b61388dd4"
+    },
+    {
+      "file": "probe_native_editor.py",
+      "sha256": "e44d3620a3698db5304a19ac98e5dfa60fa5d60923b6c24872abee56f39093c0"
+    },
+    {
+      "file": "probe_test_bindings.py",
+      "sha256": "da3fe37f2bf342df6ab313bc0153f6dc92ae75a503222fccea2e7cf814671923"
+    },
+    {
+      "file": "record_wake_samples.py",
+      "sha256": "f2aa2e6a85a6cf10997620d989b253fd0783f8c5a08a579b1f7d4d3d1e5e58ed"
+    },
+    {
+      "file": "replay_real_samples.py",
+      "sha256": "43584d1d85f2e35de796dbeabead1d786843a2447c00b06c5a2c35fb63552fee"
+    },
+    {
+      "file": "repro_held_shift.py",
+      "sha256": "8250a8d06c014d034ebae9e276f1e3918c9d8a5e7382b6f3fbc99cc694526422"
+    },
+    {
+      "file": "score_real_wake.py",
+      "sha256": "4e3550312217ebf8fbb01fb183c29468c35184b03a8e55d4df03fe90158f0823"
+    },
+    {
+      "file": "stepped_wake_trial.py",
+      "sha256": "fef8cc83d28f294da55b00ba70a130347ccf8972d84d880f2e8b274fb6ac6d1f"
+    },
+    {
+      "file": "test_editor_state.py",
+      "sha256": "d2b2488ff86ce5bb04cfada46dcc3e317e9c80bab6aaee0b817fcbc3080c1b07"
+    },
+    {
+      "file": "test_stepped_controls.py",
+      "sha256": "044263f64ca76dba64a14b1ed731fa1c1b89df1c64ff29f875d3f4a03e439652"
+    }
+  ],
+  "reproduction": "samples/README.md",
+  "fixtureAuthorization": "../../ZUSATZPROMPTS/004_TESTAUFNAHMEN_REPO.md",
+  "editorHelper": {
+    "file": "../recovery-audit/human_test_editor.py",
+    "sha256": "c549c17e590f58cdadef6e7e8286a66cd3e59f7eeea10370a76645a876296a28"
+  },
+  "maintainedManualTool": "tests/manual/v2 (repository-relative)"
+}

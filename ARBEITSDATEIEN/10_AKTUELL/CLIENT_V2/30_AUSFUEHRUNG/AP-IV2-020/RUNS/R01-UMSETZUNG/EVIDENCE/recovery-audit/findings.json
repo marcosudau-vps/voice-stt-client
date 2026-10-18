@@ -1,0 +1,95 @@
+{
+  "findings": [
+    {
+      "id": "IV2-020-F01",
+      "status": "CLOSED_TECHNICAL",
+      "scope": "Authorized client reconnect/recovery correction; no independent acceptance",
+      "productCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "causeAndCorrection": "../05_RECONNECT_AUDIT.md",
+      "qualification": "qualification-summary.json",
+      "realPackageGate": "NOT_PROVEN; no complete M case inferred"
+    },
+    {
+      "id": "IV2-020-F02",
+      "status": "CLOSED_TECHNICAL",
+      "scope": "Authorized client reconnect/recovery correction; no independent acceptance",
+      "productCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "causeAndCorrection": "../05_RECONNECT_AUDIT.md",
+      "qualification": "qualification-summary.json",
+      "realPackageGate": "NOT_PROVEN; no complete M case inferred"
+    },
+    {
+      "id": "IV2-020-F03",
+      "status": "CLOSED_TECHNICAL",
+      "scope": "Authorized client reconnect/recovery correction; no independent acceptance",
+      "productCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "causeAndCorrection": "../05_RECONNECT_AUDIT.md",
+      "qualification": "qualification-summary.json",
+      "realPackageGate": "NOT_PROVEN; no complete M case inferred"
+    },
+    {
+      "id": "IV2-020-F04",
+      "status": "CLOSED_TECHNICAL",
+      "scope": "Authorized client reconnect/recovery correction; no independent acceptance",
+      "productCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "causeAndCorrection": "../05_RECONNECT_AUDIT.md",
+      "qualification": "qualification-summary.json",
+      "realPackageGate": "NOT_PROVEN; no complete M case inferred"
+    },
+    {
+      "id": "IV2-020-F05",
+      "status": "CLOSED_TECHNICAL",
+      "scope": "Authorized client reconnect/recovery correction; no independent acceptance",
+      "productCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "causeAndCorrection": "../05_RECONNECT_AUDIT.md",
+      "qualification": "qualification-summary.json",
+      "realPackageGate": "NOT_PROVEN; no complete M case inferred"
+    },
+    {
+      "id": "IV2-020-F06",
+      "status": "CLOSED_TECHNICAL",
+      "scope": "Authorized client reconnect/recovery correction; no independent acceptance",
+      "productCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "causeAndCorrection": "../05_RECONNECT_AUDIT.md",
+      "qualification": "qualification-summary.json",
+      "realPackageGate": "NOT_PROVEN; no complete M case inferred"
+    },
+    {
+      "id": "IV2-020-F07",
+      "status": "CLOSED_TECHNICAL",
+      "scope": "Authorized client reconnect/recovery correction; no independent acceptance",
+      "productCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "causeAndCorrection": "../05_RECONNECT_AUDIT.md",
+      "qualification": "qualification-summary.json",
+      "realPackageGate": "NOT_PROVEN; no complete M case inferred"
+    },
+    {
+      "id": "IV2-020-F08",
+      "status": "CLOSED_TECHNICAL",
+      "scope": "Authorized client reconnect/recovery correction; no independent acceptance",
+      "productCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "causeAndCorrection": "../05_RECONNECT_AUDIT.md",
+      "qualification": "qualification-summary.json",
+      "realPackageGate": "NOT_PROVEN; no complete M case inferred"
+    },
+    {
+      "id": "IV2-020-F09",
+      "status": "CLOSED_TECHNICAL",
+      "scope": "Authorized client reconnect/recovery correction; no independent acceptance",
+      "productCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "causeAndCorrection": "../05_RECONNECT_AUDIT.md",
+      "qualification": "qualification-summary.json",
+      "realPackageGate": "NOT_PROVEN; no complete M case inferred"
+    },
+    {
+      "id": "IV2-020-F10",
+      "status": "CLOSED_TECHNICAL",
+      "scope": "Authorized client reconnect/recovery correction; no independent acceptance",
+      "productCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "causeAndCorrection": "../05_RECONNECT_AUDIT.md",
+      "qualification": "qualification-summary.json",
+      "realPackageGate": "NOT_PROVEN; no complete M case inferred"
+    }
+  ],
+  "independentReview": "NOT_RUN"
+}

@@ -1,0 +1,14 @@
+{
+  "result": "NOT_RUN_HUMAN_SPEECH",
+  "humanReply": "Sorry, ich war gerade abgelenkt und habe nicht gesehen, dass der Test weiterlief. Ich dachte, ich muss erst nochmal drücken.",
+  "origin": "Actual async human reply",
+  "clientStopped": true,
+  "eventCounts": {
+    "session.snapshot": 5,
+    "settings.changed": 1
+  },
+  "activations": 0,
+  "finals": 0,
+  "nativePasteResult": "PASS",
+  "assessment": "Native output proved separately. Voice client automatically started after paste but operator missed transition; no functional speech PASS. Repeat only voice with explicit separate start."
+}

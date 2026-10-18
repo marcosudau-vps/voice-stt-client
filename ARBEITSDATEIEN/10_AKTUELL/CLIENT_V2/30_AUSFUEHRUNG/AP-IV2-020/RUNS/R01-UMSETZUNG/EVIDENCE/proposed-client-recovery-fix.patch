@@ -1,0 +1,19 @@
+--- a/voice_stt_client/core/settings_service.py
++++ b/voice_stt_client/core/settings_service.py
+@@ -451 +451,10 @@
+-        await self.load_metadata()
++        try:
++            await self.load_metadata()
++        except SettingsError as error:
++            transient = error.code in ("http_unavailable", "http_timeout", "http_worker_busy")
++            transient = transient or (error.code == "http_read_failed" and
++                (error.status in (408, 429) or error.status is not None and 500 <= error.status < 600))
++            if transient:
++                # Only GET metadata is retried by transport, never an uncertain PATCH.
++                raise OSError("settings_metadata_temporarily_unavailable") from None
++            raise
+--- a/voice_stt_client/core/v2_transport.py
++++ b/voice_stt_client/core/v2_transport.py
+@@ -267 +267 @@
+-            except (TimeoutError, ValueError):
++            except ValueError:

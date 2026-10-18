@@ -1,0 +1,105 @@
+{
+  "authorization": "../../../ZUSATZPROMPTS/004_TESTAUFNAHMEN_REPO.md",
+  "origin": "Deliberate human voice, real ReSpeaker XVF3800, Windows16kHz mono int16; no synthesized or generated speech",
+  "clientQualificationProductCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+  "recordingHelperSha256": "f2aa2e6a85a6cf10997620d989b253fd0783f8c5a08a579b1f7d4d3d1e5e58ed",
+  "records": [
+    {
+      "file": "jarvis_pause.wav",
+      "metadata": "jarvis_pause.json",
+      "sha256": "bd1a14bf88fd6c47ef73511ef01f95a9c0c6cb679d280388a37ca4f3da7aa1b5",
+      "bytes": 288044,
+      "capture": {
+        "operatorInitiated": true,
+        "frames": 144000,
+        "sampleRate": 16000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "inputOverflow": false
+      },
+      "actualRole": "negative_user_speech_wake_omitted_by_early_start",
+      "humanAnnotation": "Tester confirmed started speaking before countdown ended; Hey Jarvis is absent"
+    },
+    {
+      "file": "alexa_pause.wav",
+      "metadata": "alexa_pause.json",
+      "sha256": "abae5a687cee97d120487c2a601509aba41d056b4428966959a1ef1e467b09b3",
+      "bytes": 288044,
+      "capture": {
+        "operatorInitiated": true,
+        "frames": 144000,
+        "sampleRate": 16000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "inputOverflow": false
+      },
+      "actualRole": "positive",
+      "humanAnnotation": "Requested phrase; exact phonetic/user boundary annotation pending"
+    },
+    {
+      "file": "jarvis_direct.wav",
+      "metadata": "jarvis_direct.json",
+      "sha256": "98e3f96e35cb736b5176c96159cf6e2416d50eb739faa2380320e181caf6d9b2",
+      "bytes": 288044,
+      "capture": {
+        "operatorInitiated": true,
+        "frames": 144000,
+        "sampleRate": 16000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "inputOverflow": false
+      },
+      "actualRole": "positive",
+      "humanAnnotation": "Requested phrase; exact phonetic/user boundary annotation pending"
+    },
+    {
+      "file": "alexa_direct.wav",
+      "metadata": "alexa_direct.json",
+      "sha256": "3e314b00bca0698f29afd61700d708d1cddc8d985a6c690dd81d9c260898b009",
+      "bytes": 288044,
+      "capture": {
+        "operatorInitiated": true,
+        "frames": 144000,
+        "sampleRate": 16000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "inputOverflow": false
+      },
+      "actualRole": "positive",
+      "humanAnnotation": "Requested phrase; exact phonetic/user boundary annotation pending"
+    },
+    {
+      "file": "negative_speech.wav",
+      "metadata": "negative_speech.json",
+      "sha256": "fcc98db947a08c7cc3e1146dcf4b3dbc756bfe638e4bbfbbe2364ec0744d0bbc",
+      "bytes": 288044,
+      "capture": {
+        "operatorInitiated": true,
+        "frames": 144000,
+        "sampleRate": 16000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "inputOverflow": false
+      },
+      "actualRole": "negative",
+      "humanAnnotation": "Requested phrase; exact phonetic/user boundary annotation pending"
+    },
+    {
+      "file": "unselected_phrase.wav",
+      "metadata": "unselected_phrase.json",
+      "sha256": "9c64ead8cd6007f6b02b037c675e35e1666ee0a3e2e346daaddc44023e25fd93",
+      "bytes": 288044,
+      "capture": {
+        "operatorInitiated": true,
+        "frames": 144000,
+        "sampleRate": 16000,
+        "channels": 1,
+        "sampleWidth": 2,
+        "inputOverflow": false
+      },
+      "actualRole": "negative",
+      "humanAnnotation": "Requested phrase; exact phonetic/user boundary annotation pending"
+    }
+  ],
+  "reuse": "Original recordings for repeatable model/recovery/boundary tests; replay must be labelled replay, not a new human utterance or live native microphone test."
+}

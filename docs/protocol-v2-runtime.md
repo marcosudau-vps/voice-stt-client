@@ -71,6 +71,13 @@ History ändert keine Dedupidentität. Späte Finals von A lassen Foreground B
 unverändert. Queuefehler werden thread-safe als sekundäre Diagnose zurückgeführt.
 Sound-/LEDfehler ändern weder Session noch Audioverfügbarkeit.
 
+Das serverbestätigte Schließen der Vordergrundeingabe mit `finished` oder
+`timed_out` löst einmalig `server.input.closed` aus, auch ohne Sprachsegment.
+Fehlt diese interne Mappingregel, wird ausschließlich der vorhandene
+Stoppsound samt Lautstärke übernommen; eine explizite Regel bleibt erhalten.
+Activationterminals, Snapshots, Resync und alte Hintergrundaktivierungen lösen
+keinen zweiten Beendigungston aus. Cancel-/Fehlerfeedback bleibt getrennt.
+
 ## Threads, Apply und Shutdown
 
 Qt lebt im Main Thread; sämtliche fachlichen Mutable Services auf der bestehenden
@@ -131,3 +138,10 @@ Grenzen. Reale ASR-/Hardware-/Wahrnehmungsfälle bleiben AP-IV2-020; kompletter
 Crossrepo-Gate AP-IV2-010. AP110-Builds und installed/frozen Checkpoint sind im
 [Paketnachweis](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md)
 selbstqualifiziert; unabhängige AP110-Abnahme und kanonische Übernahme offen.
+
+## AP-IV2-020 – Shutdown und Reconnect
+
+Nach Beginn des Shutdown weist `reconnect_server()` einen Aufruf mit
+`core_unavailable` ab. Erwartete Transportcancellation durch den eigenen Shutdown
+entweicht nicht aus `run()`; externe Cancellation und unerwartete Runnerfehler
+bleiben davon getrennt.

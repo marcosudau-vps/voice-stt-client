@@ -1,0 +1,359 @@
+{
+  "package": "AP-IV2-020",
+  "cases": [
+    {
+      "id": "M-01",
+      "name": "Manual/mehrere Segmente/Overlap",
+      "requirements": [
+        "REAL-01"
+      ],
+      "status": "NOT_PROVEN",
+      "tester": "Human: deliberate speech and native hotkeys; Codex: instrumentation/history/editor evaluation",
+      "executedAt": "2026-10-15T03:50:31.794483+00:00",
+      "clientCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "clientBuildSha256": null,
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "configurationSha256": "13a6dfdba365290c076d6941a08d1fd7ee0925d0c4010b4da2c4a13c78fa30a2",
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open. New d950 live single-segment manual controls/native output PASS; full remaining case still open.",
+      "evidence": [
+        "human/manual-followup-3000.json",
+        "ux01/repeatable-manual-20261016-01/assessment.json"
+      ],
+      "attempts": [
+        {
+          "status": "PARTIAL",
+          "evidence": "human/manual-followup-3000.json",
+          "sourceCommit": "7bcbb82bcb608a2f4c0a67e4157aefdc8527b27d",
+          "boundaries": "Source desktop, not Frozen; no old-final/new-activation overlap demonstrated."
+        },
+        {
+          "evidence": "ux01/repeatable-manual-20261016-01/assessment.json",
+          "sourceCommit": "b09c77a5e4702ad7773de8d0f83a026bc5b57d30",
+          "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+          "status": "PARTIAL",
+          "boundaries": "Actual manual F8/F9 control PASS; native output FAIL due held Shift (UX02). Remaining full-case steps not run."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+          "sourceCommit": "8445851c96c367e6647c7bd9f41f946bda463894",
+          "evidence": "ux02/manual-voice-20261016-01/assessment.json",
+          "boundaries": "One real manual F8 Activate/F9 Finish, one ASR final/history/native paste PASS; complete case remains NOT_PROVEN. Planned spelling hyphen differs; authoritative text preserved."
+        }
+      ]
+    },
+    {
+      "id": "M-02",
+      "name": "Wake-only/mehrere IDs",
+      "requirements": [
+        "REAL-01",
+        "REAL-02"
+      ],
+      "status": "NOT_PROVEN",
+      "tester": "Human speech; Codex native desktop/observer/history evaluation",
+      "executedAt": "2026-10-15T04:09:35.652364+00:00",
+      "clientCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "clientBuildSha256": null,
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "configurationSha256": "ac4d0419badaf7967ead6b93f7d8c0fa5e8c83725f599399dcf328018cd10a94",
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": "Latest controlled direct Jarvis/Alexa phrases complete without wake text, visible spaced output confirmed by human and editor hash. One activation/final/native attempt each. Separate sessions; both inputs timed out without a finish command, so controls and complete M02 remain NOT_PROVEN. Earlier attempts retained.",
+      "evidence": [
+        "human/wake-first-live.json",
+        "ux01/stepped-20261016-01/assessment.json"
+      ],
+      "attempts": [
+        {
+          "status": "PARTIAL",
+          "evidence": "ux01/stepped-20261016-01/assessment.json",
+          "sourceCommit": "e95d871a498f07d99fea2bc4ace57c616504abc0",
+          "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+          "boundaries": "Two separate sessions. Direct phrases and native spaced output PASS; hotkey finish/complete M02 NOT_PROVEN."
+        }
+      ]
+    },
+    {
+      "id": "M-03",
+      "name": "Both/Trigger-Races",
+      "requirements": [
+        "REAL-01",
+        "REAL-02"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-04",
+      "name": "Phasenmatrix/Hotkeykollision/Watchdog",
+      "requirements": [
+        "REAL-01",
+        "REAL-04"
+      ],
+      "status": "NOT_PROVEN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open. New d950 live single-segment manual controls/native output PASS; full remaining case still open.",
+      "evidence": [
+        "ux01/repeatable-manual-20261016-01/assessment.json"
+      ],
+      "attempts": [
+        {
+          "evidence": "ux01/repeatable-manual-20261016-01/assessment.json",
+          "sourceCommit": "b09c77a5e4702ad7773de8d0f83a026bc5b57d30",
+          "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+          "status": "PARTIAL",
+          "boundaries": "Actual manual F8/F9 control PASS; native output FAIL due held Shift (UX02). Remaining full-case steps not run."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+          "sourceCommit": "8445851c96c367e6647c7bd9f41f946bda463894",
+          "evidence": "ux02/manual-voice-20261016-01/assessment.json",
+          "boundaries": "One real manual F8 Activate/F9 Finish, one ASR final/history/native paste PASS; complete case remains NOT_PROVEN. Planned spelling hyphen differs; authoritative text preserved."
+        }
+      ]
+    },
+    {
+      "id": "M-05",
+      "name": "Pausen/Restart",
+      "requirements": [
+        "REAL-01",
+        "REAL-03"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-06",
+      "name": "USB/Mute/LED-only",
+      "requirements": [
+        "REAL-03"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-07",
+      "name": "Netz/Server/Logstore",
+      "requirements": [
+        "REAL-03"
+      ],
+      "status": "NOT_PROVEN",
+      "tester": "Codex/local Windows",
+      "executedAt": null,
+      "clientCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "clientBuildSha256": null,
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": "Real logstore disk-full subcase PASS: 30 actual SQLite errors, activation ack16ms, nonempty real ASR final, unchanged STT session/generation, pending0. Complete M07 still NOT_PROVEN.",
+      "evidence": [
+        "recovery-audit/real-recovery.json",
+        "recovery-audit/native/desktop-trace.jsonl",
+        "recovery-audit/findings.json",
+        "ux01/logstore-diskfull.json"
+      ],
+      "attempts": [
+        {
+          "id": "M-07",
+          "name": "Netz/Server/Logstore",
+          "requirements": [
+            "REAL-03"
+          ],
+          "status": "FAIL",
+          "tester": "Codex/local Windows",
+          "executedAt": null,
+          "clientCommit": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+          "clientBuildSha256": null,
+          "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+          "configurationSha256": null,
+          "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+          "actualResult": "Idle serverrestart twice: permanent settings_preflight_failed after temporary GET outage; preview/final/logstore variants still NOT_RUN",
+          "evidence": [
+            "restart-repro-trace.jsonl",
+            "restart-repro-smoke.json",
+            "repro-transient-preflight.txt.gz"
+          ],
+          "findingIds": [
+            "IV2-020-F01"
+          ]
+        },
+        {
+          "status": "PARTIAL_LOGSTORE_INDEPENDENCE_PASS",
+          "clientCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+          "evidence": "ux01/logstore-diskfull.json",
+          "boundaries": "Separate pinned local server, same real models; actual isolated tmpfs ENOSPC and SQLite failure, consented real WAV replay, real production STT+log transports; no live Mic/native paste. Log is in backoff at end; full log recovery not demonstrated. Preview/final network variants still open."
+        }
+      ],
+      "findingIds": [],
+      "qualifiedFrozenArtifactReference": "recovery-audit/build/artifacts.json; not a frozen M-07 execution claim"
+    },
+    {
+      "id": "M-08",
+      "name": "Settings/Drain",
+      "requirements": [
+        "REAL-01"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-09",
+      "name": "Admin/Credential/Export",
+      "requirements": [
+        "REAL-04"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-10",
+      "name": "Frozenfeedback/Bediengefühl",
+      "requirements": [
+        "REAL-04"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    },
+    {
+      "id": "M-11",
+      "name": "Clipboard/Elevated/Reinsert/Crash",
+      "requirements": [
+        "REAL-04"
+      ],
+      "status": "NOT_PROVEN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open. Current corrected product d95043e: full native case not yet qualified; historical FAIL is not erased. UX02 physical modifier probe now PASS/CLOSED with exact native output and human confirmation; complete M11 remains NOT_PROVEN. New d950 live single-segment manual controls/native output PASS; full remaining case still open.",
+      "evidence": [
+        "ux01/repeatable-manual-20261016-01/assessment.json"
+      ],
+      "attempts": [
+        {
+          "evidence": "ux01/repeatable-manual-20261016-01/assessment.json",
+          "sourceCommit": "b09c77a5e4702ad7773de8d0f83a026bc5b57d30",
+          "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+          "status": "FAIL",
+          "boundaries": "Actual manual F8/F9 control PASS; native output FAIL due held Shift (UX02). Remaining full-case steps not run."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+          "sourceCommit": "8c8e36b931b26db8d705bf94d9dad8e9acd5d43c",
+          "evidence": "ux02/native-physical-20261016-01/assessment.json",
+          "boundaries": "Actual physical modifier release/native paste PASS closes UX02 only; normal/elevated/conflict/reinsert/crash full M11 remains open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+          "sourceCommit": "8445851c96c367e6647c7bd9f41f946bda463894",
+          "evidence": "ux02/manual-voice-20261016-01/assessment.json",
+          "boundaries": "One real manual F8 Activate/F9 Finish, one ASR final/history/native paste PASS; complete case remains NOT_PROVEN. Planned spelling hyphen differs; authoritative text preserved."
+        }
+      ],
+      "previousProductResult": "FAIL at 17261e6; preserved in attempts/evidence"
+    },
+    {
+      "id": "M-12",
+      "name": "30min/100Activations/Wakegrenze",
+      "requirements": [
+        "REAL-02",
+        "REAL-05"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": []
+    }
+  ],
+  "wakeBoundary": "NOT_PROVEN",
+  "calibration": "NOT_PROVEN",
+  "realGate": "NOT_PROVEN",
+  "duration100Activations": "NOT_RUN",
+  "note": "Prechecks are separate evidence and do not mark complete M cases PASS.",
+  "currentTechnicalQualification": "ux02/qualification-summary.json",
+  "humanExecution": "IN_PROGRESS; real manual baseline completed; no complete M PASS",
+  "currentProductCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+  "currentNativeModifierQualification": "ux02/native-physical-20261016-01/assessment.json",
+  "currentLiveManualQualification": "ux02/manual-voice-20261016-01/assessment.json",
+  "ux03Supplement": {
+    "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+    "evidence": "ux03-close-sound/assessment.json",
+    "nativeRenderer": "PASS, actual no-speech initial timeout -> one STOP player run",
+    "humanHearing": "PASS; human-hearing-confirmed.json",
+    "fullCases": "NOT_PROVEN; existing dated attempts retained, no unverified transfer to new build",
+    "findingStatus": "CLOSED"
+  }
+}
