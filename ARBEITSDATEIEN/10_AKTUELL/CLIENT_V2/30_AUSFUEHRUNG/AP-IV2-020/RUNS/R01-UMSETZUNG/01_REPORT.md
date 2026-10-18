@@ -1,3 +1,13 @@
+## Letzter TV-/Hotkey-/Overlayfall dokumentiert, 18.10.2026
+
+[IV2-020-O01](13_TV_WAKE_FINISH_UND_HINTERGRUND.md): unerwünschter Alexa-Treffer
+03:57:03 MESZ, Score0,834205, danach ein reales Sprachsegment. Zwei Refreshs,
+dann F9/finish bestätigt; kein Cancel. Eingabe idle, Auftrag angenommen, bis zum
+Belegstand mindestens299,7s ohne Terminal. Bereit plus Hintergrundauftrag ist
+vertraglich konsistent; konkreter Verarbeitungs-/Abschlussverdacht offen,
+reiner Overlayfehler nicht nachgewiesen. 59 bestehende Feedback-/Controltests
+PASS. Keine Produkt-/Konfigurationsänderung. W01 bleibt gesonderter Serverblocker.
+
 ## Server-Issue7 angelegt, 18.10.2026
 
 Auf ausdrücklichen Nutzerwunsch [Server-Issue7](https://github.com/marcosudau-vps/voice-stt-server/issues/7) mit genauer Beschreibung und allen W01-Belegen erstellt; Remoteinhalt und commitgebundene Client-Belegpfade verifiziert. Kein Server-FIX beauftragt/gestartet, BLOCKED / SERVER_FIX_REQUIRED bleibt. [Akte](12_WAKE_REAKTIVIERUNG_W01.md).

@@ -1,3 +1,12 @@
+## Letzter TV-/Hotkey-/Overlayfall O01
+
+[Auswertung](../13_TV_WAKE_FINISH_UND_HINTERGRUND.md),
+[gefilterte Livebelege/Bindings](tv-wake-finish-20261018/live-analysis.json),
+[59 bestehende Feedback-/Controltests PASS](tv-wake-finish-20261018/feedback-controls-regression.json),
+[vollständiger Log](tv-wake-finish-20261018/feedback-controls-regression.txt.gz).
+Kein Cancel im Verlauf; finish bestätigt. Fehlender Terminalstatus bleibt
+OPEN_INVESTIGATION, kein behaupteter reiner UI-Defekt oder kompletter PASS.
+
 ## Server-Issue7 dokumentiert
 
 [Server-Issue](https://github.com/marcosudau-vps/voice-stt-server/issues/7), [exakter Issueinhalt](wake-retrigger-20261018/server-issue-body.md), [verifizierte Remoteanlage](wake-retrigger-20261018/server-issue.json). Kein Implementierungsauftrag.
