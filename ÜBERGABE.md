@@ -1,3 +1,15 @@
+## AP-IV2-020/R01 – korrigierte ereignisgebundene Testführung,19.10.2026
+
+Aufgabe1 erneut selbst starten. F8/Sprach-/Abschlussereignisse bewegen die
+Markierung; nur echte Beobachtungen erzeugen Häkchen. Alte Resultate gesichert.
+27 Helfer/Qt-Polling,1398Windows ohne Skips und compileall PASS. Neuer realer
+Vorcheck134Frames ohne Activation. T03 bis menschlicher UI-Bestätigung offen.
+Gesicherter Ordner `C:/Users/marco/.voice-stt/qualification/AP-IV2-020/progress-regression-20261019-162446`
+konnte trotz erlaubter Aufräumaktion wegen automatischer Freigabeprüfung nicht
+entfernt werden (nur „blocked by policy“). Aufräumpflicht bleibt offen; keine
+Umgehung. Übrige neue Vorprüfungs-/alte Bedienordner nach Sicherung entfernt.
+[Bericht21](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/21_TESTOBERFLAECHE_LIVE_FORTSCHRITT.md).
+
 ## AP-IV2-020/R01 – genehmigter geführter Bedienlauf startbereit,19.10.2026
 
 `venv/Scripts/python.exe -m tests.manual.v2.guided_suite --profile-runtime`

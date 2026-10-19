@@ -20,6 +20,7 @@ from tests.manual.v2.suite_plan import (
     TASKS, DEFERRED, ROOT, RUNTIME, PROFILE_RUNTIME, TARGET, PREPARE_SECONDS, SuiteRecord, owned_path, target_origin)
 from tests.manual.v2.suite_session import save
 from tests.manual.v2.suite_analysis import summarize
+from tests.manual.v2.suite_progress import guide_progress
 
 
 def main():
@@ -56,6 +57,8 @@ def main():
     step, phase, prepare_at, started_at = 0, 'preview', None, None
     device = None
     changes, paste_events = 0, []
+    confirmed_steps = set()
+    last_board = None
     closing = False
     user32 = __import__('ctypes').windll.user32
     user32.GetForegroundWindow.restype = __import__('ctypes').c_void_p
@@ -127,7 +130,7 @@ def main():
     editor.setMinimumHeight(100)
     content.addWidget(editor)
     start_button = QPushButton('Aufgabe starten')
-    advance = QPushButton('Schritt erledigt →')
+    advance = QPushButton('Beobachtung / Geräteaktion erledigt →')
     finish_button = QPushButton('Versuch beenden / auswerten')
     for button in (start_button, advance, finish_button):
         content.addWidget(button)
@@ -162,12 +165,18 @@ def main():
              state=str(folder/'editor-state.json'), target=TARGET,
              clientStarted=child is not None and child.poll() is None))
 
-    def board(active):
-        nonlocal step
+    def board(active, origin='ui'):
+        nonlocal step, last_board
         step = active
+        signature = (index, active, tuple(sorted(confirmed_steps)))
+        if signature != last_board:
+            with (folder/'operator-events.jsonl').open('a',encoding='utf8') as handle:
+                handle.write(json.dumps(dict(timeUtc=datetime.now(UTC).isoformat(),task=TASKS[index]['id'],
+                    activeStep=active,confirmedSteps=sorted(confirmed_steps),origin=origin))+'\n')
+            last_board = signature
         for row, label in enumerate(labels):
-            current, done = row == active, row < active
-            label.setText(('▶  ' if current else '✓  ' if done else f'{row+1}.  ')+label.property('instructionText'))
+            current, done = row == active, row in confirmed_steps
+            label.setText(('▶  ' if current else '✓  ' if done else '○  ' if row < active else f'{row+1}.  ')+label.property('instructionText'))
             label.setStyleSheet('padding:8px;font-size:14px;border-radius:4px;'+(
                 'color:#172b57;background:#dceaff;border:2px solid #2563eb;font-weight:bold' if current else
                 'color:#41664b;background:#edf5ee' if done else 'color:#818895;background:#eef0f3'))
@@ -175,6 +184,7 @@ def main():
     def preview():
         nonlocal phase, prepare_at
         phase, prepare_at = 'preview', None
+        confirmed_steps.clear()
         task = TASKS[index]
         tasks.setCurrentRow(index)
         title.setText(task['title'])
@@ -232,6 +242,7 @@ def main():
         editor.clear()
         paste_events.clear()
         phase, prepare_at, started_at = 'starting', None, time.monotonic()
+        confirmed_steps.add(0)
         start_button.setEnabled(False)
         skip.setEnabled(False)
         finish_button.setEnabled(True)
@@ -253,8 +264,9 @@ def main():
         write_record()
 
     def next_step():
-        if phase == 'running' and step < len(labels)-1:
-            board(step+1)
+        if phase == 'running' and advance.isEnabled() and step < len(labels)-1:
+            confirmed_steps.add(step)
+            board(step+1,'human_observation')
             editor.setFocus()
             if step == len(labels)-1:
                 advance.setEnabled(False)
@@ -308,7 +320,8 @@ def main():
         value = editor.toPlainText()
         save(folder/'editor-state.json', dict(pid=os.getpid(), timeUtc=datetime.now(UTC).isoformat(),
              foreground=int(user32.GetForegroundWindow() or 0) == int(window.winId()),
-             editorHasFocus=editor.hasFocus(), phase=phase, characters=len(value),
+             editorHasFocus=editor.hasFocus(), phase=phase, activeStep=step,
+             confirmedSteps=sorted(confirmed_steps), characters=len(value),
              sha256=hashlib.sha256(value.encode()).hexdigest()))
 
     def tick():
@@ -355,17 +368,23 @@ def main():
                     status.setText(f'CLIENT BEREIT · Noch {left} s bereitmachen · Noch nicht sprechen.')
                     if left == 0:
                         phase = 'running'
+                        confirmed_steps.add(1)
                         board(2)
-                        advance.setEnabled(True)
                         settings.setEnabled(True)
                         reconnect.setEnabled(True)
                 else:
                     prepare_at = None
                     status.setText('CLIENT STARTET / MODELLE LADEN · Bitte warten · '+str(live.get('transport', ''))+' · '+str(live.get('reason', '')))
             if phase == 'running':
+                guide = guide_progress(TASKS[index]['id'],live.get('operatorProgress',{}),len(paste_events))
+                confirmed_steps.update(guide['confirmed'])
+                board(max(step,guide['active']),'observed_client_events')
+                advance.setEnabled(guide['manualAllowed'] and step < len(labels)-1)
                 status.setText(('CLIENT BEREIT' if ready else 'WARTEN / AUDIO ODER VERBINDUNG FEHLT')+
                     f" · Phase: {live.get('phase')} · Audio: {live.get('audioAvailable')} · Generation: {live.get('generation')}"+
-                    f"\nSession: {live.get('sessionId')} · {live.get('reason', '')}")
+                    f"\nSession: {live.get('sessionId')} · {live.get('reason', '')}"+
+                    (f"\nWarten: {guide['waitRemaining']} s" if guide['waitRemaining'] is not None else '')+
+                    ('\n'+guide['notice'] if guide['notice'] else ''))
         elif phase == 'starting':
             status.setText(f'CLIENT STARTET · {int(time.monotonic()-started_at)} s · Modellstart darf mehrere Minuten dauern.')
 
@@ -393,10 +412,32 @@ def main():
     print(json.dumps(dict(uiPid=os.getpid(), folder=str(folder), clientStarted=False)), flush=True)
     if args.self_check:
         def check():
+            nonlocal child, phase, attempt_folder, record
             assert child is None and record.active is None and phase == 'preview'
             assert phrase.text() == TASKS[0]['phrase'] and len(labels) == len(TASKS[0]['steps'])+3
             assert not advance.isEnabled() and not accept.isEnabled()
             assert all(label.text() for label in labels)
+            # Exercise actual JSON polling, not only the reducer or layout.
+            class SimulatedChild:
+                def poll(self):
+                    return None
+            child=SimulatedChild()
+            attempt_folder=folder/'simulated-client-status'
+            attempt_folder.mkdir()
+            phase='running'
+            observed = {'counts':{'activation.started':1,'segment.recording_started':1}}
+            save(attempt_folder/'status.json',dict(timeUtc=datetime.now(UTC).isoformat(),
+                 ready=True,audioAvailable=True,generation=1,phase='recording',operatorProgress=observed))
+            tick()
+            assert step==3 and labels[3].text().startswith('▶')
+            assert labels[2].text().startswith('✓')
+            assert not advance.isEnabled(), 'F8/speech progression must not need a Next click'
+            review_controls()
+            assert not labels[3].text().startswith('✓'), 'Review must not fabricate F9 completion'
+            child=None
+            phase='preview'
+            confirmed_steps.clear()
+            record=SuiteRecord()
             # Explicitly skipping is recorded, never launches the next task.
             decide('skip')
             assert index == 1 and phase == 'preview' and child is None

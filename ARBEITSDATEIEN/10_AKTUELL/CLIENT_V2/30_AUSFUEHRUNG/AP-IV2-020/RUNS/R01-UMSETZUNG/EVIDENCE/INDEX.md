@@ -1,3 +1,12 @@
+## T03: Ereignisgebundener Livefortschritt der Testoberfläche,19.10.2026
+
+- [Bericht21](../21_TESTOBERFLAECHE_LIVE_FORTSCHRITT.md).
+- [Finale27 Helfer/1398Windows/Qt und reale Vorprüfung](guided-progress-20261019/validation.json).
+- [Vollständiger Windowslog](guided-progress-20261019/windows-1398.log.gz), [Helfer27](guided-progress-20261019/progress-tests-27.log.gz), [Qt-Polling-Selbsttest](guided-progress-20261019/qt-ui-self-check.json).
+- [Alter echter Versuch, Fehlerursache und Replay](guided-progress-20261019/finding-and-replay.json), [alte redigierte Ereignisspur](guided-progress-20261019/prior-attempt-events.jsonl).
+- [Zusätzlicher Windows-Sharingfehler und begrenzte Korrektur](guided-progress-20261019/sharing-failure.json).
+- [Aufgeräumte Verzeichnisse und ausdrücklich verbleibender Löschblocker](guided-progress-20261019/cleanup.json).
+
 ## Genehmigte Ablage, finale technische Prüfung und bisheriges Aufräumen,19.10.2026
 
 - [1398Windows-PASS,16 Helfer/43 Fokus, Identitäten und Diagnose der Fehlversuche](guided-suite-20261019/authorized-validation.json).

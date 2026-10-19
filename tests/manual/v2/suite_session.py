@@ -1,6 +1,6 @@
 """Real source desktop for one owned guided attempt. Never starts/stops a server.
 
-All runtime paths are explicit, ignored and inside the repository. Transport
+Runtime paths are explicit and isolated in the authorized qualification area. Transport
 deadlines are diagnostic overrides, not changed product defaults. No raw PCM.
 """
 import argparse
@@ -16,12 +16,23 @@ import threading
 import time
 
 from tests.manual.v2.suite_plan import TASKS, owned_path, target_origin
+from tests.manual.v2.suite_progress import ObservedProgress
 
 
 def save(path, value):
     temp = path.with_suffix('.tmp')
     temp.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding='utf8')
-    temp.replace(path)
+    # Windows readers may briefly hold the target without delete sharing.
+    # Keep the previous complete snapshot and retry only the atomic rename.
+    deadline = time.monotonic()+2
+    while True:
+        try:
+            temp.replace(path)
+            return
+        except PermissionError:
+            if time.monotonic() >= deadline:
+                raise
+            time.sleep(.01)
 
 
 def prepare_profile(folder, target, task, device):
@@ -120,8 +131,10 @@ def main():
     if device is None:
         raise RuntimeError('Selected ReSpeaker is not available; no fallback microphone used')
     trace, lock = folder/'events.jsonl', threading.Lock()
+    progress = ObservedProgress()
     def emit(kind, **fields):
         with lock, trace.open('a', encoding='utf8') as handle:
+            progress.observe(kind, **fields)
             handle.write(json.dumps(dict(type=kind, timeUtc=datetime.now(UTC).isoformat(),
                                          monotonic=time.monotonic(), **fields), ensure_ascii=True)+'\n')
     expected_pid = read_editor_state(editor_state)['pid']
@@ -239,6 +252,7 @@ def main():
             status = dict(latest, pid=os.getpid(), timeUtc=datetime.now(UTC).isoformat())
             with lock:
                 status.update(latest_metrics)
+                status['operatorProgress'] = progress.snapshot()
             save(folder/'status.json', status)
             if args.smoke and status.get('ready') and status.get('audioAvailable'):
                 smoke_ready_at = smoke_ready_at or time.monotonic()

@@ -1,3 +1,15 @@
+## Korrigierte Liveführung – Wiederholung Aufgabe1,19.10.2026
+
+- [x] Veraltete aktive Zeile und pauschale Häkchen als T03 nachgewiesen.
+- [x] Alter Versuch im Projekt gesichert; Fortschritt an echte Ereignisse angebunden.
+- [x]27 Helfer/Qt-Polling und volle1398Windows ohne Skips grün.
+- [x] Echter Vorcheck134Frames; Status transportiert neue Fortschrittsdaten.
+- [ ] Neue Anzeige durch menschliche Wiederholung von Aufgabe1 bestätigen.
+- [ ] Gesicherter Regressionstestordner: Löschung durch automatische Freigabeprüfung blockiert.
+- [ ] Nach weiterem Bedienlauf Ergebnisse auswerten, Belege sichern und Laufzeit aufräumen.
+
+[Ursache, Nachweise und konkrete Grenze](21_TESTOBERFLAECHE_LIVE_FORTSCHRITT.md).
+
 ## Jetzt startbereit: Ablage genehmigt und Technik grün,19.10.2026
 
 - [x] Konkrete Windows-Testablage mit verbindlicher Export-/Aufräumpflicht freigegeben.

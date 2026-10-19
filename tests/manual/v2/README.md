@@ -18,11 +18,17 @@ Das Fenster startet zunächst **nur die Aufgabenliste**, keinen Sprachclient.
 Alle Schritte und Sätze stehen vorher da. Jede Aufgabe benötigt einen eigenen
 **Start**. Nach wirklicher Client-/Audiobereitschaft folgen zehn Sekunden
 Vorbereitung. Der aktuelle Schritt ist blau, der Testsatz groß/grün; vergangene
-Schritte werden abgehakt. **Schritt erledigt** bewegt die Markierung in deinem
-Tempo. **Versuch beenden** stoppt nur diesen Testclient regulär. Danach Ergebnis
+Schritte werden nur bei passender Beobachtung abgehakt. Die Markierung folgt
+automatisch den echten Aktivierungs-, Aufnahme-, Hotkey- und Abschlussereignissen;
+kurze Phasen zwischen Bildschirmaktualisierungen gehen dabei nicht verloren.
+**Beobachtung / Geräteaktion erledigt** ist nur für menschliche Wahrnehmung bzw.
+nicht automatisch feststellbare Schritte aktiv. **Versuch beenden** stoppt nur diesen Testclient regulär. Danach Ergebnis
 auswählen und **Wiederholen**, **Übernehmen → Weiter** oder **Offen lassen → Weiter**.
 Die nächste Aufgabe beginnt erst mit dem nächsten Startklick. **Übernehmen ist
 kein technisches PASS.** Alle Versuche, auch Wiederholungen, bleiben erhalten.
+Beenden hakt fehlende Schritte nicht nachträglich ab. Beispielsweise bleibt F9
+bei einem reinen Timeout unbestätigt; die Oberfläche zeigt einen entsprechenden
+Hinweis. Cancel-/None-/USB-Wartezeiten erhalten ihren tatsächlichen Countdown.
 
 Die elf Aufgaben bündeln Finish, zwei Segmente/Follow-up, Cancel, Refresh,
 None, Feedback/Timeout, Hardware-Mute, USB-Recovery, manuellen Client-Reconnect,

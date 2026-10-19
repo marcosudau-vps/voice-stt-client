@@ -1,3 +1,15 @@
+## T03-Testoberfläche korrigiert, menschliche Wiederholung offen,19.10.2026
+
+[Bericht21](21_TESTOBERFLAECHE_LIVE_FORTSCHRITT.md): Markierung jetzt anhand echter
+Clientereignisse statt manueller Schrittklicks; kein pauschales Abhaken beim Ende.
+Alter Versuch: zwei primäre Activations/Finals/Einfügungen, beide Timeout, kein F9;
+privat im Projekt gesichert.27 Helfer/Qt-Statuspolling,1398Windows/0Skips und
+compileall PASS; echter Vorcheck134Frames/neue Fortschrittsdaten, keine Activation.
+T03 bis menschlicher UI-Bestätigung offen. Ein gesicherter Regressionstestordner
+konnte wegen automatischer Freigabeprüfung nicht gelöscht werden; Aufräumrest
+explizit im Bericht. Übrige neue Vorprüfungen/alte externe Bedienablage entfernt.
+Produkt unverändert7bb5646; gleicher R01/PR15, kein REVIEW_READY.
+
 ## Testablage freigegeben, letzte Vollsuite grün,19.10.2026
 
 [Bericht20](20_GEFUEHRTE_RESTTESTS.md):1398Windows ohne Skips,16 Helfer/43 gezielte

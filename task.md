@@ -1,3 +1,13 @@
+## AP-IV2-020/R01 – T03-Anzeige korrigiert,19.10.2026
+
+[Bericht21](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/21_TESTOBERFLAECHE_LIVE_FORTSCHRITT.md).
+Ereignisgebundene Zeilenführung statt manueller Schrittklicks, keine erfundenen
+Häkchen beim Beenden.27 Helfer/Qt-Polling,1398Windows/0Skips/compileall PASS;
+realer Vorcheck134Frames ohne Activation. Alte Bedienablage gesichert/entfernt;
+ein gesicherter Regressionstestordner bleibt durch automatische Freigabeprüfung
+gegen Löschung blockiert. Aufgabe1 menschlich erneut starten, T03 bestätigen;
+danach weiterer Testlauf und vereinbartes Aufräumen. Produkt7bb5646 unverändert.
+
 ## AP-IV2-020/R01 – Bedienlauf startbereit,19.10.2026
 
 [Bericht20](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/20_GEFUEHRTE_RESTTESTS.md).
