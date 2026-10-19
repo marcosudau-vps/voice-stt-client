@@ -110,8 +110,7 @@ Die reproduzierbaren Idle-Testwerte liegen in [calibration.yaml](calibration.yam
 weiß, `min_brightness: 0.30`, `brightness: 1.0`. Der Starter übernimmt sie über
 das bestehende Feedback-Konfigurationssystem. Die globale LED-Helligkeit bleibt
 unverändert; dies sind Effektwerte, keine zugesagte absolute Lichtleistung.
-Farbprofile und Produktdefaults werden damit nicht geändert. Die neue
-Untergrenze benötigt noch die Sichtbestätigung am Gerät.
+Farbprofile und Produktdefaults werden damit nicht geändert. Die Untergrenze wurde am19.10.2026 über die direkte LED-Vorschau menschlich bestätigt.
 
 `./tests/manual/v2/Start-GuidedTests.ps1 -ProfileRuntime -Tasks usb,feedback`
 zeigt ausschließlich USB und Feedback, weiterhin mit eigenem Start und Wiederholen
@@ -132,3 +131,13 @@ physischer USB- oder Frozen-PASS aus dieser Diagnose.
 Vor START keine LED-Übernahme; keine Hotkeys, Aufnahme oder Serververbindung.
 Jeder Versuch wird separat behalten; Schließen/Übernehmen stoppt eigene Ausgabe.
 `--self-check` prüft Qt mit Dummycontroller, ausschließlich im Projektbuildordner.
+
+## Autonome LED-only-Störung
+
+`venv/Scripts/python.exe -m tests.manual.v2.preflight_suite --profile-runtime --led-only-fault`
+startet einen isolierten echten Source-Desktop/ReSpeaker am ausgewählten Pro-V2,
+ohne Trigger/Sounds. Nur der eigene native LED-USB-Transport wird kurz gestoppt;
+Sinkwechsel und mögliche automatische Wiederherstellung werden beobachtet.
+Audio/Session dürfen dabei nicht wechseln. Das ist ein idle-Teilnachweis, kein
+physisches Abziehen oder vollständiger M-06-/Frozen-PASS. Laufdaten anschließend
+exportieren und im genehmigten Namensraum aufräumen.

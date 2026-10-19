@@ -418,3 +418,7 @@ Kein historisches R03-Urteil überschrieben; frischer unabhängiger Gesamt-Revie
 ## AP-IV2-020/R01 – physische R11-Schließung,19.10.2026
 
 [Bericht23](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/23_USB_BESTAETIGT_UND_IDLE_KALIBRIERUNG.md): M-06-TeilfallUSB/Audio am Produkt0f6c85e PASS_SCOPED, R11 CLOSED; alte/neue Activation sauber getrennt, serverbestätigter Verlust und Recovery, neue bewusste F8/F9-Finishfolge mit einmaliger korrekter Ausgabe. M-10-Teilfall manueller15s-No-Speech-Timeout mit menschlich passendem Timing PASS_SCOPED. Neue30/100%-Idle-Variante technisch berechnet, menschlich NOT_RUN. Keine ganzen M-Gates, Wake-/Both-/Frozen-/30min100-Abnahme daraus;1400Windows-/29Helfertests PASS.
+
+## AP-IV2-020/R01 – Idle-Kalibrierung und LEDonly,19.10.2026
+
+[Bericht25](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/25_IDLE_BESTAETIGT_UND_LED_ISOLATION.md): M-10-Teilfall direkter weißer Idle-Puls20s menschlich PASS_SCOPED, Minimum0,30/Peak1,0 gespeichert. M-06-Teilfall kontrollierte native LED-Kanalstörung bei idle autonom PASS_SCOPED,59→210Audiopakete, gleichbleibende Session/Generation, kein AudioAvailability-Command oder neue Activation. Kein M-06-Openinput/Altfinal-/M-10-Frozen-/Wake-PASS daraus. Erste Hilfsprüfung mit falscher Persistenzannahme bleibtFAIL; automatische echte LED-Recovery ist funktionierender Schutz.33Helfertests PASS, Produkt0f6c85e unverändert.

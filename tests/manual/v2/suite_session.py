@@ -92,8 +92,11 @@ def main():
     parser.add_argument('--target', required=True)
     parser.add_argument('--task', choices=[task['id'] for task in TASKS], required=True)
     parser.add_argument('--device', type=int, required=True)
-    parser.add_argument('--smoke', action='store_true', help='Autonomous real microphone/transport precheck; no keys, sounds, LEDs or activation')
+    parser.add_argument('--smoke', action='store_true', help='Autonomous real audio precheck; no keys/sounds/activation; LEDs only with --led-only-fault')
+    parser.add_argument('--led-only-fault', action='store_true', help='With --smoke: stop only native LED transport; keep real audio running')
     args = parser.parse_args()
+    if args.led_only_fault and not args.smoke:
+        parser.error('LED-only fault is an isolated autonomous smoke, not an operator task')
     target_origin(args.target)
     folder, editor_state = owned_path(args.folder), owned_path(args.editor_state)
     task = next(task for task in TASKS if task['id'] == args.task)
@@ -121,7 +124,7 @@ def main():
     config = prepare_profile(folder, args.target, task, args.device)
     if args.smoke:
         config.feedback.sounds_enabled = False
-        config.led.enabled = False
+        config.led.enabled = args.led_only_fault
         config.v2_profile['controls']['enabled'] = False
         config.save(folder/'profile.yaml')
         from voice_stt_client.core.config import AppConfig
@@ -208,6 +211,7 @@ def main():
     latest_metrics = {}
     started_at = time.monotonic()
     smoke_ready_at = None
+    led_fault = None
     def snapshot(view):
         latest.update(ready=view.ready, generation=view.generation, sessionId=view.session_id,
                       transport=view.transport, reason=view.reason, phase=str(view.mirror.input.phase),
@@ -219,6 +223,13 @@ def main():
         bridge.snapshot_changed.connect(snapshot)
         desktop = V2DesktopApplication(app, config, guard, bridge=bridge,
                                       observability=manager.ingress, observability_manager=manager)
+        if args.led_only_fault:
+            old_sink = desktop.led_feedback.controller._on_sink_changed
+            def observe_sink(available, detail):
+                if old_sink:
+                    old_sink(available, detail)
+                emit('led.sink', available=bool(available))
+            desktop.led_feedback.controller._on_sink_changed = observe_sink
         app.aboutToQuit.connect(desktop.shutdown)
         if not desktop.start():
             raise RuntimeError('Desktop failed to start')
@@ -229,7 +240,7 @@ def main():
         inbox = folder/'commands'
         inbox.mkdir(exist_ok=True)
         def poll():
-            nonlocal smoke_ready_at
+            nonlocal smoke_ready_at, led_fault
             # A lost/killed workbench cannot leave an orphan microphone client.
             state = read_editor_state(editor_state)
             age = abs((datetime.now(UTC)-datetime.fromisoformat(state['timeUtc'])).total_seconds())
@@ -255,6 +266,27 @@ def main():
                 status.update(latest_metrics)
                 status['operatorProgress'] = progress.snapshot()
             save(folder/'status.json', status)
+            if args.led_only_fault:
+                if led_fault is None:
+                    if status.get('ready') and status.get('audioAvailable') and desktop.led_feedback._sink_available:
+                        smoke_ready_at = smoke_ready_at or time.monotonic()
+                        if time.monotonic()-smoke_ready_at >= 2:
+                            led_fault = dict(time=time.monotonic(), before=dict(status))
+                            desktop.led_feedback.controller._transport().stop()
+                            emit('fault.injected', target='native LED USB transport only', microphoneUntouched=True)
+                    else:
+                        smoke_ready_at = None
+                elif time.monotonic()-led_fault['time'] >= 6:
+                    from tests.manual.v2.suite_analysis import assess_led_fault
+                    result = assess_led_fault(led_fault['before'], status,
+                        led_unavailable=status.get('operatorProgress',{}).get('counts',{}).get('led.unavailable',0)>0)
+                    result['ledRecovered'] = desktop.led_feedback._sink_available is True
+                    save(folder/'smoke.json', result)
+                    app.quit()
+                if time.monotonic()-started_at > 600:
+                    save(folder/'smoke.json', dict(result='FAIL', reason='LED-only probe timed out'))
+                    app.quit()
+                return
             if args.smoke and status.get('ready') and status.get('audioAvailable'):
                 smoke_ready_at = smoke_ready_at or time.monotonic()
                 if time.monotonic()-smoke_ready_at >= 5 and status.get('media', {}).get('sent', 0) > 20:
@@ -275,6 +307,7 @@ def main():
                      trackerPending=runtime.session.pending_count, memory=process_memory(),
                      media=runtime.media.counters(), capture=runtime.audio.capture_counters(),
                      injectionQueue=runtime.queue.queue_size(), audioAvailable=bool(runtime.media.audio_available))
+                values['localIssues'] = sorted(runtime._issues)
                 with lock:
                     latest_metrics.update(values)
                 emit('metrics', **values)

@@ -1,5 +1,5 @@
 # Reproducible AP-IV2-020 test-profile settings, not release defaults.
-# Requested after the USB/feedback run on 2026-10-19; visual confirmation pending.
+# Confirmed by a direct real 20-second LED comparison on 2026-10-19.
 # Intensities below are effect-relative; existing global LED brightness is retained.
 idle:
   color: '#FFFFFF'

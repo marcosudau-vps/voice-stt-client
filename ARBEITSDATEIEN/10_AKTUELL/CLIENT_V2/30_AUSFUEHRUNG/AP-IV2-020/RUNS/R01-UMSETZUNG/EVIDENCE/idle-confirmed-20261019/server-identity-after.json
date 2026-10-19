@@ -1,0 +1,421 @@
+{
+  "capturedAtUtc": "2026-10-19T17:37:43.331425+00:00",
+  "requiredServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "remoteProject": "/home/marco/.codex_projekte/voice-stt-server_umstrukturierung",
+  "readOnly": true,
+  "files": [
+    {
+      "path": "/home/marco/.codex_projekte/voice-stt-server_umstrukturierung/evidenz/v2-pro-build-manifest.json",
+      "sha256": "fc775856c318c3309e4440ba2c0b50c2044575b28e06923bbf6556152f8228ff",
+      "data": {
+        "target": "pro",
+        "gitCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "gitDirty": false,
+        "voicesttVersion": "2.0.0",
+        "buildDate": "2026-10-04T02:15:01Z",
+        "buildDateSource": "git-commit-timestamp",
+        "productionBaseImage": "ubuntu:24.04@sha256:33ceb71981b602c1a7443a53469e4dba065f7503eab3078a2d7a57a2ab987517",
+        "voicesttWheel": {
+          "path": "/home/marco/selfhost_outsourced/build_area/services/voice-stt-server/version2-development/voice-stt-server-pro/workdir/dist/voicestt/voicestt-2.0.0-py3-none-any.whl",
+          "name": "voicestt-2.0.0-py3-none-any.whl",
+          "bytes": 30088259,
+          "sha256": "1008340674a8df024607f602d2164537d55038b4eb951048ac116c932de4e95b"
+        },
+        "toolVersions": {
+          "git": "git version 2.43.0",
+          "docker": "29.9.0"
+        },
+        "variants": {
+          "pro": {
+            "kroko": {
+              "artifact": {
+                "abiTag": "cp312",
+                "architecture": "amd64",
+                "fingerprint": "b7f9278878f521f0",
+                "pythonTag": "cp312",
+                "targetPlatform": "linux",
+                "upstreamRevision": "8657e655192623b98d7708e742a72987f953d3a2",
+                "variant": "pro",
+                "wheelBytes": 8751823,
+                "wheelFilename": "kroko_onnx-1.12.9-1pro-cp312-cp312-linux_x86_64.whl",
+                "wheelPath": "/artifact-store/pro/b7f9278878f521f0/kroko_onnx-1.12.9-1pro-cp312-cp312-linux_x86_64.whl",
+                "wheelSha256": "dc409bd984fe20a82db56b1e3317e50131a24353b4cc5d9b0bc8b901fbb810f2"
+              },
+              "artifactPresent": true,
+              "artifactStore": "/artifact-store",
+              "fingerprint": "b7f9278878f521f0",
+              "inputs": {
+                "build": {
+                  "builderRevision": 2,
+                  "cmakeFlags": "-DCMAKE_BUILD_TYPE=Release -DSHERPA_ONNX_ENABLE_GPU=OFF -DSHERPA_ONNX_ENABLE_PORTAUDIO=OFF -DSHERPA_ONNX_ENABLE_WEBSOCKET=ON -DSHERPA_ONNX_ENABLE_TTS=OFF -DSHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION=OFF -DSHERPA_ONNX_ENABLE_BINARY=OFF -DSHERPA_ONNX_USE_PRE_INSTALLED_ONNXRUNTIME_IF_AVAILABLE=OFF",
+                  "makeArgs": "-j2",
+                  "patchSetRevision": 3,
+                  "proLicenseEnabled": true
+                },
+                "python": {
+                  "abi": "cp312",
+                  "tag": "cp312"
+                },
+                "schemaVersion": 1,
+                "target": {
+                  "architecture": "amd64",
+                  "platform": "linux"
+                },
+                "toolchain": {
+                  "cmakePath": "/usr/bin/cmake",
+                  "cmakeVersion": "cmake version 3.25.1",
+                  "compilerPath": "/usr/bin/cc",
+                  "compilerVersion": "cc (Debian 12.2.0-14+deb12u1) 12.2.0",
+                  "cxxCompilerPath": "/usr/bin/c++",
+                  "cxxCompilerVersion": "c++ (Debian 12.2.0-14+deb12u1) 12.2.0",
+                  "kind": "host-native",
+                  "opensslDevelopment": {
+                    "headers": [
+                      {
+                        "path": "/usr/include/openssl/opensslv.h",
+                        "sha256": "be75ce535d11ddb2c2000aca3d92c89e78d8e3138379f63f02021a80d57bba45"
+                      },
+                      {
+                        "path": "/usr/include/openssl/ssl.h",
+                        "sha256": "2d493661d951c792e94e3b825a449ea6c2d8f93dc0eddd49e4f54dd72d1c8e28"
+                      }
+                    ],
+                    "libraries": [
+                      {
+                        "name": "crypto",
+                        "path": "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+                        "sha256": "72db1b3de8b7dfbaba4c056135f408da555f9d5e137c82129478e07e769f8070"
+                      },
+                      {
+                        "name": "ssl",
+                        "path": "/usr/lib/x86_64-linux-gnu/libssl.so.3",
+                        "sha256": "9aec161fdbc82d3e4280f5084843118939f1f4acc53c98ec963de03cfe812fad"
+                      }
+                    ],
+                    "root": null,
+                    "source": "system-development-stack",
+                    "version": "3.0.20"
+                  }
+                },
+                "upstream": {
+                  "repo": "https://github.com/kroko-ai/kroko-onnx.git",
+                  "revision": "8657e655192623b98d7708e742a72987f953d3a2"
+                },
+                "variant": "pro"
+              },
+              "variant": "pro",
+              "reused": false,
+              "hostWheelPath": "/home/marco/selfhost_outsourced/build_area/services/voice-stt-server/version2-development/voice-stt-server-pro/artifacts/kroko-store/pro/b7f9278878f521f0/kroko_onnx-1.12.9-1pro-cp312-cp312-linux_x86_64.whl"
+            },
+            "image": {
+              "variant": "pro",
+              "image": "voice-stt-server-pro",
+              "versionTag": "voice-stt-server-pro:2.0.0",
+              "commitTag": "voice-stt-server-pro:ada13b011e1d",
+              "buildDate": "2026-10-04T02:15:01Z",
+              "buildDateSource": "git-commit-timestamp"
+            },
+            "imageId": "sha256:57a7907b36389e09ce978efe0ceb18997f34eb729a0b29143bade01e96eb0078",
+            "imageLabels": {
+              "com.voicestt.kroko-variant": "pro",
+              "org.opencontainers.image.created": "2026-10-04T02:15:01Z",
+              "org.opencontainers.image.description": "VoiceSTT FastAPI production server (CPU, Ubuntu 24.04)",
+              "org.opencontainers.image.licenses": "MIT",
+              "org.opencontainers.image.revision": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+              "org.opencontainers.image.source": "https://github.com/marcosudau-vps/voice-stt-server",
+              "org.opencontainers.image.title": "voice-stt-server",
+              "org.opencontainers.image.version": "2.0.0"
+            }
+          }
+        }
+      }
+    },
+    {
+      "path": "/home/marco/.codex_projekte/voice-stt-server_umstrukturierung/evidenz/v2-normal-build-manifest.json",
+      "sha256": "ef8ffb640133471729deffe03705a6052a6d5428d7fe93e4860d53394c8cba2e",
+      "data": {
+        "target": "free",
+        "gitCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+        "gitDirty": false,
+        "voicesttVersion": "2.0.0",
+        "buildDate": "2026-10-04T02:15:01Z",
+        "buildDateSource": "git-commit-timestamp",
+        "productionBaseImage": "ubuntu:24.04@sha256:33ceb71981b602c1a7443a53469e4dba065f7503eab3078a2d7a57a2ab987517",
+        "voicesttWheel": {
+          "path": "/home/marco/selfhost_outsourced/build_area/services/voice-stt-server/version2-development/voice-stt-server/workdir/dist/voicestt/voicestt-2.0.0-py3-none-any.whl",
+          "name": "voicestt-2.0.0-py3-none-any.whl",
+          "bytes": 30088259,
+          "sha256": "1db73169098bf2660c7f248f6e5de33175334b6439b8555a528e34f58d852d25"
+        },
+        "toolVersions": {
+          "git": "git version 2.43.0",
+          "docker": "29.9.0"
+        },
+        "variants": {
+          "free": {
+            "kroko": {
+              "artifact": {
+                "abiTag": "cp312",
+                "architecture": "amd64",
+                "fingerprint": "578d6c898adac1b1",
+                "pythonTag": "cp312",
+                "targetPlatform": "linux",
+                "upstreamRevision": "8657e655192623b98d7708e742a72987f953d3a2",
+                "variant": "free",
+                "wheelBytes": 8253941,
+                "wheelFilename": "kroko_onnx-1.12.9-1free-cp312-cp312-linux_x86_64.whl",
+                "wheelPath": "/artifact-store/free/578d6c898adac1b1/kroko_onnx-1.12.9-1free-cp312-cp312-linux_x86_64.whl",
+                "wheelSha256": "bcfea3cc577bcd3dfd8948c13bb711a5fa9c87c5c0c9a7695c31f344572abc98"
+              },
+              "artifactPresent": true,
+              "artifactStore": "/artifact-store",
+              "fingerprint": "578d6c898adac1b1",
+              "inputs": {
+                "build": {
+                  "builderRevision": 2,
+                  "cmakeFlags": "-DCMAKE_BUILD_TYPE=Release -DSHERPA_ONNX_ENABLE_GPU=OFF -DSHERPA_ONNX_ENABLE_PORTAUDIO=OFF -DSHERPA_ONNX_ENABLE_WEBSOCKET=ON -DSHERPA_ONNX_ENABLE_TTS=OFF -DSHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION=OFF -DSHERPA_ONNX_ENABLE_BINARY=OFF -DSHERPA_ONNX_USE_PRE_INSTALLED_ONNXRUNTIME_IF_AVAILABLE=OFF",
+                  "makeArgs": "-j2",
+                  "patchSetRevision": 3,
+                  "proLicenseEnabled": false
+                },
+                "python": {
+                  "abi": "cp312",
+                  "tag": "cp312"
+                },
+                "schemaVersion": 1,
+                "target": {
+                  "architecture": "amd64",
+                  "platform": "linux"
+                },
+                "toolchain": {
+                  "cmakePath": "/usr/bin/cmake",
+                  "cmakeVersion": "cmake version 3.25.1",
+                  "compilerPath": "/usr/bin/cc",
+                  "compilerVersion": "cc (Debian 12.2.0-14+deb12u1) 12.2.0",
+                  "cxxCompilerPath": "/usr/bin/c++",
+                  "cxxCompilerVersion": "c++ (Debian 12.2.0-14+deb12u1) 12.2.0",
+                  "kind": "host-native",
+                  "opensslDevelopment": {
+                    "headers": [
+                      {
+                        "path": "/usr/include/openssl/opensslv.h",
+                        "sha256": "be75ce535d11ddb2c2000aca3d92c89e78d8e3138379f63f02021a80d57bba45"
+                      },
+                      {
+                        "path": "/usr/include/openssl/ssl.h",
+                        "sha256": "2d493661d951c792e94e3b825a449ea6c2d8f93dc0eddd49e4f54dd72d1c8e28"
+                      }
+                    ],
+                    "libraries": [
+                      {
+                        "name": "crypto",
+                        "path": "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+                        "sha256": "72db1b3de8b7dfbaba4c056135f408da555f9d5e137c82129478e07e769f8070"
+                      },
+                      {
+                        "name": "ssl",
+                        "path": "/usr/lib/x86_64-linux-gnu/libssl.so.3",
+                        "sha256": "9aec161fdbc82d3e4280f5084843118939f1f4acc53c98ec963de03cfe812fad"
+                      }
+                    ],
+                    "root": null,
+                    "source": "system-development-stack",
+                    "version": "3.0.20"
+                  }
+                },
+                "upstream": {
+                  "repo": "https://github.com/kroko-ai/kroko-onnx.git",
+                  "revision": "8657e655192623b98d7708e742a72987f953d3a2"
+                },
+                "variant": "free"
+              },
+              "variant": "free",
+              "reused": true,
+              "hostWheelPath": "/home/marco/selfhost_outsourced/build_area/services/voice-stt-server/kroko-artifact-store/free/578d6c898adac1b1/kroko_onnx-1.12.9-1free-cp312-cp312-linux_x86_64.whl"
+            },
+            "image": {
+              "variant": "free",
+              "image": "voice-stt-server",
+              "versionTag": "voice-stt-server:2.0.0",
+              "commitTag": "voice-stt-server:ada13b011e1d",
+              "buildDate": "2026-10-04T02:15:01Z",
+              "buildDateSource": "git-commit-timestamp"
+            },
+            "imageId": "sha256:6dcc498e9c9154d24ad654108742d1630efed04b9a45af768401c750bfc81956",
+            "imageLabels": {
+              "com.voicestt.kroko-variant": "free",
+              "org.opencontainers.image.created": "2026-10-04T02:15:01Z",
+              "org.opencontainers.image.description": "VoiceSTT FastAPI production server (CPU, Ubuntu 24.04)",
+              "org.opencontainers.image.licenses": "MIT",
+              "org.opencontainers.image.revision": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+              "org.opencontainers.image.source": "https://github.com/marcosudau-vps/voice-stt-server",
+              "org.opencontainers.image.title": "voice-stt-server",
+              "org.opencontainers.image.version": "2.0.0"
+            }
+          }
+        }
+      }
+    },
+    {
+      "path": "/home/marco/.codex_projekte/voice-stt-server_umstrukturierung/evidenz/quellstaende-final.json",
+      "sha256": "186417c372bf64aa81d22a0c856d10fd57ffbef6e65348363e1c8096b78e86c1",
+      "data": [
+        {
+          "instance": "voice-stt-server-v1",
+          "source": "/home/marco/selfhost/apps/services/voice-stt-server/version1-released/voice-stt-server",
+          "commit": "3df318635aef00a05417f74bce3f5d21b746eb59",
+          "tracked_changes": ""
+        },
+        {
+          "instance": "voice-stt-server-pro-v1",
+          "source": "/home/marco/selfhost/apps/services/voice-stt-server/version1-released/voice-stt-server-pro",
+          "commit": "3df318635aef00a05417f74bce3f5d21b746eb59",
+          "tracked_changes": ""
+        },
+        {
+          "instance": "voice-stt-server-v2",
+          "source": "/home/marco/selfhost/apps/services/voice-stt-server/version2-development/voice-stt-server",
+          "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+          "tracked_changes": ""
+        },
+        {
+          "instance": "voice-stt-server-pro-v2",
+          "source": "/home/marco/selfhost/apps/services/voice-stt-server/version2-development/voice-stt-server-pro",
+          "commit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+          "tracked_changes": ""
+        }
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "instance": "voice-stt-server-pro-v2",
+      "hostFromDeploymentEvidence": "pro.v2.voice-stt-server.marcosudau.com",
+      "containerId": "bdf83d8e8aeaf65583e92150380dac1ece989d647ff6a360a4c648dc8e58572c",
+      "status": "running",
+      "imageId": "sha256:57a7907b36389e09ce978efe0ceb18997f34eb729a0b29143bade01e96eb0078",
+      "manifestImageId": "sha256:57a7907b36389e09ce978efe0ceb18997f34eb729a0b29143bade01e96eb0078",
+      "imageMatchesManifest": true,
+      "manifestCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "manifestGitDirty": false,
+      "sourceHead": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "trackedSourceChanges": [],
+      "imageRevision": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "portBindings": {
+        "8010/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8021"
+          }
+        ]
+      },
+      "expectedLoopbackPortBound": true,
+      "mountTargets": [
+        "/config/config.yaml",
+        "/models/ctranslate2",
+        "/models/kroko",
+        "/var/lib/voicestt"
+      ],
+      "runtimeSourceContentChecks": [
+        {
+          "path": "VoiceSTT/core/recording.py",
+          "installedSha256": "60ae76e2d39bdc203f2af986f6b36ccfbebcefaf6961e3c7ba5330bc37c52e9c",
+          "sourceSha256": "60ae76e2d39bdc203f2af986f6b36ccfbebcefaf6961e3c7ba5330bc37c52e9c",
+          "match": true
+        },
+        {
+          "path": "VoiceSTT/core/wake_detection.py",
+          "installedSha256": "3986034c05c1f4dbf7a5a889e2530983b5b31de29ae011884f3ceb3d36ea48fa",
+          "sourceSha256": "3986034c05c1f4dbf7a5a889e2530983b5b31de29ae011884f3ceb3d36ea48fa",
+          "match": true
+        },
+        {
+          "path": "VoiceSTT/core/openwakeword_engine.py",
+          "installedSha256": "22eeb93eae960af813b304306d3f37c055a3de9153656c980c85043082d1c20c",
+          "sourceSha256": "22eeb93eae960af813b304306d3f37c055a3de9153656c980c85043082d1c20c",
+          "match": true
+        },
+        {
+          "path": "api_fastapi_server/server.py",
+          "installedSha256": "39aa3233c72d26b3d22c67bc7f78666c74d17a6b8be09117f45ac6f02f69fe22",
+          "sourceSha256": "39aa3233c72d26b3d22c67bc7f78666c74d17a6b8be09117f45ac6f02f69fe22",
+          "match": true
+        }
+      ],
+      "fullWritableLayerDiff": "NOT_PROVEN: prior optional Docker diff timed out after45s; no full integrity claim",
+      "wheelPath": "/home/marco/selfhost_outsourced/build_area/services/voice-stt-server/version2-development/voice-stt-server-pro/workdir/dist/voicestt/voicestt-2.0.0-py3-none-any.whl",
+      "wheelExpectedSha256": "1008340674a8df024607f602d2164537d55038b4eb951048ac116c932de4e95b",
+      "wheelActualSha256": "1008340674a8df024607f602d2164537d55038b4eb951048ac116c932de4e95b",
+      "wireCommit": "unknown; captured separately in HTTP and diagnostic hello",
+      "modelDifference": "Pro16 vs Community64; previous local evidence is not transferred",
+      "codeMountOverrides": [],
+      "pinBinding": "CONFIRMED_DEPLOYMENT_MANIFEST_AND_CURRENT_IMAGE_SOURCE"
+    },
+    {
+      "instance": "voice-stt-server-v2",
+      "hostFromDeploymentEvidence": "v2.voice-stt-server.marcosudau.com",
+      "containerId": "53740e128150eac56cbdd1a8859e10592769915e44cd96f5770e1b48b7f2f121",
+      "status": "running",
+      "imageId": "sha256:6dcc498e9c9154d24ad654108742d1630efed04b9a45af768401c750bfc81956",
+      "manifestImageId": "sha256:6dcc498e9c9154d24ad654108742d1630efed04b9a45af768401c750bfc81956",
+      "imageMatchesManifest": true,
+      "manifestCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "manifestGitDirty": false,
+      "sourceHead": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "trackedSourceChanges": [],
+      "imageRevision": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "portBindings": {
+        "8010/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8020"
+          }
+        ]
+      },
+      "expectedLoopbackPortBound": true,
+      "mountTargets": [
+        "/config/config.yaml",
+        "/models/ctranslate2",
+        "/models/kroko",
+        "/var/lib/voicestt"
+      ],
+      "runtimeSourceContentChecks": [
+        {
+          "path": "VoiceSTT/core/recording.py",
+          "installedSha256": "60ae76e2d39bdc203f2af986f6b36ccfbebcefaf6961e3c7ba5330bc37c52e9c",
+          "sourceSha256": "60ae76e2d39bdc203f2af986f6b36ccfbebcefaf6961e3c7ba5330bc37c52e9c",
+          "match": true
+        },
+        {
+          "path": "VoiceSTT/core/wake_detection.py",
+          "installedSha256": "3986034c05c1f4dbf7a5a889e2530983b5b31de29ae011884f3ceb3d36ea48fa",
+          "sourceSha256": "3986034c05c1f4dbf7a5a889e2530983b5b31de29ae011884f3ceb3d36ea48fa",
+          "match": true
+        },
+        {
+          "path": "VoiceSTT/core/openwakeword_engine.py",
+          "installedSha256": "22eeb93eae960af813b304306d3f37c055a3de9153656c980c85043082d1c20c",
+          "sourceSha256": "22eeb93eae960af813b304306d3f37c055a3de9153656c980c85043082d1c20c",
+          "match": true
+        },
+        {
+          "path": "api_fastapi_server/server.py",
+          "installedSha256": "39aa3233c72d26b3d22c67bc7f78666c74d17a6b8be09117f45ac6f02f69fe22",
+          "sourceSha256": "39aa3233c72d26b3d22c67bc7f78666c74d17a6b8be09117f45ac6f02f69fe22",
+          "match": true
+        }
+      ],
+      "fullWritableLayerDiff": "NOT_PROVEN: prior optional Docker diff timed out after45s; no full integrity claim",
+      "wheelPath": "/home/marco/selfhost_outsourced/build_area/services/voice-stt-server/version2-development/voice-stt-server/workdir/dist/voicestt/voicestt-2.0.0-py3-none-any.whl",
+      "wheelExpectedSha256": "1db73169098bf2660c7f248f6e5de33175334b6439b8555a528e34f58d852d25",
+      "wheelActualSha256": "1db73169098bf2660c7f248f6e5de33175334b6439b8555a528e34f58d852d25",
+      "wireCommit": "unknown; captured separately in HTTP and diagnostic hello",
+      "modelDifference": "Pro16 vs Community64; previous local evidence is not transferred",
+      "codeMountOverrides": [],
+      "pinBinding": "CONFIRMED_DEPLOYMENT_MANIFEST_AND_CURRENT_IMAGE_SOURCE"
+    }
+  ],
+  "completionReportSha256": "064978d54338d7dd6d7220e149d1d13fdf72d52b436be3820970aba916466421",
+  "captureHelperSha256": "99aba13d7e02ecf865a007d1858c361c52d2485e0d88a917325142b97a7e23c3",
+  "remoteReadProgramSha256": "6f03b3c05cbe3dbbea3c92328a0f1a04486c4e69d8ecc040564811f4adb30bde"
+}

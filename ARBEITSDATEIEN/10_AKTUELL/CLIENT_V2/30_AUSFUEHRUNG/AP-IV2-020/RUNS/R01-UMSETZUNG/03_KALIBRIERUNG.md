@@ -1,3 +1,7 @@
+## Weißer Idle-Puls bestätigt,19.10.2026
+
+[Direkter realer Vergleich](25_IDLE_BESTAETIGT_UND_LED_ISOLATION.md):20sbei tatsächlich verfügbarer LED-Ausgabe; Mensch „Passt – weiß und angenehme Mindesthelligkeit“. Gewählt: ready_state #FFFFFF, min_brightness0,30, brightness1,0, speed0,45; globale Helligkeit192/255 unverändert. Werte in tests/manual/v2/calibration.yaml und vorhandenen generierten Feedbackprofilen reproduzierbar. CALIBRATION_CONFIRMED nur für direkten Idle-Puls; keine neue Produkt-/Serverdefaultänderung. Andere Phasen/Wake/Frozen bleiben offen, Farbprofile ausdrücklich später.
+
 ## Zuordnung des letzten Idle-Vergleichs
 
 [Bericht24](24_IDLE_ZIELZUSTAND_UND_DIREKTVORSCHAU.md): „Es ist in Ordnung so.“ bleibt als Bewertung der sichtbaren LEDs erhalten. Keine Activation/kein Eingabeschluss im Lauf; Ausführung des neuen server.input.idle-Mappings nicht belegt.30/100% deshalb weiter NOT_PROVEN. Direkte LED-only-Vorschau ersetzt die für den Vergleich unnötige Hotkey-/Serverfolge; neue Wahrnehmung ausstehend.

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "state": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+  "reason": "blocked by policy",
+  "newStoppedArchivedTargets": [
+    "idle-preview-20261019-192706-579d2d",
+    "preflight-20261019-193349",
+    "preflight-20261019-193533"
+  ],
+  "olderTen": "See ../direct-idle-20261019/cleanup.json; not retried",
+  "totalStoppedArchivedDirectoriesPending": 13,
+  "privateArchives": "build/ap-iv2-020-suite/private-archive",
+  "noRetryOrWorkaround": true
+}

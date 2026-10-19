@@ -1,3 +1,22 @@
+## Aktuelle Checkliste – 19.10.2026
+
+- [x] Geführte11Aufgaben samt Wiederholungen fallgenau ausgewertet.
+- [x] R11: physische USB-Recovery am korrigierten Sourceprodukt bestätigt.
+- [x] Neues bewusstes F8/F9-Diktat nach Recovery exakt einmal eingefügt.
+- [x] Manuelles Start/Warten/Timeoutfeedback menschlich bestätigt.
+- [x] Weißer Idle-Puls30–100% direkt20sbeurteilt und bestätigt; Werte gespeichert.
+- [x] Kontrollierter nativer LED-only-Ausfall bei idle autonom geprüft: Audiopfad/Session stabil.
+- [x]33Helfertests;1400Windows-Tests/0Skips am unveränderten Produkt0f6c85e.
+- [ ] Controlsphasen/Watchdog/Runpausen und zugehörige Zusammenspiele vollständig qualifizieren.
+- [ ] Netz-/Logstore-/Pendingfinal- und Settingswechsel-Fälle vervollständigen.
+- [ ] Native Credential-/Admin-, Frozen-/erhöhte Zielanwendungs-/Clipboard-/Prozessfälle abschließen.
+- [ ] Nach gesondertem W01-FIX: Wake-/Both-/Nutzsprachgrenzen und30min100-Gate.
+- [ ] Dreizehn gesicherte beendete externe Ordner aufräumen: automatische Prüfung blockiert Löschen.
+- [ ] Erst bei vollständigen Pflichtnachweisen REVIEW_READY; danach unabhängige Abnahme.
+
+[Aktueller Bericht](25_IDLE_BESTAETIGT_UND_LED_ISOLATION.md).
+Nachfolgende Abschnitte sind ältere, ihrem jeweiligen Stand zugeordnete Checklisten.
+
 ## Korrigierte Liveführung – Wiederholung Aufgabe1,19.10.2026
 
 - [x] Veraltete aktive Zeile und pauschale Häkchen als T03 nachgewiesen.

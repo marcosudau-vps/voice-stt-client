@@ -1,0 +1,24 @@
+{
+  "scope": "LED-only; no microphone, V2 client, hotkeys, activation or server",
+  "result": "NOT_PROVEN_PENDING_AGENT_EVALUATION",
+  "params": {
+    "color": "#FFFFFF",
+    "min_brightness": 0.3,
+    "brightness": 1.0
+  },
+  "globalBrightness": 192,
+  "started": true,
+  "deviceAvailableObserved": true,
+  "selfCheck": false,
+  "sourceSha256": {
+    "tests\\manual\\v2\\idle_preview.py": "b3296c209e0632b995825316bf78036ed2a5101f97ad6873ba4d735979e20cab",
+    "tests\\manual\\v2\\calibration.yaml": "e125092eaa797876ee48baa8261ec1126a50534f09e23c98d57417f6f91c4219",
+    "voice_stt_client\\core\\led_controller.py": "b58f673d0724f69e0cb7643b8f5a558b807d297a17ae9c4be77a3dcdffaedd28"
+  },
+  "timeUtc": "2026-10-19T17:28:33.236133+00:00",
+  "attemptId": "0b01f5bf1cf24ce888b8d49aeeb7140e",
+  "observationSeconds": 20,
+  "humanObservation": "Passt – weiß und angenehme Mindesthelligkeit",
+  "humanNotes": "",
+  "tester": "Marco: visual perception; Codex: direct LED configuration/instrumentation"
+}

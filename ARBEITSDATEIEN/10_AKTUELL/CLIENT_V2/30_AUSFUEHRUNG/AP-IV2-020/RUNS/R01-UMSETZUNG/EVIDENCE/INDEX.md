@@ -1,3 +1,9 @@
+## Bestätigter Idle-Puls und autonome LED-Isolation,19.10.2026
+
+- [Menschliche Originalbewertung](idle-confirmed-20261019/human-result.json), [PASS_SCOPE/Konfiguration](idle-confirmed-20261019/assessment.json), [gesicherte Testwerte](idle-confirmed-20261019/confirmed-calibration.yaml).
+- [LED-only erster FAIL](idle-confirmed-20261019/led-first-smoke.json), [neuer nativer PASS](idle-confirmed-20261019/led-pass-smoke.json), [Zusatzprüfung ohne AudioAvailability-Änderung](idle-confirmed-20261019/led-isolation-assessment.json), [Serveridentität danach](idle-confirmed-20261019/server-identity-after.json).
+- [Validierung/33Helfertests](idle-confirmed-20261019/validation.json), [vollständiger Helferlog](idle-confirmed-20261019/helper-tests-33.log.gz), [Aufräumstatus](idle-confirmed-20261019/cleanup.json).
+
 ## Direkter Idle-Vergleich statt unbewiesenem Zielübergang,19.10.2026
 
 - [Letzter Lauf und menschliche Bewertung](direct-idle-20261019/assessment.json), [Identität](direct-idle-20261019/identity.json), [erlaubte Wire-/Messspur](direct-idle-20261019/prior-events.jsonl.gz).

@@ -1,7 +1,8 @@
 """Autonomous read-only HTTP + bounded real manual-only desktop/audio precheck.
 
-No server lifecycle commands, model switches, global keys, activation, LED or
-sound output. PCM is transmitted to the human-selected server, never recorded.
+No server lifecycle commands, model switches, global keys or activation.
+Default: no LEDs/sound. Optional --led-only-fault temporarily stops only the
+owned native LED transport. PCM is transmitted, never recorded.
 """
 import asyncio
 import argparse
@@ -19,7 +20,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--profile-runtime', action='store_true', required=True,
                         help='Explicitly authorized dedicated Windows-profile test runtime')
-    parser.parse_args()
+    parser.add_argument('--led-only-fault', action='store_true')
+    args = parser.parse_args()
     folder = PROFILE_RUNTIME/('preflight-'+datetime.now().strftime('%Y%m%d-%H%M%S'))
     folder.mkdir(parents=True)
     (folder/'tmp').mkdir()
@@ -53,7 +55,8 @@ def main():
     with log_path.open('w', encoding='utf8') as log:
         child = subprocess.Popen([sys.executable, '-u', '-m', 'tests.manual.v2.suite_session',
             '--folder', str(folder), '--editor-state', str(state), '--target', TARGET,
-            '--task', 'finish', '--device', str(devices[0]['index']), '--smoke'],
+            '--task', 'finish', '--device', str(devices[0]['index']), '--smoke',
+            *(['--led-only-fault'] if args.led_only_fault else [])],
             cwd=ROOT, env=env, stdout=log, stderr=subprocess.STDOUT)
         started = time.monotonic()
         while child.poll() is None:

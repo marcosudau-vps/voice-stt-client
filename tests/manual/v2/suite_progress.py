@@ -46,6 +46,8 @@ class ObservedProgress:
                 self.closed_reason = event.get('reason', '')
             if name == 'activation.cancelled':
                 self.cancelled_at = now
+        elif kind == 'led.sink':
+            self.counts['led.available' if fields.get('available') else 'led.unavailable'] += 1
         elif kind == 'control.received':
             if fields.get('ready') and fields.get('slot') == 'secondary' and fields.get('phase') != 'idle':
                 self.counts['secondary'] += 1

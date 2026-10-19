@@ -5,11 +5,32 @@ import unittest
 
 from tests.manual.v2.suite_plan import TASKS, DEFERRED, SuiteRecord, owned_path, target_origin, select_tasks
 from tests.manual.v2.suite_session import prepare_profile
-from tests.manual.v2.suite_analysis import summarize
+from tests.manual.v2.suite_analysis import summarize, assess_led_fault
 import json
 
 
 class GuidedSuite(unittest.TestCase):
+    def test_native_led_loss_and_fast_recovery_remain_visible_between_polls(self):
+        from tests.manual.v2.suite_progress import ObservedProgress
+        progress = ObservedProgress()
+        progress.observe('led.sink', available=False)
+        progress.observe('led.sink', available=True)
+        snapshot = progress.snapshot()
+        self.assertEqual(snapshot['counts']['led.unavailable'], 1)
+        self.assertEqual(snapshot['counts']['led.available'], 1)
+        self.assertFalse(snapshot['audioLost'])
+
+    def test_led_fault_needs_real_progress_unchanged_session_and_observations(self):
+        before = dict(ready=True, audioAvailable=True, sessionId='session', generation=1, media={'sent':50})
+        after = dict(ready=True, audioAvailable=True, sessionId='session', generation=1, media={'sent':200},
+            localIssues=['led_unavailable'], operatorProgress={'counts':{}, 'audioLost':False})
+        self.assertEqual(assess_led_fault(before, after, led_unavailable=True)['result'], 'PASS')
+        for key, value in [('audioAvailable',False),('sessionId','other'),('localIssues',[]),('media',{'sent':50}),('operatorProgress',{})]:
+            with self.subTest(key=key):
+                changed = dict(after, **{key:value})
+                self.assertEqual(assess_led_fault(before, changed, led_unavailable=True)['result'], 'FAIL')
+        self.assertEqual(assess_led_fault(before,after,led_unavailable=False)['result'],'FAIL')
+
     def test_real_idle_effect_remains_white_above_the_requested_floor(self):
         import yaml
         from voice_stt_client.core.led_controller import InProcessLedController

@@ -83,3 +83,7 @@ Server-/Produktstand, keine Serverproduktfreigabe und keine voreilige Paketabnah
 ## Physische R11-Schließung und Idle-Kalibrierung,19.10.2026
 
 [Bericht23](RUNS/R01-UMSETZUNG/23_USB_BESTAETIGT_UND_IDLE_KALIBRIERUNG.md): R11 physisch erfolgreich geschlossen. Weitere Pflichtgates unverändert offen; neue gewünschte Idle-Untergrenze30% nur Testkonfiguration, Sichtbestätigung ausstehend. Paket weiter BLOCKED, kein REVIEW_READY.
+
+## Idle bestätigt / LED-only-Isolation,19.10.2026
+
+[Bericht25](RUNS/R01-UMSETZUNG/25_IDLE_BESTAETIGT_UND_LED_ISOLATION.md): menschliche direkte Idle-Kalibrierung30/100% bestätigt, zusätzlicher kontrollierter LED-only-Ausfall bei idle ohne Audio-/Sessionwirkung PASS_SCOPED. Gesamte M-/Frozen-/Wakequalifikation weiter offen; Paketstatus BLOCKED, gleicher R01/PR15.
