@@ -1,0 +1,98 @@
+{
+  "effect": "ready_state",
+  "effectArchiveSha256": "9e31c98e673bfe5f612843f2e5eb8211685157551dea7114075eac653ba0d91c",
+  "schema": {
+    "brightness": {
+      "aliases": [],
+      "default": 0.55,
+      "description": "Peak brightness.",
+      "enum_values": [],
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "name": "brightness",
+      "nullable": false,
+      "required": false,
+      "type": "float",
+      "unit": null
+    },
+    "color": {
+      "aliases": [],
+      "default": "#00C066",
+      "description": "Ring colour.",
+      "enum_values": [],
+      "maximum": null,
+      "minimum": null,
+      "name": "color",
+      "nullable": false,
+      "required": false,
+      "type": "color",
+      "unit": null
+    },
+    "min_brightness": {
+      "aliases": [],
+      "default": 0.16,
+      "description": "Brightness at the bottom of a breath.",
+      "enum_values": [],
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "name": "min_brightness",
+      "nullable": false,
+      "required": false,
+      "type": "float",
+      "unit": null
+    },
+    "speed": {
+      "aliases": [],
+      "default": 0.45,
+      "description": "Multiplier on the breathing cadence.",
+      "enum_values": [],
+      "maximum": 10.0,
+      "minimum": 0.05,
+      "name": "speed",
+      "nullable": false,
+      "required": false,
+      "type": "float",
+      "unit": "multiplier"
+    }
+  },
+  "oldTestOverrides": {
+    "color": "#FFFFFF"
+  },
+  "oldEffective": {
+    "color": "#FFFFFF",
+    "brightness": 0.55,
+    "min_brightness": 0.16,
+    "speed": 0.45
+  },
+  "requested": {
+    "color": "#FFFFFF",
+    "brightness": 1.0,
+    "min_brightness": 0.3,
+    "speed": 0.45
+  },
+  "globalBrightness": 192,
+  "globalBrightnessFraction": 0.7529411764705882,
+  "clientOrServer": "Client LED mapping / LEFX effect; no server authority",
+  "persisted": "tests/manual/v2/calibration.yaml",
+  "computedFrameCheck": {
+    "result": "PASS",
+    "samples": 121,
+    "leds": 12,
+    "periodSeconds": 8.88888888888889,
+    "minimumRGB": [
+      76,
+      76,
+      76
+    ],
+    "maximumRGB": [
+      255,
+      255,
+      255
+    ],
+    "globalOutputNotIncludedInTheseRGBs": true
+  },
+  "colorShiftCause": "NOT_PROVEN: old/new base renderer emits equal RGB channels. Human physical violet observation retained; no conclusion about firmware, optics or short transition overlays.",
+  "humanNewFloorEvaluation": "NOT_RUN",
+  "productCodeChanged": false,
+  "colorProfiles": "Explicitly deferred by human to a separate later feature"
+}

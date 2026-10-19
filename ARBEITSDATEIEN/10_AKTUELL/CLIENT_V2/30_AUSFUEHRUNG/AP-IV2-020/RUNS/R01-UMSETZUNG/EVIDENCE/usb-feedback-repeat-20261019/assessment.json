@@ -1,0 +1,363 @@
+{
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "harnessCommit": "4dc3db2c5e0313d478ce6b404d450653413bd3c4",
+  "sourceHashesMatchCurrentProduct": 97,
+  "serverProvenanceSha256": "1175ff994ebc7325f65bfea49465f861344afaa989898c89fca232a93eb3dcf7",
+  "target": "wss://pro.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "attempts": [
+    {
+      "attemptId": "52c55bced0b44f79ad3e26c1efb88a73",
+      "taskId": "usb",
+      "startedAtUtc": "2026-10-19T16:56:14.354560+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:57:39.126756+00:00",
+      "editorAfter": {
+        "characters": 53,
+        "sha256": "7e47e5ac5b3bf84ed83a2bded90c7c211196640c6611fceb2be997e9eff12f9c"
+      },
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-19T16:57:11.172655+00:00",
+          "characters": 53,
+          "sha256": "7e47e5ac5b3bf84ed83a2bded90c7c211196640c6611fceb2be997e9eff12f9c"
+        }
+      ],
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 13,
+        "settings.changed": 1,
+        "activation.started": 2,
+        "activation.phase_changed": 5,
+        "segment.recording_started": 2,
+        "transcription.interim": 7,
+        "transcription.discarded": 1,
+        "segment.recording_ended": 2,
+        "activation.cancelled": 1,
+        "transcription.accepted": 2,
+        "activation.input_closed": 2,
+        "transcription.completed": 1,
+        "activation.completed": 1
+      },
+      "activations": [
+        "4f869c48-f42b-4e97-967d-2a0e4f2a3f95",
+        "da685aad-2122-4b18-8378-6dc652991103"
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:56:34.135897+00:00",
+          "monotonic": 20652.078,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:57:04.754825+00:00",
+          "monotonic": 20682.703,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:57:10.178832+00:00",
+          "monotonic": 20688.125,
+          "slot": "secondary",
+          "ready": true,
+          "generation": 1,
+          "phase": "segment_active"
+        }
+      ],
+      "commands": [
+        {
+          "type": "command.completed",
+          "timeUtc": "2026-10-19T16:56:34.215115+00:00",
+          "monotonic": 20652.156,
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "89ddbbd1-5392-4d53-9000-7480586652c9",
+          "accepted": true,
+          "result": "applied",
+          "activationId": "4f869c48-f42b-4e97-967d-2a0e4f2a3f95"
+        },
+        {
+          "type": "command.completed",
+          "timeUtc": "2026-10-19T16:56:38.844488+00:00",
+          "monotonic": 20656.796,
+          "commandType": "audio_availability.set",
+          "action": null,
+          "commandId": "7fb4e388-d34a-45fb-860b-5b3c7dfaca55",
+          "accepted": true,
+          "result": "applied",
+          "activationId": "4f869c48-f42b-4e97-967d-2a0e4f2a3f95"
+        },
+        {
+          "type": "command.completed",
+          "timeUtc": "2026-10-19T16:56:58.734727+00:00",
+          "monotonic": 20676.687,
+          "commandType": "audio_availability.set",
+          "action": null,
+          "commandId": "ab4da00f-a250-4c7f-aa59-b01a2dd66981",
+          "accepted": true,
+          "result": "applied",
+          "activationId": null
+        },
+        {
+          "type": "command.completed",
+          "timeUtc": "2026-10-19T16:57:04.786399+00:00",
+          "monotonic": 20682.734,
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "f8f840cc-90e8-46b7-b874-a7eb8e820927",
+          "accepted": true,
+          "result": "applied",
+          "activationId": "da685aad-2122-4b18-8378-6dc652991103"
+        },
+        {
+          "type": "command.completed",
+          "timeUtc": "2026-10-19T16:57:10.217810+00:00",
+          "monotonic": 20688.156,
+          "commandType": "activation.command",
+          "action": "finish",
+          "commandId": "cc18e99a-e3dd-4425-b526-862eea9f94be",
+          "accepted": true,
+          "result": "applied",
+          "activationId": "da685aad-2122-4b18-8378-6dc652991103"
+        }
+      ],
+      "terminals": [
+        {
+          "type": "wire",
+          "timeUtc": "2026-10-19T16:56:38.791460+00:00",
+          "monotonic": 20656.734,
+          "event": {
+            "type": "activation.cancelled",
+            "generation": 1,
+            "sessionId": "311a2408-cafb-4bb1-9c3a-54ecd69cf131",
+            "activationId": "4f869c48-f42b-4e97-967d-2a0e4f2a3f95",
+            "eventId": "fb38a52f-119f-45bd-926f-416966136f45",
+            "eventSeq": 15,
+            "stateVersion": 10,
+            "occurredAtUnixMs": 1792428997257,
+            "reason": "cancelled"
+          }
+        },
+        {
+          "type": "wire",
+          "timeUtc": "2026-10-19T16:56:38.840448+00:00",
+          "monotonic": 20656.781,
+          "event": {
+            "type": "activation.input_closed",
+            "generation": 1,
+            "sessionId": "311a2408-cafb-4bb1-9c3a-54ecd69cf131",
+            "activationId": "4f869c48-f42b-4e97-967d-2a0e4f2a3f95",
+            "eventId": "4c80bf37-e84e-4a71-bc60-3471fec65ce8",
+            "eventSeq": 18,
+            "stateVersion": 13,
+            "occurredAtUnixMs": 1792428997260,
+            "reason": "cancelled"
+          }
+        },
+        {
+          "type": "wire",
+          "timeUtc": "2026-10-19T16:57:10.211347+00:00",
+          "monotonic": 20688.156,
+          "event": {
+            "type": "activation.input_closed",
+            "generation": 1,
+            "sessionId": "311a2408-cafb-4bb1-9c3a-54ecd69cf131",
+            "activationId": "da685aad-2122-4b18-8378-6dc652991103",
+            "eventId": "b35f983b-4c9a-4935-aa71-4618c74eb1d1",
+            "eventSeq": 24,
+            "stateVersion": 21,
+            "occurredAtUnixMs": 1792429028688,
+            "reason": "finished"
+          }
+        },
+        {
+          "type": "wire",
+          "timeUtc": "2026-10-19T16:57:11.130408+00:00",
+          "monotonic": 20689.078,
+          "event": {
+            "type": "activation.completed",
+            "generation": 1,
+            "sessionId": "311a2408-cafb-4bb1-9c3a-54ecd69cf131",
+            "activationId": "da685aad-2122-4b18-8378-6dc652991103",
+            "eventId": "be39df7b-fae3-4342-a47f-bba62999c1a6",
+            "eventSeq": 27,
+            "stateVersion": 24,
+            "occurredAtUnixMs": 1792429029575
+          }
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:56:16.381112+00:00",
+          "available": false,
+          "captured": 0
+        },
+        {
+          "timeUtc": "2026-10-19T16:56:17.387230+00:00",
+          "available": true,
+          "captured": 4
+        },
+        {
+          "timeUtc": "2026-10-19T16:56:39.379415+00:00",
+          "available": false,
+          "captured": 484
+        },
+        {
+          "timeUtc": "2026-10-19T16:56:59.556558+00:00",
+          "available": true,
+          "captured": 504
+        }
+      ],
+      "resources": {
+        "metricSamples": 82,
+        "maxTasks": 11,
+        "maxInjectionQueue": 0,
+        "maxPrivateBytes": 471261184
+      },
+      "historyEntries": 1,
+      "injectionAttempts": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 1
+        }
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": true,
+      "result": "PASS_SCOPED",
+      "finding": "IV2-020-R11 CLOSED",
+      "scope": "Physical ReSpeaker USB/audio-loss/recovery, old activation cancelled, explicit new primary/finish, exactly one final/native paste at source product0f6c85e. Not complete M-06 or frozen qualification."
+    },
+    {
+      "attemptId": "17944fe3a7d64c08a4decb4129604ccd",
+      "taskId": "feedback",
+      "startedAtUtc": "2026-10-19T16:58:41.058583+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T17:02:48.880484+00:00",
+      "editorAfter": {
+        "characters": 936,
+        "sha256": "94ba10456755c91f6c60b172b6b24001a2e0e4e185fb7d0e6dd5b1ec55175398"
+      },
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-19T17:02:00.647189+00:00",
+          "characters": 1261099,
+          "sha256": "bda02b3ce7927fe5aac86adf6f7f53a2ea44826373a5046ce7ef5f5e435a6c0e"
+        },
+        {
+          "timeUtc": "2026-10-19T17:02:20.318472+00:00",
+          "characters": 936,
+          "sha256": "94ba10456755c91f6c60b172b6b24001a2e0e4e185fb7d0e6dd5b1ec55175398"
+        }
+      ],
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "humanNotes": "Eigentlich scheint soweit alles in Ordnung zu sein. Also von den Timings her passt das gefühlt. Und ich möchte sowieso noch ein paar Änderungen, was ich bereits angesprochen hatte mit den Farbprofilen, später vornehmen. Aber das ist nicht Teil dieses Arbeitsauftrages, sondern das kommt dann erst in einem späteren separaten Feature, als dass das implementiert wird. Also das, was diesen Arbeitsauftrag betrifft, funktioniert. Kleiner Änderungswunsch, und zwar in der Idle-Phase, also während der Ring wartet, pulsiert er ja in Weiß. Kurz bevor, also auf der geringsten Helligkeitsstufe, bevor der ganz ausgeht, wird das aber einmal kurz lila oder violett. Das wäre gut oder beziehungsweise ich würde gerne die Mindesthelligkeit etwas anheben, vielleicht auf 30 Prozent etwa, dass der nie ganz ausgeht, sondern immer zwischen dann 30 und 100 Prozent pendelt, also bei diesem Pulsieren, und eben dieses, dass der nicht mehr violett wird.",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "activation.completed": 1,
+        "activation.input_closed": 1
+      },
+      "activations": [
+        "1b166c1a-60a2-4d88-b18c-17ea8dc33a1f"
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:59:06.512183+00:00",
+          "monotonic": 20804.453,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        }
+      ],
+      "commands": [
+        {
+          "type": "command.completed",
+          "timeUtc": "2026-10-19T16:59:06.570721+00:00",
+          "monotonic": 20804.515,
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "6e0e0d8f-8b3b-4505-8b15-f73e0fe46585",
+          "accepted": true,
+          "result": "applied",
+          "activationId": "1b166c1a-60a2-4d88-b18c-17ea8dc33a1f"
+        }
+      ],
+      "terminals": [
+        {
+          "type": "wire",
+          "timeUtc": "2026-10-19T16:59:21.541761+00:00",
+          "monotonic": 20819.484,
+          "event": {
+            "type": "activation.completed",
+            "generation": 1,
+            "sessionId": "c54f90d8-ea93-403b-8872-3d1479657689",
+            "activationId": "1b166c1a-60a2-4d88-b18c-17ea8dc33a1f",
+            "eventId": "d5cdb254-a906-4ed8-9fc3-3d6138e33acd",
+            "eventSeq": 3,
+            "stateVersion": 5,
+            "occurredAtUnixMs": 1792429160009
+          }
+        },
+        {
+          "type": "wire",
+          "timeUtc": "2026-10-19T16:59:21.562719+00:00",
+          "monotonic": 20819.515,
+          "event": {
+            "type": "activation.input_closed",
+            "generation": 1,
+            "sessionId": "c54f90d8-ea93-403b-8872-3d1479657689",
+            "activationId": "1b166c1a-60a2-4d88-b18c-17ea8dc33a1f",
+            "eventId": "440038d5-8e93-4508-b1fd-293034bfff51",
+            "eventSeq": 4,
+            "stateVersion": 6,
+            "occurredAtUnixMs": 1792429160010,
+            "reason": "timed_out"
+          }
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:58:42.930410+00:00",
+          "available": false,
+          "captured": 0
+        },
+        {
+          "timeUtc": "2026-10-19T16:58:43.930637+00:00",
+          "available": true,
+          "captured": 9
+        }
+      ],
+      "resources": {
+        "metricSamples": 245,
+        "maxTasks": 10,
+        "maxInjectionQueue": 0,
+        "maxPrivateBytes": 468398080
+      },
+      "historyEntries": 0,
+      "injectionAttempts": [],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": false,
+      "result": "PASS_SCOPED_WITH_CALIBRATION_CHANGE_REQUEST",
+      "scope": "One manual activation, no speech, natural15s timeout; human feedback timing accepted. New floor30/peak100 is a separate pending visual comparison.",
+      "unattributedClipboardActivity": "Two editor-native clipboard pastes after the completed no-speech activation; no ASR final/history/injection attempt. Not attributed to V2 output; no pasted contents exported."
+    }
+  ],
+  "reviewReady": false,
+  "boundary": "Physical source evidence, not all M-cases/frozen/Wake qualification. Human notes preserved; no clipboard contents or DB exported."
+}

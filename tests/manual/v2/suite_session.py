@@ -62,6 +62,7 @@ def prepare_profile(folder, target, task, device):
     raw = AppConfig._to_plain_data(asdict(config))
     raw['feedback_mappings'] = config.feedback_mappings.to_mapping()
     events = raw['feedback_mappings']['events']
+    idle = yaml.safe_load(Path(__file__).with_name('calibration.yaml').read_text(encoding='utf8'))['idle']
     levels = [.1, .2, .3, .4, .5, .6, .7, .8, .9, 1., 1., 1.]
     colors = ['#'+f'{round(255*level):02X}'*3 for level in levels]
     for key in ('server.input.waiting', 'server.input.followup', 'server.input.idle'):
@@ -72,7 +73,7 @@ def prepare_profile(folder, target, task, device):
         for call in calls:
             if 'set_state' in call:
                 if key.endswith('.idle'):
-                    call.setdefault('config', {})['color'] = '#FFFFFF'
+                    call.setdefault('config', {}).update(idle)
                 else:
                     call.clear()
                     call.update(set_state='palette_cycle', config=dict(

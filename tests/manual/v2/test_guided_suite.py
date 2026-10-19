@@ -10,6 +10,29 @@ import json
 
 
 class GuidedSuite(unittest.TestCase):
+    def test_real_idle_effect_remains_white_above_the_requested_floor(self):
+        import yaml
+        from voice_stt_client.core.led_controller import InProcessLedController
+        params = yaml.safe_load(Path(__file__).with_name('calibration.yaml').read_text(encoding='utf8'))['idle']
+        with tempfile.TemporaryDirectory() as temp:
+            controller = InProcessLedController(sink='null', state_file=Path(temp)/'led-state.json')
+            try:
+                runtime = controller._service.runtime
+                runtime.set_state('ready_state', params, now=0.)
+                levels = []
+                for n in range(121):
+                    frame = runtime.render_once((4/.45)*n/120)
+                    self.assertEqual(len(frame.leds), 12)
+                    for color in frame.leds:
+                        red, green, blue = color >> 16 & 255, color >> 8 & 255, color & 255
+                        self.assertEqual((red, green), (blue, blue))
+                        self.assertGreaterEqual(red, 76)
+                        levels.append(red)
+                self.assertEqual(max(levels), 255)
+                self.assertEqual(min(levels), 76)
+            finally:
+                controller.close()
+
     def test_targeted_repeat_preserves_order_and_requires_known_distinct_tasks(self):
         self.assertEqual([x['id'] for x in select_tasks(['usb','feedback'])], ['usb','feedback'])
         self.assertEqual(len(select_tasks()), 11)
@@ -75,6 +98,9 @@ class GuidedSuite(unittest.TestCase):
             self.assertFalse(config.logging.observability.store_transcription_content)
             self.assertFalse(config.logging.observability.store_raw_payload)
             self.assertEqual(config.server.url, TARGET)
+            idle = config.feedback_mappings.to_mapping()['events']['server.input.idle']['led']
+            params = next(call['config'] for call in idle if call.get('set_state') == 'ready_state')
+            self.assertEqual(params, dict(color='#FFFFFF', min_brightness=.30, brightness=1.0))
 
     def test_no_events_or_clicked_acceptance_are_never_a_pass(self):
         with tempfile.TemporaryDirectory() as temp:

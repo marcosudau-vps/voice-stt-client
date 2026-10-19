@@ -1,0 +1,12 @@
+{"timeUtc": "2026-10-19T16:52:21.612237+00:00", "task": "usb", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:56:14.355559+00:00", "task": "usb", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:56:27.396442+00:00", "task": "usb", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:56:39.397904+00:00", "task": "usb", "activeStep": 3, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:56:59.652807+00:00", "task": "usb", "activeStep": 4, "confirmedSteps": [0, 1, 2, 3], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:57:11.385159+00:00", "task": "usb", "activeStep": 5, "confirmedSteps": [0, 1, 2, 3, 4], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:57:42.433801+00:00", "task": "feedback", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:58:41.059585+00:00", "task": "feedback", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:58:54.148594+00:00", "task": "feedback", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:59:06.886084+00:00", "task": "feedback", "activeStep": 3, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:59:21.895897+00:00", "task": "feedback", "activeStep": 4, "confirmedSteps": [0, 1, 2, 3], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T17:02:48.894985+00:00", "task": "feedback", "activeStep": 5, "confirmedSteps": [0, 1, 2, 3], "origin": "ui"}

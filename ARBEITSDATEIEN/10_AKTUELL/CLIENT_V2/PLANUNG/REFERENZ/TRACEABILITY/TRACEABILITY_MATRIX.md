@@ -414,3 +414,7 @@ Kein historisches R03-Urteil überschrieben; frischer unabhängiger Gesamt-Revie
 ## AP-IV2-020/R01 – realer geführter Lauf und R11, 19.10.2026
 
 [Einzelfallauswertung](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/22_GEFUEHRTER_DURCHLAUF_UND_USB_RECOVERY.md) bindet M-01/04/05/06/07/08/10/11 an tatsächliche Teilfälle, ohne ganze M-Gates zu schließen. Physische USB-Recovery am Produkt7bb5646 FAIL. R11-Korrektur0f6c85e: `tests.test_v2_audio_recovery.Media.test_active_driver_without_callbacks_reports_loss_before_blocked_stop` und `test_silent_pcm_is_progress_and_stalled_stream_recovers_without_activation` zunächst rot, danach grün;1400Windows-Tests ohne Skips PASS. Echter nativer PortAudio-Stillstand Source/Wheel am ausgewählten Pro-V2 bestätigt. Physische USB-Wiederholung sowie gesamte finale Real-/Frozen-/Wake-/100Activations-Qualifikation bleiben offen.
+
+## AP-IV2-020/R01 – physische R11-Schließung,19.10.2026
+
+[Bericht23](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/23_USB_BESTAETIGT_UND_IDLE_KALIBRIERUNG.md): M-06-TeilfallUSB/Audio am Produkt0f6c85e PASS_SCOPED, R11 CLOSED; alte/neue Activation sauber getrennt, serverbestätigter Verlust und Recovery, neue bewusste F8/F9-Finishfolge mit einmaliger korrekter Ausgabe. M-10-Teilfall manueller15s-No-Speech-Timeout mit menschlich passendem Timing PASS_SCOPED. Neue30/100%-Idle-Variante technisch berechnet, menschlich NOT_RUN. Keine ganzen M-Gates, Wake-/Both-/Frozen-/30min100-Abnahme daraus;1400Windows-/29Helfertests PASS.

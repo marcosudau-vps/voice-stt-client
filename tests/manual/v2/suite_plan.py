@@ -70,7 +70,7 @@ TASKS = [
          'Diesen Satz nur lesen – bei diesem Versuch nichts sprechen.', [
              'F8 drücken; Aktivierungsblitz, wartenden Ring und Overlay beobachten.',
              'Schweigen und den vollständigen Timeout abwarten; auf Stoppton und Idle achten.',
-             'Unten LED, Lautstärke, Tempo und Overlay-Dauer beschreiben. Änderungen erst nach Auswertung.'],
+             'Nach dem Timeout zwei weiße Idle-Pulse beobachten: Minimum30%, Maximum100% der Effekthelligkeit. Wird der Ring noch violett? Beobachtung unten notieren.'],
          'Fachliche Phasen stimmen überein; konkrete menschliche Wahrnehmung getrennt von Messwerten.'),
     task('mute', '7 · ReSpeaker Hardware-Mute', ['M-05', 'M-06'],
          'Diese Sprache darf während Hardware-Mute keine Aufnahme erzeugen.', [

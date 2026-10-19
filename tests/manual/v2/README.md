@@ -106,6 +106,13 @@ freigegebenen Sprachfixtures bleiben unverändert versioniert.
 
 ## Gezielte Wiederholung nach Auswertung
 
+Die reproduzierbaren Idle-Testwerte liegen in [calibration.yaml](calibration.yaml):
+weiß, `min_brightness: 0.30`, `brightness: 1.0`. Der Starter übernimmt sie über
+das bestehende Feedback-Konfigurationssystem. Die globale LED-Helligkeit bleibt
+unverändert; dies sind Effektwerte, keine zugesagte absolute Lichtleistung.
+Farbprofile und Produktdefaults werden damit nicht geändert. Die neue
+Untergrenze benötigt noch die Sichtbestätigung am Gerät.
+
 `./tests/manual/v2/Start-GuidedTests.ps1 -ProfileRuntime -Tasks usb,feedback`
 zeigt ausschließlich USB und Feedback, weiterhin mit eigenem Start und Wiederholen
 pro Aufgabe. Öffnen startet weder Mikrofon noch Client. Jede neue Durchführung

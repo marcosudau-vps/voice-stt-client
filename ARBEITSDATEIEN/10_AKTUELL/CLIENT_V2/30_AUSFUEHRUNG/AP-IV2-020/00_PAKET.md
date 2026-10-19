@@ -79,3 +79,7 @@ Server-/Produktstand, keine Serverproduktfreigabe und keine voreilige Paketabnah
 ## Zusatznachweis 19.10.2026 – R11 im freigegebenen Recovery-Scope
 
 [Durchlauf und USB-Korrektur](RUNS/R01-UMSETZUNG/22_GEFUEHRTER_DURCHLAUF_UND_USB_RECOVERY.md): reale USB-Abweichung reproduziert, eng begrenzt korrigiert, neues Produkt0f6c85e und1400Windows-Tests PASS. Kein Abschluss der offenen Realgates.
+
+## Physische R11-Schließung und Idle-Kalibrierung,19.10.2026
+
+[Bericht23](RUNS/R01-UMSETZUNG/23_USB_BESTAETIGT_UND_IDLE_KALIBRIERUNG.md): R11 physisch erfolgreich geschlossen. Weitere Pflichtgates unverändert offen; neue gewünschte Idle-Untergrenze30% nur Testkonfiguration, Sichtbestätigung ausstehend. Paket weiter BLOCKED, kein REVIEW_READY.

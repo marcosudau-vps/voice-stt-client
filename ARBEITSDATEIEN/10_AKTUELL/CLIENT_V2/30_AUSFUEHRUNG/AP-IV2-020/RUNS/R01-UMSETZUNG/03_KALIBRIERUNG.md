@@ -1,3 +1,7 @@
+## Feedback und Idle-Puls,19.10.2026
+
+[Physischer Folgeversuch und Vergleich](23_USB_BESTAETIGT_UND_IDLE_KALIBRIERUNG.md): Marco bestätigt Start/Warten/Timeout-/Overlaytimings im manuellen No-Speech-Pfad. Farbschemata ausdrücklich separates späteres Feature. Weißes ready_state bisher per Effektdefault Minimum0,16/Maximum0,55; neuer gewünschter Vergleich Minimum0,30/Maximum1,0, Geschwindigkeit0,45 unverändert. Gesamthelligkeit192/255 bleibt bestehen; Effektprozent sind keine absolute Lichtleistung. Reproduzierbar in tests/manual/v2/calibration.yaml, vom Starter in vorhandenes Feedbackmapping übernommen. Neuer Mindestwert noch CALIBRATION_PENDING bis menschlicher Sichtprüfung; violetter physischer Eindruck am alten Minimum festgehalten, Ursache NOT_PROVEN. Renderer121Zeitpunkte×12LEDs weiß und mindestens76/255 PASS;29Helfer-/1400Windows-Tests PASS. Keine Produkt-/Serverdefaults geändert.
+
 ## UX02 reale technische Wartezeit bestätigt
 
 Physisch gehaltenes Shift/Ctrl wurde250ms lang vom Produktworker beobachtet; danach erfolgte eine korrekte native Einfügung ohne Modifier. Mensch bestätigt sichtbaren Text. Technische Grenze1,5s/Poll10ms unverändert, keine neue Default-/Timinganpassung daraus. Nur UX02 geschlossen; übrige subjektive Kalibrierung/Realqualifikation offen.

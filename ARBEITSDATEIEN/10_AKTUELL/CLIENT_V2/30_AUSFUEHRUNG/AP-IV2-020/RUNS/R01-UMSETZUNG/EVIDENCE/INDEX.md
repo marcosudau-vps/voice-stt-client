@@ -1,3 +1,10 @@
+## Physischer USB-Folgeversuch und Idle-Kalibrierung,19.10.2026
+
+- [Bewertung mit menschlichen Notizen](usb-feedback-repeat-20261019/assessment.json), [Identität](usb-feedback-repeat-20261019/identity.json), [Server nach dem Lauf](usb-feedback-repeat-20261019/server-identity-after.json).
+- [Technische Validierung](usb-feedback-repeat-20261019/validation.json), [1400Windows-Tests](usb-feedback-repeat-20261019/windows-1400.log.gz), [29Helfertests](usb-feedback-repeat-20261019/helper-tests-29.log.gz), [Qt-Selbsttest](usb-feedback-repeat-20261019/qt-selfcheck.log.gz).
+- [Kalibrierinventar/Framevergleich](usb-feedback-repeat-20261019/idle-calibration.json), [bewusste menschliche LED-Bewertung](usb-feedback-repeat-20261019/human-feedback-note.md), [neuer Testwert](usb-feedback-repeat-20261019/requested-idle-calibration.yaml).
+- [Aufräumrest und automatische Ablehnung](usb-feedback-repeat-20261019/cleanup.json).
+
 ## Geführter Lauf und USB-Stillstand R11, 19.10.2026
 
 - [Bewertete11Aufgaben](guided-results-20261019/task-assessment.json), [alle15Versuche samt menschlichen Notizen](guided-results-20261019/attempts.json), [Native Fortschrittsereignisse](guided-results-20261019/operator-events.jsonl).
