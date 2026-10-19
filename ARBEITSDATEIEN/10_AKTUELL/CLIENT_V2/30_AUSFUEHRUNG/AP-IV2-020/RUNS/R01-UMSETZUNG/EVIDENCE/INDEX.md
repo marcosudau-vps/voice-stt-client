@@ -1,3 +1,13 @@
+## Geführte Resttests,19.10.2026
+
+- [Bericht20](../20_GEFUEHRTE_RESTTESTS.md).
+- [Validierung, finale Helferhashes und ausdrücklich fehlgeschlagene Vollsuite](guided-suite-20261019/validation.json).
+- [Vollständiger Windows-Fail-Log](guided-suite-20261019/windows-suite-failed-profile.log.gz), [16 grüne Helfertests](guided-suite-20261019/helper-tests.log.gz).
+- [Qt-Selbsttest](guided-suite-20261019/ui-self-check.json), [Vorschau](guided-suite-20261019/preview.png).
+- [Vorläufiger realer Audioprecheck](guided-suite-20261019/preliminary-smoke.json), [erlaubte Wire-/Messspur](guided-suite-20261019/preliminary-events.jsonl), [GET-APIs](guided-suite-20261019/preliminary-http.json).
+
+Kein finaler Profil-/Realgate-PASS; Ablagefreigabe und Wiederholung ausstehend.
+
 ## W01-Fortsetzungsumfang und tatsächliches V2-Testziel,19.10.2026
 
 - [Bericht19 / unveränderte Pflichtgates und Reihenfolge](../19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md).

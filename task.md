@@ -1,3 +1,12 @@
+## AP-IV2-020/R01 – geführter Restlauf vorbereitet,19.10.2026
+
+[Elf Aufgaben / Bericht20](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/20_GEFUEHRTE_RESTTESTS.md).
+Eigener Start/Wiederholen/Weiter, vorher lesbare Schritte, echte Messspur;16
+Helfertests/Qt PASS. Vorläufiger echter Pro-V2/ReSpeaker-Audioprecheck135Frames.
+Volle1398Windows:5FAIL/1ERROR wegen projektinterner TEMP-/Profilgrenzen.
+Dedizierte Windows-Testablage angefragt; bis Antwort Vorschau ohne Realstart.
+Produkt7bb5646 unverändert, gleicher R01/Branch/Draft-PR15; kein REVIEW_READY.
+
 ## AP-IV2-020/R01 – unabhängige Prüfungen zuerst, V2-Testziel belegt,19.10.2026
 
 [W01-Abgrenzung und Reihenfolge](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md).

@@ -1,3 +1,13 @@
+## AP-IV2-020/R01 – geführter Resttest, Ablageentscheidung offen,19.10.2026
+
+[Bericht20](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/20_GEFUEHRTE_RESTTESTS.md).
+`venv/Scripts/python.exe -m tests.manual.v2.guided_suite` öffnet nur die Vorschau.
+Reallauf `--profile-runtime` erst nach tatsächlicher Freigabe der separat
+angefragten `.voice-stt/qualification/AP-IV2-020`-Ablage im Benutzerprofil.
+Elf unabhängige Bedienaufgaben; kein automatischer Start/Weiter-PASS. Helfer16/Qt
+PASS, vorläufige echte Audioübertragung135Frames; Windows1398aktuell FAIL durch
+TEMP-/Profilgrenzen. V1 und Server geschützt, unverändertes Produkt7bb5646.
+
 ## AP-IV2-020/R01 – ausgewähltes vorhandenes V2-Testziel,19.10.2026
 
 Aktuell: [Bericht19](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md).

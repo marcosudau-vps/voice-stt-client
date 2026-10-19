@@ -1,0 +1,79 @@
+{
+  "timeUtc": "2026-10-19T13:02:28.734776+00:00",
+  "baseCommit": "0ef1104c1f9a75acc092c842da8bc079f0d130fc",
+  "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+  "productCodeChanged": false,
+  "sourceSha256": {
+    "tests/manual/v2/editor_state.py": "ef93b63adfcf14feec6830ae5026d4eee11f5978b882c9979e71ccf3458c828d",
+    "tests/manual/v2/guided_suite.py": "294b1fe14bb1834cb1b583b8187cecea18fb3a058e8179bdaeef0745caa9015b",
+    "tests/manual/v2/human_test_editor.py": "5127550bcfaf4bb51d445572140cb89d94fdc801f3732553f7a468a1651c20fd",
+    "tests/manual/v2/observed_session.py": "4af707d792cb38e47545f79ad31970e0b16c1314a023a08a5bd3deb392658a1f",
+    "tests/manual/v2/preflight_suite.py": "c1d62129787ed26e74852b38bd26dd0e9c4082e2c8395e9105605e828af7271c",
+    "tests/manual/v2/README.md": "3ea71dfd69490ab9ab4131217aa3a30e7d45c9d372128b8933572047cd8be915",
+    "tests/manual/v2/Start-GuidedTests.ps1": "d3f0bda178fb7fda73279946dced2b83b5e46d01336062e78ce4bd66a45cea3d",
+    "tests/manual/v2/stepped_wake_trial.py": "3a3d9833748f928be958ab16a68a6ceb34dcef66fbc56896d7c5108c0e874b3e",
+    "tests/manual/v2/step_board.py": "023601b407f99658f479f87408a80e88931654039f72b0d7a1385283545e9100",
+    "tests/manual/v2/suite_analysis.py": "8062fab70475c8233ce473c0b146a2e63026adb2a3c6f82ded38fdd082d34bb9",
+    "tests/manual/v2/suite_plan.py": "1a9003fd3da6b57d0d132da88f72332326995bc0e7bb6de403b61de6ff4b6257",
+    "tests/manual/v2/suite_session.py": "e03c1bbd4755a3fd911d0a8472605ee908738c41f2c61c16f536fb9900ff2926",
+    "tests/manual/v2/test_editor_state.py": "a42fd4e33facccf14865bbbdff602c7d19338793a9ab889d2d6fabd65e50c4c0",
+    "tests/manual/v2/test_guided_suite.py": "16427ed3ec46b325968545906ed54f07b2ef47d5afc574e506c2a1e870c254c8",
+    "tests/manual/v2/test_launcher.py": "42008549453a9ce2df5dea49ac0eb1f0d5ab35af77b397605ca5880a73013e5f",
+    "tests/manual/v2/test_stepped_controls.py": "570aec462765382213ace3471a346f4488c72068c747d2cda87333087d925d13",
+    "tests/manual/v2/__main__.py": "5ea4abcdcd48de5ef8e6c497e586ef592b6e82f9fbac8cd16a6b0cfc4a7b73b8"
+  },
+  "evidenceSha256": {
+    "helper-tests.log.gz": "63e9db7557880a141b19b8fe17a60052b3bec4d3f2e706d8a06b0387877dee41",
+    "preliminary-events.jsonl": "b9241dece24d6a7105f4edda76f7e11f5bedbf94a5510839aad0cde8de2c6362",
+    "preliminary-http.json": "36d9f56ba4a60da8724061cc26fe60e1bc387d9dba590c166fddda6df5141659",
+    "preliminary-result.json": "2d3f84a7644629ff2e591107eda189a0e1c6b0e7d70d43d4c279a6b7bd887b41",
+    "preliminary-smoke.json": "f3cd0bda0ff89b8c33936a4a832ee3c717412f0ef267824dde81d9956de9e550",
+    "preview.png": "4449adc7f7b41cc0454b81b473c78ae0a372c0f7317e3ad807b4c5aacc93f4d5",
+    "ui-self-check.json": "6570e26c4d9ae8516d611fd1d29f7fa7a11fe6eb3683a54db2753f65632013b7",
+    "windows-suite-failed-profile.log.gz": "3ee6544dd58fb7cecfa0dd5a4d5c2676e1a4b1d3bf9829319d2dbbea21f749a8",
+    "work-record-validation.json": "628f6c9de2086be779951d6de59b9459de8546927ff38f64f86301afe0870c49"
+  },
+  "helperRegression": {
+    "command": "venv/Scripts/python.exe -m unittest discover -v -s tests/manual/v2 -p test_*.py",
+    "result": "PASS",
+    "tests": 16,
+    "exitCode": 0
+  },
+  "qt": {
+    "command": "venv/Scripts/python.exe -m tests.manual.v2.guided_suite --self-check",
+    "result": "PASS",
+    "noClientStarted": true
+  },
+  "windowsRegression": {
+    "command": "venv/Scripts/python.exe -m unittest discover -v -s tests",
+    "result": "FAIL",
+    "tests": 1398,
+    "failures": 5,
+    "errors": 1,
+    "exitCode": 1,
+    "environment": "TEMP/TMP and VOICESTT_CLIENT_HOME intentionally inside project build/ap-iv2-020-suite; conflicts with original profile/outside-repo invariants",
+    "affected": [
+      "test_history.TestTranscriptHistoryManager.test_default_db_path_outside_repo",
+      "test_obs030_manager.TestLifecycle.test_submitted_record_ends_up_in_sqlite",
+      "test_obs030_manager.TestRestartAcrossManagers.test_second_manager_instance_sees_data_from_the_first",
+      "test_obs030_path_boundaries.TestIsInsideUserProfile.test_positive_temp_dir_used_by_the_test_suite_is_inside",
+      "test_obs030_path_boundaries.TestManagerRefusesForeignPaths.test_accepted_path_inside_the_profile_is_used_unchanged",
+      "test_obs050_contracts.TestLoggingWorksWithoutTheLogView.test_records_are_written_with_no_ui_imported"
+    ]
+  },
+  "realPrecheck": {
+    "result": "SCOPED_PASS_PRIOR_HELPER_REVISION",
+    "actualAudioFrames": 135,
+    "activations": 0,
+    "logRows": 40,
+    "finalHelperQualification": false,
+    "boundary": "Actual selected server + source desktop + ReSpeaker. The final diagnostic-path change still needs explicit path authorization and repetition."
+  },
+  "status": "AWAITING_DEDICATED_PROFILE_PATH_AUTHORIZATION",
+  "proposedPath": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
+  "noNewExternalRuntimeWrites": true,
+  "noServerMutation": true,
+  "noCompleteMCasePass": true,
+  "reviewReady": false,
+  "workRecords": "PASS"
+}

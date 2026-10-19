@@ -1,3 +1,15 @@
+## Jetzt: geführte unabhängige Resttests, 19.10.2026
+
+- [x] Elf vorher lesbare Aufgaben mit eigenem Start/Wiederholen/Weiter vorbereitet.
+- [x]16 Helferregressionen und Qt-Vorschau ohne Client-/Audiostart PASS.
+- [x] Vorläufiger echter Pro-V2-/ReSpeaker-Audioprecheck, keine Activation.
+- [ ] Explizite Freigabe der getrennten Windows-Testablage erhalten.
+- [ ] Vollsuite nach Behebung des TEMP-/Profilkonflikts wiederholen (aktueller Lauf FAIL).
+- [ ] Geführte Bedienversuche durchführen und zusammenhängend auswerten.
+- [ ] Übrige technische/W01-/Frozen-Pflichtanteile bleiben gesondert offen.
+
+[Anleitung und Grenzen](20_GEFUEHRTE_RESTTESTS.md). Übernehmen ist kein automatisches PASS.
+
 ## Aktuell: zusätzliche Serverinstanz entfernt
 
 - [x] Eigene AP020-Servercontainer/-images/zugeordnete Datenvolumes auf Wunsch entfernt.

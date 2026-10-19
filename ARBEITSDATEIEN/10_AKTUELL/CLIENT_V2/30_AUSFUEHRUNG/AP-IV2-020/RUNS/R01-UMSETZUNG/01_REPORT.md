@@ -1,3 +1,13 @@
+## Geführter Resttest vorbereitet, Ablageentscheidung offen, 19.10.2026
+
+[Bericht20](20_GEFUEHRTE_RESTTESTS.md): elf unabhängige Bedienaufgaben mit eigenem Start,
+Wiederholen/Weiter und gesammelten Messdaten.16 Helferprüfungen und Qt-Selbsttest
+PASS; realer vorläufiger Audio-/Pro-V2-Precheck135Frames, keine Activation.
+Windows1398:5FAIL/1ERROR wegen projektinterner TEMP-/Profilumgebung statt
+verlangter Benutzerprofilgrenze. Keine Testabschwächung und kein voller PASS.
+Dedizierte externe Testablage explizit angefragt; bis Antwort nur Vorschau,
+kein Realstart. Produkt unverändert7bb5646, keine Serveränderung.
+
 ## W01 gezielt zurückgestellt, vorhandenes V2-Ziel bestätigt,19.10.2026
 
 [Fallgenaue Blockierung und Fortsetzungsreihenfolge](19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md):

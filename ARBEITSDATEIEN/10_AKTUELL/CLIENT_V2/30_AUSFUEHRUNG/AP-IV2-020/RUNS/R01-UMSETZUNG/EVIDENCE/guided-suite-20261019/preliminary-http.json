@@ -1,0 +1,21 @@
+{
+  "target": "wss://pro.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "requests": [
+    {
+      "path": "/api/v2/settings/schema",
+      "status": 200,
+      "protocolVersion": 2
+    },
+    {
+      "path": "/api/v2/settings/server",
+      "status": 200,
+      "protocolVersion": 2
+    },
+    {
+      "path": "/api/v2/wake-words",
+      "status": 200,
+      "protocolVersion": 2
+    }
+  ],
+  "scope": "GET-only; no admin credentials, model mutation or server defaults PATCH"
+}
