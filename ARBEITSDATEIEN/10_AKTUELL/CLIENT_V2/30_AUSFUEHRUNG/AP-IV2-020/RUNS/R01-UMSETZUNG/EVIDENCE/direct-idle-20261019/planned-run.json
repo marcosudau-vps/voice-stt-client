@@ -1,0 +1,9 @@
+{
+  "tasks": [
+    "feedback"
+  ],
+  "purpose": "Human visual confirmation of white idle min30/peak100; no USB or speech",
+  "harnessCommit": "f6878a174992c321208cf7a617c54548a92585bf",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "scope": "Client starts only on deliberate human Start"
+}

@@ -123,3 +123,12 @@ prüft einen kontrollierten echten PortAudio-Stillstand mit scheinbar aktivem
 Treiber am ausgewählten Pro-V2. Optional `--installed-root <Projektpfad>` für
 ein entpacktes eigenes Wheel. Keine Aktivierung/Textinjektion/PCM-Datei; kein
 physischer USB- oder Frozen-PASS aus dieser Diagnose.
+
+## Direkte Idle-Vorschau ohne Client/Mikrofon/Server
+
+`venv/Scripts/python.exe -m tests.manual.v2.idle_preview --profile-runtime`
+öffnet einen eigenen START/20s/Ergebnis-Dialog. Er setzt die Werte aus
+[calibration.yaml](calibration.yaml) direkt am vorhandenen LED-Controller.
+Vor START keine LED-Übernahme; keine Hotkeys, Aufnahme oder Serververbindung.
+Jeder Versuch wird separat behalten; Schließen/Übernehmen stoppt eigene Ausgabe.
+`--self-check` prüft Qt mit Dummycontroller, ausschließlich im Projektbuildordner.

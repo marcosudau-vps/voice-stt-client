@@ -1,0 +1,14 @@
+{
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "productChanged": false,
+  "helperTests": 31,
+  "qtSelfcheck": "PASS: direct Start, availability-gated20s, choice/save/stop, repeat retains old result; dummy controller, no hardware",
+  "physicalPreview": "NOT_RUN",
+  "unchangedProductWindowsProof": "../usb-feedback-repeat-20261019/windows-1400.log.gz",
+  "sourceSha256": {
+    "tests\\manual\\v2\\idle_preview.py": "b3296c209e0632b995825316bf78036ed2a5101f97ad6873ba4d735979e20cab",
+    "tests\\manual\\v2\\test_idle_preview.py": "7fe5d5150e91b233b7ad6cf5be972f9fed1f4fa6b5be6a9e2260efe4facbe44b",
+    "tests\\manual\\v2\\calibration.yaml": "e125092eaa797876ee48baa8261ec1126a50534f09e23c98d57417f6f91c4219"
+  },
+  "reviewReady": false
+}

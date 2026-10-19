@@ -1,0 +1,23 @@
+{
+  "result": "NOT_PROVEN_TARGET_PHASE_NOT_ENTERED",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "attemptId": "9e2b0bd8ca744e3ab4c30e8263c7cdff",
+  "exitCode": 0,
+  "humanObservation": "Wie erwartet",
+  "humanNotes": " Es ist in Ordnung so.",
+  "wireEvents": {
+    "session.snapshot": 5,
+    "settings.changed": 1
+  },
+  "controls": 0,
+  "activations": 0,
+  "nativePastes": 0,
+  "targetConfiguration": "White30/100% configured on server.input.idle, but that transition was not observed; lifecycle startup uses a separate ready_state call.",
+  "interpretation": "Human acceptance of visible LEDs retained; not a confirmed30/100% comparison. No product failure inferred.",
+  "nextProbe": "Direct LED-only preview, explicit Start, no audio/hotkey/server",
+  "productChanged": false,
+  "helperTests": 31,
+  "qtSelfcheck": "PASS without hardware, dummy port explicitly used",
+  "compileall": "PASS",
+  "boundary": "Original1400Windows proof remains at identical product0f6c85e; new isolated helper tests cover added preview. Human direct preview pending."
+}

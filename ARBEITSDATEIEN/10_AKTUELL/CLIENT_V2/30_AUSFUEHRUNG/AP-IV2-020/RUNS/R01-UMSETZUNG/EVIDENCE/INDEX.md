@@ -1,3 +1,9 @@
+## Direkter Idle-Vergleich statt unbewiesenem Zielübergang,19.10.2026
+
+- [Letzter Lauf und menschliche Bewertung](direct-idle-20261019/assessment.json), [Identität](direct-idle-20261019/identity.json), [erlaubte Wire-/Messspur](direct-idle-20261019/prior-events.jsonl.gz).
+- [31Helfertests/Qt-Validierung und Grenzen](direct-idle-20261019/validation.json), [vollständiger Helferlog](direct-idle-20261019/direct-idle-helper-tests.log.gz), [Qt-Selbstcheck](direct-idle-20261019/direct-idle-qt.log.gz).
+- [Aufräumrest](direct-idle-20261019/cleanup.json); keine neue physische Kalibrierung behauptet.
+
 ## Physischer USB-Folgeversuch und Idle-Kalibrierung,19.10.2026
 
 - [Bewertung mit menschlichen Notizen](usb-feedback-repeat-20261019/assessment.json), [Identität](usb-feedback-repeat-20261019/identity.json), [Server nach dem Lauf](usb-feedback-repeat-20261019/server-identity-after.json).

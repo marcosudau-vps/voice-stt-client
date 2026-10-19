@@ -26,8 +26,8 @@
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "W01 und weitere Pflichtgates offen. R11 physisch geschlossen; neue gewünschte Idle-Kalibrierung30/100% benötigt Sichtbestätigung. Neun gesicherte externe Aufräumreste durch automatische Freigabeprüfung blockiert.",
-  "nextAction": "Nur Feedback/Idle am unveränderten Produkt0f6c85e mit neuer reproduzierbarer30/100%-Konfiguration selbst starten und beurteilen; USB nicht wiederholen. Danach übrige unabhängige Real-/Frozenpflichten weiterbearbeiten. W01 separat, kein REVIEW_READY.",
+  "blockingReason": "W01/weitere Pflichtgates offen; R11 CLOSED. Idle30/100% im letzten Lauf mangels Zielübergang nicht nachgewiesen. Direkte LED-only-Sichtprüfung vorbereitet. Zehn gesicherte externe Aufräumreste automatisch blockiert.",
+  "nextAction": "Direkte LED-only-Vorschau durch Menschen selbst starten und20sbeurteilen; keine Hotkeys/Sprache/Server/USB nötig. Danach Bewertung sichern, übrige unabhängige Realpflichten weiterbearbeiten; kein REVIEW_READY.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -94,6 +94,12 @@
       "status": "CLOSED",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/23_USB_BESTAETIGT_UND_IDLE_KALIBRIERUNG.md",
       "summary": "Physical USB repeat at product0f6c85e PASS: no-progress detected, old activation cancelled, real reopen/availability ACK, only conscious F8 begins new activation, F9finish and exactly one matching native final paste. Complete M06/frozen gates remain open."
+    },
+    {
+      "id": "IV2-020-O03",
+      "status": "NOT_PROVEN_TARGET_PHASE_NOT_ENTERED",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/24_IDLE_ZIELZUSTAND_UND_DIREKTVORSCHAU.md",
+      "summary": "Human accepts visible startup LEDs, but no activation/idle transition applied the new30/100% event mapping. Direct operator-started LED-only preview prepared; not a product defect or calibration PASS."
     }
   ],
   "testInfrastructure": {
@@ -124,13 +130,13 @@
     "w01ExecutionOrder": "Unaffected client tests first; separately commissioned server FIX later; affected real gates before full AP020 acceptance",
     "w01Impact": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md",
     "guidedSuite": {
-      "status": "USB_RECOVERY_CLOSED_FEEDBACK_ACCEPTED_IDLE_FLOOR_COMPARE_PENDING",
+      "status": "DIRECT_LED_ONLY_PREVIEW_READY_HUMAN_CONFIRMATION_PENDING",
       "tasks": 11,
       "source": "../../../tests/manual/v2/README.md",
-      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/23_USB_BESTAETIGT_UND_IDLE_KALIBRIERUNG.md",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/24_IDLE_ZIELZUSTAND_UND_DIREKTVORSCHAU.md",
       "profilePathAuthorization": "APPROVED_WITH_EXPORT_AND_CLEANUP_OBLIGATION",
       "proposedRuntimePath": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
-      "helperTests": "29 PASS, includes real LEFX idle renderer",
+      "helperTests": "31 PASS",
       "windowsRegression": "1400 PASS, 0 skips,194.615s; same product0f6c85e",
       "cleanup": {
         "required": true,
@@ -138,8 +144,8 @@
         "approvedRoot": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
         "existedBefore": false,
         "completedAutonomousRunDirectories": 4,
-        "pending": "Nine stopped/exported/hash-verified directories removal rejected by automatic approval review; next feedback-only run retained until evaluation/export",
-        "ledger": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/usb-feedback-repeat-20261019/cleanup.json",
+        "pending": "Ten stopped/hash-archived directories deletion rejected by automatic approval review; upcoming LED-only runtime requires export/cleanup",
+        "ledger": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/direct-idle-20261019/cleanup.json",
         "blockedPath": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020/progress-regression-20261019-162446",
         "blocker": "Automatic approval review rejected deletion: blocked by policy"
       },
@@ -149,7 +155,9 @@
       "humanActivations": 14,
       "results": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/guided-results-20261019/task-assessment.json",
       "latestRepeatResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/usb-feedback-repeat-20261019/assessment.json",
-      "idleCalibration": "../../../tests/manual/v2/calibration.yaml"
+      "idleCalibration": "../../../tests/manual/v2/calibration.yaml",
+      "latestIdleAttempt": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/direct-idle-20261019/assessment.json",
+      "directPreview": "../../../tests/manual/v2/idle_preview.py"
     }
   },
   "qualificationStatus": "BLOCKED_BY_OPEN_MANDATORY_FINDINGS"

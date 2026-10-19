@@ -1,3 +1,7 @@
+## AP-IV2-020/R01 – direkte Idle-Vorschau vorbereitet,19.10.2026
+
+[Bericht24](24_IDLE_ZIELZUSTAND_UND_DIREKTVORSCHAU.md): Letzte menschliche Akzeptanz bewahrt, aber kein Aktivierungs-/Idle-Zielübergang im Lauf, daher30/100%-Kalibrierung NOT_PROVEN. Dauerhafte LED-only-Vorschau mit eigenem START/20s/Übernehmen erstellt, kein Mikrofon/Server/Hotkey nötig;31Helfertests/Qt-Selbstcheck PASS. Produkt0f6c85e unverändert, R11 CLOSED. Neue physische Bewertung und weitere M-/Frozen-/W01-Gates offen; BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher PR15. Zehn gesicherte externe Restordner automatisch mit „blocked by policy“ gegen Löschen gesperrt.
+
 ## AP-IV2-020/R01 – physische USB-Recovery bestätigt, Idle-Feinabstimmung offen,19.10.2026
 
 [Neuer Nachweis](23_USB_BESTAETIGT_UND_IDLE_KALIBRIERUNG.md): R11 CLOSED am unveränderten Produkt0f6c85e; echter USB-Ausfall/Servercancel/Wiederöffnung und bewusstes neues F8/F9-Diktat exakt einmal eingefügt. Manual-Timeoutfeedback menschlich bestätigt. Gewünschte weiße Idle-Pulsvariante30/100% als bestehende Testkonfiguration gespeichert, Sichtbestätigung offen; Farbprofile ausdrücklich später.29Helfer-/1400Windows-Tests ohne Skips PASS. Gesamtpaket weiter BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleiche R01/PR15, kein REVIEW_READY. Neun gesicherte beendete externe Laufordner wegen automatischer Freigabeprüfung „blocked by policy“ nicht gelöscht.
