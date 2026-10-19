@@ -1,0 +1,51 @@
+{
+  "ready": true,
+  "generation": 1,
+  "sessionId": "a794f857-7aa7-41e6-8497-682567eab23a",
+  "transport": "ready",
+  "reason": "",
+  "phase": "idle",
+  "activationId": null,
+  "pid": 32672,
+  "timeUtc": "2026-10-19T16:43:20.299406+00:00",
+  "tasks": 10,
+  "commands": 0,
+  "trackerPending": 0,
+  "memory": {
+    "workingSetBytes": 103034880,
+    "privateBytes": 434315264
+  },
+  "media": {
+    "sent": 133,
+    "gated": 0,
+    "overflow": 0,
+    "stale": 0,
+    "invalid": 0,
+    "queue_ms": 0.0,
+    "capture_failures": 0,
+    "audio_available": true,
+    "led_available": true,
+    "log_failure": null
+  },
+  "capture": {
+    "chunks_captured": 133,
+    "chunks_dropped_capture_queue": 0,
+    "overflow_count": 0,
+    "underflow_count": 0,
+    "capture_queue_depth": 0
+  },
+  "injectionQueue": 0,
+  "audioAvailable": true,
+  "operatorProgress": {
+    "counts": {},
+    "generation": 1,
+    "ready": true,
+    "audio": true,
+    "audioLost": false,
+    "closedReason": "",
+    "reconnectGeneration": null,
+    "cancelWaitRemaining": null,
+    "usbWaitRemaining": null,
+    "noneWaitRemaining": null
+  }
+}

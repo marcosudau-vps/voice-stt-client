@@ -22,12 +22,13 @@
     "IV2-020-T01",
     "IV2-020-W01",
     "IV2-020-T02",
-    "IV2-020-T03"
+    "IV2-020-T03",
+    "IV2-020-R11"
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "Gesamtabnahme durch W01 und offene Realgates blockiert; auf ausdrücklichen Wunsch017 wird die unabhängige Clientumsetzung im selben R01 fortgesetzt. Kein vollständiger PASS vor W01-Fix und betroffenen Restnachweisen.",
-  "nextAction": "Korrigierte Testoberfläche: Aufgabe1 durch Menschen erneut selbst starten; ereignisgebundene Markierung/Häkchen bestätigen, dann elfteiligen Lauf fortsetzen und gesammelt auswerten. Gesicherter alter Bedienlauf entfernt; ein gesicherter Regressionstestordner bleibt wegen automatischer Freigabeprüfung als Löschrest offen. Weitere Laufzeit nach Auswertung/Export aufräumen. W01/übrige Real-/Frozenpflichten offen, kein REVIEW_READY.",
+  "blockingReason": "W01 und weitere Pflichtgates offen; R11 technisch korrigiert, physische USB-Wiederholung und finale Real-/Frozenqualifikation offen. Externe Aufräumreste durch automatische Freigabeprüfung blockiert.",
+  "nextAction": "Gezielten USB-/Feedbackblock am korrigierten Produkt selbst starten; Ergebnisse auswerten. Weitere unabhängige technische Restfälle vorbereiten. W01-FIX separat gemäß Auftrag, keine Serveränderung und kein REVIEW_READY.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -68,8 +69,8 @@
     "issue": "https://github.com/marcosudau-vps/voice-stt-server/issues/7",
     "executionOrder": "DEFER_IMPLEMENTATION_UNTIL_UNAFFECTED_CLIENT_TESTS_DONE"
   },
-  "technicalProductCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
-  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/ux03-close-sound/assessment.json",
+  "technicalProductCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/usb-stall-20261019/assessment.json",
   "observations": [
     {
       "id": "IV2-020-O01",
@@ -85,9 +86,15 @@
     },
     {
       "id": "IV2-020-T03",
-      "status": "FIXED_HUMAN_UI_CONFIRMATION_PENDING",
-      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/21_TESTOBERFLAECHE_LIVE_FORTSCHRITT.md",
-      "summary": "Guided UI advanced only on manual Next and fabricated prior checks on Review. Passive event counters and genuine confirmations now verified by27 helper/Qt and1398Windows tests; human repeat pending."
+      "status": "FIXED_NATIVE_PROGRESS_PROVEN_VISUAL_CONFIRMATION_PENDING",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/22_GEFUEHRTER_DURCHLAUF_UND_USB_RECOVERY.md",
+      "summary": "Eleven human tasks/15 attempts evaluated; actual event-driven row transitions recorded, unobserved F9 not checked. Explicit overall visual confirmation not supplied."
+    },
+    {
+      "id": "IV2-020-R11",
+      "status": "FIXED_TECHNICAL_PASS_PHYSICAL_USB_REPEAT_PENDING",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/22_GEFUEHRTER_DURCHLAUF_UND_USB_RECOVERY.md",
+      "summary": "Physical USB loss left PortAudio active and capture/sender stalled at417 for minutes. Existing counter detects two-second no-progress;48 focused/1400Windows tests and native source+installed-wheel injected-stall probes PASS. Physical unplug at corrected product still pending."
     }
   ],
   "testInfrastructure": {
@@ -118,27 +125,30 @@
     "w01ExecutionOrder": "Unaffected client tests first; separately commissioned server FIX later; affected real gates before full AP020 acceptance",
     "w01Impact": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md",
     "guidedSuite": {
-      "status": "EVENT_DRIVEN_READY_TASK1_HUMAN_REPEAT_PENDING",
+      "status": "ELEVEN_TASKS_EVALUATED_TARGETED_USB_FEEDBACK_NEXT",
       "tasks": 11,
       "source": "../../../tests/manual/v2/README.md",
-      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/21_TESTOBERFLAECHE_LIVE_FORTSCHRITT.md",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/22_GEFUEHRTER_DURCHLAUF_UND_USB_RECOVERY.md",
       "profilePathAuthorization": "APPROVED_WITH_EXPORT_AND_CLEANUP_OBLIGATION",
       "proposedRuntimePath": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
-      "helperTests": "27 PASS",
-      "windowsRegression": "1398 PASS, 0 skips; final corrected fixture/environment, full logs retained",
+      "helperTests": "28 PASS",
+      "windowsRegression": "1400 PASS, 0 skips at corrected product0f6c85e; full logs retained",
       "cleanup": {
         "required": true,
         "source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/019_TESTABLAGE_MIT_AUFRAEUMPFLICHT.md",
         "approvedRoot": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
         "existedBefore": false,
         "completedAutonomousRunDirectories": 4,
-        "pending": "Human repeat after evaluation/export; one already archived regression directory removal blocked by automatic approval review",
-        "ledger": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/guided-progress-20261019/cleanup.json",
+        "pending": "Seven stopped exported/hash-verified directories deletion rejected by automatic approval review; new targeted human run cleaned after its evaluation/export",
+        "ledger": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/usb-stall-20261019/cleanup.json",
         "blockedPath": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020/progress-regression-20261019-162446",
         "blocker": "Automatic approval review rejected deletion: blocked by policy"
       },
       "focusedTests": "43 PASS",
-      "compileall": "PASS"
+      "compileall": "PASS",
+      "humanAttempts": 15,
+      "humanActivations": 14,
+      "results": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/guided-results-20261019/task-assessment.json"
     }
   },
   "qualificationStatus": "BLOCKED_BY_OPEN_MANDATORY_FINDINGS"

@@ -103,3 +103,16 @@ die **entfernte** lokale Port18020-/AppData-Umgebung und sind für den aktuellen
 Durchlauf nicht zu benutzen. `scripts/qualify_v2_session.py prepare` nicht erneut
 ausführen; es gehört zur stillgelegten Infrastruktur. Die sechs ausdrücklich
 freigegebenen Sprachfixtures bleiben unverändert versioniert.
+
+## Gezielte Wiederholung nach Auswertung
+
+`./tests/manual/v2/Start-GuidedTests.ps1 -ProfileRuntime -Tasks usb,feedback`
+zeigt ausschließlich USB und Feedback, weiterhin mit eigenem Start und Wiederholen
+pro Aufgabe. Öffnen startet weder Mikrofon noch Client. Jede neue Durchführung
+braucht ihre eigene Auswertung/Profilarchivierung/Bereinigung.
+
+`venv/Scripts/python.exe -m tests.manual.v2.probe_stalled_capture --profile-runtime`
+prüft einen kontrollierten echten PortAudio-Stillstand mit scheinbar aktivem
+Treiber am ausgewählten Pro-V2. Optional `--installed-root <Projektpfad>` für
+ein entpacktes eigenes Wheel. Keine Aktivierung/Textinjektion/PCM-Datei; kein
+physischer USB- oder Frozen-PASS aus dieser Diagnose.

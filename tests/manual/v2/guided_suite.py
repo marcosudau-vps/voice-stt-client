@@ -17,7 +17,7 @@ import time
 import uuid
 
 from tests.manual.v2.suite_plan import (
-    TASKS, DEFERRED, ROOT, RUNTIME, PROFILE_RUNTIME, TARGET, PREPARE_SECONDS, SuiteRecord, owned_path, target_origin)
+    select_tasks, DEFERRED, ROOT, RUNTIME, PROFILE_RUNTIME, TARGET, PREPARE_SECONDS, SuiteRecord, owned_path, target_origin)
 from tests.manual.v2.suite_session import save
 from tests.manual.v2.suite_analysis import summarize
 from tests.manual.v2.suite_progress import guide_progress
@@ -28,7 +28,12 @@ def main():
     parser.add_argument('--self-check', action='store_true')
     parser.add_argument('--profile-runtime', action='store_true',
         help='Use dedicated Windows-profile runtime only after explicit human authorization; otherwise preview only')
+    parser.add_argument('--tasks', nargs='+', help='Only these task IDs, each with its own Start')
     args = parser.parse_args()
+    try:
+        TASKS = select_tasks(args.tasks)
+    except ValueError as error:
+        parser.error(str(error))
     RUNTIME.mkdir(parents=True, exist_ok=True)
     base = PROFILE_RUNTIME if args.profile_runtime else RUNTIME
     folder = base/('suite-'+datetime.now().strftime('%Y%m%d-%H%M%S')+'-'+uuid.uuid4().hex[:6])

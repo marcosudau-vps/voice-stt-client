@@ -1,3 +1,11 @@
+## Geführter Lauf und USB-Stillstand R11, 19.10.2026
+
+- [Bewertete11Aufgaben](guided-results-20261019/task-assessment.json), [alle15Versuche samt menschlichen Notizen](guided-results-20261019/attempts.json), [Native Fortschrittsereignisse](guided-results-20261019/operator-events.jsonl).
+- [R11-Qualifikation und Buildhashes](usb-stall-20261019/assessment.json), [vollständige1400Windows-Tests](usb-stall-20261019/usb-windows.log.gz), [gezielte rote Regression](usb-stall-20261019/usb-red.log.gz), [48grüne Audio-/Recoverytests](usb-stall-20261019/usb-green.log.gz).
+- [Source-ReSpeaker/Server-Stillstand](usb-stall-20261019/source-native-stall.json), [installiertesWheel](usb-stall-20261019/wheel-native-stall.json), [Frozen-GUI-Probe](usb-stall-20261019/usb-exe-probe.json), [nachträgliche Serveridentität](usb-stall-20261019/server-post-human-identity.json).
+- [Logbefund](guided-results-20261019/log-observation.json), [physischer Screenshot](guided-results-20261019/Screenshot_test8.png), [verweigerte Bereinigung](usb-stall-20261019/cleanup.json).
+- [Auswerteskript](guided-results-20261019/evaluate_human_run.py) erzeugt nur Fakten/Hashes; Scope-Urteile separat. Keine Rohsprache/History-Datenbank committed.
+
 ## T03: Ereignisgebundener Livefortschritt der Testoberfläche,19.10.2026
 
 - [Bericht21](../21_TESTOBERFLAECHE_LIVE_FORTSCHRITT.md).

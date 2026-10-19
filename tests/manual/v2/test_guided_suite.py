@@ -3,13 +3,20 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from tests.manual.v2.suite_plan import TASKS, DEFERRED, SuiteRecord, owned_path, target_origin
+from tests.manual.v2.suite_plan import TASKS, DEFERRED, SuiteRecord, owned_path, target_origin, select_tasks
 from tests.manual.v2.suite_session import prepare_profile
 from tests.manual.v2.suite_analysis import summarize
 import json
 
 
 class GuidedSuite(unittest.TestCase):
+    def test_targeted_repeat_preserves_order_and_requires_known_distinct_tasks(self):
+        self.assertEqual([x['id'] for x in select_tasks(['usb','feedback'])], ['usb','feedback'])
+        self.assertEqual(len(select_tasks()), 11)
+        for value in ([], ['usb','usb'], ['unknown']):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                select_tasks(value)
+
     def test_target_is_explicit_tls_v2_without_credentials_or_redirect_origin(self):
         self.assertEqual(target_origin('wss://pro.v2.voice-stt-server.marcosudau.com/ws/v2'),
                          'https://pro.v2.voice-stt-server.marcosudau.com')

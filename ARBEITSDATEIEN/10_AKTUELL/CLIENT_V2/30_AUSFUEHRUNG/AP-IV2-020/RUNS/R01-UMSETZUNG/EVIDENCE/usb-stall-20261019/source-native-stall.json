@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "timeUtc": "2026-10-19T16:44:27.461847+00:00",
+  "productModule": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\voice_stt_client\\__init__.py",
+  "target": "wss://pro.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "sessionId": "eef0acfa-5948-4885-b3d1-b0281a7ba7f8",
+  "generation": 1,
+  "wireServerCommit": "unknown",
+  "availability": [
+    {
+      "type": "audio_availability.set",
+      "audioAvailable": false,
+      "accepted": true
+    },
+    {
+      "type": "audio_availability.set",
+      "audioAvailable": true,
+      "accepted": true
+    }
+  ],
+  "activations": 0,
+  "captured": 57,
+  "sent": 57,
+  "recoverySeconds": 3.375,
+  "failures": 1,
+  "boundary": "Controlled native stream abort with falsely active driver flag; not physical USB, no activation/final, no frozen desktop qualification."
+}

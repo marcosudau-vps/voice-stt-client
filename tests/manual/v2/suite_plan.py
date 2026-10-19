@@ -116,6 +116,15 @@ DEFERRED = [
 ]
 
 
+def select_tasks(ids=None):
+    if ids is None:
+        return list(TASKS)
+    by_id = {task['id']: task for task in TASKS}
+    if not ids or len(set(ids)) != len(ids) or any(value not in by_id for value in ids):
+        raise ValueError('Select distinct known task IDs')
+    return [by_id[value] for value in ids]
+
+
 class SuiteRecord:
     def __init__(self):
         self.attempts = []

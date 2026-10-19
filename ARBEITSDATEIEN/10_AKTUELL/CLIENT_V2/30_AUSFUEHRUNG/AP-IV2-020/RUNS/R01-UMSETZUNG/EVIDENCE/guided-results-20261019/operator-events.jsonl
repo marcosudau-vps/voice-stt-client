@@ -1,0 +1,77 @@
+{"timeUtc": "2026-10-19T14:38:37.673321+00:00", "task": "finish", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T15:57:52.030657+00:00", "task": "finish", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T15:58:05.469355+00:00", "task": "finish", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T15:58:08.470209+00:00", "task": "finish", "activeStep": 3, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T15:58:20.745006+00:00", "task": "finish", "activeStep": 5, "confirmedSteps": [0, 1, 2, 4], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T15:59:20.566603+00:00", "task": "followup", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:00:10.466550+00:00", "task": "followup", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:00:23.713520+00:00", "task": "followup", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:00:30.975366+00:00", "task": "followup", "activeStep": 3, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:00:35.969877+00:00", "task": "followup", "activeStep": 4, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:00:38.470802+00:00", "task": "followup", "activeStep": 5, "confirmedSteps": [0, 1, 2], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:00:40.139195+00:00", "task": "followup", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:00:42.720584+00:00", "task": "followup", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:00:55.962430+00:00", "task": "followup", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:01:04.473868+00:00", "task": "followup", "activeStep": 3, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:01:15.218442+00:00", "task": "followup", "activeStep": 5, "confirmedSteps": [0, 1, 2, 4], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:01:28.998267+00:00", "task": "cancel", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:02:22.130677+00:00", "task": "cancel", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:02:35.473992+00:00", "task": "cancel", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:02:38.970261+00:00", "task": "cancel", "activeStep": 3, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:02:40.473165+00:00", "task": "cancel", "activeStep": 4, "confirmedSteps": [0, 1, 2, 3], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:02:50.464127+00:00", "task": "cancel", "activeStep": 5, "confirmedSteps": [0, 1, 2, 3, 4], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:02:58.663852+00:00", "task": "refresh", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:03:32.928591+00:00", "task": "refresh", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:03:46.470957+00:00", "task": "refresh", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:03:52.967869+00:00", "task": "refresh", "activeStep": 3, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:04:06.713909+00:00", "task": "refresh", "activeStep": 5, "confirmedSteps": [0, 1, 2], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:04:10.923258+00:00", "task": "none", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:04:55.672036+00:00", "task": "none", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:05:08.729754+00:00", "task": "none", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:05:12.216531+00:00", "task": "none", "activeStep": 3, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:05:15.225977+00:00", "task": "none", "activeStep": 4, "confirmedSteps": [0, 1, 2, 3], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:05:24.712678+00:00", "task": "none", "activeStep": 5, "confirmedSteps": [0, 1, 2, 3, 4], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:05:43.268246+00:00", "task": "feedback", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:06:26.873135+00:00", "task": "feedback", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:06:39.733515+00:00", "task": "feedback", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:06:43.212124+00:00", "task": "feedback", "activeStep": 3, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:06:58.476668+00:00", "task": "feedback", "activeStep": 4, "confirmedSteps": [0, 1, 2, 3], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:07:57.965358+00:00", "task": "feedback", "activeStep": 5, "confirmedSteps": [0, 1, 2, 3], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:07:58.073683+00:00", "task": "feedback", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:08:00.671742+00:00", "task": "feedback", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:08:13.714275+00:00", "task": "feedback", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:08:37.217244+00:00", "task": "feedback", "activeStep": 3, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:08:58.470973+00:00", "task": "feedback", "activeStep": 4, "confirmedSteps": [0, 1, 2, 3], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:10:09.969339+00:00", "task": "feedback", "activeStep": 5, "confirmedSteps": [0, 1, 2, 3], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:10:16.794282+00:00", "task": "feedback", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:10:18.671078+00:00", "task": "feedback", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:10:31.719904+00:00", "task": "feedback", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:11:38.475268+00:00", "task": "feedback", "activeStep": 5, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:11:43.406985+00:00", "task": "mute", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:12:44.382276+00:00", "task": "mute", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:12:57.224309+00:00", "task": "mute", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:14:01.983575+00:00", "task": "mute", "activeStep": 5, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:14:14.741569+00:00", "task": "mute", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:14:20.822954+00:00", "task": "mute", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:14:33.989578+00:00", "task": "mute", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:15:15.740082+00:00", "task": "mute", "activeStep": 5, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:15:23.097805+00:00", "task": "usb", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:16:35.186325+00:00", "task": "usb", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:16:48.229865+00:00", "task": "usb", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:20:52.263341+00:00", "task": "usb", "activeStep": 5, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:22:45.850770+00:00", "task": "reconnect", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:23:41.125440+00:00", "task": "reconnect", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:23:54.488334+00:00", "task": "reconnect", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:23:59.478376+00:00", "task": "reconnect", "activeStep": 3, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:24:01.231091+00:00", "task": "reconnect", "activeStep": 4, "confirmedSteps": [0, 1, 2, 3], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:24:12.986108+00:00", "task": "reconnect", "activeStep": 5, "confirmedSteps": [0, 1, 2, 3, 4], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:24:22.630539+00:00", "task": "reinsert", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:25:05.787024+00:00", "task": "reinsert", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:25:18.737746+00:00", "task": "reinsert", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:25:26.976185+00:00", "task": "reinsert", "activeStep": 3, "confirmedSteps": [0, 1, 2], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:25:28.731169+00:00", "task": "reinsert", "activeStep": 4, "confirmedSteps": [0, 1, 2, 3], "origin": "observed_client_events"}
+{"timeUtc": "2026-10-19T16:25:38.482048+00:00", "task": "reinsert", "activeStep": 5, "confirmedSteps": [0, 1, 2, 3], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:25:42.572575+00:00", "task": "settings", "activeStep": 0, "confirmedSteps": [], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:26:51.257038+00:00", "task": "settings", "activeStep": 1, "confirmedSteps": [0], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:27:04.233432+00:00", "task": "settings", "activeStep": 2, "confirmedSteps": [0, 1], "origin": "ui"}
+{"timeUtc": "2026-10-19T16:30:05.231962+00:00", "task": "settings", "activeStep": 5, "confirmedSteps": [0, 1], "origin": "ui"}

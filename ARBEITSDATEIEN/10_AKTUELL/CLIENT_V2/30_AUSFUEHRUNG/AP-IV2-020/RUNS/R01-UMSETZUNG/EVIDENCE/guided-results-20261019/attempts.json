@@ -1,0 +1,2775 @@
+{
+  "evaluatedAtUtc": "2026-10-19T16:41:51.199512+00:00",
+  "target": "wss://pro.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "tasks": 11,
+  "attempts": [
+    {
+      "attemptId": "153f885304754eff9e1c87115a5c92a0",
+      "taskId": "finish",
+      "startedAtUtc": "2026-10-19T15:57:52.029156+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T15:58:41.711827+00:00",
+      "editorAfter": {
+        "characters": 41,
+        "sha256": "22736074c7701f0a637da7f1a41aa270aa2c8828435edf38fb128b5974303abc"
+      },
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-19T15:58:18.829463+00:00",
+          "characters": 41,
+          "sha256": "22736074c7701f0a637da7f1a41aa270aa2c8828435edf38fb128b5974303abc"
+        }
+      ],
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "segment.recording_ended": 1,
+        "transcription.accepted": 1,
+        "transcription.completed": 1,
+        "activation.completed": 1,
+        "activation.input_closed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T15:57:55.114624+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "9370d57f-0a49-4124-80bd-5bcc07c3851a",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T15:57:55.133613+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "d18bb34a-d650-4852-b1ca-2462cc0bf033",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T15:57:55.143616+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "e132ab10-ee41-44a3-8eec-62c201b04ed8",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T15:57:55.156615+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "252cd29d-1ead-4fbe-a454-c0971680c017",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T15:57:55.168613+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "1b600e6e-66a5-437a-92d2-6af3b8e4a92f",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T15:57:55.180622+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "6dfd983d-0114-493b-a246-1f8b104d1363",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T15:57:55.200167+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "2d319f33-9322-4573-89ed-cffef2fd048f",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T15:58:08.209614+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "19775e1b-23ab-4774-824a-0664026445b9",
+          "accepted": true,
+          "activationId": "6cfab138-3e88-47ea-88f6-e2b3d446e58a"
+        },
+        {
+          "timeUtc": "2026-10-19T15:58:08.229656+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "a07b69c9-6f4f-4280-a1cb-ac23a7bea167",
+          "accepted": true,
+          "activationId": "6cfab138-3e88-47ea-88f6-e2b3d446e58a"
+        },
+        {
+          "timeUtc": "2026-10-19T15:58:08.245730+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "5c8ca6ce-4cf9-4a1b-964e-9c6b455ff081",
+          "accepted": true,
+          "activationId": "6cfab138-3e88-47ea-88f6-e2b3d446e58a"
+        },
+        {
+          "timeUtc": "2026-10-19T15:58:20.496061+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "c33bbe75-c2fd-4fea-a9c6-c1348eaf9e94",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T15:58:08.060860+00:00",
+          "monotonic": 17146.0,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T15:57:54.335817+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T15:57:55.337637+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": true,
+      "injectionAttempts": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 1
+        }
+      ],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 47,
+        "maxTasks": 10,
+        "maxPrivateBytes": 469442560,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 1127,
+        "lastSent": 1127
+      }
+    },
+    {
+      "attemptId": "c16c5d6940e3495ab48a06bbbf25ec3e",
+      "taskId": "followup",
+      "startedAtUtc": "2026-10-19T16:00:10.465595+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:00:38.460313+00:00",
+      "editorAfter": {
+        "characters": 38,
+        "sha256": "47b187e0fef374e28686ff3fb3bc3cd8b9dba959ddc2ec7b04e73a6e3796b553"
+      },
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-19T16:00:30.753483+00:00",
+          "characters": 38,
+          "sha256": "47b187e0fef374e28686ff3fb3bc3cd8b9dba959ddc2ec7b04e73a6e3796b553"
+        }
+      ],
+      "decision": "repeat",
+      "humanObservation": "Bitte Ergebnis wählen",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "transcription.interim": 3,
+        "segment.recording_ended": 1,
+        "transcription.accepted": 1,
+        "transcription.completed": 1,
+        "activation.completed": 1,
+        "activation.input_closed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:00:12.810349+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "dce97095-2a36-4611-b469-f83dcbd10806",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:12.852356+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "d0356def-87b8-46c9-9ce4-56a59c04d0fa",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:12.867210+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "7625782e-e81b-434c-b951-454cca04cc99",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:12.878208+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "edc5dd7a-d947-4f04-bc59-91e234026906",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:12.888246+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "360b99da-ee5e-46a8-b1b5-d9c796593954",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:12.933355+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "b66c1dff-aa6d-4f7b-b15a-312dbf5585ef",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:12.945895+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "27bae969-fc83-420e-b5d3-1d9884173732",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:24.529838+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "04a7a9d5-95ef-46db-acc2-34c022fa2d63",
+          "accepted": true,
+          "activationId": "d6d529ce-9330-4ef1-9a93-672570edb2e1"
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:24.598887+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "58f5588a-bb4f-4b4b-b92f-8bd7035e9d0d",
+          "accepted": true,
+          "activationId": "d6d529ce-9330-4ef1-9a93-672570edb2e1"
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:24.615392+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "4dfce628-de55-44a9-bfb4-2a9ca3874802",
+          "accepted": true,
+          "activationId": "d6d529ce-9330-4ef1-9a93-672570edb2e1"
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:35.680826+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "9f6ce87b-41b8-4611-b30b-2a2630ec0c63",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:00:24.482442+00:00",
+          "monotonic": 17282.421,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:00:12.329837+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:13.342797+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": true,
+      "injectionAttempts": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 1
+        }
+      ],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 26,
+        "maxTasks": 11,
+        "maxPrivateBytes": 468652032,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 608,
+        "lastSent": 608
+      }
+    },
+    {
+      "attemptId": "0a14c25b02354aa3934ef2e5f0f0cb30",
+      "taskId": "followup",
+      "startedAtUtc": "2026-10-19T16:00:42.720044+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:01:20.456160+00:00",
+      "editorAfter": {
+        "characters": 79,
+        "sha256": "b1444a25beda8d24b60d9b1c8491f4e96245baefe9999f26fc4cc034083455f7"
+      },
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-19T16:01:04.340715+00:00",
+          "characters": 38,
+          "sha256": "47b187e0fef374e28686ff3fb3bc3cd8b9dba959ddc2ec7b04e73a6e3796b553"
+        },
+        {
+          "timeUtc": "2026-10-19T16:01:10.027285+00:00",
+          "characters": 41,
+          "sha256": "ec0be71d42ed2350c4c80952b66cee606c9ec2e51f66d8b565f0a57bb03e8093"
+        }
+      ],
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "activation.phase_changed": 4,
+        "segment.recording_started": 2,
+        "transcription.interim": 11,
+        "segment.recording_ended": 2,
+        "transcription.accepted": 2,
+        "transcription.completed": 2,
+        "activation.completed": 1,
+        "activation.input_closed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:00:45.020513+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "d3c81695-f64f-4a35-be9a-82d7cd2a3d58",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:45.037687+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "e81e77f2-8afe-48ed-a66d-eda26ba9c420",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:45.047572+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "ac40b3fb-ebc6-4af5-870f-3704ada17e77",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:45.059394+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "108da5f6-63b0-49c0-85d7-46dfc4939a32",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:45.070406+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "9ca4a167-cc54-4fbe-8077-452b533e3824",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:45.081419+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "6011c0f0-8b9e-4eb4-ac9f-844052182f20",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:45.091435+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "82adf253-d662-45ab-b9a8-c9fb29481958",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:58.195589+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "ae914dea-d3d3-47d8-b9d9-b16461348762",
+          "accepted": true,
+          "activationId": "19bf2fcb-9f88-4a56-b691-b51da55bfed8"
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:58.258198+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "713ec42e-33d0-4c52-bef6-5f6bd9550ef1",
+          "accepted": true,
+          "activationId": "19bf2fcb-9f88-4a56-b691-b51da55bfed8"
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:58.284081+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "d864719e-8f0c-4dcd-bc33-512d5a9bb35d",
+          "accepted": true,
+          "activationId": "19bf2fcb-9f88-4a56-b691-b51da55bfed8"
+        },
+        {
+          "timeUtc": "2026-10-19T16:01:14.974768+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "a08a0d4f-fc56-4cf9-a688-f51b52ad3922",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:00:58.166699+00:00",
+          "monotonic": 17316.109,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:00:44.543499+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:00:45.542199+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": true,
+      "injectionAttempts": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 2
+        }
+      ],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 36,
+        "maxTasks": 10,
+        "maxPrivateBytes": 468402176,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 860,
+        "lastSent": 860
+      }
+    },
+    {
+      "attemptId": "8168dc10ca764473918ef76b699b6c27",
+      "taskId": "cancel",
+      "startedAtUtc": "2026-10-19T16:02:22.129194+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:02:55.460428+00:00",
+      "editorAfter": {
+        "characters": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "nativePastes": [],
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "activation.phase_changed": 3,
+        "segment.recording_started": 1,
+        "transcription.interim": 3,
+        "transcription.discarded": 1,
+        "segment.recording_ended": 1,
+        "activation.cancelled": 1,
+        "transcription.accepted": 1,
+        "activation.input_closed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:02:24.475747+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "657eb7f0-6617-477d-b4c7-ccfc5a61b971",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:02:24.495290+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "97a6cbe4-7d77-4e04-b939-0f30df43d66e",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:02:24.506800+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "91602804-43d0-46bf-8d8f-29877865eb98",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:02:24.523370+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "490cc1df-6962-4bc2-bde5-eb3816ae188e",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:02:24.537119+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "4558557b-1692-42bb-b78f-44fe934088b7",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:02:24.550900+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "5a743847-44c3-41cf-8524-3b008e786c34",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:02:24.566901+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "0c2e6d88-5475-4c1f-9723-5f718c93dbee",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:02:36.436495+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "6fa5680f-14bc-4261-aa8f-2a4ed1cf8d47",
+          "accepted": true,
+          "activationId": "b45b96f0-faf4-4e2a-8634-94b34c2ed91e"
+        },
+        {
+          "timeUtc": "2026-10-19T16:02:36.506618+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "cf2c75e9-5732-438c-8cbb-bc6df335fe85",
+          "accepted": true,
+          "activationId": "b45b96f0-faf4-4e2a-8634-94b34c2ed91e"
+        },
+        {
+          "timeUtc": "2026-10-19T16:02:36.521539+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "b5b260e5-da71-47e5-984f-bbb0d06b38df",
+          "accepted": true,
+          "activationId": "b45b96f0-faf4-4e2a-8634-94b34c2ed91e"
+        },
+        {
+          "timeUtc": "2026-10-19T16:02:40.056935+00:00",
+          "commandType": "activation.command",
+          "action": "cancel",
+          "commandId": "28bb392e-a18d-4a4d-ae13-3ff01bf92d59",
+          "accepted": true,
+          "activationId": "b45b96f0-faf4-4e2a-8634-94b34c2ed91e"
+        },
+        {
+          "timeUtc": "2026-10-19T16:02:40.142108+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "a3ff24f1-97a5-4011-8791-c20d2ee12114",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:02:36.369428+00:00",
+          "monotonic": 17414.312,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:02:39.998599+00:00",
+          "monotonic": 17417.937,
+          "slot": "secondary",
+          "ready": true,
+          "generation": 1,
+          "phase": "segment_active"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:02:23.987833+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:02:24.994950+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": false,
+      "injectionAttempts": [],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 31,
+        "maxTasks": 11,
+        "maxPrivateBytes": 467456000,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 735,
+        "lastSent": 735
+      }
+    },
+    {
+      "attemptId": "c19f3c36ec7045afbb9815bc95a9211d",
+      "taskId": "refresh",
+      "startedAtUtc": "2026-10-19T16:03:32.927090+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:04:06.705901+00:00",
+      "editorAfter": {
+        "characters": 74,
+        "sha256": "4f59dbe70954e72ce88578642a371c3aee48ffc02644dca359b4b1208c147a74"
+      },
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-19T16:03:52.773836+00:00",
+          "characters": 30,
+          "sha256": "24dc692f597aac88ad47f2fad90209fd16cb0f76f47a0d9b1178d0d2649bc3d7"
+        },
+        {
+          "timeUtc": "2026-10-19T16:04:01.731922+00:00",
+          "characters": 44,
+          "sha256": "eb7416904a6880f0f33028a2acfbc6c9340032ba2091a44336bd0d5dba1bf530"
+        }
+      ],
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 7,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "activation.phase_changed": 5,
+        "segment.recording_started": 2,
+        "transcription.interim": 12,
+        "segment.recording_ended": 2,
+        "transcription.accepted": 2,
+        "transcription.completed": 2
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:03:35.332151+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "c72cda29-7686-4824-8926-07c0eb5ca505",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:03:35.350651+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "52b051d7-499e-47a5-baa5-ef5fabdf347b",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:03:35.361182+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "5ff503dd-f871-4f4c-a4dd-ce6a95c5e557",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:03:35.373173+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "0796922d-0b7c-4a9a-b90b-ae0f9f7c38de",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:03:35.387223+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "859cfdb0-c29d-4973-9da6-2adf60ed09a3",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:03:35.407730+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "2a525e98-e72c-4143-97e2-c51c16033e3c",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:03:35.420730+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "2e01abee-f856-4e8a-80d2-2285da7798e6",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:03:47.146352+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "3b923999-54fa-4331-9fb3-83cf43a97439",
+          "accepted": true,
+          "activationId": "5718f707-23bd-4d5e-a80f-c43797b61c1b"
+        },
+        {
+          "timeUtc": "2026-10-19T16:03:47.211378+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "08e71549-7076-4f9b-a762-4f3a3f1faf61",
+          "accepted": true,
+          "activationId": "5718f707-23bd-4d5e-a80f-c43797b61c1b"
+        },
+        {
+          "timeUtc": "2026-10-19T16:03:47.229673+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "9d63ec81-8cdf-4622-9813-4d59c4d4755e",
+          "accepted": true,
+          "activationId": "5718f707-23bd-4d5e-a80f-c43797b61c1b"
+        },
+        {
+          "timeUtc": "2026-10-19T16:03:52.975399+00:00",
+          "commandType": "activation.command",
+          "action": "refresh",
+          "commandId": "7996debc-cecb-4506-9201-37128974fcb1",
+          "accepted": true,
+          "activationId": "5718f707-23bd-4d5e-a80f-c43797b61c1b"
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:03:47.122808+00:00",
+          "monotonic": 17485.062,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:03:52.950822+00:00",
+          "monotonic": 17490.89,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "followup_wait"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:03:34.751645+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:03:35.764136+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": true,
+      "injectionAttempts": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 2
+        }
+      ],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 31,
+        "maxTasks": 10,
+        "maxPrivateBytes": 468709376,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 731,
+        "lastSent": 731
+      }
+    },
+    {
+      "attemptId": "b9ebd69b19504a75bc192af0b6357d19",
+      "taskId": "none",
+      "startedAtUtc": "2026-10-19T16:04:55.671034+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:05:30.463846+00:00",
+      "editorAfter": {
+        "characters": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "nativePastes": [],
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "activation.completed": 1,
+        "activation.input_closed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:04:58.049825+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "635f2256-cbc2-4765-8705-317878d987e0",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:04:58.066650+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "045fd253-8b4b-491f-a3c8-5217a9823766",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:04:58.077235+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "1c1c2160-42cd-402b-8b4e-5c6edefcc10f",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:04:58.093516+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "5ad0b8fa-bd88-4f74-bd26-c011207e8189",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:04:58.105692+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "a240d72c-187d-4df5-9bda-33c4134c15f3",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:04:58.117660+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "9e68573f-2125-4fa0-a619-7af57b0543e8",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:04:58.130671+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "5ffc53d4-0af1-4ae2-b73f-b958ef7acd94",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:05:09.785568+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "82538382-aae9-43db-b249-b969c055f6f6",
+          "accepted": true,
+          "activationId": "3fcd58bb-e41e-43ad-8fe0-444ffc9052bb"
+        },
+        {
+          "timeUtc": "2026-10-19T16:05:09.786064+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "2d362410-85bc-467d-add4-0723a42fb89a",
+          "accepted": true,
+          "activationId": "3fcd58bb-e41e-43ad-8fe0-444ffc9052bb"
+        },
+        {
+          "timeUtc": "2026-10-19T16:05:09.842195+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "46df3bd5-e923-4199-a471-22c5da53cf20",
+          "accepted": true,
+          "activationId": "3fcd58bb-e41e-43ad-8fe0-444ffc9052bb"
+        },
+        {
+          "timeUtc": "2026-10-19T16:05:24.611558+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "7f521afb-c3dd-424a-a099-78fecd90d647",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:05:09.467343+00:00",
+          "monotonic": 17567.406,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:05:11.949214+00:00",
+          "monotonic": 17569.89,
+          "slot": "secondary",
+          "ready": true,
+          "generation": 1,
+          "phase": "waiting_first_speech"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:04:57.588110+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:04:58.579260+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": false,
+      "injectionAttempts": [],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 32,
+        "maxTasks": 11,
+        "maxPrivateBytes": 466952192,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 760,
+        "lastSent": 760
+      }
+    },
+    {
+      "attemptId": "8f7bf3c0f0b747c8b9f10fb707819cf5",
+      "taskId": "feedback",
+      "startedAtUtc": "2026-10-19T16:06:26.872625+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:07:57.955338+00:00",
+      "editorAfter": {
+        "characters": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "nativePastes": [],
+      "decision": "repeat",
+      "humanObservation": "Bitte Ergebnis wählen",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "activation.completed": 1,
+        "activation.input_closed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:06:29.146616+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "70a46941-f97d-48b4-a8ed-3948d778664d",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:06:29.204296+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "23435667-6107-4ad5-9b51-1fee237d557a",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:06:29.216800+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "608c4f18-6a62-480d-aaf4-7bc13f6296f9",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:06:29.227921+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "09632358-72f3-4228-9c77-6ded6aa34241",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:06:29.241784+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "744d6273-109f-4818-acef-b4cc0bf50557",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:06:29.255574+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "fddca4c2-2b3c-4251-8f33-5f894c11c0b7",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:06:29.265610+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "6994cb37-fb2a-4edf-9b50-e4373e95418a",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:06:43.109979+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "d4eba93c-6bcf-4b6e-b033-355ac7e187d8",
+          "accepted": true,
+          "activationId": "fc16f5cb-1395-45ce-a640-d0e059ac7afa"
+        },
+        {
+          "timeUtc": "2026-10-19T16:06:43.120982+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "69388a1a-7ae2-46da-a9b3-683f585455a5",
+          "accepted": true,
+          "activationId": "fc16f5cb-1395-45ce-a640-d0e059ac7afa"
+        },
+        {
+          "timeUtc": "2026-10-19T16:06:43.165596+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "066e4b54-6ef1-4e0d-aefb-3eb5d0afd71a",
+          "accepted": true,
+          "activationId": "fc16f5cb-1395-45ce-a640-d0e059ac7afa"
+        },
+        {
+          "timeUtc": "2026-10-19T16:06:58.254082+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "ee60c15f-f956-478a-8624-0bb2a9641897",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:06:43.012569+00:00",
+          "monotonic": 17660.953,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:06:28.694498+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:06:29.682994+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": false,
+      "injectionAttempts": [],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 89,
+        "maxTasks": 10,
+        "maxPrivateBytes": 466792448,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 2184,
+        "lastSent": 2184
+      }
+    },
+    {
+      "attemptId": "815a079669c24af2a52d42a39411840b",
+      "taskId": "feedback",
+      "startedAtUtc": "2026-10-19T16:08:00.670742+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:10:09.960339+00:00",
+      "editorAfter": {
+        "characters": 7,
+        "sha256": "e22f1bf3ec9562c1c962e485e39f75fac5e28bfee977ce2f97acf35193e7bfcb"
+      },
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-19T16:08:45.909989+00:00",
+          "characters": 7,
+          "sha256": "e22f1bf3ec9562c1c962e485e39f75fac5e28bfee977ce2f97acf35193e7bfcb"
+        }
+      ],
+      "decision": "repeat",
+      "humanObservation": "Bitte Ergebnis wählen",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "activation.phase_changed": 4,
+        "segment.recording_started": 2,
+        "transcription.interim": 10,
+        "segment.recording_ended": 2,
+        "transcription.accepted": 2,
+        "transcription.completed": 1,
+        "activation.input_closed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:08:02.991605+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "f13495f7-e3a1-4f27-ac75-1ee3fe33d4ff",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:08:03.009687+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "b0e9acaf-59ab-4fb5-a963-75de57519197",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:08:03.020224+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "19ee79f0-bab8-4d2c-b08f-a6979bb7232b",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:08:03.032185+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "4b19becd-3d2d-4d62-9dc7-4e592e90fe14",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:08:03.045256+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "5e33ce21-d802-4049-955e-a901e37c6281",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:08:03.058769+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "8d94e24f-79a4-4a51-ba2b-fc1649f5c769",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:08:03.068315+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "3aa937e1-1c6c-4da3-8483-5e5372449791",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:08:37.007108+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "b84df6f8-9f33-4b3a-974e-987f908affb2",
+          "accepted": true,
+          "activationId": "7f250bb4-58e4-473d-808b-ff3f8c1e3abd"
+        },
+        {
+          "timeUtc": "2026-10-19T16:08:37.024665+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "0108f0e4-76a5-44b1-ad86-0fd49239cbf6",
+          "accepted": true,
+          "activationId": "7f250bb4-58e4-473d-808b-ff3f8c1e3abd"
+        },
+        {
+          "timeUtc": "2026-10-19T16:08:37.036469+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "6935e323-81a1-4403-a926-67bb14cd6571",
+          "accepted": true,
+          "activationId": "7f250bb4-58e4-473d-808b-ff3f8c1e3abd"
+        },
+        {
+          "timeUtc": "2026-10-19T16:08:58.328397+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "5f65b04b-13af-4151-9b37-191118233e02",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:08:36.498510+00:00",
+          "monotonic": 17774.437,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:08:02.509487+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:08:03.505006+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": true,
+      "injectionAttempts": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 1
+        }
+      ],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 127,
+        "maxTasks": 11,
+        "maxPrivateBytes": 468525056,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 3136,
+        "lastSent": 3136
+      }
+    },
+    {
+      "attemptId": "336ff37eea2a408a98b2795f5fdb4856",
+      "taskId": "feedback",
+      "startedAtUtc": "2026-10-19T16:10:18.670078+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:11:38.466729+00:00",
+      "editorAfter": {
+        "characters": 17,
+        "sha256": "bfaa08b70f163573f85d4d4ccc06d229b29d1ade6f9679b046b625c858a86d04"
+      },
+      "nativePastes": [],
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 5,
+        "settings.changed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:10:21.055060+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "8d495f74-0291-4777-8fd3-45f950c1b441",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:10:21.071558+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "4d2e1165-f794-4933-898d-d9fe92116f5c",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:10:21.082661+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "e32fc97b-b03a-4b43-86a3-d0e647ff0c64",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:10:21.093740+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "050a4503-0901-43ff-879d-09c66de95b17",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:10:21.109269+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "697197a0-c42b-4ecf-a65c-231b482b5388",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:10:21.120917+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "2506b4a8-2f51-4351-b25a-3c39f015aaf8",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:10:21.132475+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "e9716be0-b905-41a1-9c44-e2144e19f0c2",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:10:20.535598+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:10:21.534759+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": false,
+      "injectionAttempts": [],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 77,
+        "maxTasks": 10,
+        "maxPrivateBytes": 441864192,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 1884,
+        "lastSent": 1884
+      }
+    },
+    {
+      "attemptId": "a30a048b585b4a0aadbd4a1a91d77638",
+      "taskId": "mute",
+      "startedAtUtc": "2026-10-19T16:12:44.381776+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:14:01.973062+00:00",
+      "editorAfter": {
+        "characters": 30,
+        "sha256": "78ec7d95941170743fbdcc052cdce6bb563ebfa05ffc1da21d0f2255de498aa3"
+      },
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-19T16:13:51.489439+00:00",
+          "characters": 30,
+          "sha256": "78ec7d95941170743fbdcc052cdce6bb563ebfa05ffc1da21d0f2255de498aa3"
+        }
+      ],
+      "decision": "repeat",
+      "humanObservation": "Bitte Ergebnis wählen",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 13,
+        "settings.changed": 1,
+        "activation.started": 2,
+        "activation.completed": 2,
+        "activation.input_closed": 2,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "transcription.interim": 4,
+        "segment.recording_ended": 1,
+        "transcription.accepted": 1,
+        "transcription.completed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:12:46.717830+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "8bd11e73-82f1-4bb9-b54f-fdb534755a66",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:12:46.740894+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "1152c686-141b-46b9-a3a7-b4bfab052352",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:12:46.750628+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "dc160ddd-5c4f-48aa-871a-5589f8ad9d26",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:12:46.763190+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "0bca494b-201d-4dce-b3ef-789d72d30b0d",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:12:46.781337+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "84f674b4-20f1-4fd1-89ed-c14e6eadc274",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:12:46.792648+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "0f75b146-f6c6-4466-a2af-b8fc9a5b30d2",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:12:46.802641+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "0095849c-455a-48f9-977d-68ca9a7c9800",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:00.761301+00:00",
+          "commandType": "audio_availability.set",
+          "action": null,
+          "commandId": "848e8748-4b27-4eb6-973c-c928edf79862",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:00.772792+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "cd0286c6-a3cd-4bf5-b2d4-55f6f0b5b648",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:20.925827+00:00",
+          "commandType": "audio_availability.set",
+          "action": null,
+          "commandId": "922a4ff7-662e-42f2-bcf3-a1eea1afb6dd",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:20.936610+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "ae1e0ff1-1238-4864-ae63-4034df7fb3b3",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:22.501424+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "d11601b4-45f4-417c-b8e1-a19b21830d0f",
+          "accepted": true,
+          "activationId": "4f0e69d0-0d9b-4765-af25-f2e4f2088d5b"
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:22.524441+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "5d7f89c2-4ef2-4277-b5bb-1348daf64bdf",
+          "accepted": true,
+          "activationId": "4f0e69d0-0d9b-4765-af25-f2e4f2088d5b"
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:22.538522+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "3ec035e6-0189-4af2-8c75-59ad085aced0",
+          "accepted": true,
+          "activationId": "4f0e69d0-0d9b-4765-af25-f2e4f2088d5b"
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:28.030657+00:00",
+          "commandType": "activation.command",
+          "action": "finish",
+          "commandId": "87be79e3-2fa5-41a3-b3b1-98f36e01ce22",
+          "accepted": true,
+          "activationId": "4f0e69d0-0d9b-4765-af25-f2e4f2088d5b"
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:28.044338+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "21692e9d-2011-4f1a-85f1-5f70a5e00286",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:45.512456+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "1d947baa-e8b7-4575-8aa8-39be272bb6ce",
+          "accepted": true,
+          "activationId": "140ac645-c205-4cb0-879b-b8a723dfd5da"
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:45.531989+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "0dfd5a4c-7edd-4fd8-8899-061f88f27b64",
+          "accepted": true,
+          "activationId": "140ac645-c205-4cb0-879b-b8a723dfd5da"
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:45.599149+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "59181878-a410-4912-a66a-2a5cd601180f",
+          "accepted": true,
+          "activationId": "140ac645-c205-4cb0-879b-b8a723dfd5da"
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:51.330325+00:00",
+          "commandType": "activation.command",
+          "action": "finish",
+          "commandId": "1da4fae0-22a7-40ab-929f-39962a544ecb",
+          "accepted": true,
+          "activationId": "140ac645-c205-4cb0-879b-b8a723dfd5da"
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:51.403936+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "b8377777-0ea7-41d9-a23e-26339fe65f03",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:13:07.105226+00:00",
+          "monotonic": 18045.046,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:13:08.804907+00:00",
+          "monotonic": 18046.75,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:13:10.579339+00:00",
+          "monotonic": 18048.531,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:13:22.376566+00:00",
+          "monotonic": 18060.328,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:13:27.915795+00:00",
+          "monotonic": 18065.859,
+          "slot": "secondary",
+          "ready": true,
+          "generation": 1,
+          "phase": "waiting_first_speech"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:13:45.462392+00:00",
+          "monotonic": 18083.406,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:13:51.224358+00:00",
+          "monotonic": 18089.171,
+          "slot": "secondary",
+          "ready": true,
+          "generation": 1,
+          "phase": "segment_active"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:12:46.214487+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:12:47.214962+00:00",
+          "audioAvailable": true
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:01.218327+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:13:21.519721+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": true,
+      "injectionAttempts": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 1
+        }
+      ],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 75,
+        "maxTasks": 13,
+        "maxPrivateBytes": 468176896,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 1337,
+        "lastSent": 1336
+      }
+    },
+    {
+      "attemptId": "78a944c587b346a783650be73b2d5835",
+      "taskId": "mute",
+      "startedAtUtc": "2026-10-19T16:14:20.821454+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:15:15.731463+00:00",
+      "editorAfter": {
+        "characters": 30,
+        "sha256": "78ec7d95941170743fbdcc052cdce6bb563ebfa05ffc1da21d0f2255de498aa3"
+      },
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-19T16:14:57.425056+00:00",
+          "characters": 30,
+          "sha256": "78ec7d95941170743fbdcc052cdce6bb563ebfa05ffc1da21d0f2255de498aa3"
+        }
+      ],
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 10,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "transcription.interim": 3,
+        "segment.recording_ended": 1,
+        "activation.input_closed": 1,
+        "transcription.accepted": 1,
+        "transcription.completed": 1,
+        "activation.completed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:14:23.392077+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "611b3110-b897-4da5-92dd-a2276c0c23dd",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:23.409637+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "d1753e68-1a54-4408-96da-92a0c6e21ccd",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:23.419642+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "1c84e322-0d9e-4010-b56b-3b8abf46282f",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:23.443295+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "46a35a0e-4463-4384-a091-f09be23b0d82",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:23.454105+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "7c29546e-7f50-4ff4-8e20-b46759e0f039",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:23.465752+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "b99efe99-9ef2-4445-8ad3-19d0e2b0797b",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:23.483762+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "6767d5fb-5061-46d8-8212-eca8bb3793d2",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:37.431585+00:00",
+          "commandType": "audio_availability.set",
+          "action": null,
+          "commandId": "26e186b4-e9ab-4d0a-bcaf-d810719679ed",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:37.444159+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "ffa60d42-7b9d-4491-9efb-ce02184785ce",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:50.555858+00:00",
+          "commandType": "audio_availability.set",
+          "action": null,
+          "commandId": "5638e7a8-e335-4f87-9028-e866af4253b8",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:50.566600+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "3936a1d6-75c1-427f-b407-d33dc77a6467",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:52.642784+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "5818c52d-3d05-456f-84a3-4044a9896c11",
+          "accepted": true,
+          "activationId": "86e4aac2-6924-41e0-9244-885a7a8ebb6e"
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:52.706982+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "b29233a9-5634-4fee-87e4-c1b82269f709",
+          "accepted": true,
+          "activationId": "86e4aac2-6924-41e0-9244-885a7a8ebb6e"
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:52.764202+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "980a704e-9f09-4375-b4f8-8ecbe458d720",
+          "accepted": true,
+          "activationId": "86e4aac2-6924-41e0-9244-885a7a8ebb6e"
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:57.309357+00:00",
+          "commandType": "activation.command",
+          "action": "finish",
+          "commandId": "35214890-1aaf-4a7e-8ff5-25db43f5606e",
+          "accepted": true,
+          "activationId": "86e4aac2-6924-41e0-9244-885a7a8ebb6e"
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:57.439566+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "a15f9337-dfa1-434a-9a9e-7642957be768",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:14:39.199601+00:00",
+          "monotonic": 18137.14,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:14:44.927669+00:00",
+          "monotonic": 18142.875,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:14:45.699297+00:00",
+          "monotonic": 18143.64,
+          "slot": "secondary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:14:52.480883+00:00",
+          "monotonic": 18150.421,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:14:56.972174+00:00",
+          "monotonic": 18154.921,
+          "slot": "secondary",
+          "ready": true,
+          "generation": 1,
+          "phase": "segment_active"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:14:22.841007+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:23.833462+00:00",
+          "audioAvailable": true
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:37.846794+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:14:51.016820+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": true,
+      "injectionAttempts": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 1
+        }
+      ],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 52,
+        "maxTasks": 11,
+        "maxPrivateBytes": 468176896,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 933,
+        "lastSent": 932
+      }
+    },
+    {
+      "attemptId": "605a2e3127ea4a51bb4ebae85e924171",
+      "taskId": "usb",
+      "startedAtUtc": "2026-10-19T16:16:35.185325+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:20:52.227791+00:00",
+      "editorAfter": {
+        "characters": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "nativePastes": [],
+      "decision": "accept",
+      "humanObservation": "Problem / Abweichung",
+      "humanNotes": "Beim Trennen des ReSpeaker lief die Aufnahme weiter, ohne dass irgendwelche Timeouts eingesetzt haben. Unten in der Anzeige lief die Zeit weiter runter. Ich habe ein paar Minuten sogar gewartet. Die Zeit lief weiter runter und es war wie mittendrin hängen geblieben. Also kein Abschluss, kein Abbruch. Ja, ich habe dann testweise den ReSpeaker wieder angeschlossen, aber das setzte das Ganze nicht fort, sondern es wurde tatsächlich erst beendet, als ich hier die Aufgabe beendet habe. Ich habe einen Screenshot davon gemacht und den unter dem folgenden Pfad hinterlegt.C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\suite-20261019-163837-f0f7f1\\Screenshot_test8.png",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 7,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "activation.phase_changed": 1,
+        "segment.recording_started": 1,
+        "transcription.interim": 546
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:16:37.603831+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "cd90659c-768e-466e-b5c9-9cb9ed599898",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:16:37.619637+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "91eaf3b6-bb87-448a-a116-2ab8a8ed4d40",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:16:37.628945+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "5d0e1cf7-0983-4f65-a89b-d3b8a921b6fd",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:16:37.640443+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "6865b82a-7ca7-4024-b76c-ba812a533114",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:16:37.652447+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "70aaa989-8ef5-48b3-a535-3155c06b4824",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:16:37.664446+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "9aeb3ddc-0f31-4084-ae2a-9e6e36af60c1",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:16:37.685486+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "890b503e-60bd-4436-b837-08407ac122f8",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:16:52.007827+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "cd541aa3-3ae2-4956-b089-bca6a32489c7",
+          "accepted": true,
+          "activationId": "e73531be-e392-4c3b-8631-d480c7eb32e5"
+        },
+        {
+          "timeUtc": "2026-10-19T16:16:52.085837+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "df39c82a-0aea-40be-ba65-186d46ba7fd9",
+          "accepted": true,
+          "activationId": "e73531be-e392-4c3b-8631-d480c7eb32e5"
+        },
+        {
+          "timeUtc": "2026-10-19T16:16:52.135403+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "5968fbe4-55b6-42db-af97-f452480cc0d4",
+          "accepted": true,
+          "activationId": "e73531be-e392-4c3b-8631-d480c7eb32e5"
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:16:51.849400+00:00",
+          "monotonic": 18269.796,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:16:37.054692+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:16:38.052230+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": false,
+      "injectionAttempts": [],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 254,
+        "maxTasks": 12,
+        "maxPrivateBytes": 474423296,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 417,
+        "lastSent": 417
+      }
+    },
+    {
+      "attemptId": "81af9d492f4d4e2ebc2fc2c20386c7c8",
+      "taskId": "reconnect",
+      "startedAtUtc": "2026-10-19T16:23:41.124439+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:24:17.221135+00:00",
+      "editorAfter": {
+        "characters": 53,
+        "sha256": "827b209b76ad5d71567a536646d9f0cd34f392324ca941353a48a88d9bb59778"
+      },
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-19T16:24:12.828269+00:00",
+          "characters": 53,
+          "sha256": "827b209b76ad5d71567a536646d9f0cd34f392324ca941353a48a88d9bb59778"
+        }
+      ],
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 13,
+        "settings.changed": 2,
+        "activation.started": 1,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "transcription.interim": 8,
+        "segment.recording_ended": 1,
+        "activation.input_closed": 1,
+        "transcription.accepted": 1,
+        "transcription.completed": 1,
+        "activation.completed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:23:43.680623+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "d6bc0c1f-b200-4d84-a704-d815d42aec95",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:23:43.699630+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "b848f0d6-bdb1-43bc-9e35-4adef6509df1",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:23:43.738081+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "a1a9f56a-f437-4d7b-a1bf-ff247694b07b",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:23:43.749201+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "7d544330-9956-4cc2-8808-51863e36ceda",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:23:43.760675+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "1a441933-a630-415f-8511-7161ad8b36ea",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:23:43.776676+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "416af2dd-57cc-40b5-aeb0-6a540e44f62e",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:23:43.787201+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "ff0c2b22-e363-4dc0-aa93-ef5575a30ba4",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:00.514124+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "c6e9b6e8-09bd-46e4-bcd1-4f6cd40f59b7",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:00.536117+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "9ceaf8a2-1c30-42d9-99f1-4c61403c9e44",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:00.545609+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "d07a4e53-32ba-4ff3-b5fa-50b194e21b50",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:00.557696+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "b26c31f7-31de-4860-aa07-f1a6da2337dd",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:00.570172+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "2c5a8ae3-7e20-4b1e-9fd5-f8ca84437a14",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:00.582704+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "5f8dd33a-5ff1-4603-afc5-513a4cbc9e59",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:00.593680+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "c5626b28-9bb3-48c1-b5d5-d3b2a3891131",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:04.981062+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "1f1b15f9-65ef-4ed1-9f92-ab34f101e91a",
+          "accepted": true,
+          "activationId": "dffee7e9-a748-407a-bacb-58137cfd0edd"
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:05.047630+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "80e226be-7615-4c19-92e0-2d2526bdd47c",
+          "accepted": true,
+          "activationId": "dffee7e9-a748-407a-bacb-58137cfd0edd"
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:05.059647+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "04aa732c-c4ff-4cf7-a59f-aec2ac87dbe5",
+          "accepted": true,
+          "activationId": "dffee7e9-a748-407a-bacb-58137cfd0edd"
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:11.858107+00:00",
+          "commandType": "activation.command",
+          "action": "finish",
+          "commandId": "6ffc20e9-54de-4c40-9f78-2d4a06beed00",
+          "accepted": true,
+          "activationId": "dffee7e9-a748-407a-bacb-58137cfd0edd"
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:11.898767+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "367ac913-b003-4355-a4bb-931e340a7de5",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:24:04.952052+00:00",
+          "monotonic": 18702.89,
+          "slot": "primary",
+          "ready": true,
+          "generation": 2,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:24:11.824015+00:00",
+          "monotonic": 18709.765,
+          "slot": "secondary",
+          "ready": true,
+          "generation": 2,
+          "phase": "segment_active"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:23:43.142103+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:23:44.147355+00:00",
+          "audioAvailable": true
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:00.151730+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:24:01.129414+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1,
+        2
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": true,
+      "injectionAttempts": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 1
+        }
+      ],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 34,
+        "maxTasks": 10,
+        "maxPrivateBytes": 469741568,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 775,
+        "lastSent": 775
+      }
+    },
+    {
+      "attemptId": "8e0630f144d147868d17a72148183c4e",
+      "taskId": "reinsert",
+      "startedAtUtc": "2026-10-19T16:25:05.785994+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:25:38.472548+00:00",
+      "editorAfter": {
+        "characters": 84,
+        "sha256": "bd0e03b54406ed747908dfae5f1763ea6b33ded695ccfe42deba564df7e6017a"
+      },
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-19T16:25:26.839172+00:00",
+          "characters": 42,
+          "sha256": "a93ac88e28d984ea4b6576476c860f7207db6d5a719d1f7df2a93efdcc4457bd"
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:28.572350+00:00",
+          "characters": 42,
+          "sha256": "a93ac88e28d984ea4b6576476c860f7207db6d5a719d1f7df2a93efdcc4457bd"
+        }
+      ],
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "humanNotes": "",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "transcription.interim": 7,
+        "segment.recording_ended": 1,
+        "activation.input_closed": 1,
+        "transcription.accepted": 1,
+        "transcription.completed": 1,
+        "activation.completed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:25:08.167157+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "fd9fbae5-34e1-4518-828a-5d99ee0e5bd6",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:08.189228+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "3a0ada9b-4357-442b-afe8-489e1d0fe1c2",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:08.206238+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "1bb6c0d9-d3af-4a92-baa0-226b21d256b0",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:08.219824+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "476265d7-9989-4f65-9481-488ad1b5886c",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:08.232862+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "f251c67f-d314-448d-beda-0d5b0e759f20",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:08.246435+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "9d0f26ea-dbb7-4669-8d52-17cf1fda1f1e",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:08.261955+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "1bc595d8-f4a0-4820-9ae6-a48281ad6bf2",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:22.050465+00:00",
+          "commandType": "activation.command",
+          "action": "activate",
+          "commandId": "cab5ad4d-7380-4a74-bdb2-f92563532ca1",
+          "accepted": true,
+          "activationId": "53ae6b22-9263-4c0d-8fc8-01c76cf252f3"
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:22.067506+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "7a271017-6b1b-4517-ba45-4af97d5dd400",
+          "accepted": true,
+          "activationId": "53ae6b22-9263-4c0d-8fc8-01c76cf252f3"
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:22.082645+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "5e95dd8b-5218-43ca-8af6-eccac2979220",
+          "accepted": true,
+          "activationId": "53ae6b22-9263-4c0d-8fc8-01c76cf252f3"
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:26.548512+00:00",
+          "commandType": "activation.command",
+          "action": "finish",
+          "commandId": "fa13d365-0c26-487c-bce7-d15906ce4883",
+          "accepted": true,
+          "activationId": "53ae6b22-9263-4c0d-8fc8-01c76cf252f3"
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:26.581211+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "0c617753-a58e-4570-8ae8-6013e5f580d9",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:25:21.971624+00:00",
+          "monotonic": 18779.921,
+          "slot": "primary",
+          "ready": true,
+          "generation": 1,
+          "phase": "idle"
+        },
+        {
+          "type": "control.received",
+          "timeUtc": "2026-10-19T16:25:26.503843+00:00",
+          "monotonic": 18784.453,
+          "slot": "secondary",
+          "ready": true,
+          "generation": 1,
+          "phase": "segment_active"
+        }
+      ],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:25:07.645751+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:25:08.647418+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": true,
+      "injectionAttempts": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 1
+        },
+        {
+          "status": "command_sent",
+          "source": "manual",
+          "count": 1
+        }
+      ],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 30,
+        "maxTasks": 10,
+        "maxPrivateBytes": 468750336,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 708,
+        "lastSent": 708
+      }
+    },
+    {
+      "attemptId": "0e05745fad664e4ea9c17b845a8f2fab",
+      "taskId": "settings",
+      "startedAtUtc": "2026-10-19T16:26:51.256070+00:00",
+      "exitCode": 0,
+      "endedAtUtc": "2026-10-19T16:30:05.221454+00:00",
+      "editorAfter": {
+        "characters": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "nativePastes": [],
+      "decision": "accept",
+      "humanObservation": "Nicht sicher / nicht beobachtet",
+      "humanNotes": "Also der Server-Auswahlfeld im Log-Fenster war disabled und mir ist aufgefallen, dass unten rechts unter Raw kein Raw Payload für die Einträge verfügbar ist. Vielleicht lag es daran, dass es keine Server-Einträge gab oder wie auch immer, aber das könntest du noch mal prüfen.",
+      "tester": "marco: human Windows/ReSpeaker actions; Codex: instrumentation/evaluation",
+      "wireEvents": {
+        "session.snapshot": 5,
+        "settings.changed": 1
+      },
+      "commands": [
+        {
+          "timeUtc": "2026-10-19T16:26:53.569549+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "d9325c77-2855-4410-9627-a1ba7d8361b9",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:26:53.587139+00:00",
+          "commandType": "session_settings.patch",
+          "action": null,
+          "commandId": "4a0dceb8-ba81-443b-8086-b9fdf53eaed5",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:26:53.627105+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "6ab7a098-53a8-4ba8-bb01-f6d6894a92ff",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:26:53.639240+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "eea9d4f8-490b-46d5-9948-0b79a9450c79",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:26:53.649725+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "14b11881-82bf-4927-9bf2-ed6bed5df987",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:26:53.659226+00:00",
+          "commandType": "trigger_suppression.set",
+          "action": null,
+          "commandId": "7b27a6a6-88c8-4262-88b1-119c8828f54c",
+          "accepted": true,
+          "activationId": null
+        },
+        {
+          "timeUtc": "2026-10-19T16:26:53.668723+00:00",
+          "commandType": "session.snapshot.request",
+          "action": null,
+          "commandId": "93c87cee-bd26-434b-847c-8994aacf417d",
+          "accepted": true,
+          "activationId": null
+        }
+      ],
+      "controls": [],
+      "audioTransitions": [
+        {
+          "timeUtc": "2026-10-19T16:26:53.102853+00:00",
+          "audioAvailable": false
+        },
+        {
+          "timeUtc": "2026-10-19T16:26:54.083299+00:00",
+          "audioAvailable": true
+        }
+      ],
+      "generations": [
+        0,
+        1
+      ],
+      "historyFinalHashesMatch": true,
+      "nativePastesMatchHistoryPlusSpace": false,
+      "injectionAttempts": [],
+      "followupEffectiveMs": [
+        3000,
+        5000
+      ],
+      "scope": "Historical source product7bb5646. Human acceptance is not a complete M-case PASS; corrected USB product requires new qualification.",
+      "resources": {
+        "samples": 191,
+        "maxTasks": 10,
+        "maxPrivateBytes": 483323904,
+        "maxInjectionQueue": 0,
+        "lastCapturedChunks": 4732,
+        "lastSent": 4732
+      }
+    }
+  ],
+  "boundary": "Human acceptance is not a PASS. No frozen-build, full M-case or server-FIX claim.",
+  "deferred": [
+    "W01 / Issue #7: wiederholte Wake-only-/Both-Folgen, Wake-Parität und gemischter 30min/100-Lauf erst nach Server-FIX.",
+    "M-04: weitere Phasenkombinationen, Hotkey-Kollision und realer Watchdog bleiben gesonderte technische Nachweise.",
+    "M-05: getrennte Run-Pausen und Erhaltung über Reconnect/Neustart noch gezielt zu instrumentieren.",
+    "M-06: isolierter LED-Ausfall ist kein USB-Gesamtausfall; eigener technischer Versuch bleibt offen.",
+    "M-07: Netzverlust mit offenem Preview/Final und separater Logstore-Ausfall bleiben eigene Faulttests; kein fremder Serverstopp.",
+    "M-08: Cancel/Finish/Vormerken einer Sessionänderung bei Aufnahme und ausstehendem Final separat vorbereiten.",
+    "M-09: Credential-Manager und Adminprüfung separat isolieren; keine bestehenden Credentials überschreiben.",
+    "M-10/M-11: Frozen-Build, erhöhte Anwendung, Clipboard-Konflikt und Prozessabbruch nahe Paste brauchen eigene Vorbereitung."
+  ]
+}

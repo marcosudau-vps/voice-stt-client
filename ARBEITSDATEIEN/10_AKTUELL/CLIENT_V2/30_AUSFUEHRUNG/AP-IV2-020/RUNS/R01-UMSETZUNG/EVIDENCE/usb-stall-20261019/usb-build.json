@@ -1,0 +1,26 @@
+[
+  {
+    "name": "exe",
+    "command": [
+      "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+      "scripts/build.py",
+      "--dist-dir",
+      "dist-iv2-020-usb"
+    ],
+    "exitCode": 0,
+    "seconds": 99.328
+  },
+  {
+    "name": "packages",
+    "command": [
+      "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+      "-m",
+      "build",
+      "--no-isolation",
+      "--outdir",
+      "dist-iv2-020-usb"
+    ],
+    "exitCode": 0,
+    "seconds": 24.156
+  }
+]

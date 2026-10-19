@@ -75,3 +75,7 @@ Realgates weiter vor vollständiger AP020-Annahme. [Fallabgrenzung19](RUNS/R01-U
 Pro-/Normal-V2 unter /ws/v2 erreichbar und Build-/aktuelle Image-/Quell-/Wheel-
 Identitäten dem Serverpin zugeordnet.180s diagnostische Wartegrenzen. Kein neuer
 Server-/Produktstand, keine Serverproduktfreigabe und keine voreilige Paketabnahme.
+
+## Zusatznachweis 19.10.2026 – R11 im freigegebenen Recovery-Scope
+
+[Durchlauf und USB-Korrektur](RUNS/R01-UMSETZUNG/22_GEFUEHRTER_DURCHLAUF_UND_USB_RECOVERY.md): reale USB-Abweichung reproduziert, eng begrenzt korrigiert, neues Produkt0f6c85e und1400Windows-Tests PASS. Kein Abschluss der offenen Realgates.

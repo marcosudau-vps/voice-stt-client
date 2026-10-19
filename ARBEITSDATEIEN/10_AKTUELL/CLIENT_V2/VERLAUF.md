@@ -204,3 +204,5 @@ kein Deployment/Neustart,180s diagnostische Open-/Antwortgrenzen. Optionaler vol
 Docker-Layerdiff45s-Timeout NOT_PROVEN; keine volle Integritätsbehauptung.
 Paketstatus BLOCKED für Gesamtabnahme, Workflow IMPLEMENTATION_IN_PROGRESS für
 die ausdrücklich vorgezogenen unabhängigen Restprüfungen; W01 bleibt offen.
+
+2026-10-19 AP-IV2-020/R01: 11 menschliche Aufgaben/15 Versuche ausgewertet;14Activations, keine pauschalen M-PASS. USB-Stillstand R11 nachgewiesen und im ausdrücklich freigegebenen Recovery-Scope korrigiert: Produkt0f6c85e,48 gezielte/1400 volle Windows-Tests, neue Artefakte und native Source-/Wheel-Recovery am vorhandenen Pro-V2 PASS. Physische USB-/Feedbackwiederholung und weitere Realgates offen; W01 bleibt separat. Sieben privat hashgesicherte externe Ordner nicht entfernt: automatische Freigabeprüfung „blocked by policy“. BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher PR15, kein REVIEW_READY/Merge/Servereingriff.

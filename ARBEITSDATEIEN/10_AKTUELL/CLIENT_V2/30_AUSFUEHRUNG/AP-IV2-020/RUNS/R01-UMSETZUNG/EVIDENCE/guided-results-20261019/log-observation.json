@@ -1,0 +1,14 @@
+{
+  "recordCount": 57,
+  "producers": {
+    "client": 52,
+    "led": 5
+  },
+  "rawStored": 0,
+  "eventStreamStates": [
+    "subscribing",
+    "replaying",
+    "live"
+  ],
+  "interpretation": "Server facet disabled because zero server records match; Raw absent because isolated store_raw_payload=false. Real event stream subscribing/replaying/live confirmed. No server event payload qualification."
+}
