@@ -1,0 +1,367 @@
+[
+  {
+    "timeUtc": "2026-10-19T17:57:30.014933+00:00",
+    "type": "session.snapshot",
+    "generation": 1,
+    "sessionId": "83c47b55-0058-41f6-a261-0f38fa1310a5",
+    "stateVersion": 0,
+    "settingsRevision": 0,
+    "effectiveFollowupMs": 3000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:30.056336+00:00",
+    "type": "settings.changed",
+    "generation": 1,
+    "sessionId": "83c47b55-0058-41f6-a261-0f38fa1310a5",
+    "eventId": "90d4d0ff-6897-4c28-bac7-d83529446979",
+    "eventSeq": 1,
+    "stateVersion": 1,
+    "occurredAtUnixMs": 1792432648392,
+    "settingsRevision": 1
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:30.077917+00:00",
+    "type": "session.snapshot",
+    "generation": 1,
+    "sessionId": "83c47b55-0058-41f6-a261-0f38fa1310a5",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:30.114236+00:00",
+    "type": "session.snapshot",
+    "generation": 1,
+    "sessionId": "83c47b55-0058-41f6-a261-0f38fa1310a5",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:30.208657+00:00",
+    "type": "session.snapshot",
+    "generation": 1,
+    "sessionId": "83c47b55-0058-41f6-a261-0f38fa1310a5",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:30.259709+00:00",
+    "type": "session.snapshot",
+    "generation": 1,
+    "sessionId": "83c47b55-0058-41f6-a261-0f38fa1310a5",
+    "stateVersion": 2,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:31.561535+00:00",
+    "type": "session.snapshot",
+    "generation": 1,
+    "sessionId": "83c47b55-0058-41f6-a261-0f38fa1310a5",
+    "stateVersion": 3,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:31.654285+00:00",
+    "type": "session.snapshot",
+    "generation": 1,
+    "sessionId": "83c47b55-0058-41f6-a261-0f38fa1310a5",
+    "stateVersion": 4,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:32.559370+00:00",
+    "type": "session.snapshot",
+    "generation": 2,
+    "sessionId": "644e9a0d-e9d7-4125-997a-c2c04632c3b5",
+    "stateVersion": 0,
+    "settingsRevision": 0,
+    "effectiveFollowupMs": 3000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:32.569999+00:00",
+    "type": "settings.changed",
+    "generation": 2,
+    "sessionId": "644e9a0d-e9d7-4125-997a-c2c04632c3b5",
+    "eventId": "6ceabea2-e577-4c2f-aa75-bd0daa58380b",
+    "eventSeq": 1,
+    "stateVersion": 1,
+    "occurredAtUnixMs": 1792432650914,
+    "settingsRevision": 1
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:32.582467+00:00",
+    "type": "session.snapshot",
+    "generation": 2,
+    "sessionId": "644e9a0d-e9d7-4125-997a-c2c04632c3b5",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:32.630638+00:00",
+    "type": "session.snapshot",
+    "generation": 2,
+    "sessionId": "644e9a0d-e9d7-4125-997a-c2c04632c3b5",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:32.640894+00:00",
+    "type": "session.snapshot",
+    "generation": 2,
+    "sessionId": "644e9a0d-e9d7-4125-997a-c2c04632c3b5",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:32.691679+00:00",
+    "type": "session.snapshot",
+    "generation": 2,
+    "sessionId": "644e9a0d-e9d7-4125-997a-c2c04632c3b5",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:33.579848+00:00",
+    "type": "session.snapshot",
+    "generation": 3,
+    "sessionId": "9777cc5f-dcc4-438e-a5dc-b401ec763280",
+    "stateVersion": 0,
+    "settingsRevision": 0,
+    "effectiveFollowupMs": 3000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:33.605851+00:00",
+    "type": "settings.changed",
+    "generation": 3,
+    "sessionId": "9777cc5f-dcc4-438e-a5dc-b401ec763280",
+    "eventId": "dea4970e-cfec-40ff-b642-b2d147d57bc3",
+    "eventSeq": 1,
+    "stateVersion": 1,
+    "occurredAtUnixMs": 1792432651935,
+    "settingsRevision": 1
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:33.629388+00:00",
+    "type": "session.snapshot",
+    "generation": 3,
+    "sessionId": "9777cc5f-dcc4-438e-a5dc-b401ec763280",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:33.644943+00:00",
+    "type": "session.snapshot",
+    "generation": 3,
+    "sessionId": "9777cc5f-dcc4-438e-a5dc-b401ec763280",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:33.657440+00:00",
+    "type": "session.snapshot",
+    "generation": 3,
+    "sessionId": "9777cc5f-dcc4-438e-a5dc-b401ec763280",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:33.682575+00:00",
+    "type": "session.snapshot",
+    "generation": 3,
+    "sessionId": "9777cc5f-dcc4-438e-a5dc-b401ec763280",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:34.715919+00:00",
+    "type": "session.snapshot",
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "stateVersion": 0,
+    "settingsRevision": 0,
+    "effectiveFollowupMs": 3000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:34.726918+00:00",
+    "type": "settings.changed",
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "eventId": "92d92082-1dac-463b-821e-201ba9a2cc78",
+    "eventSeq": 1,
+    "stateVersion": 1,
+    "occurredAtUnixMs": 1792432653071,
+    "settingsRevision": 1
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:34.736811+00:00",
+    "type": "session.snapshot",
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:34.746087+00:00",
+    "type": "session.snapshot",
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:34.757388+00:00",
+    "type": "session.snapshot",
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:34.776055+00:00",
+    "type": "session.snapshot",
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:34.833199+00:00",
+    "type": "session.snapshot",
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "stateVersion": 2,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:34.891594+00:00",
+    "type": "session.snapshot",
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "stateVersion": 3,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:34.911349+00:00",
+    "type": "session.snapshot",
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "stateVersion": 4,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:34.931932+00:00",
+    "type": "session.snapshot",
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "stateVersion": 5,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:35.490379+00:00",
+    "type": "session.snapshot",
+    "generation": 1,
+    "sessionId": "ea6a7741-695a-4d98-9079-7c8fbf91e73f",
+    "stateVersion": 0,
+    "settingsRevision": 0,
+    "effectiveFollowupMs": 3000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:35.499848+00:00",
+    "type": "settings.changed",
+    "generation": 1,
+    "sessionId": "ea6a7741-695a-4d98-9079-7c8fbf91e73f",
+    "eventId": "ce66bcbb-7f68-4a93-a5c3-b3f9cd3bca8e",
+    "eventSeq": 1,
+    "stateVersion": 1,
+    "occurredAtUnixMs": 1792432653846,
+    "settingsRevision": 1
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:35.510848+00:00",
+    "type": "session.snapshot",
+    "generation": 1,
+    "sessionId": "ea6a7741-695a-4d98-9079-7c8fbf91e73f",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:35.519360+00:00",
+    "type": "session.snapshot",
+    "generation": 1,
+    "sessionId": "ea6a7741-695a-4d98-9079-7c8fbf91e73f",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:35.527859+00:00",
+    "type": "session.snapshot",
+    "generation": 1,
+    "sessionId": "ea6a7741-695a-4d98-9079-7c8fbf91e73f",
+    "stateVersion": 1,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  },
+  {
+    "timeUtc": "2026-10-19T17:57:35.546484+00:00",
+    "type": "session.snapshot",
+    "generation": 1,
+    "sessionId": "ea6a7741-695a-4d98-9079-7c8fbf91e73f",
+    "stateVersion": 2,
+    "settingsRevision": 1,
+    "effectiveFollowupMs": 5000,
+    "effectivePreRollMs": 0
+  }
+]

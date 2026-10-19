@@ -26,8 +26,8 @@
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "W01 und weitere Pflichtgates offen; R11 CLOSED, direkte Idle-Kalibrierung30/100% menschlich bestätigt, LED-only-Störung idle autonom isoliert. Dreizehn gesicherte externe Aufräumreste automatisch gegen Löschen gesperrt.",
-  "nextAction": "Übrige unabhängige technische Fälle für Controls/Runpause, Netz/Settings, Credential/Admin, Frozen/Clipboard vorbereiten und ausführen; bestätigte Idle-Parameter beibehalten. W01 getrennt, danach betroffene Wake/Both/100Activations-Gates; kein REVIEW_READY.",
+  "blockingReason": "W01 und vollständige reale/Frozen-/Admin-/komponierte Pflichtgates offen; zusätzliche native Credentials und idle-Runpause/Recovery PASS_SCOPED.15private gesicherte externe Laufordner automatisch gegen Löschen gesperrt.",
+  "nextAction": "Gezielte offene Diktat-/Phasen-/Altfinal-/Settings-/Netz-/Logkombinationen mit bewussten Sprachproben vorbereiten; native Frozen/Admin/elevated/Clipboardfälle ergänzen. W01 separat, danach Wake/Both/30min100; kein REVIEW_READY. Bestätigtes Idle und5000ms beibehalten.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -69,7 +69,7 @@
     "executionOrder": "DEFER_IMPLEMENTATION_UNTIL_UNAFFECTED_CLIENT_TESTS_DONE"
   },
   "technicalProductCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
-  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/idle-confirmed-20261019/validation.json",
+  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/autonomous-rest-20261019/validation.json",
   "observations": [
     {
       "id": "IV2-020-O01",
@@ -162,5 +162,6 @@
       "nativeLedFaultResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/idle-confirmed-20261019/led-pass-smoke.json"
     }
   },
-  "qualificationStatus": "BLOCKED_BY_OPEN_MANDATORY_FINDINGS"
+  "qualificationStatus": "BLOCKED_BY_OPEN_MANDATORY_FINDINGS",
+  "latestAutonomousRestEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/autonomous-rest-20261019"
 }

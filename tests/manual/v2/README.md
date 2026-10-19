@@ -141,3 +141,21 @@ Sinkwechsel und mögliche automatische Wiederherstellung werden beobachtet.
 Audio/Session dürfen dabei nicht wechseln. Das ist ein idle-Teilnachweis, kein
 physisches Abziehen oder vollständiger M-06-/Frozen-PASS. Laufdaten anschließend
 exportieren und im genehmigten Namensraum aufräumen.
+
+## Autonome Run-Pausen und Windows-Credentials
+
+`venv/Scripts/python.exe -m tests.manual.v2.autonomous_rest --profile-runtime`
+prüft den echten Windows-Credentialspeicher mit zwei zufälligen `.invalid`-Origins:
+Speichern, Ersetzen, frische Leseprozesse, Origintrennung und Löschen. Erwartungen
+werden nur über stdin übertragen; keine Zugangsdaten im Aufruf oder Ergebnis.
+Die beiden eigenen Einträge werden in `finally` entfernt.
+
+Danach läuft eine tatsächliche Manual-only-Source-Runtime mit ReSpeaker am
+ausgewählten Pro-V2. Sie prüft getrennte serverbestätigte Pausenmasken, zwei
+manuelle Reconnects, Abbruch ausschließlich des eigenen TCP-Transports, ein
+simuliertes Mute-Signal und eine neue Runtime aus demselben isolierten Profil.
+Nach jedem Reconnect werden mindestens25weitere echte Audiopakete verlangt.
+Kein Trigger, Speichern von PCM, Paste, globaler Hotkey, Sound, LED oder Admin-PATCH.
+Der Wake-Engine-Pfad bleibt aus; das qualifiziert weder echte Wakepause noch
+physisches Mute oder offene Diktate/Finals. Beide vollständigen M-Gates bleiben
+offen. Ergebnisse anschließend ins Projekt exportieren und Laufzeit bereinigen.

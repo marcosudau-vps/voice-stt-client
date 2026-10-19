@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "state": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+  "reason": "blocked by policy",
+  "newStoppedArchivedTargets": [
+    "autonomous-rest-20261019-195725",
+    "autonomous-rest-20261019-195955"
+  ],
+  "previousThirteen": "See ../idle-confirmed-20261019/cleanup.json; not retried",
+  "totalStoppedArchivedDirectoriesPending": 15,
+  "privateArchives": "build/ap-iv2-020-suite/private-archive",
+  "noRetryOrWorkaround": true,
+  "ownedNativeCredentialEntriesDeleted": true
+}

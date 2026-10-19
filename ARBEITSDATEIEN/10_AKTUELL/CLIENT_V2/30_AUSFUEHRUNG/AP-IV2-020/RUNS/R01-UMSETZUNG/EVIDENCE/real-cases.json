@@ -145,7 +145,16 @@
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
       "actualResult": null,
       "evidence": [],
-      "attempts": []
+      "attempts": [
+        {
+          "status": "PASS_SCOPED",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "tester": "Codex/native Windows execution",
+          "evidence": "autonomous-rest-20261019/repeat-runtime.json",
+          "scope": "idle_run_pause_recovery",
+          "boundaries": "See report26 and evidence boundary; full M-case remains NOT_PROVEN."
+        }
+      ]
     },
     {
       "id": "M-06",
@@ -216,6 +225,14 @@
           "clientCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
           "evidence": "ux01/logstore-diskfull.json",
           "boundaries": "Separate pinned local server, same real models; actual isolated tmpfs ENOSPC and SQLite failure, consented real WAV replay, real production STT+log transports; no live Mic/native paste. Log is in backoff at end; full log recovery not demonstrated. Preview/final network variants still open."
+        },
+        {
+          "status": "PASS_SCOPED",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "tester": "Codex/native Windows execution",
+          "evidence": "autonomous-rest-20261019/repeat-runtime.json",
+          "scope": "idle_run_pause_recovery",
+          "boundaries": "See report26 and evidence boundary; full M-case remains NOT_PROVEN."
         }
       ],
       "findingIds": [],
@@ -255,7 +272,16 @@
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
       "actualResult": null,
       "evidence": [],
-      "attempts": []
+      "attempts": [
+        {
+          "status": "PASS_SCOPED",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "tester": "Codex/native Windows execution",
+          "evidence": "autonomous-rest-20261019/repeat-credentials.json",
+          "scope": "native_credentials",
+          "boundaries": "See report26 and evidence boundary; full M-case remains NOT_PROVEN."
+        }
+      ]
     },
     {
       "id": "M-10",

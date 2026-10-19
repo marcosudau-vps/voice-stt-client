@@ -1,0 +1,420 @@
+[
+  {
+    "name": "initial",
+    "timeUtc": "2026-10-19T17:57:31.535917+00:00",
+    "ready": true,
+    "generation": 1,
+    "sessionId": "83c47b55-0058-41f6-a261-0f38fa1310a5",
+    "desired": [
+      false,
+      false
+    ],
+    "confirmed": [
+      false,
+      false
+    ],
+    "followupMs": 5000,
+    "audioAvailable": true,
+    "sent": 31,
+    "pending": 0,
+    "commands": 0,
+    "tasks": 8,
+    "media": {
+      "sent": 31,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": true,
+      "led_available": true,
+      "log_failure": null
+    },
+    "memory": {
+      "workingSetBytes": 61784064,
+      "privateBytes": 408805376
+    },
+    "wireServerCommit": "unknown"
+  },
+  {
+    "name": "manual-paused",
+    "timeUtc": "2026-10-19T17:57:31.588309+00:00",
+    "ready": true,
+    "generation": 1,
+    "sessionId": "83c47b55-0058-41f6-a261-0f38fa1310a5",
+    "desired": [
+      true,
+      false
+    ],
+    "confirmed": [
+      true,
+      false
+    ],
+    "followupMs": 5000,
+    "audioAvailable": true,
+    "sent": 31,
+    "pending": 0,
+    "commands": 0,
+    "tasks": 8,
+    "media": {
+      "sent": 31,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": true,
+      "led_available": true,
+      "log_failure": null
+    },
+    "memory": {
+      "workingSetBytes": 61784064,
+      "privateBytes": 408805376
+    },
+    "wireServerCommit": "unknown"
+  },
+  {
+    "name": "both-paused",
+    "timeUtc": "2026-10-19T17:57:31.675865+00:00",
+    "ready": true,
+    "generation": 1,
+    "sessionId": "83c47b55-0058-41f6-a261-0f38fa1310a5",
+    "desired": [
+      true,
+      true
+    ],
+    "confirmed": [
+      true,
+      true
+    ],
+    "followupMs": 5000,
+    "audioAvailable": true,
+    "sent": 35,
+    "pending": 0,
+    "commands": 0,
+    "tasks": 8,
+    "media": {
+      "sent": 35,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": true,
+      "led_available": true,
+      "log_failure": null
+    },
+    "memory": {
+      "workingSetBytes": 61788160,
+      "privateBytes": 408805376
+    },
+    "wireServerCommit": "unknown"
+  },
+  {
+    "name": "manual-reconnect-1",
+    "timeUtc": "2026-10-19T17:57:32.730512+00:00",
+    "ready": true,
+    "generation": 2,
+    "sessionId": "644e9a0d-e9d7-4125-997a-c2c04632c3b5",
+    "desired": [
+      true,
+      true
+    ],
+    "confirmed": [
+      true,
+      true
+    ],
+    "followupMs": 5000,
+    "audioAvailable": true,
+    "sent": 35,
+    "pending": 0,
+    "commands": 0,
+    "tasks": 8,
+    "media": {
+      "sent": 35,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": true,
+      "led_available": true,
+      "log_failure": null
+    },
+    "memory": {
+      "workingSetBytes": 63160320,
+      "privateBytes": 409870336
+    },
+    "wireServerCommit": "unknown"
+  },
+  {
+    "name": "manual-reconnect-2",
+    "timeUtc": "2026-10-19T17:57:33.720166+00:00",
+    "ready": true,
+    "generation": 3,
+    "sessionId": "9777cc5f-dcc4-438e-a5dc-b401ec763280",
+    "desired": [
+      true,
+      true
+    ],
+    "confirmed": [
+      true,
+      true
+    ],
+    "followupMs": 5000,
+    "audioAvailable": true,
+    "sent": 35,
+    "pending": 0,
+    "commands": 0,
+    "tasks": 8,
+    "media": {
+      "sent": 35,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": true,
+      "led_available": true,
+      "log_failure": null
+    },
+    "memory": {
+      "workingSetBytes": 63467520,
+      "privateBytes": 410435584
+    },
+    "wireServerCommit": "unknown"
+  },
+  {
+    "name": "socket-loss",
+    "timeUtc": "2026-10-19T17:57:34.812154+00:00",
+    "ready": true,
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "desired": [
+      true,
+      true
+    ],
+    "confirmed": [
+      true,
+      true
+    ],
+    "followupMs": 5000,
+    "audioAvailable": true,
+    "sent": 35,
+    "pending": 0,
+    "commands": 0,
+    "tasks": 8,
+    "media": {
+      "sent": 35,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": true,
+      "led_available": true,
+      "log_failure": null
+    },
+    "memory": {
+      "workingSetBytes": 63438848,
+      "privateBytes": 411004928
+    },
+    "wireServerCommit": "unknown"
+  },
+  {
+    "name": "mute-signal",
+    "timeUtc": "2026-10-19T17:57:34.833199+00:00",
+    "ready": true,
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "desired": [
+      true,
+      true
+    ],
+    "confirmed": [
+      true,
+      true
+    ],
+    "followupMs": 5000,
+    "audioAvailable": false,
+    "sent": 35,
+    "pending": 0,
+    "commands": 0,
+    "tasks": 10,
+    "media": {
+      "sent": 35,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": false,
+      "led_available": true,
+      "log_failure": null
+    },
+    "memory": {
+      "workingSetBytes": 63406080,
+      "privateBytes": 410918912
+    },
+    "wireServerCommit": "unknown"
+  },
+  {
+    "name": "unmute-signal",
+    "timeUtc": "2026-10-19T17:57:34.891594+00:00",
+    "ready": true,
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "desired": [
+      true,
+      true
+    ],
+    "confirmed": [
+      true,
+      true
+    ],
+    "followupMs": 5000,
+    "audioAvailable": true,
+    "sent": 35,
+    "pending": 0,
+    "commands": 0,
+    "tasks": 9,
+    "media": {
+      "sent": 35,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": true,
+      "led_available": true,
+      "log_failure": null
+    },
+    "memory": {
+      "workingSetBytes": 63471616,
+      "privateBytes": 411017216
+    },
+    "wireServerCommit": "unknown"
+  },
+  {
+    "name": "wake-mask-only",
+    "timeUtc": "2026-10-19T17:57:34.911349+00:00",
+    "ready": true,
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "desired": [
+      false,
+      true
+    ],
+    "confirmed": [
+      false,
+      true
+    ],
+    "followupMs": 5000,
+    "audioAvailable": true,
+    "sent": 35,
+    "pending": 0,
+    "commands": 0,
+    "tasks": 9,
+    "media": {
+      "sent": 35,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": true,
+      "led_available": true,
+      "log_failure": null
+    },
+    "memory": {
+      "workingSetBytes": 63471616,
+      "privateBytes": 411017216
+    },
+    "wireServerCommit": "unknown"
+  },
+  {
+    "name": "both-paused-final",
+    "timeUtc": "2026-10-19T17:57:34.956549+00:00",
+    "ready": true,
+    "generation": 4,
+    "sessionId": "8cd2e1f8-47e1-4590-b8b0-718d08fc2f21",
+    "desired": [
+      true,
+      true
+    ],
+    "confirmed": [
+      true,
+      true
+    ],
+    "followupMs": 5000,
+    "audioAvailable": true,
+    "sent": 36,
+    "pending": 0,
+    "commands": 0,
+    "tasks": 8,
+    "media": {
+      "sent": 36,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": true,
+      "led_available": true,
+      "log_failure": null
+    },
+    "memory": {
+      "workingSetBytes": 63516672,
+      "privateBytes": 411017216
+    },
+    "wireServerCommit": "unknown"
+  },
+  {
+    "name": "fresh-runtime",
+    "timeUtc": "2026-10-19T17:57:36.818732+00:00",
+    "ready": true,
+    "generation": 1,
+    "sessionId": "ea6a7741-695a-4d98-9079-7c8fbf91e73f",
+    "desired": [
+      false,
+      false
+    ],
+    "confirmed": [
+      false,
+      false
+    ],
+    "followupMs": 5000,
+    "audioAvailable": true,
+    "sent": 31,
+    "pending": 0,
+    "commands": 0,
+    "tasks": 8,
+    "media": {
+      "sent": 31,
+      "gated": 0,
+      "overflow": 0,
+      "stale": 0,
+      "invalid": 0,
+      "queue_ms": 0.0,
+      "capture_failures": 0,
+      "audio_available": true,
+      "led_available": true,
+      "log_failure": null
+    },
+    "memory": {
+      "workingSetBytes": 64466944,
+      "privateBytes": 412266496
+    },
+    "wireServerCommit": "unknown"
+  }
+]

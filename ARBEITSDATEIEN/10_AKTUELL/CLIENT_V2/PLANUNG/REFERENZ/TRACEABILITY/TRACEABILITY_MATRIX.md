@@ -422,3 +422,16 @@ Kein historisches R03-Urteil überschrieben; frischer unabhängiger Gesamt-Revie
 ## AP-IV2-020/R01 – Idle-Kalibrierung und LEDonly,19.10.2026
 
 [Bericht25](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/25_IDLE_BESTAETIGT_UND_LED_ISOLATION.md): M-10-Teilfall direkter weißer Idle-Puls20s menschlich PASS_SCOPED, Minimum0,30/Peak1,0 gespeichert. M-06-Teilfall kontrollierte native LED-Kanalstörung bei idle autonom PASS_SCOPED,59→210Audiopakete, gleichbleibende Session/Generation, kein AudioAvailability-Command oder neue Activation. Kein M-06-Openinput/Altfinal-/M-10-Frozen-/Wake-PASS daraus. Erste Hilfsprüfung mit falscher Persistenzannahme bleibtFAIL; automatische echte LED-Recovery ist funktionierender Schutz.33Helfertests PASS, Produkt0f6c85e unverändert.
+
+
+## AP-IV2-020/R01 – autonome Restprüfung,19.10.2026
+
+[Bericht26](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md):
+REAL-03/M-09 nativer Windows-Vault-Lebenszyklus einschließlich drei frischer Prozesse,
+Origintrennung und bestätigter Löschung PASS_SCOPED. REAL-01/04 M-05/M-07 bei idle:
+getrennte bestätigte Pausenmasken über zwei Reconnects/eigenen TCP-Abbruch und
+Software-Mute erhalten; neues Runtimeobjekt ohne alte Runpause. Nach jedem
+Reconnect25weitere echte Audiopakete. Wakeengine aus; kein vollständiger Wake-/Mute-/
+offeneFinal-/Admin-/Frozen-PASS. `tests.manual.v2.test_autonomous_rest.IdleAssessment`
+weist fehlende/unbestätigte/stale/pending/keinAudiofortschritt-Belege zurück.
+36Helfertests/erneut1400Windows ohne Skips PASS; Produkt0f6c85e unverändert.

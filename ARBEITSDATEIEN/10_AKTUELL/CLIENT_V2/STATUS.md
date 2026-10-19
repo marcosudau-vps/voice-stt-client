@@ -1,3 +1,7 @@
+## AP-IV2-020/R01 – autonome Restprüfungen,19.10.2026
+
+[Konkrete Restliste und neue Nachweise](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md): Windows-Vault-Lebenszyklus mit frischen Prozessen/Origintrennung und Löschung PASS_SCOPED; reale idle-Runpausen über zwei manuelle Reconnects/eigenen TCP-Abbruch/Software-Mute sowie frische Runtime PASS_SCOPED. Wakeengine aus, keine Aktivierung/Paste,5000ms erhalten;1400Windows/0Skips und36Helfertests PASS. Produkt0f6c85e unverändert. Offene Kombinationen, Frozen/Admin/W01 und Gesamtgates bleiben;15private gesicherte Laufordner automatisch gegen Löschen gesperrt. Gleicher R01/PR15, BLOCKED/IMPLEMENTATION_IN_PROGRESS, kein REVIEW_READY.
+
 ## AP-IV2-020/R01 – Idle bestätigt, LED-only-Störung autonom geprüft,19.10.2026
 
 [Bericht25](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/25_IDLE_BESTAETIGT_UND_LED_ISOLATION.md): Weiß/min30%/peak100% am realen ReSpeaker nach20s ausdrücklich bestätigt und reproduzierbar gespeichert. R11 CLOSED, Produkt0f6c85e unverändert. Zusätzlicher nativer LED-only-Transportausfall bei idle isoliert: automatische LED-Recovery, Audio/Session stabil,59→210Frames, keine neue Activation/AudioAvailability-Mutation. Erster fehlerhafter Hilfstest bleibtFAIL wegen falscher Persistenzannahme; neue33Helfertests PASS.1400Windows-/Buildbeleg am bytegleichen Produkt bleibt gültig. Übrige Real-/Frozen-/W01-Gates offen, kein REVIEW_READY; gleiche R01/PR15.13gesicherte externe Aufräumreste durch automatische Freigabeprüfung „blocked by policy“ nicht gelöscht.

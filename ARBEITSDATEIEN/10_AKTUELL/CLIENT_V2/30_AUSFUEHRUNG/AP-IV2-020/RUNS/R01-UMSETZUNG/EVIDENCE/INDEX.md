@@ -1,3 +1,10 @@
+## Autonome Restprüfung,19.10.2026
+
+- [Native Windows-Credentials](autonomous-rest-20261019/repeat-credentials.json), [reale idle-Pausen/Recovery](autonomous-rest-20261019/repeat-runtime.json), [Ereignisse](autonomous-rest-20261019/repeat-events.json).
+- [Quell-/Runtimeidentität](autonomous-rest-20261019/repeat-identity.json), [Serverpin](autonomous-rest-20261019/server-identity-after.json), [Validierung](autonomous-rest-20261019/validation.json).
+- [36Helfertests](autonomous-rest-20261019/helpers-36.log.gz), [neue volle1400Windows-Tests/0Skips](autonomous-rest-20261019/windows-1400.log.gz).
+- [Aufräumblocker](autonomous-rest-20261019/cleanup.json), [Exportmanifest](autonomous-rest-20261019/export-manifest.json), [konkrete Restliste](../26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
+
 ## Bestätigter Idle-Puls und autonome LED-Isolation,19.10.2026
 
 - [Menschliche Originalbewertung](idle-confirmed-20261019/human-result.json), [PASS_SCOPE/Konfiguration](idle-confirmed-20261019/assessment.json), [gesicherte Testwerte](idle-confirmed-20261019/confirmed-calibration.yaml).

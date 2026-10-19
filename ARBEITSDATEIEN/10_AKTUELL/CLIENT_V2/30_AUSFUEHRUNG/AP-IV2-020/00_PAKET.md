@@ -87,3 +87,12 @@ Server-/Produktstand, keine Serverproduktfreigabe und keine voreilige Paketabnah
 ## Idle bestätigt / LED-only-Isolation,19.10.2026
 
 [Bericht25](RUNS/R01-UMSETZUNG/25_IDLE_BESTAETIGT_UND_LED_ISOLATION.md): menschliche direkte Idle-Kalibrierung30/100% bestätigt, zusätzlicher kontrollierter LED-only-Ausfall bei idle ohne Audio-/Sessionwirkung PASS_SCOPED. Gesamte M-/Frozen-/Wakequalifikation weiter offen; Paketstatus BLOCKED, gleicher R01/PR15.
+
+
+## Autonome Restprüfung,19.10.2026
+
+[Bericht26](RUNS/R01-UMSETZUNG/26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md):
+native Credential-Lebenszyklen und idle-Runpause/Recovery PASS_SCOPED,36Helfer-
+und neue volle1400Windows-Tests/0Skips PASS. Keine Produktänderung;
+fehlende Kombinationen/Admin/Frozen/W01 bleiben offen.15gesicherte externe
+Aufräumreste wegen automatischer Löschablehnung. Gleicher R01/PR15, kein REVIEW_READY.

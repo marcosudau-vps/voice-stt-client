@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "noDisallowedJsonFields": true,
+  "noAudioOrDatabaseArtifacts": true,
+  "ownedNativeCredentialsRemoved": true,
+  "additionalRealAudioPacketsAfterReconnect": [
+    25,
+    25,
+    25
+  ],
+  "noClaimOfContinuousIntegrityOrLongRun": true
+}
