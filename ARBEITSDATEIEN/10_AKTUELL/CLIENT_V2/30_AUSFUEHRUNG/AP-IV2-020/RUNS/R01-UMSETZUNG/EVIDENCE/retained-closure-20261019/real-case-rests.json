@@ -1,0 +1,57 @@
+{
+  "source": "../real-cases.json",
+  "sourceSha256": "4163f5147cd7ad438698f90744400fb3a98e6355194fca642262d14317b4cfe4",
+  "report": "../../18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md",
+  "cases": [
+    {
+      "id": "M-01",
+      "status": "NOT_PROVEN"
+    },
+    {
+      "id": "M-02",
+      "status": "NOT_PROVEN"
+    },
+    {
+      "id": "M-03",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "M-04",
+      "status": "NOT_PROVEN"
+    },
+    {
+      "id": "M-05",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "M-06",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "M-07",
+      "status": "NOT_PROVEN"
+    },
+    {
+      "id": "M-08",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "M-09",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "M-10",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "M-11",
+      "status": "NOT_PROVEN"
+    },
+    {
+      "id": "M-12",
+      "status": "NOT_RUN"
+    }
+  ],
+  "newFullPass": false,
+  "historicalCasesUnmodified": true
+}

@@ -180,3 +180,14 @@ Log-/JSONpaare hashgeprüft; alle24 Deklarationsakten zugeordnet. Chronologische
 Plausibilität von endgültiger Bindung getrennt, zuerst autonome Aktenarbeit,
 praktische Nachprüfungen und vorher offene M-Gates gesondert. Historisches
 Audit/Originalbefunde unverändert; kein Server-/Clientstart, kein Produkt-PASS.
+
+## 2026-10-19 – AP-IV2-020/R01 – autonome Klärung abgeschlossen
+
+Bericht18:25 ONNX-Klassifikatoren offline geprüft,555 Gitblobs, sechs WAVs und
+elf Ausgabe-Archive identisch.24 Sessionakten ausgewertet, zehn Fallberichte über
+elf konkrete Sessionbindungen zugeordnet. Logfault-Pin per exakt gehashtem Helfer
+und tatsächlich inspizierter Image-ID geschlossen. Fehlende frühe Runnerbytes
+und Admissionantworten bleiben begrenzt; kein rückwirkendes PASS. TV-Finish bis
+Clientende3764,208s ohne Terminal/Final. Fünf Zuordnungstests PASS; ursprüngliche363
+Auditakten bytegleich. Keine Server-/Clientausführung/externe Schreibvorgänge.
+Sieben konkrete Restpunkte, BLOCKED / SERVER_FIX_REQUIRED unverändert.

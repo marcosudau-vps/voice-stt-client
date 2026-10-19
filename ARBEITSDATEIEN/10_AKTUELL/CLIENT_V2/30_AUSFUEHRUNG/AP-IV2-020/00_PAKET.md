@@ -57,3 +57,11 @@ bereits abgedeckte enge Prüfungen, zuerst aus Belegen zu klärende Zuordnungen,
 erforderliche praktische Nachprüfungen und die schon vorher offenen M01–M12.
 Vier ausgeschlossene Frühakten besitzen spätere scopegleiche Wiederholungen;
 keine rückwirkende Heilung, kein neuer M-PASS. Keine Serverwiederanlage beauftragt.
+
+## Autonome Belegklärung durchgeführt, 19.10.2026
+
+[Bericht18: Ergebnisse und sieben tatsächliche Restpunkte](RUNS/R01-UMSETZUNG/18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md).
+25 neue Offline-Metadatenprüfungen PASS, sechs Fixtures und elf Archive identisch,
+elf konkrete Fall-/Sessionverknüpfungen, Logfault-Imagebindung geschlossen.
+Frühe nicht rekonstruierbare Runner und fehlende Admissionantworten ausdrücklich
+begrenzt. Kein neuer Server-/Clientlauf, kein M-PASS; W01 und Zielentscheidung offen.

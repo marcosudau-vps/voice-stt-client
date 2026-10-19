@@ -1,3 +1,8 @@
+> **Fortgeschrieben am19.10.2026:** Die unten vorgeschlagene autonome Aktenarbeit
+> ist jetzt durchgeführt. Maßgeblich sind [Bericht18 und die tatsächlich offenen
+> Restpunkte](18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md). Diese Liste bleibt als
+> ursprüngliche Disposition mit ihren damaligen offenen B-Punkten erhalten.
+
 # Testlücken: erhaltene Nachweise, Aktenarbeit und erforderliche Wiederholungen
 
 Stand: 19.10.2026, AP-IV2-020 / derselbe R01, Paketbranch und Draft-PR15.

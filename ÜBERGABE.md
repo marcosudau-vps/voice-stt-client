@@ -1,3 +1,12 @@
+## AP-IV2-020/R01 – Offline-Belegklärung, 19.10.2026
+
+Maßgeblich für weitere Schritte: [Bericht18 / sieben verbleibende Punkte](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md).
+Autonome Akten-/Metadatenklärung durchgeführt; fehlende historische Antworten nicht
+rekonstruierbar, keine weitere allgemeine Recherche als Voraussetzung offen.
+Vor Realtests tatsächliches Serverziel/Commit/Modelle/Konfiguration und zulässige
+Ablage festlegen. Entfernten Server nicht wieder anlegen, deaktivierten Starter
+nicht starten/funktional freigeben. W01-FIX nicht beauftragt. BLOCKED bleibt.
+
 ## AP-IV2-020/R01 – zusätzlicher Server entfernt, 18.10.2026
 
 Auf ausdrücklichen Wunsch eigene AP020-Servercontainer, zugeordnete Images und

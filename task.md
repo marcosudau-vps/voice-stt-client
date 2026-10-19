@@ -1,3 +1,13 @@
+## AP-IV2-020/R01 – autonome Belegklärung erledigt, 19.10.2026
+
+[Ergebnisse und kompakte Restübersicht](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md).
+25 ONNX-Metadaten neu offline PASS;555 Gitblobs, sechs Fixtures, elf Archive,
+24 Sessions und zehn Berichte/elf Sessionbindungen geprüft. Historische363 Auditakten
+unverändert. Logfault-Pinbindung geschlossen, frühe fehlende Helfer/Admissionantworten
+gezielten technischen Restläufen zugewiesen. TV-Finish ohne Terminal bis3764s.
+Nächste Voraussetzung: gewünschtes vorhandenes Serverziel/Ablage festlegen;
+W01-FIX separat. Kein neuer Server-/Clientstart, BLOCKED / SERVER_FIX_REQUIRED.
+
 ## AP-IV2-020/R01 – Testlückenliste, 19.10.2026
 
 [Liste mit Belegen und nächsten Aktionen](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/17_TESTLUECKEN_UND_WIEDERHOLUNGEN.md).

@@ -26,7 +26,7 @@
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
   "blockingReason": "IV2-020-W01: zwei autoritative Alexa-Activations bei einmaliger menschlicher Wakephrase; pausierter Modellzustand reproduziert nach Rearm einen Treffer bei digitaler Stille. Serverfix gesondert zu beauftragen.",
-  "nextAction": "Keine Wiederanlage des entfernten Qualifikationsservers. Historischer Commit-Audit16 maÃŸgeblich: ada13b0 inhaltlich bestÃ¤tigt; serverabhÃ¤ngige EinzelansprÃ¼che ohne belastbare Bindung nicht abnahmewirksam. Vor Realtests tatsÃ¤chliches gewÃ¼nschtes Serverziel und zulÃ¤ssige Ablage klÃ¤ren. W01/Issue7 weiter SERVER_FIX_REQUIRED; kein Server-FIX oder neuer Testserver beauftragt.",
+  "nextAction": "Autonome Belegklärung18 abgeschlossen; sieben konkrete Restpunkte dort. Vor Realtests tatsächliches gewünschtes vorhandenes Serverziel samt Commit/Modellen/Konfiguration und zulässige Ablage festlegen; keine Wiederanlage des entfernten Servers. W01/Issue7 gesonderter Server-FIX weiterhin nicht beauftragt. Fehlende technische Einzelbelege danach gezielt am endgültigen Paar erfassen; vorhandene menschliche Antworten/Fixtures weiterverwenden. T01/T02, Finish-/Terminaldiagnose, M-Gates und Endkalibrierung offen.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -89,6 +89,9 @@
     "invalidatedEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-identity-audit-20261018/early-image-exclusions.json",
     "gapDisposition": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/17_TESTLUECKEN_UND_WIEDERHOLUNGEN.md",
     "gapDispositionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-identity-audit-20261018/followup-disposition.json",
-    "excludedEarlyRecordsWithLaterScopeCoverage": 4
+    "excludedEarlyRecordsWithLaterScopeCoverage": 4,
+    "autonomousClosure": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md",
+    "autonomousClosureEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/retained-closure-20261019/results.json",
+    "metadataRecheckedOffline": 25
   }
 }

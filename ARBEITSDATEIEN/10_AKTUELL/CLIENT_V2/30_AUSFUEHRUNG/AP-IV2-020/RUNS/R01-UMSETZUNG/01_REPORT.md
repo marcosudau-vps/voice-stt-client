@@ -1,3 +1,16 @@
+## Autonome Belegklärung abgeschlossen, 19.10.2026
+
+[Ergebnisse und kompakte sieben Restpunkte](18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md).
+Neue Offline-Metadatenprüfung aller25 ONNX-Klassifikatoren PASS;555 Gitblobs erneut
+identisch, sechs WAVs und elf Archive hashgeprüft,24 Sessionakten untersucht,
+zehn Berichte über elf konkrete Sessionbindungen zugeordnet. Drei Helferfassungen
+exakt belegt; frühe Admission-/Replayfassung nicht rekonstruierbar. Historische
+Logfault-Imagebindung geschlossen; ursprüngliche363 Auditakten unverändert.
+TV-Finish ohne Final/Terminal bis Clientende nach3764,208s bestätigt. Fünf gezielte
+Helfertests PASS. Keine Server-/Clientausführung oder externe Dateiänderung.
+Technische Restläufe benötigen das festgelegte Zielpaar; W01/T01/T02 und volle
+Realgates bleiben offen. BLOCKED / SERVER_FIX_REQUIRED, kein REVIEW_READY.
+
 ## Testlückenliste nach Serveraudit, 19.10.2026
 
 [Fallbezogene Liste17](17_TESTLUECKEN_UND_WIEDERHOLUNGEN.md): vier von fünf

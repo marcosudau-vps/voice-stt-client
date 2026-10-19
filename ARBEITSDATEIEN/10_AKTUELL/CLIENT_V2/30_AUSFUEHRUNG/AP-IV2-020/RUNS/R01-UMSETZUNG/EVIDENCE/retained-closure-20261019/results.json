@@ -1,0 +1,2428 @@
+{
+  "timeUtc": "2026-10-19T11:59:21.330008+00:00",
+  "requiredServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "method": "Offline metadata execution plus read-only historical evidence checks",
+  "metadata": {
+    "result": "PASS_OFFLINE_METADATA_ONLY",
+    "onnxruntime": "1.31.0",
+    "rows": [
+      {
+        "id": "alexa",
+        "artifact": "alexa.onnx",
+        "bytes": 854246,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "6ff566a01d12670e8d9e3c59da32651db1575d17272a601b7f8a39283dfbae3e",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "alice",
+        "artifact": "Alice.onnx",
+        "bytes": 633208,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "8363e5d3e0fc64634f18c3866eba20b913ec18bc07fa7cb2a0ff45a423b83e3f",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "computer",
+        "artifact": "Computer.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "ad7a4c7f1a7168a46daac25a43cc8a743cd77449038d2db0c941ee2230760527",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_alfred",
+        "artifact": "Hey_Alfred.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "6dfb5ad5e2e6d0700af7d489dfa4f0f5b7cf17f0f4cbd15ae2c4b417d92d0f7f",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_billy",
+        "artifact": "Hey_Billy.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "a9f0f1d84a99a394581aa6d0664655bcf62daa3b6080d7515290ad5bec91eb75",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_bro",
+        "artifact": "Hey_Bro.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "278d9c1a8c94ee90b40d2d432551d0f7915cafae14fe6e4165d45e6447f76dbf",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_glados",
+        "artifact": "hey_glados.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "0885f72fd5f0630a28dc063df6f838ec6892b6af788442141a219e9d16d36262",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_hermes",
+        "artifact": "Hey_Hermes.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "8650376b494f678cb12ba9c007c1f1350d06aa21b9ea6d520b32c527a36f37f4",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_jarvis",
+        "artifact": "jarvis_v2.onnx",
+        "bytes": 208134,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "dae408c0fa69ec888bf8e3a8b41a41f97677522be3b8163821e4105fa754b988",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_lucy",
+        "artifact": "Hey_Lucy.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "dc13c9ad06892989b202ae5007ffd0641d930a0d341832b46a31d8a47ea46f6f",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_luna",
+        "artifact": "Hey_luna.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "eabe7ab6d76dfa418b6df24735423ee8e1422bf9c4383a4463e46cb5763935a7",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_max",
+        "artifact": "Hey_Max.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "51faf86fcaf615d432d332dea83bc0a803202e9846664d0b90351011640a5b9d",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_mira",
+        "artifact": "Hey_Mira.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "761ea62cd77644e018550b172a3e7fa641647c32a0d91983f89f411cfd33053b",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_mycroft",
+        "artifact": "hey_mycroft.onnx",
+        "bytes": 857691,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "c2a311e8fa1338de89c31b3b46dc4dffd4af2f9a8d6ddead48893c2d301b1f18",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_nabu",
+        "artifact": "hey_nabu.onnx",
+        "bytes": 208138,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "eaf5ac5cdd3f5311ca2d96af5297aad421e51d21f8187d0312b0cbbddc7c7311",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_nexus",
+        "artifact": "Hey_Nexus.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "85a8a867ddffe3c402aa06a460e048c39430621d88c7e1678c9b15134d0ecb32",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_nova",
+        "artifact": "Hey_Nova.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "cb0dbc4c2870815325cb68460f96c445b968ba9868a72617a7135a930b8ea2c0",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_oracle",
+        "artifact": "hey_oracle.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "6c7d9d892746fba923464f44d0b0016cd2daf943d49d23c95c1ccd12bab44f1b",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_rhasspy",
+        "artifact": "hey_rhasspy.onnx",
+        "bytes": 204081,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "5a9b3ed3be2910e35780e097905aa9f35a9c10038df47914cf2b3ec4d670f6ea",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "hey_rocky",
+        "artifact": "Hey_Rocky.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "bbbf9dd8a06d5baf88fd3363de77c44896759dab392fd3ab0ac19341298bb46c",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "ivy",
+        "artifact": "ivy.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "01f9176823258fc387b5a58945fb9ddb88cf3d68ffc34098419daefe5ea4a0b3",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "pico",
+        "artifact": "Pico.onnx",
+        "bytes": 633208,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "758f73ce37f549593bafe3497d0b7e76e66814b4620a4d61605f570a43ad6b13",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "stop",
+        "artifact": "Stop.onnx",
+        "bytes": 415224,
+        "inputFrames": 16,
+        "receptiveFieldMs": 1960.0,
+        "sha256": "bcaa8deea30bf5a6d9dbd25a32b7b53ee1b6041031d5def0ab6965f57d5ece4b",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "timer",
+        "artifact": "timer.onnx",
+        "bytes": 1742475,
+        "inputFrames": 34,
+        "receptiveFieldMs": 3400.0,
+        "sha256": "371e44535470a29248b3b8f1bbbbaf2525c86417fd8f75c67fcf02ae0b9626df",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      },
+      {
+        "id": "weather",
+        "artifact": "weather.onnx",
+        "bytes": 1149158,
+        "inputFrames": 22,
+        "receptiveFieldMs": 2440.0,
+        "sha256": "8441da8e746899e8d969528d5bad5651cdd563079c05962788f77753041f60e7",
+        "onnxLoad": "PASS",
+        "historicalCoreMetadataEqual": true
+      }
+    ],
+    "sourceGitBlobsVerified": 555,
+    "receptiveFieldFormula": "(frames - 1) * 80 + 760; diagnostic only",
+    "notReplayed": [
+      "server runtime",
+      "TFLite health",
+      "inference scores",
+      "historical environment"
+    ],
+    "oldEvidenceStillExcluded": true
+  },
+  "fixtures": {
+    "files": [
+      {
+        "file": "jarvis_pause.wav",
+        "sha256": "bd1a14bf88fd6c47ef73511ef01f95a9c0c6cb679d280388a37ca4f3da7aa1b5"
+      },
+      {
+        "file": "alexa_pause.wav",
+        "sha256": "abae5a687cee97d120487c2a601509aba41d056b4428966959a1ef1e467b09b3"
+      },
+      {
+        "file": "jarvis_direct.wav",
+        "sha256": "98e3f96e35cb736b5176c96159cf6e2416d50eb739faa2380320e181caf6d9b2"
+      },
+      {
+        "file": "alexa_direct.wav",
+        "sha256": "3e314b00bca0698f29afd61700d708d1cddc8d985a6c690dd81d9c260898b009"
+      },
+      {
+        "file": "negative_speech.wav",
+        "sha256": "fcc98db947a08c7cc3e1146dcf4b3dbc756bfe638e4bbfbbe2364ec0744d0bbc"
+      },
+      {
+        "file": "unselected_phrase.wav",
+        "sha256": "9c64ead8cd6007f6b02b037c675e35e1666ee0a3e2e346daaddc44023e25fd93"
+      }
+    ],
+    "scoreTraceSha256": "4ade426a08f0a3908a278ae6d3fe6c4c863023da5411b93167152153308dae00",
+    "scoreTraceGzipSha256": "ac74748b6bf937bf99ce0aa2cbf6b08bf204632f89c708f28f1af3b7c68c1341",
+    "scoreAndReplayInputHashesMatchRetainedWavs": true,
+    "laterSixFixtureReplay": {
+      "record": "ux02/real-model-replay-summary.json",
+      "rows": 6,
+      "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+      "preRollMs": [
+        320
+      ],
+      "helperSha256": "43584d1d85f2e35de796dbeabead1d786843a2447c00b06c5a2c35fb63552fee",
+      "executionLogHashesVerified": true,
+      "actualWordGroundTruth": "NOT_PROVEN for Alexa-pause; planned mismatch preserved"
+    }
+  },
+  "helpers": [
+    {
+      "path": "scripts/qualify_v2_real.py",
+      "recordedSha256": "50a655b30a01394cafdd3f6c9492a85bd97c6cb6128598f93d0f28dd813f1c8e",
+      "result": "NOT_PROVEN",
+      "record": "real-admission.json"
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/human/replay_real_samples.py",
+      "recordedSha256": "2cb8888b0429c4a71dfbe1e322af1cfbe676f604bf775b6c6930d951cf29e718",
+      "result": "NOT_PROVEN",
+      "record": "human/wake-replay-calibration.json",
+      "admissionGuardInExactCode": false
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/human/replay_real_samples.py",
+      "recordedSha256": "43584d1d85f2e35de796dbeabead1d786843a2447c00b06c5a2c35fb63552fee",
+      "retainedCommit": "ec897f2c5234c4b868a6109c4262f0a0ed660da4",
+      "byteRepresentation": "GIT_BYTES",
+      "result": "EXACT_RECORDED_HASH_FOUND",
+      "record": "human/wake-replay-calibration.json",
+      "admissionGuardInExactCode": true
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/human/score_real_wake.py",
+      "recordedSha256": "4e3550312217ebf8fbb01fb183c29468c35184b03a8e55d4df03fe90158f0823",
+      "retainedCommit": "ec897f2c5234c4b868a6109c4262f0a0ed660da4",
+      "byteRepresentation": "GIT_BYTES",
+      "result": "EXACT_RECORDED_HASH_FOUND",
+      "record": "human/wake-scores-summary.json",
+      "pinnedQualifiedImportInExactCode": true
+    },
+    {
+      "path": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/logstore_diskfull.py",
+      "recordedSha256": "986ef235ab0058c1c078bdfde0ed41c67f82328e48a39a32c3381541a8cf2589",
+      "retainedCommit": "ffec55a0f99eb165fcb1bfd2716b0f574da25200",
+      "byteRepresentation": "GIT_BYTES",
+      "result": "EXACT_RECORDED_HASH_FOUND",
+      "record": "ux01/logstore-diskfull.json",
+      "imageRecordedFromInspection": true,
+      "imageEqualsQualifiedBuild": true
+    }
+  ],
+  "sessions": [
+    {
+      "folder": "20261015-005015",
+      "identitySha256": "db903f960944ac31cee35c07c4ad7f8ab0c2641e39d6be66f26646b16d4237c6",
+      "traceSha256": "55df134af2ed7457c08ca657e1cb03de2f028c587330ce0fffec4cf19166e67e",
+      "eventsSha256": null,
+      "observationFolder": null,
+      "matchingCommandIds": 0,
+      "observationMatchMethod": null,
+      "candidateCommit": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+      "configurationSha256": "13a6dfdba365290c076d6941a08d1fd7ee0925d0c4010b4da2c4a13c78fa30a2",
+      "mode": "manual",
+      "timeUtcFirst": "2026-10-14T22:50:16.103091+00:00",
+      "timeUtcLast": "2026-10-14T22:50:28.207936+00:00",
+      "sessionIds": [],
+      "activationIds": [],
+      "recordedServerCommits": [],
+      "traceRows": 19,
+      "eventRows": 0,
+      "eventCounts": {},
+      "transportStates": [],
+      "observedResources": {
+        "readySamples": 10,
+        "privateBytes": {
+          "first": 434556928,
+          "min": 434556928,
+          "max": 434556928,
+          "last": 434556928
+        },
+        "tasks": {
+          "first": 10,
+          "min": 10,
+          "max": 10,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 0,
+        "lastTerminalActivations": 0
+      },
+      "settings": [],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261015-005842",
+      "identitySha256": "a1ad98a43181b6971bbcb738f15db7da7e5b2eed5f010a45a8bfec256a0fb8c1",
+      "traceSha256": "61b3bd15dc89c0bb1ee30bf3b3b21784eb632cd4bf67614ebd33ec092ada74f6",
+      "eventsSha256": null,
+      "observationFolder": null,
+      "matchingCommandIds": 0,
+      "observationMatchMethod": null,
+      "candidateCommit": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+      "configurationSha256": "13a6dfdba365290c076d6941a08d1fd7ee0925d0c4010b4da2c4a13c78fa30a2",
+      "mode": "manual",
+      "timeUtcFirst": "2026-10-14T22:58:42.944090+00:00",
+      "timeUtcLast": "2026-10-14T22:59:17.940252+00:00",
+      "sessionIds": [],
+      "activationIds": [],
+      "recordedServerCommits": [],
+      "traceRows": 43,
+      "eventRows": 0,
+      "eventCounts": {},
+      "transportStates": [],
+      "observedResources": {
+        "readySamples": 2,
+        "privateBytes": {
+          "first": 434339840,
+          "min": 434339840,
+          "max": 434339840,
+          "last": 434339840
+        },
+        "tasks": {
+          "first": 11,
+          "min": 11,
+          "max": 11,
+          "last": 11
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 0,
+        "lastTerminalActivations": 0
+      },
+      "settings": [],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261015-005949",
+      "identitySha256": "45baedca9a4836f9b639d630a6be897f3e362366b06c92fcadb2ece4271c57a6",
+      "traceSha256": "3b8492fdaf5c04f04d7792435a777aa96436d885445dc6ce6fed1da82b8de5d8",
+      "eventsSha256": null,
+      "observationFolder": null,
+      "matchingCommandIds": 0,
+      "observationMatchMethod": null,
+      "candidateCommit": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+      "configurationSha256": "13a6dfdba365290c076d6941a08d1fd7ee0925d0c4010b4da2c4a13c78fa30a2",
+      "mode": "manual",
+      "timeUtcFirst": "2026-10-14T22:59:49.765042+00:00",
+      "timeUtcLast": "2026-10-14T23:00:24.769317+00:00",
+      "sessionIds": [],
+      "activationIds": [],
+      "recordedServerCommits": [],
+      "traceRows": 50,
+      "eventRows": 0,
+      "eventCounts": {},
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "backoff",
+        "connecting",
+        "blocked"
+      ],
+      "observedResources": {
+        "readySamples": 3,
+        "privateBytes": {
+          "first": 434671616,
+          "min": 434671616,
+          "max": 434675712,
+          "last": 434675712
+        },
+        "tasks": {
+          "first": 11,
+          "min": 11,
+          "max": 12,
+          "last": 12
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 0,
+        "lastTerminalActivations": 0
+      },
+      "settings": [],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261015-032020",
+      "identitySha256": "e1572e94e4bb0f00f7ef78ddfb5f711def617b2f767a2fec04f37d4655de675d",
+      "traceSha256": "32cf784ee704cc73f27b659cbe2e61ad7a16847b4b8a886d88c0506e53a2a264",
+      "eventsSha256": null,
+      "observationFolder": null,
+      "matchingCommandIds": 0,
+      "observationMatchMethod": null,
+      "candidateCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "configurationSha256": "13a6dfdba365290c076d6941a08d1fd7ee0925d0c4010b4da2c4a13c78fa30a2",
+      "mode": "manual",
+      "timeUtcFirst": "2026-10-15T01:20:21.347659+00:00",
+      "timeUtcLast": "2026-10-15T01:21:01.470569+00:00",
+      "sessionIds": [],
+      "activationIds": [],
+      "recordedServerCommits": [],
+      "traceRows": 72,
+      "eventRows": 0,
+      "eventCounts": {},
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 18,
+        "privateBytes": {
+          "first": 434421760,
+          "min": 434421760,
+          "max": 436764672,
+          "last": 436764672
+        },
+        "tasks": {
+          "first": 11,
+          "min": 10,
+          "max": 11,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 0,
+        "lastTerminalActivations": 0
+      },
+      "settings": [],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261015-055030",
+      "identitySha256": "c9d7beee56db4d4a1d8f787d7b827d8369a03496163a4c58b68292036d914676",
+      "traceSha256": "2776bb98fc40ac869c5ffadb665b83392ce85b5115d1edc1e0bd21aa7c4b564e",
+      "eventsSha256": null,
+      "observationFolder": null,
+      "matchingCommandIds": 0,
+      "observationMatchMethod": null,
+      "candidateCommit": "7bcbb82bcb608a2f4c0a67e4157aefdc8527b27d",
+      "configurationSha256": "13a6dfdba365290c076d6941a08d1fd7ee0925d0c4010b4da2c4a13c78fa30a2",
+      "mode": "manual",
+      "timeUtcFirst": "2026-10-15T03:50:31.794483+00:00",
+      "timeUtcLast": "2026-10-15T04:00:25.210673+00:00",
+      "sessionIds": [],
+      "activationIds": [],
+      "recordedServerCommits": [],
+      "traceRows": 774,
+      "eventRows": 0,
+      "eventCounts": {},
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 591,
+        "privateBytes": {
+          "first": 439619584,
+          "min": 439619584,
+          "max": 469872640,
+          "last": 469872640
+        },
+        "tasks": {
+          "first": 10,
+          "min": 10,
+          "max": 10,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 4,
+        "lastTerminalActivations": 4
+      },
+      "settings": [],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261015-060056",
+      "identitySha256": "c7ce2d0faeaaadce438c46109fca6df7c5eb4d404eef470e3c5306ec930c32ea",
+      "traceSha256": "8e08412d65a47ef59fd5e5576da764239681ee25c8c089e71c4821a99fd8ca47",
+      "eventsSha256": null,
+      "observationFolder": null,
+      "matchingCommandIds": 0,
+      "observationMatchMethod": null,
+      "candidateCommit": "7bcbb82bcb608a2f4c0a67e4157aefdc8527b27d",
+      "configurationSha256": "7285045372cf660ee8e226ce9e4a0c36f93a17b7437a756fedd4920cddd72255",
+      "mode": "manual",
+      "timeUtcFirst": "2026-10-15T04:00:57.248192+00:00",
+      "timeUtcLast": "2026-10-15T04:04:14.733994+00:00",
+      "sessionIds": [],
+      "activationIds": [],
+      "recordedServerCommits": [],
+      "traceRows": 265,
+      "eventRows": 0,
+      "eventCounts": {},
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 197,
+        "privateBytes": {
+          "first": 439611392,
+          "min": 439611392,
+          "max": 466341888,
+          "last": 466337792
+        },
+        "tasks": {
+          "first": 10,
+          "min": 10,
+          "max": 10,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 1,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 1,
+        "lastTerminalActivations": 1
+      },
+      "settings": [],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261015-060934",
+      "identitySha256": "538fbf863b4a9f038ab3ccac1d92790294c00fe277ec2d272fad01a440053c9d",
+      "traceSha256": "af683950c77f6e2f47575ff45f672ee7351a6b76b5630b9d366ffa8c5f725b3b",
+      "eventsSha256": "702330ffeba79d62367a5eea1d2c2e23cc41bea7943b28cf4e3a1edc12bbc631",
+      "observationFolder": "20261015-060934",
+      "matchingCommandIds": 0,
+      "observationMatchMethod": "UNIQUE_START_TIME_WITHIN_5S_NOT_COMMAND_ID_PROOF",
+      "candidateCommit": "0e16c07c45a5d30812a28e1b49dfda5c94cd04da",
+      "configurationSha256": "ac4d0419badaf7967ead6b93f7d8c0fa5e8c83725f599399dcf328018cd10a94",
+      "mode": "wake",
+      "timeUtcFirst": "2026-10-15T04:09:35.652364+00:00",
+      "timeUtcLast": "2026-10-15T04:12:58.295575+00:00",
+      "sessionIds": [
+        "c7e6b7ab-8553-49a3-a6c6-65bbb8783987"
+      ],
+      "activationIds": [
+        "2fec7bb5-ad73-4645-9130-b5b43632606e",
+        "a567dce3-d7da-4c0d-8839-90282bdc775c",
+        "d9dd7780-cecf-400e-9b1c-ff1d3e3ad18b",
+        "f802dc50-3c2c-4da9-aae4-221b2519786b"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 372,
+      "eventRows": 142,
+      "eventCounts": {
+        "session.snapshot": 17,
+        "settings.changed": 1,
+        "activation.started": 4,
+        "wakeword.detected": 4,
+        "activation.phase_changed": 18,
+        "segment.recording_started": 9,
+        "transcription.interim": 54,
+        "segment.recording_ended": 9,
+        "transcription.accepted": 9,
+        "transcription.completed": 9,
+        "activation.completed": 4,
+        "activation.input_closed": 4
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 201,
+        "privateBytes": {
+          "first": 430997504,
+          "min": 430997504,
+          "max": 458309632,
+          "last": 458309632
+        },
+        "tasks": {
+          "first": 10,
+          "min": 10,
+          "max": 10,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 4,
+        "lastTerminalActivations": 4
+      },
+      "settings": [
+        [
+          3000,
+          null
+        ],
+        [
+          5000,
+          null
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261015-063223",
+      "identitySha256": "070e9eb4157c318ffbe7a5fc21acea27a19baa43d112e0a5a1819d3cfe98d42b",
+      "traceSha256": "3f89c6b250b60e5b20623cf8aed3169b79b1df5f1057e518208ea82644f25763",
+      "eventsSha256": "f247b2f322cedffff9726a1239a1a789206944ada783f450730ffca8ccd147aa",
+      "observationFolder": "20261015-063223",
+      "matchingCommandIds": 0,
+      "observationMatchMethod": "UNIQUE_START_TIME_WITHIN_5S_NOT_COMMAND_ID_PROOF",
+      "candidateCommit": "ec897f2c5234c4b868a6109c4262f0a0ed660da4",
+      "configurationSha256": "8ed919d1273994d882de29e39c3efa3edb81a53880f3a7fcbe192f387bebfd88",
+      "mode": "wake",
+      "timeUtcFirst": "2026-10-15T04:32:24.094192+00:00",
+      "timeUtcLast": "2026-10-15T04:32:53.767831+00:00",
+      "sessionIds": [
+        "76058db9-f61f-40c2-ab7e-1b85c92d8ab4"
+      ],
+      "activationIds": [
+        "847dae6b-d8c7-4a5e-86a0-56ed8153183f",
+        "c51efe42-8a1c-4077-b2b1-991a13c6ad00"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 122,
+      "eventRows": 69,
+      "eventCounts": {
+        "session.snapshot": 11,
+        "settings.changed": 1,
+        "activation.started": 2,
+        "wakeword.detected": 2,
+        "activation.phase_changed": 5,
+        "segment.recording_started": 3,
+        "transcription.interim": 32,
+        "segment.recording_ended": 3,
+        "transcription.accepted": 3,
+        "transcription.completed": 2,
+        "activation.completed": 2,
+        "activation.input_closed": 2,
+        "transcription.discarded": 1
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 29,
+        "privateBytes": {
+          "first": 431128576,
+          "min": 431128576,
+          "max": 457609216,
+          "last": 457609216
+        },
+        "tasks": {
+          "first": 11,
+          "min": 11,
+          "max": 11,
+          "last": 11
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 2,
+        "lastTerminalActivations": 2
+      },
+      "settings": [
+        [
+          3000,
+          null
+        ],
+        [
+          5000,
+          null
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261015-064145",
+      "identitySha256": "c8e3b692ccb44a4bb62df04d7083f5230e45b4fd849dfda9afb7891fb1b8d089",
+      "traceSha256": "fe788cbf9a90c25f3f40cfc9ff1fb8c9a688d4d3916a9e072cea6d5104f1b20a",
+      "eventsSha256": "53110e86aeaad0acf4ca8c75c80574efd40f60a2837d476f0efe850475ea2e20",
+      "observationFolder": "20261015-064145",
+      "matchingCommandIds": 0,
+      "observationMatchMethod": "UNIQUE_START_TIME_WITHIN_5S_NOT_COMMAND_ID_PROOF",
+      "candidateCommit": "ec897f2c5234c4b868a6109c4262f0a0ed660da4",
+      "configurationSha256": "8ed919d1273994d882de29e39c3efa3edb81a53880f3a7fcbe192f387bebfd88",
+      "mode": "wake",
+      "timeUtcFirst": "2026-10-15T04:41:46.599432+00:00",
+      "timeUtcLast": "2026-10-15T04:43:01.893534+00:00",
+      "sessionIds": [
+        "22309b21-59f4-4c2c-a034-11d00f8dc91e"
+      ],
+      "activationIds": [
+        "05dbc3c1-1017-460e-80cf-24e39c102a66",
+        "33d9c39c-5258-42b1-8c37-d429ad5f2b7a",
+        "ca0552b1-a121-4d75-8c73-5722e37daf1f"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 174,
+      "eventRows": 74,
+      "eventCounts": {
+        "session.snapshot": 13,
+        "settings.changed": 1,
+        "activation.started": 3,
+        "wakeword.detected": 3,
+        "activation.phase_changed": 4,
+        "segment.recording_started": 2,
+        "transcription.interim": 38,
+        "transcription.accepted": 2,
+        "segment.recording_ended": 2,
+        "transcription.completed": 2,
+        "activation.completed": 2,
+        "activation.input_closed": 2
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 75,
+        "privateBytes": {
+          "first": 431206400,
+          "min": 431206400,
+          "max": 456712192,
+          "last": 456712192
+        },
+        "tasks": {
+          "first": 11,
+          "min": 11,
+          "max": 12,
+          "last": 11
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 3,
+        "lastTerminalActivations": 2
+      },
+      "settings": [
+        [
+          3000,
+          null
+        ],
+        [
+          5000,
+          null
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261015-070634",
+      "identitySha256": "15ef0cbefd5b94d05a5ff387c09c89cdf89e0f9ee8635bf63e63f01ad24b08f8",
+      "traceSha256": "3ac98bb081fde8e5362199a97bb97d9283b56fadd8cfb9ec584774d372d3ebfc",
+      "eventsSha256": null,
+      "observationFolder": null,
+      "matchingCommandIds": 0,
+      "observationMatchMethod": null,
+      "candidateCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+      "configurationSha256": "8126a82ebb4f9ed33ceba281eb843363ccef4f059375c5497a8692d6ed2b6942",
+      "mode": "manual",
+      "timeUtcFirst": "2026-10-15T05:06:34.765495+00:00",
+      "timeUtcLast": "2026-10-15T05:07:14.864190+00:00",
+      "sessionIds": [],
+      "activationIds": [],
+      "recordedServerCommits": [],
+      "traceRows": 90,
+      "eventRows": 0,
+      "eventCounts": {},
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 5,
+        "privateBytes": {
+          "first": 434876416,
+          "min": 434876416,
+          "max": 436199424,
+          "last": 436199424
+        },
+        "tasks": {
+          "first": 11,
+          "min": 10,
+          "max": 13,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 0,
+        "lastTerminalActivations": 0
+      },
+      "settings": [],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261015-230959",
+      "identitySha256": "bdc4ded71f42b42e2a1a1cad2290f0e65d36fdf4e336963aa51e7bafa27ea44f",
+      "traceSha256": "74b0ff43aae8494ef9b1759b9642dda9cf5f40277affd2d5d7a47824a0028c37",
+      "eventsSha256": "4951baf98db9c181269cd2b8e9567ecd5be15053b0e5ec71f2d5fcdcaeace762",
+      "observationFolder": "20261015-230959",
+      "matchingCommandIds": 0,
+      "observationMatchMethod": "UNIQUE_START_TIME_WITHIN_5S_NOT_COMMAND_ID_PROOF",
+      "candidateCommit": "d152526de743c532d3f28125be82466b74fc6a23",
+      "configurationSha256": "8ed919d1273994d882de29e39c3efa3edb81a53880f3a7fcbe192f387bebfd88",
+      "mode": "wake",
+      "timeUtcFirst": "2026-10-15T21:10:00.868260+00:00",
+      "timeUtcLast": "2026-10-15T21:13:05.163846+00:00",
+      "sessionIds": [
+        "609f3854-00cd-4ac6-b191-7b6264adfb06"
+      ],
+      "activationIds": [],
+      "recordedServerCommits": [],
+      "traceRows": 205,
+      "eventRows": 6,
+      "eventCounts": {
+        "session.snapshot": 5,
+        "settings.changed": 1
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 182,
+        "privateBytes": {
+          "first": 431689728,
+          "min": 431689728,
+          "max": 432898048,
+          "last": 432898048
+        },
+        "tasks": {
+          "first": 11,
+          "min": 10,
+          "max": 11,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 0,
+        "lastTerminalActivations": 0
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261016-043725",
+      "identitySha256": "80a8dcbd4e31dc99085bb13445ea9cefc38dd7c0f7336529e2d38f7404a1f729",
+      "traceSha256": "09de91b00a99f48379a6d4e457c315dc01403f858d315537368142e00f247baf",
+      "eventsSha256": "1c71a53d4ac632f8b8746350daebf7c30fb329e677335007e4676da333b55017",
+      "observationFolder": "20261016-043724",
+      "matchingCommandIds": 0,
+      "observationMatchMethod": "UNIQUE_START_TIME_WITHIN_5S_NOT_COMMAND_ID_PROOF",
+      "candidateCommit": "e95d871a498f07d99fea2bc4ace57c616504abc0",
+      "configurationSha256": "8ed919d1273994d882de29e39c3efa3edb81a53880f3a7fcbe192f387bebfd88",
+      "mode": "wake",
+      "timeUtcFirst": "2026-10-16T02:37:26.422381+00:00",
+      "timeUtcLast": "2026-10-16T02:37:53.194428+00:00",
+      "sessionIds": [
+        "dbcb945b-886c-4565-86b5-1dcb5bc73205"
+      ],
+      "activationIds": [
+        "50b47601-5ef2-4674-a12c-a11fcc6485a5"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 65,
+      "eventRows": 21,
+      "eventCounts": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "wakeword.detected": 1,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "transcription.interim": 2,
+        "segment.recording_ended": 1,
+        "transcription.accepted": 1,
+        "transcription.completed": 1,
+        "activation.completed": 1,
+        "activation.input_closed": 1
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 24,
+        "privateBytes": {
+          "first": 431116288,
+          "min": 431116288,
+          "max": 457383936,
+          "last": 457342976
+        },
+        "tasks": {
+          "first": 11,
+          "min": 11,
+          "max": 11,
+          "last": 11
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 1,
+        "lastTerminalActivations": 1
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261016-043842",
+      "identitySha256": "73697544c1e74de47418ab764c6a37ce7d4448be5058aba68a37ec4b34724b7d",
+      "traceSha256": "ea27b247dd6e5b8ea688965f6c401bcdb88f4b97b5af7760420e1f41abf5f9bd",
+      "eventsSha256": "88e557c39fab891f56735d315545a0ae85d9a9ceead525b6adca01f07f4e1644",
+      "observationFolder": "20261016-043841",
+      "matchingCommandIds": 0,
+      "observationMatchMethod": "UNIQUE_START_TIME_WITHIN_5S_NOT_COMMAND_ID_PROOF",
+      "candidateCommit": "e95d871a498f07d99fea2bc4ace57c616504abc0",
+      "configurationSha256": "8ed919d1273994d882de29e39c3efa3edb81a53880f3a7fcbe192f387bebfd88",
+      "mode": "wake",
+      "timeUtcFirst": "2026-10-16T02:38:43.899004+00:00",
+      "timeUtcLast": "2026-10-16T02:38:59.142788+00:00",
+      "sessionIds": [
+        "ca3f6f7d-79b8-4a7d-8a73-690f5f4bf140"
+      ],
+      "activationIds": [
+        "49eba50b-97c0-4072-9566-86f22ed255da"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 69,
+      "eventRows": 35,
+      "eventCounts": {
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "activation.started": 1,
+        "wakeword.detected": 1,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "transcription.interim": 16,
+        "segment.recording_ended": 1,
+        "transcription.accepted": 1,
+        "transcription.completed": 1,
+        "activation.completed": 1,
+        "activation.input_closed": 1
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 15,
+        "privateBytes": {
+          "first": 431190016,
+          "min": 431190016,
+          "max": 457539584,
+          "last": 457498624
+        },
+        "tasks": {
+          "first": 11,
+          "min": 10,
+          "max": 11,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 1,
+        "lastTerminalActivations": 1
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261016-050156",
+      "identitySha256": "0c68b422d6853461ce40732f06bbc5bb02b116b1fdbb955c73a0e7740768e5a8",
+      "traceSha256": "71d49867db45ec65d2c96ee5c77e9303ca5ec18f7f1101a23a66309e6c9880e5",
+      "eventsSha256": "8bf9b2b78e8b8e15f89350adb65140ba5363055210c5045c1b20ceedfd384239",
+      "observationFolder": "20261016-050156",
+      "matchingCommandIds": 7,
+      "observationMatchMethod": "SHARED_COMMAND_IDS",
+      "candidateCommit": "e5fdbc3334c78f50813aa583b98bbe464e0ef866",
+      "configurationSha256": "8126a82ebb4f9ed33ceba281eb843363ccef4f059375c5497a8692d6ed2b6942",
+      "mode": "manual",
+      "timeUtcFirst": "2026-10-16T03:01:57.420243+00:00",
+      "timeUtcLast": "2026-10-16T03:03:35.131792+00:00",
+      "sessionIds": [
+        "e251b4e1-94e3-4860-9a6a-54289b95ac6e"
+      ],
+      "activationIds": [],
+      "recordedServerCommits": [],
+      "traceRows": 119,
+      "eventRows": 15,
+      "eventCounts": {
+        "command.completed": 7,
+        "session.snapshot": 5,
+        "settings.changed": 1,
+        "controls.confirmed": 1,
+        "control.received": 1
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 97,
+        "privateBytes": {
+          "first": 430047232,
+          "min": 430047232,
+          "max": 431374336,
+          "last": 431263744
+        },
+        "tasks": {
+          "first": 11,
+          "min": 11,
+          "max": 11,
+          "last": 11
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 0,
+        "lastTerminalActivations": 0
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261016-051407",
+      "identitySha256": "37c3a36a31f3ea8cc3ff04f874f6d43869f0f631d4096054b28b778a7bcad4b0",
+      "traceSha256": "390c237b4439c8da89cf29ddb82a45f1a7d142c5cff4487a54c9cc963417820e",
+      "eventsSha256": "2dc214cc79c43637acaafb9d9141050c3ccb94625882c7378d49d33e70b98259",
+      "observationFolder": "20261016-051407",
+      "matchingCommandIds": 12,
+      "observationMatchMethod": "SHARED_COMMAND_IDS",
+      "candidateCommit": "b09c77a5e4702ad7773de8d0f83a026bc5b57d30",
+      "configurationSha256": "8126a82ebb4f9ed33ceba281eb843363ccef4f059375c5497a8692d6ed2b6942",
+      "mode": "manual",
+      "timeUtcFirst": "2026-10-16T03:14:08.413722+00:00",
+      "timeUtcLast": "2026-10-16T03:14:18.801874+00:00",
+      "sessionIds": [
+        "1e7227fd-c039-4197-90e0-f645a0d065e3"
+      ],
+      "activationIds": [
+        "5197964b-a432-421d-bceb-d6d7e6dd2f94"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 59,
+      "eventRows": 43,
+      "eventCounts": {
+        "command.completed": 12,
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "guided.client_ready": 1,
+        "control.received": 2,
+        "activation.started": 1,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "transcription.interim": 10,
+        "segment.recording_ended": 1,
+        "activation.input_closed": 1,
+        "transcription.accepted": 1,
+        "transcription.completed": 1,
+        "activation.completed": 1
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 10,
+        "privateBytes": {
+          "first": 430153728,
+          "min": 430153728,
+          "max": 456990720,
+          "last": 456990720
+        },
+        "tasks": {
+          "first": 11,
+          "min": 11,
+          "max": 12,
+          "last": 11
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 1,
+        "lastTerminalActivations": 1
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261016-060821",
+      "identitySha256": "2d87628d4ec54fb476e84552436d8da514d130299548ce586746f20e548deb66",
+      "traceSha256": "da130f0e2c0973b9b7d6b00e70ebb358acb918338bd4831dc82b9e798d22525a",
+      "eventsSha256": null,
+      "observationFolder": null,
+      "matchingCommandIds": 0,
+      "observationMatchMethod": null,
+      "candidateCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+      "configurationSha256": "8126a82ebb4f9ed33ceba281eb843363ccef4f059375c5497a8692d6ed2b6942",
+      "mode": "manual",
+      "timeUtcFirst": "2026-10-16T04:08:22.243194+00:00",
+      "timeUtcLast": "2026-10-16T04:09:02.480905+00:00",
+      "sessionIds": [],
+      "activationIds": [],
+      "recordedServerCommits": [],
+      "traceRows": 90,
+      "eventRows": 0,
+      "eventCounts": {},
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 5,
+        "privateBytes": {
+          "first": 437051392,
+          "min": 437051392,
+          "max": 438775808,
+          "last": 438775808
+        },
+        "tasks": {
+          "first": 11,
+          "min": 10,
+          "max": 12,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 0,
+        "lastTerminalActivations": 0
+      },
+      "settings": [],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261016-070226",
+      "identitySha256": "62c46b47ff2de6564db7482cee4cf4766d7e37fc2559250cd80c6fea4c1a6ef0",
+      "traceSha256": "da13ae2bf74d4869fa7e24698924419680976cad40d35cd2fbbfd8dfe5c4a6f6",
+      "eventsSha256": "7940442043e0c40f60fcdf161f60b3dec6d34bf28f5bc783c5bc9afca064cc8f",
+      "observationFolder": "20261016-070226",
+      "matchingCommandIds": 12,
+      "observationMatchMethod": "SHARED_COMMAND_IDS",
+      "candidateCommit": "8445851c96c367e6647c7bd9f41f946bda463894",
+      "configurationSha256": "8126a82ebb4f9ed33ceba281eb843363ccef4f059375c5497a8692d6ed2b6942",
+      "mode": "manual",
+      "timeUtcFirst": "2026-10-16T05:02:28.425148+00:00",
+      "timeUtcLast": "2026-10-16T05:02:45.191626+00:00",
+      "sessionIds": [
+        "f1b81ee6-16f3-4f9a-97e3-8f46500c13ed"
+      ],
+      "activationIds": [
+        "f511e428-2424-4b0d-a8af-60640ade6095"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 69,
+      "eventRows": 49,
+      "eventCounts": {
+        "command.completed": 12,
+        "session.snapshot": 8,
+        "settings.changed": 1,
+        "controls.confirmed": 1,
+        "guided.preparation_started": 1,
+        "guided.client_ready": 1,
+        "control.received": 2,
+        "activation.started": 1,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "transcription.interim": 14,
+        "segment.recording_ended": 1,
+        "activation.input_closed": 1,
+        "transcription.accepted": 1,
+        "transcription.completed": 1,
+        "activation.completed": 1
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 16,
+        "privateBytes": {
+          "first": 433774592,
+          "min": 433774592,
+          "max": 459968512,
+          "last": 459968512
+        },
+        "tasks": {
+          "first": 11,
+          "min": 11,
+          "max": 11,
+          "last": 11
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 1,
+        "lastTerminalActivations": 1
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261016-110745",
+      "identitySha256": "887ff4972507531297c905fb9942efc5e64900e860c456063fe1706bc7f78e3e",
+      "traceSha256": "66123ef88caded0dc010f6824ce617698ae2bd986393ac89ce489f4364faa040",
+      "eventsSha256": "6a778f4eb5e1b5c1d99e37774e3c28291e36ee5648cd6cb1d97f9507ecc3570f",
+      "observationFolder": "20261016-110745",
+      "matchingCommandIds": 15,
+      "observationMatchMethod": "SHARED_COMMAND_IDS",
+      "candidateCommit": "b756a396e9ab82818092aeac448bb96f729cde63",
+      "configurationSha256": "bada66534d22c91ddcd695d8d55138dd2cdbffe96bff887f4c26b443eafab357",
+      "mode": "both",
+      "timeUtcFirst": "2026-10-16T09:07:46.992619+00:00",
+      "timeUtcLast": "2026-10-16T09:39:09.102492+00:00",
+      "sessionIds": [
+        "6034e8de-6f65-44b5-98c2-f41e126b07c0"
+      ],
+      "activationIds": [
+        "2e3ce70b-3155-47aa-980c-70a37e834c01",
+        "8b6a2450-ed76-4eb1-8299-b1d220d8959c"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 1928,
+      "eventRows": 43,
+      "eventCounts": {
+        "command.completed": 15,
+        "session.snapshot": 11,
+        "settings.changed": 1,
+        "controls.confirmed": 1,
+        "control.received": 2,
+        "activation.started": 2,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "segment.recording_ended": 1,
+        "transcription.accepted": 1,
+        "transcription.discarded": 1,
+        "activation.completed": 2,
+        "activation.input_closed": 2,
+        "wakeword.detected": 1
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 1879,
+        "privateBytes": {
+          "first": 430858240,
+          "min": 430739456,
+          "max": 484200448,
+          "last": 484007936
+        },
+        "tasks": {
+          "first": 10,
+          "min": 10,
+          "max": 10,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 1,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 2,
+        "lastTerminalActivations": 2
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261016-120405",
+      "identitySha256": "6621cbfd5ac3b1eafc31587090c4c438dd02441df356a6f03d7ac407581e37e6",
+      "traceSha256": "6c6fb84fc3eeda4ea1daa121395e62a81bec51c774a496c719c5d95088c82f0c",
+      "eventsSha256": "5744afcf6a8ace91e7511ee316e6c7da818eb02ef0dd23ccea9259091da7f647",
+      "observationFolder": "20261016-120405",
+      "matchingCommandIds": 16,
+      "observationMatchMethod": "SHARED_COMMAND_IDS",
+      "candidateCommit": "53441c4cb13ac030dc4d61fa00c960ee28d04ec6",
+      "configurationSha256": "bada66534d22c91ddcd695d8d55138dd2cdbffe96bff887f4c26b443eafab357",
+      "mode": "both",
+      "timeUtcFirst": "2026-10-16T10:04:06.730924+00:00",
+      "timeUtcLast": "2026-10-16T10:08:32.283004+00:00",
+      "sessionIds": [
+        "11baa2c1-f402-4b2b-b22a-b5f671db3cdd"
+      ],
+      "activationIds": [
+        "a4e7b735-e738-42f2-a589-34c59d03adec",
+        "aab0a888-e540-41d5-a760-f66c4239ba09",
+        "e54e316b-a32e-4ad4-bc2c-e411e80d5ded"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 237,
+      "eventRows": 44,
+      "eventCounts": {
+        "command.completed": 16,
+        "session.snapshot": 14,
+        "settings.changed": 1,
+        "controls.confirmed": 1,
+        "activation.started": 3,
+        "wakeword.detected": 3,
+        "activation.completed": 3,
+        "activation.input_closed": 3
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "backoff",
+        "connecting",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 181,
+        "privateBytes": {
+          "first": 432676864,
+          "min": 432676864,
+          "max": 460140544,
+          "last": 460140544
+        },
+        "tasks": {
+          "first": 10,
+          "min": 10,
+          "max": 12,
+          "last": 12
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 3,
+        "lastTerminalActivations": 3
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261017-202628",
+      "identitySha256": "399a92184d1397a06c65edee45ddf0b1e31f7131243c6022ccbf29603ce950b4",
+      "traceSha256": "cc952e96058b8ee297748af081c6406ef269f2c50bf195d4bd98896f4200ae92",
+      "eventsSha256": "9ceddcf478a52d2a2724b3689a2c6f2d16a3463188d1bc2025ad44239458bef4",
+      "observationFolder": "20261017-202627",
+      "matchingCommandIds": 32,
+      "observationMatchMethod": "SHARED_COMMAND_IDS",
+      "candidateCommit": "53441c4cb13ac030dc4d61fa00c960ee28d04ec6",
+      "configurationSha256": "bada66534d22c91ddcd695d8d55138dd2cdbffe96bff887f4c26b443eafab357",
+      "mode": "both",
+      "timeUtcFirst": "2026-10-17T18:26:29.692299+00:00",
+      "timeUtcLast": "2026-10-17T20:02:09.383551+00:00",
+      "sessionIds": [
+        "a7972506-d5ba-41f2-a240-332815eaba60"
+      ],
+      "activationIds": [
+        "24ac3bd6-7fc1-4f3d-93f9-b31fd3a74eda",
+        "3caaac09-9322-4d6d-abbe-2c046dee36a3",
+        "80936075-fa11-402a-ae2e-556c182006f2",
+        "a2a8c6c9-5d3e-4ec3-9339-a52425730778",
+        "a3073de2-36c5-49a3-94c8-42f07d1dbac0",
+        "b32abae9-2ad3-4945-afbe-308bdb6ce15f",
+        "ebfb550b-58f3-4a1b-8d4b-c0ae3a5723b5",
+        "fb680cea-8447-4a04-846c-1056fe21b66e"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 5918,
+      "eventRows": 168,
+      "eventCounts": {
+        "command.completed": 32,
+        "session.snapshot": 29,
+        "settings.changed": 1,
+        "controls.confirmed": 1,
+        "control.received": 1,
+        "activation.started": 8,
+        "activation.phase_changed": 16,
+        "segment.recording_started": 8,
+        "transcription.interim": 25,
+        "segment.recording_ended": 8,
+        "transcription.accepted": 8,
+        "transcription.completed": 8,
+        "activation.completed": 8,
+        "activation.input_closed": 8,
+        "wakeword.detected": 7
+      },
+      "transportStates": [
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "backoff",
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready"
+      ],
+      "observedResources": {
+        "readySamples": 5728,
+        "privateBytes": {
+          "first": 62255104,
+          "min": 62255104,
+          "max": 142606336,
+          "last": 142606336
+        },
+        "tasks": {
+          "first": 10,
+          "min": 10,
+          "max": 11,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 1,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 8,
+        "lastTerminalActivations": 8
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261018-004832",
+      "identitySha256": "bcc7666121cf8d5b89f082bc11e3e654472e6e62e3884d9d0f2c210e8cf0af22",
+      "traceSha256": "44d1d277a425f1e1ad6e4fcef00c9f5a1fee0e9060d427e41fbe7696b4119825",
+      "eventsSha256": "930ef7c702d4e57759e21171e8e3740573c15712c9c957d56ede19b870fd82f3",
+      "observationFolder": "20261018-004832",
+      "matchingCommandIds": 31,
+      "observationMatchMethod": "SHARED_COMMAND_IDS",
+      "candidateCommit": "53441c4cb13ac030dc4d61fa00c960ee28d04ec6",
+      "configurationSha256": "bada66534d22c91ddcd695d8d55138dd2cdbffe96bff887f4c26b443eafab357",
+      "mode": "both",
+      "timeUtcFirst": "2026-10-17T22:48:34.730275+00:00",
+      "timeUtcLast": "2026-10-17T23:05:33.616109+00:00",
+      "sessionIds": [
+        "e543294f-f13b-4fbd-8365-41938f9c2a63"
+      ],
+      "activationIds": [
+        "243fef74-d2c3-4cf8-8e0a-8388a8d1da1a",
+        "2ca8ea34-c377-43d7-b657-df30aabcafcc",
+        "35799c7b-a56c-48ee-8ac7-d91f32f4eff5",
+        "40b6b30c-6fe4-4a37-8256-028280018485",
+        "565f6819-b2cb-4750-927f-93b7a635daf6",
+        "8e54e387-d229-4b93-a783-a5c36b571ac0",
+        "8fadd03f-2d52-4916-ad7b-d0b4ebc64d08",
+        "a3804178-31d9-4b75-9194-5f214fef2dbd"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 1119,
+      "eventRows": 93,
+      "eventCounts": {
+        "command.completed": 31,
+        "session.snapshot": 29,
+        "settings.changed": 1,
+        "activation.started": 8,
+        "wakeword.detected": 8,
+        "activation.completed": 8,
+        "activation.input_closed": 8
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 1015,
+        "privateBytes": {
+          "first": 119345152,
+          "min": 119345152,
+          "max": 161865728,
+          "last": 161865728
+        },
+        "tasks": {
+          "first": 10,
+          "min": 10,
+          "max": 12,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 1,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 8,
+        "lastTerminalActivations": 8
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261018-010545",
+      "identitySha256": "309b16ea5ff9a454281d7882291ef006ea0f2994f4533a15c9377173857190de",
+      "traceSha256": "1e821e39807b0145bcfb39e5ec56f5b29baaa04d0fe866a85828b71f48878b28",
+      "eventsSha256": "0d33e94b8a4e480f39795e1b81f81fa76901ae9bc04843163ce5f8b8a1f75878",
+      "observationFolder": "20261018-010544",
+      "matchingCommandIds": 23,
+      "observationMatchMethod": "SHARED_COMMAND_IDS",
+      "candidateCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+      "configurationSha256": "bada66534d22c91ddcd695d8d55138dd2cdbffe96bff887f4c26b443eafab357",
+      "mode": "both",
+      "timeUtcFirst": "2026-10-17T23:05:46.203809+00:00",
+      "timeUtcLast": "2026-10-18T00:07:27.364185+00:00",
+      "sessionIds": [
+        "c585545f-5b3b-4bb2-b04b-41b20afb832e"
+      ],
+      "activationIds": [
+        "836ce7c8-40ec-44b3-8d73-704eed3ff9fe",
+        "9766c635-d421-4193-abc3-0af9f6acce44",
+        "b0f26af6-bef4-4e39-aea7-00e318fe8c61",
+        "d0461874-8cf8-4226-beca-7965922602c9",
+        "f35cfcc3-8229-402c-b225-e1c67a095f48"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 3772,
+      "eventRows": 65,
+      "eventCounts": {
+        "command.completed": 23,
+        "session.snapshot": 20,
+        "settings.changed": 1,
+        "controls.confirmed": 1,
+        "control.received": 1,
+        "activation.started": 5,
+        "activation.completed": 5,
+        "activation.input_closed": 5,
+        "wakeword.detected": 4
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 3699,
+        "privateBytes": {
+          "first": 127225856,
+          "min": 127225856,
+          "max": 197324800,
+          "last": 197111808
+        },
+        "tasks": {
+          "first": 10,
+          "min": 10,
+          "max": 10,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 1,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 5,
+        "lastTerminalActivations": 5
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261018-020753",
+      "identitySha256": "348032a35de5d60f6ab9fb9746fb585974a0ced05396a70d5f3c3e51412a1f16",
+      "traceSha256": "6fc06c86f4197d24de564984cafbb8a955262414c7c5a2cd960eda863982b7d6",
+      "eventsSha256": "0b9d91413f76428ed738dd508061442967845ab6b3c87d08ac36eb9d1578cd48",
+      "observationFolder": "20261018-020753",
+      "matchingCommandIds": 7,
+      "observationMatchMethod": "SHARED_COMMAND_IDS",
+      "candidateCommit": "cf5677c7867f15c77147364d8961f7660712f9d2",
+      "configurationSha256": "bada66534d22c91ddcd695d8d55138dd2cdbffe96bff887f4c26b443eafab357",
+      "mode": "both",
+      "timeUtcFirst": "2026-10-18T00:07:54.682693+00:00",
+      "timeUtcLast": "2026-10-18T00:08:16.415182+00:00",
+      "sessionIds": [
+        "01da018c-804f-4611-8a15-f43c49ff3289"
+      ],
+      "activationIds": [],
+      "recordedServerCommits": [],
+      "traceRows": 42,
+      "eventRows": 14,
+      "eventCounts": {
+        "command.completed": 7,
+        "session.snapshot": 5,
+        "settings.changed": 1,
+        "controls.confirmed": 1
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 20,
+        "privateBytes": {
+          "first": 126713856,
+          "min": 126713856,
+          "max": 126947328,
+          "last": 126947328
+        },
+        "tasks": {
+          "first": 12,
+          "min": 10,
+          "max": 12,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 0,
+        "lastTerminalActivations": 0
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    },
+    {
+      "folder": "20261018-020836",
+      "identitySha256": "06857fd40869982ba2c7a02df5cc96f50012da5f2458dd68ac3caf6a53ba187d",
+      "traceSha256": "fec95cb875bf89b61dcf3b41048f9d61b87fed585ef94b390793fe36a8bc38cd",
+      "eventsSha256": "ab7a10e41cf70545bcd2a3c72f3ed578888b169d496b516f51c7bae06ab07a9f",
+      "observationFolder": "20261018-020836",
+      "matchingCommandIds": 43,
+      "observationMatchMethod": "SHARED_COMMAND_IDS",
+      "candidateCommit": "cf5677c7867f15c77147364d8961f7660712f9d2",
+      "configurationSha256": "ff535d4a444d3dbd0ca10509e43fdd1a319e2683ba2dc06931b6c1c29b70f2bb",
+      "mode": "both",
+      "timeUtcFirst": "2026-10-18T00:08:37.446121+00:00",
+      "timeUtcLast": "2026-10-18T02:59:59.860466+00:00",
+      "sessionIds": [
+        "b1482c4a-1b6c-43ba-b0d6-d1ef6b8d5f7d"
+      ],
+      "activationIds": [
+        "3e151cb8-0fba-48d9-b953-43ab71b84f02",
+        "4ab7efcd-947d-4cd0-893c-bc388337edbe",
+        "542c00aa-48dc-419a-a524-bd245f95b343",
+        "5ddac164-3d65-4f28-803d-7edf929dc67d",
+        "6da1c964-7a17-461b-aeba-5e0ca5c89506",
+        "8788ef78-1bd9-417d-8b85-4f6cb9ce15c5",
+        "94286d38-5108-4cf6-a82f-91837ebb8bbd",
+        "b8c973cb-a227-4c70-b130-1e6616b59c95",
+        "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+        "d31dd868-ec1c-405d-89fa-fb0fd5d17a87",
+        "ecd4c3a3-e3dd-4c51-9f98-b1b01c613970"
+      ],
+      "recordedServerCommits": [],
+      "traceRows": 10429,
+      "eventRows": 146,
+      "eventCounts": {
+        "command.completed": 43,
+        "session.snapshot": 38,
+        "settings.changed": 1,
+        "activation.started": 11,
+        "wakeword.detected": 11,
+        "activation.completed": 10,
+        "activation.input_closed": 11,
+        "activation.phase_changed": 2,
+        "segment.recording_started": 1,
+        "transcription.interim": 13,
+        "control.received": 3,
+        "segment.recording_ended": 1,
+        "transcription.accepted": 1
+      },
+      "transportStates": [
+        "connecting",
+        "accepting",
+        "configuring",
+        "ready",
+        "stopping",
+        "closed"
+      ],
+      "observedResources": {
+        "readySamples": 10277,
+        "privateBytes": {
+          "first": 127201280,
+          "min": 127201280,
+          "max": 283496448,
+          "last": 283471872
+        },
+        "tasks": {
+          "first": 10,
+          "min": 10,
+          "max": 12,
+          "last": 10
+        },
+        "captureQueueDepth": {
+          "first": 0,
+          "min": 0,
+          "max": 1,
+          "last": 0
+        },
+        "injectionQueue": {
+          "first": 0,
+          "min": 0,
+          "max": 0,
+          "last": 0
+        },
+        "lastActivations": 11,
+        "lastTerminalActivations": 10
+      },
+      "settings": [
+        [
+          3000,
+          0
+        ],
+        [
+          5000,
+          320
+        ]
+      ],
+      "pinLimitation": "No independent admission response retained"
+    }
+  ],
+  "recordBindings": [
+    {
+      "record": "human/manual-followup-5000.json",
+      "recordSha256": "843d70792e78fb7a780c3e7a7494e0e40c6400bf82c8ba4269ac8dabd36f1737",
+      "matchedSessions": [
+        {
+          "folder": "20261015-060056",
+          "methods": [
+            "ACK_COMMAND_ID"
+          ],
+          "configurationHashMatches": true,
+          "recordedServerCommits": []
+        }
+      ],
+      "limitation": "Session binding does not create a missing independent server admission attestation"
+    },
+    {
+      "record": "human/wake-first-live.json",
+      "recordSha256": "45ade5889828369509774c851cf2c81c96867fc99819c6eb077d2f9961350b06",
+      "matchedSessions": [
+        {
+          "folder": "20261015-060934",
+          "methods": [
+            "SESSION_ID",
+            "ACTIVATION_ID"
+          ],
+          "configurationHashMatches": true,
+          "recordedServerCommits": []
+        }
+      ],
+      "limitation": "Session binding does not create a missing independent server admission attestation"
+    },
+    {
+      "record": "ux01/repeatable-manual-20261016-01/assessment.json",
+      "recordSha256": "253f4978fe03c80f788d0e83c3c4bd171ce24818cafef15e8ae1a8752df23365",
+      "matchedSessions": [
+        {
+          "folder": "20261016-051407",
+          "methods": [
+            "ACTIVATION_ID"
+          ],
+          "configurationHashMatches": true,
+          "recordedServerCommits": []
+        }
+      ],
+      "limitation": "Session binding does not create a missing independent server admission attestation"
+    },
+    {
+      "record": "ux01/stepped-20261016-01/assessment.json",
+      "recordSha256": "1af0469e7dcd1c281267fc59c640edf749e1350fe4f9e8caa7812cf8372c2633",
+      "matchedSessions": [
+        {
+          "folder": "20261016-043725",
+          "methods": [
+            "SESSION_ID",
+            "ACTIVATION_ID"
+          ],
+          "configurationHashMatches": true,
+          "recordedServerCommits": []
+        },
+        {
+          "folder": "20261016-043842",
+          "methods": [
+            "SESSION_ID",
+            "ACTIVATION_ID"
+          ],
+          "configurationHashMatches": true,
+          "recordedServerCommits": []
+        }
+      ],
+      "limitation": "Session binding does not create a missing independent server admission attestation"
+    },
+    {
+      "record": "ux02/manual-voice-20261016-01/assessment.json",
+      "recordSha256": "d02260cb33fc3c8c27ce44d98c1d44d10d42c106b7df2db31b0d903723e556b1",
+      "matchedSessions": [
+        {
+          "folder": "20261016-070226",
+          "methods": [
+            "SESSION_ID",
+            "ACTIVATION_ID"
+          ],
+          "configurationHashMatches": true,
+          "recordedServerCommits": []
+        }
+      ],
+      "limitation": "Session binding does not create a missing independent server admission attestation"
+    },
+    {
+      "record": "human/free-exploration-20261016-01.json",
+      "recordSha256": "d93946f5eb4d5b091378d366a61828e0d55ac4c39467ab536e17b42d05764249",
+      "matchedSessions": [
+        {
+          "folder": "20261016-110745",
+          "methods": [
+            "RECORDED_FOLDER"
+          ],
+          "configurationHashMatches": true,
+          "recordedServerCommits": []
+        }
+      ],
+      "limitation": "Session binding does not create a missing independent server admission attestation"
+    },
+    {
+      "record": "ux03-close-sound/human-hearing-confirmed.json",
+      "recordSha256": "c964227607c3d8374ca00f61f9c7a0c83447b2e62a722e6b1c489ea5c528477f",
+      "matchedSessions": [
+        {
+          "folder": "20261018-010545",
+          "methods": [
+            "SESSION_ID",
+            "ACTIVATION_ID"
+          ],
+          "configurationHashMatches": null,
+          "recordedServerCommits": []
+        }
+      ],
+      "limitation": "Session binding does not create a missing independent server admission attestation"
+    },
+    {
+      "record": "led-white-variant/native-ready.json",
+      "recordSha256": "e19da75b1d1fd1d90d5f44486df0b009c321e2f00fe65507d619fbbeba2bd0fc",
+      "matchedSessions": [
+        {
+          "folder": "20261018-020836",
+          "methods": [
+            "RECORDED_FOLDER"
+          ],
+          "configurationHashMatches": true,
+          "recordedServerCommits": []
+        }
+      ],
+      "limitation": "Session binding does not create a missing independent server admission attestation"
+    },
+    {
+      "record": "wake-retrigger-20261018/live-analysis.json",
+      "recordSha256": "361f150feb3bbef6221fe995c11ab19e8aaf782c940e65ab9e2e3d518016f956",
+      "matchedSessions": [
+        {
+          "folder": "20261018-020836",
+          "methods": [
+            "SESSION_ID",
+            "ACTIVATION_ID"
+          ],
+          "configurationHashMatches": true,
+          "recordedServerCommits": []
+        }
+      ],
+      "limitation": "Session binding does not create a missing independent server admission attestation"
+    },
+    {
+      "record": "tv-wake-finish-20261018/live-analysis.json",
+      "recordSha256": "f8795ec165422d8888cb473b295d925166f910b3e9162f959c02fc285ce204d4",
+      "matchedSessions": [
+        {
+          "folder": "20261018-020836",
+          "methods": [
+            "SESSION_ID",
+            "ACTIVATION_ID"
+          ],
+          "configurationHashMatches": null,
+          "recordedServerCommits": []
+        }
+      ],
+      "limitation": "Session binding does not create a missing independent server admission attestation"
+    }
+  ],
+  "terminalObservation": {
+    "activationId": "8788ef78-1bd9-417d-8b85-4f6cb9ce15c5",
+    "inputCloseReason": "finished",
+    "inputClosedAtUtc": "2026-10-18T01:57:15.652437+00:00",
+    "lastSessionObservationAtUtc": "2026-10-18T02:59:59.860466+00:00",
+    "secondsAfterClose": 3764.208,
+    "terminalEvents": 0,
+    "finalEvents": 0,
+    "acceptedEvents": 1,
+    "observationEventsSha256": "ab7a10e41cf70545bcd2a3c72f3ed578888b169d496b516f51c7bae06ab07a9f",
+    "conclusion": "Finish, not cancel; missing final/terminal persists to recorded client shutdown. Server worker cause NOT_PROVEN."
+  },
+  "archives": [
+    {
+      "record": "ux01/stepped-20261016-01/assessment.json",
+      "archivesVerified": 7,
+      "result": "PASS_HASHES"
+    },
+    {
+      "record": "ux02/manual-voice-20261016-01/assessment.json",
+      "archivesVerified": 4,
+      "result": "PASS_HASHES"
+    }
+  ],
+  "serverOrClientStarted": false,
+  "historicalEvidenceModified": false,
+  "newMCasePass": false
+}

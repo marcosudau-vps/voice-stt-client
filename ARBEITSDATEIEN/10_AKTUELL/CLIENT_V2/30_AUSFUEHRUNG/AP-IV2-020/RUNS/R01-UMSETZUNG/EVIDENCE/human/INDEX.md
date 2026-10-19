@@ -66,3 +66,12 @@ Keine pauschale native Einfügestörung behauptet. [Roter UX01-Beleg](append-spa
 - [Menschliche Rückmeldung](guided-wake-320-human-feedback.json): beide Sätze vollständig; technische Fokus-/Zielevidenz im [geführten Lauf](guided-wake-320.json) bleibt abweichend nur partiell. Keine nachträgliche Umwertung zu vollständigem PASS.
 - [Dauerhafte rote Regression, korrigierte Fixtureannahme](ux01-permanent-red-corrected.json), [gezielte 100 Tests grün](ux01-targeted-green-final.json). Erster roter Testlauf enthielt zusätzlich eine falsche Erwartung an den Rückgabewert für Deduplizierung; erster Greenversuch zusätzlich eine falsche Erwartung an die rohe Queue-API. Die tatsächliche Deduplizierungsautorität liegt im Finalconsumer und bleibt vollständig geprüft.
 - Neuer Produkt-/Buildstand und volle Qualifikation folgen unter [UX01-Evidenz](../ux01/). Vorherige Produkt41-Belege werden nicht als Beleg des neuen Produkts ausgegeben.
+
+## Offline-Klärung nach Serverentfernung, 19.10.2026
+
+[resolve_retained_evidence.py](resolve_retained_evidence.py) prüft gepinnte
+Quellbytes,25 ONNX-Metadaten und vorhandene Fixture-/Sessionbelege, ohne
+Client-/Serverstart oder externe Schreibvorgänge. [Ergebnisse](../retained-closure-20261019/results.json),
+[Aufruf/Logs](../retained-closure-20261019/README.md),
+[gezielte Zuordnungstests](test_retained_evidence.py). Fehlende Admissionantworten
+werden nicht aus der Sessionzuordnung erfunden.

@@ -1,3 +1,13 @@
+## Autonome Klärung und verbleibende Restpunkte, 19.10.2026
+
+- [Bericht18 mit kompakter Restübersicht](../18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md).
+- [Offline-Metadaten, historische Helfer-/Session-/Profilbindungen und Terminalauswertung](retained-closure-20261019/results.json).
+- [Ausführung, vollständige Logs und Hashes](retained-closure-20261019/validation.json).
+- [Unveränderte zwölf M-Status im Restnachweis](retained-closure-20261019/real-case-rests.json).
+- [Wiederverwendbare rein lesende Prüfung](human/resolve_retained_evidence.py), [fünf gezielte Tests](human/test_retained_evidence.py).
+
+Keine historische Akte wird umetikettiert; neue Ausführung ausschließlich Offline-ONNX-Metadaten.
+
 ## Testlücken und Wiederholungen, 19.10.2026
 
 - [Fallbezogener Plan A/B/C und bestehende M-Gates](../17_TESTLUECKEN_UND_WIEDERHOLUNGEN.md).
