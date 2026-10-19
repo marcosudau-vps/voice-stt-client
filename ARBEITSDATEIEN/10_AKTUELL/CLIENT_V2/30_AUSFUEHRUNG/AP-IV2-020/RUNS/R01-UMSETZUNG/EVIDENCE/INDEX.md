@@ -1,3 +1,13 @@
+## W01-Fortsetzungsumfang und tatsächliches V2-Testziel,19.10.2026
+
+- [Bericht19 / unveränderte Pflichtgates und Reihenfolge](../19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md).
+- [Fallbezogene maschinenlesbare Disposition](target-and-deferral-20261019/w01-impact.json).
+- [Tatsächliche HTTP-V2-Erreichbarkeit beider Adressen](target-and-deferral-20261019/v2-http-preflight.json), [Pro-V2-Hello ohne Audio](target-and-deferral-20261019/v2-hello-preflight.json).
+- [Buildmanifeste, Quellstände, aktuelle Image-/Container-/Wheelbindung und acht Runtime-Quellvergleiche](target-and-deferral-20261019/selected-server-identity.json).
+- [Validierung und begrenzte/fehlgeschlagene Diagnoseversuche](target-and-deferral-20261019/validation.json), [lesender Erfassungshelfer](human/capture_selected_server_identity.py).
+
+Frühere V1-404-Diagnose durch menschliche URL-Korrektur überholt; kein aktueller V2-Blocker.
+
 ## Autonome Klärung und verbleibende Restpunkte, 19.10.2026
 
 - [Bericht18 mit kompakter Restübersicht](../18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md).

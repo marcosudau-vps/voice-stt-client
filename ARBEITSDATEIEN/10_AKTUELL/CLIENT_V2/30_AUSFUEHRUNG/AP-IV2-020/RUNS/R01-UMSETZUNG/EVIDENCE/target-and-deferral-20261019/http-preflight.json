@@ -1,0 +1,63 @@
+{
+  "timeUtc": "2026-10-19T12:11:36.144888+00:00",
+  "humanSelectedWebSocketUrl": "wss://pro.v1.voice-stt-server.marcosudau.com/ws/transcribe",
+  "requiredServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "method": "Unauthenticated GET only, TLS validation enabled; no audio/WebSocket session, PATCH, restart or deployment",
+  "results": [
+    {
+      "path": "/health",
+      "method": "GET",
+      "requestedUrl": "https://pro.v1.voice-stt-server.marcosudau.com/health",
+      "httpStatus": 200,
+      "finalUrl": "https://pro.v1.voice-stt-server.marcosudau.com/health",
+      "contentType": "application/json",
+      "responseSha256": "3a37f7236dac154386d1f8fb134cac66f1f532687aeec979ac11b7a1c877cad7",
+      "topLevelKeys": [
+        "activeSessions",
+        "activeSpeakers",
+        "eventStore",
+        "models",
+        "ok",
+        "ready",
+        "rejectedSessions",
+        "scheduler",
+        "startupErrors"
+      ],
+      "identity": {
+        "ready": true
+      }
+    },
+    {
+      "path": "/api/v2/settings/schema",
+      "method": "GET",
+      "requestedUrl": "https://pro.v1.voice-stt-server.marcosudau.com/api/v2/settings/schema",
+      "httpStatus": 404,
+      "contentType": "application/json",
+      "finalUrl": "https://pro.v1.voice-stt-server.marcosudau.com/api/v2/settings/schema"
+    },
+    {
+      "path": "/api/v2/settings/server",
+      "method": "GET",
+      "requestedUrl": "https://pro.v1.voice-stt-server.marcosudau.com/api/v2/settings/server",
+      "httpStatus": 404,
+      "contentType": "application/json",
+      "finalUrl": "https://pro.v1.voice-stt-server.marcosudau.com/api/v2/settings/server"
+    },
+    {
+      "path": "/api/v2/wake-words",
+      "method": "GET",
+      "requestedUrl": "https://pro.v1.voice-stt-server.marcosudau.com/api/v2/wake-words",
+      "httpStatus": 404,
+      "contentType": "application/json",
+      "finalUrl": "https://pro.v1.voice-stt-server.marcosudau.com/api/v2/wake-words"
+    },
+    {
+      "path": "/ws/transcribe",
+      "method": "GET",
+      "requestedUrl": "https://pro.v1.voice-stt-server.marcosudau.com/ws/transcribe",
+      "httpStatus": 404,
+      "contentType": "application/json",
+      "finalUrl": "https://pro.v1.voice-stt-server.marcosudau.com/ws/transcribe"
+    }
+  ]
+}

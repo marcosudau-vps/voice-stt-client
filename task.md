@@ -1,3 +1,13 @@
+## AP-IV2-020/R01 – unabhängige Prüfungen zuerst, V2-Testziel belegt,19.10.2026
+
+[W01-Abgrenzung und Reihenfolge](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md).
+Vorhandenes Pro-V2-Ziel /ws/v2 ausgewählt; Normalalternative ebenfalls verfügbar.
+Pinada13b0 trotz Wireunknown über Buildmanifeste, aktuelle Images, saubere
+Quellstände, Wheels und acht Runtime-Quelldateivergleiche belegt.180s diagnostische
+Open-/Antwortgrenzen. Kein Serverprodukt-/Deployment-/Prozesswechsel.
+Unabhängige Manual-/Windows-/Recoveryteile zuerst; W01-Korrektur später separat,
+betroffene Wake-/Feedback-/gemischte Dauergates danach. Vollabnahme bleibt blockiert.
+
 ## AP-IV2-020/R01 – autonome Belegklärung erledigt, 19.10.2026
 
 [Ergebnisse und kompakte Restübersicht](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md).

@@ -1,0 +1,40 @@
+{
+  "timeUtc": "2026-10-19T12:29:52.866203+00:00",
+  "reference": "../../19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md",
+  "finding": "IV2-020-W01",
+  "issue": "https://github.com/marcosudau-vps/voice-stt-server/issues/7",
+  "findingStatus": "OPEN",
+  "implementationOrder": "UNAFFECTED_CLIENT_TESTS_FIRST_THEN_SEPARATELY_COMMISSIONED_SERVER_FIX_THEN_AFFECTED_REAL_GATES",
+  "requirementsMovedOutOfAP020": false,
+  "fullPassBeforeFix": false,
+  "fullyIndependentManualScope": [
+    "M-01",
+    "M-09",
+    "M-11"
+  ],
+  "partiallyIndependent": [
+    "M-02",
+    "M-03",
+    "M-04",
+    "M-05",
+    "M-06",
+    "M-07",
+    "M-08",
+    "M-10",
+    "M-12"
+  ],
+  "directlyBlockedFullWakeCases": [
+    "M-02",
+    "M-03",
+    "M-10",
+    "M-12"
+  ],
+  "separateUnresolvedObservation": "IV2-020-O01 missing final/terminal after finish; not proven caused by W01",
+  "selectedUrl": "wss://pro.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "alternativeUrl": "wss://v2.voice-stt-server.marcosudau.com/ws/v2",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "pinEvidence": "selected-server-identity.json",
+  "packageOverallStatus": "BLOCKED",
+  "unaffectedWorkMayContinue": true,
+  "workflowPhase": "IMPLEMENTATION_IN_PROGRESS"
+}

@@ -1,3 +1,12 @@
+## Aktueller AP-IV2-020-Zwischenstand,19.10.2026
+
+[Bericht19](../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md):
+Unabhängige Clientprüfungen vor W01-Korrektur fortsetzen. Gesamtabnahme weiter
+BLOCKED; W01 bleibt offen. AP020 ist letztes reguläres Paket, AP-SV2-FIX die
+bedingte Serverkorrekturvorlage; kein bereits gestartetes festes Folgepaket.
+Vorhandene V2-Ziele und Pinada13b0 neu belegt. Frühere F01-Sperrhinweise darunter
+sind historische Zwischenstände; F01-Recoverykorrekturen bereits qualifiziert.
+
 # AP-IV2-020 – BLOCKED, 2026-10-15
 
 AP010 tatsächlich ACCEPTED (PR14/b80ed8b). Aktiver R01 ab diesem Parent.

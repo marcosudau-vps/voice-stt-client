@@ -1,3 +1,12 @@
+## AP-IV2-020/R01 – unabhängige Restprüfungen vor W01-FIX,19.10.2026
+
+[Bericht19](../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md):
+Workflow IMPLEMENTATION_IN_PROGRESS im selben R01; Gesamtabnahme/Paketstatus
+weiter BLOCKED durch offene Pflichtnachweise. W01 wird nach unabhängigen
+Clientprüfungen separat korrigiert; keine Serverproduktfreigabe. Vorhandenes
+Pro-/Normal-V2 /ws/v2 samt Pinada13b0 über tatsächliche Build-/Image-/Quellbelege
+bestätigt. Keine neue Instanz, kein Deployment/Neustart; diagnostische Wartezeit180s.
+
 ## AP-IV2-020/R01 – zusätzlicher Server entfernt, 18.10.2026
 
 Auf ausdrücklichen Wunsch eigene AP020-Servercontainer, zugeordnete Images und

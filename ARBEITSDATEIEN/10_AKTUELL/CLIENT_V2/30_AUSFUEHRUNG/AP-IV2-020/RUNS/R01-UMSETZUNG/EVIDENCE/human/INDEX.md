@@ -75,3 +75,12 @@ Client-/Serverstart oder externe Schreibvorgänge. [Ergebnisse](../retained-clos
 [Aufruf/Logs](../retained-closure-20261019/README.md),
 [gezielte Zuordnungstests](test_retained_evidence.py). Fehlende Admissionantworten
 werden nicht aus der Sessionzuordnung erfunden.
+
+## Lesende Bindung des vom Menschen benannten vorhandenen Serverziels
+
+[capture_selected_server_identity.py](capture_selected_server_identity.py) liest
+nur öffentliche Buildmanifeste und aktuelle Docker-/Git-/Wheelmetadaten, kopiert
+vier installierte Quelltexte je V2-Container nur in den Speicher und vergleicht
+Hashes. Kein .env-/Backup-/Transkriptzugriff, keine Serverdatei-/Prozessänderung.
+[Gesicherte Identitäten](../target-and-deferral-20261019/selected-server-identity.json).
+Wireunknown bleibt erhalten; keine automatisierte Code-/Konfigurationskorrektur.

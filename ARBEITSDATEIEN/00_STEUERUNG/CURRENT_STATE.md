@@ -1,3 +1,12 @@
+## AP-IV2-020/R01 – unabhängige Restarbeit zulässig,19.10.2026
+
+[Bericht19: W01-Umfang, späterer Server-FIX und tatsächlich ausgewähltes V2-Ziel](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md).
+Unabhängige Client-/Windowsprüfungen vorziehen; vollständige Abnahme bis W01 und
+betroffenen Realgates weiter BLOCKED; ausführbarer Workflow IMPLEMENTATION_IN_PROGRESS. Vorhandenes Pro-V2
+/ws/v2 und Normalalternative durch Menschen benannt, Pinada13b0 separat über
+Build-/aktuelle Image-/Git-/Wheel-/Runtimequellbelege bestätigt trotz Wireunknown.
+Kein neuer Server, kein Deployment/Neustart; gleiche R01/Branch/Draft-PR15.
+
 ## AP-IV2-020/R01 – zusätzlicher Server entfernt, 18.10.2026
 
 Auf ausdrücklichen Wunsch eigene AP020-Servercontainer, zugeordnete Images und

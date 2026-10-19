@@ -1,0 +1,20 @@
+{
+  "timeUtc": "2026-10-19T12:33:28.055097+00:00",
+  "timeoutSeconds": 180,
+  "results": [
+    {
+      "origin": "https://pro.v2.voice-stt-server.marcosudau.com",
+      "httpStatus": 200,
+      "ready": true,
+      "ok": true,
+      "responseSha256": "dc03645703df329a7ccb8117e32ec7838c97ad7c6ae6d4f339d5be4a78d1f24b"
+    },
+    {
+      "origin": "https://v2.voice-stt-server.marcosudau.com",
+      "httpStatus": 200,
+      "ready": true,
+      "ok": true,
+      "responseSha256": "5ccc076b6f299f16d38a1af5084305fc2f1ef25abc3fe327b01f230677fd1a5b"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 # AP-IV2-020 – reale Windows-, Modell- und Hardwarequalifikation
 
-Status **BLOCKED**, Workflow **SERVER_FIX_REQUIRED**, 2026-10-18.
+Status **BLOCKED**, Workflow **IMPLEMENTATION_IN_PROGRESS** für unabhängige Restprüfungen, 2026-10-19.
+Gesamtabnahme durch offenen W01 und weitere Realgates weiterhin blockiert.
 Rolle: ein Umsetzer, R01-UMSETZUNG. Schreibhoheit: Codex in dieser Session.
 Branch `work/client-v2/ap-iv2-020`, Base `feat/client-v2`, tatsächlicher Parent
 `b80ed8b81ad92bd02ac32553883443d2b7673bcd`.
@@ -65,3 +66,12 @@ keine rückwirkende Heilung, kein neuer M-PASS. Keine Serverwiederanlage beauftr
 elf konkrete Fall-/Sessionverknüpfungen, Logfault-Imagebindung geschlossen.
 Frühe nicht rekonstruierbare Runner und fehlende Admissionantworten ausdrücklich
 begrenzt. Kein neuer Server-/Clientlauf, kein M-PASS; W01 und Zielentscheidung offen.
+
+## Reihenfolgeentscheidung und vorhandenes V2-Ziel,19.10.2026
+
+[Menschliche Präzisierungen017](RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/017_W01_AUFSCHUB_UND_V2_TESTZIEL.md):
+unabhängige Clientarbeiten zuerst; W01 später als gesonderter Server-FIX, betroffene
+Realgates weiter vor vollständiger AP020-Annahme. [Fallabgrenzung19](RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md).
+Pro-/Normal-V2 unter /ws/v2 erreichbar und Build-/aktuelle Image-/Quell-/Wheel-
+Identitäten dem Serverpin zugeordnet.180s diagnostische Wartegrenzen. Kein neuer
+Server-/Produktstand, keine Serverproduktfreigabe und keine voreilige Paketabnahme.

@@ -1,3 +1,18 @@
+## W01 gezielt zurückgestellt, vorhandenes V2-Ziel bestätigt,19.10.2026
+
+[Fallgenaue Blockierung und Fortsetzungsreihenfolge](19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md):
+Unabhängige Client-/Windowsprüfungen zuerst, später gesonderter Server-FIX und
+betroffene Wake-/Feedback-/gemischte Dauernachweise. Vollständige AP020-Abnahme
+weiter BLOCKED; kein pauschales Arbeitsverbot. Aktuelle Planung endet regulär
+bei AP020, AP-SV2-FIX ist eine bedingte Vorlage; keine neue AP-ID/Abnahmefreigabe.
+Pro-V2-Ziel /ws/v2 und Normalalternative über echte V2-APIs erreichbar. Acht
+HTTP200 und tatsächlicher Pro-V2-Hello, ohne Audio/PATCH/Desktopstart. Wirecommit
+unknown über separat geprüfte Buildmanifeste/aktuelle Images, saubere Quellen,
+passende Wheels und acht Runtime-Quelldateien dem Pinada13b0 zugeordnet.
+Diagnostische Open-/Antwortgrenzen180s, feste Protokollfristen unverändert.
+Keine Serveränderung/Neustarts/Deployments. Pro16 ist neues Paar gegenüber alten
+Community64-Läufen; keine ungeprüfte Übertragung. O01 bleibt eigener Prüfpfad.
+
 ## Autonome Belegklärung abgeschlossen, 19.10.2026
 
 [Ergebnisse und kompakte sieben Restpunkte](18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md).

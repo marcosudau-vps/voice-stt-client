@@ -1,5 +1,12 @@
 # AP-SV2-FIX – Bedingtes Serverkorrekturpaket während der Cliententwicklung
 
+> **Vorgemerkter Befund,19.10.2026:** IV2-020-W01 / Server-Issue7 soll auf
+> menschlichen Wunsch nach den unabhängigen Clientprüfungen bearbeitet werden.
+> [Abgrenzung und Reihenfolge](../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md).
+> Dies instanziiert kein FIX-nnn, startet keine Serverumsetzung und verschiebt
+> keine vollständige AP020-Wakeabnahme hinter einen vorzeitigen AP020-PASS.
+> Korrigiertes Paar und betroffene reale Restbelege bleiben vor Gesamtabnahme nötig.
+
 **Branch-/Unterlagenpflege:** Diese FIX-Instanz arbeitet im Serverrepository auf eigenem Serverarbeitsbranch vom festgehaltenen Distributed-Parent. Geprüfte Fixes werden nach menschlicher Sicherungsfreigabe kumulativ auf Server-Distributed übernommen; finales Serverfeature-Aggregat bleibt aufgeschoben. Clientblocker/Rebaseline werden auf dem gehaltenen Clientpaketbranch dokumentiert. [Branchreferenz](../REFERENZ/GOVERNANCE/BRANCH_UND_PLANPFLEGE.md).
 
 

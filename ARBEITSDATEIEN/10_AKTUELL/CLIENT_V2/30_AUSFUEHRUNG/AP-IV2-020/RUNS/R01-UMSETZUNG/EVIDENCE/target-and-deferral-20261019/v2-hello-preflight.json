@@ -1,0 +1,19 @@
+{
+  "url": "wss://pro.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "timeUtc": "2026-10-19T12:16:21.314191+00:00",
+  "openTimeoutSeconds": 180,
+  "responseTimeoutSeconds": 180,
+  "audioSent": false,
+  "settingsMutated": false,
+  "desktopClientStarted": false,
+  "method": "One diagnostic V2 hello, manual configured but runtime suppressed; no audio or commands; close after first reply",
+  "response": {
+    "type": "hello.accepted",
+    "protocolVersion": 2,
+    "serverCommit": "unknown",
+    "serverVersion": "2.0.0",
+    "sessionId": "b296ba69-9e4f-4f91-a0e2-2e008b8dd998"
+  },
+  "result": "V2_HELLO_ACCEPTED_PIN_NOT_PROVEN",
+  "durationSeconds": 6.203
+}

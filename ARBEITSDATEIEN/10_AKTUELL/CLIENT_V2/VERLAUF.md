@@ -191,3 +191,16 @@ und Admissionantworten bleiben begrenzt; kein rückwirkendes PASS. TV-Finish bis
 Clientende3764,208s ohne Terminal/Final. Fünf Zuordnungstests PASS; ursprüngliche363
 Auditakten bytegleich. Keine Server-/Clientausführung/externe Schreibvorgänge.
 Sieben konkrete Restpunkte, BLOCKED / SERVER_FIX_REQUIRED unverändert.
+
+## 2026-10-19 – AP-IV2-020/R01 – W01-Ausführungsreihenfolge und V2-Ziel
+
+Auf menschlichen Wunsch unabhängige Clientprüfungen vor Server-FIX; zurückgestellte
+Wake-/Feedback-/gemischte Dauergates bleiben AP020-Pflicht. Bericht19 präzisiert
+alle zwölf Fälle. Vorhandenes Pro-V2 /ws/v2 und Normalalternative per HTTP200,
+Pro-Hello2 ohne Audio/PATCH bestätigt. Beide Wirecommits unknown separat durch
+benannte Umstrukturierungsakten und aktuelle Images/Git/Wheels sowie acht
+installierte Quelldateivergleiche dem Pinada13b0 zugeordnet. Keine Serveränderung,
+kein Deployment/Neustart,180s diagnostische Open-/Antwortgrenzen. Optionaler voller
+Docker-Layerdiff45s-Timeout NOT_PROVEN; keine volle Integritätsbehauptung.
+Paketstatus BLOCKED für Gesamtabnahme, Workflow IMPLEMENTATION_IN_PROGRESS für
+die ausdrücklich vorgezogenen unabhängigen Restprüfungen; W01 bleibt offen.

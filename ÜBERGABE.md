@@ -1,3 +1,15 @@
+## AP-IV2-020/R01 – ausgewähltes vorhandenes V2-Testziel,19.10.2026
+
+Aktuell: [Bericht19](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md).
+`wss://pro.v2.voice-stt-server.marcosudau.com/ws/v2`, alternativ Normal ohne `pro.`.
+HTTP-/Hello-Drahtcommit unknown ist separat zu Image/Build/Gitpinada13b0 gebunden.
+Pro-Image57a7907, Normal6dcc498; neue Modelle-/Settings-/Clientpaarqualifikation
+nötig, alte Communitybelege nicht übertragen. Diagnostische Wartegrenzen180s.
+W01 blockiert volle Wake-/Feedback-/gemischte Dauergates, nicht alle Restarbeiten.
+Unabhängige Teile zuerst; später eigener Server-FIX ohne vorzeitigen AP020-PASS.
+Keine Wiederanlage/Serveränderung/Neustarts; Docker am Windows-PC muss für die
+benannten vorhandenen HTTPS/WSS-Ziele nicht entpausiert werden.
+
 ## AP-IV2-020/R01 – Offline-Belegklärung, 19.10.2026
 
 Maßgeblich für weitere Schritte: [Bericht18 / sieben verbleibende Punkte](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md).
