@@ -49,3 +49,11 @@ unterscheidet wirkliche V2-Ausgaben von lediglich deklarierten Regeln.
 ## Serverblocker IV2-020-W01
 
 [Livebefund, echter Modellrepro und konkreter Korrekturweg](RUNS/R01-UMSETZUNG/12_WAKE_REAKTIVIERUNG_W01.md). Serverfix noch nicht beauftragt/instanziiert; Clientprodukt/Parent unverändert. Kein REVIEW_READY.
+
+## Testlückenliste nach Infrastrukturentfernung, 19.10.2026
+
+[Liste17](RUNS/R01-UMSETZUNG/17_TESTLUECKEN_UND_WIEDERHOLUNGEN.md) trennt
+bereits abgedeckte enge Prüfungen, zuerst aus Belegen zu klärende Zuordnungen,
+erforderliche praktische Nachprüfungen und die schon vorher offenen M01–M12.
+Vier ausgeschlossene Frühakten besitzen spätere scopegleiche Wiederholungen;
+keine rückwirkende Heilung, kein neuer M-PASS. Keine Serverwiederanlage beauftragt.

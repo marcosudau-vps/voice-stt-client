@@ -86,6 +86,9 @@
     "identityAudit": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/16_SERVER_COMMIT_AUDIT.md",
     "expectedServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
     "invalidatedEarlyTests": 5,
-    "invalidatedEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-identity-audit-20261018/early-image-exclusions.json"
+    "invalidatedEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-identity-audit-20261018/early-image-exclusions.json",
+    "gapDisposition": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/17_TESTLUECKEN_UND_WIEDERHOLUNGEN.md",
+    "gapDispositionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-identity-audit-20261018/followup-disposition.json",
+    "excludedEarlyRecordsWithLaterScopeCoverage": 4
   }
 }

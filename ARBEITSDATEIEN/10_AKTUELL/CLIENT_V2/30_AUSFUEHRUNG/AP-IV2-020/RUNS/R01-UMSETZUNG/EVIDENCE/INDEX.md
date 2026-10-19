@@ -1,3 +1,10 @@
+## Testlücken und Wiederholungen, 19.10.2026
+
+- [Fallbezogener Plan A/B/C und bestehende M-Gates](../17_TESTLUECKEN_UND_WIEDERHOLUNGEN.md).
+- [Nachgeprüfte Loghashes, Vergleichsfelder und vollständige Zuordnung der24 Deklarationsakten](server-identity-audit-20261018/followup-disposition.json).
+- [Konsistenzprüfung der Liste](server-identity-audit-20261018/followup-list-validation.json): PASS; historische Akten und M-Status unverändert.
+- Historisches Auditinventar und fünf Ausschlüsse unverändert. Keine neue Server-/Modellausführung oder Produktqualifikation.
+
 ## Verbindliche Ausschlüsse aus dem Servercommit-Audit
 
 [Fünf frühe Docker-Modellläufe nicht qualifikationsgültig](server-identity-audit-20261018/early-image-exclusions.json).

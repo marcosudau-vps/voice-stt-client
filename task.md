@@ -1,3 +1,11 @@
+## AP-IV2-020/R01 – Testlückenliste, 19.10.2026
+
+[Liste mit Belegen und nächsten Aktionen](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/17_TESTLUECKEN_UND_WIEDERHOLUNGEN.md).
+Vier von fünf ausgeschlossenen Frühakten haben spätere Wiederholungen für ihren
+engen Scope. Weitere Bindungen zuerst ohne menschliche Wiederholung klären.
+Praktische Restprüfungen und vorher offene zwölf M-Gates separat; kein neuer PASS.
+BLOCKED / SERVER_FIX_REQUIRED, kein Server-/Clientstart oder neue Infrastruktur.
+
 ## AP-IV2-020/R01 – zusätzlicher Server entfernt, 18.10.2026
 
 Auf ausdrücklichen Wunsch eigene AP020-Servercontainer, zugeordnete Images und

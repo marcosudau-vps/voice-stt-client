@@ -171,3 +171,12 @@ Phase C vorbereitet; echte M-Gates/Kalibrierung/30min100 offen, kein REVIEW_READ
 2026-10-15 AP-IV2-020/R01 Phase C: echte Manualbaseline und Followup3000/5000ms verglichen; Auftraggeber wählt5000ms. Sourceprodukt41ca761 unverändert, isolierte Profile gesichert. M01-Overlap und weitere M-Fälle offen. UX01 append_space ohne Wirkung außerhalb Recoveryfreigabe dokumentiert. Nach realem PowerShell-OOM nur0,95GB Hostcommitreserve; eigener Testclient sauber beendet, menschliches Freigeben unbenötigten Appspeichers angefragt, dann Wakeblock. Kein REVIEW_READY.
 
 2026-10-15 AP-IV2-020/R01 Phase C: Hostspeicher nach menschlicher Aktion wieder frei, erster echter Wakeversuch ausgewertet. Sechs bewusst aufgenommene WAVs auf ausdrücklichen Nutzerwunsch004 bytegleich mit Manifest/Hashes und Messskripten versioniert. Erste Jarvis-Pauseaufnahme laut Mensch ohne Wakeanteil, Negativkontrolle. Echte ONNX-Frames und V2/Kroko-Replays0/160/320/480ms:320ms erhält beide direkten Nutzsätze, Livebestätigung offen. Produkt41ca761 unverändert, kein vollständiger M-PASS/REVIEW_READY.
+
+## 2026-10-19 – AP-IV2-020/R01 – Testlücken fallbezogen zugeordnet
+
+Auf menschlichen Auftrag Liste17 erstellt: vier ausgeschlossene frühe Akten
+besitzen spätere Wiederholungen für denselben engen Prüfumfang. Acht erhaltene
+Log-/JSONpaare hashgeprüft; alle24 Deklarationsakten zugeordnet. Chronologische
+Plausibilität von endgültiger Bindung getrennt, zuerst autonome Aktenarbeit,
+praktische Nachprüfungen und vorher offene M-Gates gesondert. Historisches
+Audit/Originalbefunde unverändert; kein Server-/Clientstart, kein Produkt-PASS.

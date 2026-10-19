@@ -1,3 +1,14 @@
+## Testlückenliste nach Serveraudit, 19.10.2026
+
+[Fallbezogene Liste17](17_TESTLUECKEN_UND_WIEDERHOLUNGEN.md): vier von fünf
+ausgeschlossenen Frühakten haben spätere Wiederholungen desselben engen
+Prüfumfangs; Altakten bleiben ausgeschlossen. Acht JSON-/Logpaare mit passenden
+Hashes verglichen, alle24 bloßen Commitdeklarationen A07/B02–B08 zugeordnet.
+Artefaktmetadaten und weitere Sessionverknüpfungen zuerst als Aktenarbeit;
+keine pauschale Wiederholung menschlicher Sprachversuche. Praktische Restprüfungen
+C01–C06 und bereits vorher offene M01–M12 getrennt aufgeführt. Kein neuer Testlauf,
+Serverstart, M-PASS oder REVIEW_READY. BLOCKED / SERVER_FIX_REQUIRED bleibt.
+
 ## Audit-Nachtrag: fünf frühe Modellläufe nicht qualifikationsgültig
 
 Die zeitliche Trennung des älteren Imagesb617cfa vom quellgeprüften5aaa17e ergibt:
