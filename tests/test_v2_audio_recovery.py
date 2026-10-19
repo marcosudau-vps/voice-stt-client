@@ -213,6 +213,68 @@ class Media(unittest.IsolatedAsyncioTestCase):
         available = [c["audioAvailable"] for c in socket.commands if c["type"] == "audio_availability.set"]
         self.assertEqual(available, [False,True])
 
+    async def test_active_driver_without_callbacks_reports_loss_before_blocked_stop(self):
+        # Reproduce the real unplug trace: PortAudio still says active, but
+        # its production capture counter has stopped advancing.
+        capture = AudioCapture(AudioConfig())
+        class Stream:
+            active = True
+            def __init__(self, **kwargs): pass
+            def start(self): pass
+            def stop(self): self.active = False
+            def close(self): pass
+        entered, release = threading.Event(), threading.Event()
+        with patch('sounddevice.query_devices', return_value={'name':'synthetic', 'default_samplerate':16000}), patch('sounddevice.check_input_settings'), patch('sounddevice.InputStream', Stream):
+            media, socket = await self.start(capture=capture)
+            original = capture.stop
+            def stop():
+                entered.set()
+                release.wait(5)
+                original()
+            capture.stop = stop
+            old_callback = capture.on_audio_packet
+            try:
+                await asyncio.sleep(2.2)
+                self.assertTrue(entered.is_set())
+                self.assertTrue(capture.device_active)
+                self.assertFalse(media.audio_available)
+                self.assertFalse(media._gate)
+                self.assertFalse(media._reported_available[1])
+                old_callback(b'\0\0'*640,16000,1,640)
+                self.assertEqual(media.queue.duration_ms, 0)
+                self.assertEqual([c['audioAvailable'] for c in socket.commands if c['type']=='audio_availability.set'], [False])
+            finally:
+                release.set()
+                capture.stop = original
+                await media.close()
+
+    async def test_silent_pcm_is_progress_and_stalled_stream_recovers_without_activation(self):
+        capture = AudioCapture(AudioConfig())
+        class Stream:
+            active = True
+            def __init__(self, **kwargs): pass
+            def start(self): pass
+            def stop(self): self.active = False
+            def close(self): pass
+        with patch('sounddevice.query_devices', return_value={'name':'synthetic', 'default_samplerate':16000}), patch('sounddevice.check_input_settings'), patch('sounddevice.InputStream', Stream):
+            media, socket = await self.start(capture=capture)
+            binding = media.session.binding
+            # Zero-valued PCM must not be mistaken for absent callbacks.
+            for _ in range(12):
+                capture._audio_callback(np.zeros((640,1),dtype=np.int16),640,None,None)
+                await asyncio.sleep(.2)
+            self.assertFalse(any(c['type']=='audio_availability.set' for c in socket.commands))
+            await asyncio.sleep(2.2)
+            self.assertTrue(any(c['type']=='audio_availability.set' and not c['audioAvailable'] for c in socket.commands))
+            await until(lambda: media._gate)
+            before = media.sent
+            capture._audio_callback(np.zeros((640,1),dtype=np.int16),640,None,None)
+            await until(lambda: media.sent > before)
+            self.assertIs(media.session.binding, binding)
+            self.assertEqual([c['audioAvailable'] for c in socket.commands if c['type']=='audio_availability.set'],[False,True])
+            self.assertFalse(any(c['type']=='activation.command' for c in socket.commands))
+            await media.close()
+
     async def test_failed_start_remains_session_bound_and_recovers(self):
         capture = Capture()
         capture.fail = True
