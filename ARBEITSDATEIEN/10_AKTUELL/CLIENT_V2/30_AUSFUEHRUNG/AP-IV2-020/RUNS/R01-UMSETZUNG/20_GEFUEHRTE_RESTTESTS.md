@@ -1,3 +1,37 @@
+## Freigegeben, technisch erneut grün, Bedienlauf startbereit –19.10.2026
+
+Die [konkrete Ablagefreigabe mit Aufräumpflicht](ZUSATZPROMPTS/019_TESTABLAGE_MIT_AUFRAEUMPFLICHT.md)
+ist erteilt. Die letzte vollständige Windows-Ausführung besteht **1398Tests ohne
+Skips**, daneben16 Helfertests und43 gezielte Tests PASS; compileall PASS.
+Echter Source-Desktop/ReSpeaker am bestehenden Pro-V2-Ziel:130Audioframes,
+keine Activation,40 echte lokale Logzeilen, Bootstrap bestätigt Follow-up5000ms.
+[Finale Identitäten, Befehle und vollständige Logs](EVIDENCE/guided-suite-20261019/authorized-validation.json).
+
+Ein weiterer zunächst fehlgeschlagener Volltest (2FAIL/10ERROR) bleibt als FAIL
+sichtbar. Zehn Fehler kamen vom Teststart mit ausdrücklich gesetztem Verweis auf
+eine fehlende Konfigurationsdatei; nun existiert eine eigene leere Standard-
+Testkonfiguration, ohne diesen Erzwingungsparameter. Zwei negative Pfadfixtures
+nahmen fest vier Elternordner an. Sie erreichen jetzt unabhängig von der
+Profiltiefe den Dateisystemanker und prüfen ausdrücklich die Voraussetzung
+„tatsächlich außerhalb des Benutzerprofils“, bevor sie die unveränderte
+Produktvalidierung prüfen. Keine Assertions entfernt, kein Produktguard geändert.
+Gezielter roter Nachweis23Tests/2FAIL, danach43Tests und volle1398Tests grün.
+
+**Aufräumen bereits ausgeführt:** Alle vier autonomen externen Laufordner nach
+geprüftem Export entfernt; die freigegebene AP-IV2-020-Ablage war anschließend leer.
+[Export-/Aufräumnachweis und weiter bestehende Pflicht](EVIDENCE/guided-suite-20261019/authorized-cleanup-progress.json).
+Der folgende menschliche Lauf benötigt dort wieder einen eigenen temporären
+Ordner. Nach seiner gesammelten Auswertung benötigte Belege ins Projekt sichern,
+private Diagnosen nur Git-ignoriert übernehmen, dann genau diesen Laufordner
+und zuletzt die leere eigene AP-IV2-020-Ablage entfernen. Diese Pflicht bleibt offen.
+
+Die geführte Oberfläche kann jetzt mit `--profile-runtime` geöffnet werden.
+Öffnen startet keinen Sprachclient; jede der elf Aufgaben braucht einen eigenen
+Start. Menschliche Versuche/Wake-/Frozen-/übrige Pflichtgates sind damit weiterhin
+nicht bestanden. Gleicher R01/Branch/Draft-PR15, Produkt unverändert7bb5646.
+
+### Vorheriger dokumentierter Vorbereitungsstand
+
 # Geführte unabhängige Bedienprüfungen
 
 19.10.2026 · gleicher AP-IV2-020/R01, Paketbranch und Draft-PR15.

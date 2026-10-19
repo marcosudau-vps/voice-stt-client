@@ -3,15 +3,16 @@
 Aktueller Einstieg, 19.10.2026, derselbe AP-IV2-020/R01:
 
 ```powershell
-.\venv\Scripts\python.exe -m tests.manual.v2.guided_suite
+.\venv\Scripts\python.exe -m tests.manual.v2.guided_suite --profile-runtime
 # oder aus dem Projekt:
-.\tests\manual\v2\Start-GuidedTests.ps1
+.\tests\manual\v2\Start-GuidedTests.ps1 -ProfileRuntime
 ```
 
-**Aktuell Vorschau:** Für echte Läufe ist eine dedizierte Windows-Profilablage
-angefragt, noch nicht freigegeben. Erst nach der tatsächlichen Freigabe startet
-`--profile-runtime` beziehungsweise `Start-GuidedTests.ps1 -ProfileRuntime`
-den bedienbereiten Ablauf. Ohne dieses explizite Argument bleibt Start deaktiviert.
+**Freigabe vom19.10.2026:** Die dedizierte Windows-Profilablage ist für diesen
+AP/R01 ausdrücklich freigegeben, unter der verbindlichen Bedingung, benötigte
+Nachweise anschließend ins Projekt zu kopieren und die dort angelegten
+Laufzeitdaten wieder zu entfernen. `--profile-runtime` öffnet den bedienbereiten
+Ablauf. Ohne dieses Argument bleibt die reine Vorschau mit deaktiviertem Start.
 
 Das Fenster startet zunächst **nur die Aufgabenliste**, keinen Sprachclient.
 Alle Schritte und Sätze stehen vorher da. Jede Aufgabe benötigt einen eigenen
@@ -49,9 +50,10 @@ Wire-/Sicherheitsgrenze und kein Produktdefault wird geändert.
 
 Vorschau-/Helferdaten liegen in **`build/ap-iv2-020-suite/`**, bewusst
 Git-ignorierte Testlaufzeit im Projekt. Für vertragskonforme Realläufe und die
-expliziten Pfadtests der Produktsuite ist ausschließlich die gesondert angefragte
+expliziten Pfadtests der Produktsuite ist ausschließlich die gesondert freigegebene
 **`%USERPROFILE%/.voice-stt/qualification/AP-IV2-020/`** als Profil-/TEMP-/Log-/
-Test-Historyablage vorbereitet. Ohne konkrete Freigabe dort nichts anlegen.
+Test-Historyablage vorgesehen. Nach beendetem Lauf und geprüftem Belegexport
+nur dessen eigene Laufordner entfernen; keine V1-Pfade oder laufenden Versuche.
 Keine V1-Konfiguration und keine AppData-Profile werden geladen oder verändert.
 ReSpeaker wird vor jedem Versuch erneut gewählt; kein stiller Ersatz durch ein
 anderes Mikrofon. Native Einfügung bleibt auf das eigene fokussierte Testfeld

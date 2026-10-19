@@ -1,3 +1,13 @@
+## Testablage freigegeben, letzte Vollsuite grün,19.10.2026
+
+[Bericht20](20_GEFUEHRTE_RESTTESTS.md):1398Windows ohne Skips,16 Helfer/43 gezielte
+Tests und compileall PASS. Echte Pro-V2/ReSpeaker-Vorprüfung130Frames/40Logzeilen,
+keine Activation. Vorherige fehlerhafte Teststart-/Pfadfixtures nachvollziehbar
+korrigiert; Produktguards unverändert. Vier externe autonome Laufordner nach
+geprüftem Belegexport entfernt. Elfteiliger Bedienlauf jetzt startbereit; seine
+externe Laufzeit nach Auswertung/Export ebenfalls zwingend aufräumen. Kein
+Realgate-/Frozen-PASS, kein REVIEW_READY, gleicher R01/PR15.
+
 ## Geführter Resttest vorbereitet, Ablageentscheidung offen, 19.10.2026
 
 [Bericht20](20_GEFUEHRTE_RESTTESTS.md): elf unabhängige Bedienaufgaben mit eigenem Start,

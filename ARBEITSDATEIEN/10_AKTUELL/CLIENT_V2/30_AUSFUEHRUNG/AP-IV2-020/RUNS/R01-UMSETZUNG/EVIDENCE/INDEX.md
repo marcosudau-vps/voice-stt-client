@@ -1,3 +1,11 @@
+## Genehmigte Ablage, finale technische Prüfung und bisheriges Aufräumen,19.10.2026
+
+- [1398Windows-PASS,16 Helfer/43 Fokus, Identitäten und Diagnose der Fehlversuche](guided-suite-20261019/authorized-validation.json).
+- [Vollständiger grüner Windows-Log](guided-suite-20261019/authorized-windows-pass.log.gz), [gezielte43](guided-suite-20261019/fixture-green-43.log.gz), [Helfer16](guided-suite-20261019/authorized-helper-tests.log.gz).
+- [Zusätzlicher fehlgeschlagener Startlauf](guided-suite-20261019/authorized-first-windows-fail.log.gz), [roter Pfadfixture-Nachweis](guided-suite-20261019/path-fixture-red.log.gz).
+- [Echter Source-/Audio-/Log-Vorcheck](guided-suite-20261019/authorized-preflight-summary.json), [Wire/Metriken](guided-suite-20261019/authorized-preflight-events.jsonl), [Quell-/Runtimeidentität](guided-suite-20261019/authorized-preflight-identity.json).
+- [Vier Laufordner nach Export entfernt; menschlicher Lauf anschließend ebenfalls aufzuräumen](guided-suite-20261019/authorized-cleanup-progress.json).
+
 ## Geführte Resttests,19.10.2026
 
 - [Bericht20](../20_GEFUEHRTE_RESTTESTS.md).

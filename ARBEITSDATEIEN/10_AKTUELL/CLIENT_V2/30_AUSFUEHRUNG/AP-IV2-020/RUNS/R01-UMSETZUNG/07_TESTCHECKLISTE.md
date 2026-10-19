@@ -1,3 +1,15 @@
+## Jetzt startbereit: Ablage genehmigt und Technik grün,19.10.2026
+
+- [x] Konkrete Windows-Testablage mit verbindlicher Export-/Aufräumpflicht freigegeben.
+- [x] Letzte Windows-Suite1398/0Skips,16 Helfer,43 gezielte Tests und compileall PASS.
+- [x] Echter Server-/Audio-Vorcheck am vorhandenen Pro-V2:130Frames,40Logzeilen.
+- [x] Vier autonome externe Laufordner nach geprüftem Belegexport entfernt.
+- [ ] Elf geführte Bedienaufgaben selbst starten und Ergebnisse gesammelt auswerten.
+- [ ] Danach benötigte Belege ins Projekt kopieren und menschliche Laufzeitablage entfernen.
+- [ ] Übrige technische/W01-/Frozen-Pflichtanteile gesondert abschließen.
+
+[Bericht20 und konkrete Grenzen](20_GEFUEHRTE_RESTTESTS.md).
+
 ## Jetzt: geführte unabhängige Resttests, 19.10.2026
 
 - [x] Elf vorher lesbare Aufgaben mit eigenem Start/Wiederholen/Weiter vorbereitet.

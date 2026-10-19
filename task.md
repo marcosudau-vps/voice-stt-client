@@ -1,3 +1,13 @@
+## AP-IV2-020/R01 – Bedienlauf startbereit,19.10.2026
+
+[Bericht20](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/20_GEFUEHRTE_RESTTESTS.md).
+Ablage explizit freigegeben unter Export-/Aufräumbedingung. Finale1398Windows/
+0Skips,16 Helfer/43 Fokus und compileall PASS; echter Pro-V2/ReSpeaker-Vorcheck
+130Frames/40Logzeilen. Vier autonome Laufordner nach Belegexport entfernt.
+Geführte elf Aufgaben jetzt menschlich auszuführen; danach Daten auswerten,
+benötigte Nachweise ins Projekt kopieren und externe menschliche Laufzeit ebenfalls
+entfernen. Produkt7bb5646 unverändert; gleiche R01/Branch/Draft-PR15, kein REVIEW_READY.
+
 ## AP-IV2-020/R01 – geführter Restlauf vorbereitet,19.10.2026
 
 [Elf Aufgaben / Bericht20](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/20_GEFUEHRTE_RESTTESTS.md).

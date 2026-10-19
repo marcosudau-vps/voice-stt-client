@@ -1,3 +1,15 @@
+## AP-IV2-020/R01 – genehmigter geführter Bedienlauf startbereit,19.10.2026
+
+`venv/Scripts/python.exe -m tests.manual.v2.guided_suite --profile-runtime`
+öffnet elf einzeln startbare Aufgaben. Letzte Suite1398/0Skips PASS,
+16 Helfer/43 Fokus/compileall PASS, realer Audio-/Log-Vorcheck
+130Frames/40Logzeilen. Produkt unverändert7bb5646; Source- statt Frozen-Prüfung.
+Ablage nur `C:/Users/marco/.voice-stt/qualification/AP-IV2-020`, vom Menschen
+unter verbindlicher Export-/Aufräumbedingung freigegeben. Vier autonome Laufordner
+bereits exportiert/entfernt; menschlichen Lauf nach Auswertung und Sicherung der
+benötigten Projektbelege ebenfalls entfernen, zuletzt leeren eigenen AP-Ordner.
+[Bericht20](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/20_GEFUEHRTE_RESTTESTS.md).
+
 ## AP-IV2-020/R01 – geführter Resttest, Ablageentscheidung offen,19.10.2026
 
 [Bericht20](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/20_GEFUEHRTE_RESTTESTS.md).
