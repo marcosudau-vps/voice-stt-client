@@ -1,3 +1,7 @@
+## Aktuelle Paarqualifikation,20.10.2026
+
+Neuer menschlich benannter und tatsächlich belegter Serverstand `67f3ce45f6ea1ff659382e40c194c70bd33d58ff` nach Wakefix/Identitätserweiterung. Bisheriger Pinada13b0 bleibt historische Vertrags-/Testherkunft. [Rückkehr und neue Belege](RUNS/R01-UMSETZUNG/27_SERVERFIX_RUECKKEHR_UND_REQUALIFIKATION.md); keine ungeprüfte Übertragung alter Paar-PASS.
+
 # AP-IV2-020 – reale Windows-, Modell- und Hardwarequalifikation
 
 Status **BLOCKED**, Workflow **IMPLEMENTATION_IN_PROGRESS** für unabhängige Restprüfungen, 2026-10-19.

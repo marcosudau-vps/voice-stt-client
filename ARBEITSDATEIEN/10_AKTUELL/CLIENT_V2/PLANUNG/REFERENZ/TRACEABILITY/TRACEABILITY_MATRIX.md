@@ -435,3 +435,14 @@ Reconnect25weitere echte Audiopakete. Wakeengine aus; kein vollständiger Wake-/
 offeneFinal-/Admin-/Frozen-PASS. `tests.manual.v2.test_autonomous_rest.IdleAssessment`
 weist fehlende/unbestätigte/stale/pending/keinAudiofortschritt-Belege zurück.
 36Helfertests/erneut1400Windows ohne Skips PASS; Produkt0f6c85e unverändert.
+
+
+## AP-IV2-020/R01 – Serverfix-Rückkehr,20.10.2026
+
+[Bericht27](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/27_SERVERFIX_RUECKKEHR_UND_REQUALIFIKATION.md):
+REAL-01/02/04: neuer Server67f3ce45 eindeutig über Info/Git/Hello gebunden;
+13reale Modelle/Transportreplays (8Rearm/3Negativ/2Direktsprache) und18Activations
+PASS_SCOPED, keine Zusatzwake in geprüfter digitaler Stille. Nativer Source-/ReSpeaker-
+Idle-Vorcheck133Pakete, neue1400Windows/0Skips und43Helfer PASS. Echte aktuelle
+Mikrofon-/Sound-/Nutzsprachgrenze/Frozen/Both-/30min100-Gates bleiben offen;
+W01-Live-Abschluss ausstehend. Keine alten Paar-PASS ungeprüft übertragen.

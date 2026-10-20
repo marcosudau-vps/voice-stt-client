@@ -1,3 +1,10 @@
+## Serverfix-Rückkehr,20.10.2026
+
+- [Info vorher](server-return-20261020/server-info-before.json), [nachher](server-return-20261020/server-info-after.json), [Git/PR/CI-Provenienz](server-return-20261020/server-provenance.json).
+- [13Fallübersicht/18Activations](server-return-20261020/summary.json), [vollständige erlaubte Replayereignisse](server-return-20261020/replay-matrix.json), [echter nativer Hello](server-return-20261020/native-hello.json), [133ReSpeakerpakete](server-return-20261020/native-smoke.json).
+- [1400Windows-Tests/0Skips](server-return-20261020/windows-1400.log.gz), [43Helfertests](server-return-20261020/helpers-43.log.gz), [Validierung](server-return-20261020/validation.json), [Aufräumen](server-return-20261020/cleanup.json), [Exportmanifest](server-return-20261020/export-manifest.json).
+- [Rückkehrbericht27 und reale Restprüfung](../27_SERVERFIX_RUECKKEHR_UND_REQUALIFIKATION.md).
+
 ## Autonome Restprüfung,19.10.2026
 
 - [Native Windows-Credentials](autonomous-rest-20261019/repeat-credentials.json), [reale idle-Pausen/Recovery](autonomous-rest-20261019/repeat-runtime.json), [Ereignisse](autonomous-rest-20261019/repeat-events.json).

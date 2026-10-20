@@ -70,6 +70,14 @@
           "sourceCommit": "e95d871a498f07d99fea2bc4ace57c616504abc0",
           "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
           "boundaries": "Two separate sessions. Direct phrases and native spaced output PASS; hotkey finish/complete M02 NOT_PROVEN."
+        },
+        {
+          "status": "PASS_SCOPED",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "server-return-20261020/replay-matrix.json",
+          "tester": "Codex: real deployed model WAV replay; separate native idle/audio precheck",
+          "boundaries": "No current human Wake/sound/Frozen/complete M-case qualification; see report27."
         }
       ]
     },
@@ -233,6 +241,14 @@
           "evidence": "autonomous-rest-20261019/repeat-runtime.json",
           "scope": "idle_run_pause_recovery",
           "boundaries": "See report26 and evidence boundary; full M-case remains NOT_PROVEN."
+        },
+        {
+          "status": "PASS_SCOPED",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "server-return-20261020/replay-matrix.json",
+          "tester": "Codex: real deployed model WAV replay; separate native idle/audio precheck",
+          "boundaries": "No current human Wake/sound/Frozen/complete M-case qualification; see report27."
         }
       ],
       "findingIds": [],
@@ -299,7 +315,16 @@
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
       "actualResult": null,
       "evidence": [],
-      "attempts": []
+      "attempts": [
+        {
+          "status": "PASS_SCOPED",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "server-return-20261020/native-smoke.json",
+          "tester": "Codex: real deployed model WAV replay; separate native idle/audio precheck",
+          "boundaries": "No current human Wake/sound/Frozen/complete M-case qualification; see report27."
+        }
+      ]
     },
     {
       "id": "M-11",

@@ -104,14 +104,27 @@ TASKS = [
          'Tatsächlich zugängliche Tabs/Logdaten und sichtbares Ziel bestätigen; keine bloße Konstruktorprüfung.'),
 ]
 
+WAKE_TASKS = []
+for key, word, silent in [('wake_alexa','Alexa',False), ('wake_jarvis','Hey Jarvis',False), ('wake_silent','Alexa',True)]:
+    item = task(key, 'Wake-FIX · '+word+(' · Sound AUS' if silent else ' · Sound AN'), ['W01','M-02','M-10'],
+        word, [
+            'Bei CLIENT BEREIT und nach der Vorbereitung das grüne Rufwort genau EINMAL sprechen. Keine Taste drücken.',
+            'Danach schweigen und den normalen Eingabeschluss abwarten. '+('Es darf kein Sound kommen.' if silent else 'Start-/Stoppton, LED und Overlay beobachten.'),
+            'Nach dem Eingabeschluss weitere fünf Sekunden schweigen. Erst bei abgeschlossener Ruheprüfung „Versuch beenden“ und Ergebnis übernehmen.'],
+        'Genau eine Wake-Activation; Timeout ohne automatischen zweiten Start. '+('Kontrollvergleich ohne Soundausgabe.' if silent else 'Sound/LED/Overlay wahrnehmen und bewerten.'))
+    item.update(wake=True, sounds=not silent)
+    WAKE_TASKS.append(item)
+
+ALL_TASKS = TASKS + WAKE_TASKS
+
 DEFERRED = [
-    'W01 / Issue #7: wiederholte Wake-only-/Both-Folgen, Wake-Parität und gemischter 30min/100-Lauf erst nach Server-FIX.',
+    'W01 / Issue #7: Fix auf Pro-V2 deployed; echter Mikrofon-/Schweige-/Soundvergleich noch auszuführen. Vollständige Wake-Parität/30min100 separat.',
     'M-04: weitere Phasenkombinationen, Hotkey-Kollision und realer Watchdog bleiben gesonderte technische Nachweise.',
-    'M-05: getrennte Run-Pausen und Erhaltung über Reconnect/Neustart noch gezielt zu instrumentieren.',
-    'M-06: isolierter LED-Ausfall ist kein USB-Gesamtausfall; eigener technischer Versuch bleibt offen.',
+    'M-05: idle-Pausen/Reconnect/Neustart nachgewiesen; aktivierte Wakeengine und weitere Kombinationen noch offen.',
+    'M-06: USB-Recovery und LED-only bei idle nachgewiesen; offener Input/Altfinal-Kombinationen noch offen.',
     'M-07: Netzverlust mit offenem Preview/Final und separater Logstore-Ausfall bleiben eigene Faulttests; kein fremder Serverstopp.',
     'M-08: Cancel/Finish/Vormerken einer Sessionänderung bei Aufnahme und ausstehendem Final separat vorbereiten.',
-    'M-09: Credential-Manager und Adminprüfung separat isolieren; keine bestehenden Credentials überschreiben.',
+    'M-09: nativer Credential-Lebenszyklus isoliert nachgewiesen; Admin-/Dialog-/Exportfälle noch offen.',
     'M-10/M-11: Frozen-Build, erhöhte Anwendung, Clipboard-Konflikt und Prozessabbruch nahe Paste brauchen eigene Vorbereitung.',
 ]
 
@@ -119,7 +132,7 @@ DEFERRED = [
 def select_tasks(ids=None):
     if ids is None:
         return list(TASKS)
-    by_id = {task['id']: task for task in TASKS}
+    by_id = {task['id']: task for task in ALL_TASKS}
     if not ids or len(set(ids)) != len(ids) or any(value not in by_id for value in ids):
         raise ValueError('Select distinct known task IDs')
     return [by_id[value] for value in ids]

@@ -3,13 +3,49 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from tests.manual.v2.suite_plan import TASKS, DEFERRED, SuiteRecord, owned_path, target_origin, select_tasks
-from tests.manual.v2.suite_session import prepare_profile
+from tests.manual.v2.suite_plan import TASKS, DEFERRED, TARGET, SuiteRecord, owned_path, target_origin, select_tasks
+from tests.manual.v2.suite_session import prepare_profile,hello_identity
 from tests.manual.v2.suite_analysis import summarize, assess_led_fault
 import json
 
 
 class GuidedSuite(unittest.TestCase):
+    def test_optional_live_wake_tasks_do_not_change_default_manual_plan(self):
+        self.assertEqual(len(select_tasks()),11)
+        selected=select_tasks(['wake_alexa','wake_jarvis','wake_silent'])
+        self.assertEqual([t['sounds'] for t in selected],[True,True,False])
+        self.assertEqual([t['phrase'] for t in selected],['Alexa','Hey Jarvis','Alexa'])
+        with tempfile.TemporaryDirectory() as temp:
+            config=prepare_profile(Path(temp),TARGET,selected[-1],5)
+            self.assertFalse(config.v2_profile['manual'])
+            self.assertTrue(config.v2_profile['wake_word'])
+            self.assertEqual(config.v2_profile['wake_word_ids'],['hey_jarvis','alexa'])
+            self.assertFalse(config.feedback.sounds_enabled)
+
+    def test_hello_identity_never_exports_log_credentials(self):
+        from types import SimpleNamespace
+        record=hello_identity(SimpleNamespace(session_id='session',generation=2,
+            accepted=SimpleNamespace(payload=dict(serverCommit='a'*40,serverVersion='2.0.0',logAccess='secret'))))
+        self.assertEqual(record['serverCommit'],'a'*40)
+        self.assertNotIn('secret',str(record))
+
+    def test_wake_quiet_countdown_needs_real_close_and_rejects_extra_start(self):
+        from tests.manual.v2.suite_progress import ObservedProgress,guide_progress
+        progress=ObservedProgress()
+        progress.observe('wire',now=1,event={'type':'activation.started','generation':1})
+        self.assertEqual(guide_progress('wake_alexa',progress.snapshot(1),0)['active'],3)
+        progress.observe('wire',now=10,event={'type':'activation.input_closed','generation':1,'reason':'timed_out'})
+        waiting=guide_progress('wake_alexa',progress.snapshot(12),0)
+        self.assertEqual(waiting['active'],4)
+        self.assertEqual(waiting['waitRemaining'],3)
+        done=guide_progress('wake_alexa',progress.snapshot(15),0)
+        self.assertEqual(done['active'],5)
+        self.assertIn(4,done['confirmed'])
+        progress.observe('wire',now=16,event={'type':'activation.started','generation':1})
+        extra=guide_progress('wake_alexa',progress.snapshot(16),0)
+        self.assertNotIn(4,extra['confirmed'])
+        self.assertIn('Mehrere Aktivierungen',extra['notice'])
+
     def test_native_led_loss_and_fast_recovery_remain_visible_between_polls(self):
         from tests.manual.v2.suite_progress import ObservedProgress
         progress = ObservedProgress()

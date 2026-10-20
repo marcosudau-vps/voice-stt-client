@@ -26,8 +26,8 @@
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "W01 und vollständige reale/Frozen-/Admin-/komponierte Pflichtgates offen; zusätzliche native Credentials und idle-Runpause/Recovery PASS_SCOPED.15private gesicherte externe Laufordner automatisch gegen Löschen gesperrt.",
-  "nextAction": "Gezielte offene Diktat-/Phasen-/Altfinal-/Settings-/Netz-/Logkombinationen mit bewussten Sprachproben vorbereiten; native Frozen/Admin/elevated/Clipboardfälle ergänzen. W01 separat, danach Wake/Both/30min100; kein REVIEW_READY. Bestätigtes Idle und5000ms beibehalten.",
+  "blockingReason": "Serverfix auf Pro-V2 verifiziert und Modellmatrix grün; aktuelle physische Wake-/Sound-/übrige M-/Frozen-/30min100-Pflichten offen.17private gesicherte Laufordner automatisch gegen Löschen gesperrt.",
+  "nextAction": "Drei einzeln gestartete geführte Wake-Mikrofon-/Schweige-/Soundvergleiche am Server67f3ce45 durchführen und auswerten; danach übrige AP020-Pflichten inklusive Wake/Both/30min100 fortsetzen. Kein REVIEW_READY aus Modellreplay.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -54,10 +54,10 @@
   "relatedServerFix": {
     "id": null,
     "repository": "marcosudau-vps/voice-stt-server",
-    "branch": null,
-    "record": null,
+    "branch": "feat/einheitliche-triggerarchitektur-distributed",
+    "record": "https://github.com/marcosudau-vps/voice-stt-server/pull/8",
     "statusPath": null,
-    "state": "NOT_INSTANTIATED_AWAITING_SERVER_AUTHORIZATION",
+    "state": "IMPLEMENTED_DEPLOYED_REPLAY_PASS_LIVE_PENDING",
     "clientFinding": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/12_WAKE_REAKTIVIERUNG_W01.md",
     "serverBaseline": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
     "returnClient": {
@@ -66,10 +66,18 @@
       "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd"
     },
     "issue": "https://github.com/marcosudau-vps/voice-stt-server/issues/7",
-    "executionOrder": "DEFER_IMPLEMENTATION_UNTIL_UNAFFECTED_CLIENT_TESTS_DONE"
+    "executionOrder": "DEFER_IMPLEMENTATION_UNTIL_UNAFFECTED_CLIENT_TESTS_DONE",
+    "deployedServerCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+    "actualMergeCommit": "e761b97334f263a6c51e84314bf3688599b84169",
+    "clientReturnEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/27_SERVERFIX_RUECKKEHR_UND_REQUALIFIKATION.md",
+    "requalifiedReturnClient": {
+      "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+      "startHead": "403a745c053a35a9e3849db0da1eaf5e64e84c1f",
+      "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd"
+    }
   },
   "technicalProductCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
-  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/autonomous-rest-20261019/validation.json",
+  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-return-20261020/validation.json",
   "observations": [
     {
       "id": "IV2-020-O01",
@@ -100,6 +108,12 @@
       "status": "RESOLVED_BY_DIRECT_REAL_LED_COMPARISON",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/25_IDLE_BESTAETIGT_UND_LED_ISOLATION.md",
       "summary": "New direct20sreal LED preview confirmed white/pleasant minimum at min30/peak100; hashes verified and normalized config persisted. Previous no-transition attempt remains NOT_PROVEN historically."
+    },
+    {
+      "id": "IV2-020-W01-RETURN",
+      "status": "REPLAY_PASS_LIVE_PENDING",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/27_SERVERFIX_RUECKKEHR_UND_REQUALIFIKATION.md",
+      "summary": "Neuer Pro-V2-Server67f3ce45/Tree74f37cad/Version2.0.0 über öffentliche Info, passenden Gitbaum/-datum und echten Hello bestätigt; Wakefix-Mergee761b973 direkter Parent.13reale Modellreplays/18Activations ohne Zusatzwake in geprüfter digitaler Stille PASS_SCOPED, native Source/ReSpeaker133Pakete und neue1400Windows/0Skips/43Helfertests PASS. W01-Live-Mikrofon-/Schweige-/Soundvergleich vorbereitet, keine vollständige M-/Frozen-/30min100-Abnahme; Clientprodukt0f6c85e unverändert.17beendete private Aufräumreste automatisch gegen Löschen gesperrt."
     }
   ],
   "testInfrastructure": {
@@ -163,5 +177,6 @@
     }
   },
   "qualificationStatus": "BLOCKED_BY_OPEN_MANDATORY_FINDINGS",
-  "latestAutonomousRestEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/autonomous-rest-20261019"
+  "latestAutonomousRestEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/autonomous-rest-20261019",
+  "technicalServerCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
 }

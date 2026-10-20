@@ -29,11 +29,23 @@ def main():
     parser.add_argument('--profile-runtime', action='store_true',
         help='Use dedicated Windows-profile runtime only after explicit human authorization; otherwise preview only')
     parser.add_argument('--tasks', nargs='+', help='Only these task IDs, each with its own Start')
+    parser.add_argument('--server-info', type=Path, help='Saved current /api/v2/info in this repository; bind child Hello to its commit')
     args = parser.parse_args()
     try:
         TASKS = select_tasks(args.tasks)
     except ValueError as error:
         parser.error(str(error))
+    server_info = None
+    if args.server_info:
+        info_path = args.server_info.resolve()
+        if not info_path.is_relative_to(ROOT.resolve()):
+            parser.error('Server identity evidence must be inside this project')
+        server_info = json.loads(info_path.read_text(encoding='utf-8-sig'))
+        from tests.manual.v2.verify_server_fix import check_identity
+        if not check_identity(server_info, server_info.get('serverCommit')):
+            parser.error('Incomplete or mismatched Pro-V2 identity evidence')
+    if any(t.get('wake') for t in TASKS) and not server_info and not args.self_check:
+        parser.error('Wake requalification requires current --server-info evidence')
     RUNTIME.mkdir(parents=True, exist_ok=True)
     base = PROFILE_RUNTIME if args.profile_runtime else RUNTIME
     folder = base/('suite-'+datetime.now().strftime('%Y%m%d-%H%M%S')+'-'+uuid.uuid4().hex[:6])
@@ -258,6 +270,8 @@ def main():
         argv = [sys.executable, '-u', '-m', 'tests.manual.v2.suite_session',
                 '--folder', str(attempt_folder), '--editor-state', str(folder/'editor-state.json'),
                 '--target', TARGET, '--task', TASKS[index]['id'], '--device', str(device['index'])]
+        if server_info:
+            argv += ['--expected-server-commit',server_info['serverCommit']]
         try:
             child = subprocess.Popen(argv, cwd=ROOT, stdout=output_handle, stderr=subprocess.STDOUT)
         except OSError as error:
@@ -410,9 +424,10 @@ def main():
     save(RUNTIME/'active-suite.json', dict(pid=os.getpid(), folder=str(folder),
         state=str(folder/'editor-state.json'), target=TARGET, clientStarted=False))
     from scripts.qualify_v2_real import identity
-    proof = ROOT/'ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/target-and-deferral-20261019/selected-server-identity.json'
+    proof = args.server_info.resolve() if args.server_info else ROOT/'ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/target-and-deferral-20261019/selected-server-identity.json'
     save(folder/'identity.json', dict(client=identity(), target=TARGET,
         serverProvenance=str(proof.relative_to(ROOT)), serverProvenanceSha256=hashlib.sha256(proof.read_bytes()).hexdigest(),
+        selectedServerInfo=server_info,
         boundary='Source desktop only; deployment evidence is timestamped and not a live wire commit assertion.'))
     print(json.dumps(dict(uiPid=os.getpid(), folder=str(folder), clientStarted=False)), flush=True)
     if args.self_check:

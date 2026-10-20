@@ -1,0 +1,358 @@
+{
+  "git": {
+    "date": "2026-10-20T12:50:26Z",
+    "parents": [
+      "e761b97334f263a6c51e84314bf3688599b84169",
+      "a694cd822d12c31e1d02d77e1518cae05c6a98b1"
+    ],
+    "sha": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+    "tree": "74f37cad84c5be9e74d880a4b10c3d9623de7da3"
+  },
+  "fixPullRequest": {
+    "url": "https://github.com/marcosudau-vps/voice-stt-server/pull/8",
+    "state": "MERGED",
+    "mergedAt": "2026-10-19T21:34:01Z",
+    "mergeCommit": {
+      "oid": "e761b97334f263a6c51e84314bf3688599b84169"
+    }
+  },
+  "identityPullRequest": {
+    "headRefOid": "a694cd822d12c31e1d02d77e1518cae05c6a98b1",
+    "mergeCommit": {
+      "oid": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+    },
+    "mergedAt": "2026-10-20T12:50:26Z",
+    "state": "MERGED",
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-20T06:13:05Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/marcosudau-vps/voice-stt-server/actions/runs/39378549972/job/118482083862",
+        "name": "build-and-test (ubuntu-24.04)",
+        "startedAt": "2026-10-20T06:07:01Z",
+        "status": "COMPLETED",
+        "workflowName": "CI"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-20T06:16:42Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/marcosudau-vps/voice-stt-server/actions/runs/39378549972/job/118482084302",
+        "name": "build-and-test (windows-latest)",
+        "startedAt": "2026-10-20T06:07:01Z",
+        "status": "COMPLETED",
+        "workflowName": "CI"
+      }
+    ]
+  },
+  "comparisonStatus": "ahead",
+  "aheadBy": 25,
+  "changedFiles": [
+    {
+      "path": ".gitattributes",
+      "status": "modified"
+    },
+    {
+      "path": ".github/workflows/release-candidate.yml",
+      "status": "modified"
+    },
+    {
+      "path": ".gitignore",
+      "status": "modified"
+    },
+    {
+      "path": "Dockerfile",
+      "status": "modified"
+    },
+    {
+      "path": "MANIFEST.in",
+      "status": "modified"
+    },
+    {
+      "path": "VoiceSTT/_build_identity.py",
+      "status": "added"
+    },
+    {
+      "path": "VoiceSTT/_version.py",
+      "status": "modified"
+    },
+    {
+      "path": "VoiceSTT/assets/build_inputs/windows/visual-studio-17.14.39-channel.json",
+      "status": "added"
+    },
+    {
+      "path": "VoiceSTT/core/openwakeword_engine.py",
+      "status": "modified"
+    },
+    {
+      "path": "VoiceSTT/core/recording.py",
+      "status": "modified"
+    },
+    {
+      "path": "VoiceSTT/core/wake_detection.py",
+      "status": "modified"
+    },
+    {
+      "path": "VoiceSTT/install_kroko.py",
+      "status": "modified"
+    },
+    {
+      "path": "VoiceSTT/kroko/artifacts.py",
+      "status": "modified"
+    },
+    {
+      "path": "VoiceSTT/kroko/buildinputs.py",
+      "status": "modified"
+    },
+    {
+      "path": "api_fastapi_server/protocol_v2/identity.py",
+      "status": "modified"
+    },
+    {
+      "path": "api_fastapi_server/server.py",
+      "status": "modified"
+    },
+    {
+      "path": "api_fastapi_server/wake_admission.py",
+      "status": "modified"
+    },
+    {
+      "path": "build/BUILD.md",
+      "status": "modified"
+    },
+    {
+      "path": "build_identity_support.py",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/README.md",
+      "status": "modified"
+    },
+    {
+      "path": "docs/.archiv/issue_7_wake_rearm/2026-10-19_ABWEICHUNGEN.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_7_wake_rearm/2026-10-19_ONNX_REPLAY.py",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_7_wake_rearm/2026-10-19_P1_CLEAR_PLAN.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_7_wake_rearm/2026-10-19_P1_CLEAR_REPRODUKTION.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_7_wake_rearm/2026-10-19_P1_CLEAR_UMSETZUNGSVERGLEICH.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_7_wake_rearm/2026-10-19_PLAN.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_7_wake_rearm/2026-10-19_REPRODUKTION.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_7_wake_rearm/2026-10-19_UMSETZUNGSVERGLEICH.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_ABWEICHUNGEN.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_CHECKPOINT_A.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_FORTSETZUNG_ABWEICHUNGEN.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_FORTSETZUNG_UMSETZUNGSVERGLEICH.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_IMAGE_ENDPOINT_PLAN.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_MANIFEST_LOCATOR_PLAN.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_PLAN.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_PREMERGE_HAERTUNG_ABWEICHUNGEN.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_PREMERGE_HAERTUNG_PLAN.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_PREMERGE_HAERTUNG_UMSETZUNGSVERGLEICH.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_UMSETZUNGSVERGLEICH.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_WINDOWS_RC_ABWEICHUNGEN.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_WINDOWS_RC_PLAN.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/.archiv/issue_9_build_runtime_identity/2026-10-20_WINDOWS_RC_UMSETZUNGSVERGLEICH.md",
+      "status": "added"
+    },
+    {
+      "path": "docs/client-development/06-http-api-und-authentifizierung.md",
+      "status": "modified"
+    },
+    {
+      "path": "docs/configuration.md",
+      "status": "modified"
+    },
+    {
+      "path": "docs/fastapi-server.md",
+      "status": "modified"
+    },
+    {
+      "path": "docs/release-process.md",
+      "status": "modified"
+    },
+    {
+      "path": "docs/testing.md",
+      "status": "modified"
+    },
+    {
+      "path": "docs/wake-words.md",
+      "status": "modified"
+    },
+    {
+      "path": "pyproject.toml",
+      "status": "modified"
+    },
+    {
+      "path": "requirements.txt",
+      "status": "modified"
+    },
+    {
+      "path": "setup.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/compatibility/test_client_v2_identity.py",
+      "status": "added"
+    },
+    {
+      "path": "tests/packaging/test_identity_installation.py",
+      "status": "added"
+    },
+    {
+      "path": "tests/unit/test_build_distribution.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/unit/test_build_identity.py",
+      "status": "added"
+    },
+    {
+      "path": "tests/unit/test_build_production.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/unit/test_kroko_artifact_store.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/unit/test_kroko_fingerprint.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/unit/test_production_docker_contract.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/unit/test_protocol_v2_contract.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/unit/test_qualify_build_identity.py",
+      "status": "added"
+    },
+    {
+      "path": "tests/unit/test_release_candidate.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/unit/test_release_workflows.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/unit/test_server_info.py",
+      "status": "added"
+    },
+    {
+      "path": "tests/unit/test_version_authority.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/unit/test_wakeword_recording_path.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/unit/test_wakeword_root_findings_c3.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/unit/test_wakeword_session_e2e.py",
+      "status": "modified"
+    },
+    {
+      "path": "tools/build_distribution.py",
+      "status": "modified"
+    },
+    {
+      "path": "tools/build_production.py",
+      "status": "modified"
+    },
+    {
+      "path": "tools/qualify_build_identity.py",
+      "status": "added"
+    },
+    {
+      "path": "tools/release_candidate.py",
+      "status": "modified"
+    }
+  ],
+  "protocolV2ChangedFiles": [
+    "api_fastapi_server/protocol_v2/identity.py"
+  ],
+  "sameCommitSuccessfulCI": [
+    {
+      "conclusion": "success",
+      "event": "push",
+      "headSha": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+      "name": "CI",
+      "status": "completed",
+      "url": "https://github.com/marcosudau-vps/voice-stt-server/actions/runs/39425422514"
+    }
+  ],
+  "sourceTreeAndDateMatchPublicGit": true,
+  "fixIsDirectParentOfDeployedCommit": true,
+  "fullImageFilesystemIntegrity": "NOT_PROVEN; not asserted from /info",
+  "serverRepositoryNotModified": true
+}

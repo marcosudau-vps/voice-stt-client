@@ -15,7 +15,7 @@ import sys
 import threading
 import time
 
-from tests.manual.v2.suite_plan import TASKS, owned_path, target_origin
+from tests.manual.v2.suite_plan import TASKS, ALL_TASKS, owned_path, target_origin
 from tests.manual.v2.suite_progress import ObservedProgress
 
 
@@ -44,7 +44,8 @@ def prepare_profile(folder, target, task, device):
     config = AppConfig._load_single(DEFAULT_CONFIG_PATH)
     config.server.url, config.server.health_url = target, origin+'/health'
     config.audio.device = device
-    profile = V2Profile(manual=True, wake_word=False, wake_word_ids=[],
+    wake = bool(task.get('wake'))
+    profile = V2Profile(manual=not wake, wake_word=wake, wake_word_ids=['hey_jarvis','alexa'] if wake else [],
                         desired_settings={'activation.followupTimeoutMs': 5000})
     profile.controls.update(primary_key='Ctrl+Shift+F8', secondary_key='Ctrl+Shift+F9',
                             secondary_action=task['secondary'], wake_pause_key='Ctrl+Shift+F10',
@@ -56,6 +57,8 @@ def prepare_profile(folder, target, task, device):
     config.logging.log_dir = str(folder/'client/logs')
     config.logging.observability.store_transcription_content = False
     config.logging.observability.store_raw_payload = False
+    if task.get('sounds') is False:
+        config.feedback.sounds_enabled = False
     config.event_stream.cursor_path = str(folder/'client/cursor.json')
     # Preserve the explicitly requested test variant without importing a V1
     # profile or the retired AppData instance. Flash and sound rules unchanged.
@@ -83,6 +86,12 @@ def prepare_profile(folder, target, task, device):
     return AppConfig.load(path)
 
 
+def hello_identity(binding):
+    return dict(sessionId=binding.session_id,generation=binding.generation,
+        serverCommit=binding.accepted.payload.get('serverCommit'),
+        serverVersion=binding.accepted.payload.get('serverVersion'))
+
+
 def main():
     sys.stdout.reconfigure(encoding='utf8', errors='backslashreplace')
     sys.stderr.reconfigure(encoding='utf8', errors='backslashreplace')
@@ -90,8 +99,9 @@ def main():
     parser.add_argument('--folder', type=Path, required=True)
     parser.add_argument('--editor-state', type=Path, required=True)
     parser.add_argument('--target', required=True)
-    parser.add_argument('--task', choices=[task['id'] for task in TASKS], required=True)
+    parser.add_argument('--task', choices=[task['id'] for task in ALL_TASKS], required=True)
     parser.add_argument('--device', type=int, required=True)
+    parser.add_argument('--expected-server-commit')
     parser.add_argument('--smoke', action='store_true', help='Autonomous real audio precheck; no keys/sounds/activation; LEDs only with --led-only-fault')
     parser.add_argument('--led-only-fault', action='store_true', help='With --smoke: stop only native LED transport; keep real audio running')
     args = parser.parse_args()
@@ -99,7 +109,9 @@ def main():
         parser.error('LED-only fault is an isolated autonomous smoke, not an operator task')
     target_origin(args.target)
     folder, editor_state = owned_path(args.folder), owned_path(args.editor_state)
-    task = next(task for task in TASKS if task['id'] == args.task)
+    task = next(task for task in ALL_TASKS if task['id'] == args.task)
+    if args.smoke and task.get('wake'):
+        parser.error('Autonomous native smoke must not enable wake triggers')
     folder.mkdir(parents=True, exist_ok=True)
     os.environ['VOICESTT_CLIENT_HOME'] = str(folder/'client')
     os.environ['VOICESTT_CLIENT_CONFIG'] = str(folder/'profile.yaml')
@@ -183,6 +195,14 @@ def main():
             http=SettingsHTTP(args.target, timeout=180), transport_config=V2TransportConfig(
                 url=args.target, client_version=__version__, connect_timeout=180,
                 admission_timeout=180, bootstrap_timeout=180))
+        old_accepted = runtime.session.on_accepted
+        def accepted(binding):
+            if args.expected_server_commit and binding.accepted.payload.get('serverCommit') != args.expected_server_commit:
+                raise ValueError('Selected server identity differs from accepted Hello')
+            if old_accepted:
+                old_accepted(binding)
+            emit('hello.accepted', **hello_identity(binding))
+        runtime.session.on_accepted = accepted
         previous = runtime.session.on_message
         def receive(binding, event):
             previous(binding, event)

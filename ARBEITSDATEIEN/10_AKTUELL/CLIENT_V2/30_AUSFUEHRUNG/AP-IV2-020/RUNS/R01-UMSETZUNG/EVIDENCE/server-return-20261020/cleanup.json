@@ -1,0 +1,12 @@
+{
+  "state": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+  "reason": "blocked by policy",
+  "newStoppedArchivedTargets": [
+    "server-return-20261020-171410",
+    "preflight-20261020-171852"
+  ],
+  "previousFifteen": "See ../autonomous-rest-20261019/cleanup.json; not retried",
+  "totalStoppedArchivedDirectoriesPending": 17,
+  "privateArchives": "build/ap-iv2-020-suite/private-archive",
+  "noRetryOrWorkaround": true
+}

@@ -159,3 +159,27 @@ Kein Trigger, Speichern von PCM, Paste, globaler Hotkey, Sound, LED oder Admin-P
 Der Wake-Engine-Pfad bleibt aus; das qualifiziert weder echte Wakepause noch
 physisches Mute oder offene Diktate/Finals. Beide vollständigen M-Gates bleiben
 offen. Ergebnisse anschließend ins Projekt exportieren und Laufzeit bereinigen.
+
+## Serverfix/Info-Rückkehr und geführte Wakeprobe
+
+`venv/Scripts/python.exe -m tests.manual.v2.verify_server_fix --expected-server-commit <voller bestätigter SHA> --output build/<eigenes Ergebnisverzeichnis>`
+prüft den vorhandenen ausgewählten Pro-V2 über13reale Modell-/Transportfälle:
+beide Wakewords nach Timeout/Finish/Cancel/Reconnect, drei Negativclips und zwei
+direkte Wake-/Nutzsprachaufnahmen. Echte zuvor freigegebene WAVs, Echtzeit-Pacing,
+digitale Stille als Teststimulus. Keine neue Mikrofon-/Sound-/Frozenqualifikation.
+Infoidentität vor/nach und jeder echte Hello müssen zum gewählten SHA passen.
+180s Modellstart-/HTTP-/Connect-/Bootstrapgrenzen, keine Serverproduktänderung.
+
+Für aktuelle bewusste Mikrofon-/Soundproben:
+
+```powershell
+.\venv\Scripts\python.exe -m tests.manual.v2.guided_suite --profile-runtime --tasks wake_alexa wake_jarvis wake_silent --server-info ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-return-20261020/server-info-after.json
+```
+
+Öffnen startet keinen Client/Mikrofon. Jede Aufgabe eigener Start, vorher alle
+Schritte lesen;10s Vorbereitung, dann nur das sichtbare Rufwort einmal sprechen.
+Nach echtem Timeout weitere5s beobachtetes Schweigefenster mit Countdown.
+Alexa/Hey Jarvis mit Sound und Alexa ohne Sound als Kontrollvergleich. Danach
+selbst Versuch beenden und übernehmen/wiederholen. Der gespeicherte Servercommit
+bindet den Child-Hello vor Bootstrap. Ergebnis ist menschliche Beobachtung,
+kein automatischer PASS; ein neues Info-/Serverziel braucht neue Provenienz.

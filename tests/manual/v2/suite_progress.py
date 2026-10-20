@@ -17,6 +17,7 @@ class ObservedProgress:
         self.audio_lost_at = None
         self.reconnect_generation = None
         self.closed_reason = ''
+        self.closed_at = None
         self.seen, self.order = set(), deque()
 
     def observe(self, kind, *, now=None, **fields):
@@ -44,6 +45,7 @@ class ObservedProgress:
                 self.counts[name] += 1
             if name == 'activation.input_closed':
                 self.closed_reason = event.get('reason', '')
+                self.closed_at = now
             if name == 'activation.cancelled':
                 self.cancelled_at = now
         elif kind == 'led.sink':
@@ -73,7 +75,8 @@ class ObservedProgress:
                     reconnectGeneration=self.reconnect_generation,
                     cancelWaitRemaining=remaining(self.cancelled_at, 10),
                     usbWaitRemaining=remaining(self.audio_lost_at, 10),
-                    noneWaitRemaining=remaining(self.secondary_at, 3))
+                    noneWaitRemaining=remaining(self.secondary_at, 3),
+                    postCloseQuietRemaining=remaining(self.closed_at, 5))
 
 
 def guide_progress(task, observed, pastes):
@@ -87,7 +90,18 @@ def guide_progress(task, observed, pastes):
     secondary = c.get('secondary', 0)
     active, confirmed, wait, notice = 2, set(), None, ''
     manual = task in ('mute', 'settings')
-    if task in ('finish', 'followup', 'refresh'):
+    if task in ('wake_alexa','wake_jarvis','wake_silent'):
+        if activated:
+            active, confirmed = 3, {2}
+        if closed:
+            active, wait = 4, observed.get('postCloseQuietRemaining')
+            if observed.get('closedReason') == 'timed_out':
+                confirmed.add(3)
+            if wait == 0:
+                active, manual = 5, True
+                if activated == 1:
+                    confirmed.add(4)
+    elif task in ('finish', 'followup', 'refresh'):
         if (activated if task == 'finish' else ended):
             active, confirmed = 3, {2}
         if secondary:
