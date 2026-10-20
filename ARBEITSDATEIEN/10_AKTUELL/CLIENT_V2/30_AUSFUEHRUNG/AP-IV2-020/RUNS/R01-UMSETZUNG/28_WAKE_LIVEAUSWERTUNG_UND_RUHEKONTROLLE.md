@@ -53,6 +53,10 @@ Erst nach deren Ablauf sendet die Oberfläche den vorhandenen Stopauftrag.
 Keine neue Aufgabe startet automatisch. Fenster schließen bleibt sofortiges
 Abbrechen; fehlende/inkonsistente Telemetrie kann keinen PASS oder unendliches
 Warten erzeugen. Der Button benennt das Abwarten vorab.
+Die neue Oberfläche beobachtet sieben Sekunden mit zwei Sekunden Messreserve:
+Bei sekündlichen Audiomesspunkten muss auch der letzte Messpunkt mindestens
+fünf Sekunden nach Eingabeschluss liegen. Der Bewertungsmaßstab bleibt fünf
+tatsächlich belegte Sekunden; Shutdownzeit ersetzt keine Audiomessung.
 
 [Dauerhafte Auswertung](../../../../../../../tests/manual/v2/wake_live_assessment.py)
 und [Regressionen](../../../../../../../tests/manual/v2/test_wake_live_assessment.py)

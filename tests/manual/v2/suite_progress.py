@@ -7,6 +7,10 @@ from collections import Counter, deque
 import math
 import time
 
+# Metrics arrive once per second. Keep two seconds of sampling reserve so
+# the last real audio observation also proves the required five seconds.
+WAKE_QUIET_SECONDS = 7
+
 
 class ObservedProgress:
     def __init__(self):
@@ -76,7 +80,7 @@ class ObservedProgress:
                     cancelWaitRemaining=remaining(self.cancelled_at, 10),
                     usbWaitRemaining=remaining(self.audio_lost_at, 10),
                     noneWaitRemaining=remaining(self.secondary_at, 3),
-                    postCloseQuietRemaining=remaining(self.closed_at, 5))
+                    postCloseQuietRemaining=remaining(self.closed_at, WAKE_QUIET_SECONDS))
 
 
 def wake_stop_delay(task, observed, *, closing=False):
@@ -90,7 +94,7 @@ def wake_stop_delay(task, observed, *, closing=False):
     counts=observed.get('counts',{})
     remaining=observed.get('postCloseQuietRemaining')
     if (counts.get('activation.started')==1 and counts.get('activation.input_closed')==1
-            and type(remaining) is int and 0<remaining<=5):
+            and type(remaining) is int and 0<remaining<=WAKE_QUIET_SECONDS):
         return remaining
     return 0
 

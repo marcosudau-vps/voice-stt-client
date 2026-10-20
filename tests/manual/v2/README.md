@@ -189,3 +189,5 @@ Beenden wird vorgemerkt und nach deren Ende ausgeführt. Fenster schließen
 bleibt sofortiges Abbrechen. Das ergänzt keine künstliche Testzeit nach einem
 schon beendeten Client: Die Auswertung verwendet den letzten echten Audiomesspunkt
 vor Stop und wertet eine zu kurze Phase als `NOT_PROVEN`.
+Das neue Ruhefenster dauert sieben Sekunden, damit auch der letzte sekündliche
+Audiomesspunkt mindestens fünf Sekunden Nachbeobachtung belegt.

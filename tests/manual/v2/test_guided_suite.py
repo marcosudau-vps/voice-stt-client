@@ -16,7 +16,8 @@ class GuidedSuite(unittest.TestCase):
         self.assertEqual(wake_stop_delay('wake_silent',observed),3)
         self.assertEqual(wake_stop_delay('wake_silent',observed,closing=True),0)
         self.assertEqual(wake_stop_delay('finish',observed),0)
-        for remaining in (None,0,False,6,-1):
+        self.assertEqual(wake_stop_delay('wake_silent',dict(observed,postCloseQuietRemaining=7)),7)
+        for remaining in (None,0,False,8,-1):
             self.assertEqual(wake_stop_delay('wake_silent',dict(observed,postCloseQuietRemaining=remaining)),0)
         self.assertEqual(wake_stop_delay('wake_silent',dict(observed,counts={})),0)
 
@@ -47,8 +48,8 @@ class GuidedSuite(unittest.TestCase):
         progress.observe('wire',now=10,event={'type':'activation.input_closed','generation':1,'reason':'timed_out'})
         waiting=guide_progress('wake_alexa',progress.snapshot(12),0)
         self.assertEqual(waiting['active'],4)
-        self.assertEqual(waiting['waitRemaining'],3)
-        done=guide_progress('wake_alexa',progress.snapshot(15),0)
+        self.assertEqual(waiting['waitRemaining'],5)
+        done=guide_progress('wake_alexa',progress.snapshot(17),0)
         self.assertEqual(done['active'],5)
         self.assertIn(4,done['confirmed'])
         progress.observe('wire',now=16,event={'type':'activation.started','generation':1})

@@ -26,11 +26,11 @@
     "step_board.py": "023601b407f99658f479f87408a80e88931654039f72b0d7a1385283545e9100",
     "suite_analysis.py": "a7d20803c93f3caf70bc869440ca0055b1ff8ebfa33b8f4438e7927515bbc5e6",
     "suite_plan.py": "6af37036dedc66dead861b623b33db271a2deef2c045156317f2f872928da72a",
-    "suite_progress.py": "438d5ce01d96eb642970fd741d4281fca8543905b1be56e154f8db2d6f764f00",
+    "suite_progress.py": "7f317ddf0533b4fb5ac90d157c0008156e45d22648d15844f83451d5812fb24d",
     "suite_session.py": "f6802b74c40d2ae75682d9030feb20034aabd8c0bf44db734613a2ccdee6efd6",
     "test_autonomous_rest.py": "500492e43e6a4e6403fc8f2f25c13d5e9521f423d6543cd0f83dbd11053d84b3",
     "test_editor_state.py": "a42fd4e33facccf14865bbbdff602c7d19338793a9ab889d2d6fabd65e50c4c0",
-    "test_guided_suite.py": "10de5e4a2033beaa312d55e7a4b6c5e263e640e3bd953742a27c539056f06a51",
+    "test_guided_suite.py": "02cb28b471d70a16f468d551cd82049c63c059d56aada4f4713f612a8b9a95e4",
     "test_idle_preview.py": "7fe5d5150e91b233b7ad6cf5be972f9fed1f4fa6b5be6a9e2260efe4facbe44b",
     "test_launcher.py": "42008549453a9ce2df5dea49ac0eb1f0d5ab35af77b397605ca5880a73013e5f",
     "test_server_fix_probe.py": "4c0dcfd50026e452ef46dd4bfec75f0184a1418ba26cfa8b0b245edc8151aeab",
@@ -44,5 +44,10 @@
   "fullPackageStatus": "BLOCKED; not REVIEW_READY",
   "noRawPCM": true,
   "noRawTranscripts": true,
-  "noCredentials": true
+  "noCredentials": true,
+  "quietSamplingReserve": {
+    "uiSeconds": 7,
+    "requiredActualAudioObservationSeconds": 5,
+    "reason": "One-second native metrics cadence; no shutdown-time credit"
+  }
 }
