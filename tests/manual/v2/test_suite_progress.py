@@ -24,6 +24,7 @@ class LiveProgress(unittest.TestCase):
         self.assertNotIn(3, guide_progress('refresh', progress.snapshot(), 2)['confirmed'])
         progress.observe('command.completed', action='refresh', accepted=True, activationId='a',generation=0)
         self.assertNotIn('refresh.accepted', progress.snapshot()['counts'])
+        progress.observe('control.received',slot='primary',ready=True,phase='followup_wait')
         progress.observe('command.completed', action='refresh', accepted=True, activationId='a')
         self.assertEqual(progress.snapshot()['counts']['refresh.accepted'],1)
         self.assertNotIn(3, guide_progress('refresh', progress.snapshot(), 1)['confirmed'])
@@ -37,11 +38,22 @@ class LiveProgress(unittest.TestCase):
         progress.observe('wire',event=dict(type='activation.started',activationId='a',generation=1),now=0)
         progress.observe('wire',event=dict(type='segment.recording_started',generation=1),now=1)
         progress.observe('wire',event=dict(type='segment.recording_ended',generation=1),now=2)
+        progress.observe('control.received',slot='primary',ready=True,phase='followup_wait',now=2)
         progress.observe('command.completed',action='refresh',activationId='a',accepted=True,generation=1,now=3)
         before=guide_progress('refresh',progress.snapshot(now=4),1)
         self.assertEqual(before['waitRemaining'],2)
         self.assertIn('weiter schweigen',before['notice'])
         self.assertIn('JETZT ZWEITEN',guide_progress('refresh',progress.snapshot(now=6),1)['notice'])
+
+    def test_recording_refresh_does_not_prove_followup_refresh(self):
+        progress=ObservedProgress()
+        for name in ('activation.started','segment.recording_started','segment.recording_ended','segment.recording_started'):
+            progress.observe('wire',event=dict(type=name,activationId='a',generation=1))
+        progress.observe('control.received',slot='primary',ready=True,phase='segment_active')
+        progress.observe('command.completed',action='refresh',activationId='a',accepted=True,generation=1)
+        self.assertEqual(progress.snapshot()['counts']['refresh.accepted'],1)
+        self.assertNotIn('refresh.followup.accepted',progress.snapshot()['counts'])
+        self.assertNotIn(3,guide_progress('refresh',progress.snapshot(),2)['confirmed'])
 
     def test_finish_moves_after_activation_without_operator_next(self):
         progress = ObservedProgress()

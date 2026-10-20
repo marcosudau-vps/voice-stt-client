@@ -74,7 +74,7 @@ def observed_event(binding,event,elapsed):
         **safe_event(binding,event))
 
 
-async def run_case(name, kind, word, close_mode, expected):
+async def run_case(name, kind, word, close_mode, expected, *, press_control=None):
     from voice_stt_client.core import protocol_v2 as p
     from voice_stt_client.core.v2_transport import V2STTSession,V2TransportConfig
     from voice_stt_client.core.v2_mirror import V2MirrorConnection
@@ -92,6 +92,10 @@ async def run_case(name, kind, word, close_mode, expected):
     if refresh_probe:
         from voice_stt_client.core.v2_controls import V2ControlService
         controls = V2ControlService(session, mirror, audio_ready=lambda: session.is_ready)
+    async def press(slot):
+        if press_control is not None:
+            return await press_control(controls,mirror,slot)
+        return await controls.press(slot)
     events,hello,finals=[],[],[]
     runner=None
     start=time.monotonic()
@@ -160,7 +164,7 @@ async def run_case(name, kind, word, close_mode, expected):
     try:
         await ready()
         if refresh_probe:
-            activated = await controls.press('primary')
+            activated = await press('primary')
             assert activated is not None and activated.ack.accepted
             aid = activated.ack.activationId
             await ready()
@@ -173,12 +177,12 @@ async def run_case(name, kind, word, close_mode, expected):
             before = mirror.mirror.view.input.deadline.unix_ms
             await silence(2)
             assert mirror.mirror.view.input.phase == p.InputPhase.FOLLOWUP_WAIT
-            first = await controls.press('primary')
+            first = await press('primary')
             await ready()
             after = mirror.mirror.view.input.deadline.unix_ms
             remaining = mirror.mirror.view.input.deadline.remaining(time.monotonic())
             repeat_at = time.monotonic()
-            second = await controls.press('primary')
+            second = await press('primary')
             await ready()
             repeated = mirror.mirror.view.input.deadline.unix_ms
             repeat_ms = (time.monotonic()-repeat_at)*1000

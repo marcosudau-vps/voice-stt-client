@@ -24,6 +24,7 @@ class ObservedProgress:
         self.closed_at = None
         self.activation_id = None
         self.refresh_at = None
+        self.primary_phase = None
         self.seen, self.order = set(), deque()
 
     def observe(self, kind, *, now=None, **fields):
@@ -59,6 +60,8 @@ class ObservedProgress:
         elif kind == 'led.sink':
             self.counts['led.available' if fields.get('available') else 'led.unavailable'] += 1
         elif kind == 'control.received':
+            if fields.get('ready') and fields.get('slot') == 'primary':
+                self.primary_phase = fields.get('phase')
             if fields.get('ready') and fields.get('slot') == 'secondary' and fields.get('phase') != 'idle':
                 self.counts['secondary'] += 1
                 self.secondary_at = now
@@ -67,7 +70,9 @@ class ObservedProgress:
                     and self.activation_id is not None
                     and fields.get('activationId') == self.activation_id):
                 self.counts['refresh.accepted'] += 1
-                self.refresh_at = now
+                if self.primary_phase == 'followup_wait':
+                    self.counts['refresh.followup.accepted'] += 1
+                    self.refresh_at = now
         elif kind == 'runtime.view':
             self.ready = bool(fields.get('ready'))
         elif kind == 'metrics':
@@ -140,12 +145,12 @@ def guide_progress(task, observed, pastes):
             if activated:
                 confirmed.add(2)
             if (recording >= (1 if task == 'finish' else 2) and activated == 1
-                    and (task != 'refresh' or c.get('refresh.accepted',0))):
+                    and (task != 'refresh' or c.get('refresh.followup.accepted',0))):
                 confirmed.add(3)
-        if task == 'refresh' and c.get('refresh.accepted',0) and recording >= 2 and activated == 1:
+        if task == 'refresh' and c.get('refresh.followup.accepted',0) and recording >= 2 and activated == 1:
             active = 4
             confirmed.add(3)
-        elif task == 'refresh' and c.get('refresh.accepted',0) and not secondary and not closed:
+        elif task == 'refresh' and c.get('refresh.followup.accepted',0) and not secondary and not closed:
             wait = observed.get('refreshWaitRemaining')
             notice = ('REFRESH BESTÄTIGT – weiter schweigen.' if wait != 0
                 else 'JETZT ZWEITEN SATZ SPRECHEN.')
@@ -157,8 +162,8 @@ def guide_progress(task, observed, pastes):
             confirmed.add(4)
         if closed and not secondary:
             notice = 'Kein F9 während der Eingabe bestätigt; der Finish-Schritt bleibt offen.'
-        if task == 'refresh' and not c.get('refresh.accepted',0) and (secondary or closed):
-            notice += ' Kein serverbestätigtes Refresh; dieser Schritt bleibt offen.'
+        if task == 'refresh' and not c.get('refresh.followup.accepted',0) and (c.get('refresh.accepted',0) or secondary or closed):
+            notice += ' Kein Nachsprech-Refresh bestätigt; Refresh während Aufnahme ist ein anderer Teilfall.'
     elif task == 'cancel':
         if recording:
             active, confirmed = 3, {2}

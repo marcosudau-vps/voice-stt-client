@@ -207,3 +207,15 @@ bleiben unverändert. Nach erstem Satz/Sprachende erneut F8, tatsächlichen
 „REFRESH BESTÄTIGT“-Ack und3sCountdown abwarten, erst bei der Sprechaufforderung
 den zweiten Satz sprechen. Ein Refresh-Häkchen braucht ein akzeptiertes Command
 der aktuellen Activation; zwei Segmente plus Finish allein reichen nicht.
+
+`venv/Scripts/python.exe -m tests.manual.v2.native_refresh_probe --expected-server-commit <voller SHA> --output build/<eigener Lauf>`
+ergänzt die automatische native Windowskette: eigene erfolgreiche Registrierung
+von Ctrl+Shift+F8, atomare SendInput-Impulse, tatsächliche WM_HOTKEY-/Qt-Zustellung,
+Controls im separaten asyncio-Thread und zwei reale ASR-/Nachsprechfälle bei5000ms.
+Gehaltene Modifiertasten/F8 oder belegte Registrierung brechen ab; verspätete
+Zustellung darf keine spätere Session/Generation/Phase/Activation adressieren.
+Keine Mikrofonaufnahme, Zwischenablage, Sound oder Server-Lifecycleoperation.
+Synthetische OS-Impulse werden ausdrücklich von menschlichen Tastendrücken
+unterschieden. Ein Refresh während `segment_active` ist ein Watchdog-Teilfall;
+es bestätigt keinen Refresh des Nachsprechfensters. Die Testanzeige zählt
+diese beiden Phasen getrennt.

@@ -468,3 +468,8 @@ Kein vollständiger M-/Frozen-/Both-/Nutzsprach-/30min100-PASS.
 ## AP-IV2-020/R01 – Controls/Logs,20.10.2026
 
 [Bericht30](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/30_CONTROLS_LOGANSICHT_UND_REFRESH.md): Denkpause mit2Segmenten/F9/2exakten nativen Einfügungen, Cancel mit82,969s weiterer Audioübertragung ohne Ausgabe und menschlich ausdrücklich bestätigte Server-/Tab-/Logansicht PASS_SCOPED; T01 geschlossen. Native Refreshprobe enthielt kein Refresh und bleibt NOT_PROVEN, lieferte aber korrekt gebundenen Altfinal-nach-Neustart-Beleg203ms. Zwei autonome reale ASR-/Controls-/Deadline-Refreshfälle PASS_SCOPED. T04-Testhäkchenfehler mit Regression/Qt korrigiert; nur native Refreshprobe entspannt erneut vorbereiten, übrige vollständige Gates offen. REAL-01/02/04/06 und volle M-Gates bleiben Teilqualifikation.
+
+
+## AP-IV2-020/R01 – native Refreshpfade,20.10.2026
+
+[Bericht31](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/31_REFRESH_AUFNAHME_UND_NATIVER_NACHSPRECHPFAD.md): Menschlicher nativer F8-Refresh während segment_active, F9/Finish und2exakte native Einfügungen derselben Activation PASS_SCOPED; menschlicher15sNachsprechfall bleibt phasenbedingt NOT_PROVEN. Ohne weitere menschliche Wiederholung:2reale native Windows→WM_HOTKEY→Qt→Controls→ASR-Nachsprechfälle bei5000ms/6Callbacks PASS_SCOPED, Fristverlängerung/nichtadditives Wiederholen/Timeout bestätigt. T04 unterscheidet Phasen;56Helfer/Qt PASS, bytegleiches Produkt0f6c85e behält1400Windows/0Skips.21hashgesicherte Aufräumreste automatisch gesperrt. REAL-01/04/06 und volle M-Gates bleiben Teilqualifikation.

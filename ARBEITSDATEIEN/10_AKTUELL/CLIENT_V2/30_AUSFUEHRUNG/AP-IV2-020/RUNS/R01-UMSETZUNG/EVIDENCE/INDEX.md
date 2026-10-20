@@ -1,3 +1,9 @@
+## Native Refreshpfade –20.10.2026
+
+- [Menschlicher Aufnahme-Refresh](refresh-native-20261020/human-attempt.json), [Quellherkunft](refresh-native-20261020/source-identity.json), [stabile Info](refresh-native-20261020/server-info-after.json), [Ereignisse](refresh-native-20261020/events.jsonl.gz).
+- [Zwei endgültige native OS-/ASR-Nachsprechfälle](refresh-native-20261020/native-followup.json), [erster erfolgreicher Lauf](refresh-native-20261020/native-first.json), [Protokoll](refresh-native-20261020/native.log.gz).
+- [56Helfer](refresh-native-20261020/helpers.log.gz), [Qt](refresh-native-20261020/qt.log.gz), [Validierung](refresh-native-20261020/validation.json), [Aufräumen](refresh-native-20261020/cleanup.json), [Exportmanifest](refresh-native-20261020/export-manifest.json), [Bericht31](../31_REFRESH_AUFNAHME_UND_NATIVER_NACHSPRECHPFAD.md).
+
 ## Controls/Logs und Refresh –20.10.2026
 
 - [Sechs tatsächliche Versuche](controls-live-20261020/attempts.json), [Herkunft](controls-live-20261020/source-identity.json), [stabile Info](controls-live-20261020/server-info-after.json).

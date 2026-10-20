@@ -48,6 +48,14 @@
           "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
           "evidence": "controls-live-20261020/attempts.json",
           "boundaries": "Source native2segment/Finish, Cancel, connected settings/log perception; partial A-final/B-start overlap. Native Refresh NOT_PROVEN; autonomous real ASR/Controls Refresh separate. Full M-gate stays open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "313ab04aef5f4f9154ab862b58bd803e60f5e05a",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "refresh-native-20261020/validation.json",
+          "boundaries": "Human recording-phase Refresh/Finish/exact2native pastes; automated actual Win32/Qt/Controls followup Refresh+real ASR5000ms. Human15s followup NOT_PROVEN; full M-gates remain open."
         }
       ]
     },
@@ -167,6 +175,14 @@
           "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
           "evidence": "controls-live-20261020/attempts.json",
           "boundaries": "Source native2segment/Finish, Cancel, connected settings/log perception; partial A-final/B-start overlap. Native Refresh NOT_PROVEN; autonomous real ASR/Controls Refresh separate. Full M-gate stays open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "313ab04aef5f4f9154ab862b58bd803e60f5e05a",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "refresh-native-20261020/validation.json",
+          "boundaries": "Human recording-phase Refresh/Finish/exact2native pastes; automated actual Win32/Qt/Controls followup Refresh+real ASR5000ms. Human15s followup NOT_PROVEN; full M-gates remain open."
         }
       ]
     },
@@ -442,6 +458,14 @@
           "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
           "evidence": "controls-live-20261020/attempts.json",
           "boundaries": "Source native2segment/Finish, Cancel, connected settings/log perception; partial A-final/B-start overlap. Native Refresh NOT_PROVEN; autonomous real ASR/Controls Refresh separate. Full M-gate stays open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "313ab04aef5f4f9154ab862b58bd803e60f5e05a",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "refresh-native-20261020/validation.json",
+          "boundaries": "Human recording-phase Refresh/Finish/exact2native pastes; automated actual Win32/Qt/Controls followup Refresh+real ASR5000ms. Human15s followup NOT_PROVEN; full M-gates remain open."
         }
       ],
       "previousProductResult": "FAIL at 17261e6; preserved in attempts/evidence"

@@ -1,4 +1,4 @@
-## Aktuelle Checkliste – Controls/Logs bestätigt, native Refreshprobe offen,20.10.2026
+## Aktuelle Checkliste – native Refreshpfade bestätigt,20.10.2026
 
 - [x] Geführte11Aufgaben samt Wiederholungen fallgenau ausgewertet.
 - [x] R11: physische USB-Recovery am korrigierten Sourceprodukt bestätigt.
@@ -20,15 +20,18 @@
 - [x] T01: Serverziel, Logging/Verlauf/Feedback und echte Logs ausdrücklich menschlich bestätigt.
 - [x] Autonomer realer ASR-/Controls-Refresh bei5000ms inkl. nichtkumulativer Fristverlängerung.
 - [x] T04: Refresh-Häkchen braucht echte serverbestätigte Aktion;52Helfer/Qt und neue1400Windows/0Skips PASS.
-- [ ] Nur native Refreshprobe neu: eigener Start,15sTestfenster, Ack/Countdown vor Satz2.
+- [x] Menschlicher nativer Refresh während Aufnahme/Finish/2Einfügungen.
+- [x] Nachsprech-Refresh bei5000ms über echte Windows-/WM_HOTKEY-/Qt-Kette und reale ASR automatisiert bestätigt.
+- [x] Phasengenauer Observer und56Helfer/Qt PASS; keine weitere Refresh-Sprechwiederholung.
+- [ ] Nächster eigener Startblock: Hardware-Mute und bewusstes Reinsert am aktuellen Paar.
 - [ ] Controlsphasen/Watchdog/Runpausen und zugehörige Zusammenspiele vollständig qualifizieren.
 - [ ] Netz-/Logstore-/Pendingfinal- und Settingswechsel-Fälle vervollständigen.
 - [ ] Native Credential-/Admin-, Frozen-/erhöhte Zielanwendungs-/Clipboard-/Prozessfälle abschließen.
 - [ ] Nach jetzt verifiziertem W01-FIX: vollständige reale Wake-/Both-/Nutzsprachgrenzen und30min100-Gate abschließen.
-- [ ] Zwanzig gesicherte beendete externe Ordner aufräumen: automatische Prüfung blockiert Löschen.
+- [ ] Einundzwanzig gesicherte beendete externe Ordner aufräumen: automatische Prüfung blockiert Löschen.
 - [ ] Erst bei vollständigen Pflichtnachweisen REVIEW_READY; danach unabhängige Abnahme.
 
-[Aktueller Controls-/Logabschluss](30_CONTROLS_LOGANSICHT_UND_REFRESH.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
+[Aktuelle Refresh-Nachweise](31_REFRESH_AUFNAHME_UND_NATIVER_NACHSPRECHPFAD.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
 Nachfolgende Abschnitte sind ältere, ihrem jeweiligen Stand zugeordnete Checklisten.
 
 ## Korrigierte Liveführung – Wiederholung Aufgabe1,19.10.2026

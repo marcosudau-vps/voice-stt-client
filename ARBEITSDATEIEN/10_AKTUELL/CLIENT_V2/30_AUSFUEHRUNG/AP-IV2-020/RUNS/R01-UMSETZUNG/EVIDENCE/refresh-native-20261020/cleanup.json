@@ -1,0 +1,10 @@
+{
+  "state": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+  "reason": "blocked by policy",
+  "newStoppedArchivedTargets": [
+    "suite-20261020-205733-b224a6"
+  ],
+  "totalStoppedArchivedDirectoriesPending": 21,
+  "previousTwenty": "See ../controls-live-20261020/cleanup.json; not retried",
+  "noRetryOrWorkaround": true
+}

@@ -485,6 +485,7 @@ def main():
                 tick()
                 assert not labels[3].text().startswith('✓'), 'Two finals/Finish cannot prove Refresh'
                 counts['refresh.accepted']=1
+                counts['refresh.followup.accepted']=1
                 save(attempt_folder/'status.json',dict(timeUtc=datetime.now(UTC).isoformat(),
                     ready=True,audioAvailable=True,generation=1,phase='idle',operatorProgress={'counts':counts}))
                 tick()
