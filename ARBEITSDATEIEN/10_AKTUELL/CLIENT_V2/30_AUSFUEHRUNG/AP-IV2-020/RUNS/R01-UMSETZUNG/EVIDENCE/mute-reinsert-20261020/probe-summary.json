@@ -1,0 +1,367 @@
+{
+  "pause-first": {
+    "result": "PASS_SCOPED",
+    "cases": 2,
+    "rows": [
+      {
+        "case": "alexa_pause-pause_recovery-cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 55.828,
+        "checks": {
+          "exactlyThreeActivations": true,
+          "distinctActivationIds": true,
+          "exactlyTwoWakeHits": true,
+          "selectedWake": true,
+          "sources": true,
+          "threeDistinctSessions": true,
+          "threeClosures": true,
+          "threeCancelled": true,
+          "noActivationFromPausedFixtureReplay": true,
+          "confirmedMasksAtAllSamples": true,
+          "preferencesPreserved": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "jarvis_direct-pause_recovery-cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 59.14,
+        "checks": {
+          "exactlyThreeActivations": true,
+          "distinctActivationIds": true,
+          "exactlyTwoWakeHits": true,
+          "selectedWake": true,
+          "sources": true,
+          "threeDistinctSessions": true,
+          "threeClosures": true,
+          "threeCancelled": true,
+          "noActivationFromPausedFixtureReplay": true,
+          "confirmedMasksAtAllSamples": true,
+          "preferencesPreserved": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      }
+    ]
+  },
+  "overlap-failed": {
+    "result": "FAIL",
+    "cases": 1,
+    "rows": [
+      {
+        "case": "alexa_pause-pause_recovery-cancel",
+        "result": "FAIL",
+        "seconds": 67.187,
+        "checks": {
+          "exactlyThreeActivations": false,
+          "distinctActivationIds": false,
+          "exactlyTwoWakeHits": false,
+          "selectedWake": true,
+          "sources": false,
+          "threeDistinctSessions": true,
+          "threeClosures": true,
+          "threeCancelled": true,
+          "noActivationFromPausedFixtureReplay": true,
+          "confirmedMasksAtAllSamples": true,
+          "preferencesPreserved": true,
+          "noWakeReactivationInsideManualInput": false,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      }
+    ]
+  },
+  "overlap-repeat": {
+    "result": "FAIL",
+    "cases": 1,
+    "rows": [
+      {
+        "case": "alexa_pause-pause_manual_boundary-cancel",
+        "result": "FAIL",
+        "seconds": 67.0,
+        "checks": {
+          "exactlyThreeActivations": false,
+          "distinctActivationIds": false,
+          "exactlyTwoWakeHits": false,
+          "selectedWake": true,
+          "sources": false,
+          "threeDistinctSessions": true,
+          "threeClosures": true,
+          "threeCancelled": true,
+          "noActivationFromPausedFixtureReplay": true,
+          "confirmedMasksAtAllSamples": true,
+          "preferencesPreserved": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      }
+    ]
+  },
+  "boundary-first": {
+    "result": "FAIL",
+    "cases": 6,
+    "rows": [
+      {
+        "case": "alexa_pause-manual_boundary-cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 20.656,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "alexa_pause-manual_boundary-finish",
+        "result": "PASS_SCOPED",
+        "seconds": 19.391,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "alexa_pause-manual_boundary-silent_cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 20.609,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "jarvis_direct-manual_boundary-cancel",
+        "result": "FAIL",
+        "seconds": 13.407,
+        "checks": null,
+        "error": "Explicit close rejected"
+      },
+      {
+        "case": "jarvis_direct-manual_boundary-finish",
+        "result": "FAIL",
+        "seconds": 12.187,
+        "checks": null,
+        "error": "Explicit close rejected"
+      },
+      {
+        "case": "jarvis_direct-manual_boundary-silent_cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 20.609,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      }
+    ]
+  },
+  "pause-confirmed": {
+    "result": "PASS_SCOPED",
+    "cases": 2,
+    "rows": [
+      {
+        "case": "alexa_pause-pause_recovery-cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 57.125,
+        "checks": {
+          "exactlyThreeActivations": true,
+          "distinctActivationIds": true,
+          "exactlyTwoWakeHits": true,
+          "selectedWake": true,
+          "sources": true,
+          "threeDistinctSessions": true,
+          "threeClosures": true,
+          "threeCancelled": true,
+          "noActivationFromPausedFixtureReplay": true,
+          "confirmedMasksAtAllSamples": true,
+          "preferencesPreserved": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "jarvis_direct-pause_recovery-cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 57.328,
+        "checks": {
+          "exactlyThreeActivations": true,
+          "distinctActivationIds": true,
+          "exactlyTwoWakeHits": true,
+          "selectedWake": true,
+          "sources": true,
+          "threeDistinctSessions": true,
+          "threeClosures": true,
+          "threeCancelled": true,
+          "noActivationFromPausedFixtureReplay": true,
+          "confirmedMasksAtAllSamples": true,
+          "preferencesPreserved": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      }
+    ]
+  },
+  "boundary-relaxed": {
+    "result": "PASS_SCOPED",
+    "cases": 6,
+    "rows": [
+      {
+        "case": "alexa_pause-manual_boundary-cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 19.641,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "alexa_pause-manual_boundary-finish",
+        "result": "PASS_SCOPED",
+        "seconds": 19.297,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "alexa_pause-manual_boundary-silent_cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 19.937,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "jarvis_direct-manual_boundary-cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 19.094,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "jarvis_direct-manual_boundary-finish",
+        "result": "PASS_SCOPED",
+        "seconds": 19.797,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "jarvis_direct-manual_boundary-silent_cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 19.062,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      }
+    ]
+  },
+  "boundary-immediate": {
+    "result": "PASS_SCOPED",
+    "cases": 4,
+    "rows": [
+      {
+        "case": "alexa_pause-manual_boundary-immediate_cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 18.812,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "alexa_pause-manual_boundary-immediate_finish",
+        "result": "PASS_SCOPED",
+        "seconds": 17.422,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "jarvis_direct-manual_boundary-immediate_cancel",
+        "result": "PASS_SCOPED",
+        "seconds": 17.25,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      },
+      {
+        "case": "jarvis_direct-manual_boundary-immediate_finish",
+        "result": "PASS_SCOPED",
+        "seconds": 17.344,
+        "checks": {
+          "oneManualActivation": true,
+          "noWakeEvent": true,
+          "intendedClose": true,
+          "noPendingCommands": true,
+          "effectivePreferences": true
+        },
+        "error": null
+      }
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-## Aktuelle Checkliste – native Refreshpfade bestätigt,20.10.2026
+## Aktuelle Checkliste – Mute/Reinsert bestätigt, BOTH folgt,20.10.2026
 
 - [x] Geführte11Aufgaben samt Wiederholungen fallgenau ausgewertet.
 - [x] R11: physische USB-Recovery am korrigierten Sourceprodukt bestätigt.
@@ -23,15 +23,19 @@
 - [x] Menschlicher nativer Refresh während Aufnahme/Finish/2Einfügungen.
 - [x] Nachsprech-Refresh bei5000ms über echte Windows-/WM_HOTKEY-/Qt-Kette und reale ASR automatisiert bestätigt.
 - [x] Phasengenauer Observer und56Helfer/Qt PASS; keine weitere Refresh-Sprechwiederholung.
-- [ ] Nächster eigener Startblock: Hardware-Mute und bewusstes Reinsert am aktuellen Paar.
+- [x] Hardware-Mute27,297s/zehn blockierte F8, bewusste Freigabe/neues Diktat exakt einmal.
+- [x] Bewusstes Reinsert:1Final/Historyeintrag,1automatische+1manuelle native Ausgabe.
+- [x] Aktive Wake-Modelle und bestätigte Runpausen über Reconnect/eigenen TCP-Abbruch.
+- [ ] W02: Zusatzwake nach überlagerter Pause-/Recovery-/manueller Wakeaudio-/Cancelfolge zweimal reproduziert; Ursachen-/Serverkorrekturweg offen.
+- [ ] Nächster eigener Startblock BOTH: Manual, Alexa direkt, Hey Jarvis direkt.
 - [ ] Controlsphasen/Watchdog/Runpausen und zugehörige Zusammenspiele vollständig qualifizieren.
 - [ ] Netz-/Logstore-/Pendingfinal- und Settingswechsel-Fälle vervollständigen.
 - [ ] Native Credential-/Admin-, Frozen-/erhöhte Zielanwendungs-/Clipboard-/Prozessfälle abschließen.
 - [ ] Nach jetzt verifiziertem W01-FIX: vollständige reale Wake-/Both-/Nutzsprachgrenzen und30min100-Gate abschließen.
-- [ ] Einundzwanzig gesicherte beendete externe Ordner aufräumen: automatische Prüfung blockiert Löschen.
+- [ ] Zweiundzwanzig gesicherte beendete externe Ordner aufräumen: automatische Prüfung blockiert Löschen.
 - [ ] Erst bei vollständigen Pflichtnachweisen REVIEW_READY; danach unabhängige Abnahme.
 
-[Aktuelle Refresh-Nachweise](31_REFRESH_AUFNAHME_UND_NATIVER_NACHSPRECHPFAD.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
+[Aktuelle Mute-/Reinsert-/Wakepausen-Nachweise](32_MUTE_REINSERT_UND_WAKEPAUSEN.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
 Nachfolgende Abschnitte sind ältere, ihrem jeweiligen Stand zugeordnete Checklisten.
 
 ## Korrigierte Liveführung – Wiederholung Aufgabe1,19.10.2026

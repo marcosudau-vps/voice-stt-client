@@ -1,10 +1,24 @@
 import unittest
 from copy import deepcopy
-from tests.manual.v2.verify_server_fix import check_identity,assess_rearm,cases,observed_event
+from tests.manual.v2.verify_server_fix import check_identity,assess_rearm,cases,observed_event,recovery_cases,manual_boundary_cases
 from types import SimpleNamespace
 
 
 class ProbeChecks(unittest.TestCase):
+    def test_manual_boundary_diagnostic_covers_both_words_and_silent_controls(self):
+        rows=manual_boundary_cases()
+        self.assertEqual(len(rows),6)
+        for word in ('alexa','hey_jarvis'):
+            self.assertEqual({r[3] for r in rows if r[2]==word},{'cancel','finish','silent_cancel'})
+        immediate=manual_boundary_cases(True)
+        self.assertEqual(len(immediate),4)
+        self.assertEqual({r[3] for r in immediate},{'immediate_cancel','immediate_finish'})
+
+    def test_recovery_matrix_covers_both_real_selected_wake_models(self):
+        self.assertEqual(recovery_cases(),[('alexa_pause','pause_recovery','alexa','cancel'),
+            ('jarvis_direct','pause_recovery','hey_jarvis','cancel')])
+        self.assertEqual(len(cases()),13)
+
     def test_snapshot_with_its_own_session_id_preserves_both_identities(self):
         record=observed_event(SimpleNamespace(generation=1,session_id='session'),
             SimpleNamespace(type='snapshot',payload={'sessionId':'session','logAccess':'excluded'}),1.25)

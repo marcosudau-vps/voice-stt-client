@@ -117,10 +117,29 @@ for key, word, silent in [('wake_alexa','Alexa',False), ('wake_jarvis','Hey Jarv
 
 ALL_TASKS = TASKS + WAKE_TASKS
 
+
+def both_tasks(tasks):
+    """Explicit test recipe; do not mutate default Manual/Wake plans."""
+    result=[]
+    for original in tasks:
+        item=dict(original,both=True,title='BOTH · '+original['title'])
+        if original.get('wake'):
+            word='Hey Jarvis' if original['id']=='wake_jarvis' else 'Alexa'
+            sentence=('Der blaue Becher steht auf dem Tisch.' if word=='Alexa'
+                else 'Die grüne Lampe steht neben dem Fenster.')
+            item.update(phrase=word+' '+sentence,steps=[
+                'Nach CLIENT BEREIT und Vorbereitung den grünen Satz mit Rufwort sprechen. KEINE bewusste Pause zwischen Rufwort und Nutzsatz.',
+                'Danach schweigen, Text und natürlichen Eingabeschluss abwarten. Kein Hotkey nötig.',
+                'Ruheprüfung abwarten, dann Versuch beenden und übernehmen.'],
+                expected='BOTH: nur „'+sentence+'“ wird vollständig genau einmal eingefügt, ohne Rufwort; keine zusätzliche Activation.')
+            item['title']='BOTH · '+word+' mit Nutzsprache'
+        result.append(item)
+    return result
+
 DEFERRED = [
     'W01: konkreter Folgetrigger nach Fix in13Modellfällen und3aktuellen Mikrofon-/Soundkontrollen nicht mehr aufgetreten. Offen bleiben vollständige Wake-/Both-Parität und30min100.',
     'M-04: weitere Phasenkombinationen, Hotkey-Kollision und realer Watchdog bleiben gesonderte technische Nachweise.',
-    'M-05: idle-Pausen/Reconnect/Neustart nachgewiesen; aktivierte Wakeengine und weitere Kombinationen noch offen.',
+    'M-05: idle-Runtime und aktive Wake-Modelle/Controls-Pausen/Reconnect nachgewiesen; native Wake-/Mikrofon-/Frozen-Kombinationen und W02 offen.',
     'M-06: USB-Recovery und LED-only bei idle nachgewiesen; offener Input/Altfinal-Kombinationen noch offen.',
     'M-07: Netzverlust mit offenem Preview/Final und separater Logstore-Ausfall bleiben eigene Faulttests; kein fremder Serverstopp.',
     'M-08: Cancel/Finish/Vormerken einer Sessionänderung bei Aufnahme und ausstehendem Final separat vorbereiten.',

@@ -17,7 +17,7 @@ import time
 import uuid
 
 from tests.manual.v2.suite_plan import (
-    select_tasks, DEFERRED, ROOT, RUNTIME, PROFILE_RUNTIME, TARGET, PREPARE_SECONDS, SuiteRecord, owned_path, target_origin)
+    select_tasks, both_tasks, DEFERRED, ROOT, RUNTIME, PROFILE_RUNTIME, TARGET, PREPARE_SECONDS, SuiteRecord, owned_path, target_origin)
 from tests.manual.v2.suite_session import save
 from tests.manual.v2.suite_analysis import summarize
 from tests.manual.v2.suite_progress import guide_progress, wake_stop_delay
@@ -29,10 +29,13 @@ def main():
     parser.add_argument('--profile-runtime', action='store_true',
         help='Use dedicated Windows-profile runtime only after explicit human authorization; otherwise preview only')
     parser.add_argument('--tasks', nargs='+', help='Only these task IDs, each with its own Start')
+    parser.add_argument('--both', action='store_true', help='Explicit combined manual/Wake candidate with 320ms pre-roll')
     parser.add_argument('--server-info', type=Path, help='Saved current /api/v2/info in this repository; bind child Hello to its commit')
     args = parser.parse_args()
     try:
         TASKS = select_tasks(args.tasks)
+        if args.both:
+            TASKS = both_tasks(TASKS)
     except ValueError as error:
         parser.error(str(error))
     server_info = None
@@ -44,7 +47,7 @@ def main():
         from tests.manual.v2.verify_server_fix import check_identity
         if not check_identity(server_info, server_info.get('serverCommit')):
             parser.error('Incomplete or mismatched Pro-V2 identity evidence')
-    if any(t.get('wake') for t in TASKS) and not server_info and not args.self_check:
+    if any(t.get('wake') or t.get('both') for t in TASKS) and not server_info and not args.self_check:
         parser.error('Wake requalification requires current --server-info evidence')
     RUNTIME.mkdir(parents=True, exist_ok=True)
     base = PROFILE_RUNTIME if args.profile_runtime else RUNTIME
@@ -275,6 +278,8 @@ def main():
         argv = [sys.executable, '-u', '-m', 'tests.manual.v2.suite_session',
                 '--folder', str(attempt_folder), '--editor-state', str(folder/'editor-state.json'),
                 '--target', TARGET, '--task', TASKS[index]['id'], '--device', str(device['index'])]
+        if TASKS[index].get('both'):
+            argv += ['--both']
         if server_info:
             argv += ['--expected-server-commit',server_info['serverCommit']]
         try:

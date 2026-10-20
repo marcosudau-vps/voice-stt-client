@@ -1,0 +1,88 @@
+{
+  "result": "TWO_PASS_SCOPED",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "sourceHead": "fbd0d2a25a542f267e32e2ab3d7f9e9fa2cebf0d",
+  "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "attempts": [
+    {
+      "taskId": "mute",
+      "attemptId": "f357a06f2c374bdb9e7d4fa528949f21",
+      "result": "PASS_SCOPED",
+      "sessionId": "a535bbb2-49c1-481d-a48a-bf9f91c16026",
+      "activationId": "5e51a6e5-d325-464d-b08c-48a01a3e7df4",
+      "segmentId": "ff5a3080-2b3f-4a9d-aa1d-a6389b7542a2",
+      "finalTextLength": 29,
+      "finalTextSha256": "cc419ed38657f84eabbea8b07048d9b1011f70f215c9e855c1b98836e59d6f97",
+      "expectedPasteSha256": "78ec7d95941170743fbdcc052cdce6bb563ebfa05ffc1da21d0f2255de498aa3",
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-20T19:21:48.296771+00:00",
+          "characters": 30,
+          "sha256": "78ec7d95941170743fbdcc052cdce6bb563ebfa05ffc1da21d0f2255de498aa3"
+        }
+      ],
+      "injections": [
+        {
+          "entryId": "0734f192e2884c279d827882c53839ea",
+          "status": "command_sent",
+          "source": "automatic"
+        }
+      ],
+      "humanObservation": "Wie erwartet",
+      "exitCode": 0,
+      "realAudioPackets": 1080,
+      "recordingEndToFinalMs": 500.0,
+      "finalReceiptToFirstPasteMs": 75.215,
+      "profileUnchanged": true,
+      "mutedRealObservationSeconds": 27.297,
+      "sentDuringMutedObservation": 521,
+      "blockedNativePrimaryCallbacks": 10,
+      "automaticStartAfterUnmute": false,
+      "boundary": "Real hardware mute while idle, blocked F8, release and conscious new dictation; no open-input/Wake/frozen combination proof"
+    },
+    {
+      "taskId": "reinsert",
+      "attemptId": "7f1b086c43d7453196b9d61c4c724869",
+      "result": "PASS_SCOPED",
+      "sessionId": "e9ed957e-5205-4960-920b-ec0ea638c46e",
+      "activationId": "0c410762-9b08-4f33-86fd-73c30a2ecdd4",
+      "segmentId": "07134aba-3884-4b45-9bac-7e639f32827b",
+      "finalTextLength": 49,
+      "finalTextSha256": "c916364a5f00e04ac935db298509d6ad816d695e9e007b539cf53b87eeca84d4",
+      "expectedPasteSha256": "4d0951459801f48be3a6dde4ee3ba4ab7eafb5f46a7432170a33a2da9ecbdf4d",
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-20T19:23:28.950591+00:00",
+          "characters": 50,
+          "sha256": "4d0951459801f48be3a6dde4ee3ba4ab7eafb5f46a7432170a33a2da9ecbdf4d"
+        },
+        {
+          "timeUtc": "2026-10-20T19:23:31.599644+00:00",
+          "characters": 50,
+          "sha256": "4d0951459801f48be3a6dde4ee3ba4ab7eafb5f46a7432170a33a2da9ecbdf4d"
+        }
+      ],
+      "injections": [
+        {
+          "entryId": "b227e2fbd9384790b4f073afc68772ac",
+          "status": "command_sent",
+          "source": "automatic"
+        },
+        {
+          "entryId": "b227e2fbd9384790b4f073afc68772ac",
+          "status": "command_sent",
+          "source": "manual"
+        }
+      ],
+      "humanObservation": "Wie erwartet",
+      "exitCode": 0,
+      "realAudioPackets": 1183,
+      "recordingEndToFinalMs": 953.0,
+      "finalReceiptToFirstPasteMs": 70.681,
+      "profileUnchanged": true,
+      "boundary": "Source own normal-privilege editor: one actual Final, one automatic and one conscious manual reinsertion. No elevated app/clipboard-race/crash qualification"
+    }
+  ],
+  "tester": "marco: real hardware/speech/keys/perception; Codex: wire/config/IDs/native hashes/DB metadata/metrics",
+  "fullPackageStatus": "BLOCKED"
+}

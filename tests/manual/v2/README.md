@@ -219,3 +219,34 @@ Synthetische OS-Impulse werden ausdrücklich von menschlichen Tastendrücken
 unterschieden. Ein Refresh während `segment_active` ist ein Watchdog-Teilfall;
 es bestätigt keinen Refresh des Nachsprechfensters. Die Testanzeige zählt
 diese beiden Phasen getrennt.
+
+## Wakepause, Recovery und expliziter BOTH-Kandidat
+
+`verify_server_fix --pause-recovery-only --expected-server-commit <voller SHA> --output build/<eigener Lauf>`
+prüft beide echten Wake-Modelle mit denselben autorisierten Sprachfixtures:
+unabhängige Runpausen, bestätigte Masken über manuellen Reconnect und Abbruch
+nur des eigenen TCP-Sockets, blockierter Primary und bewusste Wiederfreigabe.
+Das ist ein Controls-/Settings-/Mirror-/TLS-Modellnachweis, kein nativer
+Mikrofon-/Hardware-Mute-/Frozen-Nachweis.
+
+`verify_server_fix --manual-boundary-only --expected-server-commit <voller SHA> --output build/<eigener Lauf>`
+diagnostiziert die Grenze nach manueller Aufnahme im BOTH-Modus: positives
+Wakefixture oder gleichlange digitale Stille, zwei Sekunden Stille vor
+Finish/Cancel, sieben Sekunden danach. Diese Diagnose verwendet15000msFollow-up,
+damit nicht schon der Stimulus die Aufnahme natürlich schließt. Das ist kein
+5000msBediennachweis. Mit `--immediate-close` entfallen die zwei zusätzlichen
+Sekunden vor dem Abschluss (vier Fälle). Alle sechs Standardfälle werden auch bei
+Fehlern aufgezeichnet; FAIL bleibt FAIL. Kein Server-Lifecycleeingriff.
+
+`--pause-manual-boundary-only` führt die Pause-/Reconnectfolge mit5000ms aus
+und spielt zusätzlich das positive Fixture innerhalb der letzten manuellen
+Activation. Diese überlagerte Folge bleibt als eigener Fehler-/Risikotest erhalten;
+ein erfolgreicher einfacher Kontrollfall ersetzt ihren Nachweis nicht.
+
+Die geführte Oberfläche akzeptiert ausdrücklich `--both --tasks finish wake_alexa wake_jarvis`
+zusätzlich zu `--profile-runtime --server-info <aktuelle Projekt-Evidenzdatei>`.
+Nur diese isolierten Aufgaben aktivieren Manual und beide Wake-Modelle gemeinsam,
+mit5000msNachsprechen und320msPre-Roll als zu prüfendem Kandidaten. Die beiden
+Wakeaufgaben zeigen Rufwort und Nutzsatz vor dem eigenen Start; ohne absichtliche
+Pause sprechen. Die Standardaufgaben bleiben unverändert. Frühere Liveprofile
+ohne explizites Pre-Roll werden dadurch nicht rückwirkend zu320msNachweisen.

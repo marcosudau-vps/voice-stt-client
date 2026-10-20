@@ -44,9 +44,12 @@ def prepare_profile(folder, target, task, device):
     config = AppConfig._load_single(DEFAULT_CONFIG_PATH)
     config.server.url, config.server.health_url = target, origin+'/health'
     config.audio.device = device
-    wake = bool(task.get('wake'))
-    profile = V2Profile(manual=not wake, wake_word=wake, wake_word_ids=['hey_jarvis','alexa'] if wake else [],
-                        desired_settings={'activation.followupTimeoutMs': task.get('followup_ms',5000)})
+    wake = bool(task.get('wake') or task.get('both'))
+    desired={'activation.followupTimeoutMs': task.get('followup_ms',5000)}
+    if task.get('both'):
+        desired['wakeWord.preRollMs']=320  # existing replay-supported live candidate
+    profile = V2Profile(manual=bool(task.get('both')) or not wake, wake_word=wake,
+                        wake_word_ids=['hey_jarvis','alexa'] if wake else [],desired_settings=desired)
     profile.controls.update(primary_key='Ctrl+Shift+F8', secondary_key='Ctrl+Shift+F9',
                             secondary_action=task['secondary'], wake_pause_key='Ctrl+Shift+F10',
                             reinsert_last_key='Ctrl+Shift+F11', overlay_toggle_key='Ctrl+Shift+F12')
@@ -102,6 +105,7 @@ def main():
     parser.add_argument('--task', choices=[task['id'] for task in ALL_TASKS], required=True)
     parser.add_argument('--device', type=int, required=True)
     parser.add_argument('--expected-server-commit')
+    parser.add_argument('--both',action='store_true',help='Explicit test recipe Manual+Wake with320ms pre-roll candidate')
     parser.add_argument('--smoke', action='store_true', help='Autonomous real audio precheck; no keys/sounds/activation; LEDs only with --led-only-fault')
     parser.add_argument('--led-only-fault', action='store_true', help='With --smoke: stop only native LED transport; keep real audio running')
     args = parser.parse_args()
@@ -110,7 +114,9 @@ def main():
     target_origin(args.target)
     folder, editor_state = owned_path(args.folder), owned_path(args.editor_state)
     task = next(task for task in ALL_TASKS if task['id'] == args.task)
-    if args.smoke and task.get('wake'):
+    if args.both:
+        task=dict(task,both=True)
+    if args.smoke and (task.get('wake') or task.get('both')):
         parser.error('Autonomous native smoke must not enable wake triggers')
     folder.mkdir(parents=True, exist_ok=True)
     os.environ['VOICESTT_CLIENT_HOME'] = str(folder/'client')

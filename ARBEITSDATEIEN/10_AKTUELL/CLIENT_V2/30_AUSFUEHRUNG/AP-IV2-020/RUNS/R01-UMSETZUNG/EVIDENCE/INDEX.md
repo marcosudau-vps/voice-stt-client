@@ -1,3 +1,9 @@
+## Hardware-Mute/Reinsert und aktive Wakepause –20.10.2026
+
+- [Beide menschlichen Versuche](mute-reinsert-20261020/attempts.json), [Herkunft](mute-reinsert-20261020/source-identity.json), [Info](mute-reinsert-20261020/server-info-after.json).
+- [Diagnoseresultate](mute-reinsert-20261020/probe-summary.json), [endgültige Wakepausen](mute-reinsert-20261020/pause-confirmed.json), [W02 erster FAIL](mute-reinsert-20261020/overlap-failed.json), [W02 wiederholter FAIL](mute-reinsert-20261020/overlap-repeat.json).
+- [Validierung](mute-reinsert-20261020/validation.json), [59Helfer](mute-reinsert-20261020/helpers.log.gz), [Qt](mute-reinsert-20261020/qt.log.gz), [Aufräumen](mute-reinsert-20261020/cleanup.json), [Manifest](mute-reinsert-20261020/export-manifest.json), [Bericht32](../32_MUTE_REINSERT_UND_WAKEPAUSEN.md), [lokaler Issueentwurf33](../33_W02_SERVER_ISSUE_ENTWURF.md).
+
 ## Native Refreshpfade –20.10.2026
 
 - [Menschlicher Aufnahme-Refresh](refresh-native-20261020/human-attempt.json), [Quellherkunft](refresh-native-20261020/source-identity.json), [stabile Info](refresh-native-20261020/server-info-after.json), [Ereignisse](refresh-native-20261020/events.jsonl.gz).

@@ -81,15 +81,17 @@ async def run_case(name, kind, word, close_mode, expected, *, press_control=None
     from voice_stt_client.core.v2_profile import V2Profile
     from voice_stt_client.core.settings_service import SettingsHTTP,SettingsService
     refresh_probe = kind == 'control_refresh'
-    profile=V2Profile(manual=refresh_probe,wake_word=not refresh_probe,
+    pause_probe = kind in ('pause_recovery','pause_manual_boundary')
+    boundary_probe = kind == 'manual_boundary'
+    profile=V2Profile(manual=refresh_probe or pause_probe or boundary_probe,wake_word=not refresh_probe,
         wake_word_ids=[] if refresh_probe else ['hey_jarvis','alexa'],
-        desired_settings={'activation.followupTimeoutMs':5000,'wakeWord.preRollMs':320})
+        desired_settings={'activation.followupTimeoutMs':15000 if boundary_probe else 5000,'wakeWord.preRollMs':320})
     session=V2STTSession(V2TransportConfig(url=TARGET,connect_timeout=180,
         admission_timeout=180,bootstrap_timeout=180))
     mirror=V2MirrorConnection(session)
     settings=SettingsService(session,profile,http=SettingsHTTP(TARGET,timeout=180))
     controls = None
-    if refresh_probe:
+    if refresh_probe or pause_probe or boundary_probe:
         from voice_stt_client.core.v2_controls import V2ControlService
         controls = V2ControlService(session, mirror, audio_ready=lambda: session.is_ready)
     async def press(slot):
@@ -163,7 +165,94 @@ async def run_case(name, kind, word, close_mode, expected, *, press_control=None
     runner=asyncio.create_task(session.run())
     try:
         await ready()
-        if refresh_probe:
+        if pause_probe:
+            samples=[]
+            async def mask_sample(label,manual,wake):
+                await ready()
+                view=controls.pause_view
+                assert not view.pending and (view.desired_manual,view.desired_wake_word)==(manual,wake)
+                assert (view.confirmed_manual,view.confirmed_wake_word)==(manual,wake)
+                samples.append(dict(label=label,generation=session.binding.generation,sessionId=session.binding.session_id,
+                    manualPaused=manual,wakePaused=wake,triggerEffective=dict(mirror.mirror.view.trigger['effective']),
+                    followupMs=settings.report().effective.get('activation.followupTimeoutMs')))
+            await mask_sample('initial-both-enabled',False,False)
+            await hit(data,1)
+            await close('cancel',starts()[0]['activationId'])
+            await silence(5)
+            assert len(starts())==1
+            await controls.set_pause('wakeWord',True)
+            await mask_sample('wake-paused',False,True)
+            await send(data);await silence(2)
+            assert len(starts())==1
+            await controls.set_pause('manual',True)
+            await mask_sample('both-paused',True,True)
+            for mode in ('manual-reconnect','own-socket-abort'):
+                before=session.binding
+                if mode=='own-socket-abort':session._ws.transport.abort()
+                else:await session.reconnect(before,'qualification_paused_wake_recovery')
+                await wait(lambda:session.is_ready and session.binding is not before)
+                await mask_sample(mode,True,True)
+                await send(data);await silence(2)
+                assert len(starts())==1
+                assert await controls.press('primary') is None
+            await controls.set_pause('wakeWord',False)
+            await mask_sample('wake-resumed-manual-still-paused',True,False)
+            await hit(data,2)
+            await close('cancel',starts()[1]['activationId'])
+            await silence(5)
+            assert len(starts())==2
+            assert await controls.press('primary') is None
+            await controls.set_pause('manual',False)
+            await mask_sample('both-resumed',False,False)
+            activated=await controls.press('primary')
+            assert activated is not None and activated.ack.accepted
+            await ready()
+            if kind=='pause_manual_boundary':
+                result['manualFixtureReplay']=dict(startSeconds=round(time.monotonic()-start,4),sampleCount=len(data)//2)
+                await send(data)
+                result['manualFixtureReplay']['endSeconds']=round(time.monotonic()-start,4)
+                assert len(starts())==3
+            await close('cancel',activated.ack.activationId)
+            await silence(5)
+            hits=[e for e in events if e['type']=='wakeword.detected']
+            ids=[e['activationId'] for e in starts()]
+            result['checks']=dict(exactlyThreeActivations=len(starts())==3,distinctActivationIds=len(set(ids))==3,
+                exactlyTwoWakeHits=len(hits)==2,selectedWake=all(e.get('wakeWordId')==word for e in hits),
+                sources=[e.get('primarySource') for e in starts()]==['wake_word','wake_word','manual'],
+                threeDistinctSessions=len(hello)==3 and len({h['sessionId'] for h in hello})==3,
+                threeClosures=len([e for e in events if e['type']=='activation.input_closed'])==3,
+                threeCancelled=len([e for e in events if e['type']=='activation.cancelled'])==3,
+                noActivationFromPausedFixtureReplay=True,confirmedMasksAtAllSamples=len(samples)==7,
+                preferencesPreserved=all(s['followupMs']==5000 for s in samples))
+            result['pauseSamples']=samples
+            result['method']='Production Controls/Settings/Mirror/TLS with real selected Wake models and authorized WAV replay; pause both sources, manual reconnect and own TCP abort, resume independently. No live microphone/hardware-mute/native-hotkey/frozen proof.'
+        elif boundary_probe:
+            activated=await controls.press('primary')
+            assert activated is not None and activated.ack.accepted
+            aid=activated.ack.activationId
+            await ready()
+            trace=[dict(label='manual-ready',timeSeconds=round(time.monotonic()-start,4))]
+            if close_mode=='silent_cancel':
+                await silence(len(data)/32000)
+            else:
+                await send(data)
+            trace.append(dict(label='fixture-or-control-ended',timeSeconds=round(time.monotonic()-start,4)))
+            if not close_mode.startswith('immediate_'):
+                await silence(2)
+            trace.append(dict(label='immediate-close' if close_mode.startswith('immediate_') else 'two-second-silent-tail-before-close',
+                timeSeconds=round(time.monotonic()-start,4)))
+            assert len(starts())==1
+            action='finish' if close_mode.endswith('finish') else 'cancel'
+            await close(action,aid)
+            await silence(7)
+            trace.append(dict(label='seven-second-silence-after-close',timeSeconds=round(time.monotonic()-start,4)))
+            result['checks']=dict(oneManualActivation=len(starts())==1 and starts()[0].get('primarySource')=='manual',
+                noWakeEvent=not any(e['type']=='wakeword.detected' for e in events),
+                intendedClose=any(e['type']=='activation.input_closed' and e.get('activationId')==aid
+                    and e.get('reason')==('finished' if action=='finish' else 'cancelled') for e in events))
+            result['audioTrace']=trace
+            result['method']='Real BOTH Controls/Settings/Mirror/TLS: manual input receives authorized positive Wake WAV or equal-length digital-silence control; optional two-second silent tail before explicit Finish/Cancel (see audioTrace), seven seconds afterwards. No physical microphone/native UI proof.'
+        elif refresh_probe:
             activated = await press('primary')
             assert activated is not None and activated.ack.accepted
             aid = activated.ack.activationId
@@ -250,7 +339,7 @@ async def run_case(name, kind, word, close_mode, expected, *, press_control=None
         # leaked commands or inspect it before its real Ack has been consumed.
         await wait(lambda: session.pending_count == 0 and not mirror.mirror.view.snapshot_pending)
         result['checks']['noPendingCommands']=session.pending_count==0
-        result['checks']['effectivePreferences']=(settings.report().effective.get('activation.followupTimeoutMs')==5000
+        result['checks']['effectivePreferences']=(settings.report().effective.get('activation.followupTimeoutMs')==(15000 if boundary_probe else 5000)
             and settings.report().effective.get('wakeWord.preRollMs')==320)
         result['result']='PASS_SCOPED' if all(result['checks'].values()) else 'FAIL'
         result['effectiveSettings']=dict(settings.report().effective)
@@ -276,6 +365,17 @@ def cases():
     return rows
 
 
+def recovery_cases():
+    return [(name,'pause_recovery',word,'cancel') for name,word in
+        [('alexa_pause','alexa'),('jarvis_direct','hey_jarvis')]]
+
+
+def manual_boundary_cases(immediate=False):
+    return [(name,'manual_boundary',word,mode) for name,word in
+        [('alexa_pause','alexa'),('jarvis_direct','hey_jarvis')]
+        for mode in (('immediate_cancel','immediate_finish') if immediate else ('cancel','finish','silent_cancel'))]
+
+
 async def main(args):
     from scripts.qualify_v2_real import identity
     out=args.output.resolve()
@@ -284,8 +384,12 @@ async def main(args):
     before=await asyncio.to_thread(read_info)
     if not check_identity(before,args.expected_server_commit): raise ValueError('Info identity not complete or not selected commit/variant')
     report=dict(timeUtc=datetime.now(UTC).isoformat(),identity=identity(),target=TARGET,
+        probeSha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         infoBefore=before,rows=[],scope='Real deployed model and production V2 components; fixture replay, not physical human qualification')
-    selected=([(name,'control_refresh',None,'natural') for name in ('negative_speech','alexa_direct')]
+    selected=([(name,'pause_manual_boundary',word,mode) for name,_,word,mode in recovery_cases()] if args.pause_manual_boundary_only else
+        manual_boundary_cases(args.immediate_close) if args.manual_boundary_only else
+        recovery_cases() if args.pause_recovery_only else
+        [(name,'control_refresh',None,'natural') for name in ('negative_speech','alexa_direct')]
         if args.controls_refresh_only else cases())
     if args.first_only: selected=selected[:1]
     for row in selected:
@@ -294,7 +398,7 @@ async def main(args):
         report['rows'].append(result)
         save(out/'result.json',report)
         print(json.dumps(dict(case=result['case'],result=result['result'],seconds=result['seconds'],error=result.get('error'))),flush=True)
-        if result['result']=='FAIL': break
+        if result['result']=='FAIL' and not args.manual_boundary_only: break
     after=await asyncio.to_thread(read_info)
     report['infoAfter']=after
     report['identityStable']=before==after
@@ -310,6 +414,17 @@ if __name__=='__main__':
     parser.add_argument('--expected-server-commit',required=True)
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--first-only',action='store_true')
-    parser.add_argument('--controls-refresh-only',action='store_true',
+    parser.add_argument('--immediate-close',action='store_true',help='With --manual-boundary-only: omit the extra two-second pre-close silent tail')
+    mode=parser.add_mutually_exclusive_group()
+    mode.add_argument('--controls-refresh-only',action='store_true',
         help='Real ASR/followup refresh and noncumulative deadline diagnostic; no native hotkey or microphone')
-    raise SystemExit(asyncio.run(main(parser.parse_args())))
+    mode.add_argument('--pause-recovery-only',action='store_true',
+        help='Real Wake model/run-pause/reconnect/own-socket-abort and independent resume; no native microphone/hotkey')
+    mode.add_argument('--manual-boundary-only',action='store_true',
+        help='Real manual Finish/Cancel with positive Wake fixture versus silence; records every diagnostic case, including failures')
+    mode.add_argument('--pause-manual-boundary-only',action='store_true',
+        help='Overlap pause/reconnect sequence with positive Wake audio inside final manual input; preserves failures')
+    args=parser.parse_args()
+    if args.immediate_close and not args.manual_boundary_only:
+        parser.error('--immediate-close requires --manual-boundary-only')
+    raise SystemExit(asyncio.run(main(args)))

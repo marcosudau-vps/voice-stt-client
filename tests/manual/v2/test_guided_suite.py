@@ -3,13 +3,35 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from tests.manual.v2.suite_plan import TASKS, DEFERRED, TARGET, SuiteRecord, owned_path, target_origin, select_tasks
+from tests.manual.v2.suite_plan import TASKS, DEFERRED, TARGET, SuiteRecord, owned_path, target_origin, select_tasks, both_tasks
 from tests.manual.v2.suite_session import prepare_profile,hello_identity
 from tests.manual.v2.suite_analysis import summarize, assess_led_fault
 import json
 
 
 class GuidedSuite(unittest.TestCase):
+    def test_both_candidate_is_explicit_and_does_not_mutate_existing_recipes(self):
+        originals = select_tasks(['finish', 'wake_alexa', 'wake_jarvis'])
+        combined = both_tasks(originals)
+        self.assertTrue(all(t['both'] for t in combined))
+        self.assertTrue(all(not t.get('both') for t in originals))
+        self.assertEqual(originals[1]['phrase'], 'Alexa')
+        self.assertIn('Der blaue Becher', combined[1]['phrase'])
+        self.assertIn('Die grüne Lampe', combined[2]['phrase'])
+        for task in combined:
+            with self.subTest(task=task['id']), tempfile.TemporaryDirectory() as temp:
+                config = prepare_profile(Path(temp), TARGET, task, 5)
+                self.assertTrue(config.v2_profile['manual'])
+                self.assertTrue(config.v2_profile['wake_word'])
+                self.assertEqual(config.v2_profile['wake_word_ids'], ['hey_jarvis', 'alexa'])
+                self.assertEqual(config.v2_profile['desired_settings'], {
+                    'activation.followupTimeoutMs': 5000, 'wakeWord.preRollMs': 320})
+        for task in originals:
+            with self.subTest(original=task['id']), tempfile.TemporaryDirectory() as temp:
+                config = prepare_profile(Path(temp), TARGET, task, 5)
+                self.assertNotIn('wakeWord.preRollMs', config.v2_profile['desired_settings'])
+                self.assertEqual(config.v2_profile['manual'], not bool(task.get('wake')))
+
     def test_relaxed_refresh_window_does_not_replace_five_second_preferences(self):
         with tempfile.TemporaryDirectory() as temp:
             config=prepare_profile(Path(temp),TARGET,select_tasks(['refresh'])[0],5)

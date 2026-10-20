@@ -1,0 +1,10 @@
+{
+  "state": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+  "reason": "blocked by policy",
+  "newStoppedArchivedTargets": [
+    "suite-20261020-211438-030f8e"
+  ],
+  "totalStoppedArchivedDirectoriesPending": 22,
+  "previousTwentyOne": "../refresh-native-20261020/cleanup.json; not retried",
+  "noRetryOrWorkaround": true
+}
