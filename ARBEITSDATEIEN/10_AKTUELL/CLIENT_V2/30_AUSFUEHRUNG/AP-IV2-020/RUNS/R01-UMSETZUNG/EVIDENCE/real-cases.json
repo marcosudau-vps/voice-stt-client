@@ -64,8 +64,17 @@
           "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
           "evidence": "mute-reinsert-20261020/validation.json",
           "boundaries": "Actual physical mute idle/native F8 release/paste, own Source reinsert and autonomous real-model pause/own reconnect scoped PASS. W02 overlapped manual boundary twice FAIL; no full M gate."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "both-live-20261020/validation.json",
+          "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
         }
-      ]
+      ],
+      "sourceActionsCoverage": "CONSOLIDATED: Manual-only idle activate, two segments/followup5000/finish from controls-live; new Bstart203ms before old Afinal from same product/server. Bspeech during oldFinal remains M10/Frozen."
     },
     {
       "id": "M-02",
@@ -120,6 +129,14 @@
           "evidence": "wake-silent-confirmed-20261020/attempt.json",
           "tester": "marco: real microphone/perception; Codex: logs/config/identity/audio assessment",
           "boundaries": "W01 control PASS_SCOPED with29.765s continued native audio; full M-case remains open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "both-live-20261020/validation.json",
+          "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
         }
       ]
     },
@@ -148,6 +165,14 @@
           "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
           "evidence": "mute-reinsert-20261020/validation.json",
           "boundaries": "Actual physical mute idle/native F8 release/paste, own Source reinsert and autonomous real-model pause/own reconnect scoped PASS. W02 overlapped manual boundary twice FAIL; no full M gate."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "both-live-20261020/validation.json",
+          "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
         }
       ]
     },
@@ -200,6 +225,14 @@
           "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
           "evidence": "refresh-native-20261020/validation.json",
           "boundaries": "Human recording-phase Refresh/Finish/exact2native pastes; automated actual Win32/Qt/Controls followup Refresh+real ASR5000ms. Human15s followup NOT_PROVEN; full M-gates remain open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "both-live-20261020/validation.json",
+          "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
         }
       ]
     },
@@ -450,6 +483,14 @@
           "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
           "evidence": "controls-live-20261020/attempts.json",
           "boundaries": "Source native2segment/Finish, Cancel, connected settings/log perception; partial A-final/B-start overlap. Native Refresh NOT_PROVEN; autonomous real ASR/Controls Refresh separate. Full M-gate stays open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "both-live-20261020/validation.json",
+          "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
         }
       ]
     },
@@ -516,6 +557,14 @@
           "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
           "evidence": "mute-reinsert-20261020/validation.json",
           "boundaries": "Actual physical mute idle/native F8 release/paste, own Source reinsert and autonomous real-model pause/own reconnect scoped PASS. W02 overlapped manual boundary twice FAIL; no full M gate."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "both-live-20261020/validation.json",
+          "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
         }
       ],
       "previousProductResult": "FAIL at 17261e6; preserved in attempts/evidence"

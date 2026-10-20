@@ -25,8 +25,8 @@
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "Übrige vollständige Pflichtgates und T02/T03/O01 offen; neu W02: zusätzlicher Wake nach manueller Aufnahme/Cancel in überlagerter Pause-/Reconnectfolge zweimal bei digitaler Stille.22hashgesicherte Aufräumreste automatisch gegen Löschen gesperrt.",
-  "nextAction": "Vorbereiteter selbst startbarer BOTH-Block Manual/Alexa+Nutzsprache/Jarvis+Nutzsprache; auswerten/exportieren/aufräumen. W02 getrennt eingrenzen, keine Serverproduktfreigabe. Übrige autonome Qualifikation fortsetzen; kein REVIEW_READY.",
+  "blockingReason": "W02 und übrige finale technische/Windows-/EXE-/Admin-/30min100-Pflichten sowie T02/T03/O01 offen. Beide Wake-Nutzsatzproben am aktuellen BOTH-Paar bestanden; Wiederholungen vermeiden.23gesicherte Aufräumreste automatisch gegen Löschen gesperrt.",
+  "nextAction": "Keine weitere identische menschliche Sprechprobe. Technische Controls/Fault/Settings-Reste mit vorhandenen Fixtures autonom abschließen; anschließend genau einen gebündelten finalen EXE-/Windows- und30min100-Abschluss vorbereiten. Gültiger Pro-V2-Admin-Key fehlt, W02 getrennt offen; keine Serveränderung ohne neuen Auftrag.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -78,7 +78,7 @@
     "externalIssueAction": "UNCHANGED_BY_CLIENT_AGENT"
   },
   "technicalProductCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
-  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/mute-reinsert-20261020/validation.json",
+  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/both-live-20261020/validation.json",
   "observations": [
     {
       "id": "IV2-020-O01",
@@ -163,6 +163,12 @@
       "status": "CONFIRMED_BEHAVIOR_ROOT_CAUSE_PENDING",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/33_W02_SERVER_ISSUE_ENTWURF.md",
       "summary": "Two real-model overlapped pause/reconnect/manual-positive-audio/Cancel sequences produce extra server Wake admission on digital silence. Exact queue/model boundary cause pending; no server changes or external issue action."
+    },
+    {
+      "id": "IV2-020-BOTH-SOURCE",
+      "status": "THREE_ACCEPTED_SCOPED_PASS_ONE_REPEAT_EXCLUDED",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/34_BOTH_ABSCHLUSS_UND_KONSOLIDIERTE_RESTGATES.md",
+      "summary": "Drei übernommene BOTH-Aufgaben PASS_SCOPED: natives Manual-F8/F9 und beide direkten Wake-Nutzsätze genau einmal ohne Rufwort;18,782/23,313s echte Ruhe ohne Zusatzwake. Erster Alexa-Versuch bewusst wiederholt, bleibt NOT_PROVEN. Realer Watchdog55,062sWarnung/60,015sAblauf und3gebundene ASRfinals aus demselben Rohdurchlauf nach phasengenauer Nachauswertung PASS_SCOPED; falsche Einsegmentannahme als Hilfstest-FAIL erhalten.61Helfer/Qt PASS, Produkt0f6c85e/1400Windowsbeleg unverändert. Keine identischen Sprechwiederholungen; technische/EXE-/Dauerreste gebündelt, W02 offen.23Aufräumreste automatisch gesperrt."
     }
   ],
   "testInfrastructure": {
@@ -194,13 +200,13 @@
     "w01ExecutionOrder": "Fix returned and verified; continue remaining mandatory real qualification",
     "w01Impact": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md",
     "guidedSuite": {
-      "status": "MUTE_REINSERT_SCOPED_PASS_BOTH_NEXT_W02_OPEN",
+      "status": "BOTH_SOURCE_SCOPED_PASS_NO_IDENTICAL_OPERATOR_REPEATS",
       "tasks": 11,
       "source": "../../../tests/manual/v2/README.md",
-      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/32_MUTE_REINSERT_UND_WAKEPAUSEN.md",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/34_BOTH_ABSCHLUSS_UND_KONSOLIDIERTE_RESTGATES.md",
       "profilePathAuthorization": "APPROVED_WITH_EXPORT_AND_CLEANUP_OBLIGATION",
       "proposedRuntimePath": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
-      "helperTests": "59 PASS; actual Qt BOTH PASS",
+      "helperTests": "61 PASS; actual Qt PASS",
       "windowsRegression": "1400PASS,0skips,194.744s; full new log, initial environment FAIL separately preserved",
       "cleanup": {
         "required": true,
@@ -208,8 +214,8 @@
         "approvedRoot": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
         "existedBefore": false,
         "completedAutonomousRunDirectories": 4,
-        "pending": "Twenty-two stopped/hash-archived folders removal rejected by automatic approval review",
-        "ledger": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/mute-reinsert-20261020/cleanup.json",
+        "pending": "Twenty-three stopped/hash-archived folders removal rejected by automatic approval review",
+        "ledger": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/both-live-20261020/cleanup.json",
         "blockedPath": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020/progress-regression-20261019-162446",
         "blocker": "Automatic approval review rejected deletion: blocked by policy"
       },
@@ -228,7 +234,9 @@
       "latestControlsResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/controls-live-20261020/attempts.json",
       "latestRefreshResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/refresh-native-20261020/validation.json",
       "latestMuteReinsertResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/mute-reinsert-20261020/attempts.json",
-      "latestWakePauseResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/mute-reinsert-20261020/probe-summary.json"
+      "latestWakePauseResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/mute-reinsert-20261020/probe-summary.json",
+      "latestBothResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/both-live-20261020/attempts.json",
+      "latestWatchdogResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/both-live-20261020/watchdog-reassessment.json"
     },
     "historicalReferenceServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
   },

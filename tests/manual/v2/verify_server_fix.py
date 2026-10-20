@@ -54,6 +54,43 @@ def fixture(name):
         return handle.readframes(handle.getnframes()),record
 
 
+def voiced_loop(pcm):
+    """Repeated real one-second speech crop; artificial continuity stimulus."""
+    from array import array
+    if len(pcm)<32000 or len(pcm)%2:
+        raise ValueError('Need at least one second of 16-bit PCM')
+    samples=array('h');samples.frombytes(pcm)
+    offsets=range(0,len(samples)-16000+1,8000)
+    offset=max(offsets,key=lambda n:sum(v*v for v in samples[n:n+16000]))
+    crop=pcm[offset*2:(offset+16000)*2]
+    return crop*65,dict(startSample=offset,sampleCount=16000,repetitions=65,
+        cropSha256=hashlib.sha256(crop).hexdigest())
+
+
+def assess_watchdog(events,finals):
+    starts=[e for e in events if e['type']=='activation.started']
+    recorded=[e for e in events if e['type']=='segment.recording_started']
+    ended=[e for e in events if e['type']=='segment.recording_ended']
+    warnings=[e for e in events if e['type']=='watchdog.warning']
+    closed=[e for e in events if e['type']=='activation.input_closed']
+    checks=dict(oneActivation=len(starts)==1,oneWarning=len(warnings)==1,
+        watchdogClose=len(closed)==1 and closed[0].get('reason')=='segment_watchdog_timeout',
+        allAudioFinalsPreserved=bool(ended) and sorted(e['segmentId'] for e in ended)==sorted(f['segmentId'] for f in finals),
+        realAsrFinal=bool(finals) and all(f['textLength']>0 for f in finals),
+        segmentLifecycleComplete=bool(recorded) and sorted(e['segmentId'] for e in recorded)==sorted(e['segmentId'] for e in ended))
+    timing={}
+    if len(warnings)==len(closed)==1:
+        bound=[e for e in recorded if e['segmentId']==warnings[0].get('segmentId')]
+        if len(bound)==1:
+            warning=warnings[0]['timeSeconds']-bound[0]['timeSeconds']
+            expiry=closed[0]['timeSeconds']-bound[0]['timeSeconds']
+            timing=dict(recordingToWarning=round(warning,3),recordingToClose=round(expiry,3),watchedSegmentId=bound[0]['segmentId'])
+            checks.update(warningAt55Seconds=54<=warning<=57,expiryAt60Seconds=59<=expiry<=62,
+                sameActivation=all(e.get('activationId')==starts[0]['activationId'] for e in recorded+ended+warnings+closed+finals) if len(starts)==1 else False)
+    checks['warningBoundToRecording']=bool(timing)
+    return checks,timing
+
+
 def assess_rearm(events, wake_id):
     starts=[e for e in events if e['type']=='activation.started']
     hits=[e for e in events if e['type']=='wakeword.detected']
@@ -83,15 +120,19 @@ async def run_case(name, kind, word, close_mode, expected, *, press_control=None
     refresh_probe = kind == 'control_refresh'
     pause_probe = kind in ('pause_recovery','pause_manual_boundary')
     boundary_probe = kind == 'manual_boundary'
-    profile=V2Profile(manual=refresh_probe or pause_probe or boundary_probe,wake_word=not refresh_probe,
-        wake_word_ids=[] if refresh_probe else ['hey_jarvis','alexa'],
+    watchdog_probe = kind == 'watchdog'
+    profile=V2Profile(manual=refresh_probe or pause_probe or boundary_probe or watchdog_probe,wake_word=not (refresh_probe or watchdog_probe),
+        wake_word_ids=[] if refresh_probe or watchdog_probe else ['hey_jarvis','alexa'],
         desired_settings={'activation.followupTimeoutMs':15000 if boundary_probe else 5000,'wakeWord.preRollMs':320})
+    if watchdog_probe:
+        profile.desired_settings.update({'activation.segmentWatchdogInitialMs':60000,
+            'activation.segmentWatchdogRefreshMs':30000,'activation.segmentWatchdogWarningMs':5000})
     session=V2STTSession(V2TransportConfig(url=TARGET,connect_timeout=180,
         admission_timeout=180,bootstrap_timeout=180))
     mirror=V2MirrorConnection(session)
     settings=SettingsService(session,profile,http=SettingsHTTP(TARGET,timeout=180))
     controls = None
-    if refresh_probe or pause_probe or boundary_probe:
+    if refresh_probe or pause_probe or boundary_probe or watchdog_probe:
         from voice_stt_client.core.v2_controls import V2ControlService
         controls = V2ControlService(session, mirror, audio_ready=lambda: session.is_ready)
     async def press(slot):
@@ -165,7 +206,21 @@ async def run_case(name, kind, word, close_mode, expected, *, press_control=None
     runner=asyncio.create_task(session.run())
     try:
         await ready()
-        if pause_probe:
+        if watchdog_probe:
+            activated=await controls.press('primary')
+            assert activated is not None and activated.ack.accepted
+            aid=activated.ack.activationId
+            await ready()
+            stimulus,crop=voiced_loop(data)
+            result['continuityStimulus']=crop
+            closed=lambda:any(e['type']=='activation.input_closed' and e.get('activationId')==aid for e in events)
+            result['sentStimulusSamples']=await send(stimulus,closed)
+            await silence(10,lambda:bool(finals))
+            await wait(lambda:bool(finals),180)
+            await wait(lambda:any(e['type']=='activation.completed' and e.get('activationId')==aid for e in events))
+            result['checks'],result['timingSeconds']=assess_watchdog(events,finals)
+            result['method']='Actual selected server/ASR/Controls with legal session-only60s watchdog/5s warning. Repeated one-second crop of authorized real speech creates artificial continuous input; not human continuous speech, live microphone or30min qualification. No global defaults changed.'
+        elif pause_probe:
             samples=[]
             async def mask_sample(label,manual,wake):
                 await ready()
@@ -386,7 +441,8 @@ async def main(args):
     report=dict(timeUtc=datetime.now(UTC).isoformat(),identity=identity(),target=TARGET,
         probeSha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         infoBefore=before,rows=[],scope='Real deployed model and production V2 components; fixture replay, not physical human qualification')
-    selected=([(name,'pause_manual_boundary',word,mode) for name,_,word,mode in recovery_cases()] if args.pause_manual_boundary_only else
+    selected=([('negative_speech','watchdog',None,'expiry')] if args.watchdog_only else
+        [(name,'pause_manual_boundary',word,mode) for name,_,word,mode in recovery_cases()] if args.pause_manual_boundary_only else
         manual_boundary_cases(args.immediate_close) if args.manual_boundary_only else
         recovery_cases() if args.pause_recovery_only else
         [(name,'control_refresh',None,'natural') for name in ('negative_speech','alexa_direct')]
@@ -424,6 +480,7 @@ if __name__=='__main__':
         help='Real manual Finish/Cancel with positive Wake fixture versus silence; records every diagnostic case, including failures')
     mode.add_argument('--pause-manual-boundary-only',action='store_true',
         help='Overlap pause/reconnect sequence with positive Wake audio inside final manual input; preserves failures')
+    mode.add_argument('--watchdog-only',action='store_true',help='Real60s session watchdog with repeated authorized speech crop; no operator action')
     args=parser.parse_args()
     if args.immediate_close and not args.manual_boundary_only:
         parser.error('--immediate-close requires --manual-boundary-only')

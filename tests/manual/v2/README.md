@@ -250,3 +250,12 @@ mit5000msNachsprechen und320msPre-Roll als zu prüfendem Kandidaten. Die beiden
 Wakeaufgaben zeigen Rufwort und Nutzsatz vor dem eigenen Start; ohne absichtliche
 Pause sprechen. Die Standardaufgaben bleiben unverändert. Frühere Liveprofile
 ohne explizites Pre-Roll werden dadurch nicht rückwirkend zu320msNachweisen.
+
+`verify_server_fix --watchdog-only --expected-server-commit <voller SHA> --output build/<eigener Lauf>`
+prüft den echten Warnungs-/Ablauf-/ASRpfad mit legalen Sessionwerten60000/30000/5000ms.
+Ein unveränderter Einsekundenausschnitt einer freigegebenen Sprachprobe wird
+als künstlicher Kontinuitätsstimulus65mal wiederholt. Der Server darf daraus
+mehrere Segmente bilden; Warnung und60sFrist müssen zum tatsächlichen gewarnten
+Segment passen, alle aufgenommenen Segmente benötigen ihren eigenen Final.
+Dies beweist keinen60sDauersprach-/Fernseherfall ohne Segmentwechsel und keinen
+30minHardwarelauf. Keine globalen Serverdefaults ändern; Sitzung danach schließen.

@@ -1,0 +1,30 @@
+{
+  "result": "PASS_SCOPED_REAL_WARNING_EXPIRY_AUDIO_PROCESSING",
+  "rawResultRetained": "FAIL",
+  "rawFailure": "Invalid whole-stimulus single-segment expectation; actual three matched segments/finals",
+  "method": "Offline corrected evaluation of the same real TLS/ASR run, not another execution",
+  "evaluator": "tests/manual/v2/verify_server_fix.py::assess_watchdog",
+  "evaluatorFileSha256": "40d862ce91da56b01a97678192daf953abde1bc91a6a52c7e891448a8bdb0772",
+  "checks": {
+    "oneActivation": true,
+    "oneWarning": true,
+    "watchdogClose": true,
+    "allAudioFinalsPreserved": true,
+    "realAsrFinal": true,
+    "segmentLifecycleComplete": true,
+    "warningAt55Seconds": true,
+    "expiryAt60Seconds": true,
+    "sameActivation": true,
+    "warningBoundToRecording": true
+  },
+  "timingSeconds": {
+    "recordingToWarning": 55.062,
+    "recordingToClose": 60.015,
+    "watchedSegmentId": "9e9dd269-16a3-409c-8157-5015800d5725"
+  },
+  "segments": 3,
+  "runtimeSeconds": 122.687,
+  "syntheticContinuityStimulus": true,
+  "physicalContinuousSpeech60Seconds": "NOT_PROVEN",
+  "fullM04": "NOT_PROVEN"
+}

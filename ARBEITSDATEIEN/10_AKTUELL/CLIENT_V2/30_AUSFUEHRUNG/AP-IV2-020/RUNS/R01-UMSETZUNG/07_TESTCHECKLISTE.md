@@ -1,4 +1,4 @@
-## Aktuelle Checkliste – Mute/Reinsert bestätigt, BOTH folgt,20.10.2026
+## Aktuelle Checkliste – BOTH bestätigt, keine gleichen Sprechwiederholungen,20.10.2026
 
 - [x] Geführte11Aufgaben samt Wiederholungen fallgenau ausgewertet.
 - [x] R11: physische USB-Recovery am korrigierten Sourceprodukt bestätigt.
@@ -27,15 +27,18 @@
 - [x] Bewusstes Reinsert:1Final/Historyeintrag,1automatische+1manuelle native Ausgabe.
 - [x] Aktive Wake-Modelle und bestätigte Runpausen über Reconnect/eigenen TCP-Abbruch.
 - [ ] W02: Zusatzwake nach überlagerter Pause-/Recovery-/manueller Wakeaudio-/Cancelfolge zweimal reproduziert; Ursachen-/Serverkorrekturweg offen.
-- [ ] Nächster eigener Startblock BOTH: Manual, Alexa direkt, Hey Jarvis direkt.
+- [x] BOTH: Manual-F8/F9 und beide vollständigen direkten Wake-Nutzsätze genau einmal ohne Rufwort.
+- [x] Reale Watchdogwarnung55,062s/Ablauf60,015s am tatsächlich gewarnten Segment, alle3ASRfinals erhalten; kein menschlicher Test nötig.
+- [x] Gleiche Sprechaufgaben aus der Restplanung gestrichen; bestehende passende Sourcebelege konsolidiert.
+- [ ] Nur technische Abschlussreste, ein gebündelter finaler EXE-/Windowsblock und echter30min100-Lauf; W02 getrennt.
 - [ ] Controlsphasen/Watchdog/Runpausen und zugehörige Zusammenspiele vollständig qualifizieren.
 - [ ] Netz-/Logstore-/Pendingfinal- und Settingswechsel-Fälle vervollständigen.
 - [ ] Native Credential-/Admin-, Frozen-/erhöhte Zielanwendungs-/Clipboard-/Prozessfälle abschließen.
 - [ ] Nach jetzt verifiziertem W01-FIX: vollständige reale Wake-/Both-/Nutzsprachgrenzen und30min100-Gate abschließen.
-- [ ] Zweiundzwanzig gesicherte beendete externe Ordner aufräumen: automatische Prüfung blockiert Löschen.
+- [ ] Dreiundzwanzig gesicherte beendete externe Ordner aufräumen: automatische Prüfung blockiert Löschen.
 - [ ] Erst bei vollständigen Pflichtnachweisen REVIEW_READY; danach unabhängige Abnahme.
 
-[Aktuelle Mute-/Reinsert-/Wakepausen-Nachweise](32_MUTE_REINSERT_UND_WAKEPAUSEN.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
+[Aktueller Abschluss und kompakte Restgates](34_BOTH_ABSCHLUSS_UND_KONSOLIDIERTE_RESTGATES.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
 Nachfolgende Abschnitte sind ältere, ihrem jeweiligen Stand zugeordnete Checklisten.
 
 ## Korrigierte Liveführung – Wiederholung Aufgabe1,19.10.2026

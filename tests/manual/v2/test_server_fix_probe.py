@@ -5,6 +5,29 @@ from types import SimpleNamespace
 
 
 class ProbeChecks(unittest.TestCase):
+    def test_watchdog_binds_to_its_segment_and_requires_every_existing_final(self):
+        from tests.manual.v2.verify_server_fix import assess_watchdog
+        events=[dict(type='activation.started',activationId='a')]
+        for sid,start,end in [('one',0,30),('two',30,90)]:
+            events.extend([dict(type='segment.recording_started',activationId='a',segmentId=sid,timeSeconds=start),
+                dict(type='segment.recording_ended',activationId='a',segmentId=sid,timeSeconds=end)])
+        events.extend([dict(type='watchdog.warning',activationId='a',segmentId='two',timeSeconds=85),
+            dict(type='activation.input_closed',activationId='a',reason='segment_watchdog_timeout',timeSeconds=90)])
+        finals=[dict(activationId='a',segmentId=sid,textLength=3) for sid in ('one','two')]
+        self.assertTrue(all(assess_watchdog(events,finals)[0].values()))
+        self.assertFalse(all(assess_watchdog(events,finals[:-1])[0].values()))
+        changed=deepcopy(events);changed[-2]['segmentId']='one'
+        self.assertFalse(all(assess_watchdog(changed,finals)[0].values()))
+
+    def test_continuity_stimulus_preserves_a_real_crop_and_rejects_short_input(self):
+        from tests.manual.v2.verify_server_fix import voiced_loop
+        from array import array
+        pcm=array('h',[0]*16000+[400]*16000).tobytes()
+        value,metadata=voiced_loop(pcm)
+        self.assertEqual(value,array('h',[400]*16000).tobytes()*65)
+        self.assertEqual(metadata['startSample'],16000)
+        with self.assertRaises(ValueError):voiced_loop(b'\0'*100)
+
     def test_manual_boundary_diagnostic_covers_both_words_and_silent_controls(self):
         rows=manual_boundary_cases()
         self.assertEqual(len(rows),6)

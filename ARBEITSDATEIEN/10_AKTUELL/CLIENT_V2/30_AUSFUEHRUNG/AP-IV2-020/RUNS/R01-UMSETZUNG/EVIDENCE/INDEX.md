@@ -1,3 +1,9 @@
+## BOTH-Abschluss und autonomer Watchdog –20.10.2026
+
+- [Vier Bedienversuche/fallgenaue Bewertung](both-live-20261020/attempts.json), [Quellherkunft](both-live-20261020/source-identity.json), [stabile Info](both-live-20261020/server-info-after.json).
+- [Unveränderter Watchdog-Rohdurchlauf mit Hilfstest-FAIL](both-live-20261020/watchdog-raw.json), [korrigierte Auswertung desselben Laufs](both-live-20261020/watchdog-reassessment.json), [Log](both-live-20261020/watchdog.log.gz).
+- [Validierung](both-live-20261020/validation.json), [61Helfer](both-live-20261020/helpers.log.gz), [Qt](both-live-20261020/qt.log.gz), [native Voraussetzungen](both-live-20261020/native-prerequisites.json), [Aufräumen](both-live-20261020/cleanup.json), [Manifest](both-live-20261020/export-manifest.json), [Bericht34 und kompakte Restgates](../34_BOTH_ABSCHLUSS_UND_KONSOLIDIERTE_RESTGATES.md).
+
 ## Hardware-Mute/Reinsert und aktive Wakepause –20.10.2026
 
 - [Beide menschlichen Versuche](mute-reinsert-20261020/attempts.json), [Herkunft](mute-reinsert-20261020/source-identity.json), [Info](mute-reinsert-20261020/server-info-after.json).
