@@ -191,3 +191,19 @@ schon beendeten Client: Die Auswertung verwendet den letzten echten Audiomesspun
 vor Stop und wertet eine zu kurze Phase als `NOT_PROVEN`.
 Das neue Ruhefenster dauert sieben Sekunden, damit auch der letzte sekündliche
 Audiomesspunkt mindestens fünf Sekunden Nachbeobachtung belegt.
+
+## Gezielter Refresh-Nachweis
+
+`verify_server_fix --controls-refresh-only --expected-server-commit <voller SHA> --output build/<eigener Lauf>`
+prüft zwei echte bereits freigegebene Sprachfixtures über Produktions-Controls,
+Settings, Mirror, TLS und reale ASR. Bei5000msFollow-up werden Verlängerung,
+sofortiges nichtkumulatives Wiederholen, Weiterbestehen über der alten Deadline
+und neuer natürlicher Timeout geprüft. Keine native Hotkey-/Mikrofon-/Pasteprüfung.
+
+Die geführte Aufgabe `refresh` hat für die verbleibende native F8-Probe ein
+eigenes entspanntes **15-Sekunden-Testfenster**. Nur ihr isoliertes Sessionprofil
+wird so vorbereitet; die gewählte5sBedienkonfiguration und alle anderen Aufgaben
+bleiben unverändert. Nach erstem Satz/Sprachende erneut F8, tatsächlichen
+„REFRESH BESTÄTIGT“-Ack und3sCountdown abwarten, erst bei der Sprechaufforderung
+den zweiten Satz sprechen. Ein Refresh-Häkchen braucht ein akzeptiertes Command
+der aktuellen Activation; zwei Segmente plus Finish allein reichen nicht.

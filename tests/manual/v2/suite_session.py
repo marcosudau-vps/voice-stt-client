@@ -46,7 +46,7 @@ def prepare_profile(folder, target, task, device):
     config.audio.device = device
     wake = bool(task.get('wake'))
     profile = V2Profile(manual=not wake, wake_word=wake, wake_word_ids=['hey_jarvis','alexa'] if wake else [],
-                        desired_settings={'activation.followupTimeoutMs': 5000})
+                        desired_settings={'activation.followupTimeoutMs': task.get('followup_ms',5000)})
     profile.controls.update(primary_key='Ctrl+Shift+F8', secondary_key='Ctrl+Shift+F9',
                             secondary_action=task['secondary'], wake_pause_key='Ctrl+Shift+F10',
                             reinsert_last_key='Ctrl+Shift+F11', overlay_toggle_key='Ctrl+Shift+F12')
@@ -213,6 +213,7 @@ def main():
             if previous_completion:
                 previous_completion(value)
             emit('command.completed', commandType=str(value.command.type),
+                 generation=value.generation,
                  action=value.command.payload.get('action'), commandId=value.command.commandId,
                  accepted=value.ack.accepted, result=str(value.ack.result), activationId=value.ack.activationId)
         runtime.session.on_completion = completed

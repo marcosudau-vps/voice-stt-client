@@ -1,4 +1,4 @@
-## Aktuelle Checkliste – W01 bestätigt,20.10.2026
+## Aktuelle Checkliste – Controls/Logs bestätigt, native Refreshprobe offen,20.10.2026
 
 - [x] Geführte11Aufgaben samt Wiederholungen fallgenau ausgewertet.
 - [x] R11: physische USB-Recovery am korrigierten Sourceprodukt bestätigt.
@@ -15,15 +15,20 @@
 - [x] Alexa ohne Sound erfolgreich wiederholt:29,765s tatsächliche Audio-Ruhephase, kein Folgetrigger.
 - [x] Konkretes W01 geschlossen:3aktuelle Livekontrollen plus13Modellfälle; übrige Wakegates bleiben offen.
 - [x] Geschützte Ruhephase bei angefordertem Testende;48Helfer/Qt und1400Windows ohne Skips PASS.
-- [ ] Nächster eigener Startblock: Denkpause, Cancel, Refresh und Einstellungs-/Logansicht am aktuellen Paar.
+- [x] Denkpause:2Segmente derselben Activation/F9/zwei passende native Einfügungen am aktuellen Paar.
+- [x] Cancel während Sprache und82,969s Audio ohne spätere Ausgabe.
+- [x] T01: Serverziel, Logging/Verlauf/Feedback und echte Logs ausdrücklich menschlich bestätigt.
+- [x] Autonomer realer ASR-/Controls-Refresh bei5000ms inkl. nichtkumulativer Fristverlängerung.
+- [x] T04: Refresh-Häkchen braucht echte serverbestätigte Aktion;52Helfer/Qt und neue1400Windows/0Skips PASS.
+- [ ] Nur native Refreshprobe neu: eigener Start,15sTestfenster, Ack/Countdown vor Satz2.
 - [ ] Controlsphasen/Watchdog/Runpausen und zugehörige Zusammenspiele vollständig qualifizieren.
 - [ ] Netz-/Logstore-/Pendingfinal- und Settingswechsel-Fälle vervollständigen.
 - [ ] Native Credential-/Admin-, Frozen-/erhöhte Zielanwendungs-/Clipboard-/Prozessfälle abschließen.
 - [ ] Nach jetzt verifiziertem W01-FIX: vollständige reale Wake-/Both-/Nutzsprachgrenzen und30min100-Gate abschließen.
-- [ ] Neunzehn gesicherte beendete externe Ordner aufräumen: automatische Prüfung blockiert Löschen.
+- [ ] Zwanzig gesicherte beendete externe Ordner aufräumen: automatische Prüfung blockiert Löschen.
 - [ ] Erst bei vollständigen Pflichtnachweisen REVIEW_READY; danach unabhängige Abnahme.
 
-[Aktueller Kontrollabschluss](29_W01_KONTROLLE_BESTAETIGT_UND_RESTGATES.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
+[Aktueller Controls-/Logabschluss](30_CONTROLS_LOGANSICHT_UND_REFRESH.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
 Nachfolgende Abschnitte sind ältere, ihrem jeweiligen Stand zugeordnete Checklisten.
 
 ## Korrigierte Liveführung – Wiederholung Aufgabe1,19.10.2026

@@ -467,6 +467,8 @@ def main():
             attempt_folder.mkdir()
             phase='running'
             observed = {'counts':{'activation.started':1,'segment.recording_started':1}}
+            if TASKS[0]['id']=='refresh':
+                observed['counts']['segment.recording_ended']=1
             save(attempt_folder/'status.json',dict(timeUtc=datetime.now(UTC).isoformat(),
                  ready=True,audioAvailable=True,generation=1,phase='recording',operatorProgress=observed))
             tick()
@@ -475,6 +477,18 @@ def main():
             assert not advance.isEnabled(), 'F8/speech progression must not need a Next click'
             review_controls()
             assert not labels[3].text().startswith('✓'), 'Review must not fabricate F9 completion'
+            if TASKS[0]['id']=='refresh':
+                counts={'activation.started':1,'segment.recording_started':2,'segment.recording_ended':2,
+                    'secondary':1,'activation.input_closed':1,'activation.completed':1}
+                save(attempt_folder/'status.json',dict(timeUtc=datetime.now(UTC).isoformat(),
+                    ready=True,audioAvailable=True,generation=1,phase='idle',operatorProgress={'counts':counts}))
+                tick()
+                assert not labels[3].text().startswith('✓'), 'Two finals/Finish cannot prove Refresh'
+                counts['refresh.accepted']=1
+                save(attempt_folder/'status.json',dict(timeUtc=datetime.now(UTC).isoformat(),
+                    ready=True,audioAvailable=True,generation=1,phase='idle',operatorProgress={'counts':counts}))
+                tick()
+                assert labels[3].text().startswith('✓'), 'Actual server Refresh proof must reach the Qt row'
             if TASKS[0].get('wake'):
                 phase='running'
                 observed={'counts':{'activation.started':1,'activation.input_closed':1},
@@ -506,6 +520,7 @@ def main():
             window.grab().save(str(folder/'preview.png'))
             save(folder/'ui-self-check.json', dict(result='PASS', noClientStarted=child is None,
                 quietStopDeferVerified=bool(TASKS[0].get('wake')),
+                refreshAckRequiredVerified=TASKS[0]['id']=='refresh',
                 scope='Qt preview/layout/explicit skip; no real model/audio/paste qualification'))
             print('GUIDED_UI_SELF_CHECK_PASS', flush=True)
             app.quit()

@@ -19,14 +19,13 @@
   "reviewedCommit": null,
   "reviewReport": null,
   "openFindingIds": [
-    "IV2-020-T01",
     "IV2-020-T02",
     "IV2-020-T03"
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "W01 am identifizierten Fix in13Modellfällen/3aktuellen Livekontrollen geschlossen; vollständige übrige M-/Windows-/Frozen-/30min100-Pflichten und T01/T02/T03 offen.19gesicherte Aufräumreste automatisch gegen Löschen gesperrt.",
-  "nextAction": "Vorbereiteter manueller Restblock followup/cancel/refresh/settings mit eigenem Start und fest gebundenem Server67f3ce45. Ergebnisse technisch auswerten/exportieren; daneben weitere Fault-/Frozen-/Watchdog-/Wake-/30min100-Pflichten fortsetzen. W01 verifiziert, keine neue allgemeine Freigabe; kein REVIEW_READY.",
+  "blockingReason": "Vollständige M-/Frozen-/Admin-/Windows-/30min100-Pflichten offen. W01 und T01 konkret geschlossen; native Refreshprobe ohne Refresh NOT_PROVEN, T04-Testhäkchen technisch korrigiert. T02/T03 und historische O01 offen.20gesicherte beendete externe Aufräumordner automatisch gegen Löschen gesperrt.",
+  "nextAction": "Nur native Refreshprobe mit eigenem Start/15sTestfenster/echtem Ack und3sVorbereitung wiederholen; drei bestandene Aufgaben erhalten. Ergebnisse danach auswerten und übrige Fault-/Frozen-/Watchdog-/Wake-/30min100-Gates fortsetzen. Kein REVIEW_READY.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -78,7 +77,7 @@
     "externalIssueAction": "UNCHANGED_BY_CLIENT_AGENT"
   },
   "technicalProductCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
-  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/wake-silent-confirmed-20261020/validation.json",
+  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/controls-live-20261020/validation.json",
   "observations": [
     {
       "id": "IV2-020-O01",
@@ -127,6 +126,24 @@
       "status": "CLOSED_VERIFIED_SCOPED",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/29_W01_KONTROLLE_BESTAETIGT_UND_RESTGATES.md",
       "summary": "W01-Kontrolle Alexa ohne Sound PASS_SCOPED: genau1Wake/Activation/Timeout,29,765s weitere echte Audio-Nachbeobachtung ohne Folgetrigger,1543Pakete, keine Sprache/Final/Paste, menschlich Wie erwartet, Exit0. Damit alle3vorgesehenen Livekontrollen und13Modellfälle erfolgreich; konkretes W01 CLOSED_VERIFIED_SCOPED. Vollständige M-/Frozen-/Both-/Nutzsprachgrenzen-/30min100-Gates bleiben offen. Produkt0f6c85e/Server67f3ce45 unverändert;19private Aufräumreste automatisch gegen Löschen gesperrt."
+    },
+    {
+      "id": "IV2-020-T01",
+      "status": "CLOSED_SOURCE_LOG_VIEW_CONFIRMED",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/30_CONTROLS_LOGANSICHT_UND_REFRESH.md",
+      "summary": "Human explicitly confirms origin/tabs/live records;131real persisted records, logstream keepalives/pongs; no claim for Server-raw logs/Admin/Frozen."
+    },
+    {
+      "id": "IV2-020-T04",
+      "status": "FIXED_REGRESSION_AND_QT",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/30_CONTROLS_LOGANSICHT_UND_REFRESH.md",
+      "summary": "Refresh checkbox previously accepted two segments+Finish without Refresh. Red regression before fix; now requires accepted current-ID/generation Refresh; native scenario requalification still pending."
+    },
+    {
+      "id": "IV2-020-CONTROLS-LIVE",
+      "status": "PARTIAL_PASS",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/30_CONTROLS_LOGANSICHT_UND_REFRESH.md",
+      "summary": "Denkpause mit2Segmenten/F9/2exakten nativen Einfügungen, Cancel mit82,969s weiterer Audioübertragung ohne Ausgabe und menschlich ausdrücklich bestätigte Server-/Tab-/Logansicht PASS_SCOPED; T01 geschlossen. Native Refreshprobe enthielt kein Refresh und bleibt NOT_PROVEN, lieferte aber korrekt gebundenen Altfinal-nach-Neustart-Beleg203ms. Zwei autonome reale ASR-/Controls-/Deadline-Refreshfälle PASS_SCOPED. T04-Testhäkchenfehler mit Regression/Qt korrigiert; nur native Refreshprobe entspannt erneut vorbereiten, übrige vollständige Gates offen."
     }
   ],
   "testInfrastructure": {
@@ -158,22 +175,22 @@
     "w01ExecutionOrder": "Fix returned and verified; continue remaining mandatory real qualification",
     "w01Impact": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md",
     "guidedSuite": {
-      "status": "W01_CONTROL_CONFIRMED_OTHER_QUALIFICATION_GATES_OPEN",
+      "status": "THREE_TASKS_SCOPED_PASS_NATIVE_REFRESH_REPEAT_PREPARED",
       "tasks": 11,
       "source": "../../../tests/manual/v2/README.md",
-      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/25_IDLE_BESTAETIGT_UND_LED_ISOLATION.md",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/30_CONTROLS_LOGANSICHT_UND_REFRESH.md",
       "profilePathAuthorization": "APPROVED_WITH_EXPORT_AND_CLEANUP_OBLIGATION",
       "proposedRuntimePath": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
-      "helperTests": "33 targeted PASS after status-wording-only update; preceding48 PASS preserved",
-      "windowsRegression": "1400 PASS,0skips,209.903s; existing product0f6c85e evidence, not rerun for pure assessment",
+      "helperTests": "52 PASS; final helper source hashes in controls-live validation",
+      "windowsRegression": "1400PASS,0skips,194.744s; full new log, initial environment FAIL separately preserved",
       "cleanup": {
         "required": true,
         "source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/019_TESTABLAGE_MIT_AUFRAEUMPFLICHT.md",
         "approvedRoot": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
         "existedBefore": false,
         "completedAutonomousRunDirectories": 4,
-        "pending": "Nineteen stopped/hash-archived runtime directories removal rejected by automatic approval review",
-        "ledger": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/wake-silent-confirmed-20261020/cleanup.json",
+        "pending": "Twenty stopped/hash-archived runtime directories removal rejected by automatic approval review",
+        "ledger": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/controls-live-20261020/cleanup.json",
         "blockedPath": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020/progress-regression-20261019-162446",
         "blocker": "Automatic approval review rejected deletion: blocked by policy"
       },
@@ -188,7 +205,8 @@
       "directPreview": "../../../tests/manual/v2/idle_preview.py",
       "latestIdleResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/idle-confirmed-20261019/assessment.json",
       "nativeLedFaultResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/idle-confirmed-20261019/led-pass-smoke.json",
-      "latestWakeResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/wake-silent-confirmed-20261020/attempt.json"
+      "latestWakeResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/wake-silent-confirmed-20261020/attempt.json",
+      "latestControlsResults": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/controls-live-20261020/attempts.json"
     },
     "historicalReferenceServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
   },

@@ -22,6 +22,8 @@ class ObservedProgress:
         self.reconnect_generation = None
         self.closed_reason = ''
         self.closed_at = None
+        self.activation_id = None
+        self.refresh_at = None
         self.seen, self.order = set(), deque()
 
     def observe(self, kind, *, now=None, **fields):
@@ -43,6 +45,8 @@ class ObservedProgress:
                 if len(self.order) > 1024:
                     self.seen.remove(self.order.popleft())
             name = event['type']
+            if name == 'activation.started':
+                self.activation_id = event.get('activationId')
             if name in ('activation.started', 'segment.recording_started', 'segment.recording_ended',
                         'activation.input_closed', 'activation.completed', 'activation.cancelled',
                         'activation.failed', 'transcription.completed'):
@@ -58,6 +62,12 @@ class ObservedProgress:
             if fields.get('ready') and fields.get('slot') == 'secondary' and fields.get('phase') != 'idle':
                 self.counts['secondary'] += 1
                 self.secondary_at = now
+        elif kind == 'command.completed':
+            if (fields.get('action') == 'refresh' and fields.get('accepted') is True
+                    and self.activation_id is not None
+                    and fields.get('activationId') == self.activation_id):
+                self.counts['refresh.accepted'] += 1
+                self.refresh_at = now
         elif kind == 'runtime.view':
             self.ready = bool(fields.get('ready'))
         elif kind == 'metrics':
@@ -80,7 +90,8 @@ class ObservedProgress:
                     cancelWaitRemaining=remaining(self.cancelled_at, 10),
                     usbWaitRemaining=remaining(self.audio_lost_at, 10),
                     noneWaitRemaining=remaining(self.secondary_at, 3),
-                    postCloseQuietRemaining=remaining(self.closed_at, WAKE_QUIET_SECONDS))
+                    postCloseQuietRemaining=remaining(self.closed_at, WAKE_QUIET_SECONDS),
+                    refreshWaitRemaining=remaining(self.refresh_at,3))
 
 
 def wake_stop_delay(task, observed, *, closing=False):
@@ -128,8 +139,16 @@ def guide_progress(task, observed, pastes):
             active = 4
             if activated:
                 confirmed.add(2)
-            if recording >= (1 if task == 'finish' else 2) and activated == 1:
+            if (recording >= (1 if task == 'finish' else 2) and activated == 1
+                    and (task != 'refresh' or c.get('refresh.accepted',0))):
                 confirmed.add(3)
+        if task == 'refresh' and c.get('refresh.accepted',0) and recording >= 2 and activated == 1:
+            active = 4
+            confirmed.add(3)
+        elif task == 'refresh' and c.get('refresh.accepted',0) and not secondary and not closed:
+            wait = observed.get('refreshWaitRemaining')
+            notice = ('REFRESH BESTÄTIGT – weiter schweigen.' if wait != 0
+                else 'JETZT ZWEITEN SATZ SPRECHEN.')
         if closed:
             active = max(active, 4)
         expected = 1 if task == 'finish' else 2
@@ -138,6 +157,8 @@ def guide_progress(task, observed, pastes):
             confirmed.add(4)
         if closed and not secondary:
             notice = 'Kein F9 während der Eingabe bestätigt; der Finish-Schritt bleibt offen.'
+        if task == 'refresh' and not c.get('refresh.accepted',0) and (secondary or closed):
+            notice += ' Kein serverbestätigtes Refresh; dieser Schritt bleibt offen.'
     elif task == 'cancel':
         if recording:
             active, confirmed = 3, {2}

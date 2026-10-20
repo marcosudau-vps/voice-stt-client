@@ -1,0 +1,10 @@
+{
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "exitCode": 1,
+  "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "sourceHeadAtStart": "f4489e24e47dd7ec58b550c974511e9b13b03991",
+  "scope": "Product unchanged; current helper WIP hashes exported with validation",
+  "seconds": 212.7783519,
+  "runtimeFolder": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\suite-20261020-195208-adc550\\regression",
+  "command": "venv/Scripts/python.exe -m unittest discover -v -s tests"
+}

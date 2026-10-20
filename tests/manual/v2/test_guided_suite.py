@@ -10,6 +10,12 @@ import json
 
 
 class GuidedSuite(unittest.TestCase):
+    def test_relaxed_refresh_window_does_not_replace_five_second_preferences(self):
+        with tempfile.TemporaryDirectory() as temp:
+            config=prepare_profile(Path(temp),TARGET,select_tasks(['refresh'])[0],5)
+            self.assertEqual(config.v2_profile['desired_settings']['activation.followupTimeoutMs'],15000)
+        self.assertEqual(select_tasks(['followup'])[0]['followup_ms'],5000)
+
     def test_explicit_finish_waits_only_for_a_valid_live_wake_quiet_tail(self):
         from tests.manual.v2.suite_progress import wake_stop_delay
         observed=dict(counts={'activation.started':1,'activation.input_closed':1},postCloseQuietRemaining=3)

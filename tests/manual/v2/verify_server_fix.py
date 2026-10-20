@@ -80,12 +80,18 @@ async def run_case(name, kind, word, close_mode, expected):
     from voice_stt_client.core.v2_mirror import V2MirrorConnection
     from voice_stt_client.core.v2_profile import V2Profile
     from voice_stt_client.core.settings_service import SettingsHTTP,SettingsService
-    profile=V2Profile(manual=False,wake_word=True,wake_word_ids=['hey_jarvis','alexa'],
+    refresh_probe = kind == 'control_refresh'
+    profile=V2Profile(manual=refresh_probe,wake_word=not refresh_probe,
+        wake_word_ids=[] if refresh_probe else ['hey_jarvis','alexa'],
         desired_settings={'activation.followupTimeoutMs':5000,'wakeWord.preRollMs':320})
     session=V2STTSession(V2TransportConfig(url=TARGET,connect_timeout=180,
         admission_timeout=180,bootstrap_timeout=180))
     mirror=V2MirrorConnection(session)
     settings=SettingsService(session,profile,http=SettingsHTTP(TARGET,timeout=180))
+    controls = None
+    if refresh_probe:
+        from voice_stt_client.core.v2_controls import V2ControlService
+        controls = V2ControlService(session, mirror, audio_ready=lambda: session.is_ready)
     events,hello,finals=[],[],[]
     runner=None
     start=time.monotonic()
@@ -153,7 +159,49 @@ async def run_case(name, kind, word, close_mode, expected):
     runner=asyncio.create_task(session.run())
     try:
         await ready()
-        if kind=='rearm':
+        if refresh_probe:
+            activated = await controls.press('primary')
+            assert activated is not None and activated.ack.accepted
+            aid = activated.ack.activationId
+            await ready()
+            def ended():return any(e['type']=='segment.recording_ended' for e in events)
+            await send(data,ended)
+            await silence(12,ended)
+            await wait(ended,5)
+            await ready()
+            assert mirror.mirror.view.input.phase == p.InputPhase.FOLLOWUP_WAIT
+            before = mirror.mirror.view.input.deadline.unix_ms
+            await silence(2)
+            assert mirror.mirror.view.input.phase == p.InputPhase.FOLLOWUP_WAIT
+            first = await controls.press('primary')
+            await ready()
+            after = mirror.mirror.view.input.deadline.unix_ms
+            remaining = mirror.mirror.view.input.deadline.remaining(time.monotonic())
+            repeat_at = time.monotonic()
+            second = await controls.press('primary')
+            await ready()
+            repeated = mirror.mirror.view.input.deadline.unix_ms
+            repeat_ms = (time.monotonic()-repeat_at)*1000
+            await silence(3.3)
+            crossed_old = mirror.mirror.view.input.activation_id == aid
+            await silence(10,lambda:mirror.mirror.view.input.activation_id is None)
+            await wait(lambda:mirror.mirror.view.input.activation_id is None,5)
+            await ready()
+            await wait(lambda:bool(finals),180)
+            result['checks']=dict(oneActivation=len(starts())==1,
+                twoAcceptedRefreshes=all(c is not None and c.ack.accepted and c.command.payload.get('action')=='refresh'
+                    and c.command.payload.get('activationId')==aid for c in (first,second)),
+                extendedDeadline=after>before+1000,freshFiveSecondWindow=4500<=remaining<=5000,
+                repeatNotCumulative=0<=repeated-after<=repeat_ms+250,
+                stillOpenPastOriginalDeadline=crossed_old,
+                naturalTimeout=any(e['type']=='activation.input_closed' and e.get('activationId')==aid
+                    and e.get('reason')=='timed_out' for e in events),
+                terminal=any(e['type']=='activation.completed' and e.get('activationId')==aid for e in events),
+                realAsrFinal=bool(finals) and all(f['textLength']>0 for f in finals))
+            result['deadlines']=dict(beforeUnixMs=before,afterUnixMs=after,repeatedUnixMs=repeated,
+                remainingAfterRefreshMs=remaining,repeatRoundTripMs=round(repeat_ms,3))
+            result['method']='Real authorized human speech fixture and digital silence through production Controls/Settings/Mirror/TLS and real server ASR; no physical hotkey or microphone/paste qualification.'
+        elif kind=='rearm':
             await hit(data,1)
             aid=starts()[0]['activationId']
             if close_mode=='timeout':
@@ -193,6 +241,10 @@ async def run_case(name, kind, word, close_mode, expected):
                 selectedWakeId=all(e.get('wakeWordId')==word for e in events if e['type']=='wakeword.detected'))
             result['transcriptQuality']='NOT_PROVEN: hashes/lengths only; no phonetic boundary annotation or new human assessment'
         await ready()
+        # A terminal event may schedule its snapshot request on the next turn.
+        # Await actual tracker drain; don't mistake a just-started resync for
+        # leaked commands or inspect it before its real Ack has been consumed.
+        await wait(lambda: session.pending_count == 0 and not mirror.mirror.view.snapshot_pending)
         result['checks']['noPendingCommands']=session.pending_count==0
         result['checks']['effectivePreferences']=(settings.report().effective.get('activation.followupTimeoutMs')==5000
             and settings.report().effective.get('wakeWord.preRollMs')==320)
@@ -202,6 +254,8 @@ async def run_case(name, kind, word, close_mode, expected):
     except Exception as error:
         result.update(result='FAIL',errorType=type(error).__name__,error=str(error))
     finally:
+        if controls:
+            await controls.close()
         await settings.close()
         await mirror.close()
         await asyncio.gather(runner,return_exceptions=True)
@@ -227,7 +281,8 @@ async def main(args):
     if not check_identity(before,args.expected_server_commit): raise ValueError('Info identity not complete or not selected commit/variant')
     report=dict(timeUtc=datetime.now(UTC).isoformat(),identity=identity(),target=TARGET,
         infoBefore=before,rows=[],scope='Real deployed model and production V2 components; fixture replay, not physical human qualification')
-    selected=cases()
+    selected=([(name,'control_refresh',None,'natural') for name in ('negative_speech','alexa_direct')]
+        if args.controls_refresh_only else cases())
     if args.first_only: selected=selected[:1]
     for row in selected:
         print('START '+' / '.join(str(v) for v in row),flush=True)
@@ -251,4 +306,6 @@ if __name__=='__main__':
     parser.add_argument('--expected-server-commit',required=True)
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--first-only',action='store_true')
+    parser.add_argument('--controls-refresh-only',action='store_true',
+        help='Real ASR/followup refresh and noncumulative deadline diagnostic; no native hotkey or microphone')
     raise SystemExit(asyncio.run(main(parser.parse_args())))

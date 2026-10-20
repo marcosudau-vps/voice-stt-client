@@ -1,3 +1,10 @@
+## Controls/Logs und Refresh –20.10.2026
+
+- [Sechs tatsächliche Versuche](controls-live-20261020/attempts.json), [Herkunft](controls-live-20261020/source-identity.json), [stabile Info](controls-live-20261020/server-info-after.json).
+- [Autonomer realer Refresh](controls-live-20261020/refresh-confirmed.json), [erste Diagnose erhalten](controls-live-20261020/refresh-first.json), [fehlgeschlagene Vorherregression](controls-live-20261020/progress-before.log.gz).
+- [Validierung](controls-live-20261020/validation.json), [52Helfer](controls-live-20261020/helpers.log.gz), [Qt](controls-live-20261020/qt.log.gz), [neue volle Windowsregression](controls-live-20261020/windows-confirmed.log.gz), [erster FAIL erhalten](controls-live-20261020/windows-first.log.gz).
+- [Aufräumen](controls-live-20261020/cleanup.json), [Exportmanifest](controls-live-20261020/export-manifest.json), [Bericht30](../30_CONTROLS_LOGANSICHT_UND_REFRESH.md).
+
 ## Aktuelle W01-Kontrolle –20.10.2026
 
 - [Sound-aus PASS_SCOPED mit allen Checks](wake-silent-confirmed-20261020/attempt.json), [Source-/Konfigurationsherkunft](wake-silent-confirmed-20261020/source-identity.json), [stabile Info](wake-silent-confirmed-20261020/server-info-after.json).

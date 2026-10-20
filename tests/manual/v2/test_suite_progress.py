@@ -9,6 +9,40 @@ from tests.manual.v2.suite_session import save
 
 
 class LiveProgress(unittest.TestCase):
+    def test_refresh_cannot_be_checked_from_two_finals_and_finish_alone(self):
+        observed = dict(counts={'activation.started':1, 'segment.recording_started':2,
+            'segment.recording_ended':2, 'secondary':1, 'activation.input_closed':1,
+            'activation.completed':1})
+        self.assertNotIn(3, guide_progress('refresh', observed, 2)['confirmed'])
+
+    def test_refresh_progress_requires_accepted_command_for_current_activation(self):
+        progress = ObservedProgress()
+        progress.observe('wire', event=dict(type='activation.started', generation=1, activationId='a'))
+        progress.observe('wire', event=dict(type='segment.recording_ended', generation=1))
+        for accepted, aid in ((False,'a'), (True,'old')):
+            progress.observe('command.completed', action='refresh', accepted=accepted, activationId=aid)
+        self.assertNotIn(3, guide_progress('refresh', progress.snapshot(), 2)['confirmed'])
+        progress.observe('command.completed', action='refresh', accepted=True, activationId='a',generation=0)
+        self.assertNotIn('refresh.accepted', progress.snapshot()['counts'])
+        progress.observe('command.completed', action='refresh', accepted=True, activationId='a')
+        self.assertEqual(progress.snapshot()['counts']['refresh.accepted'],1)
+        self.assertNotIn(3, guide_progress('refresh', progress.snapshot(), 1)['confirmed'])
+        for _ in range(2):
+            progress.observe('wire',event=dict(type='segment.recording_started',generation=1))
+        self.assertEqual(guide_progress('refresh', progress.snapshot(), 1)['active'],4)
+        self.assertIn(3, guide_progress('refresh', progress.snapshot(), 1)['confirmed'])
+
+    def test_refresh_speech_cue_waits_three_seconds_after_real_ack(self):
+        progress=ObservedProgress()
+        progress.observe('wire',event=dict(type='activation.started',activationId='a',generation=1),now=0)
+        progress.observe('wire',event=dict(type='segment.recording_started',generation=1),now=1)
+        progress.observe('wire',event=dict(type='segment.recording_ended',generation=1),now=2)
+        progress.observe('command.completed',action='refresh',activationId='a',accepted=True,generation=1,now=3)
+        before=guide_progress('refresh',progress.snapshot(now=4),1)
+        self.assertEqual(before['waitRemaining'],2)
+        self.assertIn('weiter schweigen',before['notice'])
+        self.assertIn('JETZT ZWEITEN',guide_progress('refresh',progress.snapshot(now=6),1)['notice'])
+
     def test_finish_moves_after_activation_without_operator_next(self):
         progress = ObservedProgress()
         progress.observe('wire', event=dict(type='activation.started', generation=1, activationId='a'))

@@ -30,9 +30,9 @@ def target_origin(url):
     return 'https://'+parts.netloc
 
 
-def task(key, title, requirements, phrase, steps, expected, secondary='finish'):
+def task(key, title, requirements, phrase, steps, expected, secondary='finish', *, followup_ms=5000):
     return dict(id=key, title=title, requirements=requirements, phrase=phrase,
-                steps=steps, expected=expected, secondary=secondary)
+                steps=steps, expected=expected, secondary=secondary, followup_ms=followup_ms)
 
 
 TASKS = [
@@ -54,12 +54,12 @@ TASKS = [
              'MITTEN IM SATZ Strg+Umschalt+F9 drücken, alle Tasten loslassen. F9 bedeutet hier CANCEL.',
              'Mindestens zehn Sekunden schweigen. Tray und Overlay vergleichen, unerwarteten Text notieren.'],
          'Cancel autoritativ bestätigt; keine neue Ausgabe aus dem abgebrochenen offenen Segment.', 'cancel'),
-    task('refresh', '4 · Nachsprechfenster verlängern', ['M-04'],
+    task('refresh', '4 · Verlängern · entspanntes Testfenster 15 s', ['M-04'],
          'Dies ist der erste Abschnitt.\nDies ist der Abschnitt nach dem Verlängern.', [
-             'F8 drücken und den ERSTEN Satz sprechen; dann schweigen.',
-             'In der Nachsprechphase F8 erneut drücken. Etwa drei Sekunden warten und den ZWEITEN Satz sprechen.',
+             'F8 drücken und NUR den ERSTEN Satz sprechen. Dann schweigen, bis die nächste Zeile aufleuchtet.',
+             'JETZT F8 erneut drücken. Auf „REFRESH BESTÄTIGT“ und den Drei-Sekunden-Countdown warten. Erst bei „JETZT ZWEITEN SATZ SPRECHEN“ den ZWEITEN Satz sprechen.',
              'F9 drücken, Tasten loslassen und beide Sätze abwarten.'],
-         'Refresh derselben Activation statt neuer Activation; kein kumulativer Timer.'),
+         'Refresh derselben Activation. Nur diese Probe hat 15 s Testfenster; die gewählte Bedienkonfiguration bleibt 5 s.',followup_ms=15000),
     task('none', '5 · Bewusst wirkungslose Zweittaste', ['M-04'],
          'Hier nichts sprechen.', [
              'F8 drücken, zwei Sekunden schweigen, F9 drücken. F9 ist NUR IN DIESER AUFGABE auf NONE gestellt.',
