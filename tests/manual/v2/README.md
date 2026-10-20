@@ -183,3 +183,9 @@ Alexa/Hey Jarvis mit Sound und Alexa ohne Sound als Kontrollvergleich. Danach
 selbst Versuch beenden und übernehmen/wiederholen. Der gespeicherte Servercommit
 bindet den Child-Hello vor Bootstrap. Ergebnis ist menschliche Beobachtung,
 kein automatischer PASS; ein neues Info-/Serverziel braucht neue Provenienz.
+
+Ein während der bereits laufenden fünfsekündigen Wake-Ruheprüfung gewünschtes
+Beenden wird vorgemerkt und nach deren Ende ausgeführt. Fenster schließen
+bleibt sofortiges Abbrechen. Das ergänzt keine künstliche Testzeit nach einem
+schon beendeten Client: Die Auswertung verwendet den letzten echten Audiomesspunkt
+vor Stop und wertet eine zu kurze Phase als `NOT_PROVEN`.

@@ -10,6 +10,16 @@ import json
 
 
 class GuidedSuite(unittest.TestCase):
+    def test_explicit_finish_waits_only_for_a_valid_live_wake_quiet_tail(self):
+        from tests.manual.v2.suite_progress import wake_stop_delay
+        observed=dict(counts={'activation.started':1,'activation.input_closed':1},postCloseQuietRemaining=3)
+        self.assertEqual(wake_stop_delay('wake_silent',observed),3)
+        self.assertEqual(wake_stop_delay('wake_silent',observed,closing=True),0)
+        self.assertEqual(wake_stop_delay('finish',observed),0)
+        for remaining in (None,0,False,6,-1):
+            self.assertEqual(wake_stop_delay('wake_silent',dict(observed,postCloseQuietRemaining=remaining)),0)
+        self.assertEqual(wake_stop_delay('wake_silent',dict(observed,counts={})),0)
+
     def test_optional_live_wake_tasks_do_not_change_default_manual_plan(self):
         self.assertEqual(len(select_tasks()),11)
         selected=select_tasks(['wake_alexa','wake_jarvis','wake_silent'])

@@ -100,3 +100,11 @@ native Credential-Lebenszyklen und idle-Runpause/Recovery PASS_SCOPED,36Helfer-
 und neue volle1400Windows-Tests/0Skips PASS. Keine Produktänderung;
 fehlende Kombinationen/Admin/Frozen/W01 bleiben offen.15gesicherte externe
 Aufräumreste wegen automatischer Löschablehnung. Gleicher R01/PR15, kein REVIEW_READY.
+
+
+## Reale Wakeauswertung,20.10.2026
+
+[Bericht28](RUNS/R01-UMSETZUNG/28_WAKE_LIVEAUSWERTUNG_UND_RUHEKONTROLLE.md):
+zwei aktuelle Sound-an-Wake-/Timeoutproben PASS_SCOPED, Sound-aus-Kontrolle
+wegen kurzer Ruhephase NOT_PROVEN und allein zu wiederholen.48Helfer/Qt und
+erneut1400Windows/0Skips PASS. Keine Produkt-/Serveränderung, übrige Gates offen.

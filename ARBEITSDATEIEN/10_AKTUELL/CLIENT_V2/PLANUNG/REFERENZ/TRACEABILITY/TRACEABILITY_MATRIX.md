@@ -446,3 +446,15 @@ PASS_SCOPED, keine Zusatzwake in geprüfter digitaler Stille. Nativer Source-/Re
 Idle-Vorcheck133Pakete, neue1400Windows/0Skips und43Helfer PASS. Echte aktuelle
 Mikrofon-/Sound-/Nutzsprachgrenze/Frozen/Both-/30min100-Gates bleiben offen;
 W01-Live-Abschluss ausstehend. Keine alten Paar-PASS ungeprüft übertragen.
+
+
+## AP-IV2-020/R01 – echte Wake-/Soundproben,20.10.2026
+
+[Bericht28](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/28_WAKE_LIVEAUSWERTUNG_UND_RUHEKONTROLLE.md):
+REAL-01/02/03/04, M-02/M-10-Teilnachweis: aktuelle bewusste Alexa-/Hey-Jarvis-
+Proben mit Mikrofon und Sound an am Paar0f6c85e/67f3ce45, je1Wake/Activation,
+Timeout und20,625s/6,954s belegte Audio-Nachphase ohne Folgetrigger PASS_SCOPED.
+Sound-aus-Kontrolle1,875s statt5s ausdrücklich NOT_PROVEN trotz menschlicher
+Annahme. Dauerhafte `tests.manual.v2.test_wake_live_assessment` und tatsächlicher
+Qt-Stopanforderungspfad prüfen dies;48Helfer/1400Windows ohne Skips PASS.
+Kein vollständiger M-/Frozen-/Both-/Nutzsprach-/30min100-PASS.

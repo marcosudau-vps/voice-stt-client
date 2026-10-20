@@ -20,7 +20,7 @@ from tests.manual.v2.suite_plan import (
     select_tasks, DEFERRED, ROOT, RUNTIME, PROFILE_RUNTIME, TARGET, PREPARE_SECONDS, SuiteRecord, owned_path, target_origin)
 from tests.manual.v2.suite_session import save
 from tests.manual.v2.suite_analysis import summarize
-from tests.manual.v2.suite_progress import guide_progress
+from tests.manual.v2.suite_progress import guide_progress, wake_stop_delay
 
 
 def main():
@@ -77,6 +77,8 @@ def main():
     confirmed_steps = set()
     last_board = None
     closing = False
+    stop_requested = False
+    last_progress = {}
     user32 = __import__('ctypes').windll.user32
     user32.GetForegroundWindow.restype = __import__('ctypes').c_void_p
     class Window(QWidget):
@@ -199,10 +201,13 @@ def main():
                 'color:#41664b;background:#edf5ee' if done else 'color:#818895;background:#eef0f3'))
 
     def preview():
-        nonlocal phase, prepare_at
+        nonlocal phase, prepare_at, stop_requested
         phase, prepare_at = 'preview', None
+        stop_requested = False
+        last_progress.clear()
         confirmed_steps.clear()
         task = TASKS[index]
+        finish_button.setText('Versuch beenden (Ruheprüfung wird abgewartet)' if task.get('wake') else 'Versuch beenden / auswerten')
         tasks.setCurrentRow(index)
         title.setText(task['title'])
         phrase.setText(task['phrase'])
@@ -291,8 +296,15 @@ def main():
                 advance.setEnabled(False)
 
     def stop():
-        nonlocal phase
+        nonlocal phase, stop_requested
         if child is not None and child.poll() is None:
+            delay=wake_stop_delay(TASKS[index]['id'],last_progress,closing=closing)
+            if phase=='running' and delay:
+                stop_requested=True
+                finish_button.setEnabled(False)
+                status.setText(f'Beenden vorgemerkt · Noch {delay} s schweigen. Die laufende Ruheprüfung endet zuerst. Fenster schließen bleibt Abbrechen.')
+                return
+            stop_requested=False
             command('stop')
             phase = 'stopping'
             finish_button.setEnabled(False)
@@ -395,7 +407,12 @@ def main():
                     prepare_at = None
                     status.setText('CLIENT STARTET / MODELLE LADEN · Bitte warten · '+str(live.get('transport', ''))+' · '+str(live.get('reason', '')))
             if phase == 'running':
-                guide = guide_progress(TASKS[index]['id'],live.get('operatorProgress',{}),len(paste_events))
+                last_progress.clear()
+                last_progress.update(live.get('operatorProgress',{}))
+                guide = guide_progress(TASKS[index]['id'],last_progress,len(paste_events))
+                if stop_requested and not wake_stop_delay(TASKS[index]['id'],last_progress):
+                    stop()
+                    return
                 confirmed_steps.update(guide['confirmed'])
                 board(max(step,guide['active']),'observed_client_events')
                 advance.setEnabled(guide['manualAllowed'] and step < len(labels)-1)
@@ -404,6 +421,8 @@ def main():
                     f"\nSession: {live.get('sessionId')} · {live.get('reason', '')}"+
                     (f"\nWarten: {guide['waitRemaining']} s" if guide['waitRemaining'] is not None else '')+
                     ('\n'+guide['notice'] if guide['notice'] else ''))
+                if stop_requested:
+                    status.setText(status.text()+'\nBEENDEN VORGEMERKT · Ruheprüfung wird noch abgeschlossen; weiter schweigen.')
         elif phase == 'starting':
             status.setText(f'CLIENT STARTET · {int(time.monotonic()-started_at)} s · Modellstart darf mehrere Minuten dauern.')
 
@@ -436,6 +455,8 @@ def main():
             assert child is None and record.active is None and phase == 'preview'
             assert phrase.text() == TASKS[0]['phrase'] and len(labels) == len(TASKS[0]['steps'])+3
             assert not advance.isEnabled() and not accept.isEnabled()
+            if TASKS[0].get('wake'):
+                assert 'Ruheprüfung' in finish_button.text()
             assert all(label.text() for label in labels)
             # Exercise actual JSON polling, not only the reducer or layout.
             class SimulatedChild:
@@ -454,6 +475,22 @@ def main():
             assert not advance.isEnabled(), 'F8/speech progression must not need a Next click'
             review_controls()
             assert not labels[3].text().startswith('✓'), 'Review must not fabricate F9 completion'
+            if TASKS[0].get('wake'):
+                phase='running'
+                observed={'counts':{'activation.started':1,'activation.input_closed':1},
+                    'closedReason':'timed_out','postCloseQuietRemaining':3}
+                save(attempt_folder/'status.json',dict(timeUtc=datetime.now(UTC).isoformat(),
+                    ready=True,audioAvailable=True,generation=1,phase='idle',operatorProgress=observed))
+                tick()
+                finish_button.setEnabled(True)
+                finish_button.click()
+                assert stop_requested and phase=='running'
+                assert not (attempt_folder/'commands').exists(), 'Quiet tail must continue after explicit Finish request'
+                observed['postCloseQuietRemaining']=0
+                save(attempt_folder/'status.json',dict(timeUtc=datetime.now(UTC).isoformat(),
+                    ready=True,audioAvailable=True,generation=1,phase='idle',operatorProgress=observed))
+                tick()
+                assert phase=='stopping' and len(list((attempt_folder/'commands').glob('*.json')))==1
             child=None
             phase='preview'
             confirmed_steps.clear()
@@ -468,6 +505,7 @@ def main():
             assert labels[2].property('instructionText') == TASKS[1]['steps'][0]
             window.grab().save(str(folder/'preview.png'))
             save(folder/'ui-self-check.json', dict(result='PASS', noClientStarted=child is None,
+                quietStopDeferVerified=bool(TASKS[0].get('wake')),
                 scope='Qt preview/layout/explicit skip; no real model/audio/paste qualification'))
             print('GUIDED_UI_SELF_CHECK_PASS', flush=True)
             app.quit()

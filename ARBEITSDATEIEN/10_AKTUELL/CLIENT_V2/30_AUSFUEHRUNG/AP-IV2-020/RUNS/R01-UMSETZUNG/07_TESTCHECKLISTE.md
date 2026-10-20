@@ -1,4 +1,4 @@
-## Aktuelle Checkliste – Serverfix-Rückkehr,20.10.2026
+## Aktuelle Checkliste – Wake-Liveauswertung,20.10.2026
 
 - [x] Geführte11Aufgaben samt Wiederholungen fallgenau ausgewertet.
 - [x] R11: physische USB-Recovery am korrigierten Sourceprodukt bestätigt.
@@ -11,15 +11,17 @@
 - [x] Neuer Server67f3ce45 mit Fix/Info/Gitbaum/echtem Hello eindeutig gebunden.
 - [x]13reale Modellfälle/18Activations und133native ReSpeaker-Pakete am neuen Paar.
 - [x] Neue volle1400Windows-Tests/0Skips und43Helfertests am unveränderten Produkt0f6c85e.
-- [ ] Drei geführte reale Wake-/Schweige-/Soundvergleiche selbst starten und bewerten.
+- [x] Aktuelle Alexa-/Hey-Jarvis-Mikrofon-/Timeout-/Soundproben je1Activation ohne Folgetrigger bestätigt.
+- [ ] Nur Alexa ohne Sound wiederholen: erste Kontrolle endete vor vollständigen5s.
+- [x] Geschützte Ruhephase bei angefordertem Testende;48Helfer/Qt und1400Windows ohne Skips PASS.
 - [ ] Controlsphasen/Watchdog/Runpausen und zugehörige Zusammenspiele vollständig qualifizieren.
 - [ ] Netz-/Logstore-/Pendingfinal- und Settingswechsel-Fälle vervollständigen.
 - [ ] Native Credential-/Admin-, Frozen-/erhöhte Zielanwendungs-/Clipboard-/Prozessfälle abschließen.
 - [ ] Nach jetzt deployed W01-FIX: vollständige reale Wake-/Both-/Nutzsprachgrenzen und30min100-Gate abschließen.
-- [ ] Siebzehn gesicherte beendete externe Ordner aufräumen: automatische Prüfung blockiert Löschen.
+- [ ] Achtzehn gesicherte beendete externe Ordner aufräumen: automatische Prüfung blockiert Löschen.
 - [ ] Erst bei vollständigen Pflichtnachweisen REVIEW_READY; danach unabhängige Abnahme.
 
-[Aktuelle Server-Rückkehr](27_SERVERFIX_RUECKKEHR_UND_REQUALIFIKATION.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
+[Aktuelle Liveauswertung](28_WAKE_LIVEAUSWERTUNG_UND_RUHEKONTROLLE.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
 Nachfolgende Abschnitte sind ältere, ihrem jeweiligen Stand zugeordnete Checklisten.
 
 ## Korrigierte Liveführung – Wiederholung Aufgabe1,19.10.2026

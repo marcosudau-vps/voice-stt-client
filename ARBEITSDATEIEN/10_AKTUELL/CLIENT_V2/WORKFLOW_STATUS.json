@@ -26,8 +26,8 @@
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "Serverfix auf Pro-V2 verifiziert und Modellmatrix grün; aktuelle physische Wake-/Sound-/übrige M-/Frozen-/30min100-Pflichten offen.17private gesicherte Laufordner automatisch gegen Löschen gesperrt.",
-  "nextAction": "Drei einzeln gestartete geführte Wake-Mikrofon-/Schweige-/Soundvergleiche am Server67f3ce45 durchführen und auswerten; danach übrige AP020-Pflichten inklusive Wake/Both/30min100 fortsetzen. Kein REVIEW_READY aus Modellreplay.",
+  "blockingReason": "Wake-Liveproben mit Sound PASS_SCOPED; nur Sound-aus-5s-Kontrolle zu kurz und übrige M-/Frozen-/30min100-Pflichten offen.18gesicherte externe Aufräumreste automatisch gegen Löschen gesperrt.",
+  "nextAction": "Nur wake_silent mit geschützter vollständiger Ruhephase wiederholen und auswerten; bestehende zwei Sound-an-PASS erhalten. Danach W01 anhand erforderlicher Belege fortschreiben und übrige AP020-Pflichten ohne neue allgemeine Freigabe fortsetzen. Kein REVIEW_READY.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -57,7 +57,7 @@
     "branch": "feat/einheitliche-triggerarchitektur-distributed",
     "record": "https://github.com/marcosudau-vps/voice-stt-server/pull/8",
     "statusPath": null,
-    "state": "IMPLEMENTED_DEPLOYED_REPLAY_PASS_LIVE_PENDING",
+    "state": "LIVE_SOUND_ON_PASS_SILENT_CONTROL_INCOMPLETE",
     "clientFinding": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/12_WAKE_REAKTIVIERUNG_W01.md",
     "serverBaseline": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
     "returnClient": {
@@ -74,10 +74,11 @@
       "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
       "startHead": "403a745c053a35a9e3849db0da1eaf5e64e84c1f",
       "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd"
-    }
+    },
+    "latestClientLiveEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/28_WAKE_LIVEAUSWERTUNG_UND_RUHEKONTROLLE.md"
   },
   "technicalProductCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
-  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/server-return-20261020/validation.json",
+  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/wake-live-20261020/validation.json",
   "observations": [
     {
       "id": "IV2-020-O01",
@@ -114,6 +115,12 @@
       "status": "REPLAY_PASS_LIVE_PENDING",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/27_SERVERFIX_RUECKKEHR_UND_REQUALIFIKATION.md",
       "summary": "Neuer Pro-V2-Server67f3ce45/Tree74f37cad/Version2.0.0 über öffentliche Info, passenden Gitbaum/-datum und echten Hello bestätigt; Wakefix-Mergee761b973 direkter Parent.13reale Modellreplays/18Activations ohne Zusatzwake in geprüfter digitaler Stille PASS_SCOPED, native Source/ReSpeaker133Pakete und neue1400Windows/0Skips/43Helfertests PASS. W01-Live-Mikrofon-/Schweige-/Soundvergleich vorbereitet, keine vollständige M-/Frozen-/30min100-Abnahme; Clientprodukt0f6c85e unverändert.17beendete private Aufräumreste automatisch gegen Löschen gesperrt."
+    },
+    {
+      "id": "IV2-020-W01-LIVE",
+      "status": "SOUND_ON_PASS_SILENT_CONTROL_NOT_PROVEN",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/28_WAKE_LIVEAUSWERTUNG_UND_RUHEKONTROLLE.md",
+      "summary": "Aktuelle reale Alexa-/Hey-Jarvis-Proben mit Sound je genau1Activation/Timeout,20,625s bzw6,954s weitere belegte Audiobeobachtung ohne Folgetrigger, menschlich Wie erwartet: PASS_SCOPED. Sound-aus-Kontrolle endet vorzeitig: nur1,875s Audio nach Timeout, NOT_PROVEN statt angenommener5s. Nur diesen Fall wiederholen; Testoberfläche wartet eine bereits laufende Ruhephase nach explizitem Beendenwunsch ab, Fensterclose bleibt Abbrechen.48Helfer/Qt und neue1400Windows/0Skips PASS. Produkt0f6c85e/Server67f3ce45 unverändert;18private Aufräumreste automatisch gegen Löschen gesperrt."
     }
   ],
   "testInfrastructure": {

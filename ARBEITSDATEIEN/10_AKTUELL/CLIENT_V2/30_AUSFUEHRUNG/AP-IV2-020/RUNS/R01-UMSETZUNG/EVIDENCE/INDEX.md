@@ -1,3 +1,9 @@
+## Aktuelle reale Wakeproben,20.10.2026
+
+- [2PASS/1NOT_PROVEN mit Zeiten/Checks](wake-live-20261020/attempts.json), [Human-/Sourceherkunft](wake-live-20261020/source-identity.json), [unveränderte Serverinfo](wake-live-20261020/server-info-after.json).
+- [48Helfertests](wake-live-20261020/helpers-48.log.gz), [Qt-Stopverzögerung](wake-live-20261020/qt-stop-deferral.log.gz), [1400Windows/0Skips](wake-live-20261020/windows-1400.log.gz), [Validierung](wake-live-20261020/validation.json), [Aufräumen](wake-live-20261020/cleanup.json), [Exportmanifest](wake-live-20261020/export-manifest.json).
+- [Bericht28, nur Kontrollprobe wiederholen](../28_WAKE_LIVEAUSWERTUNG_UND_RUHEKONTROLLE.md).
+
 ## Serverfix-Rückkehr,20.10.2026
 
 - [Info vorher](server-return-20261020/server-info-before.json), [nachher](server-return-20261020/server-info-after.json), [Git/PR/CI-Provenienz](server-return-20261020/server-provenance.json).

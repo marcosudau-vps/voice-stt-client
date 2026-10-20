@@ -79,6 +79,22 @@ class ObservedProgress:
                     postCloseQuietRemaining=remaining(self.closed_at, 5))
 
 
+def wake_stop_delay(task, observed, *, closing=False):
+    """An explicit Finish request may wait only for its already running quiet tail.
+
+    Closing the window remains immediate abort. Missing/inconsistent telemetry
+    cannot invent a completed test or indefinitely trap the operator.
+    """
+    if closing or task not in ('wake_alexa','wake_jarvis','wake_silent'):
+        return 0
+    counts=observed.get('counts',{})
+    remaining=observed.get('postCloseQuietRemaining')
+    if (counts.get('activation.started')==1 and counts.get('activation.input_closed')==1
+            and type(remaining) is int and 0<remaining<=5):
+        return remaining
+    return 0
+
+
 def guide_progress(task, observed, pastes):
     """Indices 0=read,1=prepare,2..4=task,5=review. Checks require evidence."""
     c = observed.get('counts', {})

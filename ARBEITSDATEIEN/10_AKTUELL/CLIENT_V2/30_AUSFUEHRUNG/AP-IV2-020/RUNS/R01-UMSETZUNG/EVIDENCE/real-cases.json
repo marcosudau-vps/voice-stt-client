@@ -78,6 +78,15 @@
           "evidence": "server-return-20261020/replay-matrix.json",
           "tester": "Codex: real deployed model WAV replay; separate native idle/audio precheck",
           "boundaries": "No current human Wake/sound/Frozen/complete M-case qualification; see report27."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "7d4331ae2ca84e1fdb18c2e3d02c1cdbdcbe9e37",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "wake-live-20261020/attempts.json",
+          "tester": "marco: real microphone/perception; Codex: logs/metrics/config assessment",
+          "boundaries": "Sound-on Alexa/Jarvis PASS_SCOPED; sound-off quiet window too short NOT_PROVEN. Full M-case remains open."
         }
       ]
     },
@@ -323,6 +332,15 @@
           "evidence": "server-return-20261020/native-smoke.json",
           "tester": "Codex: real deployed model WAV replay; separate native idle/audio precheck",
           "boundaries": "No current human Wake/sound/Frozen/complete M-case qualification; see report27."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "7d4331ae2ca84e1fdb18c2e3d02c1cdbdcbe9e37",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "wake-live-20261020/attempts.json",
+          "tester": "marco: real microphone/perception; Codex: logs/metrics/config assessment",
+          "boundaries": "Sound-on Alexa/Jarvis PASS_SCOPED; sound-off quiet window too short NOT_PROVEN. Full M-case remains open."
         }
       ]
     },

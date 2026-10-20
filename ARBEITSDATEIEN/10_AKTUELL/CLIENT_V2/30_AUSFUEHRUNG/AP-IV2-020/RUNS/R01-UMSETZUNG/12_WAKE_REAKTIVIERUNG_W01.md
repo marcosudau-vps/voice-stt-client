@@ -1,3 +1,7 @@
+## Aktuelle Livebewertung,20.10.2026
+
+[Bericht28](28_WAKE_LIVEAUSWERTUNG_UND_RUHEKONTROLLE.md): Alexa/Hey Jarvis mit echtem Mikrofon und Sound je1Activation,20,625s/6,954s Audio nach Timeout ohne Folgetrigger, PASS_SCOPED. Sound-aus-Kontrolle nur1,875s statt5s belegt, allein diese Wiederholung offen; kein neuer Serverfehler beobachtet. W01 bleibt bis zum vollständigen geplanten Kontrollbeleg offen.
+
 ## Aktueller Stand,20.10.2026 – SERVER_FIX_DEPLOYED_REPLAY_PASS_LIVE_PENDING
 
 [Server-Rückkehr27](27_SERVERFIX_RUECKKEHR_UND_REQUALIFIKATION.md): Codefix tatsächlich auf ausgewähltem Pro-V2 vorhanden;13Modellfälle/18Activations grün, kein unerwünschter Folgestart bei digitaler Stille. Aktuelle physische Mikrofon-/Schweige-/Soundprüfung noch offen; Issue7 und Clientfinding bleiben bis zu erforderlichen Realnachweisen offen. Folgender ursprünglicher Befund bleibt historische Ursache/Repro.
