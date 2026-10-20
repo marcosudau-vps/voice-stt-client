@@ -87,6 +87,15 @@
           "evidence": "wake-live-20261020/attempts.json",
           "tester": "marco: real microphone/perception; Codex: logs/metrics/config assessment",
           "boundaries": "Sound-on Alexa/Jarvis PASS_SCOPED; sound-off quiet window too short NOT_PROVEN. Full M-case remains open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "67470d04c64eb0696ca1438eff46168633048968",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "wake-silent-confirmed-20261020/attempt.json",
+          "tester": "marco: real microphone/perception; Codex: logs/config/identity/audio assessment",
+          "boundaries": "W01 control PASS_SCOPED with29.765s continued native audio; full M-case remains open."
         }
       ]
     },
@@ -341,6 +350,15 @@
           "evidence": "wake-live-20261020/attempts.json",
           "tester": "marco: real microphone/perception; Codex: logs/metrics/config assessment",
           "boundaries": "Sound-on Alexa/Jarvis PASS_SCOPED; sound-off quiet window too short NOT_PROVEN. Full M-case remains open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "67470d04c64eb0696ca1438eff46168633048968",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "wake-silent-confirmed-20261020/attempt.json",
+          "tester": "marco: real microphone/perception; Codex: logs/config/identity/audio assessment",
+          "boundaries": "W01 control PASS_SCOPED with29.765s continued native audio; full M-case remains open."
         }
       ]
     },

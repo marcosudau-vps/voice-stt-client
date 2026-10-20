@@ -118,7 +118,7 @@ for key, word, silent in [('wake_alexa','Alexa',False), ('wake_jarvis','Hey Jarv
 ALL_TASKS = TASKS + WAKE_TASKS
 
 DEFERRED = [
-    'W01 / Issue #7: Fix auf Pro-V2 deployed; echter Mikrofon-/Schweige-/Soundvergleich noch auszuführen. Vollständige Wake-Parität/30min100 separat.',
+    'W01: konkreter Folgetrigger nach Fix in13Modellfällen und3aktuellen Mikrofon-/Soundkontrollen nicht mehr aufgetreten. Offen bleiben vollständige Wake-/Both-Parität und30min100.',
     'M-04: weitere Phasenkombinationen, Hotkey-Kollision und realer Watchdog bleiben gesonderte technische Nachweise.',
     'M-05: idle-Pausen/Reconnect/Neustart nachgewiesen; aktivierte Wakeengine und weitere Kombinationen noch offen.',
     'M-06: USB-Recovery und LED-only bei idle nachgewiesen; offener Input/Altfinal-Kombinationen noch offen.',

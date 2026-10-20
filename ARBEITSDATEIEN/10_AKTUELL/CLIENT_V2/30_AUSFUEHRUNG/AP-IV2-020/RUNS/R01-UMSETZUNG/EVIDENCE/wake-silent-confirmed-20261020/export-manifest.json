@@ -1,0 +1,21 @@
+{
+  "files": {
+    "attempt.json": "256662bf9a60f74b5d524c542a30988faef61cbae2a3fc40e86c4081b0f418fa",
+    "cleanup.json": "850d48716d9ee6641cc8b3c4015c7b5396aef58f85b6771ded59f52c8646a161",
+    "events.jsonl.gz": "00401e34932261d4bd0b0ea18ec2f46770fdbd808136b959bb38f9eebab2eb73",
+    "helpers-33.log.gz": "7bdba8bc6083bec8f1094fb450194aa893a39a03db90b6eba9ab0afdeaa66e47",
+    "operator-events.jsonl.gz": "3f7e0fe882cf45a607854c567d6683048aaba35915443020fa6d2bc8f6b33dc1",
+    "qt-stop-deferral.log.gz": "a85ff621e837aa9a230d4e978fdd9832b04f4afceae94f9fd697262d0b26408f",
+    "redaction-and-consistency.json": "ee6226d86058aaec22c8a6e4b247e1bc46b73548be5e88c33c2ad83f29aa4ab8",
+    "server-info-after.json": "7ca08ec9b227c169307df6a9a49d207a0ffd469dc0875f9b3da6c2a861f4159b",
+    "source-identity.json": "800b3b05a3a9fcf4cc045780c6e015904e2d881c9e7ed167a0fd1a61e3432fb1",
+    "status.json.gz": "778a4a3678c43a46d082e6dd286f08b551b10ef7edbdb2bd9d724def560272cf",
+    "validation.json": "114336c221f131f70883661c35620e656879a0eff1e0985a1f05a8b1c042e8ad",
+    "work-record-validation.json": "e6c8d8a1fa11ca0ee59aaaaee5b2d7bfb29e5fa041d4172ab9f753a3282b6652"
+  },
+  "privateArchiveRoot": "build/ap-iv2-020-suite/private-archive",
+  "noRawPCM": true,
+  "noRawTranscripts": true,
+  "noDatabases": true,
+  "noCredentials": true
+}

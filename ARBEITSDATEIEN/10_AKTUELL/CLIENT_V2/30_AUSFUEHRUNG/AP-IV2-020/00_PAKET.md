@@ -108,3 +108,8 @@ Aufräumreste wegen automatischer Löschablehnung. Gleicher R01/PR15, kein REVIE
 zwei aktuelle Sound-an-Wake-/Timeoutproben PASS_SCOPED, Sound-aus-Kontrolle
 wegen kurzer Ruhephase NOT_PROVEN und allein zu wiederholen.48Helfer/Qt und
 erneut1400Windows/0Skips PASS. Keine Produkt-/Serveränderung, übrige Gates offen.
+
+
+## AP-IV2-020/R01 – W01-Kontrolle bestätigt,20.10.2026
+
+[Bericht29](RUNS/R01-UMSETZUNG/29_W01_KONTROLLE_BESTAETIGT_UND_RESTGATES.md): W01-Kontrolle Alexa ohne Sound PASS_SCOPED: genau1Wake/Activation/Timeout,29,765s weitere echte Audio-Nachbeobachtung ohne Folgetrigger,1543Pakete, keine Sprache/Final/Paste, menschlich Wie erwartet, Exit0. Damit alle3vorgesehenen Livekontrollen und13Modellfälle erfolgreich; konkretes W01 CLOSED_VERIFIED_SCOPED. Vollständige M-/Frozen-/Both-/Nutzsprachgrenzen-/30min100-Gates bleiben offen. Produkt0f6c85e/Server67f3ce45 unverändert;19private Aufräumreste automatisch gegen Löschen gesperrt. REAL-01/02/03/04 sowie M-02/M-10 bleiben vollständige Pflichtgates mit getrennten Teilbelegen.

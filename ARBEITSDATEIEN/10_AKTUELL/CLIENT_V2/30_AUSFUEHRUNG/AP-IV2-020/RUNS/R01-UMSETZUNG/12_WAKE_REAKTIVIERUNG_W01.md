@@ -1,3 +1,7 @@
+## Aktueller Schluss –20.10.2026
+
+**CLOSED_VERIFIED_SCOPED** im Client-Finding. [Bericht29](29_W01_KONTROLLE_BESTAETIGT_UND_RESTGATES.md): vollständige wiederholte Sound-aus-Kontrolle29,765s reale Audio-Nachphase ohne Folgetrigger. Zusammen mit Alexa/Hey Jarvis Sound an und13Modellfällen erforderliche konkrete W01-Kontrollen erfüllt. Kein pauschaler Wake-/Frozen-/Dauer-PASS, externes Issue unverändert. Frühere Befunde bleiben historisch erhalten.
+
 ## Aktuelle Livebewertung,20.10.2026
 
 [Bericht28](28_WAKE_LIVEAUSWERTUNG_UND_RUHEKONTROLLE.md): Alexa/Hey Jarvis mit echtem Mikrofon und Sound je1Activation,20,625s/6,954s Audio nach Timeout ohne Folgetrigger, PASS_SCOPED. Sound-aus-Kontrolle nur1,875s statt5s belegt, allein diese Wiederholung offen; kein neuer Serverfehler beobachtet. W01 bleibt bis zum vollständigen geplanten Kontrollbeleg offen.

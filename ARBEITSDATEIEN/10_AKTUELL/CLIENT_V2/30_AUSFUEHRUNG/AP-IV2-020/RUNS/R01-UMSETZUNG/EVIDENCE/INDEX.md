@@ -1,3 +1,10 @@
+## Aktuelle W01-Kontrolle –20.10.2026
+
+- [Sound-aus PASS_SCOPED mit allen Checks](wake-silent-confirmed-20261020/attempt.json), [Source-/Konfigurationsherkunft](wake-silent-confirmed-20261020/source-identity.json), [stabile Info](wake-silent-confirmed-20261020/server-info-after.json).
+- [Ereignisse](wake-silent-confirmed-20261020/events.jsonl.gz), [Status](wake-silent-confirmed-20261020/status.json.gz), [Bedienaktionen](wake-silent-confirmed-20261020/operator-events.jsonl.gz).
+- [Validierung](wake-silent-confirmed-20261020/validation.json), [Redaktion/Konsistenz](wake-silent-confirmed-20261020/redaction-and-consistency.json), [Aufräumen](wake-silent-confirmed-20261020/cleanup.json), [Exportmanifest](wake-silent-confirmed-20261020/export-manifest.json).
+- [Bericht29 und aktuelle Restgates](../29_W01_KONTROLLE_BESTAETIGT_UND_RESTGATES.md). Historische zu kurze Sound-aus-Probe bleibt NOT_PROVEN, nur die neue Wiederholung schließt den Kontrollbedarf.
+
 ## Aktuelle reale Wakeproben,20.10.2026
 
 - [2PASS/1NOT_PROVEN mit Zeiten/Checks](wake-live-20261020/attempts.json), [Human-/Sourceherkunft](wake-live-20261020/source-identity.json), [unveränderte Serverinfo](wake-live-20261020/server-info-after.json).
