@@ -483,3 +483,8 @@ Sie ersetzen keine Realfälle. `accessToken` ist redigiert, Testtexte sind synth
 - [Wakevergleich](endurance-wake-20261020/wake-comparison-summary.json), [NONE](endurance-wake-20261020/none-controls.json), [native Kollision](endurance-wake-20261020/native-collision.json).
 - [Neue1400Windows/0Skips](endurance-wake-20261020/windows.json), [Vollausgabe](endurance-wake-20261020/windows.log.gz), [70Helfer](endurance-wake-20261020/helpers.log.gz), [Qt](endurance-wake-20261020/qt.log.gz).
 - [Alle Löschbelege](endurance-wake-20261020/cleanup-receipts.json), [leerer Namensraum](endurance-wake-20261020/cleanup-final.json), [Archivbindung](endurance-wake-20261020/private-archive-binding.json), [Manifest](endurance-wake-20261020/export-manifest.json). Rohereignisse/Messpunkte/Logs und ausgeführte Quellversionen komprimiert im selben Ordner; keine neuen Rohtranskripte oder privaten Datenbanken in Git.
+
+
+## Menschlicher W02-Abschluss und konkrete Freigabereste,21.10.2026
+
+[Bericht36](../36_W02_ABSCHLUSS_UND_FREIGABERESTE.md), [Entscheidung](../ZUSATZPROMPTS/034_W02_SCHLIESSEN_UND_FREIGABERESTE.md). W02 geschlossen durch menschliche Disposition, keine neue Testausführung und keine nachgewiesene Ursachenbehebung. Bestehende Roh-FAILs und spätere PASS_SCOPED-Belege unverändert. Keine identischen Bedienwiederholungen aus pauschalen Matrixstatus ableiten.

@@ -182,7 +182,13 @@
           "evidence": "endurance-wake-20261020/validation.json",
           "boundaries": "W02 unchanged0/2extra wakes; six stricter variants compared, candidate.90/2not adopted. Historical two failures remain OPEN."
         }
-      ]
+      ],
+      "findingDisposition": {
+        "W02": "CLOSED_BY_HUMAN_DISPOSITION_NOT_REPRODUCED",
+        "report": "../36_W02_ABSCHLUSS_UND_FREIGABERESTE.md",
+        "source": "../ZUSATZPROMPTS/034_W02_SCHLIESSEN_UND_FREIGABERESTE.md",
+        "actualTriggerRaceRequirement": "NOT_PROVEN; separate from W02 disposition"
+      }
     },
     {
       "id": "M-04",

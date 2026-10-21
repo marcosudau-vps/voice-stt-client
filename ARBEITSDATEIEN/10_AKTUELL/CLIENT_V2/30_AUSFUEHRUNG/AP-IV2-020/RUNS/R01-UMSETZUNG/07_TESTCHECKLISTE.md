@@ -26,14 +26,14 @@
 - [x] Hardware-Mute27,297s/zehn blockierte F8, bewusste Freigabe/neues Diktat exakt einmal.
 - [x] Bewusstes Reinsert:1Final/Historyeintrag,1automatische+1manuelle native Ausgabe.
 - [x] Aktive Wake-Modelle und bestätigte Runpausen über Reconnect/eigenen TCP-Abbruch.
-- [ ] W02: Zusatzwake nach überlagerter Pause-/Recovery-/manueller Wakeaudio-/Cancelfolge zweimal reproduziert; Ursachen-/Serverkorrekturweg offen.
+- [x] W02: auf menschliche Entscheidung geschlossen, aktuell nicht mehr reproduzierbar; historische Roh-FAILs erhalten, keine Ursachenuntersuchung als Freigabebedingung.
 - [x] BOTH: Manual-F8/F9 und beide vollständigen direkten Wake-Nutzsätze genau einmal ohne Rufwort.
 - [x] Reale Watchdogwarnung55,062s/Ablauf60,015s am tatsächlich gewarnten Segment, alle3ASRfinals erhalten; kein menschlicher Test nötig.
 - [x] Gleiche Sprechaufgaben aus der Restplanung gestrichen; bestehende passende Sourcebelege konsolidiert.
 - [x] Ein zusammenhängender automatischer30min100-Lauf durch echte Runtime/Modelle,100Finals/History/Adapterausgaben; kein physischer/Frozen-PASS.
 - [x] W02 unverändert zweimal wiederholt; sechs strengere Schwellen-/Framevarianten mit beiden Positivmodellen/Negativclip verglichen.
 - [x] NONE in drei echten Phasen und separate native Win32-Kollision autonom geprüft.
-- [ ] Verbleibende technische Kombinationen, gebündelter finaler EXE-/Windows-/physischer Restblock; W02 getrennt.
+- [ ] Verbleibende technische Kombinationen, gebündelter finaler EXE-/Windows-/physischer Restblock; W02 geschlossen.
 - [ ] Controlsphasen/Watchdog/Runpausen und zugehörige Zusammenspiele vollständig qualifizieren.
 - [ ] Netz-/Logstore-/Pendingfinal- und Settingswechsel-Fälle vervollständigen.
 - [ ] Native Credential-/Admin-, Frozen-/erhöhte Zielanwendungs-/Clipboard-/Prozessfälle abschließen.
@@ -41,7 +41,7 @@
 - [x] Alle26eigenen beendeten externen Laufzeitordner hashgesichert entfernt; Profilnamensraum leer.
 - [ ] Erst bei vollständigen Pflichtnachweisen REVIEW_READY; danach unabhängige Abnahme.
 
-[Aktueller Abschluss und kompakte Restgates](35_DAUERLAUF_WAKEANFORDERUNGEN_UND_AUFRAEUMEN.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
+[Aktuelle konkrete Freigabereste](36_W02_ABSCHLUSS_UND_FREIGABERESTE.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
 Nachfolgende Abschnitte sind ältere, ihrem jeweiligen Stand zugeordnete Checklisten.
 
 ## Korrigierte Liveführung – Wiederholung Aufgabe1,19.10.2026

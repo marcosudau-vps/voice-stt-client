@@ -1,3 +1,5 @@
+> Fortschreibung21.10.2026: W02 wurde anschließend auf menschliche Entscheidung als aktuell nicht mehr reproduzierbar geschlossen. Kein eigener Freigabeblocker; historische Befunde und Testurteile bleiben erhalten. [Aktueller Stand](36_W02_ABSCHLUSS_UND_FREIGABERESTE.md). Die nachfolgenden Aussagen zum damaligen offenen Status sind historisch.
+
 # AP-IV2-020/R01 – Dauerlauf, Wake-Anforderungen und Aufräumen
 
 21.10.2026, Fortsetzung desselben R01/Paketbranches/Draft-PR15.

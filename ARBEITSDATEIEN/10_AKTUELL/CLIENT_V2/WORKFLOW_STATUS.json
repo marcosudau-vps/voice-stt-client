@@ -20,13 +20,12 @@
   "reviewReport": null,
   "openFindingIds": [
     "IV2-020-T02",
-    "IV2-020-T03",
-    "IV2-020-W02"
+    "IV2-020-T03"
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "Automatischer30min100-Teil PASS_SCOPED, Aufräumen erledigt. W02 sowie restliche kombinierte Controls/Fault/Settings-, Admin-/Frozen-/Clipboard- und physische M12-/Kalibrierungsanteile/T02/T03/O01 offen; keine gleichen Sprechwiederholungen.",
-  "nextAction": "Bestehende passende Belege konsolidieren; nur fehlende technische Kombinationen autonom und genau einen gebündelten finalen Frozen-/Windows-/physischen Restblock vorbereiten. Gültiger Pro-V2-Admin-Key fehlt. Wake0,90/2 ist nicht dauerhaft übernommener Testkandidat, kein behaupteter W02-Fix. Kein weiterer30minReplaylauf für den bereits bestandenen Teil erforderlich.",
+  "blockingReason": "W02 geschlossen durch menschliche Disposition. Fehlende kombinierte Controls/Fault/Settings-, Admin-/Frozen-/Clipboard- und physische/Umwelt-/Speicherzuordnungsnachweise sowie T02/T03/O01 und finale Akten bleiben; keine neuen Produktfehler daraus ableiten.",
+  "nextAction": "Konkrete Freigabereste aus Bericht36 abarbeiten: vorhandene Belege konsolidieren, technische Kombinationen autonom prüfen und einen gebündelten finalen EXE-/Windows-/physischen Restblock vorbereiten. W02 nicht weiter untersuchen oder als Blocker führen. Bereits bestandene Standardaufgaben nicht erneut anfordern.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -175,6 +174,13 @@
       "status": "AUTOMATED_DURATION_SCOPED_PASS_W02_OPEN_CLEANUP_DONE",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/35_DAUERLAUF_WAKEANFORDERUNGEN_UND_AUFRAEUMEN.md",
       "summary": "Automatischer zusammenhängender1800.015s/100Activations-Lauf mit echten Modellen PASS_SCOPED;100Finals/100Historyeinträge/100kontrollierte Injektionsversuche, drei eigene Recoveryaktionen. Physische/Frozen-M12-Anteile offen. W02 unverändert0/2reproduziert, historische2FAIL bleiben offen;0,90/2Frames erhält beide Positivfixtures,3/5Frames verfehlen Jarvis. Keine Defaultübernahme. Alle26eigenen externen Laufzeitordner hashgesichert entfernt.70Helfer/Qt und neue1400Windows/0Skips PASS; Produkt0f6c85e unverändert. Zwei Fehlversuche separat erhalten."
+    },
+    {
+      "id": "IV2-020-W02-DISPOSITION",
+      "status": "CLOSED_BY_HUMAN_DISPOSITION_NOT_REPRODUCED",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/36_W02_ABSCHLUSS_UND_FREIGABERESTE.md",
+      "source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/034_W02_SCHLIESSEN_UND_FREIGABERESTE.md",
+      "summary": "W02 auf ausdrückliche menschliche Entscheidung als aktuell nicht mehr reproduzierbar geschlossen; kein eigener Freigabeblocker. Historische2FAIL erhalten, keine identifizierte Codekorrektur behauptet. Rest: technische Kombinationen, finaler EXE-/Admin-/Clipboard-/physischer Abschluss und Akten/ unabhängige Abnahme. Keine Wiederholung bestandener Standarddiktate, USB-Grundprobe oder des identischen30min100-Replaylaufs."
     }
   ],
   "testInfrastructure": {
@@ -209,7 +215,7 @@
       "status": "BOTH_SOURCE_SCOPED_PASS_NO_IDENTICAL_OPERATOR_REPEATS",
       "tasks": 11,
       "source": "../../../tests/manual/v2/README.md",
-      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/35_DAUERLAUF_WAKEANFORDERUNGEN_UND_AUFRAEUMEN.md",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/36_W02_ABSCHLUSS_UND_FREIGABERESTE.md",
       "profilePathAuthorization": "APPROVED_WITH_EXPORT_AND_CLEANUP_OBLIGATION",
       "proposedRuntimePath": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
       "helperTests": "70 PASS; actual Qt PASS",
@@ -254,7 +260,7 @@
         "wakeWord.minConsecutivePredictionFrames": 2
       },
       "persistentlyApplied": false,
-      "W02": "OPEN_NOT_CURRENTLY_REPRODUCED_0_OF_2"
+      "W02": "CLOSED_BY_HUMAN_DISPOSITION_NOT_REPRODUCED"
     }
   },
   "qualificationStatus": "BLOCKED_BY_OPEN_MANDATORY_FINDINGS",

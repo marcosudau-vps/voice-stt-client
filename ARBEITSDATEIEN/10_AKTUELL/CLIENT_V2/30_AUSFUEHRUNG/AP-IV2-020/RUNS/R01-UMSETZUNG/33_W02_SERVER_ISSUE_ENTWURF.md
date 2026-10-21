@@ -1,3 +1,5 @@
+> Fortschreibung21.10.2026: W02 wurde anschließend auf menschliche Entscheidung als aktuell nicht mehr reproduzierbar geschlossen. Kein eigener Freigabeblocker; historische Befunde und Testurteile bleiben erhalten. [Aktueller Stand](36_W02_ABSCHLUSS_UND_FREIGABERESTE.md). Die nachfolgenden Aussagen zum damaligen offenen Status sind historisch.
+
 # IV2-020-W02 – lokaler Server-Issueentwurf, noch nicht veröffentlicht
 
 20.10.2026, AP-IV2-020/R01. **CONFIRMED_BEHAVIOR_ROOT_CAUSE_PENDING**.
