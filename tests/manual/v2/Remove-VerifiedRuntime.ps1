@@ -17,14 +17,20 @@ if (-not $sourceItem.PSIsContainer -or -not $archiveItem.PSIsContainer) {throw '
 $items=@($sourceItem,$archiveItem)+@(Get-ChildItem -LiteralPath $target -Recurse -Force)+@(Get-ChildItem -LiteralPath $archive -Recurse -Force)
 if ($items | Where-Object { $_.Attributes -band [IO.FileAttributes]::ReparsePoint }) {throw 'Reparse point excluded'}
 if (Get-CimInstance Win32_Process | Where-Object { $_.Name -match '^(pythonw?|voice-stt-client)\.exe$' -and $_.CommandLine -like ('*'+$target+'*') }) {throw 'Runtime process still active'}
-# The endurance runner passes its profile through environment variables, not
+# Probe runners pass their profiles through environment variables, not
 # argv. Its project report binds the actual worker PID to the runtime root.
-foreach ($probe in @(Get-ChildItem -LiteralPath (Join-Path $workspace 'build\ap-iv2-020-suite') -Directory -Filter 'endurance*')) {
+foreach ($probe in @(Get-ChildItem -LiteralPath (Join-Path $workspace 'build\ap-iv2-020-suite') -Directory)) {
     $probeReport=Join-Path $probe.FullName 'result.json'
     if (-not (Test-Path -LiteralPath $probeReport)) {continue}
     $probeData=Get-Content -LiteralPath $probeReport -Raw | ConvertFrom-Json
     if ($probeData.runtimeFolder -and [IO.Path]::GetFullPath($probeData.runtimeFolder) -eq $target -and $probeData.pid) {
-        if (Get-Process -Id ([int]$probeData.pid) -ErrorAction SilentlyContinue) {throw 'Bound endurance worker still active'}
+        $boundProcess=Get-Process -Id ([int]$probeData.pid) -ErrorAction SilentlyContinue
+        # Windows reuses PIDs. Bind to a runtime executable and the original
+        # run's creation interval; argv containment above guards all children.
+        if ($boundProcess -and $boundProcess.ProcessName -match '^(pythonw?|voice-stt-client)$' -and
+            $boundProcess.StartTime.ToUniversalTime() -le $sourceItem.CreationTimeUtc.AddSeconds(30)) {
+            throw 'Bound probe worker still active'
+        }
     }
 }
 $manifestPath=Join-Path $archive 'archive-manifest.json'

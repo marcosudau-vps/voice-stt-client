@@ -21,6 +21,8 @@ def main():
     parser.add_argument('--profile-runtime', action='store_true', required=True,
                         help='Explicitly authorized dedicated Windows-profile test runtime')
     parser.add_argument('--led-only-fault', action='store_true')
+    parser.add_argument('--led-open-input',action='store_true')
+    parser.add_argument('--expected-server-commit')
     args = parser.parse_args()
     folder = PROFILE_RUNTIME/('preflight-'+datetime.now().strftime('%Y%m%d-%H%M%S'))
     folder.mkdir(parents=True)
@@ -56,7 +58,9 @@ def main():
         child = subprocess.Popen([sys.executable, '-u', '-m', 'tests.manual.v2.suite_session',
             '--folder', str(folder), '--editor-state', str(state), '--target', TARGET,
             '--task', 'finish', '--device', str(devices[0]['index']), '--smoke',
-            *(['--led-only-fault'] if args.led_only_fault else [])],
+            *(['--led-only-fault'] if args.led_only_fault else []),
+            *(['--led-open-input'] if args.led_open_input else []),
+            *(['--expected-server-commit',args.expected_server_commit] if args.expected_server_commit else [])],
             cwd=ROOT, env=env, stdout=log, stderr=subprocess.STDOUT)
         started = time.monotonic()
         while child.poll() is None:

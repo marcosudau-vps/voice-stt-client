@@ -24,8 +24,8 @@
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "W02 geschlossen durch menschliche Disposition. Fehlende kombinierte Controls/Fault/Settings-, Admin-/Frozen-/Clipboard- und physische/Umwelt-/Speicherzuordnungsnachweise sowie T02/T03/O01 und finale Akten bleiben; keine neuen Produktfehler daraus ableiten.",
-  "nextAction": "Konkrete Freigabereste aus Bericht36 abarbeiten: vorhandene Belege konsolidieren, technische Kombinationen autonom prüfen und einen gebündelten finalen EXE-/Windows-/physischen Restblock vorbereiten. W02 nicht weiter untersuchen oder als Blocker führen. Bereits bestandene Standardaufgaben nicht erneut anfordern.",
+  "blockingReason": "Technische Restkombinationen abgeschlossen. Gültiger Admincheck, erhöhtes Ziel/UAC sowie endgültige Frozen-/physische/Umwelt-/Overlay- und T02/T03-Abnahme noch nicht vollständig belegt. W02 geschlossen; keine neuen Produktdefekte aus Testhilfen-Fails ableiten.",
+  "nextAction": "Ein gebündelter menschlicher Abschlussblock nur für sichere Adminverfügbarkeit, UAC/erhöhtes Ziel und finale Frozen-/physische/Wahrnehmungsgrenzen. Bereits bestandene Standarddiktate, technische Kombinationen und identischen Replaydauerlauf nicht wiederholen.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -264,6 +264,21 @@
     }
   },
   "qualificationStatus": "BLOCKED_BY_OPEN_MANDATORY_FINDINGS",
-  "latestAutonomousRestEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/autonomous-rest-20261019",
-  "technicalServerCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+  "latestAutonomousRestEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/technical-rest-20261021",
+  "technicalServerCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "autonomousRest20261021": {
+    "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+    "runtimeCases": 29,
+    "windowsTests": 1400,
+    "windowsSkips": 0,
+    "helperTests": 73,
+    "allNewRuntimeFoldersRemoved": 19,
+    "productUnchanged": true,
+    "humanRemaining": [
+      "VALID_ADMIN_GUARD",
+      "ELEVATED_TARGET_UAC",
+      "FINAL_FROZEN_PHYSICAL_ENVIRONMENT_OVERLAY"
+    ],
+    "package": "BLOCKED"
+  }
 }

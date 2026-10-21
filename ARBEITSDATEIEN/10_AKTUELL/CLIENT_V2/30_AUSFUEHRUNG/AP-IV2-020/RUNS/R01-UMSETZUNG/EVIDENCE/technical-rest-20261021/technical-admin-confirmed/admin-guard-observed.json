@@ -1,0 +1,165 @@
+{
+  "events": [
+    {
+      "timeSeconds": 1.422,
+      "bindingSessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "stateVersion": 0,
+      "settingsRevision": 0,
+      "effectiveFollowupMs": 3000,
+      "effectivePreRollMs": 0
+    },
+    {
+      "timeSeconds": 1.437,
+      "bindingSessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "type": "settings.changed",
+      "generation": 1,
+      "sessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "eventId": "b75ae632-8c13-4efd-ac81-db68f2a51958",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1792613295242,
+      "settingsRevision": 1
+    },
+    {
+      "timeSeconds": 1.453,
+      "bindingSessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "stateVersion": 1,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320
+    },
+    {
+      "timeSeconds": 1.453,
+      "bindingSessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "stateVersion": 1,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320
+    },
+    {
+      "timeSeconds": 1.469,
+      "bindingSessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "stateVersion": 1,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320
+    },
+    {
+      "timeSeconds": 1.5,
+      "bindingSessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "stateVersion": 2,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320
+    }
+  ],
+  "commands": [
+    {
+      "seconds": 1.422,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 1.437,
+      "type": "session_settings.patch",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 1.453,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 1.453,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 1.469,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 1.5,
+      "type": "trigger_suppression.set",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 1.5,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    }
+  ],
+  "hello": [
+    {
+      "generation": 1,
+      "sessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+    }
+  ],
+  "settings": [
+    {
+      "sessionId": "ca78c831-1848-41cf-aa0e-be146a3d82bc",
+      "effective": {
+        "activation.closingRecoveryTimeoutMs": 5000,
+        "activation.followupTimeoutMs": 5000,
+        "activation.initialSpeechTimeoutMs": 15000,
+        "activation.segmentWatchdogInitialMs": 600000,
+        "activation.segmentWatchdogRefreshMs": 180000,
+        "activation.segmentWatchdogWarningMs": 30000,
+        "runtimeSuppression.manual": false,
+        "runtimeSuppression.wakeWord": false,
+        "wakeWord.cooldownMs": 0,
+        "wakeWord.detectorGain": 1.0,
+        "wakeWord.minConsecutivePredictionFrames": 1,
+        "wakeWord.noiseSuppressionEnabled": false,
+        "wakeWord.preRollMs": 320,
+        "wakeWord.selection": [],
+        "wakeWord.sensitivity": 0.5,
+        "wakeWord.vadThreshold": 0.0
+      },
+      "triggers": {
+        "manual": true,
+        "wakeWord": false
+      }
+    }
+  ],
+  "faults": [],
+  "cleanupErrors": []
+}

@@ -108,9 +108,11 @@ def main():
     parser.add_argument('--both',action='store_true',help='Explicit test recipe Manual+Wake with320ms pre-roll candidate')
     parser.add_argument('--smoke', action='store_true', help='Autonomous real audio precheck; no keys/sounds/activation; LEDs only with --led-only-fault')
     parser.add_argument('--led-only-fault', action='store_true', help='With --smoke: stop only native LED transport; keep real audio running')
+    parser.add_argument('--led-open-input',action='store_true',help='With LED-only smoke: deliberately open manual input before fault; foreign paste stays guarded')
     args = parser.parse_args()
     if args.led_only_fault and not args.smoke:
         parser.error('LED-only fault is an isolated autonomous smoke, not an operator task')
+    if args.led_open_input and not args.led_only_fault:parser.error('Open-input probe requires LED-only smoke')
     target_origin(args.target)
     folder, editor_state = owned_path(args.folder), owned_path(args.editor_state)
     task = next(task for task in ALL_TASKS if task['id'] == args.task)
@@ -239,6 +241,7 @@ def main():
     started_at = time.monotonic()
     smoke_ready_at = None
     led_fault = None
+    activation_requested = False
     def snapshot(view):
         latest.update(ready=view.ready, generation=view.generation, sessionId=view.session_id,
                       transport=view.transport, reason=view.reason, phase=str(view.mirror.input.phase),
@@ -267,7 +270,7 @@ def main():
         inbox = folder/'commands'
         inbox.mkdir(exist_ok=True)
         def poll():
-            nonlocal smoke_ready_at, led_fault
+            nonlocal smoke_ready_at, led_fault, activation_requested
             # A lost/killed workbench cannot leave an orphan microphone client.
             state = read_editor_state(editor_state)
             age = abs((datetime.now(UTC)-datetime.fromisoformat(state['timeUtc'])).total_seconds())
@@ -296,6 +299,11 @@ def main():
             if args.led_only_fault:
                 if led_fault is None:
                     if status.get('ready') and status.get('audioAvailable') and desktop.led_feedback._sink_available:
+                        if args.led_open_input and not activation_requested:
+                            activation_requested=True
+                            asyncio.run_coroutine_threadsafe(runtime.start_dictation(),bridge._loop)
+                            return
+                        if args.led_open_input and not status.get('activationId'):return
                         smoke_ready_at = smoke_ready_at or time.monotonic()
                         if time.monotonic()-smoke_ready_at >= 2:
                             led_fault = dict(time=time.monotonic(), before=dict(status))
@@ -306,7 +314,8 @@ def main():
                 elif time.monotonic()-led_fault['time'] >= 6:
                     from tests.manual.v2.suite_analysis import assess_led_fault
                     result = assess_led_fault(led_fault['before'], status,
-                        led_unavailable=status.get('operatorProgress',{}).get('counts',{}).get('led.unavailable',0)>0)
+                        led_unavailable=status.get('operatorProgress',{}).get('counts',{}).get('led.unavailable',0)>0,
+                        preserve_input=args.led_open_input)
                     result['ledRecovered'] = desktop.led_feedback._sink_available is True
                     save(folder/'smoke.json', result)
                     app.quit()

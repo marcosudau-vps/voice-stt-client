@@ -318,3 +318,42 @@ Ohne `-Delete` nur Prüfung. Mit `-Delete`: gebundene Archiv-/Dateihashes,
 Containment, Reparse-/Prozessschutz, erneute Einzeldateiprüfung und ausschließlich
 nichtrekursive LiteralPath-Löschung; danach nur nachweislich leere Verzeichnisse.
 Kein Löschen des Namensraumroots, privater Archive oder der V1-Installation.
+
+
+## Autonome technische Restfälle (aktuelles Pro-V2-Ziel)
+
+```powershell
+.\venv\Scripts\python.exe -m tests.manual.v2.technical_rest_probe --group all --expected-server-commit <SHA> --output build/<neuer Lauf>
+.\venv\Scripts\python.exe -m tests.manual.v2.technical_rest_probe --group race --race-offset 1.78 --expected-server-commit <SHA> --output build/<neues Rennen>
+.\venv\Scripts\python.exe -m tests.manual.v2.technical_rest_probe --group overlap --expected-server-commit <SHA> --output build/<neue Überlappung>
+.\venv\Scripts\python.exe -m tests.manual.v2.logstore_runtime_probe --expected-server-commit <SHA> --output build/<neue Logsperre>
+.\venv\Scripts\python.exe -m tests.manual.v2.native_rest_probe --output build/<neue native Probe>
+.\venv\Scripts\python.exe -m tests.manual.v2.preflight_suite --profile-runtime --led-only-fault --led-open-input --expected-server-commit <SHA>
+```
+
+Runtimefälle: Produktionsruntime und reale Modelle/TLS, kontrollierte PCM- und
+Clipboardgrenze. Jedes Rezept wird nach Änderungen gespeichert und neu geladen,
+damit der V2-Migrationssnapshot den tatsächlich geprüften Werten entspricht.
+Rennzeitpunkt ist nur ein gemessener Ausgangswert; tatsächlicher Abstand zur
+Admission und Gewinner/Finalzahl müssen passen. Ein akzeptiertes Refresh nach
+Wake ist keine zweite Admission. Überlappung kürzt ausschließlich führende Stille
+des vorhandenen bewussten Sprachfixtures; keine Wireumordnung/-verzögerung.
+
+Native Probe: nur eigener Qt-Editor/produktivem Win32backend. Fenster prüfen und
+Startknopf anklicken; die Anwendung fokussiert ihren eigenen leeren Editor.
+Kein fremder Editor, keine Elevation. Originalclipboard nur im Speicher, keine
+privaten Bytes im Bericht. Workerabbrüche sind bewusst erzeugte Prozessfehler;
+der Zustand unknown darf danach nicht automatisch erneut eingefügt werden.
+Wenn sich der Clipboardinhalt fremd ändert, wird er nicht überschrieben.
+
+LEDprobe aktiviert bewusst einen leeren manuellen Input vor dem nativen
+LEDtransportausfall, bei realem Audio und blockierter Fremdeinfügung. Sie ersetzt
+keinen physischen USB-/Mute-/Pendingfinalfall. Storeprobe hält nur eine eigene
+SQLite-Schreibtransaktion; erste reale Störung ergibt DEGRADED_STORE, erst
+wiederholte Fehler FAILED_STORE. Kein Server-/Default-/V1-Eingriff.
+
+Alle Laufzeitdaten anschließend nach genehmigtem privatem Archivexport mit
+Remove-VerifiedRuntime prüfen/entfernen. PIDbindungen berücksichtigen ausführbare
+Datei und Erstellungszeit, weil Windows PIDs wiederverwendet. Der historische
+AppData-/Loopbackstarter ist deaktiviert; aktuelle Bedienläufe verwenden
+Start-GuidedTests/ guided_suite und ausschließlich den genehmigten Profilnamensraum.

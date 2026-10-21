@@ -1,3 +1,23 @@
+## Aktuelle Restcheckliste –21.10.2026, nach autonomer Durchführung
+
+- [x]29aktuelle Runtime-/Controls-/Settings-/Drain-/Faultkombinationen ausgewertet.
+- [x] Beide engen Triggerreihenfolgen und3Altfinals während neuer Sprache bestätigt.
+- [x] Native Einfügung/Clipboardkonflikt/Crash vor und nach Paste; kein automatischer Retry.
+- [x] Echter LED-only-Ausfall bei offenem Input; realer Audiopfad bleibt aktiv.
+- [x] Tatsächlich gesperrter lokaler SQLite-Logstore blockiert STT nicht.
+- [x] Ressourcenprofilierung: alte Generationobjekte freigegeben, Tasks/Pending stabil.
+- [x] Qualifizierte normale EXE/realer ReSpeaker/Pro-V2-Bootstrap ready.
+- [x] Neue1400Windows und73Helfer ohne Skips, Qt/Starterkontrollen bestanden.
+- [x] Alle19neuen Laufzeitordner nach geprüftem Export entfernt, Namensraum leer.
+- [x] W02 bleibt durch menschliche Disposition geschlossen; keine weitere Analyse gefordert.
+- [ ] Gültiger Admincheck; Schlüssel nur im sicheren Dialog, nicht im Chat.
+- [ ] Erhöhtes Einfügeziel/UAC im gebündelten Abschlussblock.
+- [ ] Finaler EXE-/physischer/Umwelt-/Overlayabschluss samt Ersatzstarter-/Fortschrittswahrnehmung.
+- [ ] Erst nach diesen Pflichtbelegen REVIEW_READY und unabhängige Abnahme.
+
+[Aktuelle fallgenaue Matrix](37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md).
+Alle folgenden Checklisten bleiben historische Stände; erledigte Standardproben nicht neu fordern.
+
 ## Aktuelle Checkliste – automatischer Daueranteil und Aufräumen erledigt,21.10.2026
 
 - [x] Geführte11Aufgaben samt Wiederholungen fallgenau ausgewertet.

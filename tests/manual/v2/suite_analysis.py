@@ -3,7 +3,7 @@ from collections import Counter
 import json
 
 
-def assess_led_fault(before, after, *, led_unavailable):
+def assess_led_fault(before, after, *, led_unavailable, preserve_input=False):
     checks = dict(nativeLedLossObserved=led_unavailable,
         readyBefore=before.get('ready') is True and before.get('audioAvailable') is True,
         observationsPresent=isinstance(after.get('operatorProgress',{}).get('counts'), dict),
@@ -14,10 +14,12 @@ def assess_led_fault(before, after, *, led_unavailable):
         stillReady=after.get('ready') is True,
         noAudioLoss=after.get('operatorProgress',{}).get('audioLost') is False,
         realAudioProgress=after.get('media',{}).get('sent',0) >= before.get('media',{}).get('sent',0)+50,
-        noActivation=not after.get('operatorProgress',{}).get('counts',{}).get('activation.started',0))
+        activationPreserved=(bool(before.get('activationId')) and before.get('activationId')==after.get('activationId'))
+            if preserve_input else not after.get('operatorProgress',{}).get('counts',{}).get('activation.started',0))
     return dict(result='PASS' if all(checks.values()) else 'FAIL', checks=checks,
         beforeSent=before.get('media',{}).get('sent'), afterSent=after.get('media',{}).get('sent'),
-        scope='Controlled native LED-only transport stop with real microphone and server; idle only, no activation/final, no physical cable or frozen claim')
+        scope='Controlled native LED-only transport stop with real microphone/server; '+
+            ('open input preserved' if preserve_input else 'idle only')+'; no physical cable or frozen claim')
 
 
 def summarize(folder):

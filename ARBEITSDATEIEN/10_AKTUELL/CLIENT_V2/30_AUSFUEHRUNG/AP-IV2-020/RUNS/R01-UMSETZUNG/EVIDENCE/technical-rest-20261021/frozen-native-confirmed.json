@@ -1,0 +1,53 @@
+{
+  "result": "PASS_SCOPED",
+  "pid": 36360,
+  "runtimeFolder": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\frozen-native-20261021-221852",
+  "exe": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\dist-iv2-020-usb\\voice-stt-client.exe",
+  "sha256": "e20059f6dff1279cb23fb01576d447fb285aa94cb270d71968b8430a063a15fc",
+  "server": "wss://pro.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "scope": "Unmodified normal Frozen launch, actual PortAudio/USB, idle manual-only. No automatic dictation.",
+  "actualProductPid": 26476,
+  "counts": {
+    "None": 10,
+    "client.app.started": 1,
+    "client.audio.stream_started": 1,
+    "client.core.thread_started": 1,
+    "client.domain.observed": 1,
+    "client.lifecycle.started": 1,
+    "client.v2.command_completed": 7,
+    "client.v2.transport_state": 4
+  },
+  "states": [
+    "connecting",
+    "accepting",
+    "configuring",
+    "ready"
+  ],
+  "infoAfter": {
+    "schemaVersion": 1,
+    "protocolVersion": 2,
+    "serverVersion": "2.0.0",
+    "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+    "identityStatus": "complete",
+    "build": {
+      "sourceTree": "74f37cad84c5be9e74d880a4b10c3d9623de7da3",
+      "sourceDirty": false,
+      "sourceDate": "2026-10-20T12:50:26Z"
+    },
+    "distribution": {
+      "name": "voicestt",
+      "packageVersion": "2.0.0"
+    },
+    "runtime": {
+      "krokoVariant": "pro"
+    },
+    "serverInstanceId": "14e6ff8dc2704f7298924b0d1de5cd1b"
+  },
+  "checks": {
+    "normalFrozenProcessStarted": true,
+    "actualAudioStream": true,
+    "realSettingsBootstrapReady": true
+  },
+  "ui": "NOT_PROVEN_NO_TARGETABLE_TRAY_WINDOW",
+  "qualification": "Idle native Frozen/real ReSpeaker/remote-server startup only; no spoken activation, feedback perception or native UI assertion."
+}

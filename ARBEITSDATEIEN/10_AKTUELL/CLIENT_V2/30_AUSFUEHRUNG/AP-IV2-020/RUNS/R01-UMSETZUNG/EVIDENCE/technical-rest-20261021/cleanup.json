@@ -1,0 +1,231 @@
+{
+  "result": "PASS_REMOVED_AFTER_VERIFIED_ARCHIVE",
+  "runtimeFolderCount": 19,
+  "files": 640,
+  "namespaceEmpty": true,
+  "receipts": {
+    "frozen-native-20261021-221852": {
+      "removedAtUtc": "2026-10-21T20:30:57.0691727Z",
+      "files": 368,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\frozen-native-20261021-221852",
+      "manifestSha256": "648C1BFB8895397E2911F8286036F4FF37656183C21B5C14E63CFCA435FAA2F3",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\frozen-native-20261021-221852",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "frozen-native-20261021-221852"
+    },
+    "native-rest-a232481f3ad0": {
+      "removedAtUtc": "2026-10-21T20:30:57.6349549Z",
+      "files": 13,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\native-rest-a232481f3ad0",
+      "manifestSha256": "6849A05ED0108D54191C8EE92CEB0E96FDA360AAA0811958835235512C27A3BE",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\native-rest-a232481f3ad0",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "native-rest-a232481f3ad0"
+    },
+    "native-rest-f915561ca619": {
+      "removedAtUtc": "2026-10-21T20:30:58.1627347Z",
+      "files": 13,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\native-rest-f915561ca619",
+      "manifestSha256": "2DE2355F2526A8AA39BB4739CB8E338FA1EB75576A9F86175DB151F38135AA2F",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\native-rest-f915561ca619",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "native-rest-f915561ca619"
+    },
+    "preflight-20261021-222539": {
+      "removedAtUtc": "2026-10-21T20:30:58.7071759Z",
+      "files": 13,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\preflight-20261021-222539",
+      "manifestSha256": "5887A19FDA552E0415F85328FAC5FD45544B917E4A02AAE259BA83EECFAE82E6",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\preflight-20261021-222539",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "preflight-20261021-222539"
+    },
+    "technical-rest-20261021-220400": {
+      "removedAtUtc": "2026-10-21T20:30:59.1841738Z",
+      "files": 3,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-rest-20261021-220400",
+      "manifestSha256": "46FD2ED9B90739371BD50DD926AA6CB712F06614518BBC55D5858F0C644B30B8",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-rest-20261021-220400",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "technical-rest-20261021-220400"
+    },
+    "technical-rest-20261021-220525": {
+      "removedAtUtc": "2026-10-21T20:30:59.6808531Z",
+      "files": 9,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-rest-20261021-220525",
+      "manifestSha256": "E5266BE0E391B165B2D1D8BA2F8F061DBFEB61A8FD221EA047B48AF3F0479EF6",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-rest-20261021-220525",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "technical-rest-20261021-220525"
+    },
+    "technical-rest-20261021-220553": {
+      "removedAtUtc": "2026-10-21T20:31:00.1846046Z",
+      "files": 6,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-rest-20261021-220553",
+      "manifestSha256": "203F5B54C959055D202FCB9D081BF7228BE19C72582AD503A60F75934DBB5EE4",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-rest-20261021-220553",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "technical-rest-20261021-220553"
+    },
+    "technical-rest-20261021-220645": {
+      "removedAtUtc": "2026-10-21T20:31:00.6941316Z",
+      "files": 9,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-rest-20261021-220645",
+      "manifestSha256": "C3F4246A8CCDECEC146F1279353B14AA73FBCF2A816FB6A4B8D4BED565BA5052",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-rest-20261021-220645",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "technical-rest-20261021-220645"
+    },
+    "technical-rest-20261021-220709": {
+      "removedAtUtc": "2026-10-21T20:31:01.5842346Z",
+      "files": 54,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-rest-20261021-220709",
+      "manifestSha256": "3D329972877BCF3B95F7896BDE7EE86ADF6B15700B296BCE2FAA184C6EA94ACD",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-rest-20261021-220709",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "technical-rest-20261021-220709"
+    },
+    "technical-rest-20261021-220816": {
+      "removedAtUtc": "2026-10-21T20:31:02.0022149Z",
+      "files": 3,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-rest-20261021-220816",
+      "manifestSha256": "1FE9D6A705031167956911E4AB7C6B84C5509E7FC6FD14FA5C4D459A927A46F5",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-rest-20261021-220816",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "technical-rest-20261021-220816"
+    },
+    "technical-rest-20261021-221206": {
+      "removedAtUtc": "2026-10-21T20:31:02.5529455Z",
+      "files": 3,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-rest-20261021-221206",
+      "manifestSha256": "DAB605FB5302BF131A19662958253690A9D9280889B94A46E1F7B9C2403DD128",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-rest-20261021-221206",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "technical-rest-20261021-221206"
+    },
+    "technical-rest-20261021-221530": {
+      "removedAtUtc": "2026-10-21T20:31:03.0478844Z",
+      "files": 3,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-rest-20261021-221530",
+      "manifestSha256": "FE1FE533092D7875CF70DE7B0B061B22D8751328FDFD25030BE0D57C2AEA4A2A",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-rest-20261021-221530",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "technical-rest-20261021-221530"
+    },
+    "technical-rest-20261021-221608-b22371bc": {
+      "removedAtUtc": "2026-10-21T20:31:03.6234256Z",
+      "files": 9,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-rest-20261021-221608-b22371bc",
+      "manifestSha256": "B1E9DE6B1FE242503138C90612C3E7CF819DEDD2824CD8D0B35E913BC54B609F",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-rest-20261021-221608-b22371bc",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "technical-rest-20261021-221608-b22371bc"
+    },
+    "technical-rest-20261021-221748-2e43681f": {
+      "removedAtUtc": "2026-10-21T20:31:04.2180110Z",
+      "files": 9,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-rest-20261021-221748-2e43681f",
+      "manifestSha256": "1DE38F492DD99AE2A318B2C7FE0AF3EA368C5CC1A9B507FC9DFEB206881FD7F3",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-rest-20261021-221748-2e43681f",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "technical-rest-20261021-221748-2e43681f"
+    },
+    "technical-rest-20261021-222041-a9aa360c": {
+      "removedAtUtc": "2026-10-21T20:31:04.8295033Z",
+      "files": 9,
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-rest-20261021-222041-a9aa360c",
+      "manifestSha256": "9C7906C65A5C53127D6FD4ABB9BF25B5CDAE5A461491AF5E26B566F660F44A27",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "scriptSha256": "923E8FD1F5052535DAE5BDD18FB588318986707A8A0421FAB5FC27E737A73C38",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-rest-20261021-222041-a9aa360c",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "name": "technical-rest-20261021-222041-a9aa360c"
+    },
+    "logstore-rest-1076e1f6685a": {
+      "files": 4,
+      "name": "logstore-rest-1076e1f6685a",
+      "manifestSha256": "13DC5447E4C5FBE4258EF6D4AA5626D61C48A535031305F85207A63453951F91",
+      "removedAtUtc": "2026-10-21T20:36:47.8781361Z",
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\logstore-rest-1076e1f6685a",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\logstore-rest-1076e1f6685a",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE"
+    },
+    "logstore-rest-4f618f2b5d6f": {
+      "files": 4,
+      "name": "logstore-rest-4f618f2b5d6f",
+      "manifestSha256": "FDE8E931612BF83A97937E9B46FE0069B92D371152541013853604483123198C",
+      "removedAtUtc": "2026-10-21T20:36:48.4577156Z",
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\logstore-rest-4f618f2b5d6f",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\logstore-rest-4f618f2b5d6f",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE"
+    },
+    "technical-regression-20261021-222804": {
+      "files": 21,
+      "name": "technical-regression-20261021-222804",
+      "manifestSha256": "5E51BCCEB19F5756CE71952560EEA511025E7E0D03F810387A4394D15E58A4E3",
+      "removedAtUtc": "2026-10-21T20:36:49.3646336Z",
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-regression-20261021-222804",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-regression-20261021-222804",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE"
+    },
+    "technical-rest-20261021-222730-888fbfb0": {
+      "files": 87,
+      "name": "technical-rest-20261021-222730-888fbfb0",
+      "manifestSha256": "195D04816E359E674CFDBC6FBB42A81C3D7CEA8B9E22B3D1A2F486C093032D41",
+      "removedAtUtc": "2026-10-21T20:36:50.6657531Z",
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-rest-20261021-222730-888fbfb0",
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\technical-rest-20261021-222730-888fbfb0",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE"
+    }
+  },
+  "audit": {
+    "timeUtc": "2026-10-21T20:40:30.866713+00:00",
+    "authorizedRoot": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020",
+    "readOnly": true,
+    "previousDeletionFailure": {
+      "layer": "Automatic tool approval review, before OS command execution",
+      "reason": "blocked by policy",
+      "exactRule": "NOT_EXPOSED",
+      "originalRejectedCommandExecuted": false,
+      "saferRemoval": "Remove-VerifiedRuntime.ps1: approved hash-verified individual nonrecursive removal; receipts separate"
+    },
+    "folders": [],
+    "stoppedFolders": 0
+  }
+}

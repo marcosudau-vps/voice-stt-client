@@ -1,3 +1,7 @@
+## Autonome Restqualifikation –21.10.2026
+
+[Bericht37](../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md), [abschließender29-Fälle-Lauf](technical-rest-20261021/technical-final-all/result.json), [Windows/Helfer](technical-rest-20261021/technical-final-regression/result.json), [Logstoresperre](technical-rest-20261021/logstore-rest-bounded/result.json), [native Einfügung/Crash](technical-rest-20261021/native-rest-preservation.json), [Frozen-Idle](technical-rest-20261021/frozen-native-confirmed.json), [Validierung](technical-rest-20261021/validation.json), [Manifest](technical-rest-20261021/export-manifest.json), [Aufräumen](technical-rest-20261021/cleanup.json). Die historischen Fehlversuche bleiben separat erhalten.
+
 ## BOTH-Abschluss und autonomer Watchdog –20.10.2026
 
 - [Vier Bedienversuche/fallgenaue Bewertung](both-live-20261020/attempts.json), [Quellherkunft](both-live-20261020/source-identity.json), [stabile Info](both-live-20261020/server-info-after.json).

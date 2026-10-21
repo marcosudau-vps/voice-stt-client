@@ -1,0 +1,279 @@
+{
+  "events": [
+    {
+      "timeSeconds": 0.906,
+      "bindingSessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "stateVersion": 0,
+      "settingsRevision": 0,
+      "effectiveFollowupMs": 3000,
+      "effectivePreRollMs": 0
+    },
+    {
+      "timeSeconds": 0.922,
+      "bindingSessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "type": "settings.changed",
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "eventId": "20a0269d-6f00-4e20-aa7d-8ea0d08a0c06",
+      "eventSeq": 1,
+      "stateVersion": 1,
+      "occurredAtUnixMs": 1792613231683,
+      "settingsRevision": 1
+    },
+    {
+      "timeSeconds": 0.937,
+      "bindingSessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "stateVersion": 1,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320
+    },
+    {
+      "timeSeconds": 0.953,
+      "bindingSessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "stateVersion": 1,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320
+    },
+    {
+      "timeSeconds": 0.953,
+      "bindingSessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "stateVersion": 1,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320
+    },
+    {
+      "timeSeconds": 0.984,
+      "bindingSessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "stateVersion": 2,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320
+    },
+    {
+      "timeSeconds": 1.0,
+      "bindingSessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "type": "activation.started",
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "activationId": "bbada82f-be87-4461-9b59-d2c5598251db",
+      "eventId": "f734b330-d718-447a-96eb-a820758bc934",
+      "eventSeq": 2,
+      "stateVersion": 3,
+      "occurredAtUnixMs": 1792613231759,
+      "primarySource": "manual",
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320
+    },
+    {
+      "timeSeconds": 1.062,
+      "bindingSessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "stateVersion": 3,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320
+    },
+    {
+      "timeSeconds": 1.078,
+      "bindingSessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "type": "activation.cancelled",
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "activationId": "bbada82f-be87-4461-9b59-d2c5598251db",
+      "eventId": "042fa117-1e46-474c-9699-6153560ae928",
+      "eventSeq": 3,
+      "stateVersion": 5,
+      "occurredAtUnixMs": 1792613231836,
+      "reason": "cancelled"
+    },
+    {
+      "timeSeconds": 1.078,
+      "bindingSessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "type": "activation.input_closed",
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "activationId": "bbada82f-be87-4461-9b59-d2c5598251db",
+      "eventId": "141e514d-0ef5-419f-9e29-aa84b3e915fd",
+      "eventSeq": 4,
+      "stateVersion": 6,
+      "occurredAtUnixMs": 1792613231837,
+      "reason": "cancelled"
+    },
+    {
+      "timeSeconds": 1.094,
+      "bindingSessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "stateVersion": 6,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320
+    },
+    {
+      "timeSeconds": 1.094,
+      "bindingSessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "type": "session.snapshot",
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "stateVersion": 6,
+      "settingsRevision": 1,
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320
+    }
+  ],
+  "commands": [
+    {
+      "seconds": 0.906,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 0.922,
+      "type": "session_settings.patch",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 0.937,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 0.953,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 0.953,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 0.969,
+      "type": "trigger_suppression.set",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 0.984,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 1.0,
+      "type": "activation.command",
+      "action": "activate",
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 1.062,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 1.078,
+      "type": "activation.command",
+      "action": "cancel",
+      "activationId": "bbada82f-be87-4461-9b59-d2c5598251db",
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 1.078,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    },
+    {
+      "seconds": 1.094,
+      "type": "session.snapshot.request",
+      "action": null,
+      "activationId": null,
+      "accepted": true,
+      "result": "applied"
+    }
+  ],
+  "hello": [
+    {
+      "generation": 1,
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+    }
+  ],
+  "settings": [
+    {
+      "sessionId": "e85858a7-440b-4a31-bb4a-6a8f32ca4388",
+      "effective": {
+        "activation.closingRecoveryTimeoutMs": 5000,
+        "activation.followupTimeoutMs": 5000,
+        "activation.initialSpeechTimeoutMs": 15000,
+        "activation.segmentWatchdogInitialMs": 600000,
+        "activation.segmentWatchdogRefreshMs": 180000,
+        "activation.segmentWatchdogWarningMs": 30000,
+        "runtimeSuppression.manual": false,
+        "runtimeSuppression.wakeWord": false,
+        "wakeWord.cooldownMs": 0,
+        "wakeWord.detectorGain": 1.0,
+        "wakeWord.minConsecutivePredictionFrames": 1,
+        "wakeWord.noiseSuppressionEnabled": false,
+        "wakeWord.preRollMs": 320,
+        "wakeWord.selection": [],
+        "wakeWord.sensitivity": 0.5,
+        "wakeWord.vadThreshold": 0.0
+      },
+      "triggers": {
+        "manual": true,
+        "wakeWord": false
+      }
+    }
+  ],
+  "faults": [],
+  "cleanupErrors": []
+}

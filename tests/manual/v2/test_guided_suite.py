@@ -106,6 +106,15 @@ class GuidedSuite(unittest.TestCase):
                 self.assertEqual(assess_led_fault(before, changed, led_unavailable=True)['result'], 'FAIL')
         self.assertEqual(assess_led_fault(before,after,led_unavailable=False)['result'],'FAIL')
 
+    def test_led_loss_during_input_cannot_pass_if_input_was_cancelled_or_replaced(self):
+        before=dict(ready=True,audioAvailable=True,sessionId='s',generation=1,activationId='a',media={'sent':50})
+        after=dict(before,media={'sent':200},localIssues=['led_unavailable'],
+            operatorProgress={'counts':{'activation.started':1},'audioLost':False})
+        self.assertEqual(assess_led_fault(before,after,led_unavailable=True,preserve_input=True)['result'],'PASS')
+        for activation in (None,'other'):
+            self.assertEqual(assess_led_fault(before,dict(after,activationId=activation),
+                led_unavailable=True,preserve_input=True)['result'],'FAIL')
+
     def test_real_idle_effect_remains_white_above_the_requested_floor(self):
         import yaml
         from voice_stt_client.core.led_controller import InProcessLedController
