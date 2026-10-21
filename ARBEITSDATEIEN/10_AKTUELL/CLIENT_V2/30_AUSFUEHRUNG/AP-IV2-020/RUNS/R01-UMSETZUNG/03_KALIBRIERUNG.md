@@ -169,3 +169,8 @@ Cooldown0 und Gain1 bleiben mangels belegtem Änderungsbedarf zunächst bestehen
 ## Fortschreibung am korrigierten Produkt17261e6
 
 Die zusätzliche [UX01-Freigabe006](ZUSATZPROMPTS/006_UX01_FREIGABE.md) betrifft nur die bestehende Ausgabepräferenz, keine Timingdefaults. Alle drei isolierten Profile behalten5000ms Follow-up (menschlich gewählt),320ms Pre-Roll (gemessener Kandidat) und append_space=True; [Save/Load-Roundtrip](EVIDENCE/ux01/config-roundtrip.json) erfolgreich. Globale Produkt-/Serverdefaults bleiben unverändert. [Echter Modellreplay](EVIDENCE/ux01/real-wake-replay320.json): Jarvis/Alexa direkt jeweils eine Activation, vollständiger Nutzsatz ohne Rufwort, keine Aktivierung der drei Negativclips. Alexa-Pausenaufnahme verfehlt die geplante exakte Zielphrase; [manuelle Baseline](EVIDENCE/ux01/alexa-pause-differential.json) enthält denselben Nutztext. Tatsächlich gesprochene Wörter werden bei der gebündelten Annotation bestätigt; kein stilles Umdefinieren der Erwartung. Keine finale allgemeine Wake-/ASR-Qualifikation aus sechs Clips.
+
+
+## Strengere Wake-Anforderungen,21.10.2026
+
+[Sechs Varianten und unveränderte Baselines](35_DAUERLAUF_WAKEANFORDERUNGEN_UND_AUFRAEUMEN.md):0,75/2,0,85/2und0,90/2 erhalten beide realen positiven Fixtures;3/5Frames verfehlen Jarvis.0,90/2 ist der stärkste erfolgreiche Testkandidat, nicht dauerhaft übernommen oder menschlich gewählt. W02 unverändert0/2reproduziert; historische2FAIL bleiben offen, keine nachgewiesene Heilung. Follow-up5000ms/Pre-Roll320ms unverändert.

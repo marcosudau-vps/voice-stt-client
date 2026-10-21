@@ -1,0 +1,249 @@
+{
+  "timeUtc": "2026-10-20T21:06:56.922331+00:00",
+  "authorizedRoot": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020",
+  "readOnly": true,
+  "previousDeletionFailure": {
+    "layer": "Automatic tool approval review, before OS command execution",
+    "reason": "blocked by policy",
+    "exactRule": "NOT_EXPOSED",
+    "windowsDeleteAttemptExecuted": false,
+    "oldRejectedTargetsRetried": false
+  },
+  "folders": [
+    {
+      "name": "autonomous-rest-20261019-195725",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 30,
+      "bytes": 769283,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "autonomous-rest-20261019-195955",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 9,
+      "bytes": 113576,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "endurance-20261020-230124",
+      "result": "ACTIVE_EXCLUDED_FROM_CLEANUP"
+    },
+    {
+      "name": "idle-calibration-regression-20261019",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 21,
+      "bytes": 655716,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "idle-preview-20261019-192706-579d2d",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 3,
+      "bytes": 2071,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "preflight-20261019-184311",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 12,
+      "bytes": 143823,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "preflight-20261019-193349",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 12,
+      "bytes": 149672,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "preflight-20261019-193533",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 12,
+      "bytes": 150105,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "preflight-20261020-171852",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 12,
+      "bytes": 145204,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "progress-regression-20261019-162446",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 21,
+      "bytes": 655710,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "server-return-20261020-171410",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 21,
+      "bytes": 655662,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "stall-source-20261019-184421",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 3,
+      "bytes": 36689,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "stall-wheel-20261019-184440",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 3,
+      "bytes": 36726,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "suite-20261019-163837-f0f7f1",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 154,
+      "bytes": 5304504,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "suite-20261019-185221-5231a6",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 27,
+      "bytes": 683894,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "suite-20261019-191451-6615a1",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 16,
+      "bytes": 226506,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "suite-20261020-172858-6949a4",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 55,
+      "bytes": 1166139,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "suite-20261020-175229-4e35d1",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 14,
+      "bytes": 204435,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "suite-20261020-195208-adc550",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 108,
+      "bytes": 3648574,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "suite-20261020-205733-b224a6",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 14,
+      "bytes": 267843,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "suite-20261020-211438-030f8e",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 24,
+      "bytes": 469941,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "suite-20261020-215407-5cec35",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 44,
+      "bytes": 886869,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "usb-build-20261019",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 0,
+      "bytes": 0,
+      "issues": [],
+      "unindexed": []
+    },
+    {
+      "name": "usb-regression-20261019",
+      "archiveExists": true,
+      "manifestExists": true,
+      "result": "ARCHIVED_HASH_VERIFIED",
+      "indexedFiles": 21,
+      "bytes": 655612,
+      "issues": [],
+      "unindexed": []
+    }
+  ],
+  "stoppedFolders": 23
+}

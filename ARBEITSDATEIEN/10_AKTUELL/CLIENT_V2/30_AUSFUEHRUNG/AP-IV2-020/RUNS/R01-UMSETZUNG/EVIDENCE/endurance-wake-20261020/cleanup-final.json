@@ -1,0 +1,14 @@
+{
+  "timeUtc": "2026-10-21T19:27:01.350226+00:00",
+  "authorizedRoot": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020",
+  "readOnly": true,
+  "previousDeletionFailure": {
+    "layer": "Automatic tool approval review, before OS command execution",
+    "reason": "blocked by policy",
+    "exactRule": "NOT_EXPOSED",
+    "originalRejectedCommandExecuted": false,
+    "saferRemoval": "Remove-VerifiedRuntime.ps1: approved hash-verified individual nonrecursive removal; receipts separate"
+  },
+  "folders": [],
+  "stoppedFolders": 0
+}

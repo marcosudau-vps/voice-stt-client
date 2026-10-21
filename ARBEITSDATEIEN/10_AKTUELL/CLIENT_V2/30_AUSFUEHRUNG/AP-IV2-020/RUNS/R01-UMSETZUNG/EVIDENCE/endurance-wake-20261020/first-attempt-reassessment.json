@@ -1,0 +1,23 @@
+{
+  "result": "TEST_HELPER_FAILURE_REQUIRES_FRESH_CONTIGUOUS_RUN",
+  "rawResult": "FAIL",
+  "attempted": 58,
+  "actualEventCounts": {
+    "session.snapshot": 189,
+    "settings.changed": 3,
+    "activation.started": 58,
+    "activation.phase_changed": 116,
+    "segment.recording_started": 58,
+    "transcription.interim": 414,
+    "segment.recording_ended": 58,
+    "transcription.accepted": 58,
+    "transcription.completed": 58,
+    "activation.completed": 58,
+    "activation.input_closed": 58,
+    "wakeword.detected": 38
+  },
+  "reason": "Rounded event timestamp fell below exact trigger fence for event-before-Ack; use unseen activation IDs",
+  "regression": "test_immediate_event_before_ack_is_not_lost_to_timestamp_rounding",
+  "durationSeconds": 1036.719,
+  "qualification30Minutes": "NOT_PROVEN; elapsed time is not added to confirmed run"
+}

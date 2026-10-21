@@ -1,3 +1,7 @@
+## AP-IV2-020/R01 – autonomer Dauerlauf und Aufräumen abgeschlossen,21.10.2026
+
+[Bericht35](35_DAUERLAUF_WAKEANFORDERUNGEN_UND_AUFRAEUMEN.md): Automatischer zusammenhängender1800.015s/100Activations-Lauf mit echten Modellen PASS_SCOPED;100Finals/100Historyeinträge/100kontrollierte Injektionsversuche, drei eigene Recoveryaktionen. Physische/Frozen-M12-Anteile offen. W02 unverändert0/2reproduziert, historische2FAIL bleiben offen;0,90/2Frames erhält beide Positivfixtures,3/5Frames verfehlen Jarvis. Keine Defaultübernahme. Alle26eigenen externen Laufzeitordner hashgesichert entfernt.70Helfer/Qt und neue1400Windows/0Skips PASS; Produkt0f6c85e unverändert. Zwei Fehlversuche separat erhalten. BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher R01/PR15.
+
 ## AP-IV2-020/R01 – BOTH abgeschlossen, Restgates konsolidiert,20.10.2026
 
 [Bericht34](34_BOTH_ABSCHLUSS_UND_KONSOLIDIERTE_RESTGATES.md): Drei übernommene BOTH-Aufgaben PASS_SCOPED: natives Manual-F8/F9 und beide direkten Wake-Nutzsätze genau einmal ohne Rufwort;18,782/23,313s echte Ruhe ohne Zusatzwake. Erster Alexa-Versuch bewusst wiederholt, bleibt NOT_PROVEN. Realer Watchdog55,062sWarnung/60,015sAblauf und3gebundene ASRfinals aus demselben Rohdurchlauf nach phasengenauer Nachauswertung PASS_SCOPED; falsche Einsegmentannahme als Hilfstest-FAIL erhalten.61Helfer/Qt PASS, Produkt0f6c85e/1400Windowsbeleg unverändert. Keine identischen Sprechwiederholungen; technische/EXE-/Dauerreste gebündelt, W02 offen.23Aufräumreste automatisch gesperrt. BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher R01/PR15.

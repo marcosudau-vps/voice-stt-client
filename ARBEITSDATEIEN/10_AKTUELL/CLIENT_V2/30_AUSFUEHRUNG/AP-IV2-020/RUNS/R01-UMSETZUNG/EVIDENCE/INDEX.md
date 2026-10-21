@@ -473,3 +473,13 @@ Sie ersetzen keine Realfälle. `accessToken` ist redigiert, Testtexte sind synth
 - [Aktenprüfung](work-records.json), [kompletter Log](work-records.txt.gz)
 
 - [Draft-Abgabeidentität und nächste Aktion](submission.json)
+
+
+## Dauerlauf, strengere Wakeanforderungen und Aufräumen –21.10.2026
+
+- [Bericht35](../35_DAUERLAUF_WAKEANFORDERUNGEN_UND_AUFRAEUMEN.md), [Validierung](endurance-wake-20261020/validation.json).
+- [100Activations/1800s](endurance-wake-20261020/confirmed-result.json), [Auswertung](endurance-wake-20261020/confirmed-assessment.json), [Messwerte](endurance-wake-20261020/confirmed-summary.json), [Historybindung](endurance-wake-20261020/history-accounting.json).
+- [Erster Roh-FAIL](endurance-wake-20261020/first-attempt-raw.json), [Hilfstestfehleranalyse](endurance-wake-20261020/first-attempt-reassessment.json), [zweiter Roh-FAIL/ASRtimeout](endurance-wake-20261020/second-attempt-raw.json).
+- [Wakevergleich](endurance-wake-20261020/wake-comparison-summary.json), [NONE](endurance-wake-20261020/none-controls.json), [native Kollision](endurance-wake-20261020/native-collision.json).
+- [Neue1400Windows/0Skips](endurance-wake-20261020/windows.json), [Vollausgabe](endurance-wake-20261020/windows.log.gz), [70Helfer](endurance-wake-20261020/helpers.log.gz), [Qt](endurance-wake-20261020/qt.log.gz).
+- [Alle Löschbelege](endurance-wake-20261020/cleanup-receipts.json), [leerer Namensraum](endurance-wake-20261020/cleanup-final.json), [Archivbindung](endurance-wake-20261020/private-archive-binding.json), [Manifest](endurance-wake-20261020/export-manifest.json). Rohereignisse/Messpunkte/Logs und ausgeführte Quellversionen komprimiert im selben Ordner; keine neuen Rohtranskripte oder privaten Datenbanken in Git.

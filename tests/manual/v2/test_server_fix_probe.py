@@ -5,6 +5,12 @@ from types import SimpleNamespace
 
 
 class ProbeChecks(unittest.TestCase):
+    def test_wake_variants_are_real_registry_settings_with_strict_types(self):
+        from tests.manual.v2.verify_server_fix import wake_settings
+        self.assertEqual(wake_settings(.9,3),{'wakeWord.sensitivity':.9,'wakeWord.minConsecutivePredictionFrames':3})
+        for threshold,frames in [(True,3),(.9,True),(.9,0),(-1,3),(float('nan'),3)]:
+            with self.subTest(threshold=threshold,frames=frames),self.assertRaises(ValueError):wake_settings(threshold,frames)
+
     def test_watchdog_binds_to_its_segment_and_requires_every_existing_final(self):
         from tests.manual.v2.verify_server_fix import assess_watchdog
         events=[dict(type='activation.started',activationId='a')]

@@ -1,0 +1,47 @@
+{
+  "timeUtc": "2026-10-21T19:26:14.499176+00:00",
+  "info": {
+    "schemaVersion": 1,
+    "protocolVersion": 2,
+    "serverVersion": "2.0.0",
+    "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+    "identityStatus": "complete",
+    "build": {
+      "sourceTree": "74f37cad84c5be9e74d880a4b10c3d9623de7da3",
+      "sourceDirty": false,
+      "sourceDate": "2026-10-20T12:50:26Z"
+    },
+    "distribution": {
+      "name": "voicestt",
+      "packageVersion": "2.0.0"
+    },
+    "runtime": {
+      "krokoVariant": "pro"
+    },
+    "serverInstanceId": "14e6ff8dc2704f7298924b0d1de5cd1b"
+  },
+  "settingsRevision": 0,
+  "requested": {
+    "wakeWord.sensitivity": 0.5,
+    "wakeWord.minConsecutivePredictionFrames": 1,
+    "wakeWord.cooldownMs": 0,
+    "wakeWord.detectorGain": 1.0,
+    "wakeWord.inferenceBackend": "auto",
+    "wakeWord.preRollMs": 0,
+    "activation.followupTimeoutMs": 3000
+  },
+  "effective": {
+    "wakeWord.sensitivity": 0.5,
+    "wakeWord.minConsecutivePredictionFrames": 1,
+    "wakeWord.cooldownMs": 0,
+    "wakeWord.detectorGain": 1.0,
+    "wakeWord.inferenceBackend": "auto",
+    "wakeWord.preRollMs": 0,
+    "activation.followupTimeoutMs": 3000
+  },
+  "scope": "Public server defaults at this instant; does not read another session or prove its effective snapshot",
+  "operations": [
+    "GET /api/v2/info",
+    "GET /api/v2/settings/server"
+  ]
+}

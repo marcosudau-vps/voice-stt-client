@@ -173,6 +173,14 @@
           "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
           "evidence": "both-live-20261020/validation.json",
           "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "c00637da1ad8e97ebdca49ed92c8b36b6b51cfd2",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "endurance-wake-20261020/validation.json",
+          "boundaries": "W02 unchanged0/2extra wakes; six stricter variants compared, candidate.90/2not adopted. Historical two failures remain OPEN."
         }
       ]
     },
@@ -233,6 +241,14 @@
           "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
           "evidence": "both-live-20261020/validation.json",
           "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "c00637da1ad8e97ebdca49ed92c8b36b6b51cfd2",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "endurance-wake-20261020/validation.json",
+          "boundaries": "Real NONE Primary/Secondary in waiting/recording/followup and native separate-process Win32 collision PASS_SCOPED; no complete native phase/UI matrix claim."
         }
       ]
     },
@@ -586,7 +602,16 @@
       "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
       "actualResult": null,
       "evidence": [],
-      "attempts": []
+      "attempts": [
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "c00637da1ad8e97ebdca49ed92c8b36b6b51cfd2",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "endurance-wake-20261020/validation.json",
+          "boundaries": "One contiguous1800.015s/100mixedActivations, actual production runtime and real models,100finals/history/controlled injection attempts. Three own recovery actions; physical USB/native UI/Frozen/negative environment portions NOT_PROVEN."
+        }
+      ]
     }
   ],
   "wakeBoundary": "NOT_PROVEN",

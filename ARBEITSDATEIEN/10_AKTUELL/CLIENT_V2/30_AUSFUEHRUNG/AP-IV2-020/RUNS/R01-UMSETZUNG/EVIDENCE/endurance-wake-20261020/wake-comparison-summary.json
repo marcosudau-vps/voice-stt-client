@@ -1,0 +1,511 @@
+{
+  "runs": [
+    {
+      "name": "w02-baseline-20261020",
+      "result": "PASS_SCOPED",
+      "instance": "793c2cf377d2439d98a7aac719cc1d3f",
+      "rows": [
+        {
+          "case": "alexa_pause-pause_manual_boundary-cancel",
+          "kind": "pause_manual_boundary",
+          "checks": {
+            "exactlyThreeActivations": true,
+            "distinctActivationIds": true,
+            "exactlyTwoWakeHits": true,
+            "selectedWake": true,
+            "sources": true,
+            "threeDistinctSessions": true,
+            "threeClosures": true,
+            "threeCancelled": true,
+            "noActivationFromPausedFixtureReplay": true,
+            "confirmedMasksAtAllSamples": true,
+            "preferencesPreserved": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 64.344
+        }
+      ]
+    },
+    {
+      "name": "w02-baseline-repeat-20261020",
+      "result": "PASS_SCOPED",
+      "instance": "793c2cf377d2439d98a7aac719cc1d3f",
+      "rows": [
+        {
+          "case": "alexa_pause-pause_manual_boundary-cancel",
+          "kind": "pause_manual_boundary",
+          "checks": {
+            "exactlyThreeActivations": true,
+            "distinctActivationIds": true,
+            "exactlyTwoWakeHits": true,
+            "selectedWake": true,
+            "sources": true,
+            "threeDistinctSessions": true,
+            "threeClosures": true,
+            "threeCancelled": true,
+            "noActivationFromPausedFixtureReplay": true,
+            "confirmedMasksAtAllSamples": true,
+            "preferencesPreserved": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 65.031
+        }
+      ]
+    },
+    {
+      "name": "wake-requirements-20261020",
+      "result": "COMPARISON_COMPLETED",
+      "instance": "793c2cf377d2439d98a7aac719cc1d3f",
+      "rows": [
+        {
+          "threshold": 0.85,
+          "frames": 3,
+          "case": "alexa_pause-pause_manual_boundary-cancel",
+          "kind": "pause_manual_boundary",
+          "checks": {
+            "exactlyThreeActivations": true,
+            "distinctActivationIds": true,
+            "exactlyTwoWakeHits": true,
+            "selectedWake": true,
+            "sources": true,
+            "threeDistinctSessions": true,
+            "threeClosures": true,
+            "threeCancelled": true,
+            "noActivationFromPausedFixtureReplay": true,
+            "confirmedMasksAtAllSamples": true,
+            "preferencesPreserved": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 65.063
+        },
+        {
+          "threshold": 0.85,
+          "frames": 3,
+          "case": "alexa_direct-speech-natural",
+          "kind": "speech",
+          "checks": {
+            "oneActivation": true,
+            "oneWake": true,
+            "nonemptyFinal": true,
+            "selectedWakeId": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 25.062
+        },
+        {
+          "threshold": 0.85,
+          "frames": 3,
+          "case": "jarvis_direct-speech-natural",
+          "kind": "speech",
+          "result": "FAIL",
+          "error": "",
+          "seconds": 199.922
+        },
+        {
+          "threshold": 0.85,
+          "frames": 3,
+          "case": "negative_speech-negative-none",
+          "kind": "negative",
+          "checks": {
+            "noWake": true,
+            "noActivation": true,
+            "noFinal": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 17.593
+        },
+        {
+          "threshold": 0.9,
+          "frames": 3,
+          "case": "alexa_pause-pause_manual_boundary-cancel",
+          "kind": "pause_manual_boundary",
+          "checks": {
+            "exactlyThreeActivations": true,
+            "distinctActivationIds": true,
+            "exactlyTwoWakeHits": true,
+            "selectedWake": true,
+            "sources": true,
+            "threeDistinctSessions": true,
+            "threeClosures": true,
+            "threeCancelled": true,
+            "noActivationFromPausedFixtureReplay": true,
+            "confirmedMasksAtAllSamples": true,
+            "preferencesPreserved": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 64.812
+        },
+        {
+          "threshold": 0.9,
+          "frames": 3,
+          "case": "alexa_direct-speech-natural",
+          "kind": "speech",
+          "checks": {
+            "oneActivation": true,
+            "oneWake": true,
+            "nonemptyFinal": true,
+            "selectedWakeId": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 25.047
+        },
+        {
+          "threshold": 0.9,
+          "frames": 3,
+          "case": "jarvis_direct-speech-natural",
+          "kind": "speech",
+          "result": "FAIL",
+          "error": "",
+          "seconds": 200.297
+        },
+        {
+          "threshold": 0.9,
+          "frames": 3,
+          "case": "negative_speech-negative-none",
+          "kind": "negative",
+          "checks": {
+            "noWake": true,
+            "noActivation": true,
+            "noFinal": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 15.14
+        },
+        {
+          "threshold": 0.95,
+          "frames": 5,
+          "case": "alexa_pause-pause_manual_boundary-cancel",
+          "kind": "pause_manual_boundary",
+          "checks": {
+            "exactlyThreeActivations": true,
+            "distinctActivationIds": true,
+            "exactlyTwoWakeHits": true,
+            "selectedWake": true,
+            "sources": true,
+            "threeDistinctSessions": true,
+            "threeClosures": true,
+            "threeCancelled": true,
+            "noActivationFromPausedFixtureReplay": true,
+            "confirmedMasksAtAllSamples": true,
+            "preferencesPreserved": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 67.016
+        },
+        {
+          "threshold": 0.95,
+          "frames": 5,
+          "case": "alexa_direct-speech-natural",
+          "kind": "speech",
+          "checks": {
+            "oneActivation": true,
+            "oneWake": true,
+            "nonemptyFinal": true,
+            "selectedWakeId": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 24.937
+        },
+        {
+          "threshold": 0.95,
+          "frames": 5,
+          "case": "jarvis_direct-speech-natural",
+          "kind": "speech",
+          "result": "FAIL",
+          "error": "",
+          "seconds": 200.031
+        },
+        {
+          "threshold": 0.95,
+          "frames": 5,
+          "case": "negative_speech-negative-none",
+          "kind": "negative",
+          "checks": {
+            "noWake": true,
+            "noActivation": true,
+            "noFinal": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 16.188
+        }
+      ]
+    },
+    {
+      "name": "wake-two-frames-20261020",
+      "result": "COMPARISON_COMPLETED",
+      "instance": "793c2cf377d2439d98a7aac719cc1d3f",
+      "rows": [
+        {
+          "threshold": 0.75,
+          "frames": 2,
+          "case": "alexa_pause-pause_manual_boundary-cancel",
+          "kind": "pause_manual_boundary",
+          "checks": {
+            "exactlyThreeActivations": true,
+            "distinctActivationIds": true,
+            "exactlyTwoWakeHits": true,
+            "selectedWake": true,
+            "sources": true,
+            "threeDistinctSessions": true,
+            "threeClosures": true,
+            "threeCancelled": true,
+            "noActivationFromPausedFixtureReplay": true,
+            "confirmedMasksAtAllSamples": true,
+            "preferencesPreserved": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 65.375
+        },
+        {
+          "threshold": 0.75,
+          "frames": 2,
+          "case": "alexa_direct-speech-natural",
+          "kind": "speech",
+          "checks": {
+            "oneActivation": true,
+            "oneWake": true,
+            "nonemptyFinal": true,
+            "selectedWakeId": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 25.047
+        },
+        {
+          "threshold": 0.75,
+          "frames": 2,
+          "case": "jarvis_direct-speech-natural",
+          "kind": "speech",
+          "checks": {
+            "oneActivation": true,
+            "oneWake": true,
+            "nonemptyFinal": true,
+            "selectedWakeId": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 25.046
+        },
+        {
+          "threshold": 0.75,
+          "frames": 2,
+          "case": "negative_speech-negative-none",
+          "kind": "negative",
+          "checks": {
+            "noWake": true,
+            "noActivation": true,
+            "noFinal": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 15.329
+        },
+        {
+          "threshold": 0.85,
+          "frames": 2,
+          "case": "alexa_pause-pause_manual_boundary-cancel",
+          "kind": "pause_manual_boundary",
+          "checks": {
+            "exactlyThreeActivations": true,
+            "distinctActivationIds": true,
+            "exactlyTwoWakeHits": true,
+            "selectedWake": true,
+            "sources": true,
+            "threeDistinctSessions": true,
+            "threeClosures": true,
+            "threeCancelled": true,
+            "noActivationFromPausedFixtureReplay": true,
+            "confirmedMasksAtAllSamples": true,
+            "preferencesPreserved": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 65.968
+        },
+        {
+          "threshold": 0.85,
+          "frames": 2,
+          "case": "alexa_direct-speech-natural",
+          "kind": "speech",
+          "checks": {
+            "oneActivation": true,
+            "oneWake": true,
+            "nonemptyFinal": true,
+            "selectedWakeId": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 24.953
+        },
+        {
+          "threshold": 0.85,
+          "frames": 2,
+          "case": "jarvis_direct-speech-natural",
+          "kind": "speech",
+          "checks": {
+            "oneActivation": true,
+            "oneWake": true,
+            "nonemptyFinal": true,
+            "selectedWakeId": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 25.578
+        },
+        {
+          "threshold": 0.85,
+          "frames": 2,
+          "case": "negative_speech-negative-none",
+          "kind": "negative",
+          "checks": {
+            "noWake": true,
+            "noActivation": true,
+            "noFinal": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 15.391
+        }
+      ]
+    },
+    {
+      "name": "wake-090-two-frames-20261020",
+      "result": "COMPARISON_COMPLETED",
+      "instance": "14e6ff8dc2704f7298924b0d1de5cd1b",
+      "rows": [
+        {
+          "threshold": 0.9,
+          "frames": 2,
+          "case": "alexa_pause-pause_manual_boundary-cancel",
+          "kind": "pause_manual_boundary",
+          "checks": {
+            "exactlyThreeActivations": true,
+            "distinctActivationIds": true,
+            "exactlyTwoWakeHits": true,
+            "selectedWake": true,
+            "sources": true,
+            "threeDistinctSessions": true,
+            "threeClosures": true,
+            "threeCancelled": true,
+            "noActivationFromPausedFixtureReplay": true,
+            "confirmedMasksAtAllSamples": true,
+            "preferencesPreserved": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 64.359
+        },
+        {
+          "threshold": 0.9,
+          "frames": 2,
+          "case": "alexa_direct-speech-natural",
+          "kind": "speech",
+          "checks": {
+            "oneActivation": true,
+            "oneWake": true,
+            "nonemptyFinal": true,
+            "selectedWakeId": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 24.953
+        },
+        {
+          "threshold": 0.9,
+          "frames": 2,
+          "case": "jarvis_direct-speech-natural",
+          "kind": "speech",
+          "checks": {
+            "oneActivation": true,
+            "oneWake": true,
+            "nonemptyFinal": true,
+            "selectedWakeId": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 24.953
+        },
+        {
+          "threshold": 0.9,
+          "frames": 2,
+          "case": "negative_speech-negative-none",
+          "kind": "negative",
+          "checks": {
+            "noWake": true,
+            "noActivation": true,
+            "noFinal": true,
+            "noPendingCommands": true,
+            "effectivePreferences": true,
+            "effectiveWakeOverrides": true
+          },
+          "result": "PASS_SCOPED",
+          "seconds": 14.984
+        }
+      ]
+    }
+  ],
+  "persistentChanges": false,
+  "unchangedBaselineExtraWakes": 0,
+  "unchangedBaselineTrials": 2,
+  "candidate": {
+    "wakeWord.sensitivity": 0.9,
+    "wakeWord.minConsecutivePredictionFrames": 2
+  },
+  "candidateApplied": false,
+  "W02": "OPEN_NOT_CURRENTLY_REPRODUCED; historical two failures preserved",
+  "causalFix": "NOT_PROVEN"
+}

@@ -259,3 +259,62 @@ mehrere Segmente bilden; Warnung und60sFrist müssen zum tatsächlichen gewarnte
 Segment passen, alle aufgenommenen Segmente benötigen ihren eigenen Final.
 Dies beweist keinen60sDauersprach-/Fernseherfall ohne Segmentwechsel und keinen
 30minHardwarelauf. Keine globalen Serverdefaults ändern; Sitzung danach schließen.
+
+## Automatischer Dauerlauf und Wake-Anforderungen
+
+```powershell
+.\venv\Scripts\python.exe -m tests.manual.v2.endurance_probe --expected-server-commit <voller SHA> --output build/<neuer Lauf>
+.\venv\Scripts\python.exe -m tests.manual.v2.endurance_dashboard --help
+.\venv\Scripts\python.exe -m tests.manual.v2.wake_requirement_probe --expected-server-commit <voller SHA> --single 0.90 2 --output build/<neuer Vergleich>
+```
+
+Der Dauerlauf misst nach abgeschlossenem Bootstrap mindestens1800s und verteilt
+100Manual-/Alexa-/Hey-Jarvis-Aktivierungen in18sAbständen. Reale freigegebene
+Sprachfixtures durchlaufen AudioCapture, TLS, echte Modelle, Controls, Mirror,
+Results, History, Injektionsqueue und Logging. Eigene Reconnects nach25/75 und
+eigener TCP-Abbruch nach50; keine Serverneustarts. PortAudio-Eingang und
+Windows-Clipboardgrenze sind kontrollierte Testadapter. Dies ersetzt keinen
+physischen30minReSpeaker-/Frozen-/Feedbacknachweis. Das Dashboard liest nur
+Fortschrittsdateien; sein Schließen beendet keinen Test. Lange180sBootstrap-
+Timeouts berücksichtigen kalte Modelle. Jeder Lauf braucht einen neuen Ausgabeordner.
+
+`endurance_measurements --folder build/<Lauf> --output build/<Messwerte>.json`
+berechnet Latenzen, Scoreverteilungen und Ressourcenwerte erneut aus gespeicherten
+Rohereignissen/Messpunkten, ohne einen neuen Client-/Serverlauf zu starten.
+`endurance_assessment.assess` prüft getrennt IDs,100Completions,Messzeit und
+Buildidentität. Messwertzusammenfassung und fachliches Gate bleiben getrennt.
+
+Wakevergleiche ändern ausschließlich Sitzungseinstellungen. `sensitivity`
+bezeichnet die minimale Modellscore-Schwelle: höher ist strenger. Zusätzlich
+werden aufeinanderfolgende qualifizierende Frames verlangt. Unveränderte
+W02-Baseline zuerst mit `verify_server_fix --pause-manual-boundary-only` prüfen;
+danach Positivproben beider Modelle und negative Sprache mitprüfen. Ein
+erfolgreicher Vergleich ohne reproduzierten Baselinefehler beweist keine Heilung.
+Kein Parameter wird durch den Vergleich dauerhaft übernommen.
+
+`server_defaults_probe --expected-server-commit <SHA> --output build/<datei>.json`
+liest ausschließlich Info und ausgewählte öffentliche Serverdefaults mit180s
+Timeout. Ein solcher Snapshot beweist keine fremden Session-Effectivewerte.
+Server-Follow-up3000ms und eigener Sessionwert5000ms bleiben getrennt.
+
+`verify_server_fix --none-matrix-only` prüft reale NONE-Controls bei Warten,
+Aufnahme und Nachsprechen; `native_collision_probe --help` dokumentiert eine
+separate native Windows-Kollision ohne fremde Hotkeyregistrierung anzutasten.
+
+## Verifiziertes Aufräumen eigener Laufzeitordner
+
+`cleanup_audit --output build/<audit>.json --active <laufender Ordnername>`
+liest ausschließlich den genehmigten Profilnamensraum und prüft vorhandene
+private Projektarchive. Laufende Ordner ausdrücklich ausschließen. Benötigte
+Belege zuerst redigiert exportieren; vollständige private Daten bleiben
+Git-ignoriert unter `build/ap-iv2-020-suite/private-archive/`.
+
+```powershell
+& .\tests\manual\v2\Remove-VerifiedRuntime.ps1 -Name '<beendeter eigener Ordner>'
+& .\tests\manual\v2\Remove-VerifiedRuntime.ps1 -Name '<beendeter eigener Ordner>' -Delete
+```
+
+Ohne `-Delete` nur Prüfung. Mit `-Delete`: gebundene Archiv-/Dateihashes,
+Containment, Reparse-/Prozessschutz, erneute Einzeldateiprüfung und ausschließlich
+nichtrekursive LiteralPath-Löschung; danach nur nachweislich leere Verzeichnisse.
+Kein Löschen des Namensraumroots, privater Archive oder der V1-Installation.

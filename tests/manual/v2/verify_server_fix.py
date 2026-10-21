@@ -111,7 +111,15 @@ def observed_event(binding,event,elapsed):
         **safe_event(binding,event))
 
 
-async def run_case(name, kind, word, close_mode, expected, *, press_control=None):
+def wake_settings(threshold,frames):
+    if isinstance(threshold,bool) or not isinstance(threshold,(int,float)) or not 0<=threshold<=1:
+        raise ValueError('Wake score threshold must be between0and1')
+    if type(frames) is not int or frames<1:
+        raise ValueError('Wake consecutive prediction frames must be a positive integer')
+    return {'wakeWord.sensitivity':threshold,'wakeWord.minConsecutivePredictionFrames':frames}
+
+
+async def run_case(name, kind, word, close_mode, expected, *, press_control=None,wake_requirements=None):
     from voice_stt_client.core import protocol_v2 as p
     from voice_stt_client.core.v2_transport import V2STTSession,V2TransportConfig
     from voice_stt_client.core.v2_mirror import V2MirrorConnection
@@ -121,20 +129,27 @@ async def run_case(name, kind, word, close_mode, expected, *, press_control=None
     pause_probe = kind in ('pause_recovery','pause_manual_boundary')
     boundary_probe = kind == 'manual_boundary'
     watchdog_probe = kind == 'watchdog'
-    profile=V2Profile(manual=refresh_probe or pause_probe or boundary_probe or watchdog_probe,wake_word=not (refresh_probe or watchdog_probe),
-        wake_word_ids=[] if refresh_probe or watchdog_probe else ['hey_jarvis','alexa'],
+    none_probe = kind == 'none_control'
+    profile=V2Profile(manual=refresh_probe or pause_probe or boundary_probe or watchdog_probe or none_probe,wake_word=not (refresh_probe or watchdog_probe or none_probe),
+        wake_word_ids=[] if refresh_probe or watchdog_probe or none_probe else ['hey_jarvis','alexa'],
         desired_settings={'activation.followupTimeoutMs':15000 if boundary_probe else 5000,'wakeWord.preRollMs':320})
     if watchdog_probe:
         profile.desired_settings.update({'activation.segmentWatchdogInitialMs':60000,
             'activation.segmentWatchdogRefreshMs':30000,'activation.segmentWatchdogWarningMs':5000})
+    if wake_requirements is not None:
+        profile.desired_settings.update(wake_settings(wake_requirements['wakeWord.sensitivity'],
+            wake_requirements['wakeWord.minConsecutivePredictionFrames']))
     session=V2STTSession(V2TransportConfig(url=TARGET,connect_timeout=180,
         admission_timeout=180,bootstrap_timeout=180))
     mirror=V2MirrorConnection(session)
     settings=SettingsService(session,profile,http=SettingsHTTP(TARGET,timeout=180))
     controls = None
-    if refresh_probe or pause_probe or boundary_probe or watchdog_probe:
+    if refresh_probe or pause_probe or boundary_probe or watchdog_probe or none_probe:
         from voice_stt_client.core.v2_controls import V2ControlService
         controls = V2ControlService(session, mirror, audio_ready=lambda: session.is_ready)
+        if none_probe:
+            from voice_stt_client.core.v2_controls import ControlConfig
+            controls.config=ControlConfig(primary_action='none',secondary_action='none')
     async def press(slot):
         if press_control is not None:
             return await press_control(controls,mirror,slot)
@@ -203,10 +218,43 @@ async def run_case(name, kind, word, close_mode, expected, *, press_control=None
     result=dict(case=f'{name}-{kind}-{close_mode}',kind=kind,word=word,
         closeMode=close_mode,fixtureSha256=record['sha256'],
         method='Authorized human WAV replay at real time over TLS to actual selected server; digital silence after close. Not a new live-microphone or sound-feedback proof.')
+    result['requestedWakeOverrides']=wake_requirements
     runner=asyncio.create_task(session.run())
     try:
         await ready()
-        if watchdog_probe:
+        if none_probe:
+            activated=await controls.press('primary')
+            assert activated is not None and activated.ack.accepted
+            aid=activated.ack.activationId
+            await ready()
+            if close_mode=='recording':
+                await send(data[:160000])
+                await ready()
+                assert mirror.mirror.view.input.phase==p.InputPhase.SEGMENT_ACTIVE
+            elif close_mode=='followup':
+                await send(data)
+                await silence(10,lambda:mirror.mirror.view.input.phase==p.InputPhase.FOLLOWUP_WAIT)
+                await ready()
+                assert mirror.mirror.view.input.phase==p.InputPhase.FOLLOWUP_WAIT
+            else:assert mirror.mirror.view.input.phase==p.InputPhase.WAITING_FIRST_SPEECH
+            phase=mirror.mirror.view.input.phase
+            deadline=mirror.mirror.view.input.deadline.unix_ms
+            first=await controls.press('primary');second=await controls.press('secondary')
+            await ready()
+            result['checks']=dict(bothSlotsNoMutation=first is None and second is None,
+                sameForeground=mirror.mirror.view.input.activation_id==aid,
+                samePhase=mirror.mirror.view.input.phase==phase,
+                unchangedDeadline=mirror.mirror.view.input.deadline.unix_ms==deadline)
+            if close_mode=='recording':
+                await send(data[160000:]);await close('finish',aid)
+                await silence(5,lambda:bool(finals));await wait(lambda:bool(finals))
+            elif close_mode=='followup':
+                await silence(7)
+                assert any(e['type']=='activation.input_closed' and e.get('reason')=='timed_out' for e in events)
+            else:await close('cancel',aid)
+            result['testedPhase']=str(phase)
+            result['method']='Actual Controls/Mirror/Settings/TLS and real ASR where speech is supplied; both NONE actions preserve input phase/ID/deadline. No native physical-key or UI perception claim.'
+        elif watchdog_probe:
             activated=await controls.press('primary')
             assert activated is not None and activated.ack.accepted
             aid=activated.ack.activationId
@@ -381,7 +429,11 @@ async def run_case(name, kind, word, close_mode, expected, *, press_control=None
         else:
             await send(data)
             await silence(10)
-            await wait(lambda:bool(finals) and mirror.mirror.view.input.activation_id is None)
+            # A fully replayed positive clip plus ten seconds of silence with
+            # no activation is a detection miss, not an ASR warm-up to await.
+            # Model/bootstrap and actual admitted ASR still retain180s limits.
+            if starts():
+                await wait(lambda:bool(finals) and mirror.mirror.view.input.activation_id is None)
             await silence(5)
             result['checks']=dict(oneActivation=len(starts())==1,
                 oneWake=len([e for e in events if e['type']=='wakeword.detected'])==1,
@@ -396,6 +448,8 @@ async def run_case(name, kind, word, close_mode, expected, *, press_control=None
         result['checks']['noPendingCommands']=session.pending_count==0
         result['checks']['effectivePreferences']=(settings.report().effective.get('activation.followupTimeoutMs')==(15000 if boundary_probe else 5000)
             and settings.report().effective.get('wakeWord.preRollMs')==320)
+        if wake_requirements is not None:
+            result['checks']['effectiveWakeOverrides']=all(settings.report().effective.get(k)==v for k,v in wake_requirements.items())
         result['result']='PASS_SCOPED' if all(result['checks'].values()) else 'FAIL'
         result['effectiveSettings']=dict(settings.report().effective)
         result['serverEffectiveSettings']=dict(settings.server_effective)
@@ -441,7 +495,8 @@ async def main(args):
     report=dict(timeUtc=datetime.now(UTC).isoformat(),identity=identity(),target=TARGET,
         probeSha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         infoBefore=before,rows=[],scope='Real deployed model and production V2 components; fixture replay, not physical human qualification')
-    selected=([('negative_speech','watchdog',None,'expiry')] if args.watchdog_only else
+    selected=([('negative_speech','none_control',None,phase) for phase in ('waiting','recording','followup')] if args.none_matrix_only else
+        [('negative_speech','watchdog',None,'expiry')] if args.watchdog_only else
         [(name,'pause_manual_boundary',word,mode) for name,_,word,mode in recovery_cases()] if args.pause_manual_boundary_only else
         manual_boundary_cases(args.immediate_close) if args.manual_boundary_only else
         recovery_cases() if args.pause_recovery_only else
@@ -481,6 +536,7 @@ if __name__=='__main__':
     mode.add_argument('--pause-manual-boundary-only',action='store_true',
         help='Overlap pause/reconnect sequence with positive Wake audio inside final manual input; preserves failures')
     mode.add_argument('--watchdog-only',action='store_true',help='Real60s session watchdog with repeated authorized speech crop; no operator action')
+    mode.add_argument('--none-matrix-only',action='store_true',help='Real NONE controls in waiting/recording/followup; no operator action')
     args=parser.parse_args()
     if args.immediate_close and not args.manual_boundary_only:
         parser.error('--immediate-close requires --manual-boundary-only')

@@ -1,4 +1,4 @@
-## Aktuelle Checkliste – BOTH bestätigt, keine gleichen Sprechwiederholungen,20.10.2026
+## Aktuelle Checkliste – automatischer Daueranteil und Aufräumen erledigt,21.10.2026
 
 - [x] Geführte11Aufgaben samt Wiederholungen fallgenau ausgewertet.
 - [x] R11: physische USB-Recovery am korrigierten Sourceprodukt bestätigt.
@@ -30,15 +30,18 @@
 - [x] BOTH: Manual-F8/F9 und beide vollständigen direkten Wake-Nutzsätze genau einmal ohne Rufwort.
 - [x] Reale Watchdogwarnung55,062s/Ablauf60,015s am tatsächlich gewarnten Segment, alle3ASRfinals erhalten; kein menschlicher Test nötig.
 - [x] Gleiche Sprechaufgaben aus der Restplanung gestrichen; bestehende passende Sourcebelege konsolidiert.
-- [ ] Nur technische Abschlussreste, ein gebündelter finaler EXE-/Windowsblock und echter30min100-Lauf; W02 getrennt.
+- [x] Ein zusammenhängender automatischer30min100-Lauf durch echte Runtime/Modelle,100Finals/History/Adapterausgaben; kein physischer/Frozen-PASS.
+- [x] W02 unverändert zweimal wiederholt; sechs strengere Schwellen-/Framevarianten mit beiden Positivmodellen/Negativclip verglichen.
+- [x] NONE in drei echten Phasen und separate native Win32-Kollision autonom geprüft.
+- [ ] Verbleibende technische Kombinationen, gebündelter finaler EXE-/Windows-/physischer Restblock; W02 getrennt.
 - [ ] Controlsphasen/Watchdog/Runpausen und zugehörige Zusammenspiele vollständig qualifizieren.
 - [ ] Netz-/Logstore-/Pendingfinal- und Settingswechsel-Fälle vervollständigen.
 - [ ] Native Credential-/Admin-, Frozen-/erhöhte Zielanwendungs-/Clipboard-/Prozessfälle abschließen.
 - [ ] Nach jetzt verifiziertem W01-FIX: vollständige reale Wake-/Both-/Nutzsprachgrenzen und30min100-Gate abschließen.
-- [ ] Dreiundzwanzig gesicherte beendete externe Ordner aufräumen: automatische Prüfung blockiert Löschen.
+- [x] Alle26eigenen beendeten externen Laufzeitordner hashgesichert entfernt; Profilnamensraum leer.
 - [ ] Erst bei vollständigen Pflichtnachweisen REVIEW_READY; danach unabhängige Abnahme.
 
-[Aktueller Abschluss und kompakte Restgates](34_BOTH_ABSCHLUSS_UND_KONSOLIDIERTE_RESTGATES.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
+[Aktueller Abschluss und kompakte Restgates](35_DAUERLAUF_WAKEANFORDERUNGEN_UND_AUFRAEUMEN.md); [übrige konkrete Restliste](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md).
 Nachfolgende Abschnitte sind ältere, ihrem jeweiligen Stand zugeordnete Checklisten.
 
 ## Korrigierte Liveführung – Wiederholung Aufgabe1,19.10.2026
