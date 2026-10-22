@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "REVIEW_READY",
-  "packageStatus": "REVIEW_READY",
+  "workflowPhase": "CHANGES_REQUIRED",
+  "packageStatus": "CHANGES_REQUIRED",
   "activePackage": "AP-IV2-020",
   "nextPackage": null,
   "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
@@ -11,18 +11,21 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/15",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R01-UMSETZUNG",
-    "role": "implementation",
-    "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md"
+    "id": "R02-ABNAHME",
+    "role": "acceptance",
+    "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": null,
-  "reviewReport": null,
-  "openFindingIds": [],
+  "reviewedCommit": "29fb0e159c69051bedba6d097f69a5974fc09528",
+  "reviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
+  "openFindingIds": [
+    "IV2-020-R02-F01",
+    "IV2-020-R02-F02"
+  ],
   "humanApproval": null,
   "writeOwner": null,
-  "blockingReason": null,
-  "nextAction": "Fresh independent review of exact submitted PR15 head against canonical parent; implementation writes/ pushes paused. No self-review, canonical merge or next package.",
+  "blockingReason": "R02-F01: kombinierter 30min/100-/USB-Recoverynachweis fehlt; R02-F02: Sessionledger/Tombstones unbounded, Dauernachweis unzureichend.",
+  "nextAction": "Umsetzer übernimmt R02-Befunde in neuem R03-KORREKTUR nach Fast-forward; F01/F02 beheben/qualifizieren, dann unabhängige Nachabnahme; kein Merge.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
