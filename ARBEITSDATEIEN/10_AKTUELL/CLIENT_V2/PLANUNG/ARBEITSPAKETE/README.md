@@ -1,3 +1,7 @@
+## AP-IV2-020 – unabhängige R02-Abnahme / CHANGES_REQUIRED, 22.10.2026
+
+[Reviewbericht](../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md): Kandidat 29fb0e159c69051bedba6d097f69a5974fc09528, zwei offene Pflichtfindings IV2-020-R02-F01/F02. Vorherige Einträge sind datierte historische Zwischenstände. Kein ROOT_PASS oder Merge.
+
 ## Aktueller AP-IV2-020-Zwischenstand,19.10.2026
 
 [Bericht19](../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md):
