@@ -1,0 +1,31 @@
+{
+  "result": "PASS",
+  "tests": 1400,
+  "skipped": 0,
+  "exitCode": 0,
+  "seconds": 199.01,
+  "command": [
+    "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "runtime": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "executable": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "sourceHead": "c00637da1ad8e97ebdca49ed92c8b36b6b51cfd2",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "logSha256": "7dffa693e5f51d104ed000258174f6a96a6859fad4e594ad8208d5f39467f47a",
+  "environment": {
+    "VOICESTT_CLIENT_HOME": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020/endurance-20261020-230124/regression/home",
+    "VOICESTT_CLIENT_CONFIG": "UNSET",
+    "QT_QPA_PLATFORM": "offscreen",
+    "TEMP": "same owned regression/tmp"
+  },
+  "concurrentLoad": "Automated real30min runtime and separate Wake comparisons; separate processes/profiles"
+}

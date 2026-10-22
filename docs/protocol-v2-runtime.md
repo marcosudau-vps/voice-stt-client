@@ -71,6 +71,28 @@ History ändert keine Dedupidentität. Späte Finals von A lassen Foreground B
 unverändert. Queuefehler werden thread-safe als sekundäre Diagnose zurückgeführt.
 Sound-/LEDfehler ändern weder Session noch Audioverfügbarkeit.
 
+Der Mirror behält regulär die letzten 64 vollständig abgeschlossenen Activations
+mit ihren Segmentdetails. Ein sicher erledigtes Präfix wird durch Sessionmarken
+für Activation- und Segmentsequenzen ersetzt; alte Segmentereignisse erzeugen
+keine erneuten Outputs. Offene, unvollständige oder noch nicht vollständig
+belegte Activations pinnen das Präfix, ebenso gerade veröffentlichte Finals.
+Cancel-/Failed-Tombstones ohne konkrete Segmentterminals bleiben erhalten.
+Ohne sichere Verdichtung gilt ein Budget von 1024 Activation- bzw.
+Segmentdatensätzen (plus höchstens dem auslösenden Datensatz). Überlauf markiert
+die Ausgabe unvollständig und nutzt den vorhandenen kontrollierten Reconnect.
+ASR-Latenz allein ist kein Ablaufkriterium. Eventfingerprints umfassen die letzten
+1024 Identitäten plus den begrenzten Resyncpuffer; alter Wire-Replay bleibt über
+`last_event_seq` gesperrt. Der Resultservice behält nur projizierte Terminals und
+eine monotone Final-Publikationsmarke. Auch alte Reductionobjekte können dadurch
+nach Historylöschung oder unbekanntem Pasteausgang keine Autoeinfügung auslösen.
+
+Das serverbestätigte Schließen der Vordergrundeingabe mit `finished` oder
+`timed_out` löst einmalig `server.input.closed` aus, auch ohne Sprachsegment.
+Fehlt diese interne Mappingregel, wird ausschließlich der vorhandene
+Stoppsound samt Lautstärke übernommen; eine explizite Regel bleibt erhalten.
+Activationterminals, Snapshots, Resync und alte Hintergrundaktivierungen lösen
+keinen zweiten Beendigungston aus. Cancel-/Fehlerfeedback bleibt getrennt.
+
 ## Threads, Apply und Shutdown
 
 Qt lebt im Main Thread; sämtliche fachlichen Mutable Services auf der bestehenden
@@ -131,3 +153,10 @@ Grenzen. Reale ASR-/Hardware-/Wahrnehmungsfälle bleiben AP-IV2-020; kompletter
 Crossrepo-Gate AP-IV2-010. AP110-Builds und installed/frozen Checkpoint sind im
 [Paketnachweis](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-110/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md)
 selbstqualifiziert; unabhängige AP110-Abnahme und kanonische Übernahme offen.
+
+## AP-IV2-020 – Shutdown und Reconnect
+
+Nach Beginn des Shutdown weist `reconnect_server()` einen Aufruf mit
+`core_unavailable` ab. Erwartete Transportcancellation durch den eigenen Shutdown
+entweicht nicht aus `run()`; externe Cancellation und unerwartete Runnerfehler
+bleiben davon getrennt.

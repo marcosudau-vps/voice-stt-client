@@ -471,6 +471,74 @@ class Mirror(unittest.TestCase):
         for kwargs in (dict(max_events=0), dict(max_bytes=True), dict(snapshot_attempts=0), dict(snapshot_timeout=float('nan'))):
             with self.assertRaises(ValueError): ActivationMirror(MirrorLimits(**kwargs))
 
+    def test_retention_pins_late_final_and_gap_salvage_until_settled(self):
+        self.m = ActivationMirror(MirrorLimits(retained_activations=2))
+        self.m.begin(1, snapshot(), 10)
+        self.send(p.EventType.ACTIVATION_STARTED)
+        self.send(p.EventType.RECORDING_STARTED)
+        self.send(p.EventType.INPUT_CLOSED, acceptedSegmentCount=1)
+        self.send(p.EventType.ACTIVATION_COMPLETED, acceptedSegmentCount=1, terminalSegmentCount=1)
+        for number in range(2, 202):
+            aid, sid = p.new_id(), p.new_id()
+            self.send(p.EventType.ACTIVATION_STARTED, aid=aid, activationSequence=number)
+            self.send(p.EventType.COMPLETED, aid=aid, sid=sid, segment_sequence=number)
+            self.send(p.EventType.INPUT_CLOSED, aid=aid, acceptedSegmentCount=1)
+            self.send(p.EventType.ACTIVATION_COMPLETED, aid=aid, acceptedSegmentCount=1, terminalSegmentCount=1)
+        self.assertEqual(len(self.m.activations), 201)
+        self.assertEqual(self.m._retired_segment_sequence, 0)
+        # The old final arrives across a gap and at the snapshot cursor.
+        self.seq += 2
+        late = msg(p.EventType.COMPLETED, self.seq, text='late preserved')
+        self.m.consume(1, late, 11)
+        result = self.m.consume(1, snapshot(self.seq, self.seq), 12)
+        self.assertEqual([f.text for f in result.finals], ['late preserved'])
+        self.assertTrue(result.view.operations_ready)
+        self.assertEqual(result.view.segments[S].text, 'late preserved')
+        self.assertFalse(self.m.consume(1, late, 12).finals)
+        result = self.m.consume(1, snapshot(self.seq, self.seq), 13)
+        self.assertLessEqual(len(result.view.activations), 2)
+
+    def test_unknown_or_unresolved_retention_budget_fails_visibly_without_eviction(self):
+        for unknown in (False, True):
+            with self.subTest(unknown=unknown):
+                m = ActivationMirror(MirrorLimits(retained_activations=1, max_records=4))
+                m.begin(1, snapshot(), 1)
+                for seq in range(1, 6):
+                    result = m.consume(1, msg(p.EventType.RECORDING_STARTED, seq,
+                        aid=p.new_id(), sid=p.new_id(), segment_sequence=seq), 1)
+                    if unknown and seq == 1:
+                        m.consume(1, snapshot(1, 1), 1)
+                self.assertEqual(result.view.state, MirrorState.RECONNECT_REQUIRED)
+                self.assertIn('session_retention_overflow', result.view.loss_reasons)
+                self.assertTrue(result.view.incomplete)
+                self.assertFalse(result.finals)
+                self.assertEqual(len(m.segments), 5)  # bounded triggering record, never silently evicted
+
+    def test_retired_cancel_failed_and_empty_terminals_never_reopen_or_emit(self):
+        for terminal in (p.EventType.ACTIVATION_CANCELLED, p.EventType.ACTIVATION_FAILED,
+                         p.EventType.ACTIVATION_COMPLETED):
+            with self.subTest(terminal=terminal):
+                self.setUp()
+                self.m = ActivationMirror(MirrorLimits(retained_activations=1))
+                self.m.begin(1, snapshot(), 10)
+                self.send(p.EventType.ACTIVATION_STARTED)
+                self.send(p.EventType.COMPLETED, text='')
+                self.send(terminal, acceptedSegmentCount=1, terminalSegmentCount=1)
+                self.send(p.EventType.INPUT_CLOSED, acceptedSegmentCount=1)
+                self.send(p.EventType.ACTIVATION_STARTED, aid=B, activationSequence=2)
+                self.assertNotIn(A, self.m.activations)
+                for kind in (p.EventType.COMPLETED, p.EventType.INTERIM, p.EventType.RECORDING_ENDED,
+                             p.EventType.ACTIVATION_STARTED):
+                    result = self.send(kind)
+                    self.assertFalse(result.finals)
+                    self.assertFalse(result.events)
+                    self.assertNotIn(A, result.view.activations)
+                    self.assertEqual(result.view.input.activation_id, B)
+                # Lifecycle without a sequence cannot resurrect an expired ID.
+                result = self.send(p.EventType.INPUT_CLOSED)
+                self.assertEqual(result.view.state, MirrorState.RESYNCING)
+                self.assertNotIn(A, result.view.activations)
+
 
 class Connection(unittest.IsolatedAsyncioTestCase):
     async def start(self, *, limits=None):

@@ -1,0 +1,208 @@
+{
+  "result": "PASS",
+  "namespaceEmpty": true,
+  "removedRuntimeFolders": 18,
+  "files": 2294,
+  "receipts": [
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "489B36FF510E6531E32B24A78C5854DC75CE2562E9598BC387A299B7B0D163AB",
+      "files": 20,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "final-regression-20261022",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\final-regression-20261022",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:26:33.7387375Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\final-regression-20261022"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "04870A9D21992AEF90B1DF6497272F6FB53B7C71F52BB6A057535E0CB0ECBB32",
+      "files": 20,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "final-regression-native-20261022",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\final-regression-native-20261022",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:26:34.6531989Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\final-regression-native-20261022"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "D6A1145239402E8BA78826C57BB3CB1420FD8448FD3E666BEC23F0BE2182C6AE",
+      "files": 367,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "frozen-acoustic-3300a5827818",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\frozen-acoustic-3300a5827818",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:26:40.1173458Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\frozen-acoustic-3300a5827818"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "C269FA67BEEA5E9B46D89CAB403CBD24AA981E18671D388DA4CD6CFB1578FC1A",
+      "files": 367,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "frozen-acoustic-4b28a37b6264",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\frozen-acoustic-4b28a37b6264",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:26:45.8115532Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\frozen-acoustic-4b28a37b6264"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "F390574AA81136E439F352A4D8DCEE1E851CDDA41F63F70223740F60E1185944",
+      "files": 368,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "frozen-acoustic-689d5a1445ba",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\frozen-acoustic-689d5a1445ba",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:26:51.4023389Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\frozen-acoustic-689d5a1445ba"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "A1F1EC754B8A05DE7AA50A0C0CF1C9953B3E111CC726CD3CFFFDB69B0C9F3215",
+      "files": 0,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "frozen-acoustic-a8abe0998500",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\frozen-acoustic-a8abe0998500",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:26:51.9384599Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\frozen-acoustic-a8abe0998500"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "C008F71CD9663A1494CA6718314DA486FEFBE86E60D7DACF0AD2ABCC64786008",
+      "files": 368,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "frozen-acoustic-aeb20bb5e16e",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\frozen-acoustic-aeb20bb5e16e",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:26:57.5870987Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\frozen-acoustic-aeb20bb5e16e"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "84433C8BA1C0D1193DF255E7E4D4FFB69AA8F95BC8A7898E9DA865E9D7F1165A",
+      "files": 368,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "frozen-acoustic-cb64bdaddaf3",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\frozen-acoustic-cb64bdaddaf3",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:27:02.9186634Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\frozen-acoustic-cb64bdaddaf3"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "22D58A5412E77492A2E589A65C8EE5FDA79702CCB929942601D2055611D75E11",
+      "files": 368,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "frozen-acoustic-ea3bff0d476e",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\frozen-acoustic-ea3bff0d476e",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:27:08.5192545Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\frozen-acoustic-ea3bff0d476e"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "400EE3E4926A5C86ED1613BC574B898415553F6E2246483BCF41EC410C79143B",
+      "files": 20,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "isolated-suite-048b43b30e2d",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\isolated-suite-048b43b30e2d",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:27:10.0346387Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\isolated-suite-048b43b30e2d"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "1A94AC36A5DF6A59F502C2C3B54F7F851FCA02868D0A4D35CD8C858C5C9B8743",
+      "files": 4,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "native-pending-04e4f8a20104",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\native-pending-04e4f8a20104",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:27:10.5588391Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\native-pending-04e4f8a20104"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "35F3076F7A567F276A6142C73F23A7EBD13AD080EEF05103DBC7CB70A62BB939",
+      "files": 5,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "native-pending-3b6830e21768",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\native-pending-3b6830e21768",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:27:11.1344821Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\native-pending-3b6830e21768"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "C1916EADF9C1C25263BCFFBFA3BAC371030615ADDCBE4CBA046C0DE0866ADD1F",
+      "files": 4,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "native-pending-72592f5a72a0",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\native-pending-72592f5a72a0",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:27:11.8386466Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\native-pending-72592f5a72a0"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "D80C90F3F5089803373C6A232F5D670201081E2D4525811E7A6CC1D4306C5E96",
+      "files": 4,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "native-pending-bf2ef6179f68",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\native-pending-bf2ef6179f68",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:27:12.3462264Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\native-pending-bf2ef6179f68"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "0266C2101E20403AAD80DB06A4A7ADB132BD9FE0E4A9200F6AEB6DB3ADD98EC3",
+      "files": 3,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "native-pending-cfa95a7ad8f1",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\native-pending-cfa95a7ad8f1",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:27:12.8832830Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\native-pending-cfa95a7ad8f1"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "B4B2520F100CDE39EFD768FD369DAB6DB16DFF9D129C1FA323BBF1B8938ADFA5",
+      "files": 0,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "review-final-helpers",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\review-final-helpers",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:27:13.3826482Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\review-final-helpers"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "13B468DE2BCF8FA6AB4071C1187205D313B319BC69F42257C3358C954593DDA5",
+      "files": 4,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "suite-20261022-041445-7d7172",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\suite-20261022-041445-7d7172",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:27:13.9571088Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\suite-20261022-041445-7d7172"
+    },
+    {
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "manifestSha256": "90CB496E3AB47AE875EDF8942B4FB3AAF63119A9E515A3AE397BC9142CD876A6",
+      "files": 4,
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "name": "suite-20261022-041853-6e79ff",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\suite-20261022-041853-6e79ff",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "removedAtUtc": "2026-10-22T02:27:14.4250234Z",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\suite-20261022-041853-6e79ff"
+    }
+  ],
+  "privateArchive": "build/ap-iv2-020-suite/private-archive",
+  "publicEvidence": "This directory; no databases/private microphone recordings exported."
+}

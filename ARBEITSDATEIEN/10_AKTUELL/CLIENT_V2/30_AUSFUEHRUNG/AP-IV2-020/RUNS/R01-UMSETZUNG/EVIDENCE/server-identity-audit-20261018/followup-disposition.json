@@ -1,0 +1,322 @@
+{
+  "schemaVersion": 1,
+  "timeUtc": "2026-10-19T11:43:06.807153+00:00",
+  "kind": "READ_ONLY_EXISTING_EVIDENCE_COMPARISON_NOT_NEW_TEST_EXECUTION",
+  "report": "../../17_TESTLUECKEN_UND_WIEDERHOLUNGEN.md",
+  "requiredServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "historicalAudit": {
+    "file": "inventory.json",
+    "sha256": "7e6f7c232dd2899f839bf9edbe51936fda3f7d36177bcd4585c5f258fe8f7b48",
+    "recordCount": 363,
+    "unchanged": true
+  },
+  "oldEvidenceOverridesUnchanged": true,
+  "serverStartedOrModified": false,
+  "externalFilesWritten": false,
+  "laterCoverage": [
+    {
+      "id": "A01",
+      "excludedEarlyRecords": [
+        "real-golden-asr.json",
+        "real-golden-asr-stable.json"
+      ],
+      "laterRecord": "real-golden-exact.json",
+      "identicalCommand": true,
+      "scope": "One English Golden ASR fixture/backend smoke; later qualified shared build chain, no per-invocation full source attestation"
+    },
+    {
+      "id": "A02",
+      "excludedEarlyRecords": [
+        "real-wake-negative.json"
+      ],
+      "laterRecord": "wake-negative-exact.json",
+      "identicalCommand": true,
+      "equalConfigurationFields": [
+        "measurement",
+        "backend",
+        "threshold",
+        "minConsecutivePredictionFrames",
+        "detectorGain",
+        "vadThreshold",
+        "noiseSuppressionEnabled",
+        "cooldownMs",
+        "preRollMs",
+        "wakeWordIds",
+        "predictionFrameSamples"
+      ],
+      "equalInputAndOutcomeFields": [
+        "audio",
+        "durationSeconds",
+        "chunks",
+        "predictionFrames",
+        "predictionFramesAboveThreshold",
+        "logicalHitCount"
+      ],
+      "scope": "One 51.925s reference; not TV false-alarm calibration"
+    },
+    {
+      "id": "A03",
+      "excludedEarlyRecords": [
+        "real-wake-resources.json"
+      ],
+      "laterRecord": "wake-resources-exact-rss.json",
+      "equalResourceScopeFields": [
+        "selectedModels",
+        "wakeWordIds",
+        "backend",
+        "chunkSamples",
+        "predictionFrames",
+        "iterations",
+        "measuredReceptiveFieldMs"
+      ],
+      "instrumentationOnlyDifference": "RSS via retained measure_wake_resources.py; actual timings are separate observations",
+      "helper": "measure_wake_resources.py",
+      "helperSha256": "aff20cb0d53f1491442223045a9c1ed9f0c340c39edb6f46d0e46bc9cbfc6b70",
+      "scope": "1/3/25 models, 200 iterations; not 30min/100 native activations"
+    }
+  ],
+  "uncoveredEarlyRecord": {
+    "record": "real-wake-artifacts.json",
+    "group": "B01",
+    "rows": 25,
+    "action": "Bind retained model/tool metadata or repeat offline; no human speech needed"
+  },
+  "logHashChecks": [
+    {
+      "record": "real-golden-asr.json",
+      "recordSha256": "6977ccb3c80b2db969d9269edad24afa23d9493977b1e3839479f3809153e020",
+      "log": "real-golden-asr.txt.gz",
+      "gzipSha256": "c4047b996716d95d35445b93bb6ba443d43781c47a6119b8ede4c5fbe9198c5f",
+      "uncompressedSha256": "b0c8b2f9ee722a1107d1f8942d1c6dfa58ecbdb23be47d8b773222befe00f368",
+      "hashVerification": "PASS"
+    },
+    {
+      "record": "real-golden-asr-stable.json",
+      "recordSha256": "c45550c4e292fd8a9daa1e9de720139cb9d8ff0cfdd494334a5328cd725a7631",
+      "log": "real-golden-asr-stable.txt.gz",
+      "gzipSha256": "137fd7b1aaabc5e6a77ed612121bfa04cd1787eb27362fb8b1f90f703f90000c",
+      "uncompressedSha256": "d9bb0651e1f0e94492d4b64bd9cd00a75f78102366565e9c4226800f63bd7525",
+      "hashVerification": "PASS"
+    },
+    {
+      "record": "real-golden-exact.json",
+      "recordSha256": "cc3ca3425e91333fc2fc3d4bd6f5036f51af8672b78c79f6c0ad779da15a6571",
+      "log": "real-golden-exact.txt.gz",
+      "gzipSha256": "5d1b7dfa85d1b1e269d6da554490af61a6410545f1da9e93de5d57b573df2cb0",
+      "uncompressedSha256": "b52810997797501c8fce6b0acb53246c3355a8c77f388bc237515278b327a339",
+      "hashVerification": "PASS"
+    },
+    {
+      "record": "real-wake-negative.json",
+      "recordSha256": "7ebc618a7d32a0bc99899fa40cddd52b3f157c1e367bd0c0ae35371d31f6fe0d",
+      "log": "real-wake-negative.txt.gz",
+      "gzipSha256": "54257268ce53206f5cf243ffb53b436f6cc3ed76dfeaf17c94bcb2b670926382",
+      "uncompressedSha256": "cfd624e8ac493254f00e411a2407eb2c500e81150b0d37e71b3182e93f20ea61",
+      "hashVerification": "PASS"
+    },
+    {
+      "record": "wake-negative-exact.json",
+      "recordSha256": "830a7ae2ee622756d7459d6d23c681b6a8538f89d0218ef820d61dd57aab5222",
+      "log": "wake-negative-exact.txt.gz",
+      "gzipSha256": "dd19729fc50663e7db15fe6c19f843856c92f44bd4e29a343bb58245f587d70f",
+      "uncompressedSha256": "75610927f46fbff8a00a4e0e0066ab6e26b0e9346da10d772b3bb76b70babea5",
+      "hashVerification": "PASS"
+    },
+    {
+      "record": "real-wake-resources.json",
+      "recordSha256": "d2c7eacefde96b4402ea27d0b8a3b86880d05a5ac7928d1de400cc9d5a2a0aef",
+      "log": "real-wake-resources.txt.gz",
+      "gzipSha256": "40f4cd9fda82e938e7ecb3b100ad15d444e148019feb3f0c7955e74865504338",
+      "uncompressedSha256": "59818445b8c41b8a51633f93aa5e030d819f3c0b305d44bd268dcd57f3f6ddb7",
+      "hashVerification": "PASS"
+    },
+    {
+      "record": "wake-resources-exact-rss.json",
+      "recordSha256": "b2fe5ffcfa84f28ed52674bc9dca0e850666fd342ae7e8089dc65c65dfc692f6",
+      "log": "wake-resources-exact-rss.txt.gz",
+      "gzipSha256": "6a5a7c6fc42c6dcc845a544412d93be18a9ab77ae26cbf16b5c653c43803523e",
+      "uncompressedSha256": "a7a76c752e50871ea00026ae12bf94fa85eff0b2b822357054cedea09b4b64fc",
+      "hashVerification": "PASS"
+    },
+    {
+      "record": "real-wake-artifacts.json",
+      "recordSha256": "f6829026d037bada83fd5d50af13f41151dbb27f9143df03b66c7c4ed88d5908",
+      "log": "real-wake-artifacts.txt.gz",
+      "gzipSha256": "d67c266841fc7bea2b2ed4d47c76444c5e70fabdbadc47c29e11a3e7e6230b81",
+      "uncompressedSha256": "b5d9cb83e4265d56a9829fa2bee3dd49f97c6f0ed079d1d300cff9c3e1fb5b11",
+      "hashVerification": "PASS"
+    }
+  ],
+  "declaredPinRecordDispositions": [
+    {
+      "record": "real-audio-pipeline.json",
+      "sha256AtDisposition": "9e7c6e81a67b8fb29daf567f9c3f91d2193df792ee918abd57cf53d6f416e304",
+      "group": "A07",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "GUARD_ALREADY_VERIFIED_SCOPE_LIMITED"
+    },
+    {
+      "record": "recovery-audit/native/real-audio-pipeline.json",
+      "sha256AtDisposition": "0b1a72834fa09a60216678249c7270144e8502884ff3fa4ae6e5cf7984711c95",
+      "group": "A07",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "GUARD_ALREADY_VERIFIED_SCOPE_LIMITED"
+    },
+    {
+      "record": "recovery-audit/real-recovery.json",
+      "sha256AtDisposition": "a8ec053ab0209dd698567ed0d8f206efba154bb0ef6df5336342ff94a2b6a3e9",
+      "group": "A07",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "GUARD_ALREADY_VERIFIED_SCOPE_LIMITED"
+    },
+    {
+      "record": "real-admission.json",
+      "sha256AtDisposition": "230677c555c1df4de46cada2ab6c82d7499a98d19e3293f83ddd85e17b8f98b9",
+      "group": "B02",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "real-watchdog.json",
+      "sha256AtDisposition": "8f28359ae4bbaee8f1bb9c8e6e337031ab052282f2f088b12671f6509b6851f5",
+      "group": "B02",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "recovery-audit/real-watchdog-stalled-media.json",
+      "sha256AtDisposition": "8b367b6654d3459ee895f2217135a526332b599da3f8e9417ee0951e497d35a5",
+      "group": "B02",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "human/wake-replay-calibration.json",
+      "sha256AtDisposition": "597e5157ae7d7ced9db0ba8e2c040ac99edf32b7e3b3dc576b9d0b34a29c3e33",
+      "group": "B03",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "human/wake-scores-summary.json",
+      "sha256AtDisposition": "2f17abc7fb0bd39f5ef8d60e4b3594e2c06572701ca4c085bbe469c1a1671e92",
+      "group": "B03",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "human/manual-followup-5000.json",
+      "sha256AtDisposition": "843d70792e78fb7a780c3e7a7494e0e40c6400bf82c8ba4269ac8dabd36f1737",
+      "group": "B04",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "human/wake-first-live.json",
+      "sha256AtDisposition": "45ade5889828369509774c851cf2c81c96867fc99819c6eb077d2f9961350b06",
+      "group": "B04",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "ux01/repeatable-manual-20261016-01/assessment.json",
+      "sha256AtDisposition": "253f4978fe03c80f788d0e83c3c4bd171ce24818cafef15e8ae1a8752df23365",
+      "group": "B04",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "ux01/stepped-20261016-01/assessment.json",
+      "sha256AtDisposition": "1af0469e7dcd1c281267fc59c640edf749e1350fe4f9e8caa7812cf8372c2633",
+      "group": "B04",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "ux02/manual-voice-20261016-01/assessment-initial.json",
+      "sha256AtDisposition": "2f50f730c8984a69533f4f27d814d76634d445436161d26ac84e2fffd985d8fc",
+      "group": "B04",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "ux02/manual-voice-20261016-01/assessment.json",
+      "sha256AtDisposition": "d02260cb33fc3c8c27ce44d98c1d44d10d42c106b7df2db31b0d903723e556b1",
+      "group": "B04",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "human/free-exploration-20261016-01.json",
+      "sha256AtDisposition": "d93946f5eb4d5b091378d366a61828e0d55ac4c39467ab536e17b42d05764249",
+      "group": "B05",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "ux03-close-sound/assessment.json",
+      "sha256AtDisposition": "9ca45d7f4fba84ff9b34d240fe8ea86cac8cb900c75f7d72f0b3ffec99b418bb",
+      "group": "B05",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "ux01/logstore-diskfull.json",
+      "sha256AtDisposition": "fd16680529f8fa53e678ee88772cc59ae12786d3c91c0919cc0b30639a4a93a6",
+      "group": "B06",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "real-cases.json",
+      "sha256AtDisposition": "4163f5147cd7ad438698f90744400fb3a98e6355194fca642262d14317b4cfe4",
+      "group": "B07",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "recovery-audit/qualification-summary.json",
+      "sha256AtDisposition": "a9ba937f2ff74318c02c3f3f98f4028865f35f4ad714bc6a0e71b15b9f610da6",
+      "group": "B07",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "submission.json",
+      "sha256AtDisposition": "df8bd04f7dac7c5ec78c93bfa0327ba2f531ff49b38d80a89f32b2a419bd84e5",
+      "group": "B07",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "ux01/qualification-summary.json",
+      "sha256AtDisposition": "4f276882fc8533178ef3121d99550b7d8d94eff1c6e9340a8cf2a6fe00d60605",
+      "group": "B07",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "ux02/qualification-summary.json",
+      "sha256AtDisposition": "bb69d66c3baee1372cff941794e653fdfd87f4b0c3b57c15bf329860962dcdb7",
+      "group": "B07",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "tv-wake-finish-20261018/live-analysis.json",
+      "sha256AtDisposition": "f8795ec165422d8888cb473b295d925166f910b3e9162f959c02fc285ce204d4",
+      "group": "B08",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    },
+    {
+      "record": "wake-retrigger-20261018/live-analysis.json",
+      "sha256AtDisposition": "361f150feb3bbef6221fe995c11ab19e8aaf782c940e65ab9e2e3d518016f956",
+      "group": "B08",
+      "historicalAuditCategoryUnchanged": true,
+      "action": "DOCUMENT_LINKAGE_FIRST_NO_AUTOMATIC_PASS"
+    }
+  ],
+  "noNewMCasePass": true,
+  "workflowStatusUnchanged": "BLOCKED / SERVER_FIX_REQUIRED"
+}

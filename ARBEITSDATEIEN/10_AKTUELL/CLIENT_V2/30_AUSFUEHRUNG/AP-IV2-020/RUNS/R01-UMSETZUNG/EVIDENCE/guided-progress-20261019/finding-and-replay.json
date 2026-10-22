@@ -1,0 +1,70 @@
+{
+  "finding": "IV2-020-T03",
+  "status": "CORRECTED_TECHNICALLY_HUMAN_CONFIRMATION_PENDING",
+  "cause": "The UI only advanced task rows on manual Next clicks; review marked all earlier rows done regardless of observations.",
+  "actualAttempt": {
+    "sourceCommit": "23f858c0168fce9a8e266e5905b4f6342e763b25",
+    "task": "finish",
+    "nativePastes": 2,
+    "controls": [
+      {
+        "slot": "primary",
+        "phase": "idle",
+        "ready": true
+      },
+      {
+        "slot": "primary",
+        "phase": "idle",
+        "ready": true
+      }
+    ],
+    "inputClosedReasons": [
+      "timed_out",
+      "timed_out"
+    ],
+    "humanDecision": null,
+    "evaluation": "NOT_PROVEN: two explicit activations, both timeout; no F9 received; UI complaint is not a complete M-case verdict."
+  },
+  "realTraceReplay": [
+    {
+      "event": "desktop.started",
+      "wireType": null,
+      "guide": {
+        "active": 2,
+        "confirmed": [],
+        "manualAllowed": false,
+        "waitRemaining": null,
+        "notice": ""
+      }
+    },
+    {
+      "event": "wire",
+      "wireType": "activation.started",
+      "guide": {
+        "active": 3,
+        "confirmed": [
+          2
+        ],
+        "manualAllowed": false,
+        "waitRemaining": null,
+        "notice": ""
+      }
+    },
+    {
+      "event": "wire",
+      "wireType": "activation.input_closed",
+      "guide": {
+        "active": 4,
+        "confirmed": [
+          2
+        ],
+        "manualAllowed": false,
+        "waitRemaining": null,
+        "notice": "F9 wurde nicht beobachtet; der Finish-Schritt bleibt unbestätigt."
+      }
+    }
+  ],
+  "retainedPrivateProjectArchive": "build\\ap-iv2-020-suite\\private-archive\\suite-20261019-155758-b75d0c",
+  "publicBoundary": "Only identities/counters/hashes; full private history/text remains Git-ignored. No new hardware PASS from replay.",
+  "cleanupObligation": "Archive/hash-check then remove stopped external run; new human run after confirmation likewise."
+}

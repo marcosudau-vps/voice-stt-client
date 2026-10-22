@@ -1,0 +1,7 @@
+# Reproducible AP-IV2-020 test-profile settings, not release defaults.
+# Confirmed by a direct real 20-second LED comparison on 2026-10-19.
+# Intensities below are effect-relative; existing global LED brightness is retained.
+idle:
+  color: '#FFFFFF'
+  min_brightness: 0.30
+  brightness: 1.0

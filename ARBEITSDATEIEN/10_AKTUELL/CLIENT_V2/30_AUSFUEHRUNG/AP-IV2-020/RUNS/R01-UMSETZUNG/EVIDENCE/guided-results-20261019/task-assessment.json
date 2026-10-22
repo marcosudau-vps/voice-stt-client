@@ -1,0 +1,62 @@
+{
+  "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+  "harnessCommit": "f8bef5d660b046ce7f430f4788457090e0e8cdde",
+  "scope": "Historical source-only evidence. No whole M-case PASS and no transfer to corrected product without requalification.",
+  "tasks": [
+    {
+      "taskId": "finish",
+      "result": "PARTIAL_PASS",
+      "assessment": "Ein Final exakt einmal nativ; kein F9-Callback, Timeout statt Finish. Finish im Mute-/Reconnect-/Reinsert-Teil separat belegt."
+    },
+    {
+      "taskId": "followup",
+      "result": "PARTIAL_PASS",
+      "assessment": "Zwei Segmente derselben Activation, zwei exakte Einfügungen; wirksame Nachsprechfrist5000ms. F9 fehlt, vier Sekunden akustische Pause nicht separat gemessen."
+    },
+    {
+      "taskId": "cancel",
+      "result": "PASS_SCOPED",
+      "assessment": "F9/cancel während Aufnahme bestätigt; cancelled/input_closed, kein Paste bis nach10s und anschließendem Stop."
+    },
+    {
+      "taskId": "refresh",
+      "result": "PARTIAL_PASS",
+      "assessment": "F8/refresh in followup_wait bestätigt, zweites Segment und zwei Einfügungen. Kein Abschluss vor Stop, keine Verlängerung über die ursprüngliche Deadline bewiesen."
+    },
+    {
+      "taskId": "none",
+      "result": "PASS_SCOPED",
+      "assessment": "Nativer F9-Callback in waiting_first_speech; kein mutierender Secondary-Command, natürlicher Timeout, kein Paste."
+    },
+    {
+      "taskId": "feedback",
+      "result": "NOT_PROVEN",
+      "assessment": "Übernommener letzter Versuch ohne F8/Activation; ältere Wiederholungen enthalten Aktivierungen, aber keine zugeordnete übernommene Wahrnehmung."
+    },
+    {
+      "taskId": "mute",
+      "result": "PASS_SCOPED",
+      "assessment": "Audioverfügbarkeit13s aus; F8 währenddessen ohne Activation; nach Hardwarefreigabe eine Activation, bestätigtes Finish und eine exakte native Einfügung. Kein Beleg für getrennte Run-Pausen."
+    },
+    {
+      "taskId": "usb",
+      "result": "FAIL",
+      "assessment": "Physische Trennung: Capture/Senden ab417 stehen geblieben, AudioAvailable bliebtrue; kein Eingabeschluss, auch nach Anstecken. R11 technisch korrigiert, physische Wiederholung am neuen Produkt offen."
+    },
+    {
+      "taskId": "reconnect",
+      "result": "PASS_SCOPED",
+      "assessment": "Bewusster Client-Reconnect: Generation1→2/neue Session, Bootstrap vor Audio, danach F8/Sprache/F9finish und eine exakte Einfügung. Kein Netzfehler mit offenem Final."
+    },
+    {
+      "taskId": "reinsert",
+      "result": "PASS_SCOPED",
+      "assessment": "Ein Final, genau ein nativer reinsert_last-Hotkey; eine automatic- und eine manual-Injection, zwei erwartete Hashes einschließlich Leerzeichen."
+    },
+    {
+      "taskId": "settings",
+      "result": "PARTIAL_PASS",
+      "assessment": "Mensch öffnete Logansicht und beschrieb Serverfilter/Raw;57 echte Client-/LED-Records, Logstreamlive,0Serverrecords/0Raw wie Testkonfiguration. UI-Abnahme laut Auswahl ungewiss."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "result": "FAIL",
+  "source": "Codex exec output",
+  "exception": "PermissionError",
+  "winerror": 5,
+  "operation": "Atomic editor-state.tmp -> editor-state.json replace while the child read the heartbeat",
+  "correction": "Retry only PermissionError on atomic rename for at most two seconds; prior complete snapshot retained; permanent failure raises.",
+  "validation": "27 helper tests include transient/permanent rename errors; repeated real preflight PASS."
+}

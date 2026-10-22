@@ -1,0 +1,21 @@
+{
+  "timeUtc": "2026-10-19T13:56:17.210423+00:00",
+  "authorization": "ZUSATZPROMPTS/019_TESTABLAGE_MIT_AUFRAEUMPFLICHT.md",
+  "approvedRoot": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
+  "existedBefore": false,
+  "removedAfterExport": [
+    "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\regression-20261019-154502",
+    "C:/Users/marco/.voice-stt/qualification/AP-IV2-020/preflight-20261019-154502",
+    "C:/Users/marco/.voice-stt/qualification/AP-IV2-020/helper-checks-20261019",
+    "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\regression-20261019-155052"
+  ],
+  "retainedWhileRunning": [],
+  "policyRejection": {
+    "action": "Combined export and recursive cleanup command",
+    "reason": "blocked by policy",
+    "resolution": "Export/hash verification and native literal-path cleanup performed in separate steps after path/process checks"
+  },
+  "nextObligation": "Final regression and subsequent human runtime directories must also be exported/evaluated and removed after use.",
+  "approvedRootEmptyBeforeHumanRun": true,
+  "humanRunCleanup": "PENDING_AFTER_HUMAN_RUN_EVALUATION_AND_EXPORT"
+}

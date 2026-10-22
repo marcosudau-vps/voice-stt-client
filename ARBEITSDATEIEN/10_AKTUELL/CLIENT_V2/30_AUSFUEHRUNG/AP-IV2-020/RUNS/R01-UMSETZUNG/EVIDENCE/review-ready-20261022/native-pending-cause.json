@@ -1,0 +1,28 @@
+{
+  "result": "FAIL",
+  "pid": 35736,
+  "runtimeFolder": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\native-pending-3b6830e21768",
+  "infoBefore": {
+    "schemaVersion": 1,
+    "protocolVersion": 2,
+    "serverVersion": "2.0.0",
+    "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+    "identityStatus": "complete",
+    "build": {
+      "sourceTree": "74f37cad84c5be9e74d880a4b10c3d9623de7da3",
+      "sourceDirty": false,
+      "sourceDate": "2026-10-20T12:50:26Z"
+    },
+    "distribution": {
+      "name": "voicestt",
+      "packageVersion": "2.0.0"
+    },
+    "runtime": {
+      "krokoVariant": "pro"
+    },
+    "serverInstanceId": "14e6ff8dc2704f7298924b0d1de5cd1b"
+  },
+  "scope": "Actual ReSpeaker PortAudio failure with real pending ASR and run pauses.\n\nPCM/clipboard remain explicit controlled test boundaries. Native device opens,\ncallbacks, stream abort and production recovery are real. No physical unplug,\nmicrophone recording, foreground paste, server mutation or human action.\n",
+  "errorType": "TimeoutError",
+  "error": ""
+}

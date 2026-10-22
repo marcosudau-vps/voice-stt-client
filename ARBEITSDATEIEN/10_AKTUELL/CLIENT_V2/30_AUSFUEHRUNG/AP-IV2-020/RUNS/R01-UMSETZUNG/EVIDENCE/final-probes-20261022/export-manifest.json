@@ -1,0 +1,29 @@
+{
+  "algorithm": "SHA256",
+  "files": {
+    "admin-final-confirmed.json": "bf498b15d0204d3ca39836804bad0440f162f59008dd67014894fea827183f6b",
+    "admin_guard_probe.py.gz": "a4dee11b4471fb16a5ef0fa492c2ac91ffd744cb81e7693ef5a841c48f91fe85",
+    "cleanup.json": "8d48591cb523263400c3f86f23ab1789932607602dba7b3270f44b0a0060de6b",
+    "elevated-final-confirmed.json": "10abdd9e11c7eb767b2f57b0bf01f5dae04307c236c3929265a7cad89c9a795c",
+    "elevated-final-observed.json": "70ac6f2b2b7bd6e3e998826c9ad9d46f6316229b8efd858e1d03ef385e653f7a",
+    "elevated_paste_probe.py.gz": "bf9d81aa26f893b4b47852479b24b78151e82a85b2ee7f6bcbcd3bc1a4913146",
+    "final-compile-20261022.log.gz": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+    "final-helpers-20261022.log.gz": "9518f5abe6585c453bb4fcb02ec4c05d9efd079ca67e1b0155035f8b35c91eb4",
+    "final-qt-selfcheck-20261022.log.gz": "b7d5b1cf40486524614414545668cea154c9ae2ceeda33066f6065245d73084b",
+    "frozen-acoustic-final.json": "2ab49e5ecbb1256919250b760054aa27ea931b900626df56a360106258019032",
+    "frozen-live-final.json": "f8e556c39519c921ded34cf7c5bad4a116361519cfea54b2377199c8f53136f4",
+    "frozen-live-minimal.json": "b1b5ff0ab2230b50592515f9aaca7b10b7620fd649d9ffd5442caa5011d51672",
+    "frozen-reinsert-diagnostic.json": "a92dbb9d26f98ec1aaa09b03ec20fb447ae045b343306c65140107a1f42d7e5c",
+    "frozen-stereomix-final.json": "89a2cfb02ca37d860d0ddc2cecd66b83032f1d5efb35b105e37ca1246860edae",
+    "frozen-stereomix-native-format.json": "9c990bf855c7f66d54a558bd9bb697849de4009cce8af03d3ee28a02ba2fa66f",
+    "frozen_acoustic_probe.py.gz": "1183c2fdde6224f70d1f05cff5680a37f712f6ecd49089ff9f769d9c1e7df479",
+    "native-current-control.json": "b578621b4c4e560d252b5abdfdc45c0171533f6a2f916a3e2c7532ac605febaf",
+    "native_rest_probe.py.gz": "8ad34bf27fae3919183198de27b2b27de99d0003d2f11f1a69f9ac2cf82c25f8",
+    "process_security_probe.py.gz": "e82bae5a41152964b2b628b0e7e9d8745251e84a3ae06914b641635f36997511",
+    "qualification-matrix.json": "e669b836177999739f6a3fcc3739d87faf7550719b01f463e7c0f2e713857b0f",
+    "runs.json": "83400bb63c3d35a990cac7cc01625c3b5735551e86a69e0f48c17385428d6352",
+    "test_admin_guard_probe.py.gz": "904ecb68bf756071232c1d350c32e819623fb1605bbeee847eb7f15f5075ef25",
+    "test_frozen_acoustic_probe.py.gz": "2b75c6fd297fe83a92a782f8a224e446cfd3fa00559e20985b72b80e54b808d2",
+    "validation.json": "98ec88a3a97728b1f7b141c18d56ae7d3600f331b2f6dcbc149337f96e866e82"
+  }
+}

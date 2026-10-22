@@ -1,0 +1,52 @@
+{
+  "result": "PASS_SCOPED",
+  "pid": 33452,
+  "runtimeFolder": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\native-rest-2aba87a145f9",
+  "rows": [
+    {
+      "name": "normal",
+      "checks": {
+        "expectedStatus": true,
+        "exactText": true
+      }
+    },
+    {
+      "name": "conflict",
+      "checks": {
+        "expectedStatus": true,
+        "exactText": true
+      }
+    },
+    {
+      "name": "crash-before",
+      "checks": {
+        "recoveredUnknown": true,
+        "noAutomaticRetry": true,
+        "actualEffectMatchesBarrier": true
+      }
+    },
+    {
+      "name": "crash-after",
+      "checks": {
+        "recoveredUnknown": true,
+        "noAutomaticRetry": true,
+        "actualEffectMatchesBarrier": true,
+        "nativeSendComplete": true
+      }
+    },
+    {
+      "name": "clipboard-preservation",
+      "checks": {
+        "originalFormatsRestored": true
+      },
+      "lastOwnSequence": 803,
+      "finalSequenceBeforeRestore": 806,
+      "currentTextStillOwned": true,
+      "originalFormatCount": 0,
+      "restoreEligible": true
+    }
+  ],
+  "scope": "Owned Qt target + production Windows injection queue in disposable workers.\n\nStart the visible target, focus its editor with Computer Use, then click its\nbutton. No foreign foreground input, no elevation, no original clipboard bytes\nin evidence. Crash workers are deliberately killed before/after real SendInput.\n",
+  "elevatedTarget": "NOT_RUN_REQUIRES_HUMAN_UAC",
+  "originalClipboardBytesSaved": false
+}

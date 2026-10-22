@@ -56,3 +56,13 @@ Wake-Freitext wird nur am Komma getrennt und mit einem echten Katalog kanonisier
 `SettingsHTTP` verwendet Standardbibliothek/`asyncio.to_thread`, verifiziert TLS, akzeptiert ausschließlich den Origin eines credentialsfreien `/ws/v2`-URLs ohne Query/Fragment und feste V2-Routen. Unverschlüsseltes HTTP ist nur auf Loopback zulässig. Defaulttimeout 5 s, Responsegrenze 1 MiB (konfigurierbar bis 4 MiB), keine Redirects. Nach Timeout oder Cancellation wird ein noch laufender nativer Worker behalten; weitere Requests können keine Workerflut erzeugen. Der Coreloop bleibt frei. Fehlermeldungen enthalten keine Keys, URLs, Rohantworten oder ursprünglichen Exceptions.
 
 Die [AP070-Evidenz](../ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-CV2-070/RUNS/R01-UMSETZUNG/EVIDENCE/INDEX.md) belegt HTTP/WS/Media/PCM auf der Produktions-Serverapp und Regression. PortAudio, Modelle und Recorder sind kontrollierte Grenzen. Die empirische Wake-/Nutzsprachgrenze und Kalibrierung bleiben AP-IV2-020; `calibration=pending` ist keine Empfehlung optimaler Werte. Es gibt keine zusätzliche Dependency, Credentialpersistenz oder Serverproduktänderung.
+
+## AP-IV2-020 – HTTP-Recovery
+
+Fehlerantworten werden anhand des HTTP-Status eingeordnet, ohne ihren Body als
+Erfolgs-JSON zu lesen. Abgerissene Erfolgsübertragungen sind GET-Transportfehler
+bzw. unklare Mutationsergebnisse. Nur der idempotente Metadaten-Preflight darf
+temporäre GET-Fehler in einen neuen Verbindungsversuch überführen; HTTP-PATCH
+wird dadurch niemals automatisch wiederholt. Ungültiges JSON bei HTTP200 und
+TLS-Zertifikatsfehler bleiben blockierend. Fehlende Bootstrap-Snapshots führen
+zu einer neuen Session mit erneuter vollständiger Bestätigung.

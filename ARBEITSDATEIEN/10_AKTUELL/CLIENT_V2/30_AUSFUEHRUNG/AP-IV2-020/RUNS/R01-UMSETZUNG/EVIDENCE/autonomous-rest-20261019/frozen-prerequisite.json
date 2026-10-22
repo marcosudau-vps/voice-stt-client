@@ -1,0 +1,7 @@
+{
+  "defaultClientMutexPresent": false,
+  "windowsError": 2,
+  "operation": "OpenMutex SYNCHRONIZE only; no Wait/Release/termination or instance creation",
+  "meaning": "No existing standard client mutex found; this is not a frozen qualification",
+  "frozenRemoteProbe": "Existing release verification-server probe permits loopback only; guard unchanged, no replacement server/proxy created"
+}

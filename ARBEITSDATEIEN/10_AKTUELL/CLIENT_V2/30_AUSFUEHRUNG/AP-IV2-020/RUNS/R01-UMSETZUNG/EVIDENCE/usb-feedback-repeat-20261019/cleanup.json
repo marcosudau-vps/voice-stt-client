@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "state": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+  "reason": "blocked by policy",
+  "newStoppedArchivedTargets": [
+    "suite-20261019-185221-5231a6",
+    "idle-calibration-regression-20261019"
+  ],
+  "olderSeven": "See ../usb-stall-20261019/cleanup.json; not retried",
+  "totalStoppedArchivedDirectoriesPending": 9,
+  "privateArchives": "build/ap-iv2-020-suite/private-archive",
+  "pendingHumanVariant": "Next single feedback task, no client before human Start",
+  "noWorkaroundOrRetry": true
+}

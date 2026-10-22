@@ -1,0 +1,11 @@
+{
+  "state": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+  "reason": "blocked by policy",
+  "newStoppedArchivedTargets": [
+    "suite-20261020-195208-adc550"
+  ],
+  "totalStoppedArchivedDirectoriesPending": 20,
+  "previousNineteen": "See ../wake-silent-confirmed-20261020/cleanup.json; not retried",
+  "privateArchives": "build/ap-iv2-020-suite/private-archive",
+  "noRetryOrWorkaround": true
+}

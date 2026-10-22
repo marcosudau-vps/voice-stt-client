@@ -1,0 +1,15 @@
+{
+  "phase": "BLOCKED",
+  "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/15",
+  "sourceEvidenceCandidate": "d5c621fb2ab5bb255d3e6095583e903ebbbd20d3",
+  "sourceEvidenceTree": "34afb6b1b735ce1b8790fd05a8702ceffe8720ad",
+  "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "fullWindowsSuite": "client-full.json",
+  "sourceConsistency": "source-consistency.json",
+  "openFindingIds": [
+    "IV2-020-F01"
+  ],
+  "nextAction": "Explicit authorization of proposed bounded client recovery fix, then new build/pair tests and same-session human calibration.",
+  "finalCandidate": "Resolve exact current PR head; following diff is administrative PR reference only."
+}

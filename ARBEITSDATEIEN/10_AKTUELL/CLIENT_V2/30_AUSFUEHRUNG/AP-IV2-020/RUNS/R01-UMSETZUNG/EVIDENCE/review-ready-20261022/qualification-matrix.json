@@ -1,0 +1,156 @@
+{
+  "package": "AP-IV2-020",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "status": "REVIEW_READY",
+  "report": "../../40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+  "meaning": "Implementation qualification assembled from identified real-model, native hardware and normal Frozen subcases; independent acceptance pending. No adapters represented as physical recordings.",
+  "cases": [
+    {
+      "id": "M-01",
+      "proven": "Existing native source two-segment/Finish plus three real old-final/new-speech overlaps; no repeated source action requested.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_COMPOSITE",
+      "needsHumanAction": false,
+      "evidence": [
+        "../../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+        "../../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md"
+      ]
+    },
+    {
+      "id": "M-02",
+      "proven": "Both actual Wake IDs and controls with manual idle admission disabled; adapter and prior native evidence remain separate.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_COMPOSITE",
+      "needsHumanAction": false,
+      "evidence": [
+        "../../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+        "../../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md"
+      ]
+    },
+    {
+      "id": "M-03",
+      "proven": "Close manual-first and wake-first cases, one admission and final; existing rearm/active-Wake evidence retained.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_COMPOSITE",
+      "needsHumanAction": false,
+      "evidence": [
+        "../../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+        "../../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md"
+      ]
+    },
+    {
+      "id": "M-04",
+      "proven": "18 actual phase/action/slot cases plus existing NONE/native collision/Refresh/watchdog.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_COMPOSITE",
+      "needsHumanAction": false,
+      "evidence": [
+        "../../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+        "../../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md"
+      ]
+    },
+    {
+      "id": "M-05",
+      "proven": "Existing distinct run-pause masks, Wake models/recovery/restart and hardware-Mute subcases. Native ReSpeaker DirectSound stream abort/reopen while A final pending and B open; A retained once, B cancelled, session/generation and both run-pause masks preserved.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_COMPOSITE",
+      "needsHumanAction": false,
+      "evidence": [
+        "../../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+        "../../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md",
+        "native-pending-directsound.json"
+      ]
+    },
+    {
+      "id": "M-06",
+      "proven": "Existing physical USB loss/cancel/reopen; actual native LED-only loss during same open input. Existing physical USB/mute and actual LED-only loss, supplemented by actual native device recovery retaining older pending ASR final. Stream abort is not physical cable unplug.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_COMPOSITE",
+      "needsHumanAction": false,
+      "evidence": [
+        "../../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+        "../../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md",
+        "native-pending-directsound.json"
+      ]
+    },
+    {
+      "id": "M-07",
+      "proven": "Real TLS preview and pending-final transport faults plus actual independent SQLite writer lock.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_COMPOSITE",
+      "needsHumanAction": false,
+      "evidence": [
+        "../../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+        "../../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md"
+      ]
+    },
+    {
+      "id": "M-08",
+      "proven": "Actual open-input cancel/finish/defer, missing-choice guards and explicit idle-drain wait.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_COMPOSITE",
+      "needsHumanAction": false,
+      "evidence": [
+        "../../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+        "../../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md"
+      ]
+    },
+    {
+      "id": "M-09",
+      "proven": "Wrong actual origin Admin guard, no global mutation; previous native secure-store operations. Actual positive guard, generation invalidation/reverify, unchanged defaults/vault and own-file secret scan PASS_SCOPED.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_COMPOSITE",
+      "needsHumanAction": false,
+      "evidence": [
+        "../../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+        "../../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md"
+      ]
+    },
+    {
+      "id": "M-10",
+      "proven": "Final actual normal Frozen/PortAudio/remote bootstrap startup; three source ASR overlaps. Normal EXE/StereoMix actual manual/Alexa/Jarvis ASR/history/native paste match; actual ReSpeaker user ASR and separate explicit Frozen reinsert pass. Subjective evaluation complete by human disposition. Normal unmodified final EXE: old A final arrives during B segment_active, two distinct activations/finals/history entries and two matching native visible outputs (248 chars). Prior Manual/Alexa/Jarvis pair and physical ReSpeaker/feedback evidence retained.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_COMPOSITE",
+      "needsHumanAction": false,
+      "evidence": [
+        "../../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+        "../../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md",
+        "frozen-native-overlap-complete.json"
+      ]
+    },
+    {
+      "id": "M-11",
+      "proven": "Actual normal Unicode paste, foreign clipboard lock and real process exits before/after SendInput, durable unknown/no auto retry; prior reinsert. Actual elevated UAC target observed: native4/4, command_sent, visible0; no retry, original clipboard restored. API receipt is not an insertion guarantee.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_COMPOSITE",
+      "needsHumanAction": false,
+      "evidence": [
+        "../../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+        "../../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md"
+      ]
+    },
+    {
+      "id": "M-12",
+      "proven": "Existing1800.015s/100 actual-model runtime loop plus18 traced generation-release activations, unchanged chosen config. 1800.015s/100 actual-model activations, three recovery actions, bounded tasks/resources; separate real physical USB/mute and new native capture recovery. Composite qualification; not 100 physical microphone recordings or a second Frozen endurance session.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_COMPOSITE",
+      "needsHumanAction": false,
+      "evidence": [
+        "../../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
+        "../../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md",
+        "../endurance-wake-20261020/confirmed-assessment.json"
+      ]
+    }
+  ],
+  "boundaries": [
+    "Native pending-fault test uses real ReSpeaker callbacks/stream recovery, controlled PCM and clipboard boundaries.",
+    "Frozen overlap uses actual Windows StereoMix endpoint and recorded deliberate speech, actual ASR and native visible paste; not ReSpeaker acoustic capture.",
+    "Physical USB/mute, acoustic Wake and human feedback proofs are separate runs at unchanged product, indexed in reports23-34.",
+    "The 30min/100 run uses real models and controlled PCM/clipboard. No claim that all100 are live microphone captures or all recovery boundaries were physical unplug.",
+    "Elevated target: SendInput accepted4/4 while visible0; API acceptance never treated as guaranteed insertion.",
+    "Historical ReSpeaker automatic-paste failure remains recorded with unknown cause; subsequent normal EXE native-output tests pass. No invented product fix.",
+    "Human reported final success without identifiable run remains HUMAN_REPORTED_SUCCESS_UNBOUND, excluded from qualification.",
+    "W02 closed by explicit human disposition, no causal fix claimed; historical failures remain."
+  ]
+}

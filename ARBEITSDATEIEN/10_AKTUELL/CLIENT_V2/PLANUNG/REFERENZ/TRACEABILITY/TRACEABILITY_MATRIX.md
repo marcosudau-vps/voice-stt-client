@@ -1,3 +1,19 @@
+## AP-IV2-020 / R04-ABNAHME – ROOT_PASS, 22.10.2026
+
+Unabhängiger [R04-Bericht](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md) zu PR15-Kandidat `ca56b5ab58c47bd97bae36335e9d9314b2d35294`: REAL-01..06 PASS, R02-F02 sicher behoben, R02-F01 zurückgenommen, [Issue #16](https://github.com/marcosudau-vps/voice-stt-client/issues/16) technisch verifiziert; finaler Windows-CI-Run 39734511679 SUCCESS. **0 offene Pflichtfindings; WAITING_FOR_APPROVAL.** Frühere R03/R02-Zwischenstände historisch; kein Merge ohne menschliche Freigabe.
+
+## AP-IV2-020 / R03-KORREKTUR – 22.10.2026
+
+Status **REVIEW_READY**. [Aktueller Korrekturbericht](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md): R02-F02 und separat Issue16 implementiert; unabhängige Nachabnahme nach grüner finaler PR-CI ausstehend. F01 zurückgenommen, Realbelege wiederverwendet. Kein ROOT_PASS/Merge. Nachfolgende datierte Stände sind historisch.
+
+## AP-IV2-020 – unabhängige R02-Abnahme / CHANGES_REQUIRED, 22.10.2026
+
+Der [unabhängige R02-Bericht](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md) bewertet den eingereichten R01-Kandidaten gegen REAL-01..REAL-06. **Berichtigter R02-Stand:** R02-F01 nach Anerkennung der komplementären M-12-Dauerlauf-/USB-Belege als `WITHDRAWN_BY_REVIEWER` zurückgenommen (kein neuer Kombinationslauf); **einzig R02-F02** zu unbounded Sessionledger/Tombstones (REAL-05/06) bleibt blockierend. Eigenständige CI-Flakiness auf späterem Dokumentations-Head in [Issue #16](https://github.com/marcosudau-vps/voice-stt-client/issues/16). Paket weiterhin CHANGES_REQUIRED; früherer REVIEW_READY-Stand ist historisch.
+
+## AP-IV2-020 – aktuelle Implementierungsnachweise,22.10.2026
+
+REAL-01 bis REAL-06: **REVIEW_READY**, konkrete M-01..M-12-Methoden/Identitäten/Grenzen in [Bericht40](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md) und seiner konsolidierten Matrix.1400Windows/0Skips,83Helfer,echte Hardware-/Modell-/Frozenbelege; keine unabhängige Annahme vorweggenommen. Historische Zwischenbewertungen unten bleiben ihrem Datum zugeordnet.
+
 # Traceability-Matrix – vollständige Anforderungen und Nachweise
 
 Stand: 2026-10-12, paketweise Nachweispflege auf Planrevision 10. **216 einzeln identifizierte Anforderungen**. Serverbaseline ada13b011e1d3829f78e7f389e3b927795a2b3be, Client-Ausführungslinie a80a6b17b40751740f9c9d2aef9cad32b0470c0c, kanonische Featurebasis 8bab1b3f4aa070d0756c305908def4d9ebc52582; Release f625904795880ce71acec216e43678f9ec1656d0 als zusätzliche Migrationsreferenz. Integrierter kanonischer Start-SHA: `1cf076bd2ed56929b1a3780bc140da51348a8295` (AP000 tatsächlich übernommen).
@@ -310,12 +326,12 @@ Datei-/Testnamen bezeichnen geplante Zuordnungen, keine Pflicht zur Neuanlage. F
 
 | ID | Exakte Anforderung / Akzeptanz | Kontrakt / Art | Owner | Serververhalten / Client-Ausgangsstelle | Geplanter Nachweis | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| REAL-01 | Manual/Wake/both/pausiert auf echtem Windows/ASRbuild mit mehrsegmentigem Diktat. | [K-04](../KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md) / CLIENT-SOLL / ABNAHME | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | Realer Windowsclient/Server/Audio/ReSpeaker | `M-01..M-12` (Abnahme) | CLIENT OPEN |
-| REAL-02 | EchteWakepositive/negative Aufnahmen mit unmittelbar folgenderNutzsprache, keine pauschale Kalibrierungsbehauptung. | [K-04](../KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md) / CLIENT-SOLL / ABNAHME | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | Realer Windowsclient/Server/Audio/ReSpeaker | `M-01..M-12` (Abnahme) | CLIENT OPEN |
-| REAL-03 | EchterUSBverlust/Mute/LEDonly/Wiederanbindung und independentLogfailure. | [K-04](../KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md) / CLIENT-SOLL / ABNAHME | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | Realer Windowsclient/Server/Audio/ReSpeaker | `M-01..M-12` (Abnahme) | CLIENT OPEN |
-| REAL-04 | RealeHotkeys/CredentialManager/Clipboard/Elevatedtarget/Reinsert und frozenUI/Sound/LED. | [K-04](../KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md) / CLIENT-SOLL / ABNAHME | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | Realer Windowsclient/Server/Audio/ReSpeaker | `M-01..M-12` (Abnahme) | CLIENT OPEN |
-| REAL-05 | 30min/100Activations mit Queue/Task/Memorynachweisen und begrenztem Recovery. | [K-04](../KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md) / CLIENT-SOLL / ABNAHME | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | Realer Windowsclient/Server/Audio/ReSpeaker | `M-01..M-12` (Abnahme) | CLIENT OPEN |
-| REAL-06 | Pflichtfälle NOT_RUN/NOT_PROVEN sind keine vollständige reale Abnahme. | [K-04](../KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md) / CLIENT-SOLL / ABNAHME | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | Realer Windowsclient/Server/Audio/ReSpeaker | `M-01..M-12` (Abnahme) | CLIENT OPEN |
+| REAL-01 | Manual/Wake/both/pausiert auf echtem Windows/ASRbuild mit mehrsegmentigem Diktat. | [K-04](../KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md) / CLIENT-SOLL / ABNAHME | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | Realer Windowsclient/Server/Audio/ReSpeaker | [M-01..M-12 / R01](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json) (Vorchecks separat; Recovery technisch korrigiert) | NOT_PROVEN / REAL_TESTS_OPEN |
+| REAL-02 | EchteWakepositive/negative Aufnahmen mit unmittelbar folgenderNutzsprache, keine pauschale Kalibrierungsbehauptung. | [K-04](../KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md) / CLIENT-SOLL / ABNAHME | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | Realer Windowsclient/Server/Audio/ReSpeaker | [M-01..M-12 / R01](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json) (Vorchecks separat; Recovery technisch korrigiert) | NOT_PROVEN / REAL_TESTS_OPEN |
+| REAL-03 | EchterUSBverlust/Mute/LEDonly/Wiederanbindung und independentLogfailure. | [K-04](../KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md) / CLIENT-SOLL / ABNAHME | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | Realer Windowsclient/Server/Audio/ReSpeaker | [M-01..M-12 / R01](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json) (Vorchecks separat; Recovery technisch korrigiert) | NOT_PROVEN / REAL_TESTS_OPEN |
+| REAL-04 | RealeHotkeys/CredentialManager/Clipboard/Elevatedtarget/Reinsert und frozenUI/Sound/LED. | [K-04](../KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md) / CLIENT-SOLL / ABNAHME | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | Realer Windowsclient/Server/Audio/ReSpeaker | [M-01..M-12 / R01](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json) (Manual-F8/F9 historisch PASS; native Einfügung am früheren Produkt FAIL; UX02 d95043e technisch und physisch PASS/CLOSED; [UX03-Stoppton](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/ux03-close-sound/assessment.json) am7bb5646 nativ und menschlich hörbar PASS/CLOSED; volle Realfaelle offen) | NOT_PROVEN / FULL_REAL_CASES_PENDING |
+| REAL-05 | 30min/100Activations mit Queue/Task/Memorynachweisen und begrenztem Recovery. | [K-04](../KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md) / CLIENT-SOLL / ABNAHME | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | Realer Windowsclient/Server/Audio/ReSpeaker | [M-01..M-12 / R01](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json) (Vorchecks separat; Recovery technisch korrigiert) | NOT_PROVEN / REAL_TESTS_OPEN |
+| REAL-06 | Pflichtfälle NOT_RUN/NOT_PROVEN sind keine vollständige reale Abnahme. | [K-04](../KONTRAKTE/K-04_LOGS_AUTH_RECOVERY.md) / CLIENT-SOLL / ABNAHME | [AP-IV2-020](../../ARBEITSPAKETE/AP-IV2-020.md) | Realer Windowsclient/Server/Audio/ReSpeaker | [M-01..M-12 / R01](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json) (Vorchecks separat; Recovery technisch korrigiert) | NOT_PROVEN / REAL_TESTS_OPEN |
 
 ## Paketabdeckung und Fortschreibung
 
@@ -410,3 +426,91 @@ Kein historisches R03-Urteil überschrieben; frischer unabhängiger Gesamt-Revie
 ## AP-CV2-100 – unabhängige R05-Abnahme / ROOT_PASS, 2026-10-13
 
 [Technischer R05-Abnahmebericht](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/01_REPORT.md), [unabhängiger Evidenzindex](../../../30_AUSFUEHRUNG/AP-CV2-100/RUNS/R05-ABNAHME/EVIDENCE/INDEX.md). Geprüfter kumulativer Kandidat `0d45f8e9d3b484631da80be28f31c86ea85ab002` / Tree `aa8e3146f7e05e67694fc2027d712c62ce44cebe`; unveränderter Parent `dad89bb5d08e6d34abc5cfab57fc76010c5131dc`, Server `ada13b0`. FINAL-01, FINAL-02, RUNTIME-01, RUNTIME-02, RUNTIME-03 und RUNTIME-04 **alle unabhängig PASS**. RUNTIME-02: früheres Pflichtfinding `CV2-100-R03-F01` nach korrelierten Audit-/Rollback-/Shutdownintegrationstests geschlossen. Windows 1581/gezielte210 sowie 17 komponierte Serverchecks als echte Fremdbelege unabhängig validiert; finale Windows-CI 38394758805 PASS auf geprüften Head. Bis zum tatsächlich freigegebenen Merge bleiben die Requirement-Lifecyclefelder `CLIENT OPEN` und Paketstatus `ROOT_PASS` / `WAITING_FOR_APPROVAL`, **nicht ACCEPTED**. Kein AP110-Start.
+
+## AP-IV2-020/R01 – realer geführter Lauf und R11, 19.10.2026
+
+[Einzelfallauswertung](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/22_GEFUEHRTER_DURCHLAUF_UND_USB_RECOVERY.md) bindet M-01/04/05/06/07/08/10/11 an tatsächliche Teilfälle, ohne ganze M-Gates zu schließen. Physische USB-Recovery am Produkt7bb5646 FAIL. R11-Korrektur0f6c85e: `tests.test_v2_audio_recovery.Media.test_active_driver_without_callbacks_reports_loss_before_blocked_stop` und `test_silent_pcm_is_progress_and_stalled_stream_recovers_without_activation` zunächst rot, danach grün;1400Windows-Tests ohne Skips PASS. Echter nativer PortAudio-Stillstand Source/Wheel am ausgewählten Pro-V2 bestätigt. Physische USB-Wiederholung sowie gesamte finale Real-/Frozen-/Wake-/100Activations-Qualifikation bleiben offen.
+
+## AP-IV2-020/R01 – physische R11-Schließung,19.10.2026
+
+[Bericht23](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/23_USB_BESTAETIGT_UND_IDLE_KALIBRIERUNG.md): M-06-TeilfallUSB/Audio am Produkt0f6c85e PASS_SCOPED, R11 CLOSED; alte/neue Activation sauber getrennt, serverbestätigter Verlust und Recovery, neue bewusste F8/F9-Finishfolge mit einmaliger korrekter Ausgabe. M-10-Teilfall manueller15s-No-Speech-Timeout mit menschlich passendem Timing PASS_SCOPED. Neue30/100%-Idle-Variante technisch berechnet, menschlich NOT_RUN. Keine ganzen M-Gates, Wake-/Both-/Frozen-/30min100-Abnahme daraus;1400Windows-/29Helfertests PASS.
+
+## AP-IV2-020/R01 – Idle-Kalibrierung und LEDonly,19.10.2026
+
+[Bericht25](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/25_IDLE_BESTAETIGT_UND_LED_ISOLATION.md): M-10-Teilfall direkter weißer Idle-Puls20s menschlich PASS_SCOPED, Minimum0,30/Peak1,0 gespeichert. M-06-Teilfall kontrollierte native LED-Kanalstörung bei idle autonom PASS_SCOPED,59→210Audiopakete, gleichbleibende Session/Generation, kein AudioAvailability-Command oder neue Activation. Kein M-06-Openinput/Altfinal-/M-10-Frozen-/Wake-PASS daraus. Erste Hilfsprüfung mit falscher Persistenzannahme bleibtFAIL; automatische echte LED-Recovery ist funktionierender Schutz.33Helfertests PASS, Produkt0f6c85e unverändert.
+
+
+## AP-IV2-020/R01 – autonome Restprüfung,19.10.2026
+
+[Bericht26](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md):
+REAL-03/M-09 nativer Windows-Vault-Lebenszyklus einschließlich drei frischer Prozesse,
+Origintrennung und bestätigter Löschung PASS_SCOPED. REAL-01/04 M-05/M-07 bei idle:
+getrennte bestätigte Pausenmasken über zwei Reconnects/eigenen TCP-Abbruch und
+Software-Mute erhalten; neues Runtimeobjekt ohne alte Runpause. Nach jedem
+Reconnect25weitere echte Audiopakete. Wakeengine aus; kein vollständiger Wake-/Mute-/
+offeneFinal-/Admin-/Frozen-PASS. `tests.manual.v2.test_autonomous_rest.IdleAssessment`
+weist fehlende/unbestätigte/stale/pending/keinAudiofortschritt-Belege zurück.
+36Helfertests/erneut1400Windows ohne Skips PASS; Produkt0f6c85e unverändert.
+
+
+## AP-IV2-020/R01 – Serverfix-Rückkehr,20.10.2026
+
+[Bericht27](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/27_SERVERFIX_RUECKKEHR_UND_REQUALIFIKATION.md):
+REAL-01/02/04: neuer Server67f3ce45 eindeutig über Info/Git/Hello gebunden;
+13reale Modelle/Transportreplays (8Rearm/3Negativ/2Direktsprache) und18Activations
+PASS_SCOPED, keine Zusatzwake in geprüfter digitaler Stille. Nativer Source-/ReSpeaker-
+Idle-Vorcheck133Pakete, neue1400Windows/0Skips und43Helfer PASS. Echte aktuelle
+Mikrofon-/Sound-/Nutzsprachgrenze/Frozen/Both-/30min100-Gates bleiben offen;
+W01-Live-Abschluss ausstehend. Keine alten Paar-PASS ungeprüft übertragen.
+
+
+## AP-IV2-020/R01 – echte Wake-/Soundproben,20.10.2026
+
+[Bericht28](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/28_WAKE_LIVEAUSWERTUNG_UND_RUHEKONTROLLE.md):
+REAL-01/02/03/04, M-02/M-10-Teilnachweis: aktuelle bewusste Alexa-/Hey-Jarvis-
+Proben mit Mikrofon und Sound an am Paar0f6c85e/67f3ce45, je1Wake/Activation,
+Timeout und20,625s/6,954s belegte Audio-Nachphase ohne Folgetrigger PASS_SCOPED.
+Sound-aus-Kontrolle1,875s statt5s ausdrücklich NOT_PROVEN trotz menschlicher
+Annahme. Dauerhafte `tests.manual.v2.test_wake_live_assessment` und tatsächlicher
+Qt-Stopanforderungspfad prüfen dies;48Helfer/1400Windows ohne Skips PASS.
+Kein vollständiger M-/Frozen-/Both-/Nutzsprach-/30min100-PASS.
+
+
+## AP-IV2-020/R01 – W01-Kontrolle bestätigt,20.10.2026
+
+[Bericht29](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/29_W01_KONTROLLE_BESTAETIGT_UND_RESTGATES.md): W01-Kontrolle Alexa ohne Sound PASS_SCOPED: genau1Wake/Activation/Timeout,29,765s weitere echte Audio-Nachbeobachtung ohne Folgetrigger,1543Pakete, keine Sprache/Final/Paste, menschlich Wie erwartet, Exit0. Damit alle3vorgesehenen Livekontrollen und13Modellfälle erfolgreich; konkretes W01 CLOSED_VERIFIED_SCOPED. Vollständige M-/Frozen-/Both-/Nutzsprachgrenzen-/30min100-Gates bleiben offen. Produkt0f6c85e/Server67f3ce45 unverändert;19private Aufräumreste automatisch gegen Löschen gesperrt. REAL-01/02/03/04 sowie M-02/M-10 bleiben vollständige Pflichtgates mit getrennten Teilbelegen.
+
+
+## AP-IV2-020/R01 – Controls/Logs,20.10.2026
+
+[Bericht30](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/30_CONTROLS_LOGANSICHT_UND_REFRESH.md): Denkpause mit2Segmenten/F9/2exakten nativen Einfügungen, Cancel mit82,969s weiterer Audioübertragung ohne Ausgabe und menschlich ausdrücklich bestätigte Server-/Tab-/Logansicht PASS_SCOPED; T01 geschlossen. Native Refreshprobe enthielt kein Refresh und bleibt NOT_PROVEN, lieferte aber korrekt gebundenen Altfinal-nach-Neustart-Beleg203ms. Zwei autonome reale ASR-/Controls-/Deadline-Refreshfälle PASS_SCOPED. T04-Testhäkchenfehler mit Regression/Qt korrigiert; nur native Refreshprobe entspannt erneut vorbereiten, übrige vollständige Gates offen. REAL-01/02/04/06 und volle M-Gates bleiben Teilqualifikation.
+
+
+## AP-IV2-020/R01 – native Refreshpfade,20.10.2026
+
+[Bericht31](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/31_REFRESH_AUFNAHME_UND_NATIVER_NACHSPRECHPFAD.md): Menschlicher nativer F8-Refresh während segment_active, F9/Finish und2exakte native Einfügungen derselben Activation PASS_SCOPED; menschlicher15sNachsprechfall bleibt phasenbedingt NOT_PROVEN. Ohne weitere menschliche Wiederholung:2reale native Windows→WM_HOTKEY→Qt→Controls→ASR-Nachsprechfälle bei5000ms/6Callbacks PASS_SCOPED, Fristverlängerung/nichtadditives Wiederholen/Timeout bestätigt. T04 unterscheidet Phasen;56Helfer/Qt PASS, bytegleiches Produkt0f6c85e behält1400Windows/0Skips.21hashgesicherte Aufräumreste automatisch gesperrt. REAL-01/04/06 und volle M-Gates bleiben Teilqualifikation.
+
+
+## AP-IV2-020/R01 – Mute/Reinsert/Wakepause,20.10.2026
+
+[Bericht32](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/32_MUTE_REINSERT_UND_WAKEPAUSEN.md): Hardware-Mute27,297s/zehn blockierte F8 und bewusste Wiederfreigabe/1exakte Einfügung sowie Reinsert1Final/2passende automatische+manuelle Ausgaben PASS_SCOPED. Zwei aktive Wake-Modell-/Pausen-/Reconnectfälle PASS_SCOPED. Erweiterte Pause→Recovery→manuelle Aufnahme mit Wakefixture→Cancel erzeugt zweimal Zusatzwake bei Stille: IV2-020-W02 offen, Ursache noch einzugrenzen; kein Serverfix vorgenommen.59Helfer/Qt PASS, Produkt0f6c85e unverändert/1400Windowsbeleg erhalten.22gesicherte Aufräumreste automatisch gesperrt. REAL-01/03/04/06 bleiben Teilqualifikation; W02 ausdrücklich FAIL.
+
+
+## AP-IV2-020/R01 – BOTH und konsolidierte Restgates,20.10.2026
+
+[Bericht34](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/34_BOTH_ABSCHLUSS_UND_KONSOLIDIERTE_RESTGATES.md): Drei übernommene BOTH-Aufgaben PASS_SCOPED: natives Manual-F8/F9 und beide direkten Wake-Nutzsätze genau einmal ohne Rufwort;18,782/23,313s echte Ruhe ohne Zusatzwake. Erster Alexa-Versuch bewusst wiederholt, bleibt NOT_PROVEN. Realer Watchdog55,062sWarnung/60,015sAblauf und3gebundene ASRfinals aus demselben Rohdurchlauf nach phasengenauer Nachauswertung PASS_SCOPED; falsche Einsegmentannahme als Hilfstest-FAIL erhalten.61Helfer/Qt PASS, Produkt0f6c85e/1400Windowsbeleg unverändert. Keine identischen Sprechwiederholungen; technische/EXE-/Dauerreste gebündelt, W02 offen.23Aufräumreste automatisch gesperrt.
+
+
+## AP-IV2-020/R01 – Dauerlauf/Wakeanforderungen/Aufräumen,21.10.2026
+
+[Bericht35](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/35_DAUERLAUF_WAKEANFORDERUNGEN_UND_AUFRAEUMEN.md): Automatischer zusammenhängender1800.015s/100Activations-Lauf mit echten Modellen PASS_SCOPED;100Finals/100Historyeinträge/100kontrollierte Injektionsversuche, drei eigene Recoveryaktionen. Physische/Frozen-M12-Anteile offen. W02 unverändert0/2reproduziert, historische2FAIL bleiben offen;0,90/2Frames erhält beide Positivfixtures,3/5Frames verfehlen Jarvis. Keine Defaultübernahme. Alle26eigenen externen Laufzeitordner hashgesichert entfernt.70Helfer/Qt und neue1400Windows/0Skips PASS; Produkt0f6c85e unverändert. Zwei Fehlversuche separat erhalten.
+
+
+## W02-Disposition und Freigabereste,21.10.2026
+
+[Bericht36](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/36_W02_ABSCHLUSS_UND_FREIGABERESTE.md): W02 auf ausdrückliche menschliche Entscheidung als aktuell nicht mehr reproduzierbar geschlossen; kein eigener Freigabeblocker. Historische2FAIL erhalten, keine identifizierte Codekorrektur behauptet. Rest: technische Kombinationen, finaler EXE-/Admin-/Clipboard-/physischer Abschluss und Akten/ unabhängige Abnahme. Keine Wiederholung bestandener Standarddiktate, USB-Grundprobe oder des identischen30min100-Replaylaufs. Keine Testurteile rückwirkend geändert.
+
+
+## Autonome Restqualifikation,21.10.2026
+
+[Bericht37](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md): Autonome Restprüfung:29aktuelle Runtime-Kombinationsfälle, beide engen Renngewinner,3Altfinal/B-Sprache-Paare, native Clipboard-/Prozessabbruchfälle, echter LED-only-Ausfall bei offenem Input und separate SQLite-Logstoresperre PASS_SCOPED. Qualifizierte EXE startet nativ mit realem ReSpeaker/Ready. Neue1400Windows/0Skips,73Helfer/0Skips und Qt/retirierter Starter PASS; Produkt0f6c85e unverändert. Alle19neuen Laufzeitordner gesichert entfernt. Menschlicher Rest: gültiger Admincheck, erhöhtes Ziel/UAC, finaler EXE-/physischer/Umwelt-/Overlay-Abschluss einschließlich T02/T03; W02 bleibt geschlossen. BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher R01/PR15.

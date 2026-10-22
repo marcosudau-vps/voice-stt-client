@@ -12,6 +12,7 @@ from collections.abc import Awaitable, Callable
 from dataclasses import dataclass, field
 from enum import StrEnum
 import random
+import ssl
 from urllib.parse import urlsplit
 
 from websockets.asyncio.client import connect
@@ -230,6 +231,8 @@ class V2STTSession:
                         reason = "server_restart"
                 except p.ProtocolError:
                     raise _Blocked("invalid_server_protocol") from None
+                except ssl.SSLCertVerificationError:
+                    raise _Blocked("tls_verification_failed") from None
                 except (OSError, TimeoutError, TransportLost):
                     pass
                 finally:
@@ -264,7 +267,7 @@ class V2STTSession:
                 c = await asyncio.wait_for(self.prepare(self), c.bootstrap_timeout)
                 if not isinstance(c, V2TransportConfig) or c.endpoint_issue:
                     raise ValueError("invalid prepared transport config")
-            except (TimeoutError, ValueError):
+            except ValueError:
                 raise _Blocked("settings_preflight_failed") from None
         self._ws = await asyncio.wait_for(self._connector(
             c.url, open_timeout=c.connect_timeout, close_timeout=c.close_timeout,
@@ -324,12 +327,18 @@ class V2STTSession:
                     completion = await self._command(binding, p.CommandType.SUPPRESSION,
                                                      manual=desired[0], wakeWord=desired[1])
                     if not completion.ack.accepted:
+                        if completion.ack.result == p.AckResult.INTERNAL_ERROR:
+                            raise TransportLost("suppression_bootstrap_internal_error")
                         raise _Blocked("suppression_bootstrap_rejected")
                     if desired == self._desired_suppression:
                         return
             await asyncio.wait_for(restore(), self.config.bootstrap_timeout)
         except (CommandTimeout, TimeoutError):
-            raise _Blocked("bootstrap_outcome_unknown") from None
+            # An unknown session mutation must not be sent again on this
+            # socket. Recycle the entire session, then bootstrap fresh state.
+            if self._tracker:
+                self._tracker.close()
+            raise TransportLost("bootstrap_outcome_unknown") from None
         except (p.ProtocolError, ValueError):
             raise _Blocked("bootstrap_configuration_error") from None
 
@@ -409,6 +418,8 @@ class V2STTSession:
                 p.CommandType.AUDIO_AVAILABILITY, p.CommandType.SETTINGS_PATCH, p.CommandType.SNAPSHOT_REQUEST):
             raise TransportLost("command is not permitted during bootstrap")
         completion = await self._command(binding, kind, **fields)
+        if completion.ack.result == p.AckResult.INTERNAL_ERROR:
+            raise TransportLost("bootstrap_command_internal_error")
         if not completion.ack.accepted and not (allow_rejection and kind == p.CommandType.SETTINGS_PATCH):
             raise _Blocked("configuration_command_rejected")
         return completion
@@ -431,10 +442,11 @@ class V2STTSession:
         except (CommandTimeout, TimeoutError, asyncio.CancelledError, OSError, ConnectionClosed):
             # Outcome is uncertain: invalidate synchronously before queued callers
             # can send another mutation. Reconnect never resends the old command.
-            if self._tracker:
-                self._tracker.close()
-            self._state(V2TransportState.BACKOFF, "command_outcome_unknown")
-            await self._close_socket()
+            if self._current(current):
+                if self._tracker:
+                    self._tracker.close()
+                self._state(V2TransportState.BACKOFF, "command_outcome_unknown")
+                await self._close_socket()
             raise
 
     async def send_audio(self, pcm: bytes, sample_rate: int, channels: int = 1,
@@ -447,10 +459,11 @@ class V2STTSession:
         try:
             await asyncio.wait_for(self._ws.send(wire), self.config.ack_timeout)
         except (TimeoutError, asyncio.CancelledError, OSError, ConnectionClosed):
-            if self._tracker:
-                self._tracker.close()
-            self._state(V2TransportState.BACKOFF, "audio_send_failed")
-            await self._close_socket()
+            if self._current(current):
+                if self._tracker:
+                    self._tracker.close()
+                self._state(V2TransportState.BACKOFF, "audio_send_failed")
+                await self._close_socket()
             raise
         return self._current(current)
 

@@ -40,6 +40,14 @@ def _outside_root() -> Path:
     return Path(_profile_root().anchor) / "obs030-outside-user-profile"
 
 
+def _dotdot_escape() -> Path:
+    # A dedicated test profile can be deeper than the installed default.
+    # Reach the filesystem anchor instead of assuming four parents suffice.
+    return DEFAULT_LOCAL_APP_DIR.joinpath(
+        *(".." for _ in DEFAULT_LOCAL_APP_DIR.resolve().parts), "obs030-escaped.sqlite3"
+    )
+
+
 class TestIsInsideUserProfile(unittest.TestCase):
     def test_positive_default_store_location_is_inside(self):
         self.assertTrue(is_inside_user_profile(DEFAULT_LOCAL_APP_DIR))
@@ -55,7 +63,8 @@ class TestIsInsideUserProfile(unittest.TestCase):
         self.assertFalse(is_inside_user_profile(_outside_root() / "observability.sqlite3"))
 
     def test_negative_dotdot_escape_is_resolved_before_the_check(self):
-        escape = DEFAULT_LOCAL_APP_DIR / ".." / ".." / ".." / ".." / "obs030-escaped.sqlite3"
+        escape = _dotdot_escape()
+        self.assertFalse(escape.resolve().is_relative_to(_profile_root().resolve()))
         self.assertFalse(is_inside_user_profile(escape))
 
     def test_positive_dotdot_that_stays_inside_is_accepted(self):
@@ -107,7 +116,8 @@ class TestConfigValidationRejectsForeignPaths(unittest.TestCase):
             )
 
     def test_negative_dotdot_escape_is_rejected(self):
-        escape = str(DEFAULT_LOCAL_APP_DIR / ".." / ".." / ".." / ".." / "obs030-escaped.sqlite3")
+        escape = str(_dotdot_escape())
+        self.assertFalse(Path(escape).resolve().is_relative_to(_profile_root().resolve()))
         with self.assertRaises(ValueError):
             self._validate(db_path=escape)
 

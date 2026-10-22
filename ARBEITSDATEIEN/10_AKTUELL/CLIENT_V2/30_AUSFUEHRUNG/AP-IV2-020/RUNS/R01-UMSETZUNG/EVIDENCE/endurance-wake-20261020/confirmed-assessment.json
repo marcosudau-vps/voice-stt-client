@@ -1,0 +1,21 @@
+{
+  "result": "PASS_SCOPED",
+  "checks": {
+    "continuousMeasurement": true,
+    "exactly100SuccessfulRows": true,
+    "mixedSources": true,
+    "exactly100DistinctStarts": true,
+    "allRowsBoundToStarts": true,
+    "exactly100DistinctFinals": true,
+    "allFinalsBoundToStarts": true,
+    "allActivationsCompleted": true,
+    "sameQualifiedBuild": true,
+    "allHelloCommitsMatch": true,
+    "cleanShutdown": true,
+    "noRuntimeException": true
+  },
+  "rawVerdict": "PASS_SCOPED",
+  "instanceChanged": false,
+  "method": "Offline assessment of this single run; exact build stable, instance change allowed during recovery",
+  "fullPhysicalM12": "NOT_PROVEN"
+}

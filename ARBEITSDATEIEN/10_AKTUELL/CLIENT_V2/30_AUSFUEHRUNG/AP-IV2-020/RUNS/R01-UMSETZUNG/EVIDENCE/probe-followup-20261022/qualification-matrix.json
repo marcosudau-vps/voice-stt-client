@@ -1,0 +1,94 @@
+{
+  "package": "AP-IV2-020",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "status": "BLOCKED",
+  "report": "../../39_LAUFZUORDNUNG_UND_TESTTIMER.md",
+  "meaning": "Final subcase supplement. Human perception accepted by explicit disposition; technical missing cases remain NOT_PROVEN.",
+  "cases": [
+    {
+      "id": "M-01",
+      "proven": "Existing native source two-segment/Finish plus three real old-final/new-speech overlaps; no repeated source action requested.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_SOURCE",
+      "needsHumanAction": false
+    },
+    {
+      "id": "M-02",
+      "proven": "Both actual Wake IDs and controls with manual idle admission disabled; adapter and prior native evidence remain separate.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_SOURCE",
+      "needsHumanAction": false
+    },
+    {
+      "id": "M-03",
+      "proven": "Close manual-first and wake-first cases, one admission and final; existing rearm/active-Wake evidence retained.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_SOURCE",
+      "needsHumanAction": false
+    },
+    {
+      "id": "M-04",
+      "proven": "18 actual phase/action/slot cases plus existing NONE/native collision/Refresh/watchdog.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_SOURCE",
+      "needsHumanAction": false
+    },
+    {
+      "id": "M-05",
+      "proven": "Existing distinct run-pause masks, Wake models/recovery/restart and hardware-Mute subcases.",
+      "remaining": "Physical loss/pause/older pending-final combination not completely observed.",
+      "aggregate": "NOT_PROVEN",
+      "needsHumanAction": true
+    },
+    {
+      "id": "M-06",
+      "proven": "Existing physical USB loss/cancel/reopen; actual native LED-only loss during same open input.",
+      "remaining": "Physical USB/mute combination retaining an older pending final; no identical USB basic repeat.",
+      "aggregate": "NOT_PROVEN",
+      "needsHumanAction": true
+    },
+    {
+      "id": "M-07",
+      "proven": "Real TLS preview and pending-final transport faults plus actual independent SQLite writer lock.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_SOURCE",
+      "needsHumanAction": false
+    },
+    {
+      "id": "M-08",
+      "proven": "Actual open-input cancel/finish/defer, missing-choice guards and explicit idle-drain wait.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED_SOURCE",
+      "needsHumanAction": false
+    },
+    {
+      "id": "M-09",
+      "proven": "Wrong actual origin Admin guard, no global mutation; previous native secure-store operations. Actual positive guard, generation invalidation/reverify, unchanged defaults/vault and own-file secret scan PASS_SCOPED.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED",
+      "needsHumanAction": false
+    },
+    {
+      "id": "M-10",
+      "proven": "Final actual normal Frozen/PortAudio/remote bootstrap startup; three source ASR overlaps. Normal EXE/StereoMix actual manual/Alexa/Jarvis ASR/history/native paste match; actual ReSpeaker user ASR and separate explicit Frozen reinsert pass. Subjective evaluation complete by human disposition.",
+      "remaining": "Human reports insertion but run identity cannot be bound; saved minimal preparation timed out before launch. No current live client. Frozen A-final/B-active UI effect not directly observed.",
+      "aggregate": "NOT_PROVEN",
+      "needsHumanAction": true
+    },
+    {
+      "id": "M-11",
+      "proven": "Actual normal Unicode paste, foreign clipboard lock and real process exits before/after SendInput, durable unknown/no auto retry; prior reinsert. Actual elevated UAC target observed: native4/4, command_sent, visible0; no retry, original clipboard restored. API receipt is not an insertion guarantee.",
+      "remaining": null,
+      "aggregate": "PASS_SCOPED",
+      "needsHumanAction": false
+    },
+    {
+      "id": "M-12",
+      "proven": "Existing1800.015s/100 actual-model runtime loop plus18 traced generation-release activations, unchanged chosen config.",
+      "remaining": "Physical device-change/endurance/environment boundaries not fully proven. Human subjective calibration complete; no identical model replay or perception block requested.",
+      "aggregate": "NOT_PROVEN",
+      "needsHumanAction": true
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "finding": "IV2-020-R11",
+  "status": "FIXED_TECHNICAL_PASS_PHYSICAL_USB_REPEAT_PENDING",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "productTree": "4eec4a732f94ea71719a1bd184217df41515d82b",
+  "windowsTests": 1400,
+  "windowsSkips": 0,
+  "focusedTests": 48,
+  "helperTests": 28,
+  "redTests": 2,
+  "productFiles": {
+    "voice_stt_client/core/v2_media.py": "a8c6b6586de38fb598ff3e584d798e38fabfb2b354c1056ec621ef1d6e7f8b98"
+  },
+  "artifacts": {
+    "voice-stt-client.exe": {
+      "sha256": "e20059f6dff1279cb23fb01576d447fb285aa94cb270d71968b8430a063a15fc",
+      "bytes": 75671913
+    },
+    "voice_stt_client-1.0.0-py3-none-any.whl": {
+      "sha256": "dc85540034affabae4aac0119fc7df3c2bbb6fdbe35cfcf4faef83f76022217d",
+      "bytes": 1188013
+    },
+    "voice_stt_client-1.0.0.tar.gz": {
+      "sha256": "97a6e1fbd1ece7498f3f11c9c3fc5413407b90b76250377389bfe3ddcae6d281",
+      "bytes": 1150795
+    }
+  },
+  "fullQualification": "NOT_PROVEN: physical USB, frozen remote pair and remaining real gates pending",
+  "sourceDesktopPrecheck": "PASS, existing selected Pro-V2 server, no activations",
+  "nativeFault": "PASS source and wheel; real PortAudio stream abort with false active flag, not physical USB unplug",
+  "scopeAuthorization": "Original explicit Reconnect/Recovery exception, including audio/media and hardware recovery; no new product scope requested",
+  "serverBinding": "Before/after read-only current image/source/manifests, wire unknown. No full writable-layer integrity or continuous attestation claim.",
+  "reviewReady": false
+}

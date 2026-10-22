@@ -1,0 +1,32 @@
+{
+  "fixtureSha256": "abae5a687cee97d120487c2a601509aba41d056b4428966959a1ef1e467b09b3",
+  "rows": [
+    {
+      "mode": "retained_engine",
+      "firstWakeWordId": "alexa",
+      "firstScore": 0.9997421503067017,
+      "silenceHits": [
+        {
+          "wakeWordId": "alexa",
+          "score": 0.8239456415176392,
+          "silenceMsAfterRearm": 240
+        }
+      ],
+      "silenceMaxScores": {
+        "hey_jarvis": 0.0009269118309020996,
+        "alexa": 0.8239456415176392
+      }
+    },
+    {
+      "mode": "reset_engine_control",
+      "firstWakeWordId": "alexa",
+      "firstScore": 0.9997421503067017,
+      "silenceHits": [],
+      "silenceMaxScores": {
+        "hey_jarvis": 0.0009592771530151367,
+        "alexa": 3.7997961044311523e-05
+      }
+    }
+  ],
+  "boundary": "Real pinned models/evaluator, recorded speech followed by synthetic digital silence; lifecycle gate emulated, no realtime wait. Not proof of historical acoustic cause; no live-server mutation."
+}

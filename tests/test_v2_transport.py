@@ -139,12 +139,10 @@ class Transport(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(await session.send_audio(b"\0\0", 16000))
         self.assertIsInstance(socket.sent[-1], bytes)
 
-    async def test_missing_failed_and_timed_out_bootstrap_never_ready(self):
+    async def test_missing_and_invalid_bootstrap_permanently_block(self):
         async def fails(session, binding):
             raise ValueError("synthetic")
-        async def hangs(session, binding):
-            await asyncio.Event().wait()
-        for bootstrap in (None, fails, hangs):
+        for bootstrap in (None, fails):
             with self.subTest(bootstrap=bootstrap):
                 session, socket, task, _ = await self.start(bootstrap=bootstrap, bootstrap_timeout=.01)
                 self.assertEqual(session.status.state, V2TransportState.BLOCKED)

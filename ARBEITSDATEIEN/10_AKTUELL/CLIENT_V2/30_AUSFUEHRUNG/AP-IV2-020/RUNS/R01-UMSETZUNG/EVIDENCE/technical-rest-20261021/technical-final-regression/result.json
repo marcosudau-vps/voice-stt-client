@@ -1,0 +1,58 @@
+{
+  "result": "PASS",
+  "pid": 39552,
+  "runtimeFolder": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\technical-regression-20261021-222804",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "rows": [
+    {
+      "name": "windows",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "seconds": 241.656,
+      "logSha256": "01b68566fb19e38557603a5f4a04dc24766593183e3898a6bbd13c7aa720d563",
+      "tests": 1400,
+      "skips": 0
+    },
+    {
+      "name": "helpers",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/manual/v2",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "seconds": 3.922,
+      "logSha256": "b8a0351cead2c5ef86e2c5ce7b44b2093a5e4d1603480f08a6d826cc5c931074",
+      "tests": 73,
+      "skips": 0
+    },
+    {
+      "name": "compileall",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "voice_stt_client",
+        "tests/manual/v2"
+      ],
+      "exitCode": 0,
+      "seconds": 0.218,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

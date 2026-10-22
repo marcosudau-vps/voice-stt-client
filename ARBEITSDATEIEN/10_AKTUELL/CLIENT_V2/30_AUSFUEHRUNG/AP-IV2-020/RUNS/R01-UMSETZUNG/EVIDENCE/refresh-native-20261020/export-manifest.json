@@ -1,0 +1,23 @@
+{
+  "files": {
+    "cleanup.json": "679f1dfca273fd6d0fd64417d8e6f1bc7da29a8c7f6c521f4acdd2a27158fcd8",
+    "events.jsonl.gz": "5761835995b934862a16b4a5d7c3070f7307d0596abd672c8f673c36e0b7779e",
+    "helpers.log.gz": "496efa946c7e24f6200a96d9abde25003b54f718c08d748560d34e7536b50f80",
+    "human-attempt.json": "51dbf565a257a65be42763eec118aac854539e9556298647739e21c8869c9cf3",
+    "native-first.json": "a3b0e6ef489936bed95291b6700fa4fe4a6fd384f4845176377d2c6cac3e8fad",
+    "native-followup.json": "c8f7f0f1a438ecb5f5fc9ef608e3a6f74c0ccf743b730ec67b094c7af32f3808",
+    "native.log.gz": "93a5a021724910d6d52416ce7c475b1a0b226aa2babaac94363da696d9d30b08",
+    "operator-events.jsonl.gz": "09eb53ab50ec1054e0ceaf3d4a3ebaa2f6cb8fa93b8d5fb07a1524f6c1d8cd54",
+    "qt.log.gz": "88f2f54f426f0d669dfc5edafbecce39098468e04a7eb439f1163421d05b2c4b",
+    "redaction-and-consistency.json": "8a78e364cab981b91dd69bd3c0477a93eb6d1567e399ecfc975ebd4fa43279d8",
+    "server-info-after.json": "434df18ad6e9c4f6fef7d4d9123955856e5544724da64c520c6498381d532ae9",
+    "source-identity.json": "a3f63a87ca5dc9b5d36654d33b38652fae38e6067dac3797acb8155b0275c360",
+    "status.json.gz": "708283f97542abdfedfa9df5a6d471e8126b11f2cef610f2ab54c2a696e2f18a",
+    "validation.json": "2a3764d67b664ff40f8921d6b945ddec0fefb68b54553cac4733f8ad3b21c0ee",
+    "work-record-validation.json": "bfff1d380b3ae792717fe51e2e7c9dddda3d9a1e09f7ce240ca238aa21206297"
+  },
+  "noRawPCM": true,
+  "noRawTranscripts": true,
+  "noDatabases": true,
+  "noCredentials": true
+}

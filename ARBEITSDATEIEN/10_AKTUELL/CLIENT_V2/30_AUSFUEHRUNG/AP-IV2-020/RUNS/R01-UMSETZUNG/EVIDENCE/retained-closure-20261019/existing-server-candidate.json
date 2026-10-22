@@ -1,0 +1,10 @@
+{
+  "result": "NOT_AVAILABLE",
+  "exitCode": 1,
+  "detail": "Known existing candidate could not be inspected; no startup attempted",
+  "timeUtc": "2026-10-19T12:01:39.393609+00:00",
+  "reasonCategory": "DOCKER_DESKTOP_MANUALLY_PAUSED",
+  "daemonResponse": "Docker Desktop is manually paused. Unpause it through the Whale menu or Dashboard.",
+  "unpaused": false,
+  "modificationsPerformed": false
+}

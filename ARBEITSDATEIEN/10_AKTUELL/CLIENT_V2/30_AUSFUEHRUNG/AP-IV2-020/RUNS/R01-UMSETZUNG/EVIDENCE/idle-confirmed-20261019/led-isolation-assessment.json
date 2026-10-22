@@ -1,0 +1,19 @@
+{
+  "audioAvailabilityCommandsDuringFault": 0,
+  "ledSinkTransitions": [
+    {
+      "timeUtc": "2026-10-19T17:35:37.499917+00:00",
+      "available": true
+    },
+    {
+      "timeUtc": "2026-10-19T17:35:40.108236+00:00",
+      "available": false
+    },
+    {
+      "timeUtc": "2026-10-19T17:35:40.540854+00:00",
+      "available": true
+    }
+  ],
+  "activationStarts": 0,
+  "firstFailureClassification": "Test expected persistent fault; native LED transport automatically recovered; first FAIL retained; not a product defect"
+}

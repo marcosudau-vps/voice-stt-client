@@ -1,0 +1,2648 @@
+{
+  "server": {
+    "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+    "pid": 40344,
+    "sourceHashes": {
+      "api_fastapi_server/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "VoiceSTT_server/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "VoiceSTT_server/openai_compat.py": "62b9567a87ddede064879ce1cfb8ed55d276b966a025e275c6a3cc53f40899fd",
+      "VoiceSTT_server/event_logging.py": "c842bd93be650a890bf12422d8f2d7b803628ef1c30a92c2acc996497fee43ed",
+      "api_fastapi_server/activation.py": "3109b2ae10cc8da7e54e9972e4c1851f33cb3eeb6efa4e10403569635945d8c7",
+      "api_fastapi_server/activation_commands.py": "c1fedcc28761c51046cee28184fab5085f2184f7755e0a34a83fceaf481410e1",
+      "api_fastapi_server/segment_ledger.py": "b7f3bad6d82b629ee0f8e9e33604449e6214a2b79ec761d2cb202f7f90bfdb85",
+      "api_fastapi_server/protocol_v2/schema.py": "4733064ecedf5e629e1fd3d474c4e549afc555d08020c25accd3fdd941119990",
+      "api_fastapi_server/protocol_v2/commands.py": "dbe344efa77197a20ac1dd2f776f4ea9b551c3d51b8b3ec110a7e7ab83b356f7",
+      "api_fastapi_server/protocol_v2/events.py": "1c528ab364eea0dd1657f3a7a7b86d9c0eef4e5d714729583ed0c283eb41308b",
+      "api_fastapi_server/protocol_v2/handshake.py": "7f61ff1b51549a38cbd497a1b8bd4c20173c4a5545af685953b9f5325694a9cd",
+      "VoiceSTT/_version.py": "ee16d3c94d21005899a11ef433607ccc1e37ac7688954b29837b4bcc20d014bc",
+      "VoiceSTT/__init__.py": "af236fd739ccc37dcee097c16fc8ba9d67e1b5cf7304d84856985a89433aa7e6",
+      "api_fastapi_server/protocol_v2/identity.py": "4720a83040d878662c7a9d40701dea751cae0c12760f9d8024b9b9c99d89f60f",
+      "api_fastapi_server/protocol_v2/ports.py": "39e05ca39f59a6c1de0c90b9fc086b7fba5d66ec1a812c7792e0c49e7a654ebe",
+      "api_fastapi_server/protocol_v2/snapshot.py": "7e9123cf78ec5c004b6ff0a917260f8905c8341c70618089ac1d68ef18a778df",
+      "api_fastapi_server/settings_control.py": "4bd89ba5422a48cf8d76733f869ede6b47464353e3887962f35d9506f0210bbd",
+      "api_fastapi_server/protocol_v2/session.py": "35d0f1ba04be4e04b6f33154c3bf9d71802fb3bb44ae2297ab1648b84a1706cd",
+      "api_fastapi_server/protocol_v2/connection.py": "cefccdbff0e3d029a9d7026940687694addb54b2d0dc6b3880c553f46e610cab",
+      "api_fastapi_server/protocol_v2/__init__.py": "3e90ba51a9b1a6afab17a3dcc2a5b20e8d9db21401c4315cf201cb1a3db345fc",
+      "api_fastapi_server/wake_admission.py": "eddad2412ee86c1b498f9e43af65b95c34d9053dc111b4076196e6e9fa9c1348",
+      "VoiceSTT/core/__init__.py": "cf9f455d03de4e5b3400b916cdbd51ed72b268fa0655dd496846e2764c59b197",
+      "VoiceSTT/core/wake_backend.py": "6a8faed497e4894fdfdd4834a05944f58bd9d9dd95eaf091a7892e16ee086554",
+      "VoiceSTT/core/wakeword_catalog.py": "693f4ba8330bcb859334d844ffd27e4feeec35f28568fd0d64f513f45d337351",
+      "VoiceSTT/core/state.py": "90e1cdcf05e99c9d77151c90e9eee3c922d54ce6fb88ce32c7cc7bc162a5ab19",
+      "VoiceSTT/core/realtime_callbacks.py": "bd04221c7a4ead5f434d4d71002ecc98443cfbb96b7a17be53f59268fede615a",
+      "VoiceSTT/core/wake_detection.py": "3986034c05c1f4dbf7a5a889e2530983b5b31de29ae011884f3ceb3d36ea48fa",
+      "VoiceSTT_server/credential_redaction.py": "009f909da57e1844f117dda8f86e655178d38e754f0c81fe330b79858ac4613a",
+      "VoiceSTT_server/operations.py": "e50d541e73d2b71f606011b02df50735e334d146e1187bb731b27e2e5d5f53da",
+      "VoiceSTT/kroko/buildinputs.py": "3308ca870b0540cd5ed1b2a9abd6a9345bfa8bae4fa419f891918227dc34a7e9",
+      "VoiceSTT/kroko/fingerprint.py": "0d299b671de1c74f3736c894f38931eda5a7984246dc57365c8acfab7a5172bb",
+      "VoiceSTT/kroko/artifacts.py": "c6d70a70343c2edcf9d47f93d5cd5db881d97831f5643abbea9e17b0d3a3d38a",
+      "VoiceSTT/kroko/models.py": "705e072b6d8dd319d902db8394d936f1d8cd9e96c2837da076868ceee577cbdd",
+      "VoiceSTT/kroko/__init__.py": "d5f69328a555203466f2cd58de627e13bf2c242c39841ef86f4d0b3faeabcdf8",
+      "VoiceSTT_server/stt_model_management.py": "7a60bdb89a2c0137a496bba6c7519ed0387c170d19f728551ec63b891b30979a",
+      "api_fastapi_server/protocol.py": "0599ea7333c95091e6acdd491c4376d988b22365f2f486f60420e9a8953b6902",
+      "api_fastapi_server/server.py": "39aa3233c72d26b3d22c67bc7f78666c74d17a6b8be09117f45ac6f02f69fe22",
+      "tests/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "tests/unit/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "VoiceSTT/core/activation_control.py": "f2801178f1e21b02627b9f48e1e510d55803c163abedc4dd117a095d8178a2d6",
+      "VoiceSTT/core/realtime_text_stabilizer.py": "efb75c3fb0ea8643da8d3d1f35d1819046d073196f5eb2cf717cd9de104862f2",
+      "tests/unit/test_fastapi_server_multi_user.py": "673208e59c0991e31af647040eeb8b01649c926b479e7dc7414d04ea9bfc1752",
+      "tests/unit/test_server_controlled_e2e.py": "7c46f64d811299c4047ded6d55019f525df62515478bac6e5f57f03101a477b0",
+      "VoiceSTT/transcription_engines/base.py": "8f5bd16a81640173e53010f1c132258c3afa7c6a679dbd2d98e83a33bd3dda24",
+      "VoiceSTT/transcription_engines/factory.py": "237f5fcdbe7a1fe9321e7ef5a0ce24cc3bc3525582266e2702f43d5c3ace9b23",
+      "VoiceSTT/transcription_engines/__init__.py": "6d6ba6d502ccb0d405a9f45cc00ed735c8d0de34d48b2f7668b0ff7bef60dd5f"
+    },
+    "wire": [
+      {
+        "direction": "http",
+        "path": "/api/v2/settings/schema",
+        "method": "GET"
+      },
+      {
+        "direction": "http",
+        "path": "/api/v2/settings/server",
+        "method": "GET"
+      },
+      {
+        "direction": "http",
+        "path": "/api/v2/wake-words",
+        "method": "GET"
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "hello",
+          "supportedProtocolVersions": [
+            2
+          ],
+          "clientVersion": "1.0.0",
+          "clientCommit": "unknown",
+          "clientRunId": "2aa3b332-d9fd-446d-b5ff-081a1f27c13e",
+          "requestedSession": {
+            "trigger": {
+              "manual": true,
+              "wakeWord": false
+            },
+            "wakeWordIds": []
+          },
+          "runtimeSuppression": {
+            "manual": true,
+            "wakeWord": true
+          }
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "hello.accepted",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "serverVersion": "2.0.0",
+          "serverCommit": "unknown",
+          "snapshot": {
+            "protocolVersion": 2,
+            "serverVersion": "2.0.0",
+            "serverCommit": "unknown",
+            "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+            "stateVersion": 0,
+            "lastEventSeq": 0,
+            "settingsRevision": 0,
+            "input": {
+              "phase": "idle",
+              "activationId": null,
+              "primarySource": null,
+              "deadlineAtUnixMs": null,
+              "remainingMs": null,
+              "closeRequested": false
+            },
+            "pendingActivations": [],
+            "trigger": {
+              "configured": {
+                "manual": true,
+                "wakeWord": false
+              },
+              "suppressed": {
+                "manual": true,
+                "wakeWord": true
+              },
+              "effective": {
+                "manual": false,
+                "wakeWord": false
+              }
+            },
+            "audioAvailable": true,
+            "requestedSettings": {
+              "activation.closingRecoveryTimeoutMs": 5000,
+              "activation.followupTimeoutMs": 3000,
+              "activation.initialSpeechTimeoutMs": 15000,
+              "activation.segmentWatchdogInitialMs": 600000,
+              "activation.segmentWatchdogRefreshMs": 180000,
+              "activation.segmentWatchdogWarningMs": 30000,
+              "runtimeSuppression.manual": true,
+              "runtimeSuppression.wakeWord": false,
+              "wakeWord.cooldownMs": 0,
+              "wakeWord.detectorGain": 1.0,
+              "wakeWord.minConsecutivePredictionFrames": 1,
+              "wakeWord.noiseSuppressionEnabled": false,
+              "wakeWord.preRollMs": 0,
+              "wakeWord.selection": [],
+              "wakeWord.sensitivity": 0.5,
+              "wakeWord.vadThreshold": 0.0
+            },
+            "effectiveSettings": {
+              "activation.closingRecoveryTimeoutMs": 5000,
+              "activation.followupTimeoutMs": 3000,
+              "activation.initialSpeechTimeoutMs": 15000,
+              "activation.segmentWatchdogInitialMs": 600000,
+              "activation.segmentWatchdogRefreshMs": 180000,
+              "activation.segmentWatchdogWarningMs": 30000,
+              "runtimeSuppression.manual": true,
+              "runtimeSuppression.wakeWord": false,
+              "wakeWord.cooldownMs": 0,
+              "wakeWord.detectorGain": 1.0,
+              "wakeWord.minConsecutivePredictionFrames": 1,
+              "wakeWord.noiseSuppressionEnabled": false,
+              "wakeWord.preRollMs": 0,
+              "wakeWord.selection": [],
+              "wakeWord.sensitivity": 0.5,
+              "wakeWord.vadThreshold": 0.0
+            },
+            "wakeWordCapabilities": {
+              "catalogRevision": 3,
+              "availableWakeWordIds": [
+                "alexa",
+                "alice",
+                "computer",
+                "hey_alfred",
+                "hey_billy",
+                "hey_bro",
+                "hey_glados",
+                "hey_hermes",
+                "hey_jarvis",
+                "hey_lucy",
+                "hey_luna",
+                "hey_max",
+                "hey_mira",
+                "hey_mycroft",
+                "hey_nabu",
+                "hey_nexus",
+                "hey_nova",
+                "hey_oracle",
+                "hey_rhasspy",
+                "hey_rocky",
+                "ivy",
+                "pico",
+                "stop",
+                "timer",
+                "weather"
+              ]
+            }
+          },
+          "logAccess": {
+            "available": true,
+            "websocketPath": "/ws/logs",
+            "historyPath": "/api/logs/events",
+            "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+            "logProtocolVersion": 2,
+            "deliveryMode": "sqlite_first",
+            "replayAvailable": true,
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "oldestCursor": 1,
+            "latestCursor": 2,
+            "accessToken": "<redacted>",
+            "expiresAt": "2026-10-15T23:02:23.674Z"
+          }
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot.request",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "commandId": "3cf82407-e35f-48c6-a12b-a0d8926c08eb"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "commandId": "3cf82407-e35f-48c6-a12b-a0d8926c08eb",
+          "accepted": true,
+          "result": "applied",
+          "activationId": null,
+          "inputPhase": "idle",
+          "stateVersion": 0,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot",
+          "protocolVersion": 2,
+          "serverVersion": "2.0.0",
+          "serverCommit": "unknown",
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "stateVersion": 0,
+          "lastEventSeq": 0,
+          "settingsRevision": 0,
+          "input": {
+            "phase": "idle",
+            "activationId": null,
+            "primarySource": null,
+            "deadlineAtUnixMs": null,
+            "remainingMs": null,
+            "closeRequested": false
+          },
+          "pendingActivations": [],
+          "trigger": {
+            "configured": {
+              "manual": true,
+              "wakeWord": false
+            },
+            "suppressed": {
+              "manual": true,
+              "wakeWord": true
+            },
+            "effective": {
+              "manual": false,
+              "wakeWord": false
+            }
+          },
+          "audioAvailable": true,
+          "requestedSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": true,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "effectiveSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": true,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "wakeWordCapabilities": {
+            "catalogRevision": 3,
+            "availableWakeWordIds": [
+              "alexa",
+              "alice",
+              "computer",
+              "hey_alfred",
+              "hey_billy",
+              "hey_bro",
+              "hey_glados",
+              "hey_hermes",
+              "hey_jarvis",
+              "hey_lucy",
+              "hey_luna",
+              "hey_max",
+              "hey_mira",
+              "hey_mycroft",
+              "hey_nabu",
+              "hey_nexus",
+              "hey_nova",
+              "hey_oracle",
+              "hey_rhasspy",
+              "hey_rocky",
+              "ivy",
+              "pico",
+              "stop",
+              "timer",
+              "weather"
+            ]
+          }
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "manual": false,
+          "wakeWord": false,
+          "type": "trigger_suppression.set",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "commandId": "6f63b7ea-34ce-46b1-b81a-0656be610320"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "commandId": "6f63b7ea-34ce-46b1-b81a-0656be610320",
+          "accepted": true,
+          "result": "applied",
+          "activationId": null,
+          "inputPhase": "idle",
+          "stateVersion": 1,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "subscribe",
+          "accessToken": "<redacted>",
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "channels": [
+            "audit",
+            "performance",
+            "transcription"
+          ],
+          "afterCursor": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.hello",
+          "schemaVersion": 1,
+          "logProtocolVersion": 2,
+          "deliveryMode": "sqlite_first",
+          "replayAvailable": true,
+          "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+          "oldestCursor": 1,
+          "latestCursor": 2,
+          "retentionCursor": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.subscribed",
+          "channels": [
+            "audit",
+            "performance",
+            "transcription"
+          ],
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "afterCursor": 0,
+          "authorizationScope": "session",
+          "allChannels": false,
+          "allSessions": false
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.replay_completed",
+          "cursor": 2,
+          "count": 0
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot.request",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "commandId": "7b7723fc-e3b9-4b85-bad0-67537e0d1c54"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "commandId": "7b7723fc-e3b9-4b85-bad0-67537e0d1c54",
+          "accepted": true,
+          "result": "applied",
+          "activationId": null,
+          "inputPhase": "idle",
+          "stateVersion": 1,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot",
+          "protocolVersion": 2,
+          "serverVersion": "2.0.0",
+          "serverCommit": "unknown",
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "stateVersion": 1,
+          "lastEventSeq": 0,
+          "settingsRevision": 0,
+          "input": {
+            "phase": "idle",
+            "activationId": null,
+            "primarySource": null,
+            "deadlineAtUnixMs": null,
+            "remainingMs": null,
+            "closeRequested": false
+          },
+          "pendingActivations": [],
+          "trigger": {
+            "configured": {
+              "manual": true,
+              "wakeWord": false
+            },
+            "suppressed": {
+              "manual": false,
+              "wakeWord": false
+            },
+            "effective": {
+              "manual": true,
+              "wakeWord": false
+            }
+          },
+          "audioAvailable": true,
+          "requestedSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "effectiveSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "wakeWordCapabilities": {
+            "catalogRevision": 3,
+            "availableWakeWordIds": [
+              "alexa",
+              "alice",
+              "computer",
+              "hey_alfred",
+              "hey_billy",
+              "hey_bro",
+              "hey_glados",
+              "hey_hermes",
+              "hey_jarvis",
+              "hey_lucy",
+              "hey_luna",
+              "hey_max",
+              "hey_mira",
+              "hey_mycroft",
+              "hey_nabu",
+              "hey_nexus",
+              "hey_nova",
+              "hey_oracle",
+              "hey_rhasspy",
+              "hey_rocky",
+              "ivy",
+              "pico",
+              "stop",
+              "timer",
+              "weather"
+            ]
+          }
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "action": "activate",
+          "source": "manual",
+          "type": "activation.command",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "commandId": "1eec2b2d-2dde-4f2d-8419-21cb4d04c335"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "activation.started",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "eventId": "03fcb199-49ab-4e75-991b-ecb0f13a6b3c",
+          "eventSeq": 1,
+          "stateVersion": 2,
+          "occurredAtUnixMs": 1792018943930,
+          "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+          "activationSequence": 1,
+          "primarySource": "manual",
+          "inputPhase": "waiting_first_speech",
+          "effectiveSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          }
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "commandId": "1eec2b2d-2dde-4f2d-8419-21cb4d04c335",
+          "accepted": true,
+          "result": "applied",
+          "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+          "inputPhase": "waiting_first_speech",
+          "stateVersion": 2,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "5d2a79744916453697af2b089eeffc2f",
+            "timestamp": "2026-10-14T23:02:23.930Z",
+            "channel": "transcription",
+            "event": "activation.started",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "transport": "websocket",
+            "clientId": "client-2c145e4e63a54a3c92d7e52be3e804a5",
+            "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+            "data": {
+              "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+              "generation": 1,
+              "activationSequence": 1,
+              "primarySource": "manual",
+              "sources": [
+                "manual"
+              ],
+              "phase": "waiting_first_speech",
+              "timerRevision": 1
+            },
+            "cursor": 3
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot.request",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "commandId": "8fdb15f5-f96a-433e-9f86-4e39ac804aca"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "commandId": "8fdb15f5-f96a-433e-9f86-4e39ac804aca",
+          "accepted": true,
+          "result": "applied",
+          "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+          "inputPhase": "waiting_first_speech",
+          "stateVersion": 2,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot",
+          "protocolVersion": 2,
+          "serverVersion": "2.0.0",
+          "serverCommit": "unknown",
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "stateVersion": 2,
+          "lastEventSeq": 1,
+          "settingsRevision": 0,
+          "input": {
+            "phase": "waiting_first_speech",
+            "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+            "primarySource": "manual",
+            "deadlineAtUnixMs": 1792018958926,
+            "remainingMs": 14969,
+            "closeRequested": false
+          },
+          "pendingActivations": [],
+          "trigger": {
+            "configured": {
+              "manual": true,
+              "wakeWord": false
+            },
+            "suppressed": {
+              "manual": false,
+              "wakeWord": false
+            },
+            "effective": {
+              "manual": true,
+              "wakeWord": false
+            }
+          },
+          "audioAvailable": true,
+          "requestedSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "effectiveSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "wakeWordCapabilities": {
+            "catalogRevision": 3,
+            "availableWakeWordIds": [
+              "alexa",
+              "alice",
+              "computer",
+              "hey_alfred",
+              "hey_billy",
+              "hey_bro",
+              "hey_glados",
+              "hey_hermes",
+              "hey_jarvis",
+              "hey_lucy",
+              "hey_luna",
+              "hey_max",
+              "hey_mira",
+              "hey_mycroft",
+              "hey_nabu",
+              "hey_nexus",
+              "hey_nova",
+              "hey_oracle",
+              "hey_rhasspy",
+              "hey_rocky",
+              "ivy",
+              "pico",
+              "stop",
+              "timer",
+              "weather"
+            ]
+          }
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot.request",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "commandId": "56e5ba15-98bb-4fac-82e6-d42ce1eacdd7"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "commandId": "56e5ba15-98bb-4fac-82e6-d42ce1eacdd7",
+          "accepted": true,
+          "result": "applied",
+          "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+          "inputPhase": "waiting_first_speech",
+          "stateVersion": 2,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot",
+          "protocolVersion": 2,
+          "serverVersion": "2.0.0",
+          "serverCommit": "unknown",
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "stateVersion": 2,
+          "lastEventSeq": 1,
+          "settingsRevision": 0,
+          "input": {
+            "phase": "waiting_first_speech",
+            "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+            "primarySource": "manual",
+            "deadlineAtUnixMs": 1792018958928,
+            "remainingMs": 14938,
+            "closeRequested": false
+          },
+          "pendingActivations": [],
+          "trigger": {
+            "configured": {
+              "manual": true,
+              "wakeWord": false
+            },
+            "suppressed": {
+              "manual": false,
+              "wakeWord": false
+            },
+            "effective": {
+              "manual": true,
+              "wakeWord": false
+            }
+          },
+          "audioAvailable": true,
+          "requestedSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "effectiveSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "wakeWordCapabilities": {
+            "catalogRevision": 3,
+            "availableWakeWordIds": [
+              "alexa",
+              "alice",
+              "computer",
+              "hey_alfred",
+              "hey_billy",
+              "hey_bro",
+              "hey_glados",
+              "hey_hermes",
+              "hey_jarvis",
+              "hey_lucy",
+              "hey_luna",
+              "hey_max",
+              "hey_mira",
+              "hey_mycroft",
+              "hey_nabu",
+              "hey_nexus",
+              "hey_nova",
+              "hey_oracle",
+              "hey_rhasspy",
+              "hey_rocky",
+              "ivy",
+              "pico",
+              "stop",
+              "timer",
+              "weather"
+            ]
+          }
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "audioBytes": 1358
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "activation.phase_changed",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "eventId": "e7913f98-2583-4972-b192-a0e422363b9c",
+          "eventSeq": 2,
+          "stateVersion": 3,
+          "occurredAtUnixMs": 1792018944001,
+          "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+          "previousPhase": "waiting_first_speech",
+          "inputPhase": "segment_active",
+          "deadlineAtUnixMs": 1792019544001,
+          "remainingMs": 600000
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "segment.recording_started",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "eventId": "b41425cb-387d-4dec-bf57-f5e0f8903e23",
+          "eventSeq": 3,
+          "stateVersion": 4,
+          "occurredAtUnixMs": 1792018944001,
+          "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+          "segmentId": "6a7fbdf2-db11-4515-8134-1a97e6a9ec86",
+          "segmentSequence": 1
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "3ce18c37c17f4ec1b4773e901fa4ceef",
+            "timestamp": "2026-10-14T23:02:24.001Z",
+            "channel": "transcription",
+            "event": "transcription.recording_started",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "requestId": "be7e2929355a4cb187994ee0f272a8af",
+            "transport": "websocket",
+            "segmentId": "6a7fbdf2-db11-4515-8134-1a97e6a9ec86",
+            "clientId": "client-2c145e4e63a54a3c92d7e52be3e804a5",
+            "transcriptionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44:0:6a7fbdf2-db11-4515-8134-1a97e6a9ec86",
+            "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+            "data": {
+              "preRecordingBuffer": {
+                "configuredSeconds": 0.75,
+                "includedSeconds": 0.75,
+                "startTimestamp": 1792018943.250583,
+                "startTimestampIso": "2026-10-14T23:02:23.250Z",
+                "endTimestamp": 1792018944.000583,
+                "endTimestampIso": "2026-10-14T23:02:24.000Z",
+                "exact": false
+              },
+              "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+              "activationSequence": 1,
+              "segmentSequence": 1,
+              "primarySource": "manual",
+              "sources": [
+                "manual"
+              ]
+            },
+            "cursor": 4
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "test_control",
+        "action": "recovery",
+        "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44"
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "activation.input_closed",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "eventId": "aa02ec7c-e661-4c68-b557-39dabeedc45a",
+          "eventSeq": 4,
+          "stateVersion": 5,
+          "occurredAtUnixMs": 1792018944053,
+          "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+          "reason": "session_closed",
+          "causedByCommandId": null,
+          "acceptedSegmentCount": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "transcription.discarded",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "eventId": "dd4088d0-9515-4050-baa0-b684e9f822f8",
+          "eventSeq": 5,
+          "stateVersion": 6,
+          "occurredAtUnixMs": 1792018944055,
+          "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+          "segmentId": "6a7fbdf2-db11-4515-8134-1a97e6a9ec86",
+          "segmentSequence": 1,
+          "reason": "session_closed"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "activation.cancelled",
+          "protocolVersion": 2,
+          "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+          "eventId": "f68dfa34-b272-4472-ad78-56b102177def",
+          "eventSeq": 6,
+          "stateVersion": 7,
+          "occurredAtUnixMs": 1792018944056,
+          "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+          "acceptedSegmentCount": 1,
+          "terminalSegmentCount": 1,
+          "reason": "session_closed"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "31876ae81a7248df9fdf59b4bf2bff61",
+            "timestamp": "2026-10-14T23:02:24.053Z",
+            "channel": "transcription",
+            "event": "activation.closed",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "transport": "websocket",
+            "clientId": "client-2c145e4e63a54a3c92d7e52be3e804a5",
+            "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+            "data": {
+              "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+              "generation": 1,
+              "activationSequence": 1,
+              "primarySource": "manual",
+              "sources": [
+                "manual"
+              ],
+              "phase": "idle",
+              "timerRevision": 3,
+              "reason": "session_closed"
+            },
+            "cursor": 5
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "44d651a214f34aec9169e12438b25f90",
+            "timestamp": "2026-10-14T23:02:24.055Z",
+            "channel": "transcription",
+            "event": "transcription.cancelled",
+            "severity": "warning",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "requestId": "be7e2929355a4cb187994ee0f272a8af",
+            "transport": "websocket",
+            "segmentId": "6a7fbdf2-db11-4515-8134-1a97e6a9ec86",
+            "clientId": "client-2c145e4e63a54a3c92d7e52be3e804a5",
+            "transcriptionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44:1:6a7fbdf2-db11-4515-8134-1a97e6a9ec86",
+            "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+            "data": {
+              "reason": "session_closed",
+              "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+              "activationSequence": 1,
+              "segmentSequence": 1,
+              "language": "de",
+              "engine": "faster_whisper",
+              "model": "small"
+            },
+            "cursor": 6
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "dc47027aa84c42f6807640b12abfd658",
+            "timestamp": "2026-10-14T23:02:24.056Z",
+            "channel": "transcription",
+            "event": "activation.drained",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "transport": "websocket",
+            "clientId": "client-2c145e4e63a54a3c92d7e52be3e804a5",
+            "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+            "data": {
+              "activationId": "953d781c-2d62-419d-8feb-903b4e85a969",
+              "activationSequence": 1,
+              "state": "cancelled",
+              "reason": "session_closed",
+              "acceptedSegmentCount": 1,
+              "terminalSegmentCount": 1
+            },
+            "cursor": 7
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "closeCode": 1011
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "569a53cc95e146d19aa078fece10c9cf",
+            "timestamp": "2026-10-14T23:02:24.099Z",
+            "channel": "audit",
+            "event": "session.closed",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "transport": "websocket_v2",
+            "clientId": "client-2c145e4e63a54a3c92d7e52be3e804a5",
+            "sessionId": "a0e0f7cd-ad9a-44b7-bc88-ff04089bda44",
+            "data": {},
+            "meldung": "Sitzung beendet",
+            "cursor": 8
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "http",
+        "path": "/api/v2/settings/schema",
+        "method": "GET"
+      },
+      {
+        "direction": "http",
+        "path": "/api/v2/settings/server",
+        "method": "GET"
+      },
+      {
+        "direction": "http",
+        "path": "/api/v2/wake-words",
+        "method": "GET"
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "hello",
+          "supportedProtocolVersions": [
+            2
+          ],
+          "clientVersion": "1.0.0",
+          "clientCommit": "unknown",
+          "clientRunId": "2aa3b332-d9fd-446d-b5ff-081a1f27c13e",
+          "requestedSession": {
+            "trigger": {
+              "manual": true,
+              "wakeWord": false
+            },
+            "wakeWordIds": []
+          },
+          "runtimeSuppression": {
+            "manual": true,
+            "wakeWord": true
+          }
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "hello.accepted",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "serverVersion": "2.0.0",
+          "serverCommit": "unknown",
+          "snapshot": {
+            "protocolVersion": 2,
+            "serverVersion": "2.0.0",
+            "serverCommit": "unknown",
+            "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+            "stateVersion": 0,
+            "lastEventSeq": 0,
+            "settingsRevision": 0,
+            "input": {
+              "phase": "idle",
+              "activationId": null,
+              "primarySource": null,
+              "deadlineAtUnixMs": null,
+              "remainingMs": null,
+              "closeRequested": false
+            },
+            "pendingActivations": [],
+            "trigger": {
+              "configured": {
+                "manual": true,
+                "wakeWord": false
+              },
+              "suppressed": {
+                "manual": true,
+                "wakeWord": true
+              },
+              "effective": {
+                "manual": false,
+                "wakeWord": false
+              }
+            },
+            "audioAvailable": true,
+            "requestedSettings": {
+              "activation.closingRecoveryTimeoutMs": 5000,
+              "activation.followupTimeoutMs": 3000,
+              "activation.initialSpeechTimeoutMs": 15000,
+              "activation.segmentWatchdogInitialMs": 600000,
+              "activation.segmentWatchdogRefreshMs": 180000,
+              "activation.segmentWatchdogWarningMs": 30000,
+              "runtimeSuppression.manual": true,
+              "runtimeSuppression.wakeWord": false,
+              "wakeWord.cooldownMs": 0,
+              "wakeWord.detectorGain": 1.0,
+              "wakeWord.minConsecutivePredictionFrames": 1,
+              "wakeWord.noiseSuppressionEnabled": false,
+              "wakeWord.preRollMs": 0,
+              "wakeWord.selection": [],
+              "wakeWord.sensitivity": 0.5,
+              "wakeWord.vadThreshold": 0.0
+            },
+            "effectiveSettings": {
+              "activation.closingRecoveryTimeoutMs": 5000,
+              "activation.followupTimeoutMs": 3000,
+              "activation.initialSpeechTimeoutMs": 15000,
+              "activation.segmentWatchdogInitialMs": 600000,
+              "activation.segmentWatchdogRefreshMs": 180000,
+              "activation.segmentWatchdogWarningMs": 30000,
+              "runtimeSuppression.manual": true,
+              "runtimeSuppression.wakeWord": false,
+              "wakeWord.cooldownMs": 0,
+              "wakeWord.detectorGain": 1.0,
+              "wakeWord.minConsecutivePredictionFrames": 1,
+              "wakeWord.noiseSuppressionEnabled": false,
+              "wakeWord.preRollMs": 0,
+              "wakeWord.selection": [],
+              "wakeWord.sensitivity": 0.5,
+              "wakeWord.vadThreshold": 0.0
+            },
+            "wakeWordCapabilities": {
+              "catalogRevision": 3,
+              "availableWakeWordIds": [
+                "alexa",
+                "alice",
+                "computer",
+                "hey_alfred",
+                "hey_billy",
+                "hey_bro",
+                "hey_glados",
+                "hey_hermes",
+                "hey_jarvis",
+                "hey_lucy",
+                "hey_luna",
+                "hey_max",
+                "hey_mira",
+                "hey_mycroft",
+                "hey_nabu",
+                "hey_nexus",
+                "hey_nova",
+                "hey_oracle",
+                "hey_rhasspy",
+                "hey_rocky",
+                "ivy",
+                "pico",
+                "stop",
+                "timer",
+                "weather"
+              ]
+            }
+          },
+          "logAccess": {
+            "available": true,
+            "websocketPath": "/ws/logs",
+            "historyPath": "/api/logs/events",
+            "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+            "logProtocolVersion": 2,
+            "deliveryMode": "sqlite_first",
+            "replayAvailable": true,
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "oldestCursor": 1,
+            "latestCursor": 8,
+            "accessToken": "<redacted>",
+            "expiresAt": "2026-10-15T23:02:24.397Z"
+          }
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot.request",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "4903d961-07f9-43b1-9ccb-cd9d1ec1297b"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "4903d961-07f9-43b1-9ccb-cd9d1ec1297b",
+          "accepted": true,
+          "result": "applied",
+          "activationId": null,
+          "inputPhase": "idle",
+          "stateVersion": 0,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot",
+          "protocolVersion": 2,
+          "serverVersion": "2.0.0",
+          "serverCommit": "unknown",
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "stateVersion": 0,
+          "lastEventSeq": 0,
+          "settingsRevision": 0,
+          "input": {
+            "phase": "idle",
+            "activationId": null,
+            "primarySource": null,
+            "deadlineAtUnixMs": null,
+            "remainingMs": null,
+            "closeRequested": false
+          },
+          "pendingActivations": [],
+          "trigger": {
+            "configured": {
+              "manual": true,
+              "wakeWord": false
+            },
+            "suppressed": {
+              "manual": true,
+              "wakeWord": true
+            },
+            "effective": {
+              "manual": false,
+              "wakeWord": false
+            }
+          },
+          "audioAvailable": true,
+          "requestedSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": true,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "effectiveSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": true,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "wakeWordCapabilities": {
+            "catalogRevision": 3,
+            "availableWakeWordIds": [
+              "alexa",
+              "alice",
+              "computer",
+              "hey_alfred",
+              "hey_billy",
+              "hey_bro",
+              "hey_glados",
+              "hey_hermes",
+              "hey_jarvis",
+              "hey_lucy",
+              "hey_luna",
+              "hey_max",
+              "hey_mira",
+              "hey_mycroft",
+              "hey_nabu",
+              "hey_nexus",
+              "hey_nova",
+              "hey_oracle",
+              "hey_rhasspy",
+              "hey_rocky",
+              "ivy",
+              "pico",
+              "stop",
+              "timer",
+              "weather"
+            ]
+          }
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "manual": false,
+          "wakeWord": false,
+          "type": "trigger_suppression.set",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "18a9cc86-8329-4cdc-91ff-73c38de61e29"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "18a9cc86-8329-4cdc-91ff-73c38de61e29",
+          "accepted": true,
+          "result": "applied",
+          "activationId": null,
+          "inputPhase": "idle",
+          "stateVersion": 1,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "subscribe",
+          "accessToken": "<redacted>",
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "channels": [
+            "audit",
+            "performance",
+            "transcription"
+          ],
+          "afterCursor": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.hello",
+          "schemaVersion": 1,
+          "logProtocolVersion": 2,
+          "deliveryMode": "sqlite_first",
+          "replayAvailable": true,
+          "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+          "oldestCursor": 1,
+          "latestCursor": 8,
+          "retentionCursor": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.subscribed",
+          "channels": [
+            "audit",
+            "performance",
+            "transcription"
+          ],
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "afterCursor": 0,
+          "authorizationScope": "session",
+          "allChannels": false,
+          "allSessions": false
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.replay_completed",
+          "cursor": 8,
+          "count": 0
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot.request",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "a88dbd08-80e2-4bf3-ab01-71cf7399ed3a"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "a88dbd08-80e2-4bf3-ab01-71cf7399ed3a",
+          "accepted": true,
+          "result": "applied",
+          "activationId": null,
+          "inputPhase": "idle",
+          "stateVersion": 1,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot",
+          "protocolVersion": 2,
+          "serverVersion": "2.0.0",
+          "serverCommit": "unknown",
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "stateVersion": 1,
+          "lastEventSeq": 0,
+          "settingsRevision": 0,
+          "input": {
+            "phase": "idle",
+            "activationId": null,
+            "primarySource": null,
+            "deadlineAtUnixMs": null,
+            "remainingMs": null,
+            "closeRequested": false
+          },
+          "pendingActivations": [],
+          "trigger": {
+            "configured": {
+              "manual": true,
+              "wakeWord": false
+            },
+            "suppressed": {
+              "manual": false,
+              "wakeWord": false
+            },
+            "effective": {
+              "manual": true,
+              "wakeWord": false
+            }
+          },
+          "audioAvailable": true,
+          "requestedSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "effectiveSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "wakeWordCapabilities": {
+            "catalogRevision": 3,
+            "availableWakeWordIds": [
+              "alexa",
+              "alice",
+              "computer",
+              "hey_alfred",
+              "hey_billy",
+              "hey_bro",
+              "hey_glados",
+              "hey_hermes",
+              "hey_jarvis",
+              "hey_lucy",
+              "hey_luna",
+              "hey_max",
+              "hey_mira",
+              "hey_mycroft",
+              "hey_nabu",
+              "hey_nexus",
+              "hey_nova",
+              "hey_oracle",
+              "hey_rhasspy",
+              "hey_rocky",
+              "ivy",
+              "pico",
+              "stop",
+              "timer",
+              "weather"
+            ]
+          }
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "action": "activate",
+          "source": "manual",
+          "type": "activation.command",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "67969708-c862-4038-afe1-0b21ef3d0701"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "activation.started",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "eventId": "5d290042-6c66-4d77-aa83-58d675d44530",
+          "eventSeq": 1,
+          "stateVersion": 2,
+          "occurredAtUnixMs": 1792018944686,
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "activationSequence": 1,
+          "primarySource": "manual",
+          "inputPhase": "waiting_first_speech",
+          "effectiveSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          }
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "67969708-c862-4038-afe1-0b21ef3d0701",
+          "accepted": true,
+          "result": "applied",
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "inputPhase": "waiting_first_speech",
+          "stateVersion": 2,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "76df52a4608a406384f6772fee6bcd22",
+            "timestamp": "2026-10-14T23:02:24.686Z",
+            "channel": "transcription",
+            "event": "activation.started",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "transport": "websocket",
+            "clientId": "client-e5f58ff728af4bc692ffe038261db6e9",
+            "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+            "data": {
+              "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+              "generation": 1,
+              "activationSequence": 1,
+              "primarySource": "manual",
+              "sources": [
+                "manual"
+              ],
+              "phase": "waiting_first_speech",
+              "timerRevision": 1
+            },
+            "cursor": 9
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot.request",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "71ee8b13-0da9-469a-9032-2f776498cffe"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "71ee8b13-0da9-469a-9032-2f776498cffe",
+          "accepted": true,
+          "result": "applied",
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "inputPhase": "waiting_first_speech",
+          "stateVersion": 2,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot",
+          "protocolVersion": 2,
+          "serverVersion": "2.0.0",
+          "serverCommit": "unknown",
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "stateVersion": 2,
+          "lastEventSeq": 1,
+          "settingsRevision": 0,
+          "input": {
+            "phase": "waiting_first_speech",
+            "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+            "primarySource": "manual",
+            "deadlineAtUnixMs": 1792018959680,
+            "remainingMs": 14969,
+            "closeRequested": false
+          },
+          "pendingActivations": [],
+          "trigger": {
+            "configured": {
+              "manual": true,
+              "wakeWord": false
+            },
+            "suppressed": {
+              "manual": false,
+              "wakeWord": false
+            },
+            "effective": {
+              "manual": true,
+              "wakeWord": false
+            }
+          },
+          "audioAvailable": true,
+          "requestedSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "effectiveSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "wakeWordCapabilities": {
+            "catalogRevision": 3,
+            "availableWakeWordIds": [
+              "alexa",
+              "alice",
+              "computer",
+              "hey_alfred",
+              "hey_billy",
+              "hey_bro",
+              "hey_glados",
+              "hey_hermes",
+              "hey_jarvis",
+              "hey_lucy",
+              "hey_luna",
+              "hey_max",
+              "hey_mira",
+              "hey_mycroft",
+              "hey_nabu",
+              "hey_nexus",
+              "hey_nova",
+              "hey_oracle",
+              "hey_rhasspy",
+              "hey_rocky",
+              "ivy",
+              "pico",
+              "stop",
+              "timer",
+              "weather"
+            ]
+          }
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot.request",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "19f61adc-5cfd-457f-ab88-2042d6d61b57"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "19f61adc-5cfd-457f-ab88-2042d6d61b57",
+          "accepted": true,
+          "result": "applied",
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "inputPhase": "waiting_first_speech",
+          "stateVersion": 2,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot",
+          "protocolVersion": 2,
+          "serverVersion": "2.0.0",
+          "serverCommit": "unknown",
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "stateVersion": 2,
+          "lastEventSeq": 1,
+          "settingsRevision": 0,
+          "input": {
+            "phase": "waiting_first_speech",
+            "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+            "primarySource": "manual",
+            "deadlineAtUnixMs": 1792018959683,
+            "remainingMs": 14938,
+            "closeRequested": false
+          },
+          "pendingActivations": [],
+          "trigger": {
+            "configured": {
+              "manual": true,
+              "wakeWord": false
+            },
+            "suppressed": {
+              "manual": false,
+              "wakeWord": false
+            },
+            "effective": {
+              "manual": true,
+              "wakeWord": false
+            }
+          },
+          "audioAvailable": true,
+          "requestedSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "effectiveSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "wakeWordCapabilities": {
+            "catalogRevision": 3,
+            "availableWakeWordIds": [
+              "alexa",
+              "alice",
+              "computer",
+              "hey_alfred",
+              "hey_billy",
+              "hey_bro",
+              "hey_glados",
+              "hey_hermes",
+              "hey_jarvis",
+              "hey_lucy",
+              "hey_luna",
+              "hey_max",
+              "hey_mira",
+              "hey_mycroft",
+              "hey_nabu",
+              "hey_nexus",
+              "hey_nova",
+              "hey_oracle",
+              "hey_rhasspy",
+              "hey_rocky",
+              "ivy",
+              "pico",
+              "stop",
+              "timer",
+              "weather"
+            ]
+          }
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "audioBytes": 1358
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "activation.phase_changed",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "eventId": "09e596e4-bd15-4e72-a456-5503f260b49b",
+          "eventSeq": 2,
+          "stateVersion": 3,
+          "occurredAtUnixMs": 1792018944754,
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "previousPhase": "waiting_first_speech",
+          "inputPhase": "segment_active",
+          "deadlineAtUnixMs": 1792019544755,
+          "remainingMs": 600000
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "segment.recording_started",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "eventId": "d6bcc2a8-242d-4a48-a9ca-a72850c1b80a",
+          "eventSeq": 3,
+          "stateVersion": 4,
+          "occurredAtUnixMs": 1792018944754,
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "segmentId": "78b8f29b-d62b-4204-8d84-527185d4af73",
+          "segmentSequence": 1
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "9c05edf3f0024559baa61a10bcc65a57",
+            "timestamp": "2026-10-14T23:02:24.754Z",
+            "channel": "transcription",
+            "event": "transcription.recording_started",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "requestId": "8d11015c9a174b71a63a38e425501520",
+            "transport": "websocket",
+            "segmentId": "78b8f29b-d62b-4204-8d84-527185d4af73",
+            "clientId": "client-e5f58ff728af4bc692ffe038261db6e9",
+            "transcriptionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72:0:78b8f29b-d62b-4204-8d84-527185d4af73",
+            "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+            "data": {
+              "preRecordingBuffer": {
+                "configuredSeconds": 0.75,
+                "includedSeconds": 0.75,
+                "startTimestamp": 1792018944.004062,
+                "startTimestampIso": "2026-10-14T23:02:24.004Z",
+                "endTimestamp": 1792018944.754062,
+                "endTimestampIso": "2026-10-14T23:02:24.754Z",
+                "exact": false
+              },
+              "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+              "activationSequence": 1,
+              "segmentSequence": 1,
+              "primarySource": "manual",
+              "sources": [
+                "manual"
+              ]
+            },
+            "cursor": 10
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "action": "cancel",
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "type": "activation.command",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "efcb997a-194e-4d6f-8f19-7fabcd60e47c"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "activation.phase_changed",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "eventId": "68499c97-1240-40db-b094-633242a5398a",
+          "eventSeq": 4,
+          "stateVersion": 5,
+          "occurredAtUnixMs": 1792018944769,
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "previousPhase": "segment_active",
+          "inputPhase": "closing_input",
+          "deadlineAtUnixMs": 1792018949770,
+          "remainingMs": 5000
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "transcription.discarded",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "eventId": "427596aa-b2d8-4887-9d37-a0c398476e4a",
+          "eventSeq": 5,
+          "stateVersion": 6,
+          "occurredAtUnixMs": 1792018944769,
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "segmentId": "78b8f29b-d62b-4204-8d84-527185d4af73",
+          "segmentSequence": 1,
+          "reason": "cancelled"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "segment.recording_ended",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "eventId": "8f844227-9180-4da8-9a9b-90116ccd2f46",
+          "eventSeq": 6,
+          "stateVersion": 8,
+          "occurredAtUnixMs": 1792018944770,
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "segmentId": "78b8f29b-d62b-4204-8d84-527185d4af73",
+          "segmentSequence": 1,
+          "reason": "recording_stop"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "activation.cancelled",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "eventId": "8c924202-bc44-4f24-a1f0-27a0cffd908c",
+          "eventSeq": 7,
+          "stateVersion": 9,
+          "occurredAtUnixMs": 1792018944772,
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "acceptedSegmentCount": 1,
+          "terminalSegmentCount": 1,
+          "reason": "cancelled"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "activation.phase_changed",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "eventId": "2238f35d-da1c-4682-abcd-f271f46811c0",
+          "eventSeq": 8,
+          "stateVersion": 10,
+          "occurredAtUnixMs": 1792018944773,
+          "activationId": null,
+          "previousPhase": "closing_input",
+          "inputPhase": "idle",
+          "deadlineAtUnixMs": null,
+          "remainingMs": null
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "transcription.accepted",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "eventId": "70dc1693-c27b-4846-ba3d-3e2a6132f352",
+          "eventSeq": 9,
+          "stateVersion": 11,
+          "occurredAtUnixMs": 1792018944773,
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "segmentId": "78b8f29b-d62b-4204-8d84-527185d4af73",
+          "segmentSequence": 1
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "activation.input_closed",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "eventId": "3883f3a1-9cf8-4a5c-966f-206a2972b0ba",
+          "eventSeq": 10,
+          "stateVersion": 12,
+          "occurredAtUnixMs": 1792018944774,
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "reason": "cancelled",
+          "causedByCommandId": "efcb997a-194e-4d6f-8f19-7fabcd60e47c",
+          "acceptedSegmentCount": 1
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "efcb997a-194e-4d6f-8f19-7fabcd60e47c",
+          "accepted": true,
+          "result": "applied",
+          "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+          "inputPhase": "closing_input",
+          "stateVersion": 7,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "f99f289729e94392907f7acac630fbf1",
+            "timestamp": "2026-10-14T23:02:24.769Z",
+            "channel": "transcription",
+            "event": "transcription.cancelled",
+            "severity": "warning",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "requestId": "8d11015c9a174b71a63a38e425501520",
+            "transport": "websocket",
+            "segmentId": "78b8f29b-d62b-4204-8d84-527185d4af73",
+            "clientId": "client-e5f58ff728af4bc692ffe038261db6e9",
+            "transcriptionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72:0:78b8f29b-d62b-4204-8d84-527185d4af73",
+            "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+            "data": {
+              "reason": "cancelled",
+              "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+              "activationSequence": 1,
+              "segmentSequence": 1,
+              "language": "de",
+              "engine": "faster_whisper",
+              "model": "small"
+            },
+            "cursor": 11
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "31346981cd074169bf12ac1c45fd0ba0",
+            "timestamp": "2026-10-14T23:02:24.770Z",
+            "channel": "transcription",
+            "event": "transcription.recording_ended",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "requestId": "8d11015c9a174b71a63a38e425501520",
+            "transport": "websocket",
+            "segmentId": "78b8f29b-d62b-4204-8d84-527185d4af73",
+            "clientId": "client-e5f58ff728af4bc692ffe038261db6e9",
+            "transcriptionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72:0:78b8f29b-d62b-4204-8d84-527185d4af73",
+            "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+            "data": {
+              "durationSeconds": 0.04,
+              "reason": "recording_stop",
+              "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+              "activationSequence": 1,
+              "segmentSequence": 1,
+              "primarySource": "manual",
+              "sources": [
+                "manual"
+              ]
+            },
+            "cursor": 12
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "4a7560bfa6b740e8bfddb31df7aeb028",
+            "timestamp": "2026-10-14T23:02:24.771Z",
+            "channel": "transcription",
+            "event": "transcription.accepted",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "requestId": "8d11015c9a174b71a63a38e425501520",
+            "transport": "websocket",
+            "segmentId": "78b8f29b-d62b-4204-8d84-527185d4af73",
+            "clientId": "client-e5f58ff728af4bc692ffe038261db6e9",
+            "transcriptionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72:0:78b8f29b-d62b-4204-8d84-527185d4af73",
+            "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+            "data": {
+              "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+              "activationSequence": 1,
+              "segmentSequence": 1
+            },
+            "cursor": 13
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "9725d75ada5e4c02a7ee0a30872108aa",
+            "timestamp": "2026-10-14T23:02:24.772Z",
+            "channel": "transcription",
+            "event": "activation.drained",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "transport": "websocket",
+            "clientId": "client-e5f58ff728af4bc692ffe038261db6e9",
+            "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+            "data": {
+              "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+              "activationSequence": 1,
+              "state": "cancelled",
+              "reason": "cancelled",
+              "acceptedSegmentCount": 1,
+              "terminalSegmentCount": 1,
+              "primarySource": "manual",
+              "sources": [
+                "manual"
+              ]
+            },
+            "cursor": 14
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "c0370869fa0b4ad4b58c05a213454233",
+            "timestamp": "2026-10-14T23:02:24.773Z",
+            "channel": "transcription",
+            "event": "transcription.started",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "requestId": "8d11015c9a174b71a63a38e425501520",
+            "transport": "websocket",
+            "segmentId": "78b8f29b-d62b-4204-8d84-527185d4af73",
+            "clientId": "client-e5f58ff728af4bc692ffe038261db6e9",
+            "transcriptionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72:0:78b8f29b-d62b-4204-8d84-527185d4af73",
+            "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+            "data": {
+              "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+              "activationSequence": 1,
+              "segmentSequence": 1,
+              "primarySource": "manual",
+              "sources": [
+                "manual"
+              ]
+            },
+            "cursor": 15
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "0a9f4fc7e0ea4e8ea5933890dc57b771",
+            "timestamp": "2026-10-14T23:02:24.774Z",
+            "channel": "transcription",
+            "event": "activation.closed",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "transport": "websocket",
+            "clientId": "client-e5f58ff728af4bc692ffe038261db6e9",
+            "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+            "data": {
+              "activationId": "e2ff3501-4cb7-4509-b817-36e8a90bf388",
+              "generation": 1,
+              "activationSequence": 1,
+              "primarySource": "manual",
+              "sources": [
+                "manual"
+              ],
+              "phase": "idle",
+              "timerRevision": 3,
+              "reason": "cancelled",
+              "cause": "cancel",
+              "acceptedSegmentCount": 1,
+              "causedByCommandId": "efcb997a-194e-4d6f-8f19-7fabcd60e47c"
+            },
+            "cursor": 16
+          },
+          "replay": false
+        }
+      },
+      {
+        "direction": "client_to_server",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot.request",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "273d62f6-4dec-43ac-9ce6-4cdf30d61b18"
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "command.ack",
+          "protocolVersion": 2,
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "commandId": "273d62f6-4dec-43ac-9ce6-4cdf30d61b18",
+          "accepted": true,
+          "result": "applied",
+          "activationId": null,
+          "inputPhase": "idle",
+          "stateVersion": 12,
+          "settingsRevision": 0
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "payload": {
+          "type": "session.snapshot",
+          "protocolVersion": 2,
+          "serverVersion": "2.0.0",
+          "serverCommit": "unknown",
+          "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+          "stateVersion": 12,
+          "lastEventSeq": 10,
+          "settingsRevision": 0,
+          "input": {
+            "phase": "idle",
+            "activationId": null,
+            "primarySource": null,
+            "deadlineAtUnixMs": null,
+            "remainingMs": null,
+            "closeRequested": false
+          },
+          "pendingActivations": [],
+          "trigger": {
+            "configured": {
+              "manual": true,
+              "wakeWord": false
+            },
+            "suppressed": {
+              "manual": false,
+              "wakeWord": false
+            },
+            "effective": {
+              "manual": true,
+              "wakeWord": false
+            }
+          },
+          "audioAvailable": true,
+          "requestedSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "effectiveSettings": {
+            "activation.closingRecoveryTimeoutMs": 5000,
+            "activation.followupTimeoutMs": 3000,
+            "activation.initialSpeechTimeoutMs": 15000,
+            "activation.segmentWatchdogInitialMs": 600000,
+            "activation.segmentWatchdogRefreshMs": 180000,
+            "activation.segmentWatchdogWarningMs": 30000,
+            "runtimeSuppression.manual": false,
+            "runtimeSuppression.wakeWord": false,
+            "wakeWord.cooldownMs": 0,
+            "wakeWord.detectorGain": 1.0,
+            "wakeWord.minConsecutivePredictionFrames": 1,
+            "wakeWord.noiseSuppressionEnabled": false,
+            "wakeWord.preRollMs": 0,
+            "wakeWord.selection": [],
+            "wakeWord.sensitivity": 0.5,
+            "wakeWord.vadThreshold": 0.0
+          },
+          "wakeWordCapabilities": {
+            "catalogRevision": 3,
+            "availableWakeWordIds": [
+              "alexa",
+              "alice",
+              "computer",
+              "hey_alfred",
+              "hey_billy",
+              "hey_bro",
+              "hey_glados",
+              "hey_hermes",
+              "hey_jarvis",
+              "hey_lucy",
+              "hey_luna",
+              "hey_max",
+              "hey_mira",
+              "hey_mycroft",
+              "hey_nabu",
+              "hey_nexus",
+              "hey_nova",
+              "hey_oracle",
+              "hey_rhasspy",
+              "hey_rocky",
+              "ivy",
+              "pico",
+              "stop",
+              "timer",
+              "weather"
+            ]
+          }
+        }
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/v2",
+        "closeCode": 1000
+      },
+      {
+        "direction": "server_to_client",
+        "path": "/ws/logs",
+        "payload": {
+          "type": "log.event",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "d5e4252815714eeeb12b35c0ce9e4b9f",
+            "timestamp": "2026-10-14T23:02:24.875Z",
+            "channel": "audit",
+            "event": "session.closed",
+            "severity": "info",
+            "serverInstanceId": "3c6a031106db4a1ca00b0f93090abc56",
+            "transport": "websocket_v2",
+            "clientId": "client-e5f58ff728af4bc692ffe038261db6e9",
+            "sessionId": "685f5fee-31ea-4bc8-9eb2-6c3572e2bc72",
+            "data": {},
+            "meldung": "Sitzung beendet",
+            "cursor": 17
+          },
+          "replay": false
+        }
+      }
+    ],
+    "boundaries": "Pinned production ASGI app in a separate interpreter; loopback test controls.\n\nControls stimulate recorder/model outputs, never replace the production wire,\nsession, settings, ledger, log store or domain controller. No product edits.\n"
+  },
+  "clientPid": 43244,
+  "process": {
+    "url": "ws://127.0.0.1:61445/ws/v2",
+    "pid": 40344,
+    "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+    "executable": "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe"
+  },
+  "command": [
+    "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0\\venv\\Scripts\\python.exe",
+    "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\tests\\integration\\v2_process_server.py",
+    "--server-root",
+    "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-validation\\server-ada13b0",
+    "--server-repository",
+    "P:\\GithubRepos\\marcosudau-vps\\voice-stt-server\\main",
+    "--ready",
+    "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-process-06kc51p1\\ready.json",
+    "--stop",
+    "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-process-06kc51p1\\stop",
+    "--report",
+    "C:\\Users\\marco\\AppData\\Local\\Temp\\iv2-010-process-06kc51p1\\server.json"
+  ]
+}

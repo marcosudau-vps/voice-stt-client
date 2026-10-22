@@ -1,0 +1,41 @@
+{
+  "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+  "folders": 3,
+  "files": 368,
+  "namespaceEmpty": true,
+  "receipts": [
+    {
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\frozen-acoustic-a5a988beae25",
+      "name": "frozen-acoustic-a5a988beae25",
+      "manifestSha256": "5C10B30969E491C3D85F94A15C688D1CAD50B70C22D261005E3B10DE9F1FD861",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\frozen-acoustic-a5a988beae25",
+      "files": 1,
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "removedAtUtc": "2026-10-22T01:24:48.8570099Z"
+    },
+    {
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\frozen-acoustic-ab7529cd5280",
+      "name": "frozen-acoustic-ab7529cd5280",
+      "manifestSha256": "3D7B130764A31B7B6D286F6B982463B1CDDA7F9B3ED4F4E02F76D3A0D5FF2B37",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\frozen-acoustic-ab7529cd5280",
+      "files": 367,
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "removedAtUtc": "2026-10-22T01:24:53.8059841Z"
+    },
+    {
+      "scriptSha256": "F670CA8F03AAC432085A8C92BBFB22CA66E9FBF8B280E600F64F1FCE42264286",
+      "result": "REMOVED_AFTER_VERIFIED_ARCHIVE",
+      "target": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\helper-timer-20261022",
+      "name": "helper-timer-20261022",
+      "manifestSha256": "CE325732B245F1675544C2D98421C444AC8193673A4480BE6F7B4EA3D6BC4DC5",
+      "archive": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\build\\ap-iv2-020-suite\\private-archive\\helper-timer-20261022",
+      "files": 0,
+      "method": "Explicit Delete; per-file hash recheck and non-recursive LiteralPath removal; empty directories only; same approval-reviewed execution tool",
+      "removedAtUtc": "2026-10-22T01:24:54.2728525Z"
+    }
+  ]
+}

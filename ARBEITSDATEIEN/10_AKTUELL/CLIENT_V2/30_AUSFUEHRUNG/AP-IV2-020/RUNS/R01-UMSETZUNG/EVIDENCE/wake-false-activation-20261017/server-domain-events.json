@@ -1,0 +1,148 @@
+[
+  {
+    "received_at": "2026-10-17T19:20:02.070Z",
+    "source_timestamp": "2026-10-17T19:20:02.054Z",
+    "type": "activation.started",
+    "activation_id": "ebfb550b-58f3-4a1b-8d4b-c0ae3a5723b5",
+    "details": {
+      "activationId": "ebfb550b-58f3-4a1b-8d4b-c0ae3a5723b5",
+      "generation": 7,
+      "activationSequence": 7,
+      "primarySource": "wake_word",
+      "sources": [
+        "wake_word"
+      ],
+      "phase": "waiting_first_speech",
+      "timerRevision": 35
+    }
+  },
+  {
+    "received_at": "2026-10-17T19:20:02.079Z",
+    "source_timestamp": "2026-10-17T19:20:02.057Z",
+    "type": "wakeword.detected",
+    "activation_id": "ebfb550b-58f3-4a1b-8d4b-c0ae3a5723b5",
+    "details": {
+      "wakeWord": "alexa",
+      "wakeWordId": "alexa",
+      "score": 0.767410397529602,
+      "activationId": "ebfb550b-58f3-4a1b-8d4b-c0ae3a5723b5",
+      "logicalEventId": "4f8dc938-f30c-43c0-917c-1673ec5b5ed2",
+      "activationSequence": 7,
+      "primarySource": "wake_word",
+      "sources": [
+        "wake_word"
+      ]
+    }
+  },
+  {
+    "received_at": "2026-10-17T19:20:17.061Z",
+    "source_timestamp": "2026-10-17T19:20:17.054Z",
+    "type": "activation.drained",
+    "activation_id": "ebfb550b-58f3-4a1b-8d4b-c0ae3a5723b5",
+    "details": {
+      "activationId": "ebfb550b-58f3-4a1b-8d4b-c0ae3a5723b5",
+      "activationSequence": 7,
+      "state": "completed",
+      "reason": "timed_out",
+      "acceptedSegmentCount": 0,
+      "terminalSegmentCount": 0,
+      "primarySource": "wake_word",
+      "sources": [
+        "wake_word"
+      ]
+    }
+  },
+  {
+    "received_at": "2026-10-17T19:20:17.070Z",
+    "source_timestamp": "2026-10-17T19:20:17.055Z",
+    "type": "activation.closed",
+    "activation_id": "ebfb550b-58f3-4a1b-8d4b-c0ae3a5723b5",
+    "details": {
+      "activationId": "ebfb550b-58f3-4a1b-8d4b-c0ae3a5723b5",
+      "generation": 7,
+      "activationSequence": 7,
+      "primarySource": "wake_word",
+      "sources": [
+        "wake_word"
+      ],
+      "phase": "idle",
+      "timerRevision": 36,
+      "reason": "timed_out",
+      "cause": "initial_speech_timeout",
+      "acceptedSegmentCount": 0
+    }
+  },
+  {
+    "received_at": "2026-10-17T19:20:17.263Z",
+    "source_timestamp": "2026-10-17T19:20:17.253Z",
+    "type": "activation.started",
+    "activation_id": "a3073de2-36c5-49a3-94c8-42f07d1dbac0",
+    "details": {
+      "activationId": "a3073de2-36c5-49a3-94c8-42f07d1dbac0",
+      "generation": 8,
+      "activationSequence": 8,
+      "primarySource": "wake_word",
+      "sources": [
+        "wake_word"
+      ],
+      "phase": "waiting_first_speech",
+      "timerRevision": 38
+    }
+  },
+  {
+    "received_at": "2026-10-17T19:20:17.273Z",
+    "source_timestamp": "2026-10-17T19:20:17.254Z",
+    "type": "wakeword.detected",
+    "activation_id": "a3073de2-36c5-49a3-94c8-42f07d1dbac0",
+    "details": {
+      "wakeWord": "alexa",
+      "wakeWordId": "alexa",
+      "score": 0.6464421153068542,
+      "activationId": "a3073de2-36c5-49a3-94c8-42f07d1dbac0",
+      "logicalEventId": "662bb413-f311-4f84-9fa9-f26a600e8312",
+      "activationSequence": 8,
+      "primarySource": "wake_word",
+      "sources": [
+        "wake_word"
+      ]
+    }
+  },
+  {
+    "received_at": "2026-10-17T19:20:32.260Z",
+    "source_timestamp": "2026-10-17T19:20:32.251Z",
+    "type": "activation.drained",
+    "activation_id": "a3073de2-36c5-49a3-94c8-42f07d1dbac0",
+    "details": {
+      "activationId": "a3073de2-36c5-49a3-94c8-42f07d1dbac0",
+      "activationSequence": 8,
+      "state": "completed",
+      "reason": "timed_out",
+      "acceptedSegmentCount": 0,
+      "terminalSegmentCount": 0,
+      "primarySource": "wake_word",
+      "sources": [
+        "wake_word"
+      ]
+    }
+  },
+  {
+    "received_at": "2026-10-17T19:20:32.269Z",
+    "source_timestamp": "2026-10-17T19:20:32.252Z",
+    "type": "activation.closed",
+    "activation_id": "a3073de2-36c5-49a3-94c8-42f07d1dbac0",
+    "details": {
+      "activationId": "a3073de2-36c5-49a3-94c8-42f07d1dbac0",
+      "generation": 8,
+      "activationSequence": 8,
+      "primarySource": "wake_word",
+      "sources": [
+        "wake_word"
+      ],
+      "phase": "idle",
+      "timerRevision": 39,
+      "reason": "timed_out",
+      "cause": "initial_speech_timeout",
+      "acceptedSegmentCount": 0
+    }
+  }
+]

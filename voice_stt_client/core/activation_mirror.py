@@ -147,11 +147,16 @@ class MirrorLimits:
     max_bytes: int = 4 * 1024 * 1024
     snapshot_timeout: float = 5
     snapshot_attempts: int = 2
+    retained_activations: int = 64
+    max_records: int = 1024
 
     def __post_init__(self):
         if any(type(x) is not int or x < 1 for x in
-               (self.max_events, self.max_bytes, self.snapshot_attempts)):
+               (self.max_events, self.max_bytes, self.snapshot_attempts,
+                self.retained_activations, self.max_records)):
             raise ValueError("invalid mirror bounds")
+        if self.retained_activations > self.max_records:
+            raise ValueError("retention exceeds record budget")
         if (type(self.snapshot_timeout) not in (int, float)
                 or not 0 < self.snapshot_timeout < float("inf")):
             raise ValueError("invalid snapshot timeout")
@@ -162,7 +167,8 @@ class ActivationMirror:
 
     Call begin once on admission, consume only decoded events/snapshots, tick
     while snapshot_pending, and disconnect on binding loss. Ack is never state.
-    Event fingerprints/terminal records are retained for this socket session.
+    Settled prefixes are compacted into session sequence watermarks. Unresolved
+    records never expire by age; an exhausted record budget fails visibly.
     """
 
     def __init__(self, limits: MirrorLimits | None = None):
@@ -185,6 +191,8 @@ class ActivationMirror:
         self._deadline: float | None = None
         self._attempts = 0
         self._loss: set[str] = set()
+        self._retired_activation_sequence = 0
+        self._retired_segment_sequence = 0
 
     @property
     def view(self) -> MirrorView:
@@ -197,6 +205,51 @@ class ActivationMirror:
 
     def _result(self, finals=(), events=(), effects=()):
         return Reduction(self.view, tuple(finals), tuple(events), tuple(dict.fromkeys(effects)))
+
+    def _retain(self, finals):
+        # Only retire a settled *prefix*. A late final, missing lifecycle or
+        # unknown outcome pins everything behind it rather than losing guards.
+        if self.state != MirrorState.READY or self._buffer:
+            return
+        ordered = sorted(self.activations.values(), key=lambda a: a.sequence or 0)
+        publishing = {final.activation_id for final in finals}
+        for a in ordered[:-self.limits.retained_activations]:
+            segments = [s for s in self.segments.values() if s.activation_id == a.activation_id]
+            if (a.activation_id in publishing or a.sequence is None
+                    or a.status not in ACTIVATION_TERMINALS or a.incomplete
+                    or not a.input_closed or self.input.activation_id == a.activation_id
+                    or (a.status in ("cancelled", "failed") and not segments)
+                    or any(s.status not in SEGMENT_TERMINALS for s in segments)
+                    or len(segments) < max(a.accepted_count, a.terminal_count)):
+                break
+            ceiling = max((s.sequence for s in segments), default=self._retired_segment_sequence)
+            # Segment sequences are session-global. Do not cross another
+            # activation's still-held segment, even on a malformed ordering.
+            if any(s.activation_id != a.activation_id and s.sequence <= ceiling for s in self.segments.values()):
+                break
+            self._retired_activation_sequence = max(self._retired_activation_sequence, a.sequence)
+            self._retired_segment_sequence = max(self._retired_segment_sequence, ceiling)
+            del self.activations[a.activation_id]
+            for s in segments:
+                del self.segments[s.segment_id]
+                del self._sequences[s.sequence]
+
+    def _remember(self, event_id, fingerprint):
+        self._seen[event_id] = fingerprint
+        # Buffered fingerprints must survive until snapshot salvage. The
+        # consumed prefix is guarded permanently by last_event_seq instead.
+        protected = {event.eventId for event, _, _ in self._buffer.values()}
+        for key in tuple(self._seen):
+            if len(self._seen) <= self.limits.max_records + len(protected):
+                break
+            if key not in protected:
+                del self._seen[key]
+
+    def _bounded_result(self, finals=(), events=(), effects=()):
+        self._retain(finals)
+        if max(len(self.activations), len(self.segments)) > self.limits.max_records:
+            return self._fail("session_retention_overflow")
+        return self._result(finals, events, effects)
 
     def _current(self, generation, session_id):
         return (generation == self.generation and session_id == self.session_id
@@ -299,18 +352,18 @@ class ActivationMirror:
             size = len(wire.encode("utf-8"))
             if len(self._buffer) >= self.limits.max_events or self._buffer_bytes + size > self.limits.max_bytes:
                 return self._fail("resync_overflow")
-            self._seen[message.eventId] = fingerprint
             self._buffer[message.eventSeq] = (message, now, size)
+            self._remember(message.eventId, fingerprint)
             self._buffer_bytes += size
             return self._result(effects=effects)
-        self._seen[message.eventId] = fingerprint
+        self._remember(message.eventId, fingerprint)
         finals, effects = [], []
         if not self._reduce(message, now, finals, effects):
             effects.extend(self._request_snapshot(now, resync=True))
             return self._result(effects=effects)
         self.last_event_seq = message.eventSeq
         self.state_version = max(self.state_version, message.stateVersion)
-        return self._result(finals, (message,), effects)
+        return self._bounded_result(finals, () if "retired_event" in effects else (message,), effects)
 
     def _activation(self, key):
         return self.activations.setdefault(key, ActivationView(key))
@@ -320,12 +373,28 @@ class ActivationMirror:
             return None
         return Deadline(data["deadlineAtUnixMs"], data["remainingMs"], now)
 
+    def _retired(self, event):
+        return ((event.type in SEGMENT_EVENTS
+                 and event.payload["segmentSequence"] <= self._retired_segment_sequence)
+                or (event.type == p.EventType.ACTIVATION_STARTED
+                    and event.payload["activationSequence"] <= self._retired_activation_sequence))
+
     def _reduce(self, event, now, finals, effects, *, historical=False):
         d, kind = event.payload, event.type
         if isinstance(event, p.UnknownEvent):
             effects.append("unknown_event")
             return True
         aid = None if kind in SESSION_EVENTS else d.get("activationId")
+        if self._retired(event):
+            effects.append("retired_event")
+            return True
+        # After compaction, unknown lifecycle IDs cannot safely be recreated:
+        # they may name a retired cancelled activation. Snapshot salvage is
+        # still allowed to recover payloads whose start was genuinely lost.
+        if (aid and aid not in self.activations and self._retired_activation_sequence
+                and kind != p.EventType.ACTIVATION_STARTED and not historical):
+            effects.append("unknown_activation_after_retention")
+            return False
         # Validate stable segment ownership before creating any activation.
         # A protocol finding must not leave a partially accepted phantom ID.
         if kind in SEGMENT_EVENTS:
@@ -417,6 +486,8 @@ class ActivationMirror:
             return self._result(effects=("stale_snapshot", *self._request_snapshot(now)))
         d = snapshot.payload
         for item in d["pendingActivations"]:
+            if item["activationSequence"] <= self._retired_activation_sequence:
+                return self.protocol_fault(self.generation, now)
             known = self.activations.get(item["activationId"])
             if known and known.sequence is not None and known.sequence != item["activationSequence"]:
                 return self.protocol_fault(self.generation, now)
@@ -465,7 +536,8 @@ class ActivationMirror:
                 if self._reduce(event, received_at, finals, effects):
                     self.last_event_seq = seq
                     self.state_version = max(self.state_version, event.stateVersion)
-                    events.append(event)
+                    if not self._retired(event):
+                        events.append(event)
                 else:
                     effects.extend(self._request_snapshot(now, resync=True))
         # Reconcile after salvaging all buffered payloads and tombstones.
@@ -484,4 +556,4 @@ class ActivationMirror:
             self.activations[aid] = a
             if a.incomplete:
                 effects.append("incomplete")
-        return self._result(finals, events, effects)
+        return self._bounded_result(finals, events, effects)

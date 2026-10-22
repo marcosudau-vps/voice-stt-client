@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "unitHelperTests": 6,
+  "qtHelperCheck": "PASS: task preview before start, separate clicks, no automatic next start, first text retained",
+  "singleTaskCli": "PASS",
+  "productChanged": false,
+  "realCases": "NOT_PROVEN: these are helper prechecks only",
+  "method": "Each real Wake task uses its own explicitly started and fully stopped product session. This does not by itself qualify same-session M02."
+}

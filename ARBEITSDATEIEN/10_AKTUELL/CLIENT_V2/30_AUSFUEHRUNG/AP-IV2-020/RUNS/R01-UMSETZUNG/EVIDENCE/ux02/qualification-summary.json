@@ -1,0 +1,242 @@
+{
+  "status": "TECHNICAL_REQUALIFICATION_AND_UX02_NATIVE_PASS_REAL_GATES_OPEN",
+  "timeUtc": "2026-10-16T05:11:02.821780+00:00",
+  "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+  "productTree": "413467dffb8b98a15c77617a34ed097d21b216df",
+  "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "sourceManifestSha256": "339a8103c19df8de0a77c98fef8c12dd158ef0f92476e90390ad68d2daf6b22d",
+  "builds": [
+    {
+      "file": "voice-stt-client.exe",
+      "size": 75667907,
+      "sha256": "8d767663cb389e811645063e91065d8d185ba1be717d5ffefa601c90faf19f10"
+    },
+    {
+      "file": "voice_stt_client-1.0.0-py3-none-any.whl",
+      "size": 1187281,
+      "sha256": "2c27c5c0884916dcc67801706345373fa47f62023c70086bf4d3fba74b22a30b"
+    },
+    {
+      "file": "voice_stt_client-1.0.0.tar.gz",
+      "size": 1150075,
+      "sha256": "42a20fe6fc09a2318eb009f687c15de8e90d701599f73c29ccbdf5f70abbf67b"
+    }
+  ],
+  "checks": [
+    {
+      "name": "client-full",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": 1390,
+      "skipped": 0
+    },
+    {
+      "name": "cross-process",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": 11,
+      "skipped": 0
+    },
+    {
+      "name": "scenario-boundaries",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": 17,
+      "skipped": 0
+    },
+    {
+      "name": "server-transport",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-audio",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-controls",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-results",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-settings",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-feedback",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-runtime",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-full",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": 1964,
+      "skipped": 14
+    },
+    {
+      "name": "compileall",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "diff-check",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "client-environment",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-environment",
+      "result": "PASS",
+      "evidence": "pair/validation.json",
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "targeted-green-final",
+      "result": "PASS",
+      "evidence": "targeted-green-final.json",
+      "seconds": 9.938
+    },
+    {
+      "name": "original-composed-green",
+      "result": "PASS",
+      "evidence": "original-composed-green.json",
+      "seconds": 1.328
+    },
+    {
+      "name": "real-recovery",
+      "result": "PASS",
+      "evidence": "real-recovery.json",
+      "seconds": 110.532
+    },
+    {
+      "name": "native-desktop-restart",
+      "result": "PASS",
+      "evidence": "native-desktop-restart.json",
+      "seconds": 44.078
+    },
+    {
+      "name": "windows-hotkeys",
+      "result": "PASS",
+      "evidence": "windows-hotkeys.json",
+      "seconds": 3.797
+    },
+    {
+      "name": "windows-settings",
+      "result": "PASS",
+      "evidence": "windows-settings.json",
+      "seconds": 17.859
+    },
+    {
+      "name": "twine",
+      "result": "PASS",
+      "evidence": "twine.json",
+      "seconds": 1.469
+    },
+    {
+      "name": "frozen-native-real-server",
+      "result": "PASS",
+      "evidence": "frozen-native-real-server.json",
+      "seconds": 6.422
+    },
+    {
+      "name": "wheel-install",
+      "result": "PASS",
+      "evidence": "wheel-install.json",
+      "seconds": 6.015
+    },
+    {
+      "name": "wheel-runtime",
+      "result": "PASS",
+      "evidence": "wheel-runtime.json",
+      "seconds": 4.203
+    },
+    {
+      "name": "native-verdict-final",
+      "result": "PASS",
+      "evidence": "native-verdict-final.json",
+      "seconds": 0.5
+    },
+    {
+      "name": "native-labels-final",
+      "result": "PASS",
+      "evidence": "native-labels-final.json",
+      "seconds": 0.781
+    },
+    {
+      "name": "native-helpers-compile",
+      "result": "PASS",
+      "evidence": "native-helpers-compile.json",
+      "seconds": 0.547
+    },
+    {
+      "name": "real-model-replay",
+      "result": "PASS",
+      "evidence": "real-model-replay.json",
+      "seconds": 97.516
+    }
+  ],
+  "serverVerifiedBlobs": 555,
+  "restartRecoverySeconds": [
+    41.172,
+    30.313,
+    26.422
+  ],
+  "recoveryShutdownSeconds": 0.422,
+  "physicalModifierTest": "PASS",
+  "completeRealCases": "NOT_PROVEN",
+  "boundaries": [
+    "Technical checks and actual physical UX02 native confirmation PASS. This closes UX02 only; complete M-cases remain open.",
+    "Frozen/Wheel probes deliberately use unavailable capture, not live speech; separate native desktop probe uses actual ReSpeaker.",
+    "Model replay is real human fixtures and real local models, not live capture or native paste.",
+    "Previous product172 live results stay historical; no transfer of complete M-case qualification.",
+    "M-01..M-12, subjective calibration and 30min/100 real activations remain open.",
+    "Recovery detail filename collision is documented in real-recovery-summary.json; high-resolution resource samples not claimed from it."
+  ],
+  "release": "NOT_PUBLISHED",
+  "reviewReady": false,
+  "nativeEvidence": "native-physical-20261016-01/assessment.json",
+  "findingUX02": "CLOSED",
+  "humanConfirmation": "native-physical-20261016-01/human-decision-chat.json",
+  "additionalLiveManualEvidence": "manual-voice-20261016-01/assessment.json",
+  "liveManualControlsAndNativeOutput": "PASS",
+  "liveManualPlannedSpellingExact": false
+}

@@ -1,0 +1,27 @@
+{
+  "case": "jarvis_pause",
+  "startedAtUtc": "2026-10-15T04:14:59.892101+00:00",
+  "startMonotonic": 78726.921,
+  "finishedAtUtc": "2026-10-15T04:15:09.083293+00:00",
+  "frames": 144000,
+  "sampleRate": 16000,
+  "channels": 1,
+  "durationSeconds": 9,
+  "device": {
+    "index": 9,
+    "name": "Freisprechtelefon mit Echoausschaltung (reSpeaker XVF3800 4-Mic Array)",
+    "channels": 2,
+    "default_samplerate": 44100.0,
+    "is_default": false
+  },
+  "sha256": "bd1a14bf88fd6c47ef73511ef01f95a9c0c6cb679d280388a37ca4f3da7aa1b5",
+  "operatorInitiated": true,
+  "origin": "Deliberate human speech via real ReSpeaker",
+  "peakAbsolute": 5775,
+  "captureStatus": "None",
+  "inputOverflow": false,
+  "expectedWakePhrase": "Hey Jarvis",
+  "expectedUserPhrase": "Der blaue Becher steht auf dem Tisch.",
+  "requestedPause": true,
+  "boundaryAnnotation": "PENDING; requested timing is not measured phonetic timing"
+}

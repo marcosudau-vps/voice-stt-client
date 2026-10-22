@@ -1,3 +1,122 @@
+## AP-IV2-020 / R03-KORREKTUR – 22.10.2026
+
+Status **REVIEW_READY**. [Aktueller Korrekturbericht](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md): R02-F02 und separat Issue16 implementiert; unabhängige Nachabnahme nach grüner finaler PR-CI ausstehend. F01 zurückgenommen, Realbelege wiederverwendet. Kein ROOT_PASS/Merge. Nachfolgende datierte Stände sind historisch.
+
+## AP-IV2-020/R01 – REVIEW_READY,22.10.2026
+
+[Abschlussbericht40](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md): **REVIEW_READY**: native ReSpeaker-Altfinal/Recovery/Runpausen und finale normale EXE mit A-final während B-Sprache sowie zwei sichtbaren Ausgaben belegt. Vollständige1400Windows/0Skips/79Module,83Helfer/0Skips,compileall PASS. Produkt0f6c85e/Server67f3ce45 unverändert.18letzte eigene Profile archiviert entfernt, externer Namensraum leer. Zusammengesetzte Methoden/Grenzen und historische Fehlläufe explizit dokumentiert; kein eigener ROOT_PASS. Gleicher R01/Paketbranch/PR15; Schreibhoheit für unabhängigen Review zurückgegeben.
+
+Nachfolgende datierte Zwischenstände sind historisch und durch Bericht40 konsolidiert.
+
+## AP-IV2-020/R01 – Laufzuordnung und Hilfstimer,22.10.2026
+
+[Bericht39](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/39_LAUFZUORDNUNG_UND_TESTTIMER.md): Mensch meldet eingefügten Text/Fensterschluss; gespeicherte Vorbereitung dagegen TIMEOUT ohne Clientstart, Satz nicht mehr bekannt. Beobachtung erhalten, Zuordnung NOT_PROVEN. Hilfstimer korrigiert: vor Start unbegrenzt warten, Laufbudget erst ab Clientstart.82Helfer/0Skips und compileall PASS, Produkt0f6c85e unverändert. Alle verbliebenen eigenen Profile/Helfer-TEMP archiviert entfernt, genehmigter Namensraum leer, kein laufender Test. Keine weitere Sprach-/Wahrnehmungsprobe gestartet. Technische Restmatrix bleibt BLOCKED, gleicher R01/PR15.
+
+## AP-IV2-020/R01 – Abschlussproben,22.10.2026
+
+[Bericht38](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md): Adminguard positiv und generationgebunden, erhöhtes eigenes UAC-Ziel/APIstatus und drei native Stereomix-EXE-Einfügungen belegt. Erste ReSpeaker-ASR korrekt, automatische Einfügung fehlte; bewusster EXE-Reinsert erfolgreich. Minimaler Ein-Satz-Wakeversuch ohne Hotkeys vorbereitet, Wiederholen/Weiter repariert.80Helfer/Qt PASS; Produkt0f6c85e und1400Windowsbeleg unverändert. Wahrnehmungsabfragen menschlich abgeschlossen. Zehn beendete Profile plus Helfer-TEMP hashgesichert entfernt; nur ungestartete Abschlussprobe bleibt. Technische Restgrenzen NOT_PROVEN, BLOCKED/gleicher R01/PR15.
+
+## AP-IV2-020/R01 – autonome Restprüfung,21.10.2026
+
+[Bericht37](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md): Autonome Restprüfung:29aktuelle Runtime-Kombinationsfälle, beide engen Renngewinner,3Altfinal/B-Sprache-Paare, native Clipboard-/Prozessabbruchfälle, echter LED-only-Ausfall bei offenem Input und separate SQLite-Logstoresperre PASS_SCOPED. Qualifizierte EXE startet nativ mit realem ReSpeaker/Ready. Neue1400Windows/0Skips,73Helfer/0Skips und Qt/retirierter Starter PASS; Produkt0f6c85e unverändert. Alle19neuen Laufzeitordner gesichert entfernt. Menschlicher Rest: gültiger Admincheck, erhöhtes Ziel/UAC, finaler EXE-/physischer/Umwelt-/Overlay-Abschluss einschließlich T02/T03; W02 bleibt geschlossen. BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher R01/PR15.
+
+## AP-IV2-020/R01 – W02 geschlossen, Freigabereste konkretisiert,21.10.2026
+
+[Bericht36](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/36_W02_ABSCHLUSS_UND_FREIGABERESTE.md): W02 auf ausdrückliche menschliche Entscheidung als aktuell nicht mehr reproduzierbar geschlossen; kein eigener Freigabeblocker. Historische2FAIL erhalten, keine identifizierte Codekorrektur behauptet. Rest: technische Kombinationen, finaler EXE-/Admin-/Clipboard-/physischer Abschluss und Akten/ unabhängige Abnahme. Keine Wiederholung bestandener Standarddiktate, USB-Grundprobe oder des identischen30min100-Replaylaufs. Gesamtpaket BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher R01/PR15.
+
+## AP-IV2-020/R01 – autonomer Dauerlauf und Aufräumen abgeschlossen,21.10.2026
+
+[Bericht35](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/35_DAUERLAUF_WAKEANFORDERUNGEN_UND_AUFRAEUMEN.md): Automatischer zusammenhängender1800.015s/100Activations-Lauf mit echten Modellen PASS_SCOPED;100Finals/100Historyeinträge/100kontrollierte Injektionsversuche, drei eigene Recoveryaktionen. Physische/Frozen-M12-Anteile offen. W02 unverändert0/2reproduziert, historische2FAIL bleiben offen;0,90/2Frames erhält beide Positivfixtures,3/5Frames verfehlen Jarvis. Keine Defaultübernahme. Alle26eigenen externen Laufzeitordner hashgesichert entfernt.70Helfer/Qt und neue1400Windows/0Skips PASS; Produkt0f6c85e unverändert. Zwei Fehlversuche separat erhalten. BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher R01/PR15.
+
+## AP-IV2-020/R01 – BOTH abgeschlossen, Restgates konsolidiert,20.10.2026
+
+[Bericht34](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/34_BOTH_ABSCHLUSS_UND_KONSOLIDIERTE_RESTGATES.md): Drei übernommene BOTH-Aufgaben PASS_SCOPED: natives Manual-F8/F9 und beide direkten Wake-Nutzsätze genau einmal ohne Rufwort;18,782/23,313s echte Ruhe ohne Zusatzwake. Erster Alexa-Versuch bewusst wiederholt, bleibt NOT_PROVEN. Realer Watchdog55,062sWarnung/60,015sAblauf und3gebundene ASRfinals aus demselben Rohdurchlauf nach phasengenauer Nachauswertung PASS_SCOPED; falsche Einsegmentannahme als Hilfstest-FAIL erhalten.61Helfer/Qt PASS, Produkt0f6c85e/1400Windowsbeleg unverändert. Keine identischen Sprechwiederholungen; technische/EXE-/Dauerreste gebündelt, W02 offen.23Aufräumreste automatisch gesperrt. BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher R01/PR15.
+
+## AP-IV2-020/R01 – Mute/Reinsert bestätigt, überlagerter Wakefall offen,20.10.2026
+
+[Bericht32](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/32_MUTE_REINSERT_UND_WAKEPAUSEN.md): Hardware-Mute27,297s/zehn blockierte F8 und bewusste Wiederfreigabe/1exakte Einfügung sowie Reinsert1Final/2passende automatische+manuelle Ausgaben PASS_SCOPED. Zwei aktive Wake-Modell-/Pausen-/Reconnectfälle PASS_SCOPED. Erweiterte Pause→Recovery→manuelle Aufnahme mit Wakefixture→Cancel erzeugt zweimal Zusatzwake bei Stille: IV2-020-W02 offen, Ursache noch einzugrenzen; kein Serverfix vorgenommen.59Helfer/Qt PASS, Produkt0f6c85e unverändert/1400Windowsbeleg erhalten.22gesicherte Aufräumreste automatisch gesperrt. Gleicher R01/PR15, BLOCKED/IMPLEMENTATION_IN_PROGRESS.
+
+## AP-IV2-020/R01 – unabhängige Restprüfungen vor W01-FIX,19.10.2026
+
+[Bericht19](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md):
+Workflow IMPLEMENTATION_IN_PROGRESS im selben R01; Gesamtabnahme/Paketstatus
+weiter BLOCKED durch offene Pflichtnachweise. W01 wird nach unabhängigen
+Clientprüfungen separat korrigiert; keine Serverproduktfreigabe. Vorhandenes
+Pro-/Normal-V2 /ws/v2 samt Pinada13b0 über tatsächliche Build-/Image-/Quellbelege
+bestätigt. Keine neue Instanz, kein Deployment/Neustart; diagnostische Wartezeit180s.
+
+## AP-IV2-020/R01 – zusätzlicher Server entfernt, 18.10.2026
+
+Auf ausdrücklichen Wunsch eigene AP020-Servercontainer, zugeordnete Images und
+Datenvolumes entfernt; Starter deaktiviert. Keine Wiederanlage oder andere
+Serverwahl ohne neuen Auftrag. Historischer Commit-Audit: Referenzada13b0,
+555 Gitblobs/56 Quellnachweise identisch; serverabhängige Einzelansprüche ohne
+belastbare Bindung nicht abnahmewirksam. W01/Issue7 und Realgates bleiben offen,
+BLOCKED / SERVER_FIX_REQUIRED. Berichte15/16 im selben R01 sind maßgeblich.
+
+### Vorheriger Zwischenstand
+
+## AP-IV2-020/R01 – BLOCKED / SERVER_FIX_REQUIRED, 18.10.2026
+
+IV2-020-W01: zwei echte serverseitige Alexa-Activations nach einmaliger Wakephrase;
+zweiter Start303ms nach Timeout, Score0,991943. Echter Modellreplay reproduziert
+nach Inferenzpause/Freigabe zweiten Treffer bei digitaler Stille nach240ms;
+Resetkontrolle ohne zweiten Treffer. Exakte historische akustische Ursache ohne
+PCM NOT_PROVEN. Serverfix gesondert zu beauftragen; kein Servercode geändert.
+Clientprodukt7bb5646, Parent und Draft-PR15 bleiben unverändert. LED-Muster
+menschlich grundsätzlich positiv bewertet. Realgates/T01 offen, kein REVIEW_READY.
+
+### Vorheriger Zwischenstand
+
+## AP-IV2-020/R01 – UX03 technisch korrigiert, Realgates offen, 18.10.2026
+
+Neues qualifiziertes Produkt `7bb564690911d52f6dfe884955ddeb6a27eea6ad`. Fehlender Stoppton bei
+serverbestätigtem Eingabeschluss (`finished`/`timed_out`) behoben, direkt
+freigegeben im selben R01. 76 gezielte/1398 volle Windows-Tests PASS,1964 Server/
+14 erwartete Skips,11 Prozessfälle,17 Grenzen,7/7 Smokes. Neue EXE/Wheel/sdist
+und native EXE-/Wheel-Laufzeit am lokalen gepinnten Server PASS. Echte
+ReSpeaker-/Qt-Probe: genau ein Stop-Playerlauf, Ready/playing=true; menschliches
+Hören am echten Alexa→15s-Timeout bestätigt: UX03 CLOSED. T01-Log-UI-Bestätigung offen; übrige
+M-Fälle/30min100/Endkalibrierung weiter NOT_RUN/NOT_PROVEN. Kein REVIEW_READY.
+[Aktuelle Sound-/LED-/Triggerübersicht](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/10_FEEDBACK_UEBERSICHT.md). Acht Alexa-Treffer mit
+Scores0,908322..0,999994; Schwelle0,85 nur ungesetzter Offlinekandidat.
+Dauerhafter Desktopstarter bleibt verfügbar. V1/VPS geschützt; gleicher PR15.
+
+### Vorheriger Zwischenstand
+
+## AP-IV2-020/R01 – IN_PROGRESS, UX02 technisch und real geschlossen, 16.10.2026
+
+Produkt d95043e nach freigegebener Modifierkorrektur:1390 Windows-Tests/0 Skips,1964 Servertests/14 erwartete optionale Skips,11 Prozessfälle,17 Grenztests,7 Socketsmokes PASS. EXE/Wheel/sdist und native Produkt-/Serverlaufzeit erneut qualifiziert; reale Recovery, ReSpeaker-Desktop-Neustart und sechs Modellreplays neu gebunden. Physische Modifierprobe PASS:250ms tatsächliche Halte-/Freigabe, exakte einmalige native Ausgabe/menschlich bestätigt; UX02 CLOSED. Zusätzlich realer Manual-F8→Sprache→F9-Pfad PASS: ein erkannter Final exakt nativ eingefügt/menschlich bestätigt. Freie isolierte Both-Instanz für LED/Sound/Overlay aktiv. Genannte Einstellungstabs über zweiten lokalen Dialog vorhanden; Teststarter-Logmanagerlücke T01 festgestellt, Korrektur vorbereitet/gezielt geprüft, native Bestätigung nach abgestimmtem Neustart offen. Übrige Realgates/Kalibrierung weiter offen. Kein REVIEW_READY, gleicher R01/Paketbranch/PR15.
+
+### Vorheriger Zwischenstand
+
+## AP-IV2-020/R01 – BLOCKED durch UX02, 16.10.2026
+
+[Testclient](../../../tests/manual/v2/README.md) fertig: feste Schritte, wandernder Fokus, Countdown8s, eigener Start/Wiederholen/Abbrechen. Zehn Helferprüfungen/Qt und volle1378Windows-Regression PASS. Manuelle F8/F9-Steuerung PASS, Zieleinfügung FAIL (Shift gehalten). Produktausnahme noch nicht freigegeben; Produkt17261e6 unverändert. Derselbe R01/Branch/Draft-PR15; kein REVIEW_READY. [Aktueller Report](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md).
+
+### Vorheriger datierter Zwischenstand
+
+**Aktualisierung16.10.:** UX01 nativ bestätigt und geschlossen. Zwei einzeln gestartete direkte Wake-Nutzsätze vollständig, ohne Rufwort und mit Leerzeichen bestätigt. F9-Finish mangels Commandack noch unbewiesen; gezielter einzelner Manualtest mit eigener Vorschau/Start folgt. Produkt17261e6 unverändert; vollständige M-Gates/30min100 weiter offen.
+
+# AP-IV2-020 – IN_PROGRESS, Phase C läuft, 2026-10-15
+
+Kanonischer Parent `b80ed8b` unverändert, Vorgänger AP010 tatsächlich ACCEPTED.
+Paketbranch `work/client-v2/ap-iv2-020`, kumulativer Draft-PR #15, derselbe R01.
+Ausdrücklich freigegebener Reconnect-/Recovery-Audit abgeschlossen: zehn technische
+Findings behoben. Recoveryprodukt41ca761 historisch; zusätzlicher freigegebener UX01-Fix am Produkt `17261e6`, neue EXE/Wheel/sdist sauber gebunden.
+1378 Windows-Tests ohne Skips, 11 Prozessfälle, alle sieben Server-Smokes PASS;
+1964 Server-Unit-Tests PASS/14 ausgewiesene optionale Skips. Echter ReSpeaker- und
+Desktop-Reconnect, HTTP-/Ackausfall, drei Neustarts, Shutdown und Frozen-GUI grün.
+M-Fälle, echte Wakepositive/Nutzsprachgrenze, Wahrnehmung/Kalibrierung und30min100
+bleiben NOT_RUN/NOT_PROVEN. Nächste Aktion: gemeinsamer erster Sprach-/Windowsblock.
+[Report](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md), [gemeinsamer Testablauf](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/02_GEMEINSAMER_TESTABLAUF.md).
+V1/VPS geschützt; Server nur lokal. Kein REVIEW_READY, Eigenreview, Merge oder Release.
+
+
+Neuer Produkt-/Build-/Paarstand17261e6 autonom qualifiziert; native Ausgabebestätigung und vollständige Realgates bleiben offen. Der nächste Ein-Klick-Block steht im Testeditor bereit.
+
+## Vorheriger datierter Stand
+
 # Client V2 – AP-IV2-010 / R01-UMSETZUNG / REVIEW_READY, 2026-10-14
 
 [PR14](https://github.com/marcosudau-vps/voice-stt-client/pull/14), Branch `work/client-v2/ap-iv2-010`, Base `feat/client-v2`.

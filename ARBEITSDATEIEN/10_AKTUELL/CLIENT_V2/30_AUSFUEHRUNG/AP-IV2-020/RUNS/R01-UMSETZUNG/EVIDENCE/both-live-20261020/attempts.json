@@ -1,0 +1,162 @@
+{
+  "result": "THREE_PASS_SCOPED_ONE_REPEAT_NOT_PROVEN",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "sourceHead": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+  "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "attempts": [
+    {
+      "taskId": "finish",
+      "attemptId": "0630512f929b4cd3a2a1b0660e460c63",
+      "operatorDecision": "accept",
+      "humanObservation": "Wie erwartet",
+      "result": "PASS_SCOPED",
+      "sessionId": "383d51d1-eb7a-42cf-8181-fd92a5521cff",
+      "generation": 1,
+      "activationId": "1a3b2f2b-678d-4bf8-8db2-8f4389a38467",
+      "segmentId": "f03fc549-569c-448c-94ed-cb72a44c149d",
+      "source": "manual",
+      "wakeScore": null,
+      "finalCharacters": 37,
+      "finalSha256": "b180f5a7d9c307f029da764b91a161891ed14ade9cc33aeae39af8caad0932fe",
+      "pasteSha256": "48ae7847ce8267bb0d2bba1a3febd6eaf0b82fec86d3f2134cdee53ba54b7e43",
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-20T20:02:22.359007+00:00",
+          "characters": 38,
+          "sha256": "48ae7847ce8267bb0d2bba1a3febd6eaf0b82fec86d3f2134cdee53ba54b7e43"
+        }
+      ],
+      "editorAfter": {
+        "characters": 38,
+        "sha256": "48ae7847ce8267bb0d2bba1a3febd6eaf0b82fec86d3f2134cdee53ba54b7e43"
+      },
+      "exactExpectedIgnoringCase": false,
+      "wakePrefixPresent": false,
+      "closeReason": "finished",
+      "postCloseObservedAudioSeconds": 5.344,
+      "realAudioPackets": 318,
+      "recordingEndToFinalMs": 828.0,
+      "finalReceiptToPasteMs": 70.0,
+      "maxTasks": 14,
+      "profileUnchanged": true,
+      "exitCode": 0,
+      "boundary": "Own normal-privilege Source editor/BOTH at5000ms/320ms. No trigger race, Frozen,100activations or W02 closure. Manual accepted spelling variant is not exact ASR quality proof."
+    },
+    {
+      "taskId": "wake_alexa",
+      "attemptId": "3f57a0804dfa45e29d41b3255d070463",
+      "operatorDecision": "repeat",
+      "humanObservation": "Bitte Ergebnis wählen",
+      "result": "NOT_PROVEN_OPERATOR_REPEAT",
+      "sessionId": "37b6b813-df7e-4b1c-beeb-33dcee80d4b4",
+      "generation": 1,
+      "activationId": "340b530d-68d9-42c4-bf89-bb6fead87152",
+      "segmentId": "36e181ba-821c-44b5-941c-95545017762a",
+      "source": "wake_word",
+      "wakeScore": 0.6535078287124634,
+      "finalCharacters": 336,
+      "finalSha256": "d47c50808c032d819b46e9ed2639e11b8ee506540b60a588b4ad78388276c623",
+      "pasteSha256": "1670f42902d271bdcac79ae0334dc31061dcf5f4544c110a23523524227e187c",
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-20T20:03:47.460023+00:00",
+          "characters": 337,
+          "sha256": "1670f42902d271bdcac79ae0334dc31061dcf5f4544c110a23523524227e187c"
+        }
+      ],
+      "editorAfter": {
+        "characters": 38,
+        "sha256": "47b187e0fef374e28686ff3fb3bc3cd8b9dba959ddc2ec7b04e73a6e3796b553"
+      },
+      "exactExpectedIgnoringCase": false,
+      "wakePrefixPresent": false,
+      "closeReason": "finished",
+      "postCloseObservedAudioSeconds": 45.454,
+      "realAudioPackets": 1928,
+      "recordingEndToFinalMs": 985.0,
+      "finalReceiptToPasteMs": 59.796,
+      "maxTasks": 10,
+      "profileUnchanged": true,
+      "exitCode": 0,
+      "boundary": "Own normal-privilege Source editor/BOTH at5000ms/320ms. No trigger race, Frozen,100activations or W02 closure. Manual accepted spelling variant is not exact ASR quality proof."
+    },
+    {
+      "taskId": "wake_alexa",
+      "attemptId": "964a4c2eecc44777add0f2644f23b20d",
+      "operatorDecision": "accept",
+      "humanObservation": "Wie erwartet",
+      "result": "PASS_SCOPED",
+      "sessionId": "0c933faf-31cc-4cdf-8417-a9aff860f001",
+      "generation": 1,
+      "activationId": "16db80a1-a25f-480c-ae6b-6c2c71020960",
+      "segmentId": "f5ad7d47-b4ea-4e52-a177-da44a0f9f447",
+      "source": "wake_word",
+      "wakeScore": 0.9999000430107117,
+      "finalCharacters": 37,
+      "finalSha256": "76296e7ca67f1e9301a6fa777ee1252a4213915276cd0afc5c9a223251e89438",
+      "pasteSha256": "47b187e0fef374e28686ff3fb3bc3cd8b9dba959ddc2ec7b04e73a6e3796b553",
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-20T20:05:19.677585+00:00",
+          "characters": 38,
+          "sha256": "47b187e0fef374e28686ff3fb3bc3cd8b9dba959ddc2ec7b04e73a6e3796b553"
+        }
+      ],
+      "editorAfter": {
+        "characters": 38,
+        "sha256": "47b187e0fef374e28686ff3fb3bc3cd8b9dba959ddc2ec7b04e73a6e3796b553"
+      },
+      "exactExpectedIgnoringCase": true,
+      "wakePrefixPresent": false,
+      "closeReason": "timed_out",
+      "postCloseObservedAudioSeconds": 18.782,
+      "realAudioPackets": 1471,
+      "recordingEndToFinalMs": 63.0,
+      "finalReceiptToPasteMs": 65.761,
+      "maxTasks": 11,
+      "profileUnchanged": true,
+      "exitCode": 0,
+      "boundary": "Own normal-privilege Source editor/BOTH at5000ms/320ms. No trigger race, Frozen,100activations or W02 closure. Manual accepted spelling variant is not exact ASR quality proof."
+    },
+    {
+      "taskId": "wake_jarvis",
+      "attemptId": "596fedfbe6774731850f156577c76285",
+      "operatorDecision": "accept",
+      "humanObservation": "Wie erwartet",
+      "result": "PASS_SCOPED",
+      "sessionId": "a482a5d3-4a75-4883-9bd0-8c825275d6a7",
+      "generation": 1,
+      "activationId": "c0dc8824-f1d0-4f4e-993b-6bdbbbe3f086",
+      "segmentId": "b84b7db2-3a9e-4ee6-a084-38d401821946",
+      "source": "wake_word",
+      "wakeScore": 0.9968687891960144,
+      "finalCharacters": 40,
+      "finalSha256": "e221a37e150aadf6297928d93b38a08f016acfb01a4199a3f6525ace00802016",
+      "pasteSha256": "ec0be71d42ed2350c4c80952b66cee606c9ec2e51f66d8b565f0a57bb03e8093",
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-20T20:06:34.857874+00:00",
+          "characters": 41,
+          "sha256": "ec0be71d42ed2350c4c80952b66cee606c9ec2e51f66d8b565f0a57bb03e8093"
+        }
+      ],
+      "editorAfter": {
+        "characters": 41,
+        "sha256": "ec0be71d42ed2350c4c80952b66cee606c9ec2e51f66d8b565f0a57bb03e8093"
+      },
+      "exactExpectedIgnoringCase": true,
+      "wakePrefixPresent": false,
+      "closeReason": "timed_out",
+      "postCloseObservedAudioSeconds": 23.313,
+      "realAudioPackets": 1627,
+      "recordingEndToFinalMs": 46.0,
+      "finalReceiptToPasteMs": 68.868,
+      "maxTasks": 10,
+      "profileUnchanged": true,
+      "exitCode": 0,
+      "boundary": "Own normal-privilege Source editor/BOTH at5000ms/320ms. No trigger race, Frozen,100activations or W02 closure. Manual accepted spelling variant is not exact ASR quality proof."
+    }
+  ],
+  "fullPackageStatus": "BLOCKED",
+  "tester": "marco: real speech/keys/perception; Codex: IDs/hash/history/wire/metrics evaluation"
+}

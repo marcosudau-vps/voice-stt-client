@@ -1,0 +1,137 @@
+{
+  "result": "PASS_SCOPED",
+  "pid": 32424,
+  "runtimeFolder": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\native-pending-72592f5a72a0",
+  "infoBefore": {
+    "schemaVersion": 1,
+    "protocolVersion": 2,
+    "serverVersion": "2.0.0",
+    "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+    "identityStatus": "complete",
+    "build": {
+      "sourceTree": "74f37cad84c5be9e74d880a4b10c3d9623de7da3",
+      "sourceDirty": false,
+      "sourceDate": "2026-10-20T12:50:26Z"
+    },
+    "distribution": {
+      "name": "voicestt",
+      "packageVersion": "2.0.0"
+    },
+    "runtime": {
+      "krokoVariant": "pro"
+    },
+    "serverInstanceId": "14e6ff8dc2704f7298924b0d1de5cd1b"
+  },
+  "scope": "Actual ReSpeaker PortAudio failure with real pending ASR and run pauses.\n\nPCM/clipboard remain explicit controlled test boundaries. Native device opens,\ncallbacks, stream abort and production recovery are real. No physical unplug,\nmicrophone recording, foreground paste, server mutation or human action.\n",
+  "checks": {
+    "nativeCallbacksBeforeFault": true,
+    "pendingAtNativeFault": true,
+    "distinctOpenInput": true,
+    "oldFinalRetained": true,
+    "sameSessionAndGeneration": true,
+    "openInputCancelled": true,
+    "noAutomaticActivation": true,
+    "nativeCaptureRecovered": true,
+    "exactlyOneControlledPaste": true,
+    "runPauseMasksSurviveNativeReopen": true
+  },
+  "device": {
+    "index": 9,
+    "name": "Freisprechtelefon mit Echoausschaltung (reSpeaker XVF3800 4-Mic Array)",
+    "channels": 2,
+    "default_samplerate": 44100.0,
+    "is_default": false
+  },
+  "nativeChunksBeforeFault": 135,
+  "faultSeconds": 7.125,
+  "firstId": "f3084a35-9f95-4990-a37f-ab7ba3f079f5",
+  "secondId": "b99ba6cc-bf31-41c1-baaf-3f66beb6505a",
+  "finals": [
+    {
+      "timeSeconds": 7.953,
+      "bindingSessionId": "c460c76c-bf6d-4ad6-ab40-6f1c351b097a",
+      "type": "transcription.completed",
+      "generation": 1,
+      "sessionId": "c460c76c-bf6d-4ad6-ab40-6f1c351b097a",
+      "activationId": "f3084a35-9f95-4990-a37f-ab7ba3f079f5",
+      "segmentId": "47868f7c-b1f1-4809-9e36-3f203a13dcf7",
+      "segmentSequence": 1,
+      "eventId": "467368c8-2f6c-454f-8648-3ede38c0924f",
+      "eventSeq": 18,
+      "stateVersion": 18,
+      "occurredAtUnixMs": 1792633272285,
+      "textLength": 46,
+      "textSha256": "1d222526edd5bf48daca8b3d1c316ba7e0af3af719b1026d31a86a0302fbdd38",
+      "inputAtReceipt": {
+        "activationId": null,
+        "phase": "idle"
+      }
+    }
+  ],
+  "cancelled": [
+    {
+      "timeSeconds": 7.172,
+      "bindingSessionId": "c460c76c-bf6d-4ad6-ab40-6f1c351b097a",
+      "type": "activation.cancelled",
+      "generation": 1,
+      "sessionId": "c460c76c-bf6d-4ad6-ab40-6f1c351b097a",
+      "activationId": "b99ba6cc-bf31-41c1-baaf-3f66beb6505a",
+      "eventId": "84ec7f4a-5855-43b4-84a5-65753441840e",
+      "eventSeq": 16,
+      "stateVersion": 15,
+      "occurredAtUnixMs": 1792633271489,
+      "reason": "cancelled",
+      "inputAtReceipt": {
+        "activationId": "b99ba6cc-bf31-41c1-baaf-3f66beb6505a",
+        "phase": "waiting_first_speech"
+      }
+    }
+  ],
+  "masks": [
+    {
+      "source": "manual",
+      "before": [
+        true,
+        false
+      ],
+      "after": [
+        true,
+        false
+      ]
+    },
+    {
+      "source": "wakeWord",
+      "before": [
+        true,
+        true
+      ],
+      "after": [
+        true,
+        true
+      ]
+    }
+  ],
+  "boundary": "Real native capture/abort/reopen. Deliberate PCM injection after capture; controlled clipboard. Software mute is not physical-button actuation; actual earlier physical USB/mute proofs remain separate.",
+  "cleanupErrors": [],
+  "infoAfter": {
+    "schemaVersion": 1,
+    "protocolVersion": 2,
+    "serverVersion": "2.0.0",
+    "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+    "identityStatus": "complete",
+    "build": {
+      "sourceTree": "74f37cad84c5be9e74d880a4b10c3d9623de7da3",
+      "sourceDirty": false,
+      "sourceDate": "2026-10-20T12:50:26Z"
+    },
+    "distribution": {
+      "name": "voicestt",
+      "packageVersion": "2.0.0"
+    },
+    "runtime": {
+      "krokoVariant": "pro"
+    },
+    "serverInstanceId": "14e6ff8dc2704f7298924b0d1de5cd1b"
+  },
+  "identityStable": true
+}

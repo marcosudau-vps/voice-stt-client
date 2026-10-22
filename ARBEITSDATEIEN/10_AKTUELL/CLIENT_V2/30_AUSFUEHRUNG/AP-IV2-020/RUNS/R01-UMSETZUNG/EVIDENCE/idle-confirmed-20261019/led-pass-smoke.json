@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "checks": {
+    "nativeLedLossObserved": true,
+    "readyBefore": true,
+    "observationsPresent": true,
+    "coreReceivedLedIssue": true,
+    "sessionUnchanged": true,
+    "generationUnchanged": true,
+    "audioStillAvailable": true,
+    "stillReady": true,
+    "noAudioLoss": true,
+    "realAudioProgress": true,
+    "noActivation": true
+  },
+  "beforeSent": 59,
+  "afterSent": 210,
+  "scope": "Controlled native LED-only transport stop with real microphone and server; idle only, no activation/final, no physical cable or frozen claim",
+  "ledRecovered": true
+}

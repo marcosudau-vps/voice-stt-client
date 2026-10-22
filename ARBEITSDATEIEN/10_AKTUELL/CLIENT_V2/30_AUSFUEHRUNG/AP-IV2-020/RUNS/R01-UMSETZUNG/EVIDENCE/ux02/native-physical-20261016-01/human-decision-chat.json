@@ -1,0 +1,10 @@
+{
+  "decision": "accept",
+  "origin": "Explicit human chat reply",
+  "answer": "Text sichtbar, Testblock abgeschlossen",
+  "capturedUtc": "2026-10-16T04:56:01.662202+00:00",
+  "taskId": "native-physical-20261016-01-attempt-001",
+  "guiAcceptClicked": false,
+  "productWorkerAlreadyStopped": true,
+  "cleanup": "Idle controller still waits for GUI acceptance. Human accepted in chat; agent will close only this quiescent helper and mark owned UI complete. This is not a fabricated GUI click."
+}

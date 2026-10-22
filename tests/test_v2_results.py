@@ -13,7 +13,7 @@ import unittest
 from unittest.mock import patch
 
 from voice_stt_client.core import protocol_v2 as p
-from voice_stt_client.core.activation_mirror import ActivationMirror, FinalResult, Reduction
+from voice_stt_client.core.activation_mirror import ActivationMirror, FinalResult, MirrorLimits, Reduction
 from voice_stt_client.core.config import AppConfig, HistoryConfig, HistoryPersistentConfig
 from voice_stt_client.core.final_results import V2ResultService
 from voice_stt_client.core.history import HistoryAddStatus, TranscriptHistoryManager
@@ -156,6 +156,8 @@ class Results(unittest.TestCase):
         self.db=Path(self.tmp.name)/'history.sqlite'
         self.config=AppConfig()
         self.config.history.persistent=HistoryPersistentConfig(enabled=True,store_all=True,max_entries=0,retention_days=0)
+        # Result-order assertions use raw output; spacing is covered separately.
+        self.config.text_injection.append_space=False
         self.config.text_injection.paste_delay_ms=0
         self.config.clipboard.restore_delay_ms=0
         self.history=TranscriptHistoryManager(self.config.history,str(self.db))
@@ -198,6 +200,86 @@ class Results(unittest.TestCase):
         self.assertEqual(len(entry.attempts),1)
         self.assertEqual((entry.attempts[0].status,entry.attempts[0].source),('command_sent','automatic'))
 
+    def test_600_activations_one_session_bound_registers_and_effects(self):
+        first_reduction = None
+        expected = 0
+        for number in range(1, 601):
+            aid, sid = p.new_id(), p.new_id()
+            fields = dict(aid=aid, sid=sid, segment_sequence=number)
+            self.send(p.EventType.ACTIVATION_STARTED, aid=aid, activationSequence=number)
+            self.send(p.EventType.RECORDING_STARTED, **fields)
+            self.send(p.EventType.INPUT_CLOSED, aid=aid, acceptedSegmentCount=1)
+            # Lifecycle may precede the segment terminal. Retention must wait.
+            self.send(p.EventType.ACTIVATION_COMPLETED, aid=aid,
+                      acceptedSegmentCount=1, terminalSegmentCount=1)
+            reduction, _ = self.send(p.EventType.COMPLETED, text=f'synthetic {number}', **fields)
+            expected += 1
+            if first_reduction is None:
+                first_reduction = reduction
+            self.drain()
+            self.assertEqual(reduction.view.generation, 1)
+            self.assertTrue(reduction.view.operations_ready)
+            for held in (self.mirror.activations, self.mirror.segments,
+                         self.mirror._sequences, self.service._terminals):
+                self.assertLessEqual(len(held), 64)
+            self.assertLessEqual(len(self.mirror._seen), 1024)
+            self.assertLessEqual(len(reduction.view.activations), 64)
+            self.assertLessEqual(len(reduction.view.segments), 64)
+        self.assertGreater(self.mirror._retired_segment_sequence, 500)
+        self.assertEqual(len(self.history.get_persistent_entries()), expected)
+        self.assertEqual(len(self.backend.send_input_calls), expected)
+
+        # Old wire replay, a fresh envelope for a retired segment, and an old
+        # Reduction must all remain inert after the detail window has expired.
+        first = first_reduction.finals[0]
+        replay = msg(p.EventType.COMPLETED, first.event_seq, aid=first.activation_id,
+                     sid=first.segment_id, segment_sequence=1, text=first.text)
+        self.assertFalse(self.mirror.consume(1, replay, 1).finals)
+        self.assertFalse(self.send(p.EventType.COMPLETED, aid=first.activation_id,
+                         sid=first.segment_id, segment_sequence=1, text='duplicate')[0].finals)
+        self.history.clear_entries()
+        self.history.config.enabled = False
+        self.service.consume(first_reduction)
+        self.drain()
+        self.assertEqual(self.history.get_persistent_entries(), [])
+        self.assertEqual(len(self.backend.send_input_calls), expected)
+
+    def test_retention_keeps_salvaged_final_authoritative_and_unknown_attempt_inert(self):
+        self.mirror = ActivationMirror(MirrorLimits(retained_activations=1))
+        self.service.consume(self.mirror.begin(2, snapshot(), 1))
+        def send(kind, **fields):
+            self.seq += 1
+            reduction = self.mirror.consume(2, msg(kind, self.seq, **fields), 1)
+            return reduction, self.service.consume(reduction)
+        send(p.EventType.ACTIVATION_STARTED)
+        send(p.EventType.RECORDING_STARTED)
+        send(p.EventType.INPUT_CLOSED, acceptedSegmentCount=1)
+        send(p.EventType.ACTIVATION_COMPLETED, acceptedSegmentCount=1, terminalSegmentCount=1)
+        send(p.EventType.ACTIVATION_STARTED, aid=B, activationSequence=2)
+        send(p.EventType.COMPLETED, aid=B, sid=p.new_id(), segment_sequence=2, text='newer')
+        send(p.EventType.INPUT_CLOSED, aid=B, acceptedSegmentCount=1)
+        send(p.EventType.ACTIVATION_COMPLETED, aid=B, acceptedSegmentCount=1, terminalSegmentCount=1)
+        self.drain()
+        self.seq += 2
+        self.service.consume(self.mirror.consume(2, msg(p.EventType.COMPLETED, self.seq, text='late'), 1))
+        reduction = self.mirror.consume(2, snapshot(self.seq, self.seq), 1)
+        # Ambiguous native outcome is reserved and never automatically retried.
+        original_finish = self.history.finish_injection
+        def unknown(*args, **kwargs):
+            with patch.object(self.history, '_get_connection', side_effect=sqlite3.OperationalError('outcome failure')):
+                return original_finish(*args, **kwargs)
+        with patch.object(self.history, 'finish_injection', side_effect=unknown), self.assertLogs('text', level='ERROR'):
+            self.assertEqual(self.service.consume(reduction)[0].status, 'queued')
+            self.drain()
+        self.service.consume(self.mirror.consume(2, snapshot(self.seq, self.seq), 1))
+        self.assertNotIn(S, self.mirror.segments)
+        self.assertNotIn(S, self.service._terminals)
+        restarted = TranscriptHistoryManager(self.config.history, str(self.db))
+        self.assertEqual(restarted.get_persistent_entries()[-1].attempts[0].status, 'unknown')
+        self.history.config.enabled = False
+        self.service.consume(reduction)
+        self.drain()
+        self.assertEqual(len(self.backend.send_input_calls), 2)
     def test_interim_stable_fields_have_no_history_reservation_or_clipboard_effect(self):
         with patch.object(self.history,'add_entry_with_status',wraps=self.history.add_entry_with_status) as add, \
              patch.object(self.history,'reserve_injection',wraps=self.history.reserve_injection) as reserve:

@@ -1,0 +1,97 @@
+{
+  "result": "PASS",
+  "manualHelperTests": 10,
+  "windowsTests": 1378,
+  "windowsSkips": 0,
+  "checks": [
+    {
+      "name": "all-manual-regressions-final",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "all-manual-regressions-final.json"
+    },
+    {
+      "name": "compile",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "compile.json"
+    },
+    {
+      "name": "helper-regressions",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "helper-regressions.json"
+    },
+    {
+      "name": "legacy-entry-regressions",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "legacy-entry-regressions.json"
+    },
+    {
+      "name": "observer-cli",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "observer-cli.json"
+    },
+    {
+      "name": "qt-font-preview",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "qt-font-preview.json"
+    },
+    {
+      "name": "qt-step-countdown",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "qt-step-countdown.json"
+    },
+    {
+      "name": "windows-full",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "windows-full.json"
+    }
+  ],
+  "files": [
+    {
+      "file": "tests/manual/v2/__main__.py",
+      "sha256": "5ea4abcdcd48de5ef8e6c497e586ef592b6e82f9fbac8cd16a6b0cfc4a7b73b8"
+    },
+    {
+      "file": "tests/manual/v2/editor_state.py",
+      "sha256": "ef93b63adfcf14feec6830ae5026d4eee11f5978b882c9979e71ccf3458c828d"
+    },
+    {
+      "file": "tests/manual/v2/human_test_editor.py",
+      "sha256": "5127550bcfaf4bb51d445572140cb89d94fdc801f3732553f7a468a1651c20fd"
+    },
+    {
+      "file": "tests/manual/v2/observed_session.py",
+      "sha256": "4af707d792cb38e47545f79ad31970e0b16c1314a023a08a5bd3deb392658a1f"
+    },
+    {
+      "file": "tests/manual/v2/step_board.py",
+      "sha256": "023601b407f99658f479f87408a80e88931654039f72b0d7a1385283545e9100"
+    },
+    {
+      "file": "tests/manual/v2/stepped_wake_trial.py",
+      "sha256": "3a3d9833748f928be958ab16a68a6ceb34dcef66fbc56896d7c5108c0e874b3e"
+    },
+    {
+      "file": "tests/manual/v2/test_editor_state.py",
+      "sha256": "a42fd4e33facccf14865bbbdff602c7d19338793a9ab889d2d6fabd65e50c4c0"
+    },
+    {
+      "file": "tests/manual/v2/test_launcher.py",
+      "sha256": "42008549453a9ce2df5dea49ac0eb1f0d5ab35af77b397605ca5880a73013e5f"
+    },
+    {
+      "file": "tests/manual/v2/test_stepped_controls.py",
+      "sha256": "570aec462765382213ace3471a346f4488c72068c747d2cda87333087d925d13"
+    }
+  ],
+  "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+  "shippedProductChanged": false,
+  "boundaries": "Actual Qt widget checks and ten helper regressions; full Windows product regression1378. New manual-only launch guard separately tested after suite. No new complete real M-case PASS. Existing historical product/build qualifications remain bound to17261e6."
+}

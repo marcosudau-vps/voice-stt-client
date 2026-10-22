@@ -1,0 +1,57 @@
+{
+  "timeUtc": "2026-10-19T12:34:13.483626+00:00",
+  "result": "PASS_SCOPED_PROTOCOL_AND_PIN_BINDING_CHECKS",
+  "requiredServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "v2HttpResponses": 8,
+  "v2HelloAccepted": true,
+  "openAndResponseTimeoutSeconds": 180,
+  "currentImageSourceBindings": 2,
+  "runtimeSourceFileMatches": 8,
+  "wheelHashesMatch": 2,
+  "wireCommitUnknownPreserved": true,
+  "previousTestQualificationTransferred": false,
+  "fullClientSuiteRepeated": false,
+  "productTestsScriptsUnchanged": true,
+  "fullMCasePass": false,
+  "helperSyntax": "PASS",
+  "readOnlyRemoteChecks": true,
+  "diagnosticAttemptLimits": [
+    {
+      "result": "FAIL_HELPER_PATH_MAPPING",
+      "detail": "Initial helper used container suffix as checkout name; corrected before successful evidence capture; no source change."
+    },
+    {
+      "result": "NOT_PROVEN_TIMEOUT",
+      "detail": "Read-only aggregate capture exceeded an earlier90s limit; final bounded capture used180s and successful direct file comparisons."
+    },
+    {
+      "result": "NOT_PROVEN_TIMEOUT",
+      "detail": "Optional full Docker writable-layer diff exceeded45s; bounded four-file read comparison used for its stated scope, not a full integrity PASS."
+    }
+  ],
+  "evidenceSha256": {
+    "health-after-readonly-checks.json": "86bc0f5265090626ccecdeba2313c9e7accfca58f9ca2c77a7c090cba3cc24ed",
+    "http-preflight.json": "e3bcf278e236be83eb76ee10e020490ffbede794cc57c92f8b3b040282253f3f",
+    "openapi-preflight.json": "b5a62b09df3997b4251b533cbc1980f00c7c3238b045f23be077a6d424321286",
+    "selected-server-identity.json": "1175ff994ebc7325f65bfea49465f861344afaa989898c89fca232a93eb3dcf7",
+    "v2-hello-preflight.json": "cba590286eeeabd416a6c26349cc6ff72663b2db7e7d28e7b6999e835552abaf",
+    "v2-http-preflight.json": "a2645c6c9a179a6f663ef1645b824d9d289480fd6f345a1fc00a2786975417b0",
+    "w01-impact.json": "1628fbf5172e72939d83b9a13ff4da539455935297dc30c51099fa1494631f78"
+  },
+  "workRecords": {
+    "result": "PASS",
+    "package": "AP-IV2-020",
+    "packageStatus": "BLOCKED",
+    "referencedFiles": 12,
+    "markdownFiles": 53,
+    "relativeLinks": 713,
+    "errors": []
+  },
+  "originalAuditRecordsUnchanged": 363,
+  "helperHashMatchesExecutedCapture": true,
+  "healthAfterReadOnlyChecks": "BOTH_READY_OK",
+  "operationalWorkflow": "IMPLEMENTATION_IN_PROGRESS",
+  "acceptancePackageStatus": "BLOCKED",
+  "findingStillOpen": "IV2-020-W01",
+  "diffCheck": "PASS"
+}

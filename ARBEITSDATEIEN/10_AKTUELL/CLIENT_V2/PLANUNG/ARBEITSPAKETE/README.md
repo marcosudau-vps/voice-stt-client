@@ -1,3 +1,32 @@
+## AP-IV2-020 – unabhängiger R04-ROOT_PASS (22.10.2026)
+
+[Abnahmebericht](../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md) prüft PR15-Head `ca56b5ab58c47bd97bae36335e9d9314b2d35294`; REAL-01..06 PASS, keine Findings, CI grün. **WAITING_FOR_APPROVAL**; R03/R02-Einträge darunter sind historisch. Keine automatische Übernahme.
+
+## AP-IV2-020 / R03-KORREKTUR – 22.10.2026
+
+Status **REVIEW_READY**. [Aktueller Korrekturbericht](../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md): R02-F02 und separat Issue16 implementiert; unabhängige Nachabnahme nach grüner finaler PR-CI ausstehend. F01 zurückgenommen, Realbelege wiederverwendet. Kein ROOT_PASS/Merge. Nachfolgende datierte Stände sind historisch.
+
+## AP-IV2-020 – unabhängige R02-Abnahme / CHANGES_REQUIRED, 22.10.2026
+
+[Reviewbericht](../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md): Kandidat 29fb0e159c69051bedba6d097f69a5974fc09528; korrigierter R02-Stand: **F01 zurückgenommen, nur F02 offen**; CI-Issue #16 separat. Vorherige Einträge sind datierte historische Zwischenstände. Kein ROOT_PASS oder Merge.
+
+## Aktueller AP-IV2-020-Zwischenstand,19.10.2026
+
+[Bericht19](../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md):
+Unabhängige Clientprüfungen vor W01-Korrektur fortsetzen. Gesamtabnahme weiter
+BLOCKED; W01 bleibt offen. AP020 ist letztes reguläres Paket, AP-SV2-FIX die
+bedingte Serverkorrekturvorlage; kein bereits gestartetes festes Folgepaket.
+Vorhandene V2-Ziele und Pinada13b0 neu belegt. Frühere F01-Sperrhinweise darunter
+sind historische Zwischenstände; F01-Recoverykorrekturen bereits qualifiziert.
+
+# AP-IV2-020 – BLOCKED, 2026-10-15
+
+AP010 tatsächlich ACCEPTED (PR14/b80ed8b). Aktiver R01 ab diesem Parent.
+[Paketakte](../../30_AUSFUEHRUNG/AP-IV2-020/00_PAKET.md), [Status](../../WORKFLOW_STATUS.json).
+IV2-020-F01: Produktfixfreigabe nötig; reale Pflichtnachweise offen, kein REVIEW_READY.
+
+## Vorheriger dokumentierter Stand
+
 # Client V2 – AP-IV2-010 / R02-ABNAHME / ROOT_PASS, 2026-10-14
 
 [PR14](https://github.com/marcosudau-vps/voice-stt-client/pull/14), Branch `work/client-v2/ap-iv2-010`, Base `feat/client-v2`.

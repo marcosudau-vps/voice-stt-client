@@ -1,0 +1,49 @@
+{
+  "result": "PASS",
+  "helperTests": 8,
+  "checks": [
+    {
+      "name": "all-helper-regressions",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "all-helper-regressions.json"
+    },
+    {
+      "name": "qt-green-repeat-abort",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "qt-green-repeat-abort.json"
+    },
+    {
+      "name": "observer-manual-cli",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "observer-manual-cli.json"
+    },
+    {
+      "name": "compile-helpers",
+      "result": "PASS",
+      "exitCode": 0,
+      "evidence": "compile-helpers.json"
+    }
+  ],
+  "files": [
+    {
+      "file": "human\\stepped_wake_trial.py",
+      "sha256": "274ad08b0d8204c57d1987a421cd4f3effe9ad52dec0581a9d778e5009165c10"
+    },
+    {
+      "file": "human\\observed_session.py",
+      "sha256": "3a3b3157a2944c70cbfbc96d1862104f564895c6c887e5b6b82ead41d085d12d"
+    },
+    {
+      "file": "human\\test_stepped_controls.py",
+      "sha256": "d042d8efec888d6f98fac5e2d9d1c5677aa811aec57b34ec65b78c661de2b119"
+    },
+    {
+      "file": "recovery-audit\\human_test_editor.py",
+      "sha256": "848b0b36d47cc343fceccb5d851515f689fe36a7a3a25698437173d1d767dbb7"
+    }
+  ],
+  "boundaries": "Eight simulated helper regressions plus actual Qt-widget self-check; no real speech/hotkey/complete M-case PASS. Product17261e6 unchanged."
+}

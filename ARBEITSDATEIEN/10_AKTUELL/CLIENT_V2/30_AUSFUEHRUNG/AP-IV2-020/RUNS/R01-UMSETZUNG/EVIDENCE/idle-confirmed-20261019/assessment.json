@@ -1,0 +1,20 @@
+{
+  "result": "PASS_SCOPED",
+  "scope": "Direct real ReSpeaker idle LED30/100% visual calibration only; not complete M10/Wake/Frozen qualification",
+  "humanChoice": "Passt – weiß und angenehme Mindesthelligkeit",
+  "observationSeconds": 20,
+  "deviceAvailable": true,
+  "selfCheck": false,
+  "params": {
+    "color": "#FFFFFF",
+    "min_brightness": 0.3,
+    "brightness": 1.0
+  },
+  "globalBrightness": 192,
+  "sourceHashesMatch": true,
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "profile": "tests/manual/v2/calibration.yaml",
+  "releaseDefaultsChanged": false,
+  "colorProfiles": "Deferred to a separate later feature",
+  "reviewReady": false
+}

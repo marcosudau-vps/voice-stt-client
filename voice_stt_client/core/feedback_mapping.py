@@ -521,6 +521,12 @@ def migrate_v2_feedback_mapping(mapping: FeedbackMappingConfig) -> FeedbackMappi
         if target.value not in events:
             events[target.value] = mapping.rule_for(source)
             report.append(f"inherited:{target.value}<-{source.value}")
+    if CanonicalEventType.SERVER_INPUT_CLOSED.value not in events:
+        # Preserve the user's existing stop cue/volume, without copying its
+        # recording-end LED or 'finalizing' app action onto an idle input.
+        events[CanonicalEventType.SERVER_INPUT_CLOSED.value] = FeedbackRule(
+            sound=mapping.rule_for(CanonicalEventType.SERVER_RECORDING_ENDED).sound)
+        report.append('inherited:server.input.closed.sound<-server.recording.ended.sound')
     if report and "retained:server.wakeword.detected:diagnostic-only-in-v2" not in report:
         report.append("retained:server.wakeword.detected:diagnostic-only-in-v2")
     return FeedbackMappingConfig(mapping.schema_version, events, tuple(report))

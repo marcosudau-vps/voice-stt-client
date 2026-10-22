@@ -1,0 +1,124 @@
+{
+  "result": "PASS_SCOPED_AUTOMATED_RUNTIME_REAL_MODELS",
+  "measurementSeconds": 1800.015,
+  "activationKinds": {
+    "manual": 34,
+    "alexa": 33,
+    "hey_jarvis": 33
+  },
+  "eventCounts": {
+    "session.snapshot": 319,
+    "settings.changed": 4,
+    "activation.started": 100,
+    "activation.phase_changed": 200,
+    "segment.recording_started": 100,
+    "segment.recording_ended": 100,
+    "transcription.accepted": 100,
+    "activation.input_closed": 100,
+    "transcription.completed": 100,
+    "activation.completed": 100,
+    "wakeword.detected": 66,
+    "transcription.interim": 688
+  },
+  "helloCount": 4,
+  "uniqueActivations": 100,
+  "uniqueFinals": 100,
+  "samples": 361,
+  "tasksRange": [
+    4,
+    14
+  ],
+  "memory": {
+    "privateBytes": {
+      "first": 409022464,
+      "last": 422268928,
+      "min": 409022464,
+      "max": 422547456
+    },
+    "workingSetBytes": {
+      "first": 62279680,
+      "last": 75485184,
+      "min": 62279680,
+      "max": 76726272
+    }
+  },
+  "maxPending": 1,
+  "maxRetainedActivations": 25,
+  "maxRetainedTerminals": 25,
+  "warmTasksRange": [
+    9,
+    14
+  ],
+  "warmMemory": {
+    "privateBytes": {
+      "first": 412262400,
+      "last": 422268928,
+      "min": 412262400,
+      "max": 422547456
+    },
+    "workingSetBytes": {
+      "first": 65548288,
+      "last": 75485184,
+      "min": 65548288,
+      "max": 76726272
+    }
+  },
+  "finalAfterRecordingStoppedSeconds": {
+    "min": 0.01499999999987267,
+    "max": 10.516000000000002,
+    "median": 0.04599999999997095,
+    "p95": 0.4680000000000746,
+    "p95Method": "higher order statistic"
+  },
+  "firstPreviewAfterRecordingStartedSeconds": {
+    "min": 0.21800000000007458,
+    "max": 1.219000000000051,
+    "median": 0.26599999999999113,
+    "p95": 0.6559999999999491,
+    "p95Method": "higher order statistic"
+  },
+  "wakeScoreById": {
+    "alexa": {
+      "min": 0.9975789189338684,
+      "max": 0.9999125003814697,
+      "median": 0.999643087387085,
+      "p95": 0.9999125003814697,
+      "p95Method": "higher order statistic"
+    },
+    "hey_jarvis": {
+      "min": 0.5271686911582947,
+      "max": 0.9961682558059692,
+      "median": 0.9934161901473999,
+      "p95": 0.9961682558059692,
+      "p95Method": "higher order statistic"
+    }
+  },
+  "slotDurationSeconds": {
+    "min": 9.079,
+    "max": 17.141,
+    "median": 10.969,
+    "p95": 16.61,
+    "p95Method": "higher order statistic"
+  },
+  "lastMedia": {
+    "sent": 44890,
+    "gated": 2,
+    "overflow": 0,
+    "stale": 0,
+    "invalid": 0,
+    "queue_ms": 0.0,
+    "capture_failures": 0,
+    "audio_available": true,
+    "led_available": true,
+    "log_failure": null
+  },
+  "lastCapture": {
+    "chunks_captured": 44894,
+    "chunks_dropped_capture_queue": 0,
+    "overflow_count": 0,
+    "underflow_count": 0,
+    "capture_queue_depth": 1
+  },
+  "fullPhysicalM12": "NOT_PROVEN",
+  "concurrency": "No other agent-generated ASR/load probe during final21October run. Windows/W02/variant probes were separate20October evidence; ordinary server usage not controlled."
+}

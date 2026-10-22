@@ -143,3 +143,17 @@ Controller/Ledger/Replay/Projektionen. Gepinnte `GateAwareRecorder` und
 ersetzt noch offene Audio-/Settingsservices. Tempdatenroot, Port 0, begrenzte
 Readiness und Cleanup. Die finale Prozess-/Qt-/Hardwarequalifikation bleibt
 CV2-100/IV2-010/020.
+
+## AP-IV2-020 – Recoverykorrektur
+
+Die frühere Aussage, jeder fehlgeschlagene Bootstrap-Ack blockiere dauerhaft,
+wird präzisiert: Fehlende Implementierung und dauerhafte Konfigurationsablehnung
+blockieren. `internal_error`, fehlender Bestätigungssnapshot und Bootstrap-/Acktimeout
+schließen die alte Session; nach Backoff folgt ein vollständiger neuer Bootstrap.
+Unklare Mutationen werden nicht auf die neue Session übertragen.
+
+Temporäre Metadaten-GET-Ausfälle (Netz/Timeout, 408/429/5xx, auch HTML-/leere
+Fehlerantworten) und Preflightdeadline verwenden die bestehende Backoffschleife.
+Ungültige Erfolgsdaten, Profile und permanente HTTP-/Protokollfehler blockieren
+weiterhin; Zertifikatsverifikation wird explizit als permanenter Fehler ausgewiesen.
+Späte Command-/Audio-Sendefehler wirken nur auf ihr weiterhin aktuelles Binding.

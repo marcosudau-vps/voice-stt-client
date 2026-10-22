@@ -47,6 +47,7 @@ class ClipboardAdapter(WindowsInjectionBackend):
     def get_clipboard_sequence_number(self): return self.sequence
     def get_foreground_window(self): return 42
     def get_window_thread_process_id(self,hwnd): return (1,2)
+    def get_pressed_modifiers(self): return ()
     def send_input_keyboard(self,events):
         entries=self.history.get_persistent_entries()
         self.pending_before_paste.append(any(a.status=='pending' for e in entries for a in e.attempts))

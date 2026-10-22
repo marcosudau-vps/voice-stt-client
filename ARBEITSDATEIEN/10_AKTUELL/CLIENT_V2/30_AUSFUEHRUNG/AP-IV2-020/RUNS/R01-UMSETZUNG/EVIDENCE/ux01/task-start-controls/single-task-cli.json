@@ -1,0 +1,38 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "arguments": [
+        "--editor-guided",
+        "--stop-after",
+        "2"
+      ],
+      "expectedExit": 2,
+      "actualExit": 2
+    },
+    {
+      "arguments": [
+        "--editor-guided",
+        "--editor-case",
+        "jarvis",
+        "--stop-after",
+        "1"
+      ],
+      "expectedExit": 0,
+      "actualExit": 0
+    },
+    {
+      "arguments": [
+        "--editor-guided",
+        "--editor-case",
+        "alexa",
+        "--stop-after",
+        "1"
+      ],
+      "expectedExit": 0,
+      "actualExit": 0
+    }
+  ],
+  "nativeSideEffects": false,
+  "scope": "Test helper validation only: old automatic two-task guided invocation rejected before client startup"
+}

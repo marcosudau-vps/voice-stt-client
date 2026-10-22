@@ -1,0 +1,131 @@
+{
+  "status": "UX03_CLOSED_TECHNICAL_AND_HUMAN_HEARING_PASS_REAL_GATES_OPEN",
+  "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+  "oldQualifiedProduct": "d95043e96051d4022b297099391a4fdff0dcc12b",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "permission": "../../09_UX03_CLOSE_SOUND.md",
+  "targetedTests": 76,
+  "windowsTests": 1398,
+  "nativeStopPlaying": true,
+  "nativeStopCueCount": 1,
+  "observedCloseToPlayingMs": 13.89,
+  "humanHearing": "PASS",
+  "build": "PASS",
+  "fullRealQualification": "NOT_PROVEN",
+  "helperSha256": "5d11cfd4dcd79d51ff67459a8a231d3acb1203d8ae002295d7c7eff5d552ddfc",
+  "productTree": "7be8d0bc874bb22a816826838fc319f4a42ee75d",
+  "completedAtUtc": "2026-10-17T23:23:42.873653+00:00",
+  "pair": "PASS",
+  "sourceManifestSha256": "c7981eff7f143bfadc2bbc4b359e16d03af07fb89d1b4205283ec1dc37d21a3e",
+  "artifacts": [
+    {
+      "file": "voice-stt-client.exe",
+      "size": 75670931,
+      "sha256": "d18466901851f6ae4179ee8680cb549407b13a59cf7fbd4ec609d81d5c00a1c1"
+    },
+    {
+      "file": "voice_stt_client-1.0.0-py3-none-any.whl",
+      "size": 1187663,
+      "sha256": "2692da6857b43753a0d98428364ae23f10363202ed31ae7d303f9570e30fc822"
+    },
+    {
+      "file": "voice_stt_client-1.0.0.tar.gz",
+      "size": 1150451,
+      "sha256": "b8b8e77ed3d17d680bec5f3661fc88e6099f9b825737c64b47f98caa0b17699d"
+    }
+  ],
+  "checks": [
+    {
+      "name": "client-full",
+      "exitCode": 0,
+      "tests": 1398,
+      "skipped": 0
+    },
+    {
+      "name": "cross-process",
+      "exitCode": 0,
+      "tests": 11,
+      "skipped": 0
+    },
+    {
+      "name": "scenario-boundaries",
+      "exitCode": 0,
+      "tests": 17,
+      "skipped": 0
+    },
+    {
+      "name": "server-transport",
+      "exitCode": 0,
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-audio",
+      "exitCode": 0,
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-controls",
+      "exitCode": 0,
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-results",
+      "exitCode": 0,
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-settings",
+      "exitCode": 0,
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-feedback",
+      "exitCode": 0,
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-runtime",
+      "exitCode": 0,
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-full",
+      "exitCode": 0,
+      "tests": 1964,
+      "skipped": 14
+    },
+    {
+      "name": "compileall",
+      "exitCode": 0,
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "diff-check",
+      "exitCode": 0,
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "client-environment",
+      "exitCode": 0,
+      "tests": null,
+      "skipped": 0
+    },
+    {
+      "name": "server-environment",
+      "exitCode": 0,
+      "tests": null,
+      "skipped": 0
+    }
+  ],
+  "humanHearingEvidence": "human-hearing-confirmed.json",
+  "findingStatus": "CLOSED"
+}

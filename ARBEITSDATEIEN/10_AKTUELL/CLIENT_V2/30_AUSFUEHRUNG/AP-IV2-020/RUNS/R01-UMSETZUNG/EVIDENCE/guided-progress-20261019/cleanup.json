@@ -1,0 +1,17 @@
+{
+  "timeUtc": "2026-10-19T14:37:06.811589+00:00",
+  "approvedRoot": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
+  "removedAfterVerifiedExport": [
+    "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\suite-20261019-155758-b75d0c",
+    "preflight-20261019-162446",
+    "preflight-20261019-162609"
+  ],
+  "blocked": {
+    "path": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020/progress-regression-20261019-162446",
+    "action": "Remove stopped owned regression runtime",
+    "reason": "blocked by policy",
+    "archive": "build/ap-iv2-020-suite/private-archive/progress-regression-20261019-162446",
+    "attempts": "Grouped removal and per-target guarded/hash-verified removal rejected; no bypass attempted."
+  },
+  "nextObligation": "New human repeat must be evaluated/exported then removed after shutdown; existing blocked directory remains an explicit outstanding cleanup obligation."
+}

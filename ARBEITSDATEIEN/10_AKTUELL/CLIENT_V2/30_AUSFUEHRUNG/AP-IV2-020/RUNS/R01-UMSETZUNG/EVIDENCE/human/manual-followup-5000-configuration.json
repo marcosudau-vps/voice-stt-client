@@ -1,0 +1,18 @@
+{
+  "previousConfigSha256": "13a6dfdba365290c076d6941a08d1fd7ee0925d0c4010b4da2c4a13c78fa30a2",
+  "configurationSha256": "7285045372cf660ee8e226ce9e4a0c36f93a17b7437a756fedd4920cddd72255",
+  "change": {
+    "activation.followupTimeoutMs": {
+      "from": 3000,
+      "to": 5000,
+      "scope": "isolated client session desired settings; next activation"
+    }
+  },
+  "reason": "Explicit human request after real three-second baseline; thinking pauses",
+  "notChanged": [
+    "server defaults",
+    "shipped client defaults",
+    "V1 settings"
+  ],
+  "status": "PREPARED"
+}

@@ -1,0 +1,4097 @@
+{
+  "timeUtc": "2026-10-18T03:51:05.189107+00:00",
+  "requiredServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "requiredSource": "PLANUNG/ARBEITSPAKETE/AP-IV2-020.md: Referenzserver",
+  "retainedArchive": {
+    "gitTreeSha256": "49d824ab2b8a386602818fe537ae072ab0cf3b1cda37c63a88a033d607443d45",
+    "verifiedGitBlobs": 555,
+    "mismatches": [],
+    "canonicalSourceMapSha256": "d83d6838cf51a2f20592301e277ea39f009c28beb8d81de3ec1ccfd3e4b93aaa"
+  },
+  "sourceMapChecks": [
+    {
+      "record": "local-server-build.json",
+      "field": ".sourceSha256",
+      "files": 555,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "recovery-audit/pair/test_autonomous_terminal_recovery_and_stale_callback.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "recovery-audit/pair/test_client_dropped_final_is_incomplete_without_log_paste.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "recovery-audit/pair/test_client_injected_gap_salvages_buffered_final.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "recovery-audit/pair/test_device_loss_drain_and_led_isolation.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "recovery-audit/pair/test_lost_finish_ack_retries_identical_without_second_effect.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "recovery-audit/pair/test_negative_admission.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "recovery-audit/pair/test_segments_overlap_interim_and_log_dedup.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "recovery-audit/pair/test_settings_atomicity_and_admin.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "recovery-audit/pair/test_wake_only_and_shared_admission_race.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "recovery-audit/pair/test_wake_sources_settings_and_bootstrap.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "recovery-audit/pair/validation.json",
+      "field": ".serverSourceHashes",
+      "files": 555,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "test_autonomous_terminal_recovery_and_stale_callback.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "test_client_dropped_final_is_incomplete_without_log_paste.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "test_client_injected_gap_salvages_buffered_final.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "test_device_loss_drain_and_led_isolation.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "test_lost_finish_ack_retries_identical_without_second_effect.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "test_negative_admission.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "test_segments_overlap_interim_and_log_dedup.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "test_settings_atomicity_and_admin.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "test_wake_only_and_shared_admission_race.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "test_wake_sources_settings_and_bootstrap.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux01/pair/test_autonomous_terminal_recovery_and_stale_callback.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux01/pair/test_client_dropped_final_is_incomplete_without_log_paste.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux01/pair/test_client_injected_gap_salvages_buffered_final.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux01/pair/test_device_loss_drain_and_led_isolation.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux01/pair/test_lost_finish_ack_retries_identical_without_second_effect.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux01/pair/test_negative_admission.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux01/pair/test_segments_overlap_interim_and_log_dedup.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux01/pair/test_settings_atomicity_and_admin.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux01/pair/test_wake_only_and_shared_admission_race.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux01/pair/test_wake_sources_settings_and_bootstrap.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux01/pair/validation.json",
+      "field": ".serverSourceHashes",
+      "files": 555,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux02/pair/test_autonomous_terminal_recovery_and_stale_callback.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux02/pair/test_client_dropped_final_is_incomplete_without_log_paste.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux02/pair/test_client_injected_gap_salvages_buffered_final.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux02/pair/test_device_loss_drain_and_led_isolation.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux02/pair/test_lost_finish_ack_retries_identical_without_second_effect.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux02/pair/test_negative_admission.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux02/pair/test_segments_overlap_interim_and_log_dedup.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux02/pair/test_settings_atomicity_and_admin.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux02/pair/test_wake_only_and_shared_admission_race.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux02/pair/test_wake_sources_settings_and_bootstrap.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux02/pair/validation.json",
+      "field": ".serverSourceHashes",
+      "files": 555,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux03-close-sound/pair/test_autonomous_terminal_recovery_and_stale_callback.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux03-close-sound/pair/test_client_dropped_final_is_incomplete_without_log_paste.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux03-close-sound/pair/test_client_injected_gap_salvages_buffered_final.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux03-close-sound/pair/test_device_loss_drain_and_led_isolation.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux03-close-sound/pair/test_lost_finish_ack_retries_identical_without_second_effect.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux03-close-sound/pair/test_negative_admission.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux03-close-sound/pair/test_segments_overlap_interim_and_log_dedup.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux03-close-sound/pair/test_settings_atomicity_and_admin.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux03-close-sound/pair/test_wake_only_and_shared_admission_race.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux03-close-sound/pair/test_wake_sources_settings_and_bootstrap.json",
+      "field": ".server.sourceHashes",
+      "files": 46,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "ux03-close-sound/pair/validation.json",
+      "field": ".serverSourceHashes",
+      "files": 555,
+      "mismatches": [],
+      "result": "MATCH"
+    },
+    {
+      "record": "wake-retrigger-20261018/inspected-server-sources.json",
+      "field": ".sourceSha256",
+      "files": 4,
+      "mismatches": [],
+      "result": "MATCH"
+    }
+  ],
+  "historicalAdmissionGuardChecks": [
+    {
+      "record": "real-admission.json",
+      "historicalClientCommit": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+      "retainedCodeCommitWithExactRecordedHash": null,
+      "script": "scripts/qualify_v2_real.py",
+      "scriptSha256": "50a655b30a01394cafdd3f6c9492a85bd97c6cb6128598f93d0f28dd813f1c8e",
+      "result": "NOT_PROVEN"
+    },
+    {
+      "record": "real-audio-pipeline.json",
+      "historicalClientCommit": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+      "retainedCodeCommitWithExactRecordedHash": "d5c621fb2ab5bb255d3e6095583e903ebbbd20d3",
+      "script": "scripts/check_v2_real_audio.py",
+      "scriptSha256": "70da2d1fda19e4e0ff94776220154c50c59f1b73dc1320568a54cba87c3e047c",
+      "result": "CONFIRMED_BY_HASHED_ADMISSION_GUARD"
+    },
+    {
+      "record": "recovery-audit/native/real-admission.json",
+      "historicalClientCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "retainedCodeCommitWithExactRecordedHash": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "script": "scripts/qualify_v2_real.py",
+      "scriptSha256": "4a990c4e2cce65997d7b3abdfc99592d97cfc186b897d175c1e88bbf76867aeb",
+      "result": "NOT_PROVEN"
+    },
+    {
+      "record": "recovery-audit/native/real-audio-pipeline.json",
+      "historicalClientCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "retainedCodeCommitWithExactRecordedHash": "d5c621fb2ab5bb255d3e6095583e903ebbbd20d3",
+      "script": "scripts/check_v2_real_audio.py",
+      "scriptSha256": "70da2d1fda19e4e0ff94776220154c50c59f1b73dc1320568a54cba87c3e047c",
+      "result": "CONFIRMED_BY_HASHED_ADMISSION_GUARD"
+    },
+    {
+      "record": "recovery-audit/real-recovery.json",
+      "historicalClientCommit": "1783c939f4441bd388c07b11d7cf894825b6deb9",
+      "retainedCodeCommitWithExactRecordedHash": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "script": "scripts/check_v2_recovery.py",
+      "scriptSha256": "ae1db1dd47fdee3a593f4b8fc392c886935adf6aecddc1c18d85b319875563c3",
+      "result": "CONFIRMED_BY_HASHED_ADMISSION_GUARD"
+    },
+    {
+      "record": "ux01/real-recovery.json",
+      "historicalClientCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+      "retainedCodeCommitWithExactRecordedHash": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "script": "scripts/check_v2_recovery.py",
+      "scriptSha256": "ae1db1dd47fdee3a593f4b8fc392c886935adf6aecddc1c18d85b319875563c3",
+      "result": "NOT_PROVEN"
+    },
+    {
+      "record": "ux02/real-recovery.json",
+      "historicalClientCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+      "retainedCodeCommitWithExactRecordedHash": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "script": "scripts/check_v2_recovery.py",
+      "scriptSha256": "ae1db1dd47fdee3a593f4b8fc392c886935adf6aecddc1c18d85b319875563c3",
+      "result": "NOT_PROVEN"
+    }
+  ],
+  "records": [
+    {
+      "record": "baseline-client.json",
+      "sha256": "d4c6fde93136b16cf53a5e98e9127272dc02a4aff22c4c70d3801df9c89b1079",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "build-equivalence.json",
+      "sha256": "05baa89c93cdfc7426a804576febe7d42cc7b39d3b977fadc1f040a3312190d0",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "clickable-starter-20261018/client-full.json",
+      "sha256": "cdb13170f6a6e4218e578e12bd667ad05d0786d47ef908a9bf30803324e52b03",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "clickable-starter-20261018/launcher-checks.json",
+      "sha256": "d9b05bc5e0c98d0e575a2d2bd7592142c7f1e91eae7abed054aec847f45b3e49",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "clickable-starter-20261018/managed-bootstrap-retry.json",
+      "sha256": "abed14ad5bc67d7d0e3f3fb49e1e5478670f7c7a5c483a0a22dd0bb9c45a44d0",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "clickable-starter-20261018/summary.json",
+      "sha256": "5c437e19685987549bd7433cf487b58f707e0831d7e633a79e0a1c8f9580b38b",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "client-full.json",
+      "sha256": "2f226e2a2639d472b27be249cd6b0eb10203b4e739468c61a3f1bbaa480385be",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "compileall.json",
+      "sha256": "06be0d5fe1bffb7ced3ece769774a8f5bdc9ce088f0c7cc696bab0ebf050b1af",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "cross-process.json",
+      "sha256": "13a3995686ecd0f0328e49568f0fc8e9e516d7bf6486663da7723057f35d8729",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "desktop-identity.json",
+      "sha256": "db903f960944ac31cee35c07c4ad7f8ab0c2641e39d6be66f26646b16d4237c6",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "desktop-smoke.json",
+      "sha256": "f4f1cab81e97d0adeb8133a9aec005034d83a9887e42ff2833a005c2474e6bbb",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "diff-check.json",
+      "sha256": "9f66ccf3af70ff1400bbab4e02c11f85f01912a8a0a65e9d36cd072773d8bb70",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "frozen-probe-exact.json",
+      "sha256": "474d49d81536fe1fe6c6f8dbb4bfbd832328a610265c0e1ae07a4c064b7d2e69",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "frozen-real-server-probe.json",
+      "sha256": "d3e13c446b9ac967012ec0da6b44363a6fddd9bfdd9e655b2aaa7e50d0b0668e",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "frozen-runtime.json",
+      "sha256": "f5235f28847872db6ed0e024c5026552653c54b925643fb345ecd215e0f4c355",
+      "identityAssessment": "SERVER_REPORTED_PIN_RECORDED",
+      "serverCommitFields": [
+        {
+          "field": ".network.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".desktop.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/append-space-preview.json",
+      "sha256": "b5d300384ef314617892de615a48d867833fc92434d602a1bfddc6b9561b10d4",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/append-space-red.json",
+      "sha256": "189216aaff6f518879186ab1814263933f4700b74776a82d56646e274cda200b",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/calibrated-profiles.json",
+      "sha256": "12b85ef92892681f761f2d083a5d4a2c4bd113902f48937850e6b0ca53a3c67b",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/feedback-calibration-20261016-01.json",
+      "sha256": "50f6bd8585b3001e632128ea184016b5a70b305471fbc5629d99176551879027",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/free-exploration-20261016-01.json",
+      "sha256": "d93946f5eb4d5b091378d366a61828e0d55ac4c39467ab536e17b42d05764249",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/guided-wake-320-human-feedback.json",
+      "sha256": "d4618bbc0dbc0939b6eb1b3c2b49b33b06d689d983503cfba07175733f72aa4b",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/guided-wake-320.json",
+      "sha256": "b52505f6bc72f4e7bc08f4ebb9ba5c67f01b466f2346ab5d0ffdaaa32afba1d2",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/host-memory-constraint.json",
+      "sha256": "d3a5513ce74da62d60e53913b1fca9b2c725ad465406753db648f2e8ebc9e9d1",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/live-wake-320.json",
+      "sha256": "e94f515ec951451e058055df74eece3998542b99b76e13bd3d43efa97478b1b6",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/manual-followup-3000.json",
+      "sha256": "81188e1fc3528b75a79c91b65880f0db340332cf9d0b9e1061523e8b0599fba5",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/manual-followup-5000-configuration.json",
+      "sha256": "95b004cea661e77f131d1cad8f727c97bce45512243fd0b5b641be47e66f1007",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/manual-followup-5000.json",
+      "sha256": "843d70792e78fb7a780c3e7a7494e0e40c6400bf82c8ba4269ac8dabd36f1737",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/native-editor-probe.json",
+      "sha256": "42114d4300157d2168d7f4e141e81da09b703337e7bb6da5b286f1a5ba9ae3b7",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/sample-index.json",
+      "sha256": "e39de9ac38e7b52594bf822874414cd219dd6ca433cba657ca5d25b8fdf5bc62",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/samples/alexa_direct.json",
+      "sha256": "5980dbbd3568fc1c4c657e5e3598d0efb80d1400b67b6c780de10d23119aac44",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/samples/alexa_pause.json",
+      "sha256": "41eeed4bfc799d111789fbd612b8a35ef7685852fc260e1bfe4d3c7bff2a1323",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/samples/jarvis_direct.json",
+      "sha256": "37a021a01582c548df859b359af063163d427f68fe78ee54cbce6027423dcfa7",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/samples/jarvis_pause.json",
+      "sha256": "c31bec7c5d64640d0627f7853700af58cf8de7329a069fcc1d623e7cabd4afe9",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/samples/manifest.json",
+      "sha256": "fc112283fa27c954f8c93f1d03fafd8fb7d0cf90733174ef5b077bd6c65e4e22",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/samples/negative_speech.json",
+      "sha256": "24555e4a987e94a7b31b576fbc218c32d2fd6f0afd1911945294285aec7107f5",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/samples/unselected_phrase.json",
+      "sha256": "42c3395cfad2f0ad105402193d249b32ff5f21cdb55487d6cd9df7f6c5d49a33",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/script-manifest.json",
+      "sha256": "8f1fc5952d58bb017114396d5b924133526ab4e8ea07f0d0cbf67cd19f612964",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/ux-findings.json",
+      "sha256": "0819eedf5320866c1317296192b196ec1c41cda444b16daaaeaa94ebb3d9a531",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/ux01-current-product-baseline.json",
+      "sha256": "a778ffaceb5881b21ee5c0c0540eafb6c66e05cbf00ebea737f06c2bbf27a2ab",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/ux01-permanent-red-corrected.json",
+      "sha256": "68d884f55b212fb510527a9d663202fb2c435f98c65ee4aceb3f85654c74f669",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/ux01-permanent-red.json",
+      "sha256": "60c0e021682c1dde108d5d64556a5b2200bf1ebd4b00f67c894bf975ce9b131a",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/ux01-targeted-green-final.json",
+      "sha256": "3d8956c4b863ecf5324e9292b664ba7eff45b79a0ee9902e72099b06d86d6556",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/ux01-targeted-green.json",
+      "sha256": "b08330b54db2fd0b46cc42322388cc75623eca80d223c178e54b5cca802bd725",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/ux01-v2-results-baseline.json",
+      "sha256": "4628051871d43a40e77ed382538faa0728622bf828df81ae67df2c58fd95a06f",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/wake-first-live.json",
+      "sha256": "45ade5889828369509774c851cf2c81c96867fc99819c6eb077d2f9961350b06",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/wake-replay-calibration.json",
+      "sha256": "597e5157ae7d7ced9db0ba8e2c040ac99edf32b7e3b3dc576b9d0b34a29c3e33",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "human/wake-scores-summary.json",
+      "sha256": "2f17abc7fb0bd39f5ef8d60e4b3594e2c06572701ca4c085bbe469c1a1671e92",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "launcher-context-20261018/assessment.json",
+      "sha256": "cbea53c511b6360fdbc460da6939db36704a1844cf3a635d409e5765228f4ccf",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "launcher-context-20261018/probe.json",
+      "sha256": "b31c02f23da875eab0aea197ff4eded4f47df0677feb07fc86f72fdab90b8b19",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "led-white-variant/applied.json",
+      "sha256": "0bf80de8855c93d72209ec13f656b2fe0ffbcdd63d020a7d35211eb54b4f4048",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "led-white-variant/check.json",
+      "sha256": "f16681dd93f606fdcf037d71279f7f682a7c10308a8a9a724430cb1375bc18e2",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "led-white-variant/feedback-regression.json",
+      "sha256": "425c7eec6c13d069309fbd75c4242bf397346e03b7bf919640d7aa91b0c29ab3",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "led-white-variant/native-ready.json",
+      "sha256": "e19da75b1d1fd1d90d5f44486df0b009c321e2f00fe65507d619fbbeba2bd0fc",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "local-server-build.json",
+      "sha256": "401403c7ee5224aff25c456c6c0a2284e9018acd4467a87152eb6569c1bf19cb",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "model-identities.json",
+      "sha256": "6a5bccfbecf6e5cad67408136e96c5eab434389ca20f86d290d0b0358c1e6835",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "native-hotkeys.json",
+      "sha256": "38a3dccff850b12495346245b75f3c5b2472c62c236650d6f287863e30ae43e7",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "native-led-mute.json",
+      "sha256": "3bff2972d32bec92ae61a850d7a73f70f761c4af8b777cc9c10aac3518f10f0c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "native-paste-attempt.json",
+      "sha256": "ed96968488fc0d762446e55360f4cf3334a0fd1b552ce6db67d7ddfb1b1f7943",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "native-paste.json",
+      "sha256": "86531a35c75b937617f64472b8346b1eb79a9465189b6084594886becf98334d",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "native-preflight.json",
+      "sha256": "609a9e98ca56c069db81b816df214ac4939c7d693be8b3bd6101383306121e50",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "native-settings-ui.json",
+      "sha256": "f2d973a2e203ed6303118629560761f61c691d0ae0b5d0f5198a46d1295874ae",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "parameter-inventory.json",
+      "sha256": "b30103a1136ba750556c826824d5b1cb9178f7aaeb542afaccf06b1f5044630d",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "real-admission.json",
+      "sha256": "230677c555c1df4de46cada2ab6c82d7499a98d19e3293f83ddd85e17b8f98b9",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "real-audio-pipeline.json",
+      "sha256": "9e7c6e81a67b8fb29daf567f9c3f91d2193df792ee918abd57cf53d6f416e304",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "real-cases.json",
+      "sha256": "4163f5147cd7ad438698f90744400fb3a98e6355194fca642262d14317b4cfe4",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".cases[0].serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".cases[1].serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".cases[6].serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".cases[6].attempts[0].serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "real-golden-asr-stable.json",
+      "sha256": "c45550c4e292fd8a9daa1e9de720139cb9d8ff0cfdd494334a5328cd725a7631",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0,
+      "qualificationUseOverride": "INVALID_SERVER_RUNTIME_IDENTITY_NOT_PROVEN",
+      "qualificationOverrideReason": "Predates source-exact verified build. Earlier image/source variant is not retroactively covered by later 555-blob runtime verification."
+    },
+    {
+      "record": "real-golden-asr.json",
+      "sha256": "6977ccb3c80b2db969d9269edad24afa23d9493977b1e3839479f3809153e020",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0,
+      "qualificationUseOverride": "INVALID_SERVER_RUNTIME_IDENTITY_NOT_PROVEN",
+      "qualificationOverrideReason": "Predates source-exact verified build. Earlier image/source variant is not retroactively covered by later 555-blob runtime verification."
+    },
+    {
+      "record": "real-golden-exact.json",
+      "sha256": "cc3ca3425e91333fc2fc3d4bd6f5036f51af8672b78c79f6c0ad779da15a6571",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "real-server-inventory.json",
+      "sha256": "3407066e7f0e95c864c3fbf4b1cc04aad810b45c27fd485422c2a45a6990dfd3",
+      "identityAssessment": "SERVER_REPORTED_PIN_RECORDED",
+      "serverCommitFields": [
+        {
+          "field": ".schema.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".serverDefaults.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "real-wake-artifacts.json",
+      "sha256": "f6829026d037bada83fd5d50af13f41151dbb27f9143df03b66c7c4ed88d5908",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0,
+      "qualificationUseOverride": "INVALID_SERVER_RUNTIME_IDENTITY_NOT_PROVEN",
+      "qualificationOverrideReason": "Predates source-exact verified build. Earlier image/source variant is not retroactively covered by later 555-blob runtime verification."
+    },
+    {
+      "record": "real-wake-negative.json",
+      "sha256": "7ebc618a7d32a0bc99899fa40cddd52b3f157c1e367bd0c0ae35371d31f6fe0d",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0,
+      "qualificationUseOverride": "INVALID_SERVER_RUNTIME_IDENTITY_NOT_PROVEN",
+      "qualificationOverrideReason": "Predates source-exact verified build. Earlier image/source variant is not retroactively covered by later 555-blob runtime verification."
+    },
+    {
+      "record": "real-wake-resources.json",
+      "sha256": "d2c7eacefde96b4402ea27d0b8a3b86880d05a5ac7928d1de400cc9d5a2a0aef",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0,
+      "qualificationUseOverride": "INVALID_SERVER_RUNTIME_IDENTITY_NOT_PROVEN",
+      "qualificationOverrideReason": "Predates source-exact verified build. Earlier image/source variant is not retroactively covered by later 555-blob runtime verification."
+    },
+    {
+      "record": "real-watchdog-run.json",
+      "sha256": "d494a6fd90127a2141697d9addbcd01b539ca9537f1cdd2a4b480aefff59752f",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "real-watchdog.json",
+      "sha256": "8f28359ae4bbaee8f1bb9c8e6e337031ab052282f2f088b12671f6509b6851f5",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/baseline-recovery.json",
+      "sha256": "7803610599cf9dd7f833d1031ae44ab8cb9c8e63c9cd77881abd89b1a3221d4d",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/build/artifacts.json",
+      "sha256": "3129801a9f491c39346132cb03a2182deaf33aa8a48182450e020fa42520fe68",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/build/contaminated-build.json",
+      "sha256": "fbf8378bb2c50497d3279f0457f5371c62ecdbdaaeda76791370f8aada2943af",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/build/distributions-serialized.json",
+      "sha256": "cd56fbc25664031d4593d26ac8cdf3de5e330d9edc1c56f96ca045ed072f0528",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/build/distributions.json",
+      "sha256": "45ab91cea06d376c6ac9a610896a4062ef797ceef92c017361c43aee8f723410",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/build/frozen-native-real-server.json",
+      "sha256": "c5dcfb0c8c7dc90a7d548472710644cfdb59b3c24b5a62abfbf580c221bdd53e",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/build/frozen-native-runtime.json",
+      "sha256": "2bc57518df432903f15f0ec136045cf4ca8162c052a91094fb164118b5f38062",
+      "identityAssessment": "SERVER_REPORTED_PIN_RECORDED",
+      "serverCommitFields": [
+        {
+          "field": ".network.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".desktop.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/build/frozen-version-retry.json",
+      "sha256": "9d66c53c8446bb05c3393285d85bfea3222f0f5ab7810743fa263af666c15ff3",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/build/install-wheel-build-dependency.json",
+      "sha256": "f31ca91222445537523b0045c6096138354ba4c75f7249ee1e8b6e71904f40de",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/build/pyinstaller-serialized.json",
+      "sha256": "c16e9ce0ab80f2a8d7c4fcf462d6ce3a2c8e8d1dff82565a2c3615165c77b5aa",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/build/pyinstaller.json",
+      "sha256": "0948d6d42d039657d82e67fc796f8c4d25a52245ce962125b64cc55dabc9555b",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/build/release-guard.json",
+      "sha256": "9fbe672bde87f63c954bb59cd30381bce13411c818df40ef4e1ad2ab4d890784",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/build/twine-check.json",
+      "sha256": "a968f03145cd4c1d6555eb91afce3aaa9d5064b29239ae01c1fe13f6f2a7f604",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/client-environment-final.json",
+      "sha256": "8afe37e17e9129f380c3d0e2c7a8acdceaa077ad39d8f493e66ad83edc689a13",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/client-full-final-environment.json",
+      "sha256": "3b70773da0d3fa84f8d940b99748036430e6228205f2e944af07a9465f9b8713",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/findings.json",
+      "sha256": "db76be3946c631e17132e13c9452061fac0ee4587820d9f604469f7fffcace2a",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/green-audit-findings.json",
+      "sha256": "8391bcb46041b8376bf7dd7f52986f9f614077581a4f3b17c56e8f6466518670",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/green-findings-first-fix.json",
+      "sha256": "4125c8218fd310769af4b80f21dc417ea4263bc4a7a42008f1dfc4cc1437473e",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/green-findings-stable-deadlines.json",
+      "sha256": "3428ee7401564c933d67e099f4e5c3c7d9d43c03a1713a3cd509820bbe439cc2",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/desktop-identity.json",
+      "sha256": "e1572e94e4bb0f00f7ef78ddfb5f711def617b2f767a2fec04f37d4655de675d",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/desktop-restart.json",
+      "sha256": "772a20be21b9e95757e5c5332e3fe231ddd8ffb2b7e72f52c2d8a05ec1bdb73c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/desktop-smoke.json",
+      "sha256": "61854eb8fecf6ae8f19fc367f1c5201b3dc60e636726e42d3f6bc354358dd78b",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/parameter-inventory.json",
+      "sha256": "91f425dbb813e9e7b46328adbe020adab2e662799e55f55c1567e7f85529f428",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/real-admission.json",
+      "sha256": "35cc02aae5dcdec26e9929de49ac153c08b0149a071d1b60e0139030c32791e3",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/real-asr-pipeline.json",
+      "sha256": "066cc15bbfb64f1c2ab0aeb7e29b10d013a099728ba21acdc742aa94c49d173a",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/real-audio-pipeline.json",
+      "sha256": "0b1a72834fa09a60216678249c7270144e8502884ff3fa4ae6e5cf7984711c95",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/real-golden.json",
+      "sha256": "d690dcea5e4da597a3422d4536ab94e0c1c5f13ea573159f488d57162c1d9e58",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/real-parameters.json",
+      "sha256": "962aee675eaffe048fb8a191aa98edc7b6b9f1ebd14641feca7535ba2ed7d994",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/real-server-inventory.json",
+      "sha256": "8fc95264ab2f23f422dae9112a3b1cf2546a09f971013e70cab489f32af3ac8b",
+      "identityAssessment": "SERVER_REPORTED_PIN_RECORDED",
+      "serverCommitFields": [
+        {
+          "field": ".schema.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".serverDefaults.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/real-server.json",
+      "sha256": "87b66ae95db80fbdd39f9b2cc4f531f8a75a09407666627d7bb60a8e27a2a9c5",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/windows-hotkeys.json",
+      "sha256": "d7cd4bc7513812a62265d5c120ccf251f30a92190113d7ab10fba38842a01e92",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/native/windows-settings.json",
+      "sha256": "d27a28d794b0bbabcc3b61e071d55a9eea9b18ddcf5cbb5753e9e18492bb3be3",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/pair/test_autonomous_terminal_recovery_and_stale_callback.json",
+      "sha256": "d197f58e668bea073724de76bbe5360465d9bbb4d5e1bed40ac944abe2b89cc2",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 13
+    },
+    {
+      "record": "recovery-audit/pair/test_client_dropped_final_is_incomplete_without_log_paste.json",
+      "sha256": "67933f90d52cfc85877b46c2c00f292074a4224e6719407bd3cc2cf5f9787226",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "recovery-audit/pair/test_client_injected_gap_salvages_buffered_final.json",
+      "sha256": "175a349e4de52dff287b41421d0e7a29401917dee6106c44e07f1ce814aba761",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "recovery-audit/pair/test_device_loss_drain_and_led_isolation.json",
+      "sha256": "b29f41accb230824465dc4200999eb3f9d93515872ab606228407a37beb7498b",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 12
+    },
+    {
+      "record": "recovery-audit/pair/test_lost_finish_ack_retries_identical_without_second_effect.json",
+      "sha256": "3225eb53efe735ca9e1a99ac0963be9ca44c538721798efca9235b66eeccb33c",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 7
+    },
+    {
+      "record": "recovery-audit/pair/test_negative_admission.json",
+      "sha256": "fc26d2a382a2d4f02f02d6d5232631072b671c35b38b3fac6f8d1af84d669806",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 3
+    },
+    {
+      "record": "recovery-audit/pair/test_segments_overlap_interim_and_log_dedup.json",
+      "sha256": "0018eb7d9b5cc2161978b0f6ec283be962837bb5e7810c1692299ff1f1ea84be",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 10
+    },
+    {
+      "record": "recovery-audit/pair/test_settings_atomicity_and_admin.json",
+      "sha256": "a01396e30f5b4ad0bfb608fb8e48ff2f2a943943101a4dc34d1672378efb1505",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "recovery-audit/pair/test_wake_only_and_shared_admission_race.json",
+      "sha256": "18c5447043ccaa6f4d57efe4543e91bfc6a59f94f5e46274730eb31918913e76",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 13
+    },
+    {
+      "record": "recovery-audit/pair/test_wake_sources_settings_and_bootstrap.json",
+      "sha256": "4464639be52c7706e1de4d732e4fb268c4a2fc45fdc1ea28cbfa25aee53e0a3e",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 41
+    },
+    {
+      "record": "recovery-audit/pair/validation.json",
+      "sha256": "86950e7ba8842f51fec58b850a8acd0f12420be62c390c112881a2909d8b610b",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/qualification-summary.json",
+      "sha256": "a9ba937f2ff74318c02c3f3f98f4028865f35f4ad714bc6a0e71b15b9f610da6",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/real-recovery-faults-restarts-2.json",
+      "sha256": "9b56945f825cbaab8f4baa6663c987a928a19cff43d919024738d057ea7b7c23",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/real-recovery-faults-restarts.json",
+      "sha256": "c054a3e29b9146a540c0abf808f92a6be31315d0a6c216f5fc4ce7d5973ef4e0",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/real-recovery-final.json",
+      "sha256": "d3b646fd87dcd34d3d4b62dcc31eca29414561140137508e91b2fdab2820ad29",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/real-recovery-trace-attempt-2.json",
+      "sha256": "10e70e2b6961379924513b93069b012e226df9db488159965d4aa5e0b5dc5484",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/real-recovery-trace.json",
+      "sha256": "2d2430f7eb756458ec9486cf79c347afc972ffb900be15c69e93416d2217fe77",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/real-recovery.json",
+      "sha256": "a8ec053ab0209dd698567ed0d8f206efba154bb0ef6df5336342ff94a2b6a3e9",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/real-watchdog-media-stall.json",
+      "sha256": "c5d8f6d59e6e82908fed2c9a022ac8197f845baf581c23855c479550d576975a",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/real-watchdog-stalled-media.json",
+      "sha256": "8b367b6654d3459ee895f2217135a526332b599da3f8e9417ee0951e497d35a5",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/red-additional-io-device-shutdown.json",
+      "sha256": "e8838e2eccd04b7f25570b4e3783f5656468e1ee923da9e1f2b1e9228e979d7c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/red-findings-before-fix.json",
+      "sha256": "a49ed6848e8d7d15e9b0a0199638b7d2f59943af4e0586571650056f06749548",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/red-internal-error-owned-shutdown.json",
+      "sha256": "0330e06f4bdb094667861c02b9f23e827b9b8a978781a0a9804e66dddf8edfa7",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/red-overlapping-native-owners-valid-repro.json",
+      "sha256": "da404609f6ba6e7c65a0ee59b28c5d22965d6d5d2857b1bb08aa501394201339",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/red-overlapping-native-owners.json",
+      "sha256": "807a7f8a6504025c632108b743b0cbb3d7c8b7f78061e6b9f2943d0d3cbaf6f3",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/red-tls-websocket-control.json",
+      "sha256": "19dea5b03aca2a238db371feb7ac1e4e8f77ce495fc6fd7ef00b2f0a2da0bb22",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/targeted-final-recovery.json",
+      "sha256": "e0c3cfc5ff6a0079b24bc3a344375554fe65af27635252a182b0fc6643689211",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/targeted-recovery-after-fixes-2.json",
+      "sha256": "779d74682abc60cd644f6b8bf9ca5f69603968481c088fa34e08307ae793ba7a",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/targeted-recovery-after-fixes.json",
+      "sha256": "bcb802ab07c90ade137505a323808b2d2b83bc3260737a438285b8f11fd1df82",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/test-editor-helper-final-precheck.json",
+      "sha256": "c8225dca698284b3e3aa7565805446a08929a496d5441429ced726508ab9fa21",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "recovery-audit/test-editor-helper-precheck.json",
+      "sha256": "795fa943212ca8d9a5608d14f2d3a9c3ce93bb937012da8a9e634a5165428b7c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "redaction-check.json",
+      "sha256": "c915b8d1ec801e49a03c1ddb8a0414236928d0021b3bfe61bbc84ad931904eca",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "repro-transient-preflight.json",
+      "sha256": "3240b2e7fd5941c8da073deb89982342ff76905d08492c5c3d275b3f1f9f33b6",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "restart-repro-identity.json",
+      "sha256": "45baedca9a4836f9b639d630a6be897f3e362366b06c92fcadb2ece4271c57a6",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "restart-repro-smoke.json",
+      "sha256": "e3f32462babf59f1f748d00c9da26830d4606f9d86e2ac8c45c5a7ae4a428581",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "server-removal-20261018/removed-resources.json",
+      "sha256": "bfbcd93bf047d7d81d693f44abd02f21ed461300c59977691484f6a7fae4e075",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "server-removal-20261018/retired-launcher.json",
+      "sha256": "1d56bade5f730a41818edcabeb335f1926ac28ec3c13d8ca57e93ac5c08fdaf4",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "settings-navigation/existing-local-surface-regression.json",
+      "sha256": "af654a206e2aba1574c45be1164d890c66cdaea48e6ac1b0401a05cbcb147b28",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "settings-navigation/managed-bootstrap-final-regression.json",
+      "sha256": "dc2bd3ba770f1f5931d4ea7127f10a42fc9267394fd914c7d12ffadae1e97a42",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "settings-navigation/managed-exploration-compile.json",
+      "sha256": "a3a571a8d03096651d1416290fece9716fd694c51dae4ee3348fb8db3963282c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "settings-navigation/managed-exploration-final-check.json",
+      "sha256": "3cbf9ef35d2ec99e3ee4754a0311f00127bd6da9238bac13983a4140b70845ad",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "settings-navigation/managed-exploration-wiring.json",
+      "sha256": "73c631accf2f45593ad49518c421ac0561a4f697626a4bad5d722903bd68fcb2",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "settings-navigation/navigation-workfile-validation.json",
+      "sha256": "81a958bf23db562337649de0577ef2809d5f0c1bef08a123a85bd6fdd1f45b72",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "settings-navigation/qt-settings-navigation.json",
+      "sha256": "91aa743d55e6983d3965ef49e88907915aeea36892be6fcf19d4ad4b21a9a54c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "settings-navigation/summary.json",
+      "sha256": "e6bdd8a8b3698f0bd1fa0613c48400755a7c5837e8f950275a0dd2f09d5eb496",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "source-consistency.json",
+      "sha256": "3bcde8cdfb8c188e7260ab0aa1966ec2c5a7589ed2b58596e27f6d8e9b19c0bc",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "start-provenance.json",
+      "sha256": "a8ebaa5b282e66519286fefb96272090608661815e5590c0fb1cec2ed18001a0",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "submission.json",
+      "sha256": "df8bd04f7dac7c5ec78c93bfa0327ba2f531ff49b38d80a89f32b2a419bd84e5",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "superseded-client-full.json",
+      "sha256": "960e99f6eef24025a285b9d465270cd7c97dbbe58a39d4337cd351cdb46e3865",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "test_autonomous_terminal_recovery_and_stale_callback.json",
+      "sha256": "6a2a73e8ad85c838e3e16ce6ed11f90c6a642422c2e3481306064886f709a8b7",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 13
+    },
+    {
+      "record": "test_client_dropped_final_is_incomplete_without_log_paste.json",
+      "sha256": "30e1ee66db66e3bdf99fc6843790d2b99f612700de467f41911a902f86671da2",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "test_client_injected_gap_salvages_buffered_final.json",
+      "sha256": "13d855d1d3d1ad8beb6e0368e85b6708c7f50f86da6106c489b26878a4f3c753",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "test_device_loss_drain_and_led_isolation.json",
+      "sha256": "c6c7f874b60356b6b8ea30dc3d82dc199a3956aa10f029805112e096b3a966a4",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 12
+    },
+    {
+      "record": "test_lost_finish_ack_retries_identical_without_second_effect.json",
+      "sha256": "3683ae8b4063a5a3c57d059c7f768f7d642547365b8b79f2bb592d70aa1bf10e",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 7
+    },
+    {
+      "record": "test_negative_admission.json",
+      "sha256": "790cf68299f28b97b2436ede81ef0704700e881aaff03fa9021a9c32e784675a",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 3
+    },
+    {
+      "record": "test_segments_overlap_interim_and_log_dedup.json",
+      "sha256": "7305fe82a28c56d14a13ab3cd24b64914a2c01e0985e8d71d1e44283cb08b054",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 10
+    },
+    {
+      "record": "test_settings_atomicity_and_admin.json",
+      "sha256": "ad64c1de5c24eb148ecd7569afd6dfe75baf758b1bbc53787f99f08fb51b1d62",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "test_wake_only_and_shared_admission_race.json",
+      "sha256": "213be5cd01c6c82ca71caa5a3f41ffca40357e4a9dc3b905869eb8843bab326f",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 13
+    },
+    {
+      "record": "test_wake_sources_settings_and_bootstrap.json",
+      "sha256": "60b73a435cce4d3f2970405dd39f77489dc5faa72e7cb39e613667ba6505df35",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 41
+    },
+    {
+      "record": "tv-wake-finish-20261018/feedback-controls-regression.json",
+      "sha256": "a045ad0947d977f52daed2481b8cbbedd812735129007e48e9b2ba88c499fdc8",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "tv-wake-finish-20261018/live-analysis.json",
+      "sha256": "f8795ec165422d8888cb473b295d925166f910b3e9162f959c02fc285ce204d4",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/alexa-pause-differential.json",
+      "sha256": "d9422e9611bd3aa76c0c725cd986d9e96a2633dd762b006f944b11d1048a3ff8",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/append-space-green.json",
+      "sha256": "940551bf774da807fab1cd602b7fec3b9cab8d5e8e78d58201cc5094f2bd6c16",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/build/artifacts.json",
+      "sha256": "1512ca42ffc42e7357631821a74dfbcd347393d01df88c8be5230e87f196d4e4",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/build/distributions.json",
+      "sha256": "6eafdcaff1cab55a72218dafdc2c3243f3e44072c09acccd289fa3ea2d411330",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/build/pyinstaller.json",
+      "sha256": "ac7f950c24f9107cc9599b3a75285261643b8babcb133833e167c84a12f900b6",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/build/release-guard.json",
+      "sha256": "a895d1a35eeb9da328d79b5800791b3505d9592e312252381ac1711c1503e902",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/config-roundtrip.json",
+      "sha256": "ac83f9cb9f51b051e6dae9cacab008b1113ca46d612e5684172af2cdbaecc10d",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/editor-diagnostic-live-validation.json",
+      "sha256": "766de39d7ec306b266385647568752919ac0dbe8094687c5fe0b582c2393360e",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/editor-diagnostic-reader-regression.json",
+      "sha256": "837e98cd0e1c1cfa7e38d915236100c53bbe4cfc189c637ffca95168a45509dd",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/editor-read-finding.json",
+      "sha256": "03971a208e47a91177f5ee36a0939354cb8555e86b1ae6075604f990328a84f7",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/final-record-checks.json",
+      "sha256": "21d3f7c0dc2b746143a57b50d4da8ba6e68bf3d61230d112f52f5e77cba551f8",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/frozen-native-real-server.json",
+      "sha256": "539acdb70c3e20618f43f6a11c16a2198022cbeee377703d0a940547e7805606",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/frozen-native-runtime.json",
+      "sha256": "1cf6afe673fecca4c8eade3ec20cf2900b9b6f04c4afb113dc358f60d2e5e79d",
+      "identityAssessment": "SERVER_REPORTED_PIN_RECORDED",
+      "serverCommitFields": [
+        {
+          "field": ".network.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".desktop.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/guided-output-start-attempt2.json",
+      "sha256": "28adffc846e73a7606fe5c401a778b401c59b98496bc658a7391855cb52feef6",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/hotkey-task-precheck/exact-test-key-availability.json",
+      "sha256": "5e0358148c3f7cd99e0bf762cf97ca1e17c58c7fbdc681cbd8dd8034904bb0df",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/hotkey-task-precheck/final-helper-compile.json",
+      "sha256": "f8102a8c1bde3e5e76e51e3fd36a15e360aeab945a7dd0dc0f146cf9630970d5",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/hotkey-task-precheck/final-observer-manual-cli.json",
+      "sha256": "3169751636d7c641ed3c2140729a778e96900e04592c3ee35eafabc6b3b3692c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/hotkey-task-precheck/helper-compile.json",
+      "sha256": "5f5dbc29c191b65fbea02e5d518db3c34d8311fa771615692d05ae3e841fc4d0",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/hotkey-task-precheck/helper-regression.json",
+      "sha256": "c0279dd40ad2126bd969aa7439a3e76976cac9fa7dc8efc3455b129befc16188",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/hotkey-task-precheck/observer-manual-cli.json",
+      "sha256": "885637062ba0189407703e68bb923ecf59c605fbd6b02b99819d9eadccb0e807",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/hotkey-task-precheck/observer-wake-cli.json",
+      "sha256": "2a40e28abb8be3dffff95a6153c9ebebce2f9df8a542f7862b5111c6d2190cc8",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/hotkey-task-precheck/qt-start-controls.json",
+      "sha256": "832cd2595de49939d29039d76fb688dd59abb42200a3a7d727f7fc1a96ac4ed6",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/hotkey-task-precheck/summary.json",
+      "sha256": "d9220cfba58e991edb285ea68812f79c1e9f9a7e42ece06bede1868616841915",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/logstore-diskfull-run.json",
+      "sha256": "b0f3a78036099bfda8645fc4c605a489794121240f41484bdd05b08cbed8c04d",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/logstore-diskfull-trace.json",
+      "sha256": "f019acb7e27691a0c9ee7ccd67421e8a3a9c8d3e7897574ebbcadd4f95e4baf3",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/logstore-diskfull.json",
+      "sha256": "fd16680529f8fa53e678ee88772cc59ae12786d3c91c0919cc0b30639a4a93a6",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/manual-hotkey-20261016-01/assessment.json",
+      "sha256": "8f79331666dc0dc373b8248447473807eb50e25e6c191da81e11e593e24e8f71",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/manual-hotkey-20261016-01/manual-hotkey.json",
+      "sha256": "0ddbdd9107b54ed84213316f53608da3b7a13f9654294825808a6ad9f37e0f87",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/manual-hotkey-20261016-01/stepped-trial.json",
+      "sha256": "41a07a5823af9f0ba5e360323bd3b6c66556cad6b3e9e1132f7922b4027cf79f",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/manual-tool-permanent/all-manual-regressions-final.json",
+      "sha256": "477bf77c939de1e2723a88e34723fb4191cdd408dda684486118bc20418ace9c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/manual-tool-permanent/compile.json",
+      "sha256": "6e7fc85fd4ff27f32d41fa872e19f892e9e1b5fac0e533a31e3b40c43b987dfc",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/manual-tool-permanent/helper-regressions.json",
+      "sha256": "bdf8e10e3db37f3caa01be778ffa596469f8ec6eb661fe8a663bc650fa8d87c0",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/manual-tool-permanent/legacy-entry-regressions.json",
+      "sha256": "16c1c0ddcf9c664938ea98fd7be4fd6c951134c0d22235a863fb756a8d4edd68",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/manual-tool-permanent/observer-cli.json",
+      "sha256": "904db2c307bf8e76038ddef2f2e746593057f60676c6ad52971e566102993fa8",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/manual-tool-permanent/qt-font-preview.json",
+      "sha256": "85dbe6cc2bec5e166273921b38baa5287f4bd537b0c01e8ccdb15eb6079898c0",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/manual-tool-permanent/qt-step-countdown.json",
+      "sha256": "e2d29dbde0f583ed18aaec945acf717ab835b917080996bce02b4c1fe360f4d4",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/manual-tool-permanent/summary.json",
+      "sha256": "0d7996801aedef284c7c5d6ff56cddf41766dd7d9f6e74e728ddbea26d1af08e",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/manual-tool-permanent/windows-full.json",
+      "sha256": "7f16ecbe492e9193413ebe43d9ca46d9fc3b2cc4fa073218fed53f20d90db83f",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/modifier-finding/held-shift-red.json",
+      "sha256": "060ea8756dd1cc6aadc12ece2b2be6b864713ed8b5d813aaa34b200953b56125",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/native-desktop-restart.json",
+      "sha256": "f47c20b7d08315d6215babc303d1e4218fab5f5da7ee7212b8ee22eb8041185a",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/native-paste.json",
+      "sha256": "fbd96bd57275913ffdaa1456a7eb3153d01ae1e148ba55be6bebaf88f2945587",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/native-spaced-paste.json",
+      "sha256": "1fc19ce554ce3454ad81fa088fcadc510c270abd4bab24dc6f154d4e3f09a03a",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/pair/test_autonomous_terminal_recovery_and_stale_callback.json",
+      "sha256": "a45ea00f55b1b77793093101dbf872ba31ae71435e37f477683412374da253b2",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 13
+    },
+    {
+      "record": "ux01/pair/test_client_dropped_final_is_incomplete_without_log_paste.json",
+      "sha256": "0ee6e8bc6343dd8e1b05e98cc6fe531e0a53bba337ebe9b558ffff9d338f6f64",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "ux01/pair/test_client_injected_gap_salvages_buffered_final.json",
+      "sha256": "e0942c92d05754616d84133abee2db8abce3247225302e846f75b541764feb96",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "ux01/pair/test_device_loss_drain_and_led_isolation.json",
+      "sha256": "1c0f82c8455b9e48282ada6d8f7a9c5c85116acdc8f0f78b311c75a9f8f74363",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 12
+    },
+    {
+      "record": "ux01/pair/test_lost_finish_ack_retries_identical_without_second_effect.json",
+      "sha256": "5d717b7be0fc31d52a4f0b8c69f947eec57a84f6bbe82ad742a1708a907c570d",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 7
+    },
+    {
+      "record": "ux01/pair/test_negative_admission.json",
+      "sha256": "3878d97ac04facb32aca54e6385bf6f9cc1d2d164dfb4561d1e0c33ac5aeae9a",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 3
+    },
+    {
+      "record": "ux01/pair/test_segments_overlap_interim_and_log_dedup.json",
+      "sha256": "616137749e70bed0521330bbec0c702514970390bb190d0013e1242234deaa70",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 10
+    },
+    {
+      "record": "ux01/pair/test_settings_atomicity_and_admin.json",
+      "sha256": "81fba151a1e45e1345fee884614f37711ab82ed2a595115f79a6970e407aa9a1",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "ux01/pair/test_wake_only_and_shared_admission_race.json",
+      "sha256": "baffbeafe0730966ff2d58bb5b6208f5aa44bdd1e0a6881b40376c4223d799c0",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 13
+    },
+    {
+      "record": "ux01/pair/test_wake_sources_settings_and_bootstrap.json",
+      "sha256": "14e0e12ab17ab4419b9268a011bcd753be24fca5ebae4d2deaec155000ca1848",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 41
+    },
+    {
+      "record": "ux01/pair/validation.json",
+      "sha256": "2ed0730e53d70554ffcca59733d3e8b7e0f3a0812a1974470cf677ee53e29c01",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/qualification-summary.json",
+      "sha256": "4f276882fc8533178ef3121d99550b7d8d94eff1c6e9340a8cf2a6fe00d60605",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/real-recovery-trace.json",
+      "sha256": "a652f2b1038f643985abeeea7bd16ce8722f8d79e0c5eec7476a79bf3387cfe5",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/real-recovery.json",
+      "sha256": "ef4ee837c49421f6a60bc33678af82eeb7dedda36f12e72d3e8d92cd38645fde",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/real-wake-replay320.json",
+      "sha256": "d35b77b928a8b50a50d151a997f8ea3e806b229e46c2eebfa7fd93e11c93669e",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeat-01/guided-output-repeat01.json",
+      "sha256": "124e3d29fa3c52720f5a845102289bb053d9f5ec3cf76807bd3d72b8a5e44462",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeat-01/guided-output-trial.json",
+      "sha256": "a9f6bbb2c7c536a8943960d6b8ef1afaf479c92734bda2223108cb4431cdcb88",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeat-01/native-editor-spaced.json",
+      "sha256": "ae6cb42d0dc9648748719e1550ba1f0c0ae8116211bebbf7f1809e5e2ab40ade",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeat-01/native-product-binding.json",
+      "sha256": "6a9422d720515e6320fda4aabf1dd804cb2ee800f3ee23a9439cc37923e790ec",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeat-01/voice-attempt-assessment.json",
+      "sha256": "c891fe55b0e7ba88940bfccc130a89239e433e72d665124c6ab936030a029573",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeat-controls/all-helper-regressions.json",
+      "sha256": "3b75f23de8ba7dd83ce72a8970d49ce3936f9921879493dd0d1bfbbdc2d9f2de",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeat-controls/compile-helpers.json",
+      "sha256": "45261d46800b42cbaaa3d64843bb12edaf09b184c2273069b71fb98bd433c812",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeat-controls/observer-manual-cli.json",
+      "sha256": "273e2634116e4c7e7c45ccc3a5bbbf2c3e5bfc2487947e1bd67956a261d7332e",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeat-controls/qt-green-repeat-abort.json",
+      "sha256": "019b2256f7fb8f22bdf8d3393ab11497df9dd6f7acd5698ada18bf9def729afe",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeat-controls/summary.json",
+      "sha256": "0dfad104c337615d95380f7055c1012ab85fe1220437421be539f747d3e1d086",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeatable-manual-20261016-01/assessment.json",
+      "sha256": "253f4978fe03c80f788d0e83c3c4bd171ce24818cafef15e8ae1a8752df23365",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeatable-manual-20261016-01/repeatable-manual.json",
+      "sha256": "09e87c63546d3a027f51b6a6a0fe04b851fbae8f20c931d2bd7797ad6a813125",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/repeatable-manual-20261016-01/stepped-trial.json",
+      "sha256": "30a28a483f95eaab63791435aa999bc4597c27e1d211433c6f1c3df434efe1bb",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/stepped-20261016-01/assessment.json",
+      "sha256": "1af0469e7dcd1c281267fc59c640edf749e1350fe4f9e8caa7812cf8372c2633",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/stepped-20261016-01/stepped-trial.json",
+      "sha256": "c56183a7a56a4dc55ef265e821ac8d033a318ddb65ddb10e2e241bc776a1ae5d",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/stepped-20261016-01/stepped-wake.json",
+      "sha256": "c6665f4df5683e87ee9169d3272efcfbb53ee1d9d6777672aa63a78aa13f8e33",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/task-start-controls/gate-regression.json",
+      "sha256": "2c811461b4254258d8a43ef179114b39d5e598341083ce5645e8f600de5c08fe",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/task-start-controls/observer-allowlist.json",
+      "sha256": "ae0c5beeac2954663174dbf77c8d4ab0306ada5ed07a030032e30fbc2cfbd8ee",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/task-start-controls/qt-editor-controls.json",
+      "sha256": "c1dbff7b7a5870f69e368e8f4eee72d2406192c8b1270155300846b4e232ff0f",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/task-start-controls/single-task-cli.json",
+      "sha256": "ce1075b6afdffb5c7fa32a2bbdeb03d4eb3680d59230d5a33881150937433bf2",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/task-start-controls/summary.json",
+      "sha256": "ad19543887cabe72700c6e7844a7ef9bdd668648504faf21b63c70aa245bae76",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/twine.json",
+      "sha256": "56ab0171b782ca239bb098965d9327afb8571b3d9a0a58267af398f693d5a925",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/voice-ready-gate-check.json",
+      "sha256": "a0c36b2f59e067ce1a85d788da642953d69d3349bd6d04eac34f8a172a7aa920",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/voice-repeat-02/voice-repeat02.json",
+      "sha256": "107df1239f6d7d987d55a78084b5b0ee0ce9422bbafeeafb97f83c4d5ff2a4d2",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/wheel-install.json",
+      "sha256": "a058989f40807ce4a71ba8ae42608103ff43f5ac1121cde4e1280b617844b638",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/wheel-native-runtime.json",
+      "sha256": "5700d979de7535a413f08fc7a8d17a0c25fe4734be691d15fa23c1026875facb",
+      "identityAssessment": "SERVER_REPORTED_PIN_RECORDED",
+      "serverCommitFields": [
+        {
+          "field": ".network.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".desktop.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/wheel-runtime.json",
+      "sha256": "d30c75508571463e458267f8713c731e1bab42fddd1ba7295917a9fc1f7e945c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/windows-full-precommit.json",
+      "sha256": "6af3ae2609f44b671c17f177349a909e03ee4ee087e353e18c516454d371dc0c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/windows-hotkeys.json",
+      "sha256": "085c3fc54f45bdbba4a6371f71cd76d83a66bd4aaad7bc4c6de448f2f56f0899",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux01/windows-settings.json",
+      "sha256": "175fad2fad3276d2584c24c05ab32f6f5b9869ac94474eed05a8a07342527136",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/baseline.json",
+      "sha256": "eb6a1901d29f2a808ebbc78b2641571fcd5940490d503d63e0f0c67c18bee92a",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/build/artifacts.json",
+      "sha256": "25b9dceeb6212322bf0c3ad633e6053c256063f916416682c5746f734ee1c59a",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/build/distributions.json",
+      "sha256": "de981ca25e541973bec27dd747be86fb1ee036b80a81f67668d7f0e02e96c581",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/build/pyinstaller.json",
+      "sha256": "e13916523bc6e29b46fd4cdde91076a429150321ceb9fa4e89f74b26ee46e529",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/build/release-guard.json",
+      "sha256": "e3dcbffd1bd47e953aba95b4bec29ebf723a599cf3605fad1399c5685ff048a0",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/config-roundtrip.json",
+      "sha256": "69b4ac3cd7c04cb48310a73032e14fc780d6c0fda9d89d63852d3ef60c7768f8",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/diff-check-after-manual.json",
+      "sha256": "f7f4319fe37bc76bba578a3be751ce7710dc7f7fa0891e837dfeb25dd1253d2c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/diff-check-after-native.json",
+      "sha256": "fc8ed6eda3260978c625f067396fb31646c9eed479ff993d485fa52555e41153",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/documentation-diff-check.json",
+      "sha256": "ab09f25b17019b48e7498ae6a6393f755c0a8f520cb3bbd3a3f9b185c7b6cbc8",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/evidence-verification-after-manual.json",
+      "sha256": "d6b6377505cd133f39c7958e8dc6f0465436c69eaa0af8f00dc229e44c0f0313",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/evidence-verification-after-native.json",
+      "sha256": "7eed30a3041f7ca615a5bf3d5e3d4512d1700cf5f3f1d4c27ca9a712c9f84af5",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/evidence-verification.json",
+      "sha256": "ecd02c97360c9895a4ec2d4e96e0b76e95d64343f987bc767daf15d1fde2b991",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/frozen-native-real-server.json",
+      "sha256": "13fb867f831f696e2568205826dc3ff2bac6d20d67e21d5105fe405fe7d37feb",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/frozen-native-runtime.json",
+      "sha256": "eab593fb49e6f7a0081b19e7e1d6204e31a51f1145dda0a3e84b00f9f1d78bb3",
+      "identityAssessment": "SERVER_REPORTED_PIN_RECORDED",
+      "serverCommitFields": [
+        {
+          "field": ".network.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".desktop.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/manual-evaluator-compile.json",
+      "sha256": "3a852dcab9399afaeb0a1ff2fdb0d86b477201e728bdb49a8a023ea5e4c75022",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/manual-voice-20261016-01/assessment-initial.json",
+      "sha256": "2f50f730c8984a69533f4f27d814d76634d445436161d26ac84e2fffd985d8fc",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/manual-voice-20261016-01/assessment.json",
+      "sha256": "d02260cb33fc3c8c27ce44d98c1d44d10d42c106b7df2db31b0d903723e556b1",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/manual-voice-20261016-01/stepped-trial.json",
+      "sha256": "e34d9db0625988dca553ad77eada2059d8b7547711d34abb5887da5d0160a98a",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/manual-voice-assessment.json",
+      "sha256": "9224893e2070863288d695a333eb4567931a3436291c9349c167815f4e969b48",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/manual-voice-control.json",
+      "sha256": "f2be54a8571f5b7d364e2cbb2395027d8217328401b5625219a001607517aeae",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-desktop-metrics.json",
+      "sha256": "194d9ad770ef10af7ba56f2a63b89cedd71da46f580505b361c253902735829e",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-desktop-restart.json",
+      "sha256": "cc7d350a9c299aea997fccb12bbee27e79a10076b26ca6e688d7ff6ea817e5df",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-editor-labels.json",
+      "sha256": "56ccb4f8398aeab9d0e9d513319a2d59e93953c3cf5d2c4810d352cc8d7de49c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-helpers-compile.json",
+      "sha256": "179c33cca74231b6f3e61c486009dc49697dd3a3ca64314abf22fd2deedd3afa",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-labels-final.json",
+      "sha256": "445a2d23e4ca96cf910ebc90b29ebf2fd650b15b6b0678d88ff3cbd10ea53345",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-physical-20261016-01/assessment.json",
+      "sha256": "d5f0bdcb096bec5b376847cb35d491b273936b2e2221a28ace85d2e1f898fe03",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-physical-20261016-01/attempt-001.json",
+      "sha256": "b546378f9c75350d79a9c94997493394c63c8c763614b6498b96a7ba222f6ab9",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-physical-20261016-01/finalization.json",
+      "sha256": "628fcbe1057205a89c1d5230566bfcbddb5b206999e9ba5606f360a355056819",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-physical-20261016-01/human-decision-chat.json",
+      "sha256": "9014ec5cb190ae5e802432a28958a9ad07bbc8c6dd1d701fa78a447f20e385e5",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-physical-control.json",
+      "sha256": "eef6f41587378ebdd16ca5bad0086cfc5c912376b7cfc8506554588074a39763",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-probe-preparation.json",
+      "sha256": "b88cc29d7b0c4bdb4437846c41542f8d99d956cb143c61c64f64bc5097771552",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-probe-verdicts.json",
+      "sha256": "31d0f106e07cbf8b3f73520fddd43e7b38c30be67944283e2c3f249d09eaab96",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/native-verdict-final.json",
+      "sha256": "c80ad8ae3e2fa032c72fffeb9a5c1976da17d68fb8495f4bb77d97f06db6a5d5",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/original-composed-green.json",
+      "sha256": "67097e24936ce47b30b1c0e643e658c2e5ebef887250e3949c8c3da7218735c4",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/pair/test_autonomous_terminal_recovery_and_stale_callback.json",
+      "sha256": "0ff099172bbdb9b08eb4a7fd843b0ca9f9328ff12db6c04d6653eea0bab1a7cd",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 13
+    },
+    {
+      "record": "ux02/pair/test_client_dropped_final_is_incomplete_without_log_paste.json",
+      "sha256": "beed520e93ec7c24410cb4e97f9207162742f9addaa22670effc720568254c1a",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "ux02/pair/test_client_injected_gap_salvages_buffered_final.json",
+      "sha256": "8397fdc8826cd8ef5bbd4a9eb181cbc6d6269df0533fef55629cfab006170ec9",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "ux02/pair/test_device_loss_drain_and_led_isolation.json",
+      "sha256": "15ec34125e27ca7e072a02ed504f8f43232811e4911b60b0d7fb0cbca3fc3ef8",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 12
+    },
+    {
+      "record": "ux02/pair/test_lost_finish_ack_retries_identical_without_second_effect.json",
+      "sha256": "1513c1ff5b3596a7fd69601ac1a67f0c2155c60f09f00b72e9d47ba4bb0090cc",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 7
+    },
+    {
+      "record": "ux02/pair/test_negative_admission.json",
+      "sha256": "2113c94eba641989a96fea6dd3b052e89a84ea198b69d1fd954804e866c3dc8e",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 3
+    },
+    {
+      "record": "ux02/pair/test_segments_overlap_interim_and_log_dedup.json",
+      "sha256": "cdb07600510dbee8977bdfec2b1d8c1f925c6ea26e4bf4a1cf14013f4934c1f2",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 10
+    },
+    {
+      "record": "ux02/pair/test_settings_atomicity_and_admin.json",
+      "sha256": "b8ee7649507fef2dee8dc090df4841e2e1d09a24e2bf613f53c41147e3ccc9a7",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "ux02/pair/test_wake_only_and_shared_admission_race.json",
+      "sha256": "17eb54215e9932b0453f919adf29b918de32f2c4e423f8c54f42b40c07647833",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 13
+    },
+    {
+      "record": "ux02/pair/test_wake_sources_settings_and_bootstrap.json",
+      "sha256": "e32a6892be77f9fd87d0de87c8de934c7a245aeeed7c7c27dfce6f964c8c000f",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 41
+    },
+    {
+      "record": "ux02/pair/validation.json",
+      "sha256": "c3d1dc10c61a107f8f89e7754bcc8bbcfc53e67888be12635c6eb1b284546e7f",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/pair-preflight-attempt.json",
+      "sha256": "a4274ad080741afcb02ffba6bb08f4f12a8f34eb9eee3a41f8baa3d3ef096df5",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/permanent-red.json",
+      "sha256": "645234fa6a7939445949d69fe978fadaf711855954c4fb8f1451e8ecc478509d",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/qualification-summary.json",
+      "sha256": "bb69d66c3baee1372cff941794e653fdfd87f4b0c3b57c15bf329860962dcdb7",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/real-model-replay-summary.json",
+      "sha256": "e1eca65218602cc83647f951ecad33ec4f7c7f5f87383fab8d8ae0f302a5053d",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/real-model-replay.json",
+      "sha256": "5095b0eb2371a89e95ffdb8c86b9ef91848b9a3bbad60e2326d21379ca76e760",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/real-recovery-summary.json",
+      "sha256": "7a88109e7e3d0d23cce0447659c2ccb37f9c28a7cd1b75887c1cdbecd3f36b23",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/real-recovery-trace.json",
+      "sha256": "34b85908e276147148abc45bec3898c8a6cb94e43587ba614dd5d9b30eacf8f5",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/real-recovery.json",
+      "sha256": "b56437f657868720d54bee501a29402e3e64ba012b0c31a2356076ea5fe5b0e1",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/targeted-green-attempt1.json",
+      "sha256": "5ce062fb8285c0d2027e8dcd4c313573456790f3cf381773f864507369e31ebe",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/targeted-green-final.json",
+      "sha256": "46a71da71e8d06ae17bb97bf2819abacd4d6e57c530ad7d80572e589f218f6f5",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/twine.json",
+      "sha256": "e9293a85a769cb30ffc10f9b5ace103c7513f4c97d14803ae39843af1dec88c6",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/wheel-install.json",
+      "sha256": "b9d471bc91414766dd7f79408d632effa176a09364d4c01ff35c303eb92d9138",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/wheel-native-runtime.json",
+      "sha256": "1fcc507139e5aa2397e1f4237816dc8a305284efc64843ba6fa352e4803e7206",
+      "identityAssessment": "SERVER_REPORTED_PIN_RECORDED",
+      "serverCommitFields": [
+        {
+          "field": ".network.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".desktop.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/wheel-runtime.json",
+      "sha256": "226c9de89cfb019cf950496b80d9fadff1184d0cf3e727e29a65338703ccc513",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/windows-hotkeys.json",
+      "sha256": "0d297e7f3c56e89ec6eb03693f890c9e3a00957f19c88acd79be1e19504ed834",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/windows-settings.json",
+      "sha256": "fed666e6d864625b0ce87726047e74ebeaed67f8b5970e46e396d5fbf4a265d7",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/workfile-validation-after-manual.json",
+      "sha256": "5cee2a6161aeb1f94f7945ec2e155a0ffda3c3d4af868a0f691877d24d0a5d76",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/workfile-validation-after-native.json",
+      "sha256": "8a132d3abc84db033b9f220e94f1cb82f754217d9c64457aff1df342c8a12536",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux02/workfile-validation.json",
+      "sha256": "20a4bf1d2813d94821ff557f4eeb719f3975d07742a7cce9e73ede3fcc11fb2c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/alexa-observed-hits.json",
+      "sha256": "98073110c987cbeba604feb7abbbf90fb9e6e663df34ac9915ca9aef140f63bb",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/assessment.json",
+      "sha256": "9ca45d7f4fba84ff9b34d240fe8ea86cac8cb900c75f7d72f0b3ffec99b418bb",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/build/artifacts.json",
+      "sha256": "5d121889742fd0c5e899ba6ef78aac7aa86e7eda6846c664f8e8e6b47dae48c3",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/build/distributions.json",
+      "sha256": "e960cbea977f6a1efceb73400c00e0a149857419b43aac217e53d1d1de4ec2cc",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/build/pyinstaller.json",
+      "sha256": "00c1ef5bef024102468282792999227407135d88c6a3c88dce2d1227d7bae7af",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/build/release-guard.json",
+      "sha256": "50eab670e213aa6674c12997f968e7450238ca6035f46661a8f84a6d89ab76d8",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/evidence-integrity.json",
+      "sha256": "9660a3ce2f0a420f9937d422c54f4ea0ebf6f572db2308efc9261b676ba2bc67",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/feedback-baseline.json",
+      "sha256": "d69a6e7164126129f244ed0a1c5a08686c85255be4e3e821c911aaf8aadedee2",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/feedback-inventory.json",
+      "sha256": "0dafd57610f938fd7eec5326c3b1cb287d1971e1a951dd2f0840014ca510a0c3",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/frozen-native-real-server.json",
+      "sha256": "7edf822258d588d9c65744d6e9e5bda6bbef7a2017bc2afa7d26474185b8b407",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/frozen-native-runtime.json",
+      "sha256": "412f1d65abe1836e65fc2df7adf82048cbde18ab8c0be04123ac00688488d7a3",
+      "identityAssessment": "SERVER_REPORTED_PIN_RECORDED",
+      "serverCommitFields": [
+        {
+          "field": ".network.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".desktop.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/green-close-sound.json",
+      "sha256": "976b359576c9e6f2feaebf57057026c97616626654f15330e03dcf99acd53256",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/human-feedback-calibration.json",
+      "sha256": "a9c70de83d5395c2663d24ffdee945f5a9cbd8ad6020191b4111fef8c79eea85",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/human-hearing-confirmed.json",
+      "sha256": "c964227607c3d8374ca00f61f9c7a0c83447b2e62a722e6b1c489ea5c528477f",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/native-probe.json",
+      "sha256": "0d36ab397e0ba8d8d6f7374bd1f985b5e64b6b7042fce7d511633fc6a8b41746",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/pair/test_autonomous_terminal_recovery_and_stale_callback.json",
+      "sha256": "756ab8a05ca0f1e8be2a5cf15c3ce69cace0ab6d875f6c79c269d8e727eb924a",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 13
+    },
+    {
+      "record": "ux03-close-sound/pair/test_client_dropped_final_is_incomplete_without_log_paste.json",
+      "sha256": "362b6225b07401cf8b20e4dc73338d1f96a25a3b22bac76d5027010205d2466e",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "ux03-close-sound/pair/test_client_injected_gap_salvages_buffered_final.json",
+      "sha256": "2f7e38994291ab707d2d329333e6fc50afe30b276a15cf43b48c78a52eee255f",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "ux03-close-sound/pair/test_device_loss_drain_and_led_isolation.json",
+      "sha256": "4c2e5060fab2b6ed6b445525e1c4acb7fd1140725724068d320bd539aa842171",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 12
+    },
+    {
+      "record": "ux03-close-sound/pair/test_lost_finish_ack_retries_identical_without_second_effect.json",
+      "sha256": "68e79a88b96cc526c6f47f441ecd2b29a490973480dd414dcb1cd7a6561c9f33",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 7
+    },
+    {
+      "record": "ux03-close-sound/pair/test_negative_admission.json",
+      "sha256": "c5f3bec8003b17bff8335a0898c30e0a09082ed9f0983843736f09daef2a36a6",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 3
+    },
+    {
+      "record": "ux03-close-sound/pair/test_segments_overlap_interim_and_log_dedup.json",
+      "sha256": "99ad31b213df269c246fe114aef0b47fdd7f2093f632551eac82cfe3d5052e11",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 10
+    },
+    {
+      "record": "ux03-close-sound/pair/test_settings_atomicity_and_admin.json",
+      "sha256": "0a9265781866cb5b83a29e3ecd758256e89c4e5283b7523f1841abf39cda2642",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 8
+    },
+    {
+      "record": "ux03-close-sound/pair/test_wake_only_and_shared_admission_race.json",
+      "sha256": "c320a2c16897394919cfe87b7738e1ce9f44aa383074c3129f903dc2c61a8a18",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 13
+    },
+    {
+      "record": "ux03-close-sound/pair/test_wake_sources_settings_and_bootstrap.json",
+      "sha256": "a9f86579135f0994e86794ac2463010a82ad08f1bcd8caaf68312eabf33aa125",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".server.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".process.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 41
+    },
+    {
+      "record": "ux03-close-sound/pair/validation.json",
+      "sha256": "62f76ad0e0b1537acba2701f0cea814595e181c69dac5ee4caaea476180c34ff",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/red-close-sound.json",
+      "sha256": "5828c4318522a80f4fbd72b3c8033deb1e8276397bc4294be01e30da3256eae0",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/twine.json",
+      "sha256": "26d24749d8cb715261648af9166e94ed8dc26b0611ba5db9939ac9712a57d76b",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/wheel-install.json",
+      "sha256": "f7df9f4d4987a60b3ec37e282353e61e20a8d64189c40edfdfbb23bad26d9258",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/wheel-native-real-server.json",
+      "sha256": "23b45ceebaf1b4fa61c64b17c02ebb9b8196520cd9f8f52c92959976ed35fb7c",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "ux03-close-sound/wheel-native-runtime.json",
+      "sha256": "9a5dc7e37b5007670ebeee9e08fbae1971c9cc3b398073755b945d9d34d3942b",
+      "identityAssessment": "SERVER_REPORTED_PIN_RECORDED",
+      "serverCommitFields": [
+        {
+          "field": ".network.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        },
+        {
+          "field": ".desktop.serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "wake-false-activation-20261017/assessment.json",
+      "sha256": "2e09188256c0484ce3f1f5fe31557ad13bd34d9648a4f1e75b462ed58ead30b2",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "wake-false-activation-20261017/observed-events.json",
+      "sha256": "0d19b5ef57a7aae6255b0a0d89cea646ed59f830b7b6877f19b989fe49cdee29",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "wake-false-activation-20261017/server-domain-events.json",
+      "sha256": "144b42b994604c2b8f96c0bc2c9c644d67d55682f93b1a3aed5dc2460c5f246f",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "wake-false-activation-20261017/server-settings-observed-after.json",
+      "sha256": "086176da4b96d0d5b29e439930200c6ef7bb6298b48e13bc87a0895ea2f05295",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "wake-negative-exact.json",
+      "sha256": "830a7ae2ee622756d7459d6d23c681b6a8538f89d0218ef820d61dd57aab5222",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "wake-resources-exact-rss.json",
+      "sha256": "b2fe5ffcfa84f28ed52674bc9dca0e850666fd342ae7e8089dc65c65dfc692f6",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "wake-retrigger-20261018/inspected-server-sources.json",
+      "sha256": "abb28b71310b82a067c990eccbc54c3255cbb9fdd8eef6294ee659a420075982",
+      "identityAssessment": "SERVER_CONTENT_PIN_CONFIRMED",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "wake-retrigger-20261018/live-analysis.json",
+      "sha256": "361f150feb3bbef6221fe995c11ab19e8aaf782c940e65ab9e2e3d518016f956",
+      "identityAssessment": "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION",
+      "serverCommitFields": [
+        {
+          "field": ".serverCommit",
+          "value": "ada13b011e1d3829f78e7f389e3b927795a2b3be"
+        }
+      ],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "wake-retrigger-20261018/rearm-replay-result.json",
+      "sha256": "3a700f75ff5b807c8e790df18ff5faa7bd9291eec8ed69e1af69ef7fbe5d742f",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "wake-retrigger-20261018/rearm-replay.json",
+      "sha256": "30fe072fcaa10368128ffce45c1e3902d3cd992482a3b6dbe5c5427ec618eaba",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "wake-retrigger-20261018/server-issue.json",
+      "sha256": "6c15c395d573b314b2de998cdfa3e9bc6aef72e20cfcd0bafff28588ad556847",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "windows-drivers.json",
+      "sha256": "ceb91edc07f5f0780440568d1b9f134b19ecf3befdc59ef91a9042e0c7e557a2",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "windows-runtime.json",
+      "sha256": "038b8ffb8cd01c75bcdccdf2cba7bba386c00a82b8639efcff494bde7e9c83f0",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    },
+    {
+      "record": "work-records.json",
+      "sha256": "2626c562564541fc15b36ac8e6af878096c7d87cbcd33a686609cc1ee0820309",
+      "identityAssessment": "NO_SERVER_ATTESTATION_IN_THIS_RECORD",
+      "serverCommitFields": [],
+      "mismatches": [],
+      "modelFreeWireUnknownFields": 0
+    }
+  ],
+  "counts": {
+    "NO_SERVER_ATTESTATION_IN_THIS_RECORD": 273,
+    "SERVER_REPORTED_PIN_RECORDED": 10,
+    "DECLARED_PIN_ONLY_NO_INDIVIDUAL_ATTESTATION": 24,
+    "SERVER_CONTENT_PIN_CONFIRMED": 56
+  },
+  "mismatchingRecords": [],
+  "explicitlyInvalidatedEarlyRecords": [
+    "real-golden-asr-stable.json",
+    "real-golden-asr.json",
+    "real-wake-artifacts.json",
+    "real-wake-negative.json",
+    "real-wake-resources.json"
+  ],
+  "policy": "Mismatch is invalid as required-server qualification. Declaration-only and unattested individual records cannot independently qualify the server; use only explicit reviewed bindings or mark NOT_PROVEN. Client-only tests/raw captures/admin records require no server commit and are not invalidated in their own scope. Wire unknown in model-free process fixtures is not evidence of a different source commit. Historical test PASS is not automatically a current product or full hardware PASS.",
+  "noServerStartedOrModified": true
+}

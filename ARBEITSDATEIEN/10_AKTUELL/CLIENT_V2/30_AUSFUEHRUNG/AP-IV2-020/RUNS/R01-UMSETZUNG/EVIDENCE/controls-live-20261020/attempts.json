@@ -1,0 +1,405 @@
+{
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "sourceHead": "f4489e24e47dd7ec58b550c974511e9b13b03991",
+  "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "result": "PARTIAL_PASS_REFRESH_NATIVE_NOT_PROVEN",
+  "attempts": [
+    {
+      "taskId": "followup",
+      "attemptId": "1686602a034e43edad5c301888a9d542",
+      "decision": "repeat",
+      "humanObservation": "Bitte Ergebnis wählen",
+      "exitCode": 0,
+      "sessionId": "8220bbd9-ee67-4ab4-8f97-942fb500a1ad",
+      "activations": [
+        "91864d08-43c2-4ef6-8e45-23824a6cc915"
+      ],
+      "segmentCount": 1,
+      "finals": [],
+      "injections": [],
+      "nativePastes": [],
+      "actualActions": [
+        {
+          "action": "activate",
+          "accepted": true,
+          "activationId": "91864d08-43c2-4ef6-8e45-23824a6cc915"
+        }
+      ],
+      "profileSha256": "cfa9d23c308a4a208237010f3c9fe941881ff2986e85fa16a38d131de87dda76",
+      "profileUnchangedSinceStart": true,
+      "realAudioPackets": 1354,
+      "maxTasks": 10,
+      "maxInjectionQueue": 0,
+      "localIssues": [],
+      "result": "NOT_PROVEN",
+      "reason": "Operator deliberately repeated this attempt; no transfer of later acceptance. First attempt had accepted ASR job but no final before stop; second only one segment."
+    },
+    {
+      "taskId": "followup",
+      "attemptId": "8bc1e20689824485afca8e09a59b936d",
+      "decision": "repeat",
+      "humanObservation": "Bitte Ergebnis wählen",
+      "exitCode": 0,
+      "sessionId": "22fc3928-cd6e-4a2a-9bf1-cb188456740c",
+      "activations": [
+        "dcd9b016-9742-4672-b087-d3a81acc2adc"
+      ],
+      "segmentCount": 1,
+      "finals": [
+        {
+          "activationId": "dcd9b016-9742-4672-b087-d3a81acc2adc",
+          "segmentId": "1bc7d8bd-b9ac-403b-a0f4-35922fef0a14",
+          "segmentSequence": 1,
+          "textLength": 78,
+          "textSha256": "e0f94612c4bee87b4927894a42bc64a9b578f972431a30f5be0db98b9784460c",
+          "pasteSha256": "b1444a25beda8d24b60d9b1c8491f4e96245baefe9999f26fc4cc034083455f7"
+        }
+      ],
+      "injections": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 1
+        }
+      ],
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-20T17:57:25.715686+00:00",
+          "characters": 79,
+          "sha256": "b1444a25beda8d24b60d9b1c8491f4e96245baefe9999f26fc4cc034083455f7"
+        }
+      ],
+      "actualActions": [
+        {
+          "action": "activate",
+          "accepted": true,
+          "activationId": "dcd9b016-9742-4672-b087-d3a81acc2adc"
+        }
+      ],
+      "profileSha256": "34098567872ec376bf776564ba56e32b78a71df1373219d673bad35b8788c0f3",
+      "profileUnchangedSinceStart": true,
+      "realAudioPackets": 1059,
+      "maxTasks": 10,
+      "maxInjectionQueue": 0,
+      "localIssues": [],
+      "result": "NOT_PROVEN",
+      "reason": "Operator deliberately repeated this attempt; no transfer of later acceptance. First attempt had accepted ASR job but no final before stop; second only one segment."
+    },
+    {
+      "taskId": "followup",
+      "attemptId": "283fedefc7314744bdf3f14b45cc9901",
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "exitCode": 0,
+      "sessionId": "44abc61a-33e3-4049-98eb-173e8503132b",
+      "activations": [
+        "3a63b32d-de1e-4019-a50d-7b5fe739ff10"
+      ],
+      "segmentCount": 2,
+      "finals": [
+        {
+          "activationId": "3a63b32d-de1e-4019-a50d-7b5fe739ff10",
+          "segmentId": "8eceac6b-3312-41e9-b477-c468ed0e7112",
+          "segmentSequence": 1,
+          "textLength": 37,
+          "textSha256": "76296e7ca67f1e9301a6fa777ee1252a4213915276cd0afc5c9a223251e89438",
+          "pasteSha256": "47b187e0fef374e28686ff3fb3bc3cd8b9dba959ddc2ec7b04e73a6e3796b553"
+        },
+        {
+          "activationId": "3a63b32d-de1e-4019-a50d-7b5fe739ff10",
+          "segmentId": "4ddf0bba-dd55-409d-9cbd-46bbdfc4e7ad",
+          "segmentSequence": 2,
+          "textLength": 40,
+          "textSha256": "e221a37e150aadf6297928d93b38a08f016acfb01a4199a3f6525ace00802016",
+          "pasteSha256": "ec0be71d42ed2350c4c80952b66cee606c9ec2e51f66d8b565f0a57bb03e8093"
+        }
+      ],
+      "injections": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 2
+        }
+      ],
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-20T17:58:22.045798+00:00",
+          "characters": 38,
+          "sha256": "47b187e0fef374e28686ff3fb3bc3cd8b9dba959ddc2ec7b04e73a6e3796b553"
+        },
+        {
+          "timeUtc": "2026-10-20T17:58:28.044121+00:00",
+          "characters": 41,
+          "sha256": "ec0be71d42ed2350c4c80952b66cee606c9ec2e51f66d8b565f0a57bb03e8093"
+        }
+      ],
+      "actualActions": [
+        {
+          "action": "activate",
+          "accepted": true,
+          "activationId": "3a63b32d-de1e-4019-a50d-7b5fe739ff10"
+        },
+        {
+          "action": "finish",
+          "accepted": true,
+          "activationId": "3a63b32d-de1e-4019-a50d-7b5fe739ff10"
+        }
+      ],
+      "profileSha256": "8ff029dbf17cf219a4aaa4597d4a726e9278bfbfb81a2670ef2e576a59061a41",
+      "profileUnchangedSinceStart": true,
+      "realAudioPackets": 1033,
+      "maxTasks": 11,
+      "maxInjectionQueue": 0,
+      "localIssues": [],
+      "result": "PASS_SCOPED",
+      "reason": "Two segments/Finals of one activation, native exact-once hashes including spaces; F9 finish accepted. Exact acoustic four-second pause not measured without PCM.",
+      "effectiveFollowupMs": 5000
+    },
+    {
+      "taskId": "cancel",
+      "attemptId": "facd08af5295485da77abbb3ce9070e3",
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "exitCode": 0,
+      "sessionId": "2c89c8f4-5f8e-461c-940c-1662d61516fc",
+      "activations": [
+        "c5e92b98-bfc3-456e-993a-a0ed3b67b0e9"
+      ],
+      "segmentCount": 1,
+      "finals": [],
+      "injections": [],
+      "nativePastes": [],
+      "actualActions": [
+        {
+          "action": "activate",
+          "accepted": true,
+          "activationId": "c5e92b98-bfc3-456e-993a-a0ed3b67b0e9"
+        },
+        {
+          "action": "cancel",
+          "accepted": true,
+          "activationId": "c5e92b98-bfc3-456e-993a-a0ed3b67b0e9"
+        }
+      ],
+      "profileSha256": "05c717f9320885f54784b9637e0939a9a4bd4b87059c70d565e0eb8b7388d803",
+      "profileUnchangedSinceStart": true,
+      "realAudioPackets": 2509,
+      "maxTasks": 10,
+      "maxInjectionQueue": 0,
+      "localIssues": [],
+      "result": "PASS_SCOPED",
+      "reason": "Native F9/cancel during open speech segment, cancelled/input_closed, no final/history/injection/paste during continued audio.",
+      "observedAfterCancelSeconds": 82.969
+    },
+    {
+      "taskId": "refresh",
+      "attemptId": "3f9f3ed8c59e4bf98f98ceb88dde9760",
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "exitCode": 0,
+      "sessionId": "70d34b8e-5a5b-42db-b28d-ce93b22ebc3f",
+      "activations": [
+        "d96e8780-90d3-4a8a-bb31-e34dd098b689",
+        "b4cda416-275e-4a1a-a955-ba5068a54829"
+      ],
+      "segmentCount": 2,
+      "finals": [
+        {
+          "activationId": "d96e8780-90d3-4a8a-bb31-e34dd098b689",
+          "segmentId": "865a8ec9-75f7-42e4-b026-2c85f75f8448",
+          "segmentSequence": 1,
+          "textLength": 29,
+          "textSha256": "72fe64d5d526c6352990573e814da80c80769e5f14cc6a9f0172865e352b1c29",
+          "pasteSha256": "24dc692f597aac88ad47f2fad90209fd16cb0f76f47a0d9b1178d0d2649bc3d7"
+        },
+        {
+          "activationId": "d96e8780-90d3-4a8a-bb31-e34dd098b689",
+          "segmentId": "8c790d39-e0f1-4109-8058-a555fbd21a6b",
+          "segmentSequence": 2,
+          "textLength": 43,
+          "textSha256": "fe574c1a4d80a5af5b32e44142ea0373304436910a9e04017b0f771a663f6af3",
+          "pasteSha256": "eb7416904a6880f0f33028a2acfbc6c9340032ba2091a44336bd0d5dba1bf530"
+        }
+      ],
+      "injections": [
+        {
+          "status": "command_sent",
+          "source": "automatic",
+          "count": 2
+        }
+      ],
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-20T18:04:04.962365+00:00",
+          "characters": 30,
+          "sha256": "24dc692f597aac88ad47f2fad90209fd16cb0f76f47a0d9b1178d0d2649bc3d7"
+        },
+        {
+          "timeUtc": "2026-10-20T18:04:09.522952+00:00",
+          "characters": 44,
+          "sha256": "eb7416904a6880f0f33028a2acfbc6c9340032ba2091a44336bd0d5dba1bf530"
+        }
+      ],
+      "actualActions": [
+        {
+          "action": "activate",
+          "accepted": true,
+          "activationId": "d96e8780-90d3-4a8a-bb31-e34dd098b689"
+        },
+        {
+          "action": "finish",
+          "accepted": true,
+          "activationId": "d96e8780-90d3-4a8a-bb31-e34dd098b689"
+        },
+        {
+          "action": "activate",
+          "accepted": true,
+          "activationId": "b4cda416-275e-4a1a-a955-ba5068a54829"
+        }
+      ],
+      "profileSha256": "18b58e8d21b1da9e6bb38962d781b6fff42f380415d0adddc57794b2e0221f75",
+      "profileUnchangedSinceStart": true,
+      "realAudioPackets": 833,
+      "maxTasks": 11,
+      "maxInjectionQueue": 0,
+      "localIssues": [],
+      "result": "NOT_PROVEN",
+      "reason": "No actual Refresh command. Native F9 finished A; later explicit F8 from idle started B. No unexplained double activation.",
+      "additionalScopedPass": "Old A final arrived after B began and was preserved/exactly-once pasted with original A/segment binding.",
+      "oldFinalAfterNewStartSeconds": 0.203
+    },
+    {
+      "taskId": "settings",
+      "attemptId": "ef78fb554de4412ab306e770af128ca4",
+      "decision": "accept",
+      "humanObservation": "Wie erwartet",
+      "exitCode": 0,
+      "sessionId": "c5041a7e-a21f-4da2-a24e-8753ceed8fa3",
+      "activations": [],
+      "segmentCount": 0,
+      "finals": [],
+      "injections": [],
+      "nativePastes": [
+        {
+          "timeUtc": "2026-10-20T18:36:09.151977+00:00",
+          "characters": 37,
+          "sha256": "2fbfcb1471c3541fffc62a46535540d5205617513f2d4bfeb60c0309aa246386"
+        }
+      ],
+      "actualActions": [],
+      "profileSha256": "528d589fde16135ae08ed81905644458888a2e7bbcb2a1b32e48e996cdc5ea06",
+      "profileUnchangedSinceStart": true,
+      "realAudioPackets": 42108,
+      "maxTasks": 12,
+      "maxInjectionQueue": 0,
+      "localIssues": [],
+      "result": "PASS_SCOPED",
+      "reason": "Explicit human confirmation: correct server origin, Logging/History/Feedback tabs and real log entries visible.37 editor characters were operator message, not client injection.",
+      "ownTypedCharacters": 37,
+      "logRecordGroups": [
+        {
+          "producer": "client",
+          "eventType": null,
+          "count": 12
+        },
+        {
+          "producer": "client",
+          "eventType": "client.app.started",
+          "count": 1
+        },
+        {
+          "producer": "client",
+          "eventType": "client.app.stopping",
+          "count": 1
+        },
+        {
+          "producer": "client",
+          "eventType": "client.audio.stream_started",
+          "count": 1
+        },
+        {
+          "producer": "client",
+          "eventType": "client.audio.stream_stopped",
+          "count": 1
+        },
+        {
+          "producer": "client",
+          "eventType": "client.core.thread_started",
+          "count": 1
+        },
+        {
+          "producer": "client",
+          "eventType": "client.core.thread_stopped",
+          "count": 1
+        },
+        {
+          "producer": "client",
+          "eventType": "client.domain.observed",
+          "count": 1
+        },
+        {
+          "producer": "client",
+          "eventType": "client.eventstream.hello",
+          "count": 1
+        },
+        {
+          "producer": "client",
+          "eventType": "client.eventstream.keepalive",
+          "count": 32
+        },
+        {
+          "producer": "client",
+          "eventType": "client.eventstream.pong",
+          "count": 54
+        },
+        {
+          "producer": "client",
+          "eventType": "client.eventstream.replay_completed",
+          "count": 1
+        },
+        {
+          "producer": "client",
+          "eventType": "client.eventstream.state_changed",
+          "count": 3
+        },
+        {
+          "producer": "client",
+          "eventType": "client.eventstream.subscribed",
+          "count": 1
+        },
+        {
+          "producer": "client",
+          "eventType": "client.lifecycle.started",
+          "count": 1
+        },
+        {
+          "producer": "client",
+          "eventType": "client.lifecycle.stopping",
+          "count": 1
+        },
+        {
+          "producer": "client",
+          "eventType": "client.v2.command_completed",
+          "count": 7
+        },
+        {
+          "producer": "client",
+          "eventType": "client.v2.transport_state",
+          "count": 6
+        },
+        {
+          "producer": "led",
+          "eventType": null,
+          "count": 5
+        }
+      ],
+      "rawPayloadRecords": 0,
+      "idleObservationSeconds": 1685.25,
+      "warmPrivateBytesMedian": 461606912.0,
+      "finalPrivateBytesMedian": 522567680.0,
+      "boundary": "Source connected settings/log view; no invalid-first-load origin, retired launcher, Adminauth or full30min100 qualification"
+    }
+  ],
+  "tester": "marco: real speech/keys/settings perception and operator note; Codex: configuration/IDs/events/native hashes/metrics/DB metadata",
+  "fullPackageStatus": "BLOCKED"
+}

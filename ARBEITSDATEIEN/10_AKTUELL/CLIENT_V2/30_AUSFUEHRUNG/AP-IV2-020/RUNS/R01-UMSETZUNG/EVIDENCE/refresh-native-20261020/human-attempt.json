@@ -1,0 +1,67 @@
+{
+  "result": "PASS_SCOPED_RECORDING_REFRESH",
+  "attemptId": "ddda8d110a4b452e8412b96dea0c387e",
+  "sourceHead": "313ab04aef5f4f9154ab862b58bd803e60f5e05a",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "sessionId": "6fd8d3e4-24d8-4929-b0b3-70b02c95af11",
+  "activationId": "320379e6-8ce8-42a0-ac0c-622302282d5f",
+  "actions": [
+    {
+      "action": "activate",
+      "generation": 1,
+      "accepted": true
+    },
+    {
+      "action": "refresh",
+      "generation": 1,
+      "accepted": true
+    },
+    {
+      "action": "finish",
+      "generation": 1,
+      "accepted": true
+    }
+  ],
+  "keyPhases": [
+    "idle",
+    "segment_active",
+    "segment_active"
+  ],
+  "effectiveFollowupMs": 15000,
+  "finals": [
+    {
+      "activationId": "320379e6-8ce8-42a0-ac0c-622302282d5f",
+      "segmentId": "5afef7f1-991a-419e-afbe-b660fb65faf5",
+      "segmentSequence": 1,
+      "textSha256": "72fe64d5d526c6352990573e814da80c80769e5f14cc6a9f0172865e352b1c29",
+      "pasteSha256": "24dc692f597aac88ad47f2fad90209fd16cb0f76f47a0d9b1178d0d2649bc3d7",
+      "textLength": 29
+    },
+    {
+      "activationId": "320379e6-8ce8-42a0-ac0c-622302282d5f",
+      "segmentId": "19f399ef-a15a-4568-9ae0-655174d1d458",
+      "segmentSequence": 2,
+      "textSha256": "fe574c1a4d80a5af5b32e44142ea0373304436910a9e04017b0f771a663f6af3",
+      "pasteSha256": "eb7416904a6880f0f33028a2acfbc6c9340032ba2091a44336bd0d5dba1bf530",
+      "textLength": 43
+    }
+  ],
+  "nativePastes": [
+    {
+      "timeUtc": "2026-10-20T18:58:41.491039+00:00",
+      "characters": 30,
+      "sha256": "24dc692f597aac88ad47f2fad90209fd16cb0f76f47a0d9b1178d0d2649bc3d7"
+    },
+    {
+      "timeUtc": "2026-10-20T18:58:49.684798+00:00",
+      "characters": 44,
+      "sha256": "eb7416904a6880f0f33028a2acfbc6c9340032ba2091a44336bd0d5dba1bf530"
+    }
+  ],
+  "exitCode": 0,
+  "humanObservation": "Wie erwartet",
+  "followupRefreshHuman": "NOT_PROVEN: second speech segment began before native Refresh; accepted Refresh concerned active recording/watchdog",
+  "configurationBoundary": "Isolated15s test profile, not new default; final automatic native followup proof uses chosen5000ms",
+  "tester": "marco: conscious speech and real keyboard/perception; Codex: actual identities/commands/phase/native hashes"
+}

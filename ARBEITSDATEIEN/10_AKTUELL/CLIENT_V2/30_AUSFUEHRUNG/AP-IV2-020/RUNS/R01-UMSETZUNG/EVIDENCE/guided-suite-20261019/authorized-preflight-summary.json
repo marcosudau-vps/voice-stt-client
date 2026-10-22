@@ -1,0 +1,37 @@
+{
+  "timeUtc": "2026-10-19T13:51:23.605891+00:00",
+  "result": "PASS",
+  "scope": "Actual desktop/audio/HTTP precheck only; no human/frozen/M-case PASS",
+  "logRows": 40,
+  "processLogSha256": "05944192e37101392bb870c780d40457a87dee69b454278fcacb532dfab15ccf",
+  "unicodeErrors": 0,
+  "tracebacks": 0,
+  "exported": {
+    "identity.json": {
+      "projectPath": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/guided-suite-20261019/authorized-preflight-identity.json",
+      "sha256": "73ef7e8285bb736bd84dbd483129a96cb375fa996f07f747929c790f633d63ad"
+    },
+    "http.json": {
+      "projectPath": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/guided-suite-20261019/authorized-preflight-http.json",
+      "sha256": "36d9f56ba4a60da8724061cc26fe60e1bc387d9dba590c166fddda6df5141659"
+    },
+    "smoke.json": {
+      "projectPath": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/guided-suite-20261019/authorized-preflight-smoke.json",
+      "sha256": "839e052573ddd4873a218fb949312ff28ee1462137c09e5e9746495ff4e90dca"
+    },
+    "result.json": {
+      "projectPath": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/guided-suite-20261019/authorized-preflight-result.json",
+      "sha256": "7973953326f0521c6e0b54ca4f7ab59afbc171451e26fe715ae25f2583270c3f"
+    },
+    "events.jsonl": {
+      "projectPath": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/guided-suite-20261019/authorized-preflight-events.jsonl",
+      "sha256": "3e70a6e1019cfc1af1a4ede854934daa72ae632de0d406aae1f58db6ef85656e"
+    },
+    "status.json": {
+      "projectPath": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/guided-suite-20261019/authorized-preflight-status.json",
+      "sha256": "2308182ca5e8db93c8b0877171180574428e724952850114258081bc989a8f22"
+    }
+  },
+  "runtimePath": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\preflight-20261019-154502",
+  "humanAuthorization": "ZUSATZPROMPTS/019_TESTABLAGE_MIT_AUFRAEUMPFLICHT.md"
+}

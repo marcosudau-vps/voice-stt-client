@@ -1,0 +1,234 @@
+{
+  "timeUtc": "2026-10-19T12:14:16.262501+00:00",
+  "selectedWebSocketUrl": "wss://pro.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "alternativeWebSocketUrl": "wss://v2.voice-stt-server.marcosudau.com/ws/v2",
+  "requiredServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "priorV1UrlSupersededByHumanCorrection": true,
+  "method": "GET only; TLS checked; no audio, session, PATCH, deployment or restart",
+  "results": [
+    {
+      "origin": "https://pro.v2.voice-stt-server.marcosudau.com",
+      "path": "/health",
+      "method": "GET",
+      "httpStatus": 200,
+      "finalUrl": "https://pro.v2.voice-stt-server.marcosudau.com/health",
+      "contentType": "application/json",
+      "responseSha256": "58f489eb17a646bafed13eada3265f38b57911374e53ee2de598a979de653882",
+      "topLevelKeys": [
+        "activeSessions",
+        "activeSpeakers",
+        "eventStore",
+        "models",
+        "ok",
+        "ready",
+        "rejectedSessions",
+        "scheduler",
+        "startupErrors",
+        "sttModels",
+        "sttReady"
+      ],
+      "identity": {
+        "ready": true
+      }
+    },
+    {
+      "origin": "https://pro.v2.voice-stt-server.marcosudau.com",
+      "path": "/api/v2/settings/schema",
+      "method": "GET",
+      "httpStatus": 200,
+      "finalUrl": "https://pro.v2.voice-stt-server.marcosudau.com/api/v2/settings/schema",
+      "contentType": "application/json",
+      "responseSha256": "89549b8e5342b3a9664f535ab4ffde9a484b77185fb1b7068d736958c1da648e",
+      "topLevelKeys": [
+        "protocolVersion",
+        "secretsExposed",
+        "serverCommit",
+        "serverVersion",
+        "settings"
+      ],
+      "identity": {
+        "serverCommit": "unknown",
+        "serverVersion": "2.0.0",
+        "protocolVersion": 2,
+        "secretsExposed": false
+      }
+    },
+    {
+      "origin": "https://pro.v2.voice-stt-server.marcosudau.com",
+      "path": "/api/v2/settings/server",
+      "method": "GET",
+      "httpStatus": 200,
+      "finalUrl": "https://pro.v2.voice-stt-server.marcosudau.com/api/v2/settings/server",
+      "contentType": "application/json",
+      "responseSha256": "1151ce710ae1796b975d75384ed85c96a6b24deb1d2b81d7f3145203e19bb8ba",
+      "topLevelKeys": [
+        "protocolVersion",
+        "serverCommit",
+        "serverVersion",
+        "settings",
+        "settingsRevision"
+      ],
+      "identity": {
+        "serverCommit": "unknown",
+        "serverVersion": "2.0.0",
+        "protocolVersion": 2
+      }
+    },
+    {
+      "origin": "https://pro.v2.voice-stt-server.marcosudau.com",
+      "path": "/api/v2/wake-words",
+      "method": "GET",
+      "httpStatus": 200,
+      "finalUrl": "https://pro.v2.voice-stt-server.marcosudau.com/api/v2/wake-words",
+      "contentType": "application/json",
+      "responseSha256": "722fcf6a42e4239c1152a12738665d3c9f7a15c395412ce3a106bc4034516714",
+      "topLevelKeys": [
+        "catalogRevision",
+        "protocolVersion",
+        "wakeWords"
+      ],
+      "identity": {
+        "protocolVersion": 2
+      },
+      "catalogIds": [
+        "alexa",
+        "alice",
+        "computer",
+        "hey_alfred",
+        "hey_billy",
+        "hey_bro",
+        "hey_glados",
+        "hey_hermes",
+        "hey_jarvis",
+        "hey_lucy",
+        "hey_luna",
+        "hey_max",
+        "hey_mira",
+        "hey_mycroft",
+        "hey_nabu",
+        "hey_nexus",
+        "hey_nova",
+        "hey_oracle",
+        "hey_rhasspy",
+        "hey_rocky",
+        "ivy",
+        "pico",
+        "stop",
+        "timer",
+        "weather"
+      ]
+    },
+    {
+      "origin": "https://v2.voice-stt-server.marcosudau.com",
+      "path": "/health",
+      "method": "GET",
+      "httpStatus": 200,
+      "finalUrl": "https://v2.voice-stt-server.marcosudau.com/health",
+      "contentType": "application/json",
+      "responseSha256": "cb4273e999f3e2e1771de7afd3a3332cb3e66aa95f6fbb08b5a2989155396f4c",
+      "topLevelKeys": [
+        "activeSessions",
+        "activeSpeakers",
+        "eventStore",
+        "models",
+        "ok",
+        "ready",
+        "rejectedSessions",
+        "scheduler",
+        "startupErrors",
+        "sttModels",
+        "sttReady"
+      ],
+      "identity": {
+        "ready": true
+      }
+    },
+    {
+      "origin": "https://v2.voice-stt-server.marcosudau.com",
+      "path": "/api/v2/settings/schema",
+      "method": "GET",
+      "httpStatus": 200,
+      "finalUrl": "https://v2.voice-stt-server.marcosudau.com/api/v2/settings/schema",
+      "contentType": "application/json",
+      "responseSha256": "89549b8e5342b3a9664f535ab4ffde9a484b77185fb1b7068d736958c1da648e",
+      "topLevelKeys": [
+        "protocolVersion",
+        "secretsExposed",
+        "serverCommit",
+        "serverVersion",
+        "settings"
+      ],
+      "identity": {
+        "serverCommit": "unknown",
+        "serverVersion": "2.0.0",
+        "protocolVersion": 2,
+        "secretsExposed": false
+      }
+    },
+    {
+      "origin": "https://v2.voice-stt-server.marcosudau.com",
+      "path": "/api/v2/settings/server",
+      "method": "GET",
+      "httpStatus": 200,
+      "finalUrl": "https://v2.voice-stt-server.marcosudau.com/api/v2/settings/server",
+      "contentType": "application/json",
+      "responseSha256": "1151ce710ae1796b975d75384ed85c96a6b24deb1d2b81d7f3145203e19bb8ba",
+      "topLevelKeys": [
+        "protocolVersion",
+        "serverCommit",
+        "serverVersion",
+        "settings",
+        "settingsRevision"
+      ],
+      "identity": {
+        "serverCommit": "unknown",
+        "serverVersion": "2.0.0",
+        "protocolVersion": 2
+      }
+    },
+    {
+      "origin": "https://v2.voice-stt-server.marcosudau.com",
+      "path": "/api/v2/wake-words",
+      "method": "GET",
+      "httpStatus": 200,
+      "finalUrl": "https://v2.voice-stt-server.marcosudau.com/api/v2/wake-words",
+      "contentType": "application/json",
+      "responseSha256": "722fcf6a42e4239c1152a12738665d3c9f7a15c395412ce3a106bc4034516714",
+      "topLevelKeys": [
+        "catalogRevision",
+        "protocolVersion",
+        "wakeWords"
+      ],
+      "identity": {
+        "protocolVersion": 2
+      },
+      "catalogIds": [
+        "alexa",
+        "alice",
+        "computer",
+        "hey_alfred",
+        "hey_billy",
+        "hey_bro",
+        "hey_glados",
+        "hey_hermes",
+        "hey_jarvis",
+        "hey_lucy",
+        "hey_luna",
+        "hey_max",
+        "hey_mira",
+        "hey_mycroft",
+        "hey_nabu",
+        "hey_nexus",
+        "hey_nova",
+        "hey_oracle",
+        "hey_rhasspy",
+        "hey_rocky",
+        "ivy",
+        "pico",
+        "stop",
+        "timer",
+        "weather"
+      ]
+    }
+  ]
+}

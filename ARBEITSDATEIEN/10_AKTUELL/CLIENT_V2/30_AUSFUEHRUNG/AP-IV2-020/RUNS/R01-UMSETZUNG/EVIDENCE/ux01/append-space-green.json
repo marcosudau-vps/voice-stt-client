@@ -1,0 +1,46 @@
+{
+  "finding": "IV2-020-UX01",
+  "cases": [
+    {
+      "appendSpace": true,
+      "original": "Alpha.",
+      "expected": "Alpha. ",
+      "actual": "Alpha. ",
+      "status": "command_sent",
+      "immutableJobPreserved": true,
+      "result": "PASS"
+    },
+    {
+      "appendSpace": false,
+      "original": "Alpha.",
+      "expected": "Alpha.",
+      "actual": "Alpha.",
+      "status": "command_sent",
+      "immutableJobPreserved": true,
+      "result": "PASS"
+    },
+    {
+      "appendSpace": true,
+      "original": "Alpha. ",
+      "expected": "Alpha. ",
+      "actual": "Alpha. ",
+      "status": "command_sent",
+      "immutableJobPreserved": true,
+      "result": "PASS"
+    },
+    {
+      "appendSpace": true,
+      "original": "Alpha.\n",
+      "expected": "Alpha.\n",
+      "actual": "Alpha.\n",
+      "status": "command_sent",
+      "immutableJobPreserved": true,
+      "result": "PASS"
+    }
+  ],
+  "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+  "sourceHead": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+  "boundary": "Actual queue payload path; fake Win32 boundary; no native side effects",
+  "unappliedCandidatePreview": false,
+  "result": "PASS"
+}

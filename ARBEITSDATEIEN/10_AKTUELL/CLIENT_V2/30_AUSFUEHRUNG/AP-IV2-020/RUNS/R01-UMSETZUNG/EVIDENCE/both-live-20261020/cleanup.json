@@ -1,0 +1,10 @@
+{
+  "state": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+  "reason": "blocked by policy",
+  "newStoppedArchivedTargets": [
+    "suite-20261020-215407-5cec35"
+  ],
+  "totalStoppedArchivedDirectoriesPending": 23,
+  "previousTwentyTwo": "../mute-reinsert-20261020/cleanup.json; not retried",
+  "noRetryOrWorkaround": true
+}

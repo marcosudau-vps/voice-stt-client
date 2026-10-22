@@ -1,0 +1,28 @@
+{
+  "result": "PASS_SCOPED",
+  "launcher": "Start-GuidedTests.vbs / Windows default open verb",
+  "visibleTarget": "wss://pro.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "noAutomaticClient": true,
+  "normalDesktopTokens": [
+    {
+      "pid": 46696,
+      "security": {
+        "available": true,
+        "integrity": 8192,
+        "uiAccess": 0,
+        "appContainer": 0
+      },
+      "command": "\"P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe\" -m tests.manual.v2.guided_suite --profile-runtime --server-info P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-IV2-020\\RUNS\\R01-UMSETZUNG\\EVIDENCE\\review-ready-20261022\\server-info.json "
+    },
+    {
+      "pid": 39180,
+      "security": {
+        "available": true,
+        "integrity": 8192,
+        "uiAccess": 0,
+        "appContainer": 0
+      },
+      "command": "\"C:\\Users\\marco\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" -m tests.manual.v2.guided_suite --profile-runtime --server-info P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-IV2-020\\RUNS\\R01-UMSETZUNG\\EVIDENCE\\review-ready-20261022\\server-info.json "
+    }
+  ]
+}

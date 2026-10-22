@@ -1,0 +1,7 @@
+# AP-IV2-020 – R05-UEBERNAHME / Freigabe und Mergevorbereitung
+
+Datum: 22.10.2026. Tatsächlich erteilte menschliche Mergefreigabe im [Originalprompt](00_PROMPT_ORIGINAL.md) gesichert. Das unabhängige technische Urteil [R04-ROOT_PASS](../R04-ABNAHME/01_REPORT.md) gilt dem Produktkandidaten `ca56b5ab58c47bd97bae36335e9d9314b2d35294`; reine administrative R04-Nachträge bis zum Freigabe-Head `5bb82673f076d145b3c197343d3e144a41626c7e` wurden als 12 Dateien ohne Produkt-/Test-/Kontraktänderung unabhängig abgeglichen.
+
+Kanonischer Parent `b80ed8b81ad92bd02ac32553883443d2b7673bcd` auf `feat/client-v2` weiterhin unverändert. PR15 ist offen und technisch mergefähig; [CI auf dem Freigabe-Head 39740375351](https://github.com/marcosudau-vps/voice-stt-client/actions/runs/39740375351) completed/SUCCESS, der frühere [fachliche CI-Run 39734511679](https://github.com/marcosudau-vps/voice-stt-client/actions/runs/39734511679) ebenfalls. 1407 Tests, EXE-/Wheel-/sdist- und Install-Smokes im technischen CI-Beleg. Kein offenes Pflichtfinding.
+
+Dieser Run sichert vor dem Merge lediglich Freigabe, R05-Akte und `READY_FOR_CANONICALIZATION`. Sein administrativer Aktencommit muss ebenfalls auf rein administrative Änderungen und finale CI zum tatsächlich zu mergenden Head geprüft werden. **Hier wird noch kein erfolgter Merge behauptet.** Exakter GitHub-Squash-SHA, Parent-/Treeprüfung und post-merge Zustand werden erst nach dem Merge unter `NACH_ABSCHLUSS/ABSCHLUSS.json` auf dem Paketarbeitsbranch gesichert, nicht mit einem zweiten Commit auf `feat/client-v2`.

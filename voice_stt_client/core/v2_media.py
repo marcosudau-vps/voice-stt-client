@@ -11,6 +11,7 @@ import asyncio
 from collections import deque
 from dataclasses import dataclass, field
 import math
+import logging
 import threading
 import time
 from websockets.exceptions import ConnectionClosed
@@ -20,6 +21,9 @@ from .command_tracker import CommandFailure
 from .config import ServerConfig, EventStreamConfig
 from .session_coordinator import DualSessionCoordinator
 from .v2_transport import V2TransportState
+
+logger = logging.getLogger('v2.media')
+CAPTURE_STALL_SECONDS = 2.0
 
 
 @dataclass(frozen=True)
@@ -140,6 +144,9 @@ class V2MediaConnection:
         self._loop = None
         self._task = self._sender = None
         self._capture_operation = None
+        self._capture_lock = asyncio.Lock()
+        self._capture_chunks = None
+        self._capture_progress_at = time.monotonic()
         self._log_shutdown_task = None
         self._reported_available = None
         self._overflow_at_last_send = 0
@@ -259,17 +266,37 @@ class V2MediaConnection:
         await self._capture_call(self.capture.stop)
 
     async def _capture_call(self, operation):
-        # Cancelling the asyncio owner doesn't cancel a native PortAudio call.
-        # Keep its task so close can join it before calling stop on the device.
-        previous = self._capture_operation
-        if previous is not None:
-            await asyncio.shield(previous)
-        task = self._capture_operation = asyncio.create_task(asyncio.to_thread(operation))
-        try:
-            return await asyncio.shield(task)
-        finally:
-            if task.done() and self._capture_operation is task:
-                self._capture_operation = None
+        async with self._capture_lock:
+            # Cancelling the asyncio owner doesn't cancel a native PortAudio call.
+            # Keep its task so close can join it before calling stop on the device.
+            previous = self._capture_operation
+            if previous is not None:
+                try:
+                    await asyncio.shield(previous)
+                finally:
+                    # A cancelled owner may leave a failing native probe behind.
+                    # Report that failure once, then allow a later device retry.
+                    # Keep the barrier while the native operation is still running.
+                    if previous.done() and self._capture_operation is previous:
+                        self._capture_operation = None
+            task = self._capture_operation = asyncio.create_task(asyncio.to_thread(operation))
+            try:
+                return await asyncio.shield(task)
+            finally:
+                if task.done() and self._capture_operation is task:
+                    self._capture_operation = None
+
+    def _capture_stalled(self):
+        # Some Windows drivers leave stream.active true after USB removal.
+        # Check the existing capture counter, including digital silence; no
+        # speech/VAD decision, audio copy or per-packet task is needed here.
+        chunks = getattr(self.capture, 'chunks_captured', None)
+        if chunks is None:
+            return False
+        now = time.monotonic()
+        if chunks != self._capture_chunks:
+            self._capture_chunks, self._capture_progress_at = chunks, now
+        return now - self._capture_progress_at >= CAPTURE_STALL_SECONDS
 
     async def _lifecycle(self):
         try:
@@ -295,15 +322,21 @@ class V2MediaConnection:
                         self.log_failure = "log_bootstrap_invalid"
                 if binding and self.session.is_ready:
                     if self.device_available and not self.hardware_muted:
-                        if not self.capture.is_running or not getattr(self.capture, "device_active", True):
+                        stalled = self.capture.is_running and self._capture_stalled()
+                        if not self.capture.is_running or not getattr(self.capture, "device_active", True) or stalled:
                             was_available = self.capture_available
                             self._block()
                             self.capture_available = False
+                            if stalled:
+                                self.capture_failures += 1
+                                logger.warning('Audio capture callbacks stalled; reopening input.')
                             if was_available:
                                 await self._report_availability(binding, False)
                             await self._stop_capture()
                             try:
                                 await self._capture_call(self.capture.start)
+                                self._capture_chunks = getattr(self.capture, 'chunks_captured', None)
+                                self._capture_progress_at = time.monotonic()
                                 self.capture_available = True
                             except Exception:
                                 self.capture_failures += 1

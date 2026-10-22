@@ -1,0 +1,80 @@
+{
+  "activation.initialSpeechTimeoutMs": {
+    "key": "activation.initialSpeechTimeoutMs",
+    "scope": "session",
+    "auth": "session",
+    "type": "int",
+    "constraints": {
+      "min": 100,
+      "max": 3600000,
+      "unit": "ms"
+    },
+    "requestedValue": 15000,
+    "effectiveValue": 15000,
+    "applyPolicy": "next_activation"
+  },
+  "wakeWord.cooldownMs": {
+    "key": "wakeWord.cooldownMs",
+    "scope": "session",
+    "auth": "session",
+    "type": "int",
+    "constraints": {
+      "min": 0,
+      "unit": "ms",
+      "calibration": "pending",
+      "calibrationTraceabilityIds": [
+        "WW-18"
+      ]
+    },
+    "requestedValue": 0,
+    "effectiveValue": 0,
+    "applyPolicy": "next_activation"
+  },
+  "wakeWord.detectorGain": {
+    "key": "wakeWord.detectorGain",
+    "scope": "session",
+    "auth": "session",
+    "type": "float",
+    "constraints": {
+      "min": 0.0,
+      "max": 3.0,
+      "calibration": "pending",
+      "calibrationTraceabilityIds": [
+        "WW-18"
+      ]
+    },
+    "requestedValue": 1.0,
+    "effectiveValue": 1.0,
+    "applyPolicy": "next_activation"
+  },
+  "wakeWord.minConsecutivePredictionFrames": {
+    "key": "wakeWord.minConsecutivePredictionFrames",
+    "scope": "session",
+    "auth": "session",
+    "type": "int",
+    "constraints": {
+      "min": 1,
+      "unit": "predictionFrames",
+      "calibration": "pending",
+      "calibrationTraceabilityIds": [
+        "WW-18"
+      ]
+    },
+    "requestedValue": 1,
+    "effectiveValue": 1,
+    "applyPolicy": "next_activation"
+  },
+  "wakeWord.sensitivity": {
+    "key": "wakeWord.sensitivity",
+    "scope": "session",
+    "auth": "session",
+    "type": "float",
+    "constraints": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "requestedValue": 0.5,
+    "effectiveValue": 0.5,
+    "applyPolicy": "next_activation"
+  }
+}

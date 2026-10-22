@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "finding": "IV2-020-UX02",
+  "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+  "sourceCommit": "8c8e36b931b26db8d705bf94d9dad8e9acd5d43c",
+  "sourceManifestMatchesQualifiedProduct": true,
+  "physicalModifierObservedByProductWorker": true,
+  "heldToReleaseMs": 250.0,
+  "nativePasteEvents": 1,
+  "shiftHeldAtPaste": false,
+  "altHeldAtPaste": false,
+  "nativeSentEvents": 4,
+  "sendWithAllModifiersReleased": true,
+  "outputCharacters": 33,
+  "outputSha256": "8ff2b6ba2bb04f798be6b307e3d8720eeaf5853d19be9b0c75d5f704b4172ac1",
+  "exactOutput": true,
+  "authoritativeTextPreserved": true,
+  "workerStopped": true,
+  "tester": "Human physical keys and output confirmation; Codex source/native instrumentation evaluation",
+  "attempt": "attempt-001.json",
+  "humanDecision": "human-decision-chat.json",
+  "boundaries": "Actual product queue and native Windows state/Clipboard/SendInput/owned Qt editor. No ASR/microphone/server, no complete M-case PASS."
+}

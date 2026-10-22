@@ -1,0 +1,395 @@
+{
+  "result": "PASS_SCOPED",
+  "cases": [
+    {
+      "case": "alexa_pause-rearm-timeout",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "noExtraActivationOnSilence": true,
+        "exactlyTwoActivations": true,
+        "distinctIds": true,
+        "exactlyTwoWakeEvents": true,
+        "selectedWakeId": true,
+        "hitIdsMatchStarts": true,
+        "exactlyTwoClosures": true,
+        "closureIdsMatch": true,
+        "actualTimeout": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 29.704,
+      "activations": 2,
+      "wakes": 2,
+      "scores": [
+        0.9997421503067017,
+        0.9999430179595947
+      ],
+      "finalCharacters": [],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "491275b1-5169-41f6-896b-a6d4acecbb65",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    },
+    {
+      "case": "alexa_pause-rearm-finish",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "noExtraActivationOnSilence": true,
+        "exactlyTwoActivations": true,
+        "distinctIds": true,
+        "exactlyTwoWakeEvents": true,
+        "selectedWakeId": true,
+        "hitIdsMatchStarts": true,
+        "exactlyTwoClosures": true,
+        "closureIdsMatch": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 14.859,
+      "activations": 2,
+      "wakes": 2,
+      "scores": [
+        0.9997421503067017,
+        0.9996393322944641
+      ],
+      "finalCharacters": [],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "9d5c10bd-e90b-46d5-ab06-89a40a7c7a10",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    },
+    {
+      "case": "alexa_pause-rearm-cancel",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "noExtraActivationOnSilence": true,
+        "exactlyTwoActivations": true,
+        "distinctIds": true,
+        "exactlyTwoWakeEvents": true,
+        "selectedWakeId": true,
+        "hitIdsMatchStarts": true,
+        "exactlyTwoClosures": true,
+        "closureIdsMatch": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 14.969,
+      "activations": 2,
+      "wakes": 2,
+      "scores": [
+        0.9997421503067017,
+        0.9996393322944641
+      ],
+      "finalCharacters": [],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "715676d1-06f5-4517-a234-231f2f336728",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    },
+    {
+      "case": "alexa_pause-rearm-reconnect",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "noExtraActivationOnSilence": true,
+        "noActivationAfterReconnect": true,
+        "exactlyTwoActivations": true,
+        "distinctIds": true,
+        "exactlyTwoWakeEvents": true,
+        "selectedWakeId": true,
+        "hitIdsMatchStarts": true,
+        "exactlyTwoClosures": true,
+        "closureIdsMatch": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 21.093,
+      "activations": 2,
+      "wakes": 2,
+      "scores": [
+        0.9997421503067017,
+        0.9996393322944641
+      ],
+      "finalCharacters": [],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "01144bf8-f984-472a-91bd-6e26e3f4327f",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        },
+        {
+          "generation": 2,
+          "sessionId": "9758c46a-3ef0-4920-8d15-da7bd5e051d9",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    },
+    {
+      "case": "jarvis_direct-rearm-timeout",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "noExtraActivationOnSilence": true,
+        "exactlyTwoActivations": true,
+        "distinctIds": true,
+        "exactlyTwoWakeEvents": true,
+        "selectedWakeId": true,
+        "hitIdsMatchStarts": true,
+        "exactlyTwoClosures": true,
+        "closureIdsMatch": true,
+        "actualTimeout": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 29.375,
+      "activations": 2,
+      "wakes": 2,
+      "scores": [
+        0.9871283769607544,
+        0.9961682558059692
+      ],
+      "finalCharacters": [],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "64661de7-7622-4bdc-a19a-e713ae525dbd",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    },
+    {
+      "case": "jarvis_direct-rearm-finish",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "noExtraActivationOnSilence": true,
+        "exactlyTwoActivations": true,
+        "distinctIds": true,
+        "exactlyTwoWakeEvents": true,
+        "selectedWakeId": true,
+        "hitIdsMatchStarts": true,
+        "exactlyTwoClosures": true,
+        "closureIdsMatch": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 14.5,
+      "activations": 2,
+      "wakes": 2,
+      "scores": [
+        0.9871283769607544,
+        0.9829314947128296
+      ],
+      "finalCharacters": [],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "5c7827e2-144a-4e65-8cd2-11d7ca4f81d1",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    },
+    {
+      "case": "jarvis_direct-rearm-cancel",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "noExtraActivationOnSilence": true,
+        "exactlyTwoActivations": true,
+        "distinctIds": true,
+        "exactlyTwoWakeEvents": true,
+        "selectedWakeId": true,
+        "hitIdsMatchStarts": true,
+        "exactlyTwoClosures": true,
+        "closureIdsMatch": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 14.61,
+      "activations": 2,
+      "wakes": 2,
+      "scores": [
+        0.9871283769607544,
+        0.9829314947128296
+      ],
+      "finalCharacters": [],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "78e93a03-d562-445c-824f-bce10be4e270",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    },
+    {
+      "case": "jarvis_direct-rearm-reconnect",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "noExtraActivationOnSilence": true,
+        "noActivationAfterReconnect": true,
+        "exactlyTwoActivations": true,
+        "distinctIds": true,
+        "exactlyTwoWakeEvents": true,
+        "selectedWakeId": true,
+        "hitIdsMatchStarts": true,
+        "exactlyTwoClosures": true,
+        "closureIdsMatch": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 20.719,
+      "activations": 2,
+      "wakes": 2,
+      "scores": [
+        0.9871283769607544,
+        0.9945287704467773
+      ],
+      "finalCharacters": [],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "183b73fb-b732-4241-9839-410da8af26ca",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        },
+        {
+          "generation": 2,
+          "sessionId": "ecdf6997-5f58-4d30-b901-618f5d89d759",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    },
+    {
+      "case": "negative_speech-negative-none",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "noWake": true,
+        "noActivation": true,
+        "noFinal": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 15.296,
+      "activations": 0,
+      "wakes": 0,
+      "scores": [],
+      "finalCharacters": [],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "44eda17c-91c7-4373-8dc2-5a28693e8207",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    },
+    {
+      "case": "unselected_phrase-negative-none",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "noWake": true,
+        "noActivation": true,
+        "noFinal": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 14.953,
+      "activations": 0,
+      "wakes": 0,
+      "scores": [],
+      "finalCharacters": [],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "758394cf-d15c-45bb-b738-34c9a757803c",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    },
+    {
+      "case": "jarvis_pause-negative-none",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "noWake": true,
+        "noActivation": true,
+        "noFinal": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 14.969,
+      "activations": 0,
+      "wakes": 0,
+      "scores": [],
+      "finalCharacters": [],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "d548fbd6-7c46-4f73-8bd1-bba1dfdb035a",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    },
+    {
+      "case": "alexa_direct-speech-natural",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "oneActivation": true,
+        "oneWake": true,
+        "nonemptyFinal": true,
+        "selectedWakeId": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 25.203,
+      "activations": 1,
+      "wakes": 1,
+      "scores": [
+        0.9997975826263428
+      ],
+      "finalCharacters": [
+        35
+      ],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "9829d784-f325-497c-b719-1ce5c018943a",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    },
+    {
+      "case": "jarvis_direct-speech-natural",
+      "result": "PASS_SCOPED",
+      "checks": {
+        "oneActivation": true,
+        "oneWake": true,
+        "nonemptyFinal": true,
+        "selectedWakeId": true,
+        "noPendingCommands": true,
+        "effectivePreferences": true
+      },
+      "seconds": 24.922,
+      "activations": 1,
+      "wakes": 1,
+      "scores": [
+        0.9871283769607544
+      ],
+      "finalCharacters": [
+        34
+      ],
+      "sessions": [
+        {
+          "generation": 1,
+          "sessionId": "badc36ee-5b90-479d-94c0-ae5154a15f5c",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+        }
+      ]
+    }
+  ],
+  "totalActivations": 18,
+  "physicalMicrophoneAndSoundQualification": "PENDING",
+  "fullPackageStatus": "BLOCKED"
+}

@@ -1,0 +1,1825 @@
+{
+  "findingId": "IV2-020-W01",
+  "status": "OPEN_SERVER_FIX_REQUIRED",
+  "capturedAtUtc": "2026-10-18T01:09:32.703374+00:00",
+  "clientProductCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "sourceObservationSha256": "594d4191c2bbc81d9fc6f70eb145a3d7c71f6b4bf1acfd2bc870062d18d6ea89",
+  "profileSha256": "ff535d4a444d3dbd0ca10509e43fdd1a319e2683ba2dc06931b6c1c29b70f2bb",
+  "activationIds": [
+    "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+    "b8c973cb-a227-4c70-b130-1e6616b59c95"
+  ],
+  "serverCloseToNewStartMs": 303,
+  "events": [
+    {
+      "type": "activation.started",
+      "generation": 1,
+      "sessionId": "b1482c4a-1b6c-43ba-b0d6-d1ef6b8d5f7d",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "eventId": "7caa0531-05ea-4c6f-ac38-9045c75c795a",
+      "eventSeq": 30,
+      "stateVersion": 38,
+      "occurredAtUnixMs": 1792285497470,
+      "primarySource": "wake_word",
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320,
+      "timeUtc": "2026-10-18T01:04:57.475143+00:00",
+      "monotonic": 90340.296
+    },
+    {
+      "type": "wakeword.detected",
+      "generation": 1,
+      "sessionId": "b1482c4a-1b6c-43ba-b0d6-d1ef6b8d5f7d",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "eventId": "552118ac-3ee7-43dd-aee3-d05550fa4de8",
+      "eventSeq": 31,
+      "stateVersion": 39,
+      "occurredAtUnixMs": 1792285497472,
+      "wakeWordId": "alexa",
+      "score": 0.892665445804596,
+      "primarySource": "wake_word",
+      "timeUtc": "2026-10-18T01:04:57.504676+00:00",
+      "monotonic": 90340.328
+    },
+    {
+      "type": "activation.completed",
+      "generation": 1,
+      "sessionId": "b1482c4a-1b6c-43ba-b0d6-d1ef6b8d5f7d",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "eventId": "d5f31e52-6687-4026-9ec5-d865b49559f5",
+      "eventSeq": 32,
+      "stateVersion": 41,
+      "occurredAtUnixMs": 1792285512470,
+      "timeUtc": "2026-10-18T01:05:12.474427+00:00",
+      "monotonic": 90355.296
+    },
+    {
+      "type": "activation.input_closed",
+      "generation": 1,
+      "sessionId": "b1482c4a-1b6c-43ba-b0d6-d1ef6b8d5f7d",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "eventId": "6d59c773-519a-4acd-9b03-d8a1234a35b6",
+      "eventSeq": 33,
+      "stateVersion": 42,
+      "occurredAtUnixMs": 1792285512472,
+      "reason": "timed_out",
+      "timeUtc": "2026-10-18T01:05:12.497932+00:00",
+      "monotonic": 90355.312
+    },
+    {
+      "type": "activation.started",
+      "generation": 1,
+      "sessionId": "b1482c4a-1b6c-43ba-b0d6-d1ef6b8d5f7d",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "eventId": "7b589be9-1766-4f74-bddb-101d18f845f0",
+      "eventSeq": 34,
+      "stateVersion": 43,
+      "occurredAtUnixMs": 1792285512775,
+      "primarySource": "wake_word",
+      "effectiveFollowupMs": 5000,
+      "effectivePreRollMs": 320,
+      "timeUtc": "2026-10-18T01:05:12.783459+00:00",
+      "monotonic": 90355.593
+    },
+    {
+      "type": "wakeword.detected",
+      "generation": 1,
+      "sessionId": "b1482c4a-1b6c-43ba-b0d6-d1ef6b8d5f7d",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "eventId": "95380635-9356-451c-9115-e41fcdcea379",
+      "eventSeq": 35,
+      "stateVersion": 44,
+      "occurredAtUnixMs": 1792285512776,
+      "wakeWordId": "alexa",
+      "score": 0.9919427633285522,
+      "primarySource": "wake_word",
+      "timeUtc": "2026-10-18T01:05:12.809995+00:00",
+      "monotonic": 90355.625
+    },
+    {
+      "type": "activation.completed",
+      "generation": 1,
+      "sessionId": "b1482c4a-1b6c-43ba-b0d6-d1ef6b8d5f7d",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "eventId": "e90b0df8-a614-47db-9b29-97c40b70c12d",
+      "eventSeq": 36,
+      "stateVersion": 46,
+      "occurredAtUnixMs": 1792285527773,
+      "timeUtc": "2026-10-18T01:05:27.778894+00:00",
+      "monotonic": 90370.593
+    },
+    {
+      "type": "activation.input_closed",
+      "generation": 1,
+      "sessionId": "b1482c4a-1b6c-43ba-b0d6-d1ef6b8d5f7d",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "eventId": "eb57585c-45cb-4a7b-bcc0-12d0c6ef6b57",
+      "eventSeq": 37,
+      "stateVersion": 47,
+      "occurredAtUnixMs": 1792285527775,
+      "reason": "timed_out",
+      "timeUtc": "2026-10-18T01:05:27.809916+00:00",
+      "monotonic": 90370.625
+    }
+  ],
+  "sounds": [
+    {
+      "timeUtc": "2026-10-18T01:04:57.482642+00:00",
+      "kind": "playing",
+      "cue": "wake_word",
+      "playing": true,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-18T01:04:57.483637+00:00",
+      "kind": "cue",
+      "cue": "wake_word",
+      "action": "play",
+      "accepted": true
+    },
+    {
+      "timeUtc": "2026-10-18T01:04:58.270057+00:00",
+      "kind": "playing",
+      "cue": "wake_word",
+      "playing": false,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-18T01:05:12.507932+00:00",
+      "kind": "playing",
+      "cue": "stop",
+      "playing": true,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-18T01:05:12.509446+00:00",
+      "kind": "cue",
+      "cue": "stop",
+      "action": "play",
+      "accepted": true
+    },
+    {
+      "timeUtc": "2026-10-18T01:05:12.786959+00:00",
+      "kind": "playing",
+      "cue": "wake_word",
+      "playing": true,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-18T01:05:12.788471+00:00",
+      "kind": "cue",
+      "cue": "wake_word",
+      "action": "play",
+      "accepted": true
+    },
+    {
+      "timeUtc": "2026-10-18T01:05:13.164304+00:00",
+      "kind": "playing",
+      "cue": "stop",
+      "playing": false,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-18T01:05:13.584531+00:00",
+      "kind": "playing",
+      "cue": "wake_word",
+      "playing": false,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-18T01:05:27.813419+00:00",
+      "kind": "playing",
+      "cue": "stop",
+      "playing": true,
+      "status": "Ready"
+    },
+    {
+      "timeUtc": "2026-10-18T01:05:27.814426+00:00",
+      "kind": "cue",
+      "cue": "stop",
+      "action": "play",
+      "accepted": true
+    },
+    {
+      "timeUtc": "2026-10-18T01:05:28.470428+00:00",
+      "kind": "playing",
+      "cue": "stop",
+      "playing": false,
+      "status": "Ready"
+    }
+  ],
+  "metrics": [
+    {
+      "kind": "metrics",
+      "monotonic": 90333.781,
+      "timeUtc": "2026-10-18T01:04:50.963999+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "idle",
+      "activationId": null,
+      "media": {
+        "sent": 84318,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84318,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151269376,
+        "privateBytes": 179503104
+      },
+      "activations": 7,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90334.796,
+      "timeUtc": "2026-10-18T01:04:51.973146+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "idle",
+      "activationId": null,
+      "media": {
+        "sent": 84343,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84343,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151273472,
+        "privateBytes": 179503104
+      },
+      "activations": 7,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90335.796,
+      "timeUtc": "2026-10-18T01:04:52.981634+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "idle",
+      "activationId": null,
+      "media": {
+        "sent": 84368,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84368,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151277568,
+        "privateBytes": 179503104
+      },
+      "activations": 7,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90336.796,
+      "timeUtc": "2026-10-18T01:04:53.975125+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "idle",
+      "activationId": null,
+      "media": {
+        "sent": 84392,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84392,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151281664,
+        "privateBytes": 179503104
+      },
+      "activations": 7,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90337.796,
+      "timeUtc": "2026-10-18T01:04:54.980481+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "idle",
+      "activationId": null,
+      "media": {
+        "sent": 84418,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84418,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151298048,
+        "privateBytes": 179503104
+      },
+      "activations": 7,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90338.796,
+      "timeUtc": "2026-10-18T01:04:55.973806+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "idle",
+      "activationId": null,
+      "media": {
+        "sent": 84443,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84443,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151302144,
+        "privateBytes": 179503104
+      },
+      "activations": 7,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90339.781,
+      "timeUtc": "2026-10-18T01:04:56.968587+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "idle",
+      "activationId": null,
+      "media": {
+        "sent": 84468,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84468,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151306240,
+        "privateBytes": 179503104
+      },
+      "activations": 7,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90340.781,
+      "timeUtc": "2026-10-18T01:04:57.957303+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84493,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84493,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151351296,
+        "privateBytes": 179503104
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90341.781,
+      "timeUtc": "2026-10-18T01:04:58.967639+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84518,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84518,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151445504,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90342.781,
+      "timeUtc": "2026-10-18T01:04:59.959624+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84542,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84542,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151449600,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90343.781,
+      "timeUtc": "2026-10-18T01:05:00.968526+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84567,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84567,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151449600,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90344.781,
+      "timeUtc": "2026-10-18T01:05:01.960403+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84592,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84592,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151453696,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90345.781,
+      "timeUtc": "2026-10-18T01:05:02.966576+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84618,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84618,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151453696,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90346.781,
+      "timeUtc": "2026-10-18T01:05:03.958486+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84643,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84643,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151457792,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90347.781,
+      "timeUtc": "2026-10-18T01:05:04.966612+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84668,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84668,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151461888,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90348.781,
+      "timeUtc": "2026-10-18T01:05:05.957993+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84693,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84693,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151461888,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90349.781,
+      "timeUtc": "2026-10-18T01:05:06.968724+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84717,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84717,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151465984,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90350.781,
+      "timeUtc": "2026-10-18T01:05:07.963566+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84742,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84742,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151470080,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90351.781,
+      "timeUtc": "2026-10-18T01:05:08.969074+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84768,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84768,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151470080,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90352.781,
+      "timeUtc": "2026-10-18T01:05:09.964034+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84792,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84792,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151470080,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90353.781,
+      "timeUtc": "2026-10-18T01:05:10.971469+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84818,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84818,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151482368,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90354.781,
+      "timeUtc": "2026-10-18T01:05:11.962882+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "d0ec17a5-8473-4c7a-9184-f9c63423f3eb",
+      "media": {
+        "sent": 84843,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84843,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151482368,
+        "privateBytes": 179572736
+      },
+      "activations": 8,
+      "segments": 0,
+      "terminalActivations": 7,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90355.796,
+      "timeUtc": "2026-10-18T01:05:12.973096+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 84868,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84868,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151437312,
+        "privateBytes": 179531776
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90356.796,
+      "timeUtc": "2026-10-18T01:05:13.978116+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 84893,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84893,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151519232,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90357.812,
+      "timeUtc": "2026-10-18T01:05:14.987407+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 84918,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84918,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151523328,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90358.812,
+      "timeUtc": "2026-10-18T01:05:15.996418+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 84944,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84944,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151527424,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90359.812,
+      "timeUtc": "2026-10-18T01:05:16.992962+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 84968,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84968,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151527424,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90360.812,
+      "timeUtc": "2026-10-18T01:05:18.000968+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 84994,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 84994,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151527424,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90361.812,
+      "timeUtc": "2026-10-18T01:05:18.992795+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 85018,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 85018,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151531520,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90362.812,
+      "timeUtc": "2026-10-18T01:05:20.001876+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 85043,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 85043,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151543808,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90363.812,
+      "timeUtc": "2026-10-18T01:05:20.993573+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 85068,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 85068,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151547904,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90364.812,
+      "timeUtc": "2026-10-18T01:05:22.000439+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 85093,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 85093,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151552000,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90365.812,
+      "timeUtc": "2026-10-18T01:05:22.994010+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 85118,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 85118,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151552000,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90366.812,
+      "timeUtc": "2026-10-18T01:05:24.002002+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 85144,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 85144,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151556096,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90367.812,
+      "timeUtc": "2026-10-18T01:05:24.993930+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 85169,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 85169,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151556096,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90368.812,
+      "timeUtc": "2026-10-18T01:05:26.002456+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 85193,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 85193,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151560192,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90369.828,
+      "timeUtc": "2026-10-18T01:05:27.010728+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "waiting_first_speech",
+      "activationId": "b8c973cb-a227-4c70-b130-1e6616b59c95",
+      "media": {
+        "sent": 85218,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 85218,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151564288,
+        "privateBytes": 179572736
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 8,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90370.828,
+      "timeUtc": "2026-10-18T01:05:28.018036+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "idle",
+      "activationId": null,
+      "media": {
+        "sent": 85244,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 85244,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151674880,
+        "privateBytes": 179806208
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 9,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 90371.828,
+      "timeUtc": "2026-10-18T01:05:29.010948+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "idle",
+      "activationId": null,
+      "media": {
+        "sent": 85269,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 85269,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 151674880,
+        "privateBytes": 179806208
+      },
+      "activations": 9,
+      "segments": 0,
+      "terminalActivations": 9,
+      "injectionQueue": 0
+    }
+  ],
+  "humanObservation": "Einmal Alexa gesprochen; danach zwei Wartephasen jeweils schweigend bis zum 15s-Timeout. LED-Effekt an sich in Ordnung.",
+  "conclusions": {
+    "twoDistinctServerActivations": true,
+    "bothSourceWakeWord": "alexa",
+    "noSegmentsInTheseActivations": true,
+    "threshold085WouldBlockEither": false,
+    "clientLedReplayNotCause": true,
+    "historicalAcousticCause": "NOT_PROVEN: no microphone PCM retained. Model-state recurrence independently reproduced with existing authorized speech followed by digital silence; reset control removes recurrence."
+  },
+  "reproduction": "rearm-replay-result.json",
+  "clientAndServerUnchanged": true,
+  "ledPreference": "Pattern acceptable in principle; final timing/overall feedback qualification remains open."
+}

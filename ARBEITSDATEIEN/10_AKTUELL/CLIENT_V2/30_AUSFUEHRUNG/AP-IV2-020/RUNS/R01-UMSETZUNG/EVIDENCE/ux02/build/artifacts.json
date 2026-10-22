@@ -1,0 +1,40 @@
+{
+  "result": "PASS",
+  "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+  "productTree": "413467dffb8b98a15c77617a34ed097d21b216df",
+  "files": [
+    {
+      "file": "voice-stt-client.exe",
+      "size": 75667907,
+      "sha256": "8d767663cb389e811645063e91065d8d185ba1be717d5ffefa601c90faf19f10"
+    },
+    {
+      "file": "voice_stt_client-1.0.0-py3-none-any.whl",
+      "size": 1187281,
+      "sha256": "2c27c5c0884916dcc67801706345373fa47f62023c70086bf4d3fba74b22a30b"
+    },
+    {
+      "file": "voice_stt_client-1.0.0.tar.gz",
+      "size": 1150075,
+      "sha256": "42a20fe6fc09a2318eb009f687c15de8e90d701599f73c29ccbdf5f70abbf67b"
+    }
+  ],
+  "checks": [
+    {
+      "name": "pyinstaller",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "distributions",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "name": "release-guard",
+      "result": "PASS",
+      "exitCode": 0
+    }
+  ],
+  "release": "NOT_PUBLISHED"
+}

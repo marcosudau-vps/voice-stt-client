@@ -1,0 +1,9 @@
+{
+  "seconds": 195.5691865,
+  "runtimeFolder": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\server-return-20261020-171410",
+  "command": "venv/Scripts/python.exe -m unittest discover -v -s tests",
+  "boundary": "Client Windows regression; real selected-server replay is recorded separately",
+  "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "exitCode": 0
+}

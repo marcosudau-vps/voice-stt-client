@@ -1,0 +1,65 @@
+{
+  "timeUtc": "2026-10-19T11:59:22.962956+00:00",
+  "result": "PASS_OFFLINE_AND_PROVENANCE_CHECKS_ONLY",
+  "clientProductCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+  "tests": 5,
+  "checks": [
+    {
+      "name": "matcher-tests",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-B",
+        "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-IV2-020\\RUNS\\R01-UMSETZUNG\\EVIDENCE\\human\\test_retained_evidence.py",
+        "-v"
+      ],
+      "startedAtUtc": "2026-10-19T11:59:19.816175+00:00",
+      "exitCode": 0,
+      "log": "matcher-tests.txt.gz",
+      "sha256": "ef0908958fd6cefcab5f55141210c259f85feabd570f2290fa0d15ea1ff45e7e",
+      "gzipSha256": "a0c8091280baec9ad3f226ff54440e784839ce86f701115cfd0c48d4f1b14e34"
+    },
+    {
+      "name": "offline-closure",
+      "command": [
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+        "-B",
+        "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-IV2-020\\RUNS\\R01-UMSETZUNG\\EVIDENCE\\human\\resolve_retained_evidence.py",
+        "--source",
+        "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\server-image\\source-exact",
+        "--server-repository",
+        "P:\\GithubRepos\\marcosudau-vps\\voice-stt-server\\main",
+        "--runtime",
+        "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020",
+        "--output",
+        "ARBEITSDATEIEN\\10_AKTUELL\\CLIENT_V2\\30_AUSFUEHRUNG\\AP-IV2-020\\RUNS\\R01-UMSETZUNG\\EVIDENCE\\retained-closure-20261019\\results.json"
+      ],
+      "startedAtUtc": "2026-10-19T11:59:20.034366+00:00",
+      "exitCode": 0,
+      "log": "offline-closure.txt.gz",
+      "sha256": "37ebab08934962070395c087eaefcda06c1c87c38bb21e28cf3245315d5c9578",
+      "gzipSha256": "2c91482f61a826afefc5aa1b1fd270df903ab307fb9eb10184a6347b4e2a0d22"
+    }
+  ],
+  "helperSha256": "d0169c77b7b4efc8148128692d540dec719bfd738f6333592e4345e418cbb1fe",
+  "testSha256": "3175166b957a4c1cbaedc8101628d46a5eeceea7be09edda9b0c0a78ea37218e",
+  "historicalAuditInputsRechecked": 363,
+  "historicalAuditInputsUnchanged": true,
+  "newMetadataRows": 25,
+  "sessionsRead": 24,
+  "reportRecordsBound": 10,
+  "caseToSessionBindings": 11,
+  "serverOrClientStarted": false,
+  "mCaseStatusChanges": false,
+  "workRecords": {
+    "result": "PASS",
+    "package": "AP-IV2-020",
+    "packageStatus": "BLOCKED",
+    "referencedFiles": 11,
+    "markdownFiles": 50,
+    "relativeLinks": 690,
+    "errors": []
+  },
+  "productTestsAndScriptsEqualQualifiedCommit": true,
+  "diffCheck": "PASS",
+  "resultsSha256": "9111a10b537400ad72d6015afe0f1d1da1703a1195b6e7667e94b8d6321d42ef"
+}

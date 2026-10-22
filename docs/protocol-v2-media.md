@@ -102,3 +102,27 @@ Der echte Servercheckpoint nutzt ada13b0, reale FastAPI/WebSockets/SQLite/
 PCM-Decodierung/Resampling/Controller, synthetische PortAudioeingabe und einen
 modellfreien Recorder. Reales Mikrofon, Wake-Engine, ASRqualität und physische
 USB-/LED-/Mutefälle bleiben spätere IV2-Nachweise.
+
+## AP-IV2-020 – Native Recovery
+
+Native Probe-/Start-/Stop-/Rekonfigurationsaufrufe werden vollständig serialisiert.
+Ownercancellation behält den laufenden nativen Task als Barrier. Ein nachträglicher
+Fehler wird beobachtet und der fertige Task danach freigegeben, damit spätere
+Gerätewiederkehr möglich bleibt.
+
+## AP-IV2-020 – Windows-USB-Stillstand (19.10.2026)
+
+Ein PortAudio-Treiber kann nach USB-Trennung weiter `active=true` melden,
+obwohl keine Callbacks mehr eintreffen. Die Media-Lifecycle prüft deshalb auch
+den vorhandenen `chunks_captured`-Fortschritt. Zwei Sekunden ohne Fortschritt
+lösen dieselbe lokale Audio-Barriere und bestätigte `audioAvailable=false` wie
+ein inaktiver Treiber aus, bevor auf natives Stop gewartet wird. Der bestehende
+serialisierte Wiederöffnungspfad übernimmt; nach erfolgreichem Start beginnt
+die Fortschrittsfrist neu. Digitale Stille zählt als Fortschritt. Keine lokale
+VAD-Autorität, zusätzliche Activation oder Änderung des Server-Watchdogs.
+
+Diese technische Grenze ist kein Bedien-Timingdefault. Alte Callback-Epochen
+bleiben gesperrt; Bootstrap, Hardware-Mute und Bindingbarrieren gelten weiter.
+Die kontrollierte Regression nutzt echte AudioCapture-/Media-/Transportklassen
+mit simuliertem Treiber. Eine erneute physische USB-Trennung am korrigierten
+Build bleibt separat erforderlich.

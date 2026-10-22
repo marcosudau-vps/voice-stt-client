@@ -1,0 +1,25 @@
+{
+  "boundaries": "Preview + explicit Start for every task; client fully stops between tasks.\n\nReal product and microphone only after that task's own click. The next preview\ndoes not start recording. Two separate sessions are intentional; this alone\ndoes not prove the complete same-session M02 or M12 qualification.\n",
+  "result": "PROCESSES_COMPLETED_FUNCTIONAL_EVALUATION_PENDING",
+  "tasks": [
+    {
+      "taskId": "manual-voice-20261016-01-1-manual-attempt-001",
+      "case": "manual",
+      "phrase": "Dies ist die manuelle Hotkeyprobe.",
+      "attempt": 1,
+      "startSequenceBefore": 1,
+      "result": "PROCESS_COMPLETED_FUNCTIONAL_EVALUATION_PENDING",
+      "actualStartSequence": 2,
+      "processExitCode": 0,
+      "observation": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\observations\\20261016-070226",
+      "observerSha256": "4af707d792cb38e47545f79ad31970e0b16c1314a023a08a5bd3deb392658a1f",
+      "editorAfterAttempt": {
+        "characters": 36,
+        "sha256": "7fe0df3d9d246a770a84cb55fba39cddc5c93f9a8526c0409724e130057dc575",
+        "startSequence": 2
+      },
+      "operatorDecision": "accept"
+    }
+  ],
+  "helperSha256": "3a3d9833748f928be958ab16a68a6ceb34dcef66fbc56896d7c5108c0e874b3e"
+}

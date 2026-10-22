@@ -1,0 +1,31 @@
+{
+  "method": "GET",
+  "url": "https://pro.v1.voice-stt-server.marcosudau.com/openapi.json",
+  "timeUtc": "2026-10-19T12:12:18.153101+00:00",
+  "httpStatus": 200,
+  "responseSha256": "6323f6e70cf37d2a473b89a284750096e090bb72fbd7b54386a84f090d8d0ef6",
+  "apiTitle": "VoiceSTT FastAPI-Server",
+  "apiVersion": "2.0.0",
+  "routePaths": [
+    "/",
+    "/api/config",
+    "/api/config/reload",
+    "/api/config/validate",
+    "/api/language",
+    "/api/logging",
+    "/api/logs/events",
+    "/api/logs/sessions/{session_id}",
+    "/api/logs/transcriptions/{transcription_id}",
+    "/api/metrics",
+    "/api/models",
+    "/api/models/active",
+    "/api/models/lifecycle",
+    "/api/models/load",
+    "/api/models/unload",
+    "/api/wake-word",
+    "/health",
+    "/v1/audio/transcriptions",
+    "/v1/models"
+  ],
+  "v2Paths": []
+}

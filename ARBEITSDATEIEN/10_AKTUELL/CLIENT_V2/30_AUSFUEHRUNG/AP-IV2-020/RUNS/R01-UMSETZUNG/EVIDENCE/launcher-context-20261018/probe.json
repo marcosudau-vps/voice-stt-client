@@ -1,0 +1,9 @@
+{
+  "missingProfile": "REPRODUCED: FileNotFoundError before server/client side effects",
+  "serverOrClientStarted": false,
+  "initialOriginLabel": "",
+  "originLabelAfterFailedFirstLoadWithoutView": "",
+  "visibleErrorAfterFailedFirstLoad": "Die Verbindung wurde ge\u00e4ndert. Neu laden; Admin-Key erneut pr\u00fcfen.",
+  "uiResult": "REPRODUCED: origin remains blank when no view was loaded",
+  "boundary": "Actual helper and Qt dialog with simulated missing profile/failed bridge reply. Not a live server outage or observation of the human settings window."
+}

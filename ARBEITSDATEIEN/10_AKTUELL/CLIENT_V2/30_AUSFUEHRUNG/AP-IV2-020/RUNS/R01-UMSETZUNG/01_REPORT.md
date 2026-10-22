@@ -1,0 +1,545 @@
+## AP-IV2-020/R01 – REVIEW_READY,22.10.2026
+
+[Abschlussbericht40](40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md): **REVIEW_READY**: native ReSpeaker-Altfinal/Recovery/Runpausen und finale normale EXE mit A-final während B-Sprache sowie zwei sichtbaren Ausgaben belegt. Vollständige1400Windows/0Skips/79Module,83Helfer/0Skips,compileall PASS. Produkt0f6c85e/Server67f3ce45 unverändert.18letzte eigene Profile archiviert entfernt, externer Namensraum leer. Zusammengesetzte Methoden/Grenzen und historische Fehlläufe explizit dokumentiert; kein eigener ROOT_PASS. Gleicher R01/Paketbranch/PR15; Schreibhoheit für unabhängigen Review zurückgegeben.
+
+Nachfolgende datierte Zwischenstände sind historisch und durch Bericht40 konsolidiert.
+
+## AP-IV2-020/R01 – Laufzuordnung und Hilfstimer,22.10.2026
+
+[Bericht39](39_LAUFZUORDNUNG_UND_TESTTIMER.md): Mensch meldet eingefügten Text/Fensterschluss; gespeicherte Vorbereitung dagegen TIMEOUT ohne Clientstart, Satz nicht mehr bekannt. Beobachtung erhalten, Zuordnung NOT_PROVEN. Hilfstimer korrigiert: vor Start unbegrenzt warten, Laufbudget erst ab Clientstart.82Helfer/0Skips und compileall PASS, Produkt0f6c85e unverändert. Alle verbliebenen eigenen Profile/Helfer-TEMP archiviert entfernt, genehmigter Namensraum leer, kein laufender Test. Keine weitere Sprach-/Wahrnehmungsprobe gestartet. Technische Restmatrix bleibt BLOCKED, gleicher R01/PR15.
+
+## AP-IV2-020/R01 – Abschlussproben,22.10.2026
+
+[Bericht38](38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md): Adminguard positiv und generationgebunden, erhöhtes eigenes UAC-Ziel/APIstatus und drei native Stereomix-EXE-Einfügungen belegt. Erste ReSpeaker-ASR korrekt, automatische Einfügung fehlte; bewusster EXE-Reinsert erfolgreich. Minimaler Ein-Satz-Wakeversuch ohne Hotkeys vorbereitet, Wiederholen/Weiter repariert.80Helfer/Qt PASS; Produkt0f6c85e und1400Windowsbeleg unverändert. Wahrnehmungsabfragen menschlich abgeschlossen. Zehn beendete Profile plus Helfer-TEMP hashgesichert entfernt; nur ungestartete Abschlussprobe bleibt. Technische Restgrenzen NOT_PROVEN, BLOCKED/gleicher R01/PR15.
+
+## AP-IV2-020/R01 – autonome Restprüfung,21.10.2026
+
+[Bericht37](37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md): Autonome Restprüfung:29aktuelle Runtime-Kombinationsfälle, beide engen Renngewinner,3Altfinal/B-Sprache-Paare, native Clipboard-/Prozessabbruchfälle, echter LED-only-Ausfall bei offenem Input und separate SQLite-Logstoresperre PASS_SCOPED. Qualifizierte EXE startet nativ mit realem ReSpeaker/Ready. Neue1400Windows/0Skips,73Helfer/0Skips und Qt/retirierter Starter PASS; Produkt0f6c85e unverändert. Alle19neuen Laufzeitordner gesichert entfernt. Menschlicher Rest: gültiger Admincheck, erhöhtes Ziel/UAC, finaler EXE-/physischer/Umwelt-/Overlay-Abschluss einschließlich T02/T03; W02 bleibt geschlossen. BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher R01/PR15.
+
+## AP-IV2-020/R01 – W02 geschlossen, Freigabereste konkretisiert,21.10.2026
+
+[Bericht36](36_W02_ABSCHLUSS_UND_FREIGABERESTE.md): W02 auf ausdrückliche menschliche Entscheidung als aktuell nicht mehr reproduzierbar geschlossen; kein eigener Freigabeblocker. Historische2FAIL erhalten, keine identifizierte Codekorrektur behauptet. Rest: technische Kombinationen, finaler EXE-/Admin-/Clipboard-/physischer Abschluss und Akten/ unabhängige Abnahme. Keine Wiederholung bestandener Standarddiktate, USB-Grundprobe oder des identischen30min100-Replaylaufs. Gesamtpaket BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher R01/PR15.
+
+## AP-IV2-020/R01 – autonomer Dauerlauf und Aufräumen abgeschlossen,21.10.2026
+
+[Bericht35](35_DAUERLAUF_WAKEANFORDERUNGEN_UND_AUFRAEUMEN.md): Automatischer zusammenhängender1800.015s/100Activations-Lauf mit echten Modellen PASS_SCOPED;100Finals/100Historyeinträge/100kontrollierte Injektionsversuche, drei eigene Recoveryaktionen. Physische/Frozen-M12-Anteile offen. W02 unverändert0/2reproduziert, historische2FAIL bleiben offen;0,90/2Frames erhält beide Positivfixtures,3/5Frames verfehlen Jarvis. Keine Defaultübernahme. Alle26eigenen externen Laufzeitordner hashgesichert entfernt.70Helfer/Qt und neue1400Windows/0Skips PASS; Produkt0f6c85e unverändert. Zwei Fehlversuche separat erhalten. BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher R01/PR15.
+
+## AP-IV2-020/R01 – BOTH abgeschlossen, Restgates konsolidiert,20.10.2026
+
+[Bericht34](34_BOTH_ABSCHLUSS_UND_KONSOLIDIERTE_RESTGATES.md): Drei übernommene BOTH-Aufgaben PASS_SCOPED: natives Manual-F8/F9 und beide direkten Wake-Nutzsätze genau einmal ohne Rufwort;18,782/23,313s echte Ruhe ohne Zusatzwake. Erster Alexa-Versuch bewusst wiederholt, bleibt NOT_PROVEN. Realer Watchdog55,062sWarnung/60,015sAblauf und3gebundene ASRfinals aus demselben Rohdurchlauf nach phasengenauer Nachauswertung PASS_SCOPED; falsche Einsegmentannahme als Hilfstest-FAIL erhalten.61Helfer/Qt PASS, Produkt0f6c85e/1400Windowsbeleg unverändert. Keine identischen Sprechwiederholungen; technische/EXE-/Dauerreste gebündelt, W02 offen.23Aufräumreste automatisch gesperrt. BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher R01/PR15.
+
+## AP-IV2-020/R01 – Mute/Reinsert bestätigt, überlagerter Wakefall offen,20.10.2026
+
+[Bericht32](32_MUTE_REINSERT_UND_WAKEPAUSEN.md): Hardware-Mute27,297s/zehn blockierte F8 und bewusste Wiederfreigabe/1exakte Einfügung sowie Reinsert1Final/2passende automatische+manuelle Ausgaben PASS_SCOPED. Zwei aktive Wake-Modell-/Pausen-/Reconnectfälle PASS_SCOPED. Erweiterte Pause→Recovery→manuelle Aufnahme mit Wakefixture→Cancel erzeugt zweimal Zusatzwake bei Stille: IV2-020-W02 offen, Ursache noch einzugrenzen; kein Serverfix vorgenommen.59Helfer/Qt PASS, Produkt0f6c85e unverändert/1400Windowsbeleg erhalten.22gesicherte Aufräumreste automatisch gesperrt. Gleicher R01/PR15, BLOCKED/IMPLEMENTATION_IN_PROGRESS.
+
+## AP-IV2-020/R01 – native Refreshpfade geprüft,20.10.2026
+
+[Bericht31](31_REFRESH_AUFNAHME_UND_NATIVER_NACHSPRECHPFAD.md): Menschlicher nativer F8-Refresh während segment_active, F9/Finish und2exakte native Einfügungen derselben Activation PASS_SCOPED; menschlicher15sNachsprechfall bleibt phasenbedingt NOT_PROVEN. Ohne weitere menschliche Wiederholung:2reale native Windows→WM_HOTKEY→Qt→Controls→ASR-Nachsprechfälle bei5000ms/6Callbacks PASS_SCOPED, Fristverlängerung/nichtadditives Wiederholen/Timeout bestätigt. T04 unterscheidet Phasen;56Helfer/Qt PASS, bytegleiches Produkt0f6c85e behält1400Windows/0Skips.21hashgesicherte Aufräumreste automatisch gesperrt. Gleicher R01/PR15, BLOCKED/IMPLEMENTATION_IN_PROGRESS.
+
+## AP-IV2-020/R01 – Controls/Logansicht und Refresh,20.10.2026
+
+[Bericht30](30_CONTROLS_LOGANSICHT_UND_REFRESH.md): Denkpause mit2Segmenten/F9/2exakten nativen Einfügungen, Cancel mit82,969s weiterer Audioübertragung ohne Ausgabe und menschlich ausdrücklich bestätigte Server-/Tab-/Logansicht PASS_SCOPED; T01 geschlossen. Native Refreshprobe enthielt kein Refresh und bleibt NOT_PROVEN, lieferte aber korrekt gebundenen Altfinal-nach-Neustart-Beleg203ms. Zwei autonome reale ASR-/Controls-/Deadline-Refreshfälle PASS_SCOPED. T04-Testhäkchenfehler mit Regression/Qt korrigiert; nur native Refreshprobe entspannt erneut vorbereiten, übrige vollständige Gates offen. Produkt0f6c85e/Server67f3ce45 unverändert, gleicher R01/PR15, BLOCKED/IMPLEMENTATION_IN_PROGRESS.
+
+## AP-IV2-020/R01 – W01-Rückkehr erfolgreich,20.10.2026
+
+[Bericht29](29_W01_KONTROLLE_BESTAETIGT_UND_RESTGATES.md): W01-Kontrolle Alexa ohne Sound PASS_SCOPED: genau1Wake/Activation/Timeout,29,765s weitere echte Audio-Nachbeobachtung ohne Folgetrigger,1543Pakete, keine Sprache/Final/Paste, menschlich Wie erwartet, Exit0. Damit alle3vorgesehenen Livekontrollen und13Modellfälle erfolgreich; konkretes W01 CLOSED_VERIFIED_SCOPED. Vollständige M-/Frozen-/Both-/Nutzsprachgrenzen-/30min100-Gates bleiben offen. Produkt0f6c85e/Server67f3ce45 unverändert;19private Aufräumreste automatisch gegen Löschen gesperrt. Gleicher R01/PR15, BLOCKED/IMPLEMENTATION_IN_PROGRESS, kein REVIEW_READY.
+
+## AP-IV2-020/R01 – aktuelle Wake-Liveauswertung,20.10.2026
+
+[Bericht28](28_WAKE_LIVEAUSWERTUNG_UND_RUHEKONTROLLE.md): Aktuelle reale Alexa-/Hey-Jarvis-Proben mit Sound je genau1Activation/Timeout,20,625s bzw6,954s weitere belegte Audiobeobachtung ohne Folgetrigger, menschlich Wie erwartet: PASS_SCOPED. Sound-aus-Kontrolle endet vorzeitig: nur1,875s Audio nach Timeout, NOT_PROVEN statt angenommener5s. Nur diesen Fall wiederholen; Testoberfläche wartet eine bereits laufende Ruhephase nach explizitem Beendenwunsch ab, Fensterclose bleibt Abbrechen.48Helfer/Qt und neue1400Windows/0Skips PASS. Produkt0f6c85e/Server67f3ce45 unverändert;18private Aufräumreste automatisch gegen Löschen gesperrt. Gleicher R01/PR15, BLOCKED/IMPLEMENTATION_IN_PROGRESS, kein REVIEW_READY.
+
+## AP-IV2-020/R01 – Rückkehr vom Serverfix,20.10.2026
+
+[Bericht27](27_SERVERFIX_RUECKKEHR_UND_REQUALIFIKATION.md): Neuer Pro-V2-Server67f3ce45/Tree74f37cad/Version2.0.0 über öffentliche Info, passenden Gitbaum/-datum und echten Hello bestätigt; Wakefix-Mergee761b973 direkter Parent.13reale Modellreplays/18Activations ohne Zusatzwake in geprüfter digitaler Stille PASS_SCOPED, native Source/ReSpeaker133Pakete und neue1400Windows/0Skips/43Helfertests PASS. W01-Live-Mikrofon-/Schweige-/Soundvergleich vorbereitet, keine vollständige M-/Frozen-/30min100-Abnahme; Clientprodukt0f6c85e unverändert.17beendete private Aufräumreste automatisch gegen Löschen gesperrt. Gleicher R01/PR15, BLOCKED/IMPLEMENTATION_IN_PROGRESS, kein REVIEW_READY.
+
+## AP-IV2-020/R01 – autonome Restprüfungen,19.10.2026
+
+[Konkrete Restliste und neue Nachweise](26_AUTONOME_RESTPRUEFUNG_UND_OFFENE_PUNKTE.md): Windows-Vault-Lebenszyklus mit frischen Prozessen/Origintrennung und Löschung PASS_SCOPED; reale idle-Runpausen über zwei manuelle Reconnects/eigenen TCP-Abbruch/Software-Mute sowie frische Runtime PASS_SCOPED. Wakeengine aus, keine Aktivierung/Paste,5000ms erhalten;1400Windows/0Skips und36Helfertests PASS. Produkt0f6c85e unverändert. Offene Kombinationen, Frozen/Admin/W01 und Gesamtgates bleiben;15private gesicherte Laufordner automatisch gegen Löschen gesperrt. Gleicher R01/PR15, BLOCKED/IMPLEMENTATION_IN_PROGRESS, kein REVIEW_READY.
+
+## AP-IV2-020/R01 – Idle bestätigt, LED-only-Störung autonom geprüft,19.10.2026
+
+[Bericht25](25_IDLE_BESTAETIGT_UND_LED_ISOLATION.md): Weiß/min30%/peak100% am realen ReSpeaker nach20s ausdrücklich bestätigt und reproduzierbar gespeichert. R11 CLOSED, Produkt0f6c85e unverändert. Zusätzlicher nativer LED-only-Transportausfall bei idle isoliert: automatische LED-Recovery, Audio/Session stabil,59→210Frames, keine neue Activation/AudioAvailability-Mutation. Erster fehlerhafter Hilfstest bleibtFAIL wegen falscher Persistenzannahme; neue33Helfertests PASS.1400Windows-/Buildbeleg am bytegleichen Produkt bleibt gültig. Übrige Real-/Frozen-/W01-Gates offen, kein REVIEW_READY; gleiche R01/PR15.13gesicherte externe Aufräumreste durch automatische Freigabeprüfung „blocked by policy“ nicht gelöscht.
+
+## AP-IV2-020/R01 – direkte Idle-Vorschau vorbereitet,19.10.2026
+
+[Bericht24](24_IDLE_ZIELZUSTAND_UND_DIREKTVORSCHAU.md): Letzte menschliche Akzeptanz bewahrt, aber kein Aktivierungs-/Idle-Zielübergang im Lauf, daher30/100%-Kalibrierung NOT_PROVEN. Dauerhafte LED-only-Vorschau mit eigenem START/20s/Übernehmen erstellt, kein Mikrofon/Server/Hotkey nötig;31Helfertests/Qt-Selbstcheck PASS. Produkt0f6c85e unverändert, R11 CLOSED. Neue physische Bewertung und weitere M-/Frozen-/W01-Gates offen; BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher PR15. Zehn gesicherte externe Restordner automatisch mit „blocked by policy“ gegen Löschen gesperrt.
+
+## AP-IV2-020/R01 – physische USB-Recovery bestätigt, Idle-Feinabstimmung offen,19.10.2026
+
+[Neuer Nachweis](23_USB_BESTAETIGT_UND_IDLE_KALIBRIERUNG.md): R11 CLOSED am unveränderten Produkt0f6c85e; echter USB-Ausfall/Servercancel/Wiederöffnung und bewusstes neues F8/F9-Diktat exakt einmal eingefügt. Manual-Timeoutfeedback menschlich bestätigt. Gewünschte weiße Idle-Pulsvariante30/100% als bestehende Testkonfiguration gespeichert, Sichtbestätigung offen; Farbprofile ausdrücklich später.29Helfer-/1400Windows-Tests ohne Skips PASS. Gesamtpaket weiter BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleiche R01/PR15, kein REVIEW_READY. Neun gesicherte beendete externe Laufordner wegen automatischer Freigabeprüfung „blocked by policy“ nicht gelöscht.
+
+## Aktuell 19.10.2026 – Durchlauf und R11
+
+[Auswertung und Belege](22_GEFUEHRTER_DURCHLAUF_UND_USB_RECOVERY.md): 15 menschliche Versuche/14 Activations am alten Sourceprodukt7bb5646. Teilnachweise getrennt von vollständigen M-Gates; USB-Test FAIL. Autorisierte Recoverykorrektur am neuen Produkt `0f6c85e0ecf971e596aae1b7d265dad7132754e2`: 48 gezielte/1400 volle Windows-Tests ohne Skips, neue EXE/Wheel/sdist und native Source-/Wheel-Stillstandsprobe PASS. Physische USB-Wiederholung, Feedbackbestätigung, endgültige Frozen-/Realqualifikation und W01 offen. Workflow IMPLEMENTATION_IN_PROGRESS, Gesamtabnahme BLOCKED; kein REVIEW_READY. Sieben privat gesicherte externe Laufordner wegen automatischer Freigabeprüfung nicht gelöscht; Aufräumpflicht bleibt offen.
+
+## T03-Testoberfläche korrigiert, menschliche Wiederholung offen,19.10.2026
+
+[Bericht21](21_TESTOBERFLAECHE_LIVE_FORTSCHRITT.md): Markierung jetzt anhand echter
+Clientereignisse statt manueller Schrittklicks; kein pauschales Abhaken beim Ende.
+Alter Versuch: zwei primäre Activations/Finals/Einfügungen, beide Timeout, kein F9;
+privat im Projekt gesichert.27 Helfer/Qt-Statuspolling,1398Windows/0Skips und
+compileall PASS; echter Vorcheck134Frames/neue Fortschrittsdaten, keine Activation.
+T03 bis menschlicher UI-Bestätigung offen. Ein gesicherter Regressionstestordner
+konnte wegen automatischer Freigabeprüfung nicht gelöscht werden; Aufräumrest
+explizit im Bericht. Übrige neue Vorprüfungen/alte externe Bedienablage entfernt.
+Produkt unverändert7bb5646; gleicher R01/PR15, kein REVIEW_READY.
+
+## Testablage freigegeben, letzte Vollsuite grün,19.10.2026
+
+[Bericht20](20_GEFUEHRTE_RESTTESTS.md):1398Windows ohne Skips,16 Helfer/43 gezielte
+Tests und compileall PASS. Echte Pro-V2/ReSpeaker-Vorprüfung130Frames/40Logzeilen,
+keine Activation. Vorherige fehlerhafte Teststart-/Pfadfixtures nachvollziehbar
+korrigiert; Produktguards unverändert. Vier externe autonome Laufordner nach
+geprüftem Belegexport entfernt. Elfteiliger Bedienlauf jetzt startbereit; seine
+externe Laufzeit nach Auswertung/Export ebenfalls zwingend aufräumen. Kein
+Realgate-/Frozen-PASS, kein REVIEW_READY, gleicher R01/PR15.
+
+## Geführter Resttest vorbereitet, Ablageentscheidung offen, 19.10.2026
+
+[Bericht20](20_GEFUEHRTE_RESTTESTS.md): elf unabhängige Bedienaufgaben mit eigenem Start,
+Wiederholen/Weiter und gesammelten Messdaten.16 Helferprüfungen und Qt-Selbsttest
+PASS; realer vorläufiger Audio-/Pro-V2-Precheck135Frames, keine Activation.
+Windows1398:5FAIL/1ERROR wegen projektinterner TEMP-/Profilumgebung statt
+verlangter Benutzerprofilgrenze. Keine Testabschwächung und kein voller PASS.
+Dedizierte externe Testablage explizit angefragt; bis Antwort nur Vorschau,
+kein Realstart. Produkt unverändert7bb5646, keine Serveränderung.
+
+## W01 gezielt zurückgestellt, vorhandenes V2-Ziel bestätigt,19.10.2026
+
+[Fallgenaue Blockierung und Fortsetzungsreihenfolge](19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md):
+Unabhängige Client-/Windowsprüfungen zuerst, später gesonderter Server-FIX und
+betroffene Wake-/Feedback-/gemischte Dauernachweise. Vollständige AP020-Abnahme
+weiter BLOCKED; kein pauschales Arbeitsverbot. Aktuelle Planung endet regulär
+bei AP020, AP-SV2-FIX ist eine bedingte Vorlage; keine neue AP-ID/Abnahmefreigabe.
+Pro-V2-Ziel /ws/v2 und Normalalternative über echte V2-APIs erreichbar. Acht
+HTTP200 und tatsächlicher Pro-V2-Hello, ohne Audio/PATCH/Desktopstart. Wirecommit
+unknown über separat geprüfte Buildmanifeste/aktuelle Images, saubere Quellen,
+passende Wheels und acht Runtime-Quelldateien dem Pinada13b0 zugeordnet.
+Diagnostische Open-/Antwortgrenzen180s, feste Protokollfristen unverändert.
+Keine Serveränderung/Neustarts/Deployments. Pro16 ist neues Paar gegenüber alten
+Community64-Läufen; keine ungeprüfte Übertragung. O01 bleibt eigener Prüfpfad.
+
+## Autonome Belegklärung abgeschlossen, 19.10.2026
+
+[Ergebnisse und kompakte sieben Restpunkte](18_AUTONOME_KLAERUNG_UND_RESTPUNKTE.md).
+Neue Offline-Metadatenprüfung aller25 ONNX-Klassifikatoren PASS;555 Gitblobs erneut
+identisch, sechs WAVs und elf Archive hashgeprüft,24 Sessionakten untersucht,
+zehn Berichte über elf konkrete Sessionbindungen zugeordnet. Drei Helferfassungen
+exakt belegt; frühe Admission-/Replayfassung nicht rekonstruierbar. Historische
+Logfault-Imagebindung geschlossen; ursprüngliche363 Auditakten unverändert.
+TV-Finish ohne Final/Terminal bis Clientende nach3764,208s bestätigt. Fünf gezielte
+Helfertests PASS. Keine Server-/Clientausführung oder externe Dateiänderung.
+Technische Restläufe benötigen das festgelegte Zielpaar; W01/T01/T02 und volle
+Realgates bleiben offen. BLOCKED / SERVER_FIX_REQUIRED, kein REVIEW_READY.
+
+## Testlückenliste nach Serveraudit, 19.10.2026
+
+[Fallbezogene Liste17](17_TESTLUECKEN_UND_WIEDERHOLUNGEN.md): vier von fünf
+ausgeschlossenen Frühakten haben spätere Wiederholungen desselben engen
+Prüfumfangs; Altakten bleiben ausgeschlossen. Acht JSON-/Logpaare mit passenden
+Hashes verglichen, alle24 bloßen Commitdeklarationen A07/B02–B08 zugeordnet.
+Artefaktmetadaten und weitere Sessionverknüpfungen zuerst als Aktenarbeit;
+keine pauschale Wiederholung menschlicher Sprachversuche. Praktische Restprüfungen
+C01–C06 und bereits vorher offene M01–M12 getrennt aufgeführt. Kein neuer Testlauf,
+Serverstart, M-PASS oder REVIEW_READY. BLOCKED / SERVER_FIX_REQUIRED bleibt.
+
+## Audit-Nachtrag: fünf frühe Modellläufe nicht qualifikationsgültig
+
+Die zeitliche Trennung des älteren Imagesb617cfa vom quellgeprüften5aaa17e ergibt:
+real-wake-artifacts/resources/negative sowie real-golden-asr/stable vom14.10.
+um22:46–22:47UTC sind ohne eigene ausreichende Runtimebindung **ungültig als
+Serverqualifikation**. Rohdaten bleiben erhalten, fünf Overrides im Auditindex.
+Ältere Quelle:459 Byteabweichungen, nach CRLF-Normalisierung keine weiteren
+Unterschiede. Kein anderer Produktcommit bewiesen; spätere555-Blobprüfung darf
+nicht rückwirkend übertragen werden. [Details/Ausschlüsse](16_SERVER_COMMIT_AUDIT.md).
+
+## Zusätzlicher Server entfernt, Commit-Audit gesichert, 18.10.2026
+
+[Menschlicher Auftrag](ZUSATZPROMPTS/015_SERVERENTFERNUNG_UND_COMMITAUDIT.md):
+[beide eigenen Docker-Testcontainer, zwei Images und zugeordnete Volumes entfernt](15_SERVER_ENTFERNT.md).
+Kein passender AP020-Container/-Tag/benanntes Volume mehr vorhanden. Andere Server
+und gemeinsame Modelldateien unverändert. Starter deaktiviert, drei Prüfungen PASS;
+keine erneute externe Datei-/Profilanlage oder Servererstellung.
+
+[Audit aller363 JSON-Akten](16_SERVER_COMMIT_AUDIT.md): Referenzserverada13b0,
+555 Gitblobs unabhängig erneut identisch;56 Quellmanifeste ohne Abweichung,
+zehn Akten mit passender aufgezeichneter Serverantwort.24 Commitdeklarationen
+allein keine Einzelattestierung (drei davon zusätzlich durch gehashte historische
+Admissionguards belegt);273 Akten ohne eigenes Serverattest nach ihrem tatsächlichen
+Scope bewerten. Kein anderer Servercommit gefunden, kein pauschaler Gesamt-PASS.
+Abweichende/nicht belegbare serverabhängige Qualifikationsansprüche sind nicht
+abnahmewirksam. Neue Serverwahl/Laufzeitablage vor weiteren Realtests nötig.
+W01/T01/T02/O01 und volle Realgates bleiben offen; BLOCKED, kein REVIEW_READY.
+
+## Starter-/Serverziel-/Ablageprüfung, 18.10.2026
+
+[Prüfbericht14](14_STARTER_SERVERZIEL_UND_ABLAGE.md): T02 bestätigt: Desktopstarter
+findet logisches AppData-Profil nicht, tatsächliche Datei liegt im Codex-Packagecache.
+Bisher kein qualifizierter echter Desktop-Doppelklickstart außerhalb des Agenten.
+Äußerer V2-Dialog besitzt HTTP-Originlabel, bleibt bei erstem Ladefehler ohne View
+aber leer; lokaler Unterdialog blendet Serverfelder aus. Beide Fehlerpfade gezielt
+reproduziert, keine Produkt-/externen Dateiänderungen oder Prozessstarts.
+Letzte Session nutzte127.0.0.1:18020; Trace bis regulärem Clientende04:59:59 MESZ
+ohne vorausgehenden Verbindungsverlust. Genutzter Container weiterhin aktiv;
+welchen Server der Mensch beendet hat ist noch abzugleichen. Kein neuer
+Reconnectdefekt/PASS behauptet. Spezifischer AppData-Pfad war eine Agentenwahl
+auf Basis des Isolationsauftrags, keine ausdrücklich erteilte Pfadfreigabe.
+
+## Letzter TV-/Hotkey-/Overlayfall dokumentiert, 18.10.2026
+
+[IV2-020-O01](13_TV_WAKE_FINISH_UND_HINTERGRUND.md): unerwünschter Alexa-Treffer
+03:57:03 MESZ, Score0,834205, danach ein reales Sprachsegment. Zwei Refreshs,
+dann F9/finish bestätigt; kein Cancel. Eingabe idle, Auftrag angenommen, bis zum
+Belegstand mindestens299,7s ohne Terminal. Bereit plus Hintergrundauftrag ist
+vertraglich konsistent; konkreter Verarbeitungs-/Abschlussverdacht offen,
+reiner Overlayfehler nicht nachgewiesen. 59 bestehende Feedback-/Controltests
+PASS. Keine Produkt-/Konfigurationsänderung. W01 bleibt gesonderter Serverblocker.
+
+## Server-Issue7 angelegt, 18.10.2026
+
+Auf ausdrücklichen Nutzerwunsch [Server-Issue7](https://github.com/marcosudau-vps/voice-stt-server/issues/7) mit genauer Beschreibung und allen W01-Belegen erstellt; Remoteinhalt und commitgebundene Client-Belegpfade verifiziert. Kein Server-FIX beauftragt/gestartet, BLOCKED / SERVER_FIX_REQUIRED bleibt. [Akte](12_WAKE_REAKTIVIERUNG_W01.md).
+
+## AP-IV2-020/R01 – BLOCKED / SERVER_FIX_REQUIRED, 18.10.2026
+
+IV2-020-W01: zwei echte serverseitige Alexa-Activations nach einmaliger Wakephrase;
+zweiter Start303ms nach Timeout, Score0,991943. Echter Modellreplay reproduziert
+nach Inferenzpause/Freigabe zweiten Treffer bei digitaler Stille nach240ms;
+Resetkontrolle ohne zweiten Treffer. Exakte historische akustische Ursache ohne
+PCM NOT_PROVEN. Serverfix gesondert zu beauftragen; kein Servercode geändert.
+Clientprodukt7bb5646, Parent und Draft-PR15 bleiben unverändert. LED-Muster
+menschlich grundsätzlich positiv bewertet. Realgates/T01 offen, kein REVIEW_READY.
+
+### Vorheriger Zwischenstand
+
+[Vollständiger W01-Befund und Repro](12_WAKE_REAKTIVIERUNG_W01.md).
+
+## Weiße LED-Vergleichsvariante vorbereitet, 18.10.2026
+
+Nutzerwunsch konkretisiert: Aktivierungsblitz erhalten; statt Einzelpunkt zwölf
+LEDs mit 10..90%,100%,100%,100%, wesentlich schneller, zunächst Weiß.
+Isoliertes Both-Profil: waiting/followup `palette_cycle`,1,5 Runden/s;
+Idle vorläufig weiß bei bestehender Atmung. Globale Helligkeit192 unverändert.
+Produkt7bb5646 unverändert; keine Farbprofilimplementierung.
+[Untersuchung und konkreter künftiger Farbprofilweg](11_FARBPROFILE_UNTERSUCHUNG.md),
+[Konfigurations-/Framebeleg](EVIDENCE/led-white-variant/applied.json),
+[reale ReSpeaker-/Serverbereitschaft](EVIDENCE/led-white-variant/native-ready.json),
+[Feedbackregression](EVIDENCE/led-white-variant/feedback-regression.json).
+Menschliche optische Bewertung offen; kein vollständiger Hardware-PASS.
+
+### Vorheriger Zwischenstand
+
+## Stoppton-Kalibrierung bestätigt; LED-Wunsch offen, 18.10.2026
+
+Menschlich „Beides passt“ für Lautstärke/Dauer des Stopptons. Bestehende
+Stop-WAV661,146ms und Mappinglautstärke1,0 unverändert akzeptiert; kein neuer
+Default-/Konfigurations-/Produktwechsel. [Kalibrierungsbeleg](EVIDENCE/ux03-close-sound/human-feedback-calibration.json).
+LED-Rückmeldung: „Änderung gewünscht“; Phase und gewünschte Veränderung werden
+gezielt erfragt. Kein konkreter LED-Wert aus dieser Antwort abgeleitet.
+Übriges Feedback und die vollständigen Realgates bleiben offen.
+
+### Vorheriger Zwischenstand
+
+## UX03-Produktsoundkorrektur, 18.10.2026
+
+Ausdrueckliche direkte Freigabe, [Originalauftrag und enger Scope](09_UX03_CLOSE_SOUND.md).
+Produktkandidat7bb5646: fehlender V2-input_closed-Soundpfad ergaenzt; bestehender
+Stoppsound/Benutzerregeln bleiben massgeblich. 76 gezielte und1398 vollstaendige
+Windows-Tests PASS. Echte lokale Server-/ReSpeaker-/Qt-QSoundEffect-Probe:
+ein no-speech Timeout, ein Stoppton, Renderer playing=true. Menschliche
+Hoerbewertung nun PASS: „Ja, Stoppton hörbar“. [Tatsächlicher Alexa-Durchlauf](EVIDENCE/ux03-close-sound/human-hearing-confirmed.json) am18.10. um01:26:46 MESZ, Close01:27:01, genau ein nativer Stop-Playerlauf; UX03 CLOSED. Paar PASS:1964 Server/14 erwartete Skips,11
+Prozessfaelle,17 Grenzen und7/7 Smokes. EXE/Wheel/sdist, Releaseguard/Twine
+und native EXE-/Wheel-Laufzeit mit gepinntem Server PASS.
+[Aktuelle Evidenz](EVIDENCE/ux03-close-sound/assessment.json),
+[gewuenschte vollstaendige Sound-/LED-/Triggeruebersicht](10_FEEDBACK_UEBERSICHT.md).
+Acht protokollierte Alexa-Aufrufe: Scores0,908322..0,999994; zwei bekannte
+Fehlalarme0,767410/0,646442. Schwelle0,85 nur Offlinekandidat, nicht gesetzt.
+Keine Aussage zur Erkennungsquote ohne genaue Versuchszahl/akustische Labels.
+
+### Vorheriger Zwischenstand
+
+## AP-IV2-020/R01 – klickbarer Teststarter, 18.10.2026
+
+Isolierte Both-Instanz mit Logdienst erneut bereit; dauerhaftes Startfenster mit
+Desktopverknüpfung **V2-Testinstanz** hinzugefügt. Start-/Doppelstart-, Profil- und
+Containergrenzen sowie echter Qt-Klick gezielt geprüft (5 PASS). Erneute volle
+Windows-Regression1390 PASS/0 Skips, Managerbootstrap-Retry PASS; frühere
+Speicherfehlernachweise erhalten. Nur Testhilfen,
+kein Produkt-/Build- oder Kalibrierwertwechsel. [Anleitung](EVIDENCE/human/STARTER_README.md).
+Zwei separate Alexa-Fehlalarme vom17.10. um21:20 gesichert; Scores0,767/0,646,
+null Sprachsegmente, akustischer Auslöser nicht bewiesen. Echte positive
+Vergleichsversuche und übrige Realgates weiter offen; kein REVIEW_READY.
+Overlayklarstellung: Der V2-Statuspfad blendet nicht über `fade_after: 2.0` aus;
+dieser Dateiwert ist kein wirksamer V2-Anzeigedauerregler. T01-Manager real aktiv,
+sichtbare menschliche Bestätigung der Logansicht weiterhin offen.
+
+### Vorheriger Zwischenstand
+
+## Freies Ausprobieren und Prüfung der Einstellungstabs, 16.10.2026
+
+[Feedback015](ZUSATZPROMPTS/015_FREIES_AUSPROBIEREN_FEEDBACK.md): LEDs nicht beobachtet, Sound explizit frei ausprobieren, Overlayanzeige/-dauer ändern (Details offen). [Isolierte Both-Instanz](EVIDENCE/human/free-exploration-20261016-01.json) am unveränderten qualifizierten d950-Produkt gestartet: Quelle b756a39, Session20261016-110745, PID56884, lokaler gepinnter Server, Mikrofon/LED bereit, Sound/Overlay eingeschaltet. Freier Fokus-Paste in ein geöffnetes separates leeres Notepad, keine zeitgesteuerte Folgeaufgabe/Fehlereinbringung. Freie Sprache/History bleiben lokal, keine Veröffentlichungsfreigabe oder formale M-/Kalibrierungsabnahme daraus.
+
+[Nachfrage016](ZUSATZPROMPTS/016_EINSTELLUNGSTABS_PRUEFEN.md) untersucht: [reale Qt-Navigation und Metadatenabgleich](EVIDENCE/settings-navigation/summary.json) PASS. Äußerer Dialog hat drei V2-Tabs. Der Knopf „Lokale Geräte, Verlauf, Zwischenablage, Darstellung und Diagnose …“ öffnet den bestehenden lokalen Dialog mit **Verlauf / Allgemein / Geräte & Audio / Erscheinungsbild & Feedback / Logging & Diagnose**. Alle26 laut aktueller lokaler Metadatei vorgesehenen Einstellungsfelder sind repräsentiert;35 Editoren einschließlich zusätzlicher Historycontrols. Kein fehlender genannter Tab, aber schlecht auffindbare zweite Navigationsebene (NAV01 Beobachtung). Kein vollständiger V1-Paritätsbeleg aus diesem Test. Vorhandene Local-Surface-Regression ebenfalls PASS.
+
+Zusätzlich tatsächlicher Teststarterfehler **IV2-020-T01**: qualify_v2_session erstellt Desktop/Core ohne den regulär in app.main gestarteten ObservabilityManager. Deshalb ist in dieser instrumentierten Instanz die Logansicht trotz vorhandenen Tabs ohne Diagnosequelle. Kein Nachweis eines entfernten Produktfeatures. [Korrigierter Testadapter](EVIDENCE/human/explore_with_logging.py) vorbereitet: regulärer Manager/Loggingaufbau, gemeinsamer Ingress für Runtime/Bridge/Desktop, Queryservice für die Logansicht; derselbe isolierte Runner/Mutex/Profil/Stopkanal bleibt. Nur Testhilfe, kein Produktcode-/Buildwechsel. Wiring-/Compilechecks PASS; native Manager-/Log-UI-Bestätigung nach Neustart noch NOT_RUN. Laufende Probesitzung bleibt unverändert, bis ein passender Neustartzeitpunkt feststeht.
+
+### Vorheriger Zwischenstand
+
+## Manueller F8→Sprache→F9→Native-Paste-Pfad am korrigierten Produkt PASS
+
+[Liveauswertung](EVIDENCE/ux02/manual-voice-20261016-01/assessment.json): eigener Start2 und tatsächlicher GUI-Übernahmeklick, Quellcommit8445851 mit vollständig identischem qualifiziertem d95043e-Quellmanifest. Reales Mikrofon/ReSpeaker, ASR und gepinnter lokaler Server. F8 im idle → activate accepted/applied; F9 in segment_active → finish accepted/applied an derselben Activation; input_closed=finished. Genau ein Segment/Final/Historyeintrag und ein command_sent, ein tatsächlicher Paste-Key ohne Shift/Alt und ein MIME-Paste. Erkannter35-Zeichen-Finaltext plus Leerzeichen exakt im36-Zeichen-Ziel angekommen; Session regulär beendet. [Menschliche Bestätigung014](ZUSATZPROMPTS/014_MANUAL_SPRACHPFAD_BESTAETIGUNG.md): „Satz vollständig, Testblock übernommen“.
+
+Geplanter Wortlaut nicht byteidentisch: ASR schreibt „Hotkey-Probe“ mit Bindestrich statt „Hotkeyprobe“. Diese orthografische Abweichung bleibt explizit false beim Exact-Match; erkannter autoritativer Final und History/Paste sind unverändert gleich. Kein behaupteter exakt geplanter ASR-Wortlaut. [Wiederverwendbarer rein lesender Auswerter](EVIDENCE/human/evaluate_manual_trial.py) exportiert nur ausgewählte Sessiondaten/Hashes, keine fremde History. Erstes Assessment und passender initialer Auswerter sind separat erhalten; Beschreibungsfeld danach auf explizite Fallunterscheidung präzisiert und neu ausgewertet.
+
+Dieser Erfolg schließt den zuletzt fehlgeschlagenen einfachen Sprachpfad am korrigierten Produkt. Vollständige M01-Mehrsegment-/Overlapprüfung, M04-Phasenmatrix, M11-Gesamtfall, weitere Realgates und subjektive Endkalibrierung bleiben offen. Keine neue Produktänderung, keine erneute Vollsuite für reine Akten-/Auswerterergänzung notwendig.
+
+### Vorheriger Zwischenstand
+
+## UX02 geschlossen: reale physische Tastenfreigabe und native Ausgabe PASS, 16.10.2026
+
+[Realer Nachweis](EVIDENCE/ux02/native-physical-20261016-01/assessment.json) am Quellcommit8c8e36b mit **vollständig identischem Produkt-/Test-/Skriptmanifest** zum qualifizierten Produkt d95043e: der tatsächliche Produktworker sieht physisches Shift+Ctrl, wartet250ms auf Freigabe, anschließend genau vier native SendInput-Ereignisse bei freien Modifiertasten. Genau ein Paste-Key ohne Shift/Alt und ein tatsächlicher MIME-Paste; exakter33-Zeichen-Zieltext einschließlich Leerzeichen. Autoritativer Text/IDs erhalten, Worker vor Ergebnisanzeige beendet. Mensch bestätigt [„Text sichtbar, Testblock abgeschlossen“](ZUSATZPROMPTS/013_UX02_NATIVE_BESTAETIGUNG.md). **IV2-020-UX02 CLOSED**; komplette M-Fälle bleiben offen.
+
+Die Bestätigung erfolgte im Chat, nicht über den noch wartenden GUI-Übernahmeknopf. [Herkunft](EVIDENCE/ux02/native-physical-20261016-01/human-decision-chat.json) getrennt erhalten; nach nachgewiesenem Produktworkerstop nur den inaktiven eigenen Testcontroller beendet, eigene Anzeige abgeschlossen und tatsächliche F9-Registrierung erneut erfolgreich geprüft/freigegeben. [Finalisierung](EVIDENCE/ux02/native-physical-20261016-01/finalization.json). Der äußere Prozessbeleg endet dadurch mit erwartetem Nichtnull-Exit/Command-FAIL aus Helferbereinigung; dies ist kein funktionaler Produktfehler und wird nicht in PASS umetikettiert. Physischer Versuch/Workerstop und Cleanup sind separat erfolgreich belegt.
+
+[Gesamtbeleg](EVIDENCE/ux02/qualification-summary.json) und wiederverwendbarer Evidenzprüfer prüfen nun zusätzlich diese native Quelle/Hashes/Herkunft. Kein erneuter Produktwechsel; volle1390er Suite/Build-/Paarbelege weiterhin exakt gültig. Nächster Schritt im selben R01: realer F8→Sprache→F9-Pfad, danach verbleibende gebündelte Realgates/Endkalibrierung. Kein REVIEW_READY.
+
+### Vorheriger Zwischenstand vor physischer Bestätigung
+
+## UX02 technisch requalifiziert; physische Tastenprobe offen
+
+Status **IN_PROGRESS**, [zusätzliche menschliche Freigabe012](ZUSATZPROMPTS/012_UX02_FREIGABE.md), gleicher R01/Paketbranch/Draft-PR15. Native Backendabfrage berücksichtigt Shift/Ctrl/Alt/beide Windows-Tasten anhand des aktuellen High-Bits. Bestehender serieller Worker wartet höchstens1,5s auf Freigabe, in10ms-Schritten und beim Shutdown abbrechbar. Kein eigener Task/Thread, keine künstlichen Key-up-Ereignisse, keine automatische Nachinjektion. Vor dem Warten Fokus/Clipboardsequenz sichern; bei Wechsel überspringen. Vor tatsächlichem Paste erneut Sequenz validieren. Später während der Pasteverzögerung gedrückte Modifier werden ebenfalls berücksichtigt; gemeinsamer begrenzter Deadlinebereich. Autoritative Texte/IDs/History/Deduplizierung und bestehende Bedienfristen unverändert.
+
+[Baseline](EVIDENCE/ux02/baseline.json)100 PASS. [Permanenter Rotbeleg](EVIDENCE/ux02/permanent-red.json): elf neue Tests,14 Subtest-/Fallfehler und ein erwarteter Fehler wegen noch fehlender nativer Backendmethode. Danach [112 gezielte PASS](EVIDENCE/ux02/targeted-green-final.json), zwölf neue dauerhafte Tests einschließlich zusätzlichem Sequenzabfragefehlerfall. Erstes Green enthielt eine alte nth-call-Faultfixture, deren Fehler durch die zusätzliche Sequenzvalidierung nun zu früh ausgelöst wurde; Fixture explizit wieder auf Restorephase ausgerichtet, gleiche fachliche Erwartungen erhalten. [Ursprünglicher komponierter Nachweis nach Korrektur](EVIDENCE/ux02/original-composed-green.json) ebenfalls PASS; OS-Modell und Statusabfrage verwenden denselben gehaltenen Tastensatz mit tatsächlicher zeitverzögerter Freigabe.
+
+Win32-Grundlage: [Microsoft GetAsyncKeyState](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getasynckeystate) (aktueller Zustand im High-Bit; generische Shift/Ctrl/Alt decken beide Seiten) und [SendInput](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendinput) (vorhandene gedrückte Tasten beeinflussen Eingabe). Vollständige finale Windows-/Build-/Serverpaar-/Runtimequalifikation am Produkt d95043e bestanden. UX02 bleibt bis technischem Nachweis **und** realem Halte-/Freigabefall offen. Vorherige Produkt172-Belege bleiben historisch zugeordnet.
+
+## Neue technische Qualifikation am Produkt d95043e, 16.10.2026
+
+[Verifizierter Gesamtbeleg](EVIDENCE/ux02/qualification-summary.json): vollständige Windows-Suite **1390 PASS/0 Skips**, Server **1964 PASS/14 erwartete optionale Skips**, elf Prozessfälle,17 Grenztests und sieben echte Server-Socketsmokes. Alle555 gepinnten Serverblobs bytegeprüft; Compile/Diff/Umgebungen grün. [Wiederverwendbarer Evidenzprüfer](EVIDENCE/ux02/aggregate_qualification.py) validiert vollständige Loghashes, exakte Quellmanifeste, Produkt-/Serveridentitäten und lokale Binärhashes.
+
+Produktcommit **d95043e96051d4022b297099391a4fdff0dcc12b**, Tree **413467dffb8b98a15c77617a34ed097d21b216df**, unveränderter kanonischer Parent b80ed8b, Server ada13b011e1d3829f78e7f389e3b927795a2b3be. [EXE/Wheel/sdist](EVIDENCE/ux02/build/artifacts.json) neu gebaut, Releaseguard/Twine PASS; native EXE und frisch isoliert installiertes Wheel melden exakt diesen sauberen Build und tatsächlich den gepinnten lokalen Server. Kein Release. Diese GUIproben verwenden absichtlich nicht verfügbaren Capture; reale Mikrofonprüfung separat.
+
+[Echte Recovery](EVIDENCE/ux02/real-recovery-summary.json) PASS: HTTP408/429/5xx ohne JSON/Timeout, unklarer PATCH ohne Replay, drei Serverneustarts mit41,172/30,313/26,422s Wiederherstellung, Shutdown0,422s. [Trace](EVIDENCE/ux02/real-recovery-trace.json) und Vollstdout erhalten. Detail-JSON wurde durch namensgleiche äußere Commandmetadaten überschrieben; Zusammenfassung ausdrücklich aus Vollstdout rekonstruiert, keine verlorenen hochauflösenden Ressourcenwerte behauptet. Erstes Paar-Preflight verwendete falschen Serverrepo-Elternpfad, stoppte vor Tests; korrigierter echter Gitpfad /main bytegeprüft, Fehlerbeleg erhalten.
+
+[Native Desktop-/ReSpeaker-Messung](EVIDENCE/ux02/native-desktop-metrics.json):40 Sekunden, ein tatsächlicher Neustart, Wiederbereitschaft35,25s, maximal12 Tasks/118251520 WorkingSet-/438775808 PrivateBytes, am Ende keine offenen Commands/Einfügungen, keine Captureüberläufe/-drops. Kein Aktivierungs-/30min100-Nachweis. Native Hotkey- sowie Settings/Credential-Prüfung PASS. Alle drei isolierten Profile unverändert durch temporäre Roundtrips geprüft:5000ms Follow-up,320ms Pre-Roll, AppendSpace=true.
+
+[Sechs Originalaufnahmen erneut durch echte lokale Modelle](EVIDENCE/ux02/real-model-replay-summary.json) am neuen Quellstand: drei echte Wakepositive, zwei direkte Nutzsätze exakt, drei bekannte Negativaufnahmen ohne Aktivierung. Alexa-Pausensatz weicht weiter vom geplanten Wortlaut ab; gesprochener Wortlaut bleibt ohne menschliche Annotation NOT_PROVEN. Rohtext nur lokal; Replay ersetzt keine Liveaufnahme/native Ausgabe.
+
+[Physische Tastenprobe](EVIDENCE/human/native_modifier_trial.py) mit [GUIadapter](EVIDENCE/human/native_modifier_editor.py) vorbereitet und Selbstprüfungen/Qt/Compile bestanden: alle Schritte vorher sichtbar, eigener Start,8s Vorbereitung, freiwilliges Wiederholen/Übernehmen. Produktworker muss tatsächlich gehaltene physische Modifier und deren Freigabe sehen, genau ein natives Paste mit freien Tasten und exakter Ausgabe; sonst NOT_PROVEN/FAIL. Keine synthetischen Tastenzustände/Mikrofon-/Serverbeteiligung in dieser Probe. **UX02 bleibt bis zu diesem Nachweis offen**, alle vollständigen M-Gates und menschliche Endkalibrierung ebenfalls offen. Historische Fehler-/Qualifikationsstände unten bleiben erhalten.
+
+### Historischer Stand vor UX02-Freigabe
+
+## Dauerhafter Testclient fertig; AP durch UX02 blockiert, 16.10.2026
+
+Status **BLOCKED**, gleicher R01/Paketbranch/Draft-PR15. [UI-Auftrag011](ZUSATZPROMPTS/011_DAUERHAFTER_TESTCLIENT_UND_SCHRITTE.md) umgesetzt: [Code/Startanleitung](../../../../../../../tests/manual/v2/README.md), kompatible alte EVIDENCE-Einstiege. Alle acht Schritte vorher sichtbar, blauer Fokus wandert nach unten, kommende Schritte abgedunkelt, Satz bei Sprechfreigabe grün; Timer rechts. Acht Sekunden Bereitmachen nach tatsächlicher Runtime-/Audiobereitschaft (`--prepare-seconds 0..30`, nur Testzeit). Eigenes Lesen/Starten/Wiederholen/Abbrechen/Übernehmen ohne kurzen Folgetimer. Produkt-/Serverfristen unverändert. Launcher lehnt externe Server/andere Ports ab. Vorschau ohne Sprachclient/Mikrofon geöffnet.
+
+[Prüfungen](EVIDENCE/ux01/manual-tool-permanent/summary.json): volle Windows-Regressionssuite1378 PASS/0Skips, zehn Helferregressionen PASS, echte Qt-Widgetprüfung für Schritte/Countdown/grüne Freigabe/keinen Rücksprung durch alte Events/Wiederholen/Abbrechen PASS; Legacy-Einstiege/CLI/Compile grün. Ein durch die neue Close-Sperre verzögerter erster Selbstprüfungsprozess wurde sauber beendet; finale Selbstprüfung endet regulär mit Exit0. Vorschauschriften nur lokal geladen, keine Fontdatei versioniert. Produkt und scripts unverändert; neue Tests unter tests/manual sind getrennt vom früheren Gesamtquellmanifest ausgewiesen.
+
+[Reale Manualprobe](EVIDENCE/ux01/repeatable-manual-20261016-01/assessment.json): F8 activate/F9 finish tatsächlich accepted/applied, gleiche Activation, input_closed=finished, ein Final/ein command_sent. **Native Textausgabe FAIL**: Ctrl+Shift+V bei noch gehaltenem Shift, kein MIME-Paste,0Zeichen. Nutzer bewertet die Testbedienung positiv, bestätigt keinen eingefügten Text. F8/F9-Controlteil PASS; vollständige M01/M04 offen, M11 FAIL. [Gezielter UX02-Rotbeleg](EVIDENCE/ux01/modifier-finding/held-shift-red.json) reproduziert den Fehler am echten Final-/SQLite-/Queuepfad mit ersetzter OS-Grenze. Erwartetes FAIL eines Fehlernachweises, kein grüner Regressionstest.
+
+[Konkreter zusätzlicher Korrekturscope](08_SCOPE_VORSCHLAG_UX02_MODIFIERTASTEN.md) ist vorbereitet und nicht angewandt. Bestehende Produktausnahmen002/006 betreffen Recovery/UX01; zusätzliche Entscheidung nötig. UI-Auftrag erledigt; vollständiges AP und REVIEW_READY wegen UX02/übriger Realgates offen.
+
+## Wiederholen/Abbrechen und dauerhaft grüner Testsatz, 16.10.2026
+
+Die menschlichen Vorgaben [009 Wiederholbarkeit](ZUSATZPROMPTS/009_WIEDERHOLBARE_TESTAUFGABEN.md) und [010 Farbe](ZUSATZPROMPTS/010_SATZ_FARBLICH_HERVORHEBEN.md) sind ausschließlich in Testhilfen umgesetzt. Eigenes großes grünes Plaintext-Satzfeld bleibt vor Start/während Statuswechseln sichtbar. Kein kurzer Vorlesetimer: der Controller startet erst nach bewusstem aufgabengebundenem Klick. Nach beendetem Client wählt der Mensch Wiederholen oder Übernehmen; keine automatische Folgeaufgabe. Abbrechen beendet die eigene Clientinstanz regulär über Qt, danach neue Vorschau und erneuter Startklick. Jede Wiederholung hat eine neue unverwechselbare Attempt-ID; Belege/Quellidentitäten/Exit/Editorhash/Bedienentscheidung bleiben pro Versuch erhalten. Bei Wiederholung wird nur der Text dieser Aufgabe zurückgesetzt; vorher übernommene Aufgabentexte bleiben erhalten. Veraltete Statusmeldungen/Bedienrequests wirken nicht auf neue Attempts.
+
+[Helferprüfungen](EVIDENCE/ux01/repeat-controls/summary.json) PASS: acht Regressionen einschließlich zusammengesetztem Controllerlauf repeat→abort→accept mit getrennten Kindprozessen und Klicks; tatsächliche Qt-Widgets prüfen grüne separate Phrase, unveränderte Sichtbarkeit, Wiederholen ohne Autostart, Abbrechen, Restore des angenommenen Texts und Ablehnung alter Meldungen. Compile/Observer-CLI PASS. Synthetische Helferprüfungen sind kein Hardware-/M-PASS. CLIENT BEREIT erscheint jetzt erst bei tatsächlicher Runtimebereitschaft **und** verfügbarem Audio, nicht schon beim einzelnen Transportstatus. Produktfristen/Defaults bleiben unverändert; keine Produktänderung gegenüber17261e6.
+
+[Vorherige manuelle Hotkeyprobe](EVIDENCE/ux01/manual-hotkey-20261016-01/assessment.json): null Activations/Finals, tatsächlicher Secondaryempfang nur in idle, keine F8-Callbackevidenz. Beide konfigurierten Keys bestätigt, kein Produktdefekt nachgewiesen. Nach menschlicher UX-Rückmeldung ausschließlich eigene Testsitzung regulär beendet, vollständige minimierte Diagnosen erhalten. Status NOT_PROVEN, kein funktionales PASS aus Prozess-Exit0.
+
+## Zwei einzeln gestartete Live-Wake-Aufgaben bestätigt, 16.10.2026
+
+[Auswertung](EVIDENCE/ux01/stepped-20261016-01/assessment.json): beide tatsächlichen Startklicks1/2, zwei vollständig beendete separate Produktsitzungen, kanonische IDs hey_jarvis/alexa mit Scores0,99658/0,99884, jeweils genau eine Activation/ein Final/ein command_sent-Einfügeversuch. Genau71Zeichen im eigenen Editor, beide Nutzsätze exakt und ohne Rufwort, Leerzeichen getrennt; Mensch bestätigt **„Beide vollständig, mit Leerzeichen“**. ReSpeaker und echte Modelle, tatsächliche native Paste-Ereignisse; unveränderte autoritative History. Sämtliche gemessenen Produktsourcehashes entsprechen exakt Produkt17261e6. Effektive Settings nach Bootstrap5000/320 in beiden Sitzungen. Keine Audioüberläufe, Capture-Drops oder ausstehenden Commands/Einfügungen am Ende.
+
+F9 ausdrücklich **NOT_PROVEN**: kein Activation-Command-Ack, beide input_closed=timed_out nachjeweils5003ms ab recording_ended. Kein behaupteter Hotkeydefekt ohne reproduzierten Fehler. Nur direkte Nutzsprachvollständigkeit/Spaced Output PASS; M02 insgesamt weiterhin NOT_PROVEN (getrennte Sitzungen, Controls/Grenzannotation offen). Keine phonetische Echtzeitannotation ohne Rohaufnahme.
+
+Nächster gezielter Test: eine manuelle F8/F9-Aufgabe mit Satz-/Tastenvorschau und eigenem Start, tatsächlichen nativen Controlcallbacks und semantischen Acks als zusätzliche passive Diagnose. [Vorprüfungen](EVIDENCE/ux01/hotkey-task-precheck/summary.json): sechs Gate-/I/O-Regressionen, Qt-Startkontrollen, Manual-/Wake-CLI und Compile PASS; beide konkreten Ctrl+Shift+F8/F9-Bindings temporär erfolgreich registriert und freigegeben. Keine Eingabe, Mikrofon- oder Fremdregistrierungsänderung beim Binding-Vorcheck. Produktcode unverändert. Dieselbe R01, kein vollständiger M-PASS/REVIEW_READY.
+
+## Aufgabenweise Vorschau und ausdrücklicher Start, 16.10.2026
+
+[Bedienvorgabe008](ZUSATZPROMPTS/008_AUFGABEN_START_UND_VORSCHAU.md) umgesetzt: Satz und Schritte vorab sichtbar, eigener Start für jede Aufgabe, zwischen den Aufgaben vollständig beendeter Client, erster Text bei zweiter Aufgabe erhalten. Nur Testhelfer verändert. `stepped_wake_trial.py` nutzt pro Aufgabe eine eigene tatsächliche Produktsession; diese beiden Einzelversuche beweisen für sich keine vollständige Same-Session-M02-/M12-Qualifikation.
+
+[Helferprüfungen](EVIDENCE/ux01/task-start-controls/summary.json): sechs dauerhafte Gate-/I/O-Regressionen PASS, echte Qt-Widget-Selbstprüfung für Vorschau/voneinander getrennte Klicks/kein Autostart/Texterhalt PASS, alte automatische Zwei-Aufgaben-CLI wird vor Clientstart abgewiesen. Das sind Helferprüfungen, keine Sprach-/Hardware-PASS. Produkt17261e6 unverändert und dessen Qualifikation erhalten. Der vorige voice-repeat02 lief ohne Startklick in den Vorbereitungs-Timeout; keine neue Clientausführung daraus abgeleitet.
+
+## Native UX01-Bestätigung und expliziter Sprachstart
+
+[Echte native Probe](EVIDENCE/ux01/repeat-01/native-editor-spaced.json) PASS: genau40Zeichen mit angehängtem Leerzeichen im eigenen fokussierten Editor, ein command_sent-Versuch, vier tatsächliche SendInput-Ereignisse, autoritativer Text unverändert. [Quellhashbindung](EVIDENCE/ux01/repeat-01/native-product-binding.json) an vollständig qualifiziertes Produkt17261e6 exakt. **UX01 geschlossen.** Dies schließt keine vollständige M-Fallabnahme ein.
+
+Der Auftraggeber war nach der Einfügeprobe abgelenkt und hatte einen weiteren Knopfdruck erwartet. Der automatisch angeschlossene Sprachlauf hatte null Activations/Finals und wurde normal beendet; [Bewertung](EVIDENCE/ux01/repeat-01/voice-attempt-assessment.json) NOT_RUN_HUMAN_SPEECH, kein funktionales PASS aus Exit0. Zur Entlastung erhält Sprache einen eigenen sichtbaren Startknopf; die bereits erfolgreiche native Probe wird nicht unnötig wiederholt. Reine Testhelferänderung, Produkt unverändert. [Gate-Selbstprüfungen](EVIDENCE/ux01/voice-ready-gate-check.json) PASS; die [Checkliste](07_TESTCHECKLISTE.md) ist aktualisiert.
+
+## Wiederholung und sichtbare Checkliste, 15.10.2026
+
+Der [menschliche Fortsetzungswunsch007](ZUSATZPROMPTS/007_WIEDERHOLUNG_UND_CHECKLISTE.md) verlangt Wiederholung des letzten kurzen Blocks und eine laufend gepflegte Liste. [Checkliste07](07_TESTCHECKLISTE.md) trennt technische PASS-Nachweise von offenen/partiellen realen M-Fällen. Ein frischer eigener Testeditor ersetzt den inzwischen beendeten alten Editor.
+
+Der frühere Startversuch2 scheiterte vor der Freigabe/Einfügung mit tatsächlichem PermissionError beim Lesen der Diagnose; der Produktpfad war nicht gestartet. [Befund](EVIDENCE/ux01/editor-read-finding.json): zugrunde liegende Freigabe-/AppData-Ursache nicht sicher reproduziert. Der reine Testhelfer behält den logischen I/O-Pfad und liest die atomar ersetzte Diagnose bei erwarteten vorübergehenden Zugriffskonflikten begrenzt erneut. Kein Clipboard-/SendInput-Retry. Dauerhafte/andere Fehler blockieren. [Vier Helferregressionen](EVIDENCE/ux01/editor-diagnostic-reader-regression.json) und [500 tatsächliche Kindprozess-Lesezugriffe](EVIDENCE/ux01/editor-diagnostic-live-validation.json) PASS. Keine Produktänderung gegenüber17261e6; dessen volle Windows-/Build-/Paarqualifikation bleibt eindeutig gebunden.
+
+## Neuer technischer Stand17261e6, 2026-10-15
+
+UX01-Produktkorrektur und dauerhafte Regressionen umgesetzt. [Neue technische Qualifikation](EVIDENCE/ux01/qualification-summary.json): Windows1378 ohne Skips, Server1964/14 ausgewiesene optionale Skips,11 reale Prozessfälle,17 Grenztests und7/7 Smokes PASS. EXE SHA256 `56fe943b8dff3cacd554dc6ee8c5adc537bdd4fdbe397c65e1357ce80ba5160a`, Wheel/sdist und Releaseguard/Twine PASS. Neue Frozen-/Wheel-Laufzeit, echte ReSpeaker-/Desktop-Recovery, reales HTTP-/Ack-/Restart-/Shutdown und natives Hotkey/Credential grün. Serverpin und kanonischer Parent unverändert. Lokaler feat-Branch ist veraltet; maßgebliche Remote-Base/merge-base b80ed8b wurde erneut per ls-remote bestätigt.
+
+Echter separater Logstore-ENOSPC-Fall ohne STT-Lock PASS; Logerholung am Ende noch Backoff und daher unbewiesen. Zwei direkte Wake-Nutzsätze exakt und drei Negativaufnahmen ohne Aktivierung. Alexa-Pausenclip verfehlt den geplanten Text; manuelle Vergleichsausgabe enthält identisch denselben Nutztext. Tatsächlichen Wortlaut noch annotieren. Alle vollständigen M-Gates,30min100 und finale Wahrnehmung/Kalibrierung offen. UX01 bleibt bis tatsächlicher nativer Ausgabe mit aktivierter Einstellung offen. Ein-Klick-Probe mit anschließend zwei kurzen geführten Wakeaufgaben vorbereitet; keine allgemeine neue Freigabe erforderlich. IN_PROGRESS, kein REVIEW_READY.
+
+## Fortschreibung UX01, 2026-10-15
+
+[Zusatzfreigabe006](ZUSATZPROMPTS/006_UX01_FREIGABE.md) erweitert den Produktscope eng auf die bestehende Einstellung Leerzeichen anhängen. Fünf dauerhafte komponierte Regressionen in `tests/test_text_injector_spacing.py` führen autoritative Mirrorfinals über Finalconsumer, echte SQLite und seriellen Queueworker bis zur ersetzten Win32-Grenze. Drei Fälle reproduzierten das fehlende Leerzeichen vor der Produktkorrektur. Unveränderte Finals/History/IDs, Replaydeduplizierung, explizite Wiedereinfügung, False, vorhandener Whitespace und Clipboardrestore werden geprüft. Produktfix bildet ausschließlich den lokalen Ausgabepayload; vorhandene Rohtext-Testfixtures schalten die Einstellung ausdrücklich aus. [Gezielte100 PASS](EVIDENCE/human/ux01-targeted-green-final.json). Neue Voll-/Build-/Paarqualifikation läuft; UX01 bleibt bis dahin offen. Die vorherigen 41ca761-Qualifikationen bleiben historisch gebunden.
+
+Menschlicher geführter Wakebefund: „Beide Sätze vollständig“. [Technischer Lauf](EVIDENCE/human/guided-wake-320.json) belegt die erste echte Einfügung; vor der zweiten war der eigene Editor nicht mehr im Vordergrund. Diese Abweichung ist dokumentiert und bleibt Teilnachweis. Kein vollständiger M02-PASS.
+
+# AP-IV2-020 / R01-UMSETZUNG – IN_PROGRESS (Fortsetzung)
+
+Die [ausdrückliche Scope-Freigabe](ZUSATZPROMPTS/002_RECONNECT_AUDIT_FREIGABE.md)
+erlaubt eng begrenzte Produkt-/Testkorrekturen für Reconnect/Recovery.
+Maßgeblicher Fortsetzungsstand: [Audit und Korrekturen](05_RECONNECT_AUDIT.md).
+Derselbe R01, Branch und Draft-PR #15 bleiben aktiv. Neue technische Qualifikation ist vollständig grün (1373 Windows-Tests,
+1964 Server-Unit-Tests mit14 ausgewiesenen optionalen Skips,11 Prozessfälle,
+neue EXE/Wheel/sdist und native Frozenprüfung). Zehn technische Findings geschlossen; reale M-Fälle und gemeinsame Kalibrierung bleiben offen. Kein REVIEW_READY.
+
+## Gemeinsame Phase C – aktueller Zwischenstand
+
+Reale Manualprobe durchgeführt: sieben Finals in vier bewusst wiederholten
+Activations, jeweils genau ein Einfügeversuch. [3000ms](EVIDENCE/human/manual-followup-3000.json)
+und [5000ms](EVIDENCE/human/manual-followup-5000.json) verglichen; Auftraggeber
+bestätigt5000ms als passend. Isolierte Manual/Wake/Both-Profile entsprechend
+gesichert, keine Produkt-/Serverdefaults geändert. M-01 bleibt wegen Overlap offen.
+Separater UX-Befund: `append_space=true` ohne Wirkung; außerhalb Recoveryfreigabe.
+
+Vor Wakeblock [reale Hostspeichergrenze](EVIDENCE/human/host-memory-constraint.json):
+PowerShellstart mit OutOfMemoryException, nach sauberem Ende des Testclients nur
+0,95GB bis Commitlimit. Mensch hat unbenötigte Anwendungen geschlossen; erneute
+Prüfung ergibt10,7GiB Commitreserve. Wakeclient ist bereit mit bestätigten5000ms,
+erster Wakeversuch ausgewertet. Beide IDs erkannt, keine sichtbare Injektion, weil
+der Mensch das Editorfeld nicht fokussiert hatte. Danach sechs bewusst gestartete
+WAVs aufgenommen und auf ausdrücklichen Wunsch mit Messskripten versioniert.
+Echte Replays: Pre-Roll0 schneidet Wortanfänge,160ms reicht für Alexa nicht,
+320/480ms erhalten beide direkten Nutzsätze.320ms für Liveprüfung vorbereitet. Keine eigene oder produktive
+Installation beeinträchtigt. Kein vollständiger M-PASS und kein REVIEW_READY.
+
+## Historischer Zwischenstand vor Scope-Freigabe
+
+# AP-IV2-020 / R01-UMSETZUNG – BLOCKED
+
+Stand 2026-10-15. Ein Umsetzer, derselbe laufende Auftrag. **Kein REVIEW_READY,
+kein Eigenreview, kein ROOT_PASS und keine reale Gesamtabnahme.**
+Produktcode unverändert; Testhilfen/Testkonfiguration, Belege und Planpflege erstellt.
+
+## Ergebnis und nächste notwendige Entscheidung
+
+**IV2-020-F01 / REAL-03 / M-07 FAIL:** Ein vorübergehender HTTPausfall bei echtem
+lokalem Serverrestart wird dauerhaft `blocked/settings_preflight_failed`.
+Zweimal mit echtem Desktop/ReSpeaker/source-qualified Server reproduziert,
+Ursache mit zwei roten gezielten Reprotests isoliert. Kein Produktfix angewandt.
+[Konkreter Korrekturvorschlag samt noch nicht angewandtem Patch](04_KORREKTURVORSCHLAG.md).
+Der menschliche Originalauftrag verlangt für Produktänderungen eine ausdrückliche
+Freigabe. Nächste Aktion: Entscheidung über enge Korrektur an SettingsService.prepare
+und V2STTSession._connection plus Regressionen und neue Build-/Paarqualifikation.
+
+Danach bleiben dieselben vorbereiteten [fünf Realtestblöcke](02_GEMEINSAMER_TESTABLAUF.md)
+und die [gemeinsame Kalibrierung](03_KALIBRIERUNG.md). Kein neuer Pflichtchat/-run.
+Keine endgültigen Defaultwerte gewählt. 30min/100Activations noch NOT_RUN.
+
+## Git-/Build-/Serveridentität und Schutz der V1
+
+Ausgangscheckout sauber AP010/fdb91f3; alle Remote-Paketbranches und offene PRs
+abgeglichen, keine konkurrierende Paketlinie. AP010 nach unabhängigem R02-PASS und
+menschlichem R03-Originalprompt tatsächlich über PR14 übernommen.
+[Git-/PR-Nachmergebeleg](EVIDENCE/start-provenance.json): Single-Parent-Aggregat
+`b80ed8b81ad92bd02ac32553883443d2b7673bcd`, Parent43759d3, Tree
+`b12a3f4dc1f2c51d2c4a70680e63c988e729f666`, gleich finalem PR14-Head05da00a.
+Aktiver Paketbranch `work/client-v2/ap-iv2-020`, Base `feat/client-v2`.
+
+Die Vollsuite ist an diese Basis plus vollständige Produkt-/Test-/Scriptdateihashes
+und Diffhash in [client-full.json](EVIDENCE/client-full.json) gebunden. Spätere
+Unterlagennachträge ändern diesen Stand nicht. Finale Gitidentität aus Paketref/PR
+auflösen; keine unmögliche Selbst-SHA in der eigenen Commitdatei.
+
+Frozen: AP110-EXE, SHA256 `dccc449d227e7e3580bbdfa333f7386ac6070f007eee29c40971f863375c6f5d`,
+Buildcommitcf42a2a; [Produktbaumgleichheit bis b80ed8b](EVIDENCE/build-equivalence.json).
+Native [Frozenprobe](EVIDENCE/frozen-runtime.json) verbindet den tatsächlichen Build
+an den echten lokalen Server, GUI-/Settings-/Corethread-/Shutdownnachweis; dort
+absichtlich ungültiges Capturedevice und kein Paste/LED/Soundplayback.
+
+Server `ada13b011e1d3829f78e7f389e3b927795a2b3be`, lokal127.0.0.1:18020,
+[Image-/Konfigurations-/Sourcebeleg](EVIDENCE/local-server-build.json):
+Image `sha256:5aaa17e9963fea4c3109027a2ce141b2037b5eadfe7cbd91ff39a9f15626ff20`,
+**555 Git-Blobs bytegenau verifiziert**, native Dependencies aus dem separat
+identifizierten vorhandenen Free-Image. Docker-UID0 im isolierten Testcontainer,
+keine Host-Rechteerhöhung. Eigene Docker-Datenvolume, read-only Modellmount,
+synthetischer Admin-Guard. Community-DE64 final/realtime gemeinsam, ONNX-Wake.
+Modelldigests unter [model-identities.json](EVIDENCE/model-identities.json).
+
+V1-Profile/Installation, produktiver lokaler Container und produktive Serverzustände
+unverändert. VPS vor dem lokalen Zusatzprompt ausschließlich lesend geprüft,
+danach keine VPS-Aktionen. Keine Serverpromotion, Releases, Tags oder Übernahme.
+Rohsamples/DBs/Runtimezustände außerhalb Git; keine Credentials/privaten Transkripte
+in der öffentlichen Akte. Testvault-Einträge gelöscht, Hardwaremute zurückgesetzt,
+Testdesktops kontrolliert beendet; isolierter Modellserver bleibt bereit.
+
+## Phase A/B – ausgeführte autonome Qualifikation
+
+Vollständige [Testfähigkeitsanalyse mit fünf Kategorien](EVIDENCE/testability.md).
+Windows11Pro26300/Python3.12.10, [Runtime](EVIDENCE/windows-runtime.json),
+[Gerätetreiber](EVIDENCE/windows-drivers.json).
+
+| Prüfung | Tatsächliches Ergebnis / Grenze |
+| --- | --- |
+| Windowsbaseline | 1354 PASS / 173,528s, keine Skips, vor Testcodeänderung |
+| Windows-Vollregression | 1360 PASS, keine Skips, alle test_*.py einschließlich sechs neuen Werkzeugregressionen |
+| Prozesse | 11 PASS, echte getrennte gepinnte Prozesse mit modellfreier Recordergrenze; keine Real-ASRbehauptung daraus |
+| Native Hotkeys | PASS, tatsächliche Win32registrierung/SendInput/Kollision/Rollback |
+| Native Settings/Credentials | PASS, echte Qt-UI/Guard/Create/Replace/Delete/Originisolation; modellfreie Servergrenze dieses separaten UI-Checks |
+| ReSpeaker capture | 73 echte mono16000/40ms-Pakete in3s; null Drops/Overflows, PCM nicht gespeichert |
+| USB/LED/Mute | Firmware2.0.10/GPO-Read und echte LEDcommands, Muteschreiben/Readback/Restore PASS; physische Taste/visuelle Wahrnehmung offen |
+| Echtmodelladmission | Manual/Wake/Both PASS, zwei echte ausgewählte ONNX-IDs; Audio explizit unavailable, keine positive Wakequalifikation |
+| ASR-Golden | echtes englisches Communitymodell, ein Goldenfall PASS; erwarteter Wortlaut exakt, Referenz kein Nutzeraudio |
+| Realer Audiopfad | echte WAV→V2-WS→Mirror→deutsches ASR, ein Final; 0,391s nach Audioende. Sprachmismatch ist ausdrücklich keine deutsche Qualitätsabnahme |
+| Wake-Ressourcen/Negativ | echte1/3/25 ONNX-Modelle; RSS und Latenzen gemessen. 51,925s negatives Referenzmaterial: hey_jarvis/alexa null Hits; positive Grenze NOT_PROVEN |
+| Desktopcapture | nativer Desktop/Corethread, echtes Mikrofon und kontinuierliche V2-Übertragung PASS; 13 Messpunkte, keine Aktivierung/Einfügung |
+| Frozenbootstrap | unveränderte qualifizierte EXE an source-qualified Modellserver PASS; Bedien-/Feedbackwahrnehmung offen |
+| Native Clipboardvorbereitung | NOT_RUN: Windows verweigert Vordergrundfokus. Guard sendete nichts, Clipboard unverändert. Testziel/Konflikt/Reinsert-Automation vorbereitet |
+| Echter Serverrestart | FAIL, IV2-020-F01; zwei Wiederholungen, anschließend Server wieder ready |
+| Legal verkürzter Watchdog | NOT_PROVEN: 30s-Aufnahmehardcut erzeugt neue Segmente vor legalem60s-Watchdog. Realer70s-Replay belegt Finals, keine warning/expiry; keine Sicherheitsgrenze angepasst |
+| compileall / Diff-/Aktenprüfung | PASS; kein Produktdiff |
+
+RSS bei1/3/25 Modellen nach Init ca193/227/210MB; P95-Detektionszeit3,38/2,65/4,81ms.
+Sequenzielle Läufe im selben Prozess mit Allocator-/GC-Wiederverwendung, keine
+lineare Speicherprognose und kein Ersatz für30min-Stabilität. Rohmessungen erreichbar.
+
+## Fehlversuche und Grenzen
+
+Erster Serverarchivaufbau zeigte Windows-EOL-Konvertierung; durch exakten Gitblob-
+Export ersetzt und555 Blobs verifiziert. Vorherige Modellvorchecks sind diagnostisch;
+maßgeblich sind als exact bezeichnete Wiederholungen und die Produktionsbaumprüfung.
+Docker-AppData-Bindmount war leer; eigene Datenvolume und kontrolliertes Configcopy
+verwendet. Ungültiger Testlogmodus/AdminKey-im-YAML bei Vorbereitung korrigiert,
+Secret ausschließlich in lokalem Envfile. Pro16-Versuch wegen erreichtem Lizenzlimit
+beendet; kein Pro16-PASS, produktive Lizenzverbindungen nicht beendet.
+
+Erster erweiterter Windowslauf1359 hatte zwei Pfadfixturefehler durch die von der
+Testhilfe injizierte Profilumgebung; Testhilfe korrigiert,29 gezielte Checks PASS,
+vollständiger1360-Lauf PASS. Fehlversuch samt vollständigem Log erhalten, keine
+Tests geschwächt. Der erste Goldenlauf wurde wegen parallel geänderter Helferidentität
+verworfen und stabil sowie nach Exactexport wiederholt. Alle übrigen FAIL/NOT_RUN-
+Diagnosen sind im Index eingeordnet; ein grüner Unitlauf verdeckt IV2-020-F01 nicht.
+
+## Requirement-/Fallstatus und Übergabe
+
+[real-cases.json](EVIDENCE/real-cases.json) ist das einzelne reale Ergebnisregister.
+REAL-01/02/04/05 NOT_PROVEN, REAL-03 FAIL/IV2-020-F01. REAL-06 bleibt offen, weil
+noch keine vollständige fachliche Abgabe vorliegt; Grenzen werden explizit geführt.
+M-07 hat den gesicherten fehlerhaften Vorcheck, übrige verpflichtende Inhalte und
+alle anderen M-Fälle sind NOT_RUN, Wakegrenze/Kalibrierung NOT_PROVEN.
+
+Keine neuen Produktinterfaces/Migrationen oder Nutzerdefaults. Helferketten behalten
+alle Produktionscallbacks und Threadgrenzen, loggen ausschließlich Ereignis-/Ack-
+Identität, Zähler, Zustände und Speicher. Sampleaufnahme ist ein expliziter
+CLI-Schritt; Vorbereitungen speichern kein allgemeines Mikrofonaudio.
+
+**BLOCKED.** Schreibhoheit R01 bleibt für die Fortsetzung im selben Chat erhalten;
+Draft-PR dient Sicherung/Koordination und ist nicht reviewbereit. Nach menschlicher
+Freigabe nur den benannten Fix umsetzen, neu bauen/qualifizieren, dann dieselbe
+interaktive Kalibrierung fortsetzen. Kein Eigenreview oder Merge.
+
+## Bereitstellung
+
+[Kumulativer Draft-PR #15](https://github.com/marcosudau-vps/voice-stt-client/pull/15), Base feat/client-v2.
+Quell-/Test-/Evidenzkandidat d5c621f, nachfolgender PR-Verweisnachtrag rein administrativ.
+[Abgabeidentität](EVIDENCE/submission.json). Kein Reviewauftrag/Schreibrechtswechsel.

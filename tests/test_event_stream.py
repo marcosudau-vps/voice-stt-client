@@ -8,11 +8,13 @@ import tempfile
 import time
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
+from unittest.mock import patch
 
 from websockets.protocol import State
 
 from voice_stt_client.core.config import EventStreamConfig
-from voice_stt_client.core.event_cursor_store import EventCursorStore
+from voice_stt_client.core.event_cursor_store import CursorRecord, EventCursorStore
 from voice_stt_client.core.event_models import EventConnectionState
 from voice_stt_client.core.event_models import CanonicalEventType, FeedbackImpulse
 from voice_stt_client.core.feedback_mapping import (
@@ -90,16 +92,24 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
     def test_python_logger_uses_canonical_component_name(self):
         self.assertEqual(event_stream_logger.name, "eventstream")
 
-    def make_transport(self, socket, handler, *, store=None, control=None, states=None):
+    def make_transport(self, socket, handler, *, store=None, control=None, states=None, single_attempt=False):
         stream_access = access()
         processor = EventProtocolProcessor(stream_access, cursor_store=store)
         connect_kwargs = {}
+        attempts = 0
 
         async def connect_factory(endpoint, **kwargs):
+            nonlocal attempts
+            attempts += 1
+            if single_attempt and attempts != 1:
+                raise AssertionError("Consumed scripted socket must not be reused")
             connect_kwargs["endpoint"] = endpoint
             connect_kwargs.update(kwargs)
             return socket
 
+        def state_changed(state):
+            if states is not None:
+                states.append(state)
         transport = EventStreamTransport(
             EventStreamConfig(
                 connect_timeout=0.1,
@@ -114,12 +124,27 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
             processor,
             on_event=handler,
             on_control=control,
-            on_state_change=(states.append if states is not None else None),
+            on_state_change=state_changed,
             connect_factory=connect_factory,
         )
+        if single_attempt:
+            # The production callback intentionally isolates ordinary callback
+            # exceptions. This test-owned seam makes a failed attempt fatal.
+            original_state = transport._set_state
+            def set_state(state):
+                if state is EventConnectionState.BACKOFF:
+                    raise AssertionError(f"Unexpected reconnect: {transport.last_error}")
+                original_state(state)
+            transport._set_state = set_state
         return transport, processor, connect_kwargs
 
     async def test_handshake_replay_live_and_first_frame_token_policy(self):
+        await self._assert_handshake_replay_live()
+
+    async def test_handshake_replay_live_with_delayed_cursor_and_runner(self):
+        await self._assert_handshake_replay_live(commit_delay=0.28)
+
+    async def _assert_handshake_replay_live(self, *, commit_delay=0):
         socket = ScriptedLogSocket(frames())
         states = []
         seen = []
@@ -131,13 +156,47 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
                 await holder["transport"].stop()
             return True
 
-        with tempfile.TemporaryDirectory() as directory:
-            store = EventCursorStore(Path(directory) / "cursor.json")
+        # Logical protocol time advances with frames, independently of real
+        # scheduler/disk latency. The real outer watchdog still catches hangs.
+        clock = SimpleNamespace(now=0.0)
+        original_recv = socket.recv
+        async def recv():
+            value = await original_recv()
+            clock.now += 0.001
+            return value
+        socket.recv = recv
+        async def logical_wait(awaitable, timeout):
+            return await awaitable
+        protocol_asyncio = SimpleNamespace(**vars(asyncio))
+        protocol_asyncio.get_running_loop = lambda: SimpleNamespace(time=lambda: clock.now)
+        protocol_asyncio.wait_for = logical_wait
+
+        # Real atomic persistence is covered by the store tests and the durable
+        # failure/replay integration below. Here retain its exact binding data.
+        class MemoryCursor:
+            def __init__(self):
+                self.record = None
+                self.commits = []
+            def load(self, **binding):
+                if self.record is None:
+                    return None
+                for key, value in binding.items():
+                    self_test.assertEqual(getattr(self.record, key), value)
+                return self.record
+            def commit(self, cursor, **binding):
+                if commit_delay:
+                    time.sleep(commit_delay)
+                self.record = CursorRecord(schema_version=1, cursor=cursor, updated_at="test", **binding)
+                self.commits.append(cursor)
+                return self.record
+        self_test = self
+        store = MemoryCursor()
+        with patch('voice_stt_client.core.event_stream.asyncio', protocol_asyncio):
             transport, processor, kwargs = self.make_transport(
-                socket, handle, store=store, states=states
+                socket, handle, store=store, states=states, single_attempt=True
             )
             holder["transport"] = transport
-            await asyncio.wait_for(transport.run(), timeout=0.5)
+            await asyncio.wait_for(transport.run(), timeout=10)
             record = store.load(
                 endpoint=access().endpoint,
                 server_instance_id="server-1",
@@ -154,10 +213,23 @@ class TestEventStreamTransport(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(kwargs["max_queue"], 512)
         self.assertEqual(seen, [("evt-replay", "replay"), ("evt-live", "live")])
         self.assertEqual(record.cursor, 24)
+        self.assertEqual(store.commits, [3, 24])
+        self.assertEqual(json.loads(socket.sent[0])["afterCursor"], 0)
+        self.assertEqual(transport.generation, 1)
+        self.assertEqual(socket.state, State.CLOSED)
         self.assertIn(EventConnectionState.REPLAYING, states)
         self.assertIn(EventConnectionState.LIVE, states)
         self.assertEqual(transport.state, EventConnectionState.STOPPED)
         self.assertEqual(processor.resume_cursor, 24)
+
+    async def test_single_attempt_reports_original_failure_before_reconnect(self):
+        socket = ScriptedLogSocket(["not json"])
+        transport, _, _ = self.make_transport(socket, lambda _: True, single_attempt=True)
+        with self.assertLogs('eventstream', level='WARNING'):
+            with self.assertRaisesRegex(AssertionError, "Unexpected reconnect: invalid JSON text frame"):
+                await asyncio.wait_for(transport.run(), timeout=10)
+        self.assertEqual(transport.generation, 1)
+        self.assertEqual(transport.state, EventConnectionState.STOPPED)
 
     async def test_unconfirmed_event_forces_reconnect_without_cursor_commit(self):
         socket = ScriptedLogSocket(frames(include_live=False))

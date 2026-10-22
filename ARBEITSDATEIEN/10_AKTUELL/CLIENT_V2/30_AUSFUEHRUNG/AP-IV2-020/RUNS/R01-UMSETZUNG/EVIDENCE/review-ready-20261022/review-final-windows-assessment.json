@@ -1,0 +1,643 @@
+{
+  "result": "PASS",
+  "tests": 1400,
+  "skips": 0,
+  "exactDiscoveredSet": true,
+  "modules": 79,
+  "rows": [
+    {
+      "module": "test_build_script",
+      "tests": 10,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_build_script.log",
+      "sha256": "fa326c17f64d6574ccc79d50ab95a07a27966bda7bbf0c38e2b5e43e3f93e2cc",
+      "retry": false
+    },
+    {
+      "module": "test_ap06_followup",
+      "tests": 11,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_ap06_followup.log",
+      "sha256": "0699ddb38f8d08f8d19a5ae3e4e0b7f1c38771e6d4957397b078cef9c22eeb4f",
+      "retry": false
+    },
+    {
+      "module": "test_client_release_guard",
+      "tests": 3,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_client_release_guard.log",
+      "sha256": "7d164f86fb8f9f7c0c5775ebd479b008cc7904b90ebfd9e3a75aee94b3582779",
+      "retry": false
+    },
+    {
+      "module": "test_client_release_workflow",
+      "tests": 1,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_client_release_workflow.log",
+      "sha256": "cbe5f674d65ae9601b5043ba39b52d235f9af50c1a24123200bca4e95d92ce9c",
+      "retry": false
+    },
+    {
+      "module": "test_audio_capture",
+      "tests": 7,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_audio_capture.log",
+      "sha256": "f63a68eae258b53bd8b4d584c7d3ecf854ff9f128eeff150a31eea07dcfe2a81",
+      "retry": false
+    },
+    {
+      "module": "test_config",
+      "tests": 36,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_config.log",
+      "sha256": "23cf71139dbde07160e545d62c4e89274a5d8ee21d8062a3fd9b6b070f9599bd",
+      "retry": false
+    },
+    {
+      "module": "test_event_cursor_store",
+      "tests": 4,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_event_cursor_store.log",
+      "sha256": "e12e62914ecd94594c720d9a0205def9bede087663e5b0389ad201cd18660bed",
+      "retry": false
+    },
+    {
+      "module": "test_core_bridge",
+      "tests": 7,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_core_bridge.log",
+      "sha256": "3e176617f230580bec4c18fa2b17474144716bcc141d1c58b3c22265d09057ce",
+      "retry": false
+    },
+    {
+      "module": "test_event_models",
+      "tests": 4,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_event_models.log",
+      "sha256": "c4633d4f615361b154230e32cba738ea5a216ccc04d47475a6044775953e18b7",
+      "retry": false
+    },
+    {
+      "module": "test_event_normalizer",
+      "tests": 6,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_event_normalizer.log",
+      "sha256": "e1ce7f6feedd80aebbe35c3b6af5df79053da4709c82cc452288dd5833a7700a",
+      "retry": false
+    },
+    {
+      "module": "test_event_protocol",
+      "tests": 15,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_event_protocol.log",
+      "sha256": "95d6e0ab40e79a8d47ee59db331846936d4d55e7be1387c2ad38b2ed9c783423",
+      "retry": false
+    },
+    {
+      "module": "test_cv2_000_integration",
+      "tests": 6,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_cv2_000_integration.log",
+      "sha256": "dc47b30dc18bb1600665b25963472d25ac822d70271ee260c90456b19c2d694c",
+      "retry": false
+    },
+    {
+      "module": "test_feedback_mapping",
+      "tests": 10,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_feedback_mapping.log",
+      "sha256": "1de4d1b6e4bae26bd257cbe7b479582f0ad12054a1a86b1485a7ec9b3e552afc",
+      "retry": false
+    },
+    {
+      "module": "test_event_stream",
+      "tests": 13,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_event_stream.log",
+      "sha256": "155dd18fe36b306e17bae1d2b33eae47f4d7e23185cf3d0d1bd62b3dbf74bb85",
+      "retry": false
+    },
+    {
+      "module": "test_feedback_ui",
+      "tests": 13,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_feedback_ui.log",
+      "sha256": "2b0c6cf7c3fe026c435b0abe93e85dd2d356ae529978c0da2d8584898a69edfc",
+      "retry": false
+    },
+    {
+      "module": "test_history",
+      "tests": 30,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_history.log",
+      "sha256": "481e2c666dc7cb3bf9febce72a2c2fca16f580668ae52c51cac48dea9cc46a62",
+      "retry": false
+    },
+    {
+      "module": "test_hotkeys",
+      "tests": 7,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_hotkeys.log",
+      "sha256": "c6cc8788a1df1bc81a896de6eb4d9c46737e0bee46d4fd7f19df64cc7db3ff33",
+      "retry": false
+    },
+    {
+      "module": "test_obs010_models",
+      "tests": 31,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs010_models.log",
+      "sha256": "b86f4a6164ddf9ccb7be98130e6c893c8d635e40eecf469f97524ce9f3d8eedb",
+      "retry": false
+    },
+    {
+      "module": "test_obs010_normalizer_client",
+      "tests": 11,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs010_normalizer_client.log",
+      "sha256": "5ab01bd38a9f0538f5e323116ebaa6cfcb349100fe51dc3b0eecfc9bf6ce364c",
+      "retry": false
+    },
+    {
+      "module": "test_obs010_normalizer_python",
+      "tests": 18,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs010_normalizer_python.log",
+      "sha256": "d88d150af7733556c84310ca19e01083f9e71009112e541dcaddae23bd6c4006",
+      "retry": false
+    },
+    {
+      "module": "test_obs010_normalizer_server",
+      "tests": 23,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs010_normalizer_server.log",
+      "sha256": "278a7c2987cd3b5094d387a89922ebb199430a7e2cc23e7df4bd50073dcc222c",
+      "retry": false
+    },
+    {
+      "module": "test_obs010_query_contracts",
+      "tests": 8,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs010_query_contracts.log",
+      "sha256": "fdbfb81011ee867c42217779fc2eeacd78bb0bb807fdbe13cad9788c75c26235",
+      "retry": false
+    },
+    {
+      "module": "test_obs010_redaction",
+      "tests": 28,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs010_redaction.log",
+      "sha256": "0283fa5eaae6ce58acd2322f23fa955d4b38f01521f8408e51766dfcc73090de",
+      "retry": false
+    },
+    {
+      "module": "test_obs010_contracts",
+      "tests": 8,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs010_contracts.log",
+      "sha256": "a5766836ce312a4f0f66c05be1d63c819553bd5ce28600e2bb18e4de20b945ce",
+      "retry": false
+    },
+    {
+      "module": "test_led_feedback",
+      "tests": 31,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_led_feedback.log",
+      "sha256": "ec34ba7519a22d491edeab5537adcbe87f7bb4e3ea3b6f44c6bff90e1a17981b",
+      "retry": false
+    },
+    {
+      "module": "test_obs020_health",
+      "tests": 16,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs020_health.log",
+      "sha256": "4a026f1f1592e052ec9c920e085a83850dd5d13e1f496af5f2b638d9e05a96cb",
+      "retry": false
+    },
+    {
+      "module": "test_obs020_logging_setup_integration",
+      "tests": 5,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs020_logging_setup_integration.log",
+      "sha256": "f4dda4d04d5ecec8addcd60002a9aec69fa224392dbe5071ca3886f7401b7ae0",
+      "retry": false
+    },
+    {
+      "module": "test_obs020_python_logging_handler",
+      "tests": 15,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs020_python_logging_handler.log",
+      "sha256": "152d8fb33079b97446198a36387a1bed616cf7dfdd814564abcd249543b33045",
+      "retry": false
+    },
+    {
+      "module": "test_obs020_redaction_end_to_end",
+      "tests": 9,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs020_redaction_end_to_end.log",
+      "sha256": "aa0c456b53d8ce097caafabfd5f3373c54876876c6b79e03db77a8d66b9309a3",
+      "retry": false
+    },
+    {
+      "module": "test_obs020_contracts",
+      "tests": 11,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs020_contracts.log",
+      "sha256": "67cc5b04503fddd79806a0c38437de37dce70f12c40942dcfef97f62cea85b63",
+      "retry": false
+    },
+    {
+      "module": "test_obs030_app_wiring",
+      "tests": 2,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs030_app_wiring.log",
+      "sha256": "d1aed9642ff1f69223b9071054fcf6a5d910c997c98d316bacfe75e2085fa4ba",
+      "retry": false
+    },
+    {
+      "module": "test_obs030_config",
+      "tests": 10,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs030_config.log",
+      "sha256": "0a7a794b5f9ba3c6e575929f99b95841c8d16a870ed0d76835194fac66810063",
+      "retry": false
+    },
+    {
+      "module": "test_obs030_gate_corrections",
+      "tests": 18,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs030_gate_corrections.log",
+      "sha256": "a234eae21b5ab0e4dbd248f7de3f103580e7714511a21f51f4b6b35d545b1df0",
+      "retry": false
+    },
+    {
+      "module": "test_obs020_ingress",
+      "tests": 19,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs020_ingress.log",
+      "sha256": "4a9f2f06bc45ab6d0a66e0690a66d255fdea27c6f428bc9326c1c0dd6a038eb6",
+      "retry": false
+    },
+    {
+      "module": "test_obs030_jsonl_sink",
+      "tests": 7,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs030_jsonl_sink.log",
+      "sha256": "a8fe42736860dc997af2df3eb8e6fd3302b0d22bf269a62d6fa635f78c8082e3",
+      "retry": false
+    },
+    {
+      "module": "test_obs030_manager",
+      "tests": 8,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs030_manager.log",
+      "sha256": "fa353444cef5c90982ea5c8c86b09e73890655d864a6ed11a0e7f2f08f81e2a4",
+      "retry": false
+    },
+    {
+      "module": "test_obs030_contracts",
+      "tests": 11,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs030_contracts.log",
+      "sha256": "75ec81a8efff97e4d42494e48e13ce797eb42f061217b5163a8cd57a35c0f4bb",
+      "retry": false
+    },
+    {
+      "module": "test_obs030_path_boundaries",
+      "tests": 23,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs030_path_boundaries.log",
+      "sha256": "fdc04127382bdceba1c445f1bd31ae0931000fc252600af5c9ab17ad25c2f08c",
+      "retry": false
+    },
+    {
+      "module": "test_obs030_sqlite_store",
+      "tests": 24,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs030_sqlite_store.log",
+      "sha256": "58d0c524c82b032a813c8a3f67ad9c2c133cd97f92999d1c4340b4b63fd2b4db",
+      "retry": false
+    },
+    {
+      "module": "test_obs030_worker_fault_injection",
+      "tests": 6,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs030_worker_fault_injection.log",
+      "sha256": "c62f74cd650bf8f2709c5d6d85d1045c17d2fafa2ea3feebefc81b90ce034dca",
+      "retry": false
+    },
+    {
+      "module": "test_obs030_worker",
+      "tests": 20,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs030_worker.log",
+      "sha256": "6db6b690b9b1986fc14ae9b2990e954372127854f0fa31d9f4ce81ca1aceed2e",
+      "retry": false
+    },
+    {
+      "module": "test_obs040_client_hooks",
+      "tests": 9,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs040_client_hooks.log",
+      "sha256": "7016f9f8ccd9b86aeb08df2df5a8670d150a915a4ec05c24fd8fd3736ebb7710",
+      "retry": false
+    },
+    {
+      "module": "test_obs040_failure_isolation",
+      "tests": 2,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs040_failure_isolation.log",
+      "sha256": "696f8326795f5a1fa8ba145cb27c36fac09abe019ca9027c70a53892e92705d5",
+      "retry": false
+    },
+    {
+      "module": "test_obs040_contracts",
+      "tests": 13,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs040_contracts.log",
+      "sha256": "47679bca67ca2b94a1e8155af8ad7176ab7c4779706fa9892a69400a222322de",
+      "retry": false
+    },
+    {
+      "module": "test_obs040_hot_path",
+      "tests": 8,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs040_hot_path.log",
+      "sha256": "8ca5815a62f514d663328a3be4d709300935ad02f5823a8bf7191af329d0eb87",
+      "retry": false
+    },
+    {
+      "module": "test_obs040_fanout_hook",
+      "tests": 16,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs040_fanout_hook.log",
+      "sha256": "e8180424800d4a4432451bb46c780cb92f5cbcd3a2ac2db185cba6ff027ae672",
+      "retry": false
+    },
+    {
+      "module": "test_obs040_server_live_adapter",
+      "tests": 22,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs040_server_live_adapter.log",
+      "sha256": "e2663bc9c043dcda348df89161afe2dc6fe8556bedf435dc5ef40833bad0334e",
+      "retry": false
+    },
+    {
+      "module": "test_obs050_query_service",
+      "tests": 11,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs050_query_service.log",
+      "sha256": "1cc04c78e0a984fd6d22047a672c32ae8532e591f55e36d1530b08c4092b9dc5",
+      "retry": false
+    },
+    {
+      "module": "test_obs050_local_provider",
+      "tests": 47,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs050_local_provider.log",
+      "sha256": "eae99443eaccadddbbc207b901c794f7cc1aa6e281bbfbff8a3fe370ad9a6f20",
+      "retry": false
+    },
+    {
+      "module": "test_obs050_settings",
+      "tests": 37,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs050_settings.log",
+      "sha256": "849f90f416f8f6f0c6fa5a8bb06b8c6307165b423057279645f7bc5e64c09c36",
+      "retry": false
+    },
+    {
+      "module": "test_obs050_contracts",
+      "tests": 22,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs050_contracts.log",
+      "sha256": "a7511538f2b94f59f77010cbc59c8c00d350a5a2b05622ca8d790a814ee065a6",
+      "retry": false
+    },
+    {
+      "module": "test_obs060_v1_hardening",
+      "tests": 27,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs060_v1_hardening.log",
+      "sha256": "f41c2639b1ab4ee67fb0eda71c3526a9050380cec2eea36298c0e0141c235416",
+      "retry": false
+    },
+    {
+      "module": "test_reinsertion",
+      "tests": 26,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_reinsertion.log",
+      "sha256": "0ffd2d545a44584ea29b401becdb51558a3d0c0a19272ed2cc8b34b74031d8ba",
+      "retry": false
+    },
+    {
+      "module": "test_release",
+      "tests": 8,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_release.log",
+      "sha256": "2c092cc2199004451272708a79df9a8ed554d8e721652ec479db33a73154ecc0",
+      "retry": false
+    },
+    {
+      "module": "test_single_instance",
+      "tests": 3,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_single_instance.log",
+      "sha256": "147cf531a64c0c29103cd1de8f6bf65f0d8c896d50bb5ee9a799aad2ff848d9d",
+      "retry": false
+    },
+    {
+      "module": "test_session_coordinator",
+      "tests": 14,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_session_coordinator.log",
+      "sha256": "b6958cf3dac6013f12054ea9ffe8724bc63dc979b0493146dd7d5d3976ed565f",
+      "retry": false
+    },
+    {
+      "module": "test_text_injector",
+      "tests": 41,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_text_injector.log",
+      "sha256": "ff2525f4766d706dfe5704a8c6f8054ca0ae38486985c8ee822050424c944928",
+      "retry": false
+    },
+    {
+      "module": "test_text_injector_modifiers",
+      "tests": 12,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_text_injector_modifiers.log",
+      "sha256": "80cab4179b8b1a65a6e153445ebd703d6cc5b4ab12cda932fc76456d7d57b9a5",
+      "retry": false
+    },
+    {
+      "module": "test_text_injector_spacing",
+      "tests": 5,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_text_injector_spacing.log",
+      "sha256": "349eb9781f5cf13492a4fcf1dfbf215d9104d1184b9328fdd3d8616f080a74ed",
+      "retry": false
+    },
+    {
+      "module": "test_trigger_feedback_contract",
+      "tests": 7,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_trigger_feedback_contract.log",
+      "sha256": "bb31798490bd7fdf1870e44354cb11786b1c8943110678a46c392e461d890c9a",
+      "retry": false
+    },
+    {
+      "module": "test_obs050_ui",
+      "tests": 87,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_obs050_ui.log",
+      "sha256": "579fa2eda5e0a382ef347d155cb41e7a779c70bf0d50280b21cae2ca64e23be0",
+      "retry": false
+    },
+    {
+      "module": "test_ui_application",
+      "tests": 15,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_ui_application.log",
+      "sha256": "caa265e20645c11a54975666d59e73ddc2b77453bedd98b5a68b4238548fca4f",
+      "retry": false
+    },
+    {
+      "module": "test_ui_widgets",
+      "tests": 20,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_ui_widgets.log",
+      "sha256": "845ef6fae983a5bab3aaf0a9d2ca61866051cdbab1366037949c283405ba4901",
+      "retry": false
+    },
+    {
+      "module": "test_v2_close_feedback",
+      "tests": 7,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_close_feedback.log",
+      "sha256": "b2d62818662b13fa14fdd06706bde4ed4333a30c5abb96fed4c8edccee913fa2",
+      "retry": false
+    },
+    {
+      "module": "test_v2_cross_repository",
+      "tests": 1,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_cross_repository.log",
+      "sha256": "fcd880d5fb4a977a039e815bce3b6549d64f935fec1d59ee667363c29d598473",
+      "retry": false
+    },
+    {
+      "module": "test_v2_controls",
+      "tests": 19,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_controls.log",
+      "sha256": "956ff10871d023b5acbe6f1aabfce27c4f4a96f9bf77ab42953a86b7826ea41b",
+      "retry": false
+    },
+    {
+      "module": "test_v2_mirror",
+      "tests": 45,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_mirror.log",
+      "sha256": "4b954cfb76926d66499f84e9ba5af47f84ec78a3faac9a2211c6266f79ed1597",
+      "retry": false
+    },
+    {
+      "module": "test_v2_protocol",
+      "tests": 30,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_protocol.log",
+      "sha256": "6abd3732a2e16006b26f681a4c6ec6ea5f9ed3e37aeb3e530e96b3119167718b",
+      "retry": false
+    },
+    {
+      "module": "test_v2_real_qualification",
+      "tests": 6,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_real_qualification.log",
+      "sha256": "c7eaa851b776296fffdfb164d1413f5165c1c8249554f92e2454ba6324ef7963",
+      "retry": false
+    },
+    {
+      "module": "test_v2_feedback",
+      "tests": 40,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_feedback.log",
+      "sha256": "bbaed954d04270553ab829813c68f7375ffe5fb006a314838c0e0dde9cccd015",
+      "retry": false
+    },
+    {
+      "module": "test_v2_audio_recovery",
+      "tests": 41,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_audio_recovery.log",
+      "sha256": "5f2f7a02cd1a4e2665a64183b9931e1dffe5adce6c44827d3c21a89578b8683a",
+      "retry": false
+    },
+    {
+      "module": "test_v2_recovery_audit",
+      "tests": 13,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_recovery_audit.log",
+      "sha256": "8b88a0643398fe20c53c35b7a4cdd47f896db2f32f2550a0fd18767f05184647",
+      "retry": false
+    },
+    {
+      "module": "test_v2_release",
+      "tests": 20,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_release.log",
+      "sha256": "af05262c82023f099e931863a84471a311879f7293069052215842cfe6bf0b10",
+      "retry": false
+    },
+    {
+      "module": "test_v2_results",
+      "tests": 28,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_results.log",
+      "sha256": "1ba0418569256750ec088dccb51346c72ecc2057dca3e81adbb231ffabe60a25",
+      "retry": false
+    },
+    {
+      "module": "test_v2_settings_service",
+      "tests": 34,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-settings-retry.log",
+      "sha256": "a93a30ae3829ba0bcc677f3a9aa177d34b14f14f7f3b4128ac7020776e936962",
+      "retry": true
+    },
+    {
+      "module": "test_v2_transport",
+      "tests": 31,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_transport.log",
+      "sha256": "b1ccf2b490bc9b5cd01ff50960e3ebf107a8e7a6f7f4bd98eff6af110e69348d",
+      "retry": false
+    },
+    {
+      "module": "test_v2_work_records",
+      "tests": 7,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_work_records.log",
+      "sha256": "6aa5148245247fae3dcb940b9f83eda7dd90c78eee998e8df83724b5454d0b9a",
+      "retry": false
+    },
+    {
+      "module": "test_v2_runtime_integration",
+      "tests": 28,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_runtime_integration.log",
+      "sha256": "7c4877b598f39b0c729694af8bcd8d46dee6b666b7c6300b6efe23cb77bc4476",
+      "retry": false
+    },
+    {
+      "module": "test_v2_settings_ui",
+      "tests": 53,
+      "result": "PASS",
+      "log": "build\\ap-iv2-020-suite\\review-isolated-windows\\test_v2_settings_ui.log",
+      "sha256": "554bf4aeee9774c47720798faf0b8ceedd5077359a18d12c2a6f27acf255f172",
+      "retry": false
+    }
+  ],
+  "originalAssessmentSha256": "6e57db210825aa3f68b3399db61d38952326aee104198c46fc6a146a3484aeee",
+  "corrections": "Initial assessment regex missed multiline unittest docstrings. All original unit workers exit0 except settings module; its under-load2s fake-server wait failed once and full module34tests passed in fresh serial retry. All failures/logs retained, no excluded test ID."
+}

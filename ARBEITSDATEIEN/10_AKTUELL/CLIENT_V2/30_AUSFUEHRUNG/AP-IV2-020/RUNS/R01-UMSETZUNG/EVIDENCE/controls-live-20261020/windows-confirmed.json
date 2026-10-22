@@ -1,0 +1,10 @@
+{
+  "command": "venv/Scripts/python.exe -m unittest discover -v -s tests",
+  "runtimeFolder": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\suite-20261020-195208-adc550\\regression-confirmed",
+  "seconds": 196.4401357,
+  "environment": "isolated VOICESTT_CLIENT_HOME with config.yaml {}; VOICESTT_CLIENT_CONFIG unset; isolated TEMP/TMP",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "sourceHeadAtStart": "f4489e24e47dd7ec58b550c974511e9b13b03991",
+  "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "exitCode": 0
+}

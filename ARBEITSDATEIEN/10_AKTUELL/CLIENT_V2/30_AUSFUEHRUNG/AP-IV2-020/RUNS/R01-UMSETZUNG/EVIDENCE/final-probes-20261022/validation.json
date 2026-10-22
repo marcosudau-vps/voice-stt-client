@@ -1,0 +1,21 @@
+{
+  "result": "PASS_SCOPED_HELPERS_AND_SUBCASES",
+  "packageStatus": "BLOCKED",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "exeSha256": "e20059f6dff1279cb23fb01576d447fb285aa94cb270d71968b8430a063a15fc",
+  "helperTests": 80,
+  "helperSkips": 0,
+  "qtSelfcheck": "PASS",
+  "compileall": "PASS",
+  "windowsSuite": {
+    "tests": 1400,
+    "skips": 0,
+    "seconds": 241.656,
+    "evidence": "../technical-rest-20261021/validation.json",
+    "reuseReason": "Product/build source diff against0f6c85e empty; only test tools/docs changed."
+  },
+  "humanPerception": "COMPLETE_BY_EXPLICIT_DISPOSITION",
+  "sourceHeadAtStart": "a97ede1cf9b15a8b157ef548096ce1c37c93f509",
+  "remaining": "qualification-matrix.json"
+}

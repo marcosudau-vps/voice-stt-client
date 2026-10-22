@@ -1,0 +1,205 @@
+{
+  "capturedAtUtc": "2026-10-18T03:09:26.101022+00:00",
+  "clientProductCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+  "clientRunHead": "c6d02424ae46c1513b428119dd2fe0fb3901265f",
+  "profilePathEvidence": [
+    {
+      "logical": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020",
+      "existsFromAgentContext": true,
+      "resolvedFromAgentContext": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020"
+    },
+    {
+      "logical": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\client-both.yaml",
+      "existsFromAgentContext": true,
+      "resolvedFromAgentContext": "C:\\Users\\marco\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\client-both.yaml"
+    },
+    {
+      "logical": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\active-session.json",
+      "existsFromAgentContext": true,
+      "resolvedFromAgentContext": "C:\\Users\\marco\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\active-session.json"
+    }
+  ],
+  "profileSha256": "ff535d4a444d3dbd0ca10509e43fdd1a319e2683ba2dc06931b6c1c29b70f2bb",
+  "configuredServerUrl": "ws://127.0.0.1:18020/ws/v2",
+  "sessionConfigSha256": "ff535d4a444d3dbd0ca10509e43fdd1a319e2683ba2dc06931b6c1c29b70f2bb",
+  "session": {
+    "pid": 40364,
+    "folder": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\sessions\\20261018-020836",
+    "mode": "both"
+  },
+  "transportEvents": [
+    {
+      "kind": "transport",
+      "monotonic": 86960.265,
+      "timeUtc": "2026-10-18T00:08:37.449622+00:00",
+      "state": "connecting",
+      "reason": "",
+      "generation": 1
+    },
+    {
+      "kind": "transport",
+      "monotonic": 86960.437,
+      "timeUtc": "2026-10-18T00:08:37.619692+00:00",
+      "state": "accepting",
+      "reason": "",
+      "generation": 1
+    },
+    {
+      "kind": "transport",
+      "monotonic": 86960.843,
+      "timeUtc": "2026-10-18T00:08:38.029409+00:00",
+      "state": "configuring",
+      "reason": "",
+      "generation": 1
+    },
+    {
+      "kind": "transport",
+      "monotonic": 86960.984,
+      "timeUtc": "2026-10-18T00:08:38.167010+00:00",
+      "state": "ready",
+      "reason": "",
+      "generation": 1
+    },
+    {
+      "kind": "transport",
+      "monotonic": 97241.25,
+      "timeUtc": "2026-10-18T02:59:58.436997+00:00",
+      "state": "stopping",
+      "reason": "",
+      "generation": 1
+    },
+    {
+      "kind": "transport",
+      "monotonic": 97241.265,
+      "timeUtc": "2026-10-18T02:59:58.442003+00:00",
+      "state": "closed",
+      "reason": "",
+      "generation": 1
+    },
+    {
+      "kind": "session_stopped",
+      "monotonic": 97242.671,
+      "timeUtc": "2026-10-18T02:59:59.860466+00:00"
+    }
+  ],
+  "lastMetrics": [
+    {
+      "kind": "metrics",
+      "monotonic": 97239.953,
+      "timeUtc": "2026-10-18T02:59:57.135350+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "idle",
+      "activationId": null,
+      "media": {
+        "sent": 256938,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 256938,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 223326208,
+        "privateBytes": 283471872
+      },
+      "activations": 11,
+      "segments": 1,
+      "terminalActivations": 10,
+      "injectionQueue": 0
+    },
+    {
+      "kind": "metrics",
+      "monotonic": 97240.968,
+      "timeUtc": "2026-10-18T02:59:58.143963+00:00",
+      "generation": 1,
+      "ready": true,
+      "transport": "ready",
+      "reason": "",
+      "phase": "idle",
+      "activationId": null,
+      "media": {
+        "sent": 256963,
+        "gated": 0,
+        "overflow": 0,
+        "stale": 0,
+        "invalid": 0,
+        "queue_ms": 0.0,
+        "capture_failures": 0,
+        "audio_available": true,
+        "led_available": true,
+        "log_failure": null
+      },
+      "capture": {
+        "chunks_captured": 256963,
+        "chunks_dropped_capture_queue": 0,
+        "overflow_count": 0,
+        "underflow_count": 0,
+        "capture_queue_depth": 0
+      },
+      "tasks": 10,
+      "commands": 0,
+      "trackerPending": 0,
+      "memory": {
+        "workingSetBytes": 223457280,
+        "privateBytes": 283471872
+      },
+      "activations": 11,
+      "segments": 1,
+      "terminalActivations": 10,
+      "injectionQueue": 0
+    }
+  ],
+  "traceSha256": "fec95cb875bf89b61dcf3b41048f9d61b87fed585ef94b390793fe36a8bc38cd",
+  "qualificationContainer": {
+    "name": "/voicestt-qualification-iv2-020",
+    "id": "e743d3c6edd64d4b2afbb130765597b6acd0e7fe6b43a4d91d1985f79fdb81f1",
+    "state": {
+      "Status": "running",
+      "Running": true,
+      "StartedAt": "2026-10-17T18:26:22.312178749Z",
+      "FinishedAt": "2026-10-16T10:12:14.880217Z",
+      "OOMKilled": false
+    },
+    "restartCount": 0,
+    "portBindings": {
+      "8010/tcp": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "18020"
+        }
+      ]
+    }
+  },
+  "humanScreenshotSha256": "1499fb2dbd452527e81ded110136c73a15cddad2c966d4ac98eb7ea55d5fef2b",
+  "humanScreenshotOrigin": "User-attached screenshot; no new screen capture. Error is read/open of missing profile, not proof that this click created one.",
+  "authorizationAssessment": {
+    "originalInstruction": "Use isolated test profiles/test instances and set up server locally; reusable launcher explicitly requested.",
+    "specificAppDataDirectoryExplicitlyApproved": false,
+    "originOfPath": "Chosen by implementation agent as isolated runtime area, persisted in helper code; interpreted as covered by original isolation task.",
+    "currentRestriction": "Human questions/objects to outside-repository writes. During this audit no profile/cache/shortcut changes, no client/server restart, no new writes outside repository."
+  },
+  "conclusions": {
+    "launcherContextBug": "CONFIRMED: profile resolves into Codex package cache; normal desktop launcher reports missing logical path. Cross-context launch was not qualified.",
+    "reconnectFailure": "NOT_PROVEN: held client trace has no pre-shutdown loss, its actual loopback server container remains running; exact server/process stopped by human is unknown.",
+    "missingServerDisplay": "Outer dialog has HTTP-origin label; local dialog omits server fields. Empty label after initial load failure independently reproduced; exact human dialog state NOT_PROVEN.",
+    "serverSelectionEditor": "No V2 endpoint editor found in examined dialogs.",
+    "diagnosticLogUi": "Prior T01 native log-UI proof remains open; lack of new disconnect entries here alone does not prove a log failure."
+  }
+}

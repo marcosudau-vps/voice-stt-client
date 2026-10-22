@@ -1,0 +1,26 @@
+{
+  "timeUtc": "2026-10-19T18:03:08.710969+00:00",
+  "result": "PASS_SCOPED",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "startHead": "181ad2ccff18aeb9756c99c3f8cd2b83ec1cc1c1",
+  "productUnchanged": true,
+  "windowsTests": 1400,
+  "windowsSkipped": 0,
+  "windowsSeconds": 197.106,
+  "helperTests": 36,
+  "nativeCredentials": "PASS_SCOPED",
+  "idleRunPauseRecovery": "PASS_SCOPED",
+  "helperSourceSha256": {
+    "autonomous_rest.py": "84f73da340351f549c9507891252b70ed6365fd6b2cdabe9b1aaf3249ffe6234",
+    "test_autonomous_rest.py": "500492e43e6a4e6403fc8f2f25c13d5e9521f423d6543cd0f83dbd11053d84b3"
+  },
+  "actualCommands": [
+    "venv/Scripts/python.exe -m unittest discover -v -s tests",
+    "venv/Scripts/python.exe -m unittest discover -v -s tests/manual/v2 -p test_*.py",
+    "venv/Scripts/python.exe -u -m tests.manual.v2.autonomous_rest --profile-runtime"
+  ],
+  "qualification": "BLOCKED; full M-05/M-07/M-09 and other real/frozen/W01 gates remain open",
+  "noServerLifecycleOperation": true,
+  "noAdminPatch": true,
+  "noProductChanges": true
+}

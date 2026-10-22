@@ -1,0 +1,13 @@
+{
+  "led": {
+    "status": "NOT_OBSERVED"
+  },
+  "sound": {
+    "status": "FREE_EXPLORATION_REQUESTED"
+  },
+  "overlay": {
+    "status": "CHANGE_REQUESTED_DETAILS_PENDING",
+    "baselineFadeSeconds": 2.0
+  },
+  "origin": "Actual user response in R01; exploratory instance requested. No final parameter choice or subjective PASS."
+}

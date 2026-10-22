@@ -1,0 +1,41 @@
+{
+  "status": "RUNNING_READY_FOR_USER_EXPLORATION",
+  "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+  "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+  "mode": "both",
+  "wakeWordIds": [
+    "hey_jarvis",
+    "alexa"
+  ],
+  "keys": {
+    "primary_key": "Ctrl+Shift+F8",
+    "primary_action": "refresh",
+    "secondary_key": "Ctrl+Shift+F9",
+    "secondary_action": "finish",
+    "wake_pause_key": "Ctrl+Shift+F10",
+    "reinsert_last_key": "Ctrl+Shift+F11",
+    "overlay_toggle_key": "Ctrl+Shift+F12",
+    "enabled": true
+  },
+  "feedback": {
+    "ledEnabled": true,
+    "soundsEnabled": true,
+    "overlayEnabled": true,
+    "overlayFadeSeconds": 2.0
+  },
+  "profileSha256": "bada66534d22c91ddcd695d8d55138dd2cdbffe96bff887f4c26b443eafab357",
+  "userFeedback": {
+    "led": "NOT_OBSERVED",
+    "sound": "REQUESTED_FREE_EXPLORATION",
+    "overlay": "CHANGE_REQUESTED_DETAILS_PENDING"
+  },
+  "boundaries": "User explicitly requested a free isolated instance. No automatic activation/stop/repeat/fault injection. Real mic/server and native focused-app output. Arbitrary exploratory speech/history stays local and is not a repository fixture or formal M-case PASS.",
+  "session": {
+    "pid": 56884,
+    "folder": "C:\\Users\\marco\\AppData\\Local\\VoiceSTT-Qualification\\AP-IV2-020\\sessions\\20261016-110745",
+    "mode": "both"
+  },
+  "sourceCommit": "b756a396e9ab82818092aeac448bb96f729cde63",
+  "qualifiedSourceManifestMatch": true,
+  "observation": "Initial free source instance is ready with microphone/LED; no full M-case or subjective calibration PASS."
+}

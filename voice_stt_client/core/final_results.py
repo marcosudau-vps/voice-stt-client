@@ -45,6 +45,7 @@ class V2ResultService:
         self._lost_generation = 0
         self._session_id = None
         self._terminals: dict[str, tuple] = {}
+        self._last_final_event_seq = 0
         self._closed = False
         old_attempt = queue.on_attempt_result
 
@@ -98,8 +99,14 @@ class V2ResultService:
             if view.generation > self._generation:
                 self._generation, self._session_id = view.generation, view.session_id
                 self._terminals.clear()
+                self._last_final_event_seq = 0
             if view.session_id != self._session_id:
                 return ()
+            # Mirror retirement removes settled segment details. A publication
+            # watermark independently rejects old Reduction objects, including
+            # after history deletion/disablement or an unknown paste outcome.
+            self._terminals = {key: value for key, value in self._terminals.items()
+                               if key in view.segments}
             # A reduction may emit several salvaged results; preserve event publication order.
             for final in sorted(reduction.finals, key=lambda f: f.event_seq):
                 segment = view.segments.get(final.segment_id)
@@ -121,6 +128,11 @@ class V2ResultService:
                     outcomes.append(ResultOutcome('deduplicated', final, view.generation,
                                                   reason='duplicate', is_conflict=previous != identity))
                     continue
+                if final.event_seq <= self._last_final_event_seq:
+                    outcomes.append(ResultOutcome('deduplicated', final, view.generation,
+                                                  reason='retired_publication'))
+                    continue
+                self._last_final_event_seq = final.event_seq
                 # Reserve before text checks/storage; an empty first terminal is final too.
                 self._terminals[final.segment_id] = identity
                 if not final.text.strip():

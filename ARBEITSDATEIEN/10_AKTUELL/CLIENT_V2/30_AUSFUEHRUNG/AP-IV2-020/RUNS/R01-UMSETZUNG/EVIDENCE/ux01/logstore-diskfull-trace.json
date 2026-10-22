@@ -1,0 +1,150 @@
+[
+  {
+    "kind": "log_context",
+    "seconds": 3.328,
+    "state": "EventConnectionState.STOPPED",
+    "code": null
+  },
+  {
+    "kind": "log_context",
+    "seconds": 3.328,
+    "state": "EventConnectionState.CONNECTING",
+    "code": null
+  },
+  {
+    "kind": "log_context",
+    "seconds": 3.344,
+    "state": "EventConnectionState.SUBSCRIBING",
+    "code": null
+  },
+  {
+    "kind": "log_context",
+    "seconds": 3.344,
+    "state": "EventConnectionState.REPLAYING",
+    "code": null
+  },
+  {
+    "kind": "log_context",
+    "seconds": 3.344,
+    "state": "EventConnectionState.LIVE",
+    "code": null
+  },
+  {
+    "kind": "real_tmpfs_enospc",
+    "seconds": 3.984,
+    "errno": 28,
+    "written": 66871296,
+    "freeBytes": 0
+  },
+  {
+    "kind": "activation_ack",
+    "seconds": 4.0,
+    "elapsedSeconds": 0.016
+  },
+  {
+    "kind": "log_context",
+    "seconds": 4.0,
+    "state": "EventConnectionState.DEGRADED",
+    "code": null
+  },
+  {
+    "kind": "log_context",
+    "seconds": 4.0,
+    "state": "EventConnectionState.DEGRADED",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 4.0,
+    "state": "EventConnectionState.BACKOFF",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 4.64,
+    "state": "EventConnectionState.CONNECTING",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 4.64,
+    "state": "EventConnectionState.SUBSCRIBING",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 4.656,
+    "state": "EventConnectionState.BACKOFF",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 5.719,
+    "state": "EventConnectionState.CONNECTING",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 5.734,
+    "state": "EventConnectionState.SUBSCRIBING",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 5.734,
+    "state": "EventConnectionState.BACKOFF",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 8.234,
+    "state": "EventConnectionState.CONNECTING",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 8.25,
+    "state": "EventConnectionState.SUBSCRIBING",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 8.25,
+    "state": "EventConnectionState.BACKOFF",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 13.156,
+    "state": "EventConnectionState.CONNECTING",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 13.156,
+    "state": "EventConnectionState.SUBSCRIBING",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "log_context",
+    "seconds": 13.156,
+    "state": "EventConnectionState.BACKOFF",
+    "code": "store_unavailable"
+  },
+  {
+    "kind": "stt_final_during_fault",
+    "seconds": 18.015,
+    "finals": 1,
+    "ready": true
+  },
+  {
+    "kind": "fault_released",
+    "seconds": 18.781
+  },
+  {
+    "kind": "log_context",
+    "seconds": 20.265,
+    "state": "EventConnectionState.STOPPED",
+    "code": "store_unavailable"
+  }
+]

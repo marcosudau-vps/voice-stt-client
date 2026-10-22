@@ -1,0 +1,27 @@
+{
+  "commit": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+  "tree": "b12a3f4dc1f2c51d2c4a70680e63c988e729f666",
+  "productAndTestChangesDuringRun": false,
+  "command": [
+    "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-v",
+    "-s",
+    "tests",
+    "-p",
+    "test_*.py"
+  ],
+  "runtime": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "os": "Windows-11-10.0.26300-SP0"
+  },
+  "exitCode": 0,
+  "testCount": 1354,
+  "skipped": 0,
+  "durationSeconds": 173.528,
+  "log": "baseline-client.txt.gz",
+  "rawSha256": "d89c4c23071d2d72bad4b6aa7cadb5c860330731063834fb94577d9c8bcb7a9b",
+  "gzipSha256": "295313b4b16e58b83f7921f8d0e8bc13f5e036321e2ffd2f67318e9e0f080067"
+}

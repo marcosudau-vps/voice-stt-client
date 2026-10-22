@@ -1,0 +1,19 @@
+{
+  "receivedAtUtc": "2026-10-17T23:48:09.834941+00:00",
+  "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+  "humanStopSoundAssessment": "Beides passt",
+  "scope": "Volume and duration of the heard input-close stop cue only",
+  "acceptedValues": {
+    "asset": "assets/feedback_sounds/debug/stop.wav",
+    "assetSha256": "048af76ab6f2b48bcad3a78f135cfac6d6a181640b6649710504b74c539150ba",
+    "assetDurationMs": 661.146,
+    "mappingVolume": 1.0
+  },
+  "windowsOutputVolume": "NOT_RECORDED; mapping volume is not measured loudness",
+  "changesApplied": false,
+  "reason": "Existing bundled stop asset and existing mapping volume accepted; no product or configuration change needed.",
+  "ledAssessment": "Änderung gewünscht",
+  "ledChangeDetails": "PENDING_OPERATOR_DESCRIPTION; no colour/brightness/animation/timing change inferred",
+  "previousHearingEvidence": "human-hearing-confirmed.json",
+  "otherFeedbackCalibration": "OPEN"
+}

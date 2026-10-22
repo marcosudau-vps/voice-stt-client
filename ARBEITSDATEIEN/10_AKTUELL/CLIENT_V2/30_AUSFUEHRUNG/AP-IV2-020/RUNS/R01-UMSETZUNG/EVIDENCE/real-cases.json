@@ -1,0 +1,838 @@
+{
+  "package": "AP-IV2-020",
+  "cases": [
+    {
+      "id": "M-01",
+      "name": "Manual/mehrere Segmente/Overlap",
+      "requirements": [
+        "REAL-01"
+      ],
+      "status": "NOT_PROVEN",
+      "tester": "Human: deliberate speech and native hotkeys; Codex: instrumentation/history/editor evaluation",
+      "executedAt": "2026-10-15T03:50:31.794483+00:00",
+      "clientCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "clientBuildSha256": null,
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "configurationSha256": "13a6dfdba365290c076d6941a08d1fd7ee0925d0c4010b4da2c4a13c78fa30a2",
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open. New d950 live single-segment manual controls/native output PASS; full remaining case still open.",
+      "evidence": [
+        "human/manual-followup-3000.json",
+        "ux01/repeatable-manual-20261016-01/assessment.json"
+      ],
+      "attempts": [
+        {
+          "status": "PARTIAL",
+          "evidence": "human/manual-followup-3000.json",
+          "sourceCommit": "7bcbb82bcb608a2f4c0a67e4157aefdc8527b27d",
+          "boundaries": "Source desktop, not Frozen; no old-final/new-activation overlap demonstrated."
+        },
+        {
+          "evidence": "ux01/repeatable-manual-20261016-01/assessment.json",
+          "sourceCommit": "b09c77a5e4702ad7773de8d0f83a026bc5b57d30",
+          "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+          "status": "PARTIAL",
+          "boundaries": "Actual manual F8/F9 control PASS; native output FAIL due held Shift (UX02). Remaining full-case steps not run."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+          "sourceCommit": "8445851c96c367e6647c7bd9f41f946bda463894",
+          "evidence": "ux02/manual-voice-20261016-01/assessment.json",
+          "boundaries": "One real manual F8 Activate/F9 Finish, one ASR final/history/native paste PASS; complete case remains NOT_PROVEN. Planned spelling hyphen differs; authoritative text preserved."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "f4489e24e47dd7ec58b550c974511e9b13b03991",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "controls-live-20261020/attempts.json",
+          "boundaries": "Source native2segment/Finish, Cancel, connected settings/log perception; partial A-final/B-start overlap. Native Refresh NOT_PROVEN; autonomous real ASR/Controls Refresh separate. Full M-gate stays open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "313ab04aef5f4f9154ab862b58bd803e60f5e05a",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "refresh-native-20261020/validation.json",
+          "boundaries": "Human recording-phase Refresh/Finish/exact2native pastes; automated actual Win32/Qt/Controls followup Refresh+real ASR5000ms. Human15s followup NOT_PROVEN; full M-gates remain open."
+        },
+        {
+          "status": "PARTIAL_PASS_WITH_SEPARATE_W02_FAIL",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "fbd0d2a25a542f267e32e2ab3d7f9e9fa2cebf0d",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "mute-reinsert-20261020/validation.json",
+          "boundaries": "Actual physical mute idle/native F8 release/paste, own Source reinsert and autonomous real-model pause/own reconnect scoped PASS. W02 overlapped manual boundary twice FAIL; no full M gate."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "both-live-20261020/validation.json",
+          "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
+        }
+      ],
+      "sourceActionsCoverage": "CONSOLIDATED: Manual-only idle activate, two segments/followup5000/finish from controls-live; new Bstart203ms before old Afinal from same product/server. Bspeech during oldFinal remains M10/Frozen.",
+      "currentQualification20261021": {
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "proven": "Existing native source two-segment/Finish plus three real old-final/new-speech overlaps; no repeated source action requested.",
+        "remaining": null,
+        "evidence": "technical-rest-20261021/qualification-matrix.json",
+        "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
+      },
+      "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-01"
+      }
+    },
+    {
+      "id": "M-02",
+      "name": "Wake-only/mehrere IDs",
+      "requirements": [
+        "REAL-01",
+        "REAL-02"
+      ],
+      "status": "NOT_PROVEN",
+      "tester": "Human speech; Codex native desktop/observer/history evaluation",
+      "executedAt": "2026-10-15T04:09:35.652364+00:00",
+      "clientCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "clientBuildSha256": null,
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "configurationSha256": "ac4d0419badaf7967ead6b93f7d8c0fa5e8c83725f599399dcf328018cd10a94",
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": "Latest controlled direct Jarvis/Alexa phrases complete without wake text, visible spaced output confirmed by human and editor hash. One activation/final/native attempt each. Separate sessions; both inputs timed out without a finish command, so controls and complete M02 remain NOT_PROVEN. Earlier attempts retained.",
+      "evidence": [
+        "human/wake-first-live.json",
+        "ux01/stepped-20261016-01/assessment.json"
+      ],
+      "attempts": [
+        {
+          "status": "PARTIAL",
+          "evidence": "ux01/stepped-20261016-01/assessment.json",
+          "sourceCommit": "e95d871a498f07d99fea2bc4ace57c616504abc0",
+          "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+          "boundaries": "Two separate sessions. Direct phrases and native spaced output PASS; hotkey finish/complete M02 NOT_PROVEN."
+        },
+        {
+          "status": "PASS_SCOPED",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "server-return-20261020/replay-matrix.json",
+          "tester": "Codex: real deployed model WAV replay; separate native idle/audio precheck",
+          "boundaries": "No current human Wake/sound/Frozen/complete M-case qualification; see report27."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "7d4331ae2ca84e1fdb18c2e3d02c1cdbdcbe9e37",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "wake-live-20261020/attempts.json",
+          "tester": "marco: real microphone/perception; Codex: logs/metrics/config assessment",
+          "boundaries": "Sound-on Alexa/Jarvis PASS_SCOPED; sound-off quiet window too short NOT_PROVEN. Full M-case remains open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "67470d04c64eb0696ca1438eff46168633048968",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "wake-silent-confirmed-20261020/attempt.json",
+          "tester": "marco: real microphone/perception; Codex: logs/config/identity/audio assessment",
+          "boundaries": "W01 control PASS_SCOPED with29.765s continued native audio; full M-case remains open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "both-live-20261020/validation.json",
+          "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
+        }
+      ],
+      "currentQualification20261021": {
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "proven": "Both actual Wake IDs and controls with manual idle admission disabled; adapter and prior native evidence remain separate.",
+        "remaining": null,
+        "evidence": "technical-rest-20261021/qualification-matrix.json",
+        "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
+      },
+      "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-02"
+      }
+    },
+    {
+      "id": "M-03",
+      "name": "Both/Trigger-Races",
+      "requirements": [
+        "REAL-01",
+        "REAL-02"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": [
+        {
+          "status": "PARTIAL_PASS_WITH_SEPARATE_W02_FAIL",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "fbd0d2a25a542f267e32e2ab3d7f9e9fa2cebf0d",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "mute-reinsert-20261020/validation.json",
+          "boundaries": "Actual physical mute idle/native F8 release/paste, own Source reinsert and autonomous real-model pause/own reconnect scoped PASS. W02 overlapped manual boundary twice FAIL; no full M gate."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "both-live-20261020/validation.json",
+          "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "c00637da1ad8e97ebdca49ed92c8b36b6b51cfd2",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "endurance-wake-20261020/validation.json",
+          "boundaries": "W02 unchanged0/2extra wakes; six stricter variants compared, candidate.90/2not adopted. Historical two failures remain OPEN."
+        }
+      ],
+      "findingDisposition": {
+        "W02": "CLOSED_BY_HUMAN_DISPOSITION_NOT_REPRODUCED",
+        "report": "../36_W02_ABSCHLUSS_UND_FREIGABERESTE.md",
+        "source": "../ZUSATZPROMPTS/034_W02_SCHLIESSEN_UND_FREIGABERESTE.md",
+        "actualTriggerRaceRequirement": "NOT_PROVEN; separate from W02 disposition"
+      },
+      "currentQualification20261021": {
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "proven": "Close manual-first and wake-first cases, one admission and final; existing rearm/active-Wake evidence retained.",
+        "remaining": null,
+        "evidence": "technical-rest-20261021/qualification-matrix.json",
+        "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
+      },
+      "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-03"
+      }
+    },
+    {
+      "id": "M-04",
+      "name": "Phasenmatrix/Hotkeykollision/Watchdog",
+      "requirements": [
+        "REAL-01",
+        "REAL-04"
+      ],
+      "status": "NOT_PROVEN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open. New d950 live single-segment manual controls/native output PASS; full remaining case still open.",
+      "evidence": [
+        "ux01/repeatable-manual-20261016-01/assessment.json"
+      ],
+      "attempts": [
+        {
+          "evidence": "ux01/repeatable-manual-20261016-01/assessment.json",
+          "sourceCommit": "b09c77a5e4702ad7773de8d0f83a026bc5b57d30",
+          "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+          "status": "PARTIAL",
+          "boundaries": "Actual manual F8/F9 control PASS; native output FAIL due held Shift (UX02). Remaining full-case steps not run."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+          "sourceCommit": "8445851c96c367e6647c7bd9f41f946bda463894",
+          "evidence": "ux02/manual-voice-20261016-01/assessment.json",
+          "boundaries": "One real manual F8 Activate/F9 Finish, one ASR final/history/native paste PASS; complete case remains NOT_PROVEN. Planned spelling hyphen differs; authoritative text preserved."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "f4489e24e47dd7ec58b550c974511e9b13b03991",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "controls-live-20261020/attempts.json",
+          "boundaries": "Source native2segment/Finish, Cancel, connected settings/log perception; partial A-final/B-start overlap. Native Refresh NOT_PROVEN; autonomous real ASR/Controls Refresh separate. Full M-gate stays open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "313ab04aef5f4f9154ab862b58bd803e60f5e05a",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "refresh-native-20261020/validation.json",
+          "boundaries": "Human recording-phase Refresh/Finish/exact2native pastes; automated actual Win32/Qt/Controls followup Refresh+real ASR5000ms. Human15s followup NOT_PROVEN; full M-gates remain open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "both-live-20261020/validation.json",
+          "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "c00637da1ad8e97ebdca49ed92c8b36b6b51cfd2",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "endurance-wake-20261020/validation.json",
+          "boundaries": "Real NONE Primary/Secondary in waiting/recording/followup and native separate-process Win32 collision PASS_SCOPED; no complete native phase/UI matrix claim."
+        }
+      ],
+      "currentQualification20261021": {
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "proven": "18 actual phase/action/slot cases plus existing NONE/native collision/Refresh/watchdog.",
+        "remaining": null,
+        "evidence": "technical-rest-20261021/qualification-matrix.json",
+        "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
+      },
+      "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-04"
+      }
+    },
+    {
+      "id": "M-05",
+      "name": "Pausen/Restart",
+      "requirements": [
+        "REAL-01",
+        "REAL-03"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": [
+        {
+          "status": "PASS_SCOPED",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "tester": "Codex/native Windows execution",
+          "evidence": "autonomous-rest-20261019/repeat-runtime.json",
+          "scope": "idle_run_pause_recovery",
+          "boundaries": "See report26 and evidence boundary; full M-case remains NOT_PROVEN."
+        },
+        {
+          "status": "PARTIAL_PASS_WITH_SEPARATE_W02_FAIL",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "fbd0d2a25a542f267e32e2ab3d7f9e9fa2cebf0d",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "mute-reinsert-20261020/validation.json",
+          "boundaries": "Actual physical mute idle/native F8 release/paste, own Source reinsert and autonomous real-model pause/own reconnect scoped PASS. W02 overlapped manual boundary twice FAIL; no full M gate."
+        }
+      ],
+      "currentQualification20261021": {
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "proven": "Existing distinct run-pause masks, Wake models/recovery/restart and hardware-Mute subcases.",
+        "remaining": "Physical loss/pause/older pending-final combination not completely observed.",
+        "evidence": "technical-rest-20261021/qualification-matrix.json",
+        "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
+      },
+      "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-05"
+      }
+    },
+    {
+      "id": "M-06",
+      "name": "USB/Mute/LED-only",
+      "requirements": [
+        "REAL-03"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": [
+        {
+          "status": "PARTIAL_PASS_WITH_SEPARATE_W02_FAIL",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "fbd0d2a25a542f267e32e2ab3d7f9e9fa2cebf0d",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "mute-reinsert-20261020/validation.json",
+          "boundaries": "Actual physical mute idle/native F8 release/paste, own Source reinsert and autonomous real-model pause/own reconnect scoped PASS. W02 overlapped manual boundary twice FAIL; no full M gate."
+        }
+      ],
+      "currentQualification20261021": {
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "proven": "Existing physical USB loss/cancel/reopen; actual native LED-only loss during same open input.",
+        "remaining": "Physical USB/mute combination retaining an older pending final; no identical USB basic repeat.",
+        "evidence": "technical-rest-20261021/qualification-matrix.json",
+        "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
+      },
+      "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-06"
+      }
+    },
+    {
+      "id": "M-07",
+      "name": "Netz/Server/Logstore",
+      "requirements": [
+        "REAL-03"
+      ],
+      "status": "NOT_PROVEN",
+      "tester": "Codex/local Windows",
+      "executedAt": null,
+      "clientCommit": "41ca7612db526532509ecab65ff9d7d182da565c",
+      "clientBuildSha256": null,
+      "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": "Real logstore disk-full subcase PASS: 30 actual SQLite errors, activation ack16ms, nonempty real ASR final, unchanged STT session/generation, pending0. Complete M07 still NOT_PROVEN.",
+      "evidence": [
+        "recovery-audit/real-recovery.json",
+        "recovery-audit/native/desktop-trace.jsonl",
+        "recovery-audit/findings.json",
+        "ux01/logstore-diskfull.json"
+      ],
+      "attempts": [
+        {
+          "id": "M-07",
+          "name": "Netz/Server/Logstore",
+          "requirements": [
+            "REAL-03"
+          ],
+          "status": "FAIL",
+          "tester": "Codex/local Windows",
+          "executedAt": null,
+          "clientCommit": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+          "clientBuildSha256": null,
+          "serverCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+          "configurationSha256": null,
+          "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+          "actualResult": "Idle serverrestart twice: permanent settings_preflight_failed after temporary GET outage; preview/final/logstore variants still NOT_RUN",
+          "evidence": [
+            "restart-repro-trace.jsonl",
+            "restart-repro-smoke.json",
+            "repro-transient-preflight.txt.gz"
+          ],
+          "findingIds": [
+            "IV2-020-F01"
+          ]
+        },
+        {
+          "status": "PARTIAL_LOGSTORE_INDEPENDENCE_PASS",
+          "clientCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+          "evidence": "ux01/logstore-diskfull.json",
+          "boundaries": "Separate pinned local server, same real models; actual isolated tmpfs ENOSPC and SQLite failure, consented real WAV replay, real production STT+log transports; no live Mic/native paste. Log is in backoff at end; full log recovery not demonstrated. Preview/final network variants still open."
+        },
+        {
+          "status": "PASS_SCOPED",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "tester": "Codex/native Windows execution",
+          "evidence": "autonomous-rest-20261019/repeat-runtime.json",
+          "scope": "idle_run_pause_recovery",
+          "boundaries": "See report26 and evidence boundary; full M-case remains NOT_PROVEN."
+        },
+        {
+          "status": "PASS_SCOPED",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "server-return-20261020/replay-matrix.json",
+          "tester": "Codex: real deployed model WAV replay; separate native idle/audio precheck",
+          "boundaries": "No current human Wake/sound/Frozen/complete M-case qualification; see report27."
+        },
+        {
+          "status": "PARTIAL_PASS_WITH_SEPARATE_W02_FAIL",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "fbd0d2a25a542f267e32e2ab3d7f9e9fa2cebf0d",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "mute-reinsert-20261020/validation.json",
+          "boundaries": "Actual physical mute idle/native F8 release/paste, own Source reinsert and autonomous real-model pause/own reconnect scoped PASS. W02 overlapped manual boundary twice FAIL; no full M gate."
+        }
+      ],
+      "findingIds": [],
+      "qualifiedFrozenArtifactReference": "recovery-audit/build/artifacts.json; not a frozen M-07 execution claim",
+      "currentQualification20261021": {
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "proven": "Real TLS preview and pending-final transport faults plus actual independent SQLite writer lock.",
+        "remaining": null,
+        "evidence": "technical-rest-20261021/qualification-matrix.json",
+        "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
+      },
+      "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-07"
+      }
+    },
+    {
+      "id": "M-08",
+      "name": "Settings/Drain",
+      "requirements": [
+        "REAL-01"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": [
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "f4489e24e47dd7ec58b550c974511e9b13b03991",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "controls-live-20261020/attempts.json",
+          "boundaries": "Source native2segment/Finish, Cancel, connected settings/log perception; partial A-final/B-start overlap. Native Refresh NOT_PROVEN; autonomous real ASR/Controls Refresh separate. Full M-gate stays open."
+        }
+      ],
+      "currentQualification20261021": {
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "proven": "Actual open-input cancel/finish/defer, missing-choice guards and explicit idle-drain wait.",
+        "remaining": null,
+        "evidence": "technical-rest-20261021/qualification-matrix.json",
+        "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
+      },
+      "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-08"
+      }
+    },
+    {
+      "id": "M-09",
+      "name": "Admin/Credential/Export",
+      "requirements": [
+        "REAL-04"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": [
+        {
+          "status": "PASS_SCOPED",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "tester": "Codex/native Windows execution",
+          "evidence": "autonomous-rest-20261019/repeat-credentials.json",
+          "scope": "native_credentials",
+          "boundaries": "See report26 and evidence boundary; full M-case remains NOT_PROVEN."
+        }
+      ],
+      "currentQualification20261021": {
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "proven": "Wrong actual origin Admin guard, no global mutation; previous native secure-store operations.",
+        "remaining": "Valid origin-specific Admin credential missing; positive Guard check NOT_RUN.",
+        "evidence": "technical-rest-20261021/qualification-matrix.json",
+        "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
+      },
+      "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-09"
+      }
+    },
+    {
+      "id": "M-10",
+      "name": "Frozenfeedback/BediengefÃ¼hl",
+      "requirements": [
+        "REAL-04"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": [
+        {
+          "status": "PASS_SCOPED",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "server-return-20261020/native-smoke.json",
+          "tester": "Codex: real deployed model WAV replay; separate native idle/audio precheck",
+          "boundaries": "No current human Wake/sound/Frozen/complete M-case qualification; see report27."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "7d4331ae2ca84e1fdb18c2e3d02c1cdbdcbe9e37",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "wake-live-20261020/attempts.json",
+          "tester": "marco: real microphone/perception; Codex: logs/metrics/config assessment",
+          "boundaries": "Sound-on Alexa/Jarvis PASS_SCOPED; sound-off quiet window too short NOT_PROVEN. Full M-case remains open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "67470d04c64eb0696ca1438eff46168633048968",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "wake-silent-confirmed-20261020/attempt.json",
+          "tester": "marco: real microphone/perception; Codex: logs/config/identity/audio assessment",
+          "boundaries": "W01 control PASS_SCOPED with29.765s continued native audio; full M-case remains open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "f4489e24e47dd7ec58b550c974511e9b13b03991",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "controls-live-20261020/attempts.json",
+          "boundaries": "Source native2segment/Finish, Cancel, connected settings/log perception; partial A-final/B-start overlap. Native Refresh NOT_PROVEN; autonomous real ASR/Controls Refresh separate. Full M-gate stays open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "both-live-20261020/validation.json",
+          "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
+        }
+      ],
+      "currentQualification20261021": {
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "proven": "Final actual normal Frozen/PortAudio/remote bootstrap startup; three source ASR overlaps.",
+        "remaining": "Actual final Frozen manual/Wake/Tray/Overlay/Sound/LED operation and perception.",
+        "evidence": "technical-rest-20261021/qualification-matrix.json",
+        "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
+      },
+      "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-10"
+      }
+    },
+    {
+      "id": "M-11",
+      "name": "Clipboard/Elevated/Reinsert/Crash",
+      "requirements": [
+        "REAL-04"
+      ],
+      "status": "NOT_PROVEN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": "Actual F8 Activate/F9 Finish applied; one activation/final. Native output FAIL, held Shift turned paste into Ctrl+Shift+V; UX02 explicitly authorized and technically requalified at d95043e; native physical confirmation pending. Full remaining subcases open. Current corrected product d95043e: full native case not yet qualified; historical FAIL is not erased. UX02 physical modifier probe now PASS/CLOSED with exact native output and human confirmation; complete M11 remains NOT_PROVEN. New d950 live single-segment manual controls/native output PASS; full remaining case still open.",
+      "evidence": [
+        "ux01/repeatable-manual-20261016-01/assessment.json"
+      ],
+      "attempts": [
+        {
+          "evidence": "ux01/repeatable-manual-20261016-01/assessment.json",
+          "sourceCommit": "b09c77a5e4702ad7773de8d0f83a026bc5b57d30",
+          "productCommit": "17261e65afeda3f2c7412d5bfe6006b76863acdb",
+          "status": "FAIL",
+          "boundaries": "Actual manual F8/F9 control PASS; native output FAIL due held Shift (UX02). Remaining full-case steps not run."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+          "sourceCommit": "8c8e36b931b26db8d705bf94d9dad8e9acd5d43c",
+          "evidence": "ux02/native-physical-20261016-01/assessment.json",
+          "boundaries": "Actual physical modifier release/native paste PASS closes UX02 only; normal/elevated/conflict/reinsert/crash full M11 remains open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "d95043e96051d4022b297099391a4fdff0dcc12b",
+          "sourceCommit": "8445851c96c367e6647c7bd9f41f946bda463894",
+          "evidence": "ux02/manual-voice-20261016-01/assessment.json",
+          "boundaries": "One real manual F8 Activate/F9 Finish, one ASR final/history/native paste PASS; complete case remains NOT_PROVEN. Planned spelling hyphen differs; authoritative text preserved."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "f4489e24e47dd7ec58b550c974511e9b13b03991",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "controls-live-20261020/attempts.json",
+          "boundaries": "Source native2segment/Finish, Cancel, connected settings/log perception; partial A-final/B-start overlap. Native Refresh NOT_PROVEN; autonomous real ASR/Controls Refresh separate. Full M-gate stays open."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "313ab04aef5f4f9154ab862b58bd803e60f5e05a",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "refresh-native-20261020/validation.json",
+          "boundaries": "Human recording-phase Refresh/Finish/exact2native pastes; automated actual Win32/Qt/Controls followup Refresh+real ASR5000ms. Human15s followup NOT_PROVEN; full M-gates remain open."
+        },
+        {
+          "status": "PARTIAL_PASS_WITH_SEPARATE_W02_FAIL",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "fbd0d2a25a542f267e32e2ab3d7f9e9fa2cebf0d",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "mute-reinsert-20261020/validation.json",
+          "boundaries": "Actual physical mute idle/native F8 release/paste, own Source reinsert and autonomous real-model pause/own reconnect scoped PASS. W02 overlapped manual boundary twice FAIL; no full M gate."
+        },
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "8833f360f7e8c849abaecc90809edfe3e51fc9ce",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "both-live-20261020/validation.json",
+          "boundaries": "Three accepted Source BOTH runs PASS_SCOPED, one excluded repeat; actual watchdog warning/expiry/threeASRfinals scoped PASS by corrected ID-bound evaluation. No full Frozen/race/30min100/W02 closure. No repeated identical operator tasks."
+        }
+      ],
+      "previousProductResult": "FAIL at 17261e6; preserved in attempts/evidence",
+      "currentQualification20261021": {
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "proven": "Actual normal Unicode paste, foreign clipboard lock and real process exits before/after SendInput, durable unknown/no auto retry; prior reinsert.",
+        "remaining": "Elevated target/UIPI; human UAC required.",
+        "evidence": "technical-rest-20261021/qualification-matrix.json",
+        "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
+      },
+      "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-11"
+      }
+    },
+    {
+      "id": "M-12",
+      "name": "30min/100Activations/Wakegrenze",
+      "requirements": [
+        "REAL-02",
+        "REAL-05"
+      ],
+      "status": "NOT_RUN",
+      "tester": null,
+      "executedAt": null,
+      "clientCommit": null,
+      "clientBuildSha256": null,
+      "serverCommit": null,
+      "configurationSha256": null,
+      "stepsReference": "../02_GEMEINSAMER_TESTABLAUF.md",
+      "actualResult": null,
+      "evidence": [],
+      "attempts": [
+        {
+          "status": "PARTIAL_PASS",
+          "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+          "sourceCommit": "c00637da1ad8e97ebdca49ed92c8b36b6b51cfd2",
+          "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+          "evidence": "endurance-wake-20261020/validation.json",
+          "boundaries": "One contiguous1800.015s/100mixedActivations, actual production runtime and real models,100finals/history/controlled injection attempts. Three own recovery actions; physical USB/native UI/Frozen/negative environment portions NOT_PROVEN."
+        }
+      ],
+      "currentQualification20261021": {
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "proven": "Existing1800.015s/100 actual-model runtime loop plus18 traced generation-release activations, unchanged chosen config.",
+        "remaining": "Final physical/Frozen/environment/calibration boundaries not proven by model/clipboard adapters.",
+        "evidence": "technical-rest-20261021/qualification-matrix.json",
+        "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
+      },
+      "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-12"
+      }
+    }
+  ],
+  "wakeBoundary": "NOT_PROVEN",
+  "calibration": "HUMAN_ASSESSMENT_COMPLETE_BY_DISPOSITION",
+  "realGate": "IMPLEMENTATION_PASS_REVIEW_PENDING",
+  "duration100Activations": "PASS_SCOPED_REAL_MODELS_ADAPTER_BOUNDARIES",
+  "note": "Current matrix supersedes dated partial states below; historical attempts retain their original results. No independent acceptance claimed.",
+  "currentTechnicalQualification": "ux02/qualification-summary.json",
+  "humanExecution": "IN_PROGRESS; real manual baseline completed; no complete M PASS",
+  "currentProductCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "currentNativeModifierQualification": "ux02/native-physical-20261016-01/assessment.json",
+  "currentLiveManualQualification": "ux02/manual-voice-20261016-01/assessment.json",
+  "ux03Supplement": {
+    "productCommit": "7bb564690911d52f6dfe884955ddeb6a27eea6ad",
+    "evidence": "ux03-close-sound/assessment.json",
+    "nativeRenderer": "PASS, actual no-speech initial timeout -> one STOP player run",
+    "humanHearing": "PASS; human-hearing-confirmed.json",
+    "fullCases": "NOT_PROVEN; existing dated attempts retained, no unverified transfer to new build",
+    "findingStatus": "CLOSED"
+  },
+  "serverIdentityAudit": {
+    "report": "../16_SERVER_COMMIT_AUDIT.md",
+    "inventory": "server-identity-audit-20261018/inventory.json",
+    "expectedServerCommit": "ada13b011e1d3829f78e7f389e3b927795a2b3be",
+    "contentMismatchFound": false,
+    "qualificationUse": "No automatic full PASS. Commit/content mismatch invalid; unbound server-dependent individual claims NOT_PROVEN. Client-only claims retain their scope.",
+    "additionalServer": "REMOVED_BY_HUMAN_REQUEST",
+    "newServerAuthorized": false,
+    "explicitlyInvalidatedEarlyRecords": "server-identity-audit-20261018/early-image-exclusions.json"
+  },
+  "currentConsolidatedEvidence": "review-ready-20261022/qualification-matrix.json",
+  "currentReport": "../40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+  "finalHumanObservation": {
+    "status": "HUMAN_REPORTED_SUCCESS_UNBOUND",
+    "evidence": "probe-followup-20261022/human-confirmation.json",
+    "technicalLiveGate": "NOT_PROVEN"
+  }
+}

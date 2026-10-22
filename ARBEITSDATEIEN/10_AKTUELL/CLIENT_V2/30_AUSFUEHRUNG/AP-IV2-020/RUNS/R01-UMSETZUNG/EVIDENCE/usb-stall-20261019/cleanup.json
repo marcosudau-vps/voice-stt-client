@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "state": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW",
+  "reason": "blocked by policy",
+  "verifiedPrivateArchives": "build/ap-iv2-020-suite/private-archive",
+  "existingBlockedDirectory": "progress-regression-20261019-162446",
+  "newDeletionRejected": [
+    "suite-20261019-163837-f0f7f1",
+    "preflight-20261019-184311",
+    "stall-source-20261019-184421",
+    "stall-wheel-20261019-184440",
+    "usb-build-20261019",
+    "usb-regression-20261019"
+  ],
+  "note": "All are stopped and copied/hash-verified. No deletion retry or workaround after rejection. Pending new human runtime is not a completed directory."
+}
