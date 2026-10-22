@@ -1,3 +1,7 @@
+## 2026-10-22 – AP-IV2-020 / R02-F01 zurückgenommen, CI-Issue #16
+
+Die ursprüngliche R02-Forderung, physische USB-Recovery **im selben** 30-Minuten-/100-Activation-Lauf erneut zu demonstrieren, wurde nach Rücksprache fachlich korrigiert: `IV2-020-R02-F01 = WITHDRAWN_BY_REVIEWER` (komplementäre Langzeit-/USB-/Windows-Belege gelten), **keine neue Hardware-/Dauerlaufpflicht**. **Einzig R02-F02 bleibt blockierend**; der spätere CI-Timeout ist eigenständig als [Issue #16](https://github.com/marcosudau-vps/voice-stt-client/issues/16) erfasst. R03-Korrekturauftrag soll beide tatsächlichen technischen Aufgaben mit gezielten Regressionen und ohnehin erforderlicher CI abarbeiten, ohne ausufernde Beleg-/Wiederholungsschleifen. [Aktualisierter R02-Bericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md). Kein Merge.
+
 ## 2026-10-22 – AP-IV2-020 / unabhängiges R02-Review: CHANGES_REQUIRED
 
 Frische unabhängige Prüfung von PR15/Head29fb0e159c69051bedba6d097f69a5974fc09528: bestehende reale Windows-/Wake-/ASR-/Frozen- und 1400-Testevidenz anerkannt im jeweils ausgewiesenen Scope. Zwei Pflichtfindings IV2-020-R02-F01 und F02 zur kombinierten 30min/100-/USB-Recovery sowie zur fehlenden Begrenzung des Sessionledgers. [R02-Abnahmebericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md). Kein Merge, keine Release-/Serverpromotion; nächste Aktion Korrektur durch Umsetzer und unabhängige Nachabnahme.

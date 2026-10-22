@@ -1,6 +1,6 @@
 ## AP-IV2-020 / R02-ABNAHME – CHANGES_REQUIRED, 22.10.2026
 
-Unabhängiges Ergebnis auf PR15-Head 29fb0e159c69051bedba6d097f69a5974fc09528: zwei offene Pflichtfindings [R02-F01/F02](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md). Weitere R01-REVIEW_READY-Angaben darunter sind historisch, keine Freigabe. Kein Merge.
+[Korrigierter R02-Bericht](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md) zu PR15-Kandidat 29fb0e159c69051bedba6d097f69a5974fc09528: **F01 zurückgenommen**, **nur F02 offen** (Sessionledger-Retention); separates [CI-Issue #16](https://github.com/marcosudau-vps/voice-stt-client/issues/16). R01-REVIEW_READY darunter historisch; kein ROOT_PASS/Merge.
 
 ## AP-IV2-020/R01 – REVIEW_READY,22.10.2026
 

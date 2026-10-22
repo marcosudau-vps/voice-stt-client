@@ -1,6 +1,6 @@
 ## AP-IV2-020 / R02-ABNAHME – CHANGES_REQUIRED, 22.10.2026
 
-[Unabhängiger Reviewbericht](RUNS/R02-ABNAHME/01_REPORT.md) / [Evidenz](RUNS/R02-ABNAHME/EVIDENCE/INDEX.md): Prüfung des eingereichten PR15-Heads 29fb0e159c69051bedba6d097f69a5974fc09528, zwei offene Pflichtfindings IV2-020-R02-F01/F02 (kombinierter M12-Dauer-/USBrecovery-Nachweis, unbeschränkte Session-Ledgerretention). Kein ROOT_PASS oder Merge. Vorheriger R01-REVIEW_READY-Abschnitt ist historischer Umsetzerstand.
+[Unabhängiger R02-Bericht – berichtigt 22.10.2026](RUNS/R02-ABNAHME/01_REPORT.md) / [Evidenz](RUNS/R02-ABNAHME/EVIDENCE/INDEX.md): geprüfter R01-PR15-Head 29fb0e159c69051bedba6d097f69a5974fc09528. **R02-F01 WITHDRAWN_BY_REVIEWER** (komplementäre Dauer-/USB-/Hardwarebelege anerkannt, kein neuer 30-Minuten-Lauf). **Nur R02-F02 bleibt offen** (Sessionledger-/Terminal-Retention). Getrenntes CI-Issue [#16](https://github.com/marcosudau-vps/voice-stt-client/issues/16). Kein ROOT_PASS oder Merge. Vorheriger R01-REVIEW_READY-Abschnitt historisch.
 
 ## AP-IV2-020/R01 – REVIEW_READY,22.10.2026
 

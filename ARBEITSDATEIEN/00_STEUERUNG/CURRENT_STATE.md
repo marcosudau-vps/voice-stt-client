@@ -1,6 +1,6 @@
 ## AP-IV2-020 / R02-ABNAHME – CHANGES_REQUIRED, 22.10.2026
 
-Unabhängiger [R02-Bericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md) auf PR15-Head 29fb0e159c69051bedba6d097f69a5974fc09528: zwei offene Pflichtfindings IV2-020-R02-F01 (M12: 30min100 ohne USB-Recovery im selben Lauf) und IV2-020-R02-F02 (unbounded Sessionledger). Kein ROOT_PASS/kein Merge. Vorherige R01-REVIEW_READY-Angaben sind historisch.
+[Korrigierter unabhängiger R02-Bericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md) zu PR15-Kandidat 29fb0e159c69051bedba6d097f69a5974fc09528: **F01 vom Reviewer zurückgenommen** (Dauerlauf und reale USB-Recovery dürfen komplementär belegt werden). **Alleiniges offenes Pflichtfinding F02** zur Sessionledger-/Terminal-Retention. Separates [CI-Issue #16](https://github.com/marcosudau-vps/voice-stt-client/issues/16). Kein ROOT_PASS/Merge. Frühere R01-REVIEW_READY-Angaben sind historisch.
 
 ## AP-IV2-020/R01 – REVIEW_READY,22.10.2026
 
