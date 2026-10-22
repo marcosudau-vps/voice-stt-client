@@ -850,7 +850,7 @@
         "AP-IV2-010"
       ],
       "path": "ARBEITSPAKETE/AP-IV2-020.md",
-      "status": "REVIEW_READY",
+      "status": "CHANGES_REQUIRED",
       "testModules": [],
       "requirements": [
         "REAL-01",
@@ -878,12 +878,19 @@
       "candidateBranch": "work/client-v2/ap-iv2-020",
       "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "openFindingIds": [],
+      "openFindingIds": [
+        "IV2-020-R02-F01",
+        "IV2-020-R02-F02"
+      ],
       "windowsValidation": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/review-ready-20261022/validation.json",
       "checkpointEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
       "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/15",
       "recoveryAudit": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/05_RECONNECT_AUDIT.md",
-      "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/review-ready-20261022/validation.json"
+      "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/review-ready-20261022/validation.json",
+      "reviewedCommit": "29fb0e159c69051bedba6d097f69a5974fc09528",
+      "reviewedTree": "2b0ffe601582560770af47d727617ff726d8bf90",
+      "reviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
+      "reviewEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
     },
     {
       "id": "AP-SV2-FIX",
