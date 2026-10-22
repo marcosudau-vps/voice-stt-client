@@ -1,3 +1,7 @@
+## AP-IV2-020 – unabhängige R02-Abnahme / CHANGES_REQUIRED, 22.10.2026
+
+Der [unabhängige R02-Bericht](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md) bewertet den eingereichten R01-Kandidaten gegen REAL-01..REAL-06. Zwei Pflichtfindings: IV2-020-R02-F01 (M-12/REAL-03/05: kombinierter 30min100-/USB-Recoverynachweis offen), IV2-020-R02-F02 (REAL-05/06: unbounded Sessionledger/Tombstones). Daher paketweit CHANGES_REQUIRED, keine unabhängige Gesamtannahme; vorheriger REVIEW_READY-Eintrag darunter ist historischer Umsetzerstand.
+
 ## AP-IV2-020 – aktuelle Implementierungsnachweise,22.10.2026
 
 REAL-01 bis REAL-06: **REVIEW_READY**, konkrete M-01..M-12-Methoden/Identitäten/Grenzen in [Bericht40](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md) und seiner konsolidierten Matrix.1400Windows/0Skips,83Helfer,echte Hardware-/Modell-/Frozenbelege; keine unabhängige Annahme vorweggenommen. Historische Zwischenbewertungen unten bleiben ihrem Datum zugeordnet.
