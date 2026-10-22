@@ -13809,7 +13809,7 @@
       "test": "M-01..M-12 composite identified real-model/native/Frozen cases; current consolidated matrix",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "IMPLEMENTED / REVIEW_READY / INDEPENDENT_ACCEPTANCE_PENDING",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
@@ -13829,9 +13829,18 @@
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
         "meaning": "Full implementation evidence consolidated with explicit method boundaries; not independently ACCEPTED."
       },
-      "independentReviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
+      "independentReviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
       "correctionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
-      "correctionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md"
+      "correctionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+      "openReviewFindings": [],
+      "independentAcceptance": {
+        "run": "R04-ABNAHME",
+        "verdict": "PASS",
+        "reviewedCommit": "ca56b5ab58c47bd97bae36335e9d9314b2d35294",
+        "reviewedTree": "631276f5ba11d49425c052e0fec5ec29636b55a9",
+        "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "REAL-02",
@@ -13841,7 +13850,7 @@
       "test": "M-01..M-12 composite identified real-model/native/Frozen cases; current consolidated matrix",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "IMPLEMENTED / REVIEW_READY / INDEPENDENT_ACCEPTANCE_PENDING",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
@@ -13861,9 +13870,18 @@
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
         "meaning": "Full implementation evidence consolidated with explicit method boundaries; not independently ACCEPTED."
       },
-      "independentReviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
+      "independentReviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
       "correctionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
-      "correctionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md"
+      "correctionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+      "openReviewFindings": [],
+      "independentAcceptance": {
+        "run": "R04-ABNAHME",
+        "verdict": "PASS",
+        "reviewedCommit": "ca56b5ab58c47bd97bae36335e9d9314b2d35294",
+        "reviewedTree": "631276f5ba11d49425c052e0fec5ec29636b55a9",
+        "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "REAL-03",
@@ -13873,7 +13891,7 @@
       "test": "M-01..M-12 composite identified real-model/native/Frozen cases; current consolidated matrix",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "IMPLEMENTED / REVIEW_READY / INDEPENDENT_ACCEPTANCE_PENDING",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
@@ -13893,10 +13911,18 @@
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
         "meaning": "Full implementation evidence consolidated with explicit method boundaries; not independently ACCEPTED."
       },
-      "independentReviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
+      "independentReviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
       "openReviewFindings": [],
       "correctionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
-      "correctionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md"
+      "correctionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+      "independentAcceptance": {
+        "run": "R04-ABNAHME",
+        "verdict": "PASS",
+        "reviewedCommit": "ca56b5ab58c47bd97bae36335e9d9314b2d35294",
+        "reviewedTree": "631276f5ba11d49425c052e0fec5ec29636b55a9",
+        "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "REAL-04",
@@ -13906,7 +13932,7 @@
       "test": "M-01..M-12 composite identified real-model/native/Frozen cases; current consolidated matrix",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "IMPLEMENTED / REVIEW_READY / INDEPENDENT_ACCEPTANCE_PENDING",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
@@ -13926,9 +13952,18 @@
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
         "meaning": "Full implementation evidence consolidated with explicit method boundaries; not independently ACCEPTED."
       },
-      "independentReviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
+      "independentReviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
       "correctionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
-      "correctionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md"
+      "correctionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
+      "openReviewFindings": [],
+      "independentAcceptance": {
+        "run": "R04-ABNAHME",
+        "verdict": "PASS",
+        "reviewedCommit": "ca56b5ab58c47bd97bae36335e9d9314b2d35294",
+        "reviewedTree": "631276f5ba11d49425c052e0fec5ec29636b55a9",
+        "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "REAL-05",
@@ -13938,7 +13973,7 @@
       "test": "M-01..M-12 composite identified real-model/native/Frozen cases; current consolidated matrix",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "IMPLEMENTED / REVIEW_READY / INDEPENDENT_ACCEPTANCE_PENDING",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
@@ -13958,14 +13993,20 @@
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
         "meaning": "Full implementation evidence consolidated with explicit method boundaries; not independently ACCEPTED."
       },
-      "independentReviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
-      "openReviewFindings": [
-        "IV2-020-R02-F02"
-      ],
+      "independentReviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+      "openReviewFindings": [],
       "correctionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
       "correctionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
       "retentionRegression": "tests.test_v2_results.Results.test_600_activations_one_session_bound_registers_and_effects; tests.test_v2_mirror.Mirror.test_retention_pins_late_final_and_gap_salvage_until_settled; tests.test_v2_results.Results.test_retention_keeps_salvaged_final_authoritative_and_unknown_attempt_inert",
-      "correctionDisposition": "R02-F02 implemented; fresh independent acceptance pending"
+      "correctionDisposition": "R02-F02 implemented; fresh independent acceptance pending",
+      "independentAcceptance": {
+        "run": "R04-ABNAHME",
+        "verdict": "PASS",
+        "reviewedCommit": "ca56b5ab58c47bd97bae36335e9d9314b2d35294",
+        "reviewedTree": "631276f5ba11d49425c052e0fec5ec29636b55a9",
+        "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "REAL-06",
@@ -13975,7 +14016,7 @@
       "test": "M-01..M-12 composite identified real-model/native/Frozen cases; current consolidated matrix",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "IMPLEMENTED / REVIEW_READY / INDEPENDENT_ACCEPTANCE_PENDING",
+      "status": "ROOT_PASS",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
       "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
@@ -13995,14 +14036,20 @@
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
         "meaning": "Full implementation evidence consolidated with explicit method boundaries; not independently ACCEPTED."
       },
-      "independentReviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
-      "openReviewFindings": [
-        "IV2-020-R02-F02"
-      ],
+      "independentReviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+      "openReviewFindings": [],
       "correctionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
       "correctionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
       "retentionRegression": "tests.test_v2_results.Results.test_600_activations_one_session_bound_registers_and_effects; tests.test_v2_mirror.Mirror.test_retention_pins_late_final_and_gap_salvage_until_settled; tests.test_v2_results.Results.test_retention_keeps_salvaged_final_authoritative_and_unknown_attempt_inert",
-      "correctionDisposition": "R02-F02 implemented; fresh independent acceptance pending"
+      "correctionDisposition": "R02-F02 implemented; fresh independent acceptance pending",
+      "independentAcceptance": {
+        "run": "R04-ABNAHME",
+        "verdict": "PASS",
+        "reviewedCommit": "ca56b5ab58c47bd97bae36335e9d9314b2d35294",
+        "reviewedTree": "631276f5ba11d49425c052e0fec5ec29636b55a9",
+        "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+        "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md"
+      }
     },
     {
       "id": "RUNTIME-01",

@@ -1,3 +1,7 @@
+## AP-IV2-020 / R04-ABNAHME – ROOT_PASS, 22.10.2026
+
+[Unabhängiger R04-Reviewbericht](RUNS/R04-ABNAHME/01_REPORT.md), [Evidenzindex](RUNS/R04-ABNAHME/EVIDENCE/INDEX.md): PR #15, geprüfter Head `ca56b5ab58c47bd97bae36335e9d9314b2d35294`, Tree `631276f5ba11d49425c052e0fec5ec29636b55a9`, unveränderter Parent `b80ed8b81ad92bd02ac32553883443d2b7673bcd`. 6/6 REAL-PASS, R02-F02 unabhängig geschlossen, F01 zurückgenommen, separates Issue #16 technisch verifiziert, Windows-CI 39734511679 vollständig grün. **WAITING_FOR_APPROVAL**, keine kanonische Übernahme. Darunter frühere datierte Phasen historisch.
+
 ## AP-IV2-020 / R03-KORREKTUR – 22.10.2026
 
 Status **REVIEW_READY**. [Aktueller Korrekturbericht](RUNS/R03-KORREKTUR/01_REPORT.md): R02-F02 und separat Issue16 implementiert; unabhängige Nachabnahme nach grüner finaler PR-CI ausstehend. F01 zurückgenommen, Realbelege wiederverwendet. Kein ROOT_PASS/Merge. Nachfolgende datierte Stände sind historisch.

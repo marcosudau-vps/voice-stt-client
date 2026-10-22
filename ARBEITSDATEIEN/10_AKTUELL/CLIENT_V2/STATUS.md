@@ -1,3 +1,7 @@
+## AP-IV2-020 / R04-ABNAHME – ROOT_PASS, 22.10.2026
+
+[Unabhängiger R04-Bericht](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md): PR15-Kandidat `ca56b5ab58c47bd97bae36335e9d9314b2d35294`, 6/6 REAL PASS, R02-F02 geprüft geschlossen, F01 zurückgenommen, Issue #16 technisch verifiziert, Windows-CI 39734511679 grün. Kein offenes Pflichtfinding; **WAITING_FOR_APPROVAL** bis zur ausdrücklichen menschlichen Übernahmefreigabe. Kein Merge. Ältere R03/R02-Vermerke historisch.
+
 ## AP-IV2-020 / R03-KORREKTUR – 22.10.2026
 
 Status **REVIEW_READY**. [Aktueller Korrekturbericht](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md): R02-F02 und separat Issue16 implementiert; unabhängige Nachabnahme nach grüner finaler PR-CI ausstehend. F01 zurückgenommen, Realbelege wiederverwendet. Kein ROOT_PASS/Merge. Nachfolgende datierte Stände sind historisch.

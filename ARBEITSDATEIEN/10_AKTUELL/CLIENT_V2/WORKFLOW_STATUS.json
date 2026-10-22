@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "REVIEW_READY",
-  "packageStatus": "REVIEW_READY",
+  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "packageStatus": "ROOT_PASS",
   "activePackage": "AP-IV2-020",
   "nextPackage": null,
   "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
@@ -11,20 +11,18 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/15",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R03-KORREKTUR",
-    "role": "correction",
-    "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md"
+    "id": "R04-ABNAHME",
+    "role": "acceptance",
+    "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md"
   },
-  "reviewedCommit": "29fb0e159c69051bedba6d097f69a5974fc09528",
-  "reviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
-  "openFindingIds": [
-    "IV2-020-R02-F02"
-  ],
+  "reviewedCommit": "ca56b5ab58c47bd97bae36335e9d9314b2d35294",
+  "reviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+  "openFindingIds": [],
   "humanApproval": null,
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Frische unabhängige Gesamt-Nachabnahme auf finalem PR15-Head nach grüner CI, Fokus R02-F02 und Issue16; keine F01-Arbeit, kein Merge.",
+  "nextAction": "Technischer unabhängiger R04-ROOT_PASS; ausdrückliche menschliche PR15-Squash-Übernahmefreigabe abwarten, dann finalen PR-Head/Base/CI und administrativen Diff prüfen; kein eigenmächtiger Merge.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -369,10 +367,6 @@
     "independentReview": "NOT_RUN_IN_THIS_SESSION",
     "cleanup": "cleanup.json"
   },
-  "correctionDisposition": {
-    "IV2-020-R02-F02": "IMPLEMENTED_PENDING_INDEPENDENT_REVIEW",
-    "issue16": "IMPLEMENTED_PENDING_INDEPENDENT_VERIFICATION_ISSUE_OPEN",
-    "IV2-020-R02-F01": "WITHDRAWN_BY_REVIEWER"
-  },
+  "correctionDisposition": "R02-F02 CLOSED_VERIFIED_R04, R02-F01 WITHDRAWN_BY_REVIEWER; GitHub-Issue #16 technisch in R04 geprüft, Issueverwaltung getrennt",
   "observationsMeaning": "Datierte historische Beobachtungen mit unverändertem ursprünglichem Status; aktuelle konsolidierte Disposition in R01-Bericht40/R02-Berichtigung, aktuelle Korrektur in R03. Keine Liste aktueller offener Produktfehler."
 }

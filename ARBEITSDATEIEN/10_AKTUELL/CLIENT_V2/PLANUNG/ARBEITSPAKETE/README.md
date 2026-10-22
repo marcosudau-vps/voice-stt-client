@@ -1,3 +1,7 @@
+## AP-IV2-020 – unabhängiger R04-ROOT_PASS (22.10.2026)
+
+[Abnahmebericht](../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md) prüft PR15-Head `ca56b5ab58c47bd97bae36335e9d9314b2d35294`; REAL-01..06 PASS, keine Findings, CI grün. **WAITING_FOR_APPROVAL**; R03/R02-Einträge darunter sind historisch. Keine automatische Übernahme.
+
 ## AP-IV2-020 / R03-KORREKTUR – 22.10.2026
 
 Status **REVIEW_READY**. [Aktueller Korrekturbericht](../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md): R02-F02 und separat Issue16 implementiert; unabhängige Nachabnahme nach grüner finaler PR-CI ausstehend. F01 zurückgenommen, Realbelege wiederverwendet. Kein ROOT_PASS/Merge. Nachfolgende datierte Stände sind historisch.

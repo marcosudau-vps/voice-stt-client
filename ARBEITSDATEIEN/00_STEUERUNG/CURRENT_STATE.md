@@ -1,3 +1,7 @@
+## AP-IV2-020 / R04-ABNAHME – ROOT_PASS, 22.10.2026
+
+[Unabhängige R04-Abnahme](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md) prüft PR15-Kandidat `ca56b5ab58c47bd97bae36335e9d9314b2d35294` / Tree `631276f5ba11d49425c052e0fec5ec29636b55a9`: 6/6 REAL-Requirements PASS, R02-F02 verifiziert geschlossen, F01 durch Reviewer zurückgenommen; CI-Issue #16 technisch überprüft. CI-Run 39734511679 erfolgreich. **WAITING_FOR_APPROVAL**, keine offenen Pflichtfindings, kein Merge ohne ausdrückliche menschliche Freigabe. R03/R02-Abschnitte danach historisch.
+
 ## AP-IV2-020 / R03-KORREKTUR – 22.10.2026
 
 Status **REVIEW_READY**. [Aktueller Korrekturbericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md): R02-F02 und separat Issue16 implementiert; unabhängige Nachabnahme nach grüner finaler PR-CI ausstehend. F01 zurückgenommen, Realbelege wiederverwendet. Kein ROOT_PASS/Merge. Nachfolgende datierte Stände sind historisch.

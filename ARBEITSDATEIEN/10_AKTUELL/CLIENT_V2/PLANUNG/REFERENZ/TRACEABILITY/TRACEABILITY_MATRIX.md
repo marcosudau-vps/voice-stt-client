@@ -1,3 +1,7 @@
+## AP-IV2-020 / R04-ABNAHME – ROOT_PASS, 22.10.2026
+
+Unabhängiger [R04-Bericht](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md) zu PR15-Kandidat `ca56b5ab58c47bd97bae36335e9d9314b2d35294`: REAL-01..06 PASS, R02-F02 sicher behoben, R02-F01 zurückgenommen, [Issue #16](https://github.com/marcosudau-vps/voice-stt-client/issues/16) technisch verifiziert; finaler Windows-CI-Run 39734511679 SUCCESS. **0 offene Pflichtfindings; WAITING_FOR_APPROVAL.** Frühere R03/R02-Zwischenstände historisch; kein Merge ohne menschliche Freigabe.
+
 ## AP-IV2-020 / R03-KORREKTUR – 22.10.2026
 
 Status **REVIEW_READY**. [Aktueller Korrekturbericht](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md): R02-F02 und separat Issue16 implementiert; unabhängige Nachabnahme nach grüner finaler PR-CI ausstehend. F01 zurückgenommen, Realbelege wiederverwendet. Kein ROOT_PASS/Merge. Nachfolgende datierte Stände sind historisch.
