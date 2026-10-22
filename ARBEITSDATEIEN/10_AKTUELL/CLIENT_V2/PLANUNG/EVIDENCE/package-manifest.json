@@ -890,7 +890,9 @@
       "reviewEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md",
       "correctionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
       "correctionFindingDisposition": "R02-F02 CLOSED_VERIFIED_R04; R02-F01 WITHDRAWN_BY_REVIEWER; Issue16 technically verified R04",
-      "latestReviewRun": "R04-ABNAHME"
+      "latestReviewRun": "R04-ABNAHME",
+      "humanApproval": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+      "canonicalizationReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/01_REPORT.md"
     },
     {
       "id": "AP-SV2-FIX",

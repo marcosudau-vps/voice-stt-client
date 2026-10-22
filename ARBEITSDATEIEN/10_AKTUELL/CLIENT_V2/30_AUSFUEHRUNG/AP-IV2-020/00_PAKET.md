@@ -1,3 +1,7 @@
+## AP-IV2-020 / R05-UEBERNAHME – menschlich freigegeben, 22.10.2026
+
+[Originalfreigabe](RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md) · [Übernahmevorbereitung](RUNS/R05-UEBERNAHME/01_REPORT.md). R04-ROOT_PASS für `ca56b5ab58c47bd97bae36335e9d9314b2d35294`, Freigabe für PR15 bei Head `5bb82673f076d145b3c197343d3e144a41626c7e`, Base `feat/client-v2` / Parent `b80ed8b81ad92bd02ac32553883443d2b7673bcd`. CI des Freigabe-Heads 39740375351 erfolgreich. **READY_FOR_CANONICALIZATION; noch kein Merge/ACCEPTED behauptet.** Späterer endgültiger Gitnachweis unter `NACH_ABSCHLUSS/ABSCHLUSS.json` nach tatsächlichem Squash. Vorherige R04- und R03-Abschnitte sind historisch.
+
 ## AP-IV2-020 / R04-ABNAHME – ROOT_PASS, 22.10.2026
 
 [Unabhängiger R04-Reviewbericht](RUNS/R04-ABNAHME/01_REPORT.md), [Evidenzindex](RUNS/R04-ABNAHME/EVIDENCE/INDEX.md): PR #15, geprüfter Head `ca56b5ab58c47bd97bae36335e9d9314b2d35294`, Tree `631276f5ba11d49425c052e0fec5ec29636b55a9`, unveränderter Parent `b80ed8b81ad92bd02ac32553883443d2b7673bcd`. 6/6 REAL-PASS, R02-F02 unabhängig geschlossen, F01 zurückgenommen, separates Issue #16 technisch verifiziert, Windows-CI 39734511679 vollständig grün. **WAITING_FOR_APPROVAL**, keine kanonische Übernahme. Darunter frühere datierte Phasen historisch.

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "WAITING_FOR_APPROVAL",
+  "workflowPhase": "READY_FOR_CANONICALIZATION",
   "packageStatus": "ROOT_PASS",
   "activePackage": "AP-IV2-020",
   "nextPackage": null,
@@ -11,18 +11,27 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/15",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R04-ABNAHME",
-    "role": "acceptance",
-    "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/EVIDENCE/INDEX.md"
+    "id": "R05-UEBERNAHME",
+    "role": "canonicalization",
+    "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/EVIDENCE/INDEX.md"
   },
   "reviewedCommit": "ca56b5ab58c47bd97bae36335e9d9314b2d35294",
   "reviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
   "openFindingIds": [],
-  "humanApproval": null,
+  "humanApproval": {
+    "source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+    "package": "AP-IV2-020",
+    "pr": "https://github.com/marcosudau-vps/voice-stt-client/pull/15",
+    "approvedHead": "5bb82673f076d145b3c197343d3e144a41626c7e",
+    "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+    "reviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+    "grantedOn": "2026-10-22",
+    "method": "squash"
+  },
   "writeOwner": null,
   "blockingReason": null,
-  "nextAction": "Technischer unabhängiger R04-ROOT_PASS; ausdrückliche menschliche PR15-Squash-Übernahmefreigabe abwarten, dann finalen PR-Head/Base/CI und administrativen Diff prüfen; kein eigenmächtiger Merge.",
+  "nextAction": "Menschlich freigegebene einmalige PR15-Squash-Übernahme auf feat/client-v2 nach erneuter Identitäts-/CI-/Admin-Delta-Prüfung; nach Merge tatsächlichen Single-Parent-/Tree-Nachweis unter NACH_ABSCHLUSS sichern.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",

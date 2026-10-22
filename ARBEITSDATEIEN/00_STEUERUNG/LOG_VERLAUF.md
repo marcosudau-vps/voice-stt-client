@@ -1,3 +1,7 @@
+## 2026-10-22 – AP-IV2-020 / Menschliche PR15-Übernahmefreigabe gesichert
+
+Originalwortlaut unter [R05-UEBERNAHME/00_PROMPT_ORIGINAL.md](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md) mit PR15/Head `5bb82673f076d145b3c197343d3e144a41626c7e`, fachlichem R04-ROOT_PASS und unverändertem Parent `b80ed8b81ad92bd02ac32553883443d2b7673bcd`. Workflow **READY_FOR_CANONICALIZATION**, technischer Paketstatus weiterhin ROOT_PASS. Finale CI/Head vor einmaligem Squash erneut zu prüfen, nach erfolgter Übernahme Aggregate-SHA, Parent und Tree ohne zweiten kanonischen Commit nachzuweisen.
+
 ## 2026-10-22 – AP-IV2-020 / unabhängige R04-Nachabnahme: ROOT_PASS
 
 Neue unabhängige Prüfung von PR15-Kandidat `ca56b5ab58c47bd97bae36335e9d9314b2d35294` (Tree `631276f5ba11d49425c052e0fec5ec29636b55a9`), Parent `b80ed8b81ad92bd02ac32553883443d2b7673bcd`, Server `67f3ce45f6ea1ff659382e40c194c70bd33d58ff`: R02-F02 (gebundene Ledgerretention/600 Activations, verzögerte Finals, sichere Recovery) unabhängig geschlossen; R02-F01 bereits zurückgenommen; CI-Issue #16 (EventStream-Happy-Path-Testflakiness) technisch verifiziert. 1407 Windows-Tests, vollständiger GitHub-Workflow 39734511679 inklusive EXE/Wheel/sdist/Smoke erfolgreich. REAL-01..REAL-06 ROOT_PASS, null offene Pflichtfindings. [R04-Bericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md). Weiter WAITING_FOR_APPROVAL; separate menschliche PR15-Übernahmefreigabe erforderlich, kein automatischer Merge/Release/Serverpromotion.

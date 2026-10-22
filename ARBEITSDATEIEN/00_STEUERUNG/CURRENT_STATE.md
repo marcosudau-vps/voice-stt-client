@@ -1,3 +1,7 @@
+## AP-IV2-020 / R05-UEBERNAHME – READY_FOR_CANONICALIZATION, 22.10.2026
+
+Ausdrückliche menschliche [PR15-Squashfreigabe](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md) liegt vor, zu Head `5bb82673f076d145b3c197343d3e144a41626c7e` und `feat/client-v2` / Parent `b80ed8b81ad92bd02ac32553883443d2b7673bcd`. Unabhängiger R04-ROOT_PASS bleibt gültig; letzte CI des Freigabe-Heads ist grün. Merge bis zur abschließenden Head-/CI-Kontrolle noch nicht durchgeführt. Kein Release/Server/Main.
+
 ## AP-IV2-020 / R04-ABNAHME – ROOT_PASS, 22.10.2026
 
 [Unabhängige R04-Abnahme](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md) prüft PR15-Kandidat `ca56b5ab58c47bd97bae36335e9d9314b2d35294` / Tree `631276f5ba11d49425c052e0fec5ec29636b55a9`: 6/6 REAL-Requirements PASS, R02-F02 verifiziert geschlossen, F01 durch Reviewer zurückgenommen; CI-Issue #16 technisch überprüft. CI-Run 39734511679 erfolgreich. **WAITING_FOR_APPROVAL**, keine offenen Pflichtfindings, kein Merge ohne ausdrückliche menschliche Freigabe. R03/R02-Abschnitte danach historisch.
