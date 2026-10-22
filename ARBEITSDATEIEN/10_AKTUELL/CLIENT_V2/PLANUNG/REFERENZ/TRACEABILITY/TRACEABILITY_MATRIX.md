@@ -1,3 +1,7 @@
+## AP-IV2-020 / R03-KORREKTUR – 22.10.2026
+
+Status **REVIEW_READY**. [Aktueller Korrekturbericht](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md): R02-F02 und separat Issue16 implementiert; unabhängige Nachabnahme nach grüner finaler PR-CI ausstehend. F01 zurückgenommen, Realbelege wiederverwendet. Kein ROOT_PASS/Merge. Nachfolgende datierte Stände sind historisch.
+
 ## AP-IV2-020 – unabhängige R02-Abnahme / CHANGES_REQUIRED, 22.10.2026
 
 Der [unabhängige R02-Bericht](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md) bewertet den eingereichten R01-Kandidaten gegen REAL-01..REAL-06. **Berichtigter R02-Stand:** R02-F01 nach Anerkennung der komplementären M-12-Dauerlauf-/USB-Belege als `WITHDRAWN_BY_REVIEWER` zurückgenommen (kein neuer Kombinationslauf); **einzig R02-F02** zu unbounded Sessionledger/Tombstones (REAL-05/06) bleibt blockierend. Eigenständige CI-Flakiness auf späterem Dokumentations-Head in [Issue #16](https://github.com/marcosudau-vps/voice-stt-client/issues/16). Paket weiterhin CHANGES_REQUIRED; früherer REVIEW_READY-Stand ist historisch.

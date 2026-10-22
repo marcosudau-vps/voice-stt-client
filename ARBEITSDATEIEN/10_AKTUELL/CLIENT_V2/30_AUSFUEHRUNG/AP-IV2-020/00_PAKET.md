@@ -1,3 +1,7 @@
+## AP-IV2-020 / R03-KORREKTUR – 22.10.2026
+
+Status **REVIEW_READY**. [Aktueller Korrekturbericht](RUNS/R03-KORREKTUR/01_REPORT.md): R02-F02 und separat Issue16 implementiert; unabhängige Nachabnahme nach grüner finaler PR-CI ausstehend. F01 zurückgenommen, Realbelege wiederverwendet. Kein ROOT_PASS/Merge. Nachfolgende datierte Stände sind historisch.
+
 ## AP-IV2-020 / R02-ABNAHME – CHANGES_REQUIRED, 22.10.2026
 
 [Unabhängiger R02-Bericht – berichtigt 22.10.2026](RUNS/R02-ABNAHME/01_REPORT.md) / [Evidenz](RUNS/R02-ABNAHME/EVIDENCE/INDEX.md): geprüfter R01-PR15-Head 29fb0e159c69051bedba6d097f69a5974fc09528. **R02-F01 WITHDRAWN_BY_REVIEWER** (komplementäre Dauer-/USB-/Hardwarebelege anerkannt, kein neuer 30-Minuten-Lauf). **Nur R02-F02 bleibt offen** (Sessionledger-/Terminal-Retention). Getrenntes CI-Issue [#16](https://github.com/marcosudau-vps/voice-stt-client/issues/16). Kein ROOT_PASS oder Merge. Vorheriger R01-REVIEW_READY-Abschnitt historisch.

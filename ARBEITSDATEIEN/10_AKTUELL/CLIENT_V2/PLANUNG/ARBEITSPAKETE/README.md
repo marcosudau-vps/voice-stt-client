@@ -1,3 +1,7 @@
+## AP-IV2-020 / R03-KORREKTUR – 22.10.2026
+
+Status **REVIEW_READY**. [Aktueller Korrekturbericht](../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md): R02-F02 und separat Issue16 implementiert; unabhängige Nachabnahme nach grüner finaler PR-CI ausstehend. F01 zurückgenommen, Realbelege wiederverwendet. Kein ROOT_PASS/Merge. Nachfolgende datierte Stände sind historisch.
+
 ## AP-IV2-020 – unabhängige R02-Abnahme / CHANGES_REQUIRED, 22.10.2026
 
 [Reviewbericht](../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md): Kandidat 29fb0e159c69051bedba6d097f69a5974fc09528; korrigierter R02-Stand: **F01 zurückgenommen, nur F02 offen**; CI-Issue #16 separat. Vorherige Einträge sind datierte historische Zwischenstände. Kein ROOT_PASS oder Merge.

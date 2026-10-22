@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "CHANGES_REQUIRED",
-  "packageStatus": "CHANGES_REQUIRED",
+  "workflowPhase": "REVIEW_READY",
+  "packageStatus": "REVIEW_READY",
   "activePackage": "AP-IV2-020",
   "nextPackage": null,
   "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
@@ -11,10 +11,10 @@
   "pullRequest": "https://github.com/marcosudau-vps/voice-stt-client/pull/15",
   "selectedCandidate": true,
   "lastRun": {
-    "id": "R02-ABNAHME",
-    "role": "acceptance",
-    "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
-    "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/EVIDENCE/INDEX.md"
+    "id": "R03-KORREKTUR",
+    "role": "correction",
+    "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md",
+    "evidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md"
   },
   "reviewedCommit": "29fb0e159c69051bedba6d097f69a5974fc09528",
   "reviewReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md",
@@ -23,8 +23,8 @@
   ],
   "humanApproval": null,
   "writeOwner": null,
-  "blockingReason": "Einziges offenes R02-Finding F02: unbegrenzte Sessionledger-/Terminal-Retention. R02-F01 durch Reviewer zurückgenommen. Unabhängiges CI-Issue #16 zusätzlich.",
-  "nextAction": "R03-KORREKTUR im selben Paketbranch: R02-F02 und separat CI-Issue #16 gezielt beheben, minimal qualifizieren, PR15 REVIEW_READY und unabhängige Nachabnahme; keine F01-Arbeit, kein Merge.",
+  "blockingReason": null,
+  "nextAction": "Frische unabhängige Gesamt-Nachabnahme auf finalem PR15-Head nach grüner CI, Fokus R02-F02 und Issue16; keine F01-Arbeit, kein Merge.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -43,7 +43,8 @@
     "liveProgressCorrectionSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/020_LIVE_FORTSCHRITT_TESTOBERFLAECHE.md",
     "finalAdminUacPerceptionSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/036_ADMIN_UAC_UND_WAHRNEHMUNGSABSCHLUSS.md",
     "unboundHumanObservationSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/038_RUECKMELDUNG_OHNE_LAUFZUORDNUNG.md",
-    "efficientAutonomousCompletionSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/039_EFFIZIENTER_AUTONOMER_ABSCHLUSS.md"
+    "efficientAutonomousCompletionSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/039_EFFIZIENTER_AUTONOMER_ABSCHLUSS.md",
+    "r03CorrectionSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/00_PROMPT_ORIGINAL.md"
   },
   "candidateSelection": {
     "candidateId": "AP-IV2-020",
@@ -78,117 +79,153 @@
     "latestClientLiveEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/29_W01_KONTROLLE_BESTAETIGT_UND_RESTGATES.md",
     "externalIssueAction": "UNCHANGED_BY_CLIENT_AGENT"
   },
-  "technicalProductCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
-  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/review-ready-20261022/validation.json",
+  "technicalProductCommit": "09b16c0f79e3251d3854112a38129527c79029c1",
+  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/EVIDENCE/INDEX.md",
   "observations": [
     {
       "id": "IV2-020-O01",
       "status": "OPEN_INVESTIGATION",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/13_TV_WAKE_FINISH_UND_HINTERGRUND.md",
-      "summary": "Unintended Alexa score0.834205 with TV context; operator intended abort but actual F9 action finish. Background terminal missing for at least299.7s; pure overlay/cancel bug not proven."
+      "summary": "Unintended Alexa score0.834205 with TV context; operator intended abort but actual F9 action finish. Background terminal missing for at least299.7s; pure overlay/cancel bug not proven.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-O02",
       "status": "PARTIALLY_PROVEN",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/14_STARTER_SERVERZIEL_UND_ABLAGE.md",
-      "summary": "T02 normal-desktop launcher cannot find Codex-virtualized AppData profile; empty origin label on failed first settings load reproduced. Held client was ready to loopback18020 until regular shutdown; human-stopped server identity unknown. No external writes or restarts during audit."
+      "summary": "T02 normal-desktop launcher cannot find Codex-virtualized AppData profile; empty origin label on failed first settings load reproduced. Held client was ready to loopback18020 until regular shutdown; human-stopped server identity unknown. No external writes or restarts during audit.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-T03",
       "status": "FIXED_NATIVE_PROGRESS_PROVEN_VISUAL_CONFIRMATION_PENDING",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/22_GEFUEHRTER_DURCHLAUF_UND_USB_RECOVERY.md",
-      "summary": "Eleven human tasks/15 attempts evaluated; actual event-driven row transitions recorded, unobserved F9 not checked. Explicit overall visual confirmation not supplied."
+      "summary": "Eleven human tasks/15 attempts evaluated; actual event-driven row transitions recorded, unobserved F9 not checked. Explicit overall visual confirmation not supplied.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-R11",
       "status": "CLOSED",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/23_USB_BESTAETIGT_UND_IDLE_KALIBRIERUNG.md",
-      "summary": "Physical USB repeat at product0f6c85e PASS: no-progress detected, old activation cancelled, real reopen/availability ACK, only conscious F8 begins new activation, F9finish and exactly one matching native final paste. Complete M06/frozen gates remain open."
+      "summary": "Physical USB repeat at product0f6c85e PASS: no-progress detected, old activation cancelled, real reopen/availability ACK, only conscious F8 begins new activation, F9finish and exactly one matching native final paste. Complete M06/frozen gates remain open.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-O03",
       "status": "RESOLVED_BY_DIRECT_REAL_LED_COMPARISON",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/25_IDLE_BESTAETIGT_UND_LED_ISOLATION.md",
-      "summary": "New direct20sreal LED preview confirmed white/pleasant minimum at min30/peak100; hashes verified and normalized config persisted. Previous no-transition attempt remains NOT_PROVEN historically."
+      "summary": "New direct20sreal LED preview confirmed white/pleasant minimum at min30/peak100; hashes verified and normalized config persisted. Previous no-transition attempt remains NOT_PROVEN historically.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-W01-RETURN",
       "status": "REPLAY_PASS_LIVE_PENDING",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/27_SERVERFIX_RUECKKEHR_UND_REQUALIFIKATION.md",
-      "summary": "Neuer Pro-V2-Server67f3ce45/Tree74f37cad/Version2.0.0 über öffentliche Info, passenden Gitbaum/-datum und echten Hello bestätigt; Wakefix-Mergee761b973 direkter Parent.13reale Modellreplays/18Activations ohne Zusatzwake in geprüfter digitaler Stille PASS_SCOPED, native Source/ReSpeaker133Pakete und neue1400Windows/0Skips/43Helfertests PASS. W01-Live-Mikrofon-/Schweige-/Soundvergleich vorbereitet, keine vollständige M-/Frozen-/30min100-Abnahme; Clientprodukt0f6c85e unverändert.17beendete private Aufräumreste automatisch gegen Löschen gesperrt."
+      "summary": "Neuer Pro-V2-Server67f3ce45/Tree74f37cad/Version2.0.0 über öffentliche Info, passenden Gitbaum/-datum und echten Hello bestätigt; Wakefix-Mergee761b973 direkter Parent.13reale Modellreplays/18Activations ohne Zusatzwake in geprüfter digitaler Stille PASS_SCOPED, native Source/ReSpeaker133Pakete und neue1400Windows/0Skips/43Helfertests PASS. W01-Live-Mikrofon-/Schweige-/Soundvergleich vorbereitet, keine vollständige M-/Frozen-/30min100-Abnahme; Clientprodukt0f6c85e unverändert.17beendete private Aufräumreste automatisch gegen Löschen gesperrt.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-W01-LIVE",
       "status": "SOUND_ON_PASS_SILENT_CONTROL_NOT_PROVEN",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/28_WAKE_LIVEAUSWERTUNG_UND_RUHEKONTROLLE.md",
-      "summary": "Aktuelle reale Alexa-/Hey-Jarvis-Proben mit Sound je genau1Activation/Timeout,20,625s bzw6,954s weitere belegte Audiobeobachtung ohne Folgetrigger, menschlich Wie erwartet: PASS_SCOPED. Sound-aus-Kontrolle endet vorzeitig: nur1,875s Audio nach Timeout, NOT_PROVEN statt angenommener5s. Nur diesen Fall wiederholen; Testoberfläche wartet eine bereits laufende Ruhephase nach explizitem Beendenwunsch ab, Fensterclose bleibt Abbrechen.48Helfer/Qt und neue1400Windows/0Skips PASS. Produkt0f6c85e/Server67f3ce45 unverändert;18private Aufräumreste automatisch gegen Löschen gesperrt."
+      "summary": "Aktuelle reale Alexa-/Hey-Jarvis-Proben mit Sound je genau1Activation/Timeout,20,625s bzw6,954s weitere belegte Audiobeobachtung ohne Folgetrigger, menschlich Wie erwartet: PASS_SCOPED. Sound-aus-Kontrolle endet vorzeitig: nur1,875s Audio nach Timeout, NOT_PROVEN statt angenommener5s. Nur diesen Fall wiederholen; Testoberfläche wartet eine bereits laufende Ruhephase nach explizitem Beendenwunsch ab, Fensterclose bleibt Abbrechen.48Helfer/Qt und neue1400Windows/0Skips PASS. Produkt0f6c85e/Server67f3ce45 unverändert;18private Aufräumreste automatisch gegen Löschen gesperrt.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-W01-CONTROL",
       "status": "CLOSED_VERIFIED_SCOPED",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/29_W01_KONTROLLE_BESTAETIGT_UND_RESTGATES.md",
-      "summary": "W01-Kontrolle Alexa ohne Sound PASS_SCOPED: genau1Wake/Activation/Timeout,29,765s weitere echte Audio-Nachbeobachtung ohne Folgetrigger,1543Pakete, keine Sprache/Final/Paste, menschlich Wie erwartet, Exit0. Damit alle3vorgesehenen Livekontrollen und13Modellfälle erfolgreich; konkretes W01 CLOSED_VERIFIED_SCOPED. Vollständige M-/Frozen-/Both-/Nutzsprachgrenzen-/30min100-Gates bleiben offen. Produkt0f6c85e/Server67f3ce45 unverändert;19private Aufräumreste automatisch gegen Löschen gesperrt."
+      "summary": "W01-Kontrolle Alexa ohne Sound PASS_SCOPED: genau1Wake/Activation/Timeout,29,765s weitere echte Audio-Nachbeobachtung ohne Folgetrigger,1543Pakete, keine Sprache/Final/Paste, menschlich Wie erwartet, Exit0. Damit alle3vorgesehenen Livekontrollen und13Modellfälle erfolgreich; konkretes W01 CLOSED_VERIFIED_SCOPED. Vollständige M-/Frozen-/Both-/Nutzsprachgrenzen-/30min100-Gates bleiben offen. Produkt0f6c85e/Server67f3ce45 unverändert;19private Aufräumreste automatisch gegen Löschen gesperrt.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-T01",
       "status": "CLOSED_SOURCE_LOG_VIEW_CONFIRMED",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/30_CONTROLS_LOGANSICHT_UND_REFRESH.md",
-      "summary": "Human explicitly confirms origin/tabs/live records;131real persisted records, logstream keepalives/pongs; no claim for Server-raw logs/Admin/Frozen."
+      "summary": "Human explicitly confirms origin/tabs/live records;131real persisted records, logstream keepalives/pongs; no claim for Server-raw logs/Admin/Frozen.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-T04",
       "status": "FIXED_REGRESSION_AND_QT",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/30_CONTROLS_LOGANSICHT_UND_REFRESH.md",
-      "summary": "Refresh checkbox previously accepted two segments+Finish without Refresh. Red regression before fix; now requires accepted current-ID/generation Refresh; native scenario requalification still pending."
+      "summary": "Refresh checkbox previously accepted two segments+Finish without Refresh. Red regression before fix; now requires accepted current-ID/generation Refresh; native scenario requalification still pending.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-CONTROLS-LIVE",
       "status": "PARTIAL_PASS",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/30_CONTROLS_LOGANSICHT_UND_REFRESH.md",
-      "summary": "Denkpause mit2Segmenten/F9/2exakten nativen Einfügungen, Cancel mit82,969s weiterer Audioübertragung ohne Ausgabe und menschlich ausdrücklich bestätigte Server-/Tab-/Logansicht PASS_SCOPED; T01 geschlossen. Native Refreshprobe enthielt kein Refresh und bleibt NOT_PROVEN, lieferte aber korrekt gebundenen Altfinal-nach-Neustart-Beleg203ms. Zwei autonome reale ASR-/Controls-/Deadline-Refreshfälle PASS_SCOPED. T04-Testhäkchenfehler mit Regression/Qt korrigiert; nur native Refreshprobe entspannt erneut vorbereiten, übrige vollständige Gates offen."
+      "summary": "Denkpause mit2Segmenten/F9/2exakten nativen Einfügungen, Cancel mit82,969s weiterer Audioübertragung ohne Ausgabe und menschlich ausdrücklich bestätigte Server-/Tab-/Logansicht PASS_SCOPED; T01 geschlossen. Native Refreshprobe enthielt kein Refresh und bleibt NOT_PROVEN, lieferte aber korrekt gebundenen Altfinal-nach-Neustart-Beleg203ms. Zwei autonome reale ASR-/Controls-/Deadline-Refreshfälle PASS_SCOPED. T04-Testhäkchenfehler mit Regression/Qt korrigiert; nur native Refreshprobe entspannt erneut vorbereiten, übrige vollständige Gates offen.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-REFRESH-NATIVE",
       "status": "RECORDING_HUMAN_AND_FOLLOWUP_AUTOMATED_PASS_SCOPED",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/31_REFRESH_AUFNAHME_UND_NATIVER_NACHSPRECHPFAD.md",
-      "summary": "Menschlicher nativer F8-Refresh während segment_active, F9/Finish und2exakte native Einfügungen derselben Activation PASS_SCOPED; menschlicher15sNachsprechfall bleibt phasenbedingt NOT_PROVEN. Ohne weitere menschliche Wiederholung:2reale native Windows→WM_HOTKEY→Qt→Controls→ASR-Nachsprechfälle bei5000ms/6Callbacks PASS_SCOPED, Fristverlängerung/nichtadditives Wiederholen/Timeout bestätigt. T04 unterscheidet Phasen;56Helfer/Qt PASS, bytegleiches Produkt0f6c85e behält1400Windows/0Skips.21hashgesicherte Aufräumreste automatisch gesperrt."
+      "summary": "Menschlicher nativer F8-Refresh während segment_active, F9/Finish und2exakte native Einfügungen derselben Activation PASS_SCOPED; menschlicher15sNachsprechfall bleibt phasenbedingt NOT_PROVEN. Ohne weitere menschliche Wiederholung:2reale native Windows→WM_HOTKEY→Qt→Controls→ASR-Nachsprechfälle bei5000ms/6Callbacks PASS_SCOPED, Fristverlängerung/nichtadditives Wiederholen/Timeout bestätigt. T04 unterscheidet Phasen;56Helfer/Qt PASS, bytegleiches Produkt0f6c85e behält1400Windows/0Skips.21hashgesicherte Aufräumreste automatisch gesperrt.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-MUTE-REINSERT-PAUSE",
       "status": "SCOPED_PASS_WITH_SEPARATE_OVERLAP_FAILURE",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/32_MUTE_REINSERT_UND_WAKEPAUSEN.md",
-      "summary": "Hardware-Mute27,297s/zehn blockierte F8 und bewusste Wiederfreigabe/1exakte Einfügung sowie Reinsert1Final/2passende automatische+manuelle Ausgaben PASS_SCOPED. Zwei aktive Wake-Modell-/Pausen-/Reconnectfälle PASS_SCOPED. Erweiterte Pause→Recovery→manuelle Aufnahme mit Wakefixture→Cancel erzeugt zweimal Zusatzwake bei Stille: IV2-020-W02 offen, Ursache noch einzugrenzen; kein Serverfix vorgenommen.59Helfer/Qt PASS, Produkt0f6c85e unverändert/1400Windowsbeleg erhalten.22gesicherte Aufräumreste automatisch gesperrt."
+      "summary": "Hardware-Mute27,297s/zehn blockierte F8 und bewusste Wiederfreigabe/1exakte Einfügung sowie Reinsert1Final/2passende automatische+manuelle Ausgaben PASS_SCOPED. Zwei aktive Wake-Modell-/Pausen-/Reconnectfälle PASS_SCOPED. Erweiterte Pause→Recovery→manuelle Aufnahme mit Wakefixture→Cancel erzeugt zweimal Zusatzwake bei Stille: IV2-020-W02 offen, Ursache noch einzugrenzen; kein Serverfix vorgenommen.59Helfer/Qt PASS, Produkt0f6c85e unverändert/1400Windowsbeleg erhalten.22gesicherte Aufräumreste automatisch gesperrt.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-W02",
       "status": "CONFIRMED_BEHAVIOR_ROOT_CAUSE_PENDING",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/33_W02_SERVER_ISSUE_ENTWURF.md",
-      "summary": "Two real-model overlapped pause/reconnect/manual-positive-audio/Cancel sequences produce extra server Wake admission on digital silence. Exact queue/model boundary cause pending; no server changes or external issue action."
+      "summary": "Two real-model overlapped pause/reconnect/manual-positive-audio/Cancel sequences produce extra server Wake admission on digital silence. Exact queue/model boundary cause pending; no server changes or external issue action.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-BOTH-SOURCE",
       "status": "THREE_ACCEPTED_SCOPED_PASS_ONE_REPEAT_EXCLUDED",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/34_BOTH_ABSCHLUSS_UND_KONSOLIDIERTE_RESTGATES.md",
-      "summary": "Drei übernommene BOTH-Aufgaben PASS_SCOPED: natives Manual-F8/F9 und beide direkten Wake-Nutzsätze genau einmal ohne Rufwort;18,782/23,313s echte Ruhe ohne Zusatzwake. Erster Alexa-Versuch bewusst wiederholt, bleibt NOT_PROVEN. Realer Watchdog55,062sWarnung/60,015sAblauf und3gebundene ASRfinals aus demselben Rohdurchlauf nach phasengenauer Nachauswertung PASS_SCOPED; falsche Einsegmentannahme als Hilfstest-FAIL erhalten.61Helfer/Qt PASS, Produkt0f6c85e/1400Windowsbeleg unverändert. Keine identischen Sprechwiederholungen; technische/EXE-/Dauerreste gebündelt, W02 offen.23Aufräumreste automatisch gesperrt."
+      "summary": "Drei übernommene BOTH-Aufgaben PASS_SCOPED: natives Manual-F8/F9 und beide direkten Wake-Nutzsätze genau einmal ohne Rufwort;18,782/23,313s echte Ruhe ohne Zusatzwake. Erster Alexa-Versuch bewusst wiederholt, bleibt NOT_PROVEN. Realer Watchdog55,062sWarnung/60,015sAblauf und3gebundene ASRfinals aus demselben Rohdurchlauf nach phasengenauer Nachauswertung PASS_SCOPED; falsche Einsegmentannahme als Hilfstest-FAIL erhalten.61Helfer/Qt PASS, Produkt0f6c85e/1400Windowsbeleg unverändert. Keine identischen Sprechwiederholungen; technische/EXE-/Dauerreste gebündelt, W02 offen.23Aufräumreste automatisch gesperrt.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-ENDURANCE-WAKE-CLEANUP",
       "status": "AUTOMATED_DURATION_SCOPED_PASS_W02_OPEN_CLEANUP_DONE",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/35_DAUERLAUF_WAKEANFORDERUNGEN_UND_AUFRAEUMEN.md",
-      "summary": "Automatischer zusammenhängender1800.015s/100Activations-Lauf mit echten Modellen PASS_SCOPED;100Finals/100Historyeinträge/100kontrollierte Injektionsversuche, drei eigene Recoveryaktionen. Physische/Frozen-M12-Anteile offen. W02 unverändert0/2reproduziert, historische2FAIL bleiben offen;0,90/2Frames erhält beide Positivfixtures,3/5Frames verfehlen Jarvis. Keine Defaultübernahme. Alle26eigenen externen Laufzeitordner hashgesichert entfernt.70Helfer/Qt und neue1400Windows/0Skips PASS; Produkt0f6c85e unverändert. Zwei Fehlversuche separat erhalten."
+      "summary": "Automatischer zusammenhängender1800.015s/100Activations-Lauf mit echten Modellen PASS_SCOPED;100Finals/100Historyeinträge/100kontrollierte Injektionsversuche, drei eigene Recoveryaktionen. Physische/Frozen-M12-Anteile offen. W02 unverändert0/2reproduziert, historische2FAIL bleiben offen;0,90/2Frames erhält beide Positivfixtures,3/5Frames verfehlen Jarvis. Keine Defaultübernahme. Alle26eigenen externen Laufzeitordner hashgesichert entfernt.70Helfer/Qt und neue1400Windows/0Skips PASS; Produkt0f6c85e unverändert. Zwei Fehlversuche separat erhalten.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-W02-DISPOSITION",
       "status": "CLOSED_BY_HUMAN_DISPOSITION_NOT_REPRODUCED",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/36_W02_ABSCHLUSS_UND_FREIGABERESTE.md",
       "source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/034_W02_SCHLIESSEN_UND_FREIGABERESTE.md",
-      "summary": "W02 auf ausdrückliche menschliche Entscheidung als aktuell nicht mehr reproduzierbar geschlossen; kein eigener Freigabeblocker. Historische2FAIL erhalten, keine identifizierte Codekorrektur behauptet. Rest: technische Kombinationen, finaler EXE-/Admin-/Clipboard-/physischer Abschluss und Akten/ unabhängige Abnahme. Keine Wiederholung bestandener Standarddiktate, USB-Grundprobe oder des identischen30min100-Replaylaufs."
+      "summary": "W02 auf ausdrückliche menschliche Entscheidung als aktuell nicht mehr reproduzierbar geschlossen; kein eigener Freigabeblocker. Historische2FAIL erhalten, keine identifizierte Codekorrektur behauptet. Rest: technische Kombinationen, finaler EXE-/Admin-/Clipboard-/physischer Abschluss und Akten/ unabhängige Abnahme. Keine Wiederholung bestandener Standarddiktate, USB-Grundprobe oder des identischen30min100-Replaylaufs.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     },
     {
       "id": "IV2-020-FINAL-QUALIFICATION",
       "status": "IMPLEMENTATION_PASS_REVIEW_PENDING",
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
-      "summary": "Current consolidated matrix supersedes historical open subcase lists; native pending-final recovery, normal EXE overlap and desktop start now evidenced. Original failures/dispositions retained. No own ROOT_PASS."
+      "summary": "Current consolidated matrix supersedes historical open subcase lists; native pending-final recovery, normal EXE overlap and desktop start now evidenced. Original failures/dispositions retained. No own ROOT_PASS.",
+      "scope": "HISTORICAL_RUN_OBSERVATION",
+      "currentAssessment": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md"
     }
   ],
   "testInfrastructure": {
@@ -271,7 +308,7 @@
       "W02": "CLOSED_BY_HUMAN_DISPOSITION_NOT_REPRODUCED"
     }
   },
-  "qualificationStatus": "IMPLEMENTATION_PASS_REVIEW_PENDING",
+  "qualificationStatus": "REVIEW_READY_INDEPENDENT_ACCEPTANCE_PENDING",
   "latestAutonomousRestEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
   "technicalServerCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
   "autonomousRest20261021": {
@@ -331,5 +368,11 @@
     "testOnlyChange": "test_v2_audio_recovery: configurable fake ACK timeout and bounded wait for actual watchdog state; no assertion removed.",
     "independentReview": "NOT_RUN_IN_THIS_SESSION",
     "cleanup": "cleanup.json"
-  }
+  },
+  "correctionDisposition": {
+    "IV2-020-R02-F02": "IMPLEMENTED_PENDING_INDEPENDENT_REVIEW",
+    "issue16": "IMPLEMENTED_PENDING_INDEPENDENT_VERIFICATION_ISSUE_OPEN",
+    "IV2-020-R02-F01": "WITHDRAWN_BY_REVIEWER"
+  },
+  "observationsMeaning": "Datierte historische Beobachtungen mit unverändertem ursprünglichem Status; aktuelle konsolidierte Disposition in R01-Bericht40/R02-Berichtigung, aktuelle Korrektur in R03. Keine Liste aktueller offener Produktfehler."
 }
