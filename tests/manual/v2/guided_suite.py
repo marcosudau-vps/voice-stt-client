@@ -105,7 +105,12 @@ def main():
         tasks.addItem('○ '+task['title'])
     tasks.setSelectionMode(QListWidget.SelectionMode.NoSelection)
     side.addWidget(tasks)
-    remaining = QLabel('SEPARAT OFFEN\n\n'+'\n\n'.join(DEFERRED))
+    workflow_path=ROOT/'ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/WORKFLOW_STATUS.json'
+    workflow=json.loads(workflow_path.read_text(encoding='utf8')) if workflow_path.is_file() else {}
+    remaining = QLabel('AKTUELLER PAKETSTATUS: '+workflow.get('packageStatus','UNBEKANNT')+
+        '\n\nDiese Aufgaben sind ein wiederverwendbarer Testkatalog, keine neue Restliste. '
+        'Bereits belegte Prüfungen werden durch diesen Start nicht zurückgesetzt. '
+        'Maßgeblich sind die aktuelle Paketakte und ihre fallgenaue Evidenzmatrix.')
     remaining.setWordWrap(True)
     remaining.setStyleSheet('color:#626a78;font-size:11px;padding:5px;')
     scroll_side = QScrollArea()

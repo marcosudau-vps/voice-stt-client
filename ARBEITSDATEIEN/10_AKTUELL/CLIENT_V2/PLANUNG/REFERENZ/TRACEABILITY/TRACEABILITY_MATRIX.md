@@ -1,3 +1,7 @@
+## AP-IV2-020 – aktuelle Implementierungsnachweise,22.10.2026
+
+REAL-01 bis REAL-06: **REVIEW_READY**, konkrete M-01..M-12-Methoden/Identitäten/Grenzen in [Bericht40](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md) und seiner konsolidierten Matrix.1400Windows/0Skips,83Helfer,echte Hardware-/Modell-/Frozenbelege; keine unabhängige Annahme vorweggenommen. Historische Zwischenbewertungen unten bleiben ihrem Datum zugeordnet.
+
 # Traceability-Matrix – vollständige Anforderungen und Nachweise
 
 Stand: 2026-10-12, paketweise Nachweispflege auf Planrevision 10. **216 einzeln identifizierte Anforderungen**. Serverbaseline ada13b011e1d3829f78e7f389e3b927795a2b3be, Client-Ausführungslinie a80a6b17b40751740f9c9d2aef9cad32b0470c0c, kanonische Featurebasis 8bab1b3f4aa070d0756c305908def4d9ebc52582; Release f625904795880ce71acec216e43678f9ec1656d0 als zusätzliche Migrationsreferenz. Integrierter kanonischer Start-SHA: `1cf076bd2ed56929b1a3780bc140da51348a8295` (AP000 tatsächlich übernommen).

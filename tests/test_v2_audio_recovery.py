@@ -127,7 +127,7 @@ class Media(unittest.IsolatedAsyncioTestCase):
             socket = sockets[min(count[0], len(sockets) - 1)]
             count[0] += 1
             return socket
-        session = V2STTSession(V2TransportConfig(backoff_initial=.01, ack_timeout=.05,
+        session = V2STTSession(V2TransportConfig(backoff_initial=.01, ack_timeout=config.pop('ack_timeout',.05),
                               command_retries=0, **config), connector=connector, jitter=lambda a,b:1)
         logs = DualSessionCoordinator(ServerConfig(), EventStreamConfig(cursor_persistence_enabled=False),
                                       transport_factory=FakeEventTransport)
@@ -225,7 +225,7 @@ class Media(unittest.IsolatedAsyncioTestCase):
             def close(self): pass
         entered, release = threading.Event(), threading.Event()
         with patch('sounddevice.query_devices', return_value={'name':'synthetic', 'default_samplerate':16000}), patch('sounddevice.check_input_settings'), patch('sounddevice.InputStream', Stream):
-            media, socket = await self.start(capture=capture)
+            media, socket = await self.start(capture=capture,ack_timeout=1)
             original = capture.stop
             def stop():
                 entered.set()
@@ -234,7 +234,9 @@ class Media(unittest.IsolatedAsyncioTestCase):
             capture.stop = stop
             old_callback = capture.on_audio_packet
             try:
-                await asyncio.sleep(2.2)
+                await asyncio.sleep(2.05)
+                await until(lambda:entered.is_set() and media._reported_available is not None
+                            and media._reported_available[1] is False)
                 self.assertTrue(entered.is_set())
                 self.assertTrue(capture.device_active)
                 self.assertFalse(media.audio_available)

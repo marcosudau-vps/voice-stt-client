@@ -1,3 +1,13 @@
+## AP-IV2-020/R01 – REVIEW_READY,22.10.2026
+
+[Abschlussbericht40](RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md): **REVIEW_READY**: native ReSpeaker-Altfinal/Recovery/Runpausen und finale normale EXE mit A-final während B-Sprache sowie zwei sichtbaren Ausgaben belegt. Vollständige1400Windows/0Skips/79Module,83Helfer/0Skips,compileall PASS. Produkt0f6c85e/Server67f3ce45 unverändert.18letzte eigene Profile archiviert entfernt, externer Namensraum leer. Zusammengesetzte Methoden/Grenzen und historische Fehlläufe explizit dokumentiert; kein eigener ROOT_PASS. Gleicher R01/Paketbranch/PR15; Schreibhoheit für unabhängigen Review zurückgegeben.
+
+Nachfolgende datierte Zwischenstände sind historisch und durch Bericht40 konsolidiert.
+
+## AP-IV2-020/R01 – Laufzuordnung und Hilfstimer,22.10.2026
+
+[Bericht39](RUNS/R01-UMSETZUNG/39_LAUFZUORDNUNG_UND_TESTTIMER.md): Mensch meldet eingefügten Text/Fensterschluss; gespeicherte Vorbereitung dagegen TIMEOUT ohne Clientstart, Satz nicht mehr bekannt. Beobachtung erhalten, Zuordnung NOT_PROVEN. Hilfstimer korrigiert: vor Start unbegrenzt warten, Laufbudget erst ab Clientstart.82Helfer/0Skips und compileall PASS, Produkt0f6c85e unverändert. Alle verbliebenen eigenen Profile/Helfer-TEMP archiviert entfernt, genehmigter Namensraum leer, kein laufender Test. Keine weitere Sprach-/Wahrnehmungsprobe gestartet. Technische Restmatrix bleibt BLOCKED, gleicher R01/PR15.
+
 ## Aktuelle Restqualifikation,22.10.2026
 
 [Bericht38](RUNS/R01-UMSETZUNG/38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md): Adminguard positiv und generationgebunden, erhöhtes eigenes UAC-Ziel/APIstatus und drei native Stereomix-EXE-Einfügungen belegt. Erste ReSpeaker-ASR korrekt, automatische Einfügung fehlte; bewusster EXE-Reinsert erfolgreich. Minimaler Ein-Satz-Wakeversuch ohne Hotkeys vorbereitet, Wiederholen/Weiter repariert.80Helfer/Qt PASS; Produkt0f6c85e und1400Windowsbeleg unverändert. Wahrnehmungsabfragen menschlich abgeschlossen. Zehn beendete Profile plus Helfer-TEMP hashgesichert entfernt; nur ungestartete Abschlussprobe bleibt. Technische Restgrenzen NOT_PROVEN, BLOCKED/gleicher R01/PR15.
@@ -8,9 +18,9 @@ Neuer menschlich benannter und tatsächlich belegter Serverstand `67f3ce45f6ea1f
 
 # AP-IV2-020 – reale Windows-, Modell- und Hardwarequalifikation
 
-Status **BLOCKED**, Workflow **IMPLEMENTATION_IN_PROGRESS** für unabhängige Restprüfungen, 2026-10-19.
-W01 ist aktuell geschlossen verifiziert; Gesamtabnahme durch die konkreten Restgates aus Bericht38 blockiert.
-Rolle: ein Umsetzer, R01-UMSETZUNG. Schreibhoheit: Codex in dieser Session.
+Status **REVIEW_READY**, Workflow **REVIEW_READY**,22.10.2026.
+Aktuelle Gesamtbewertung siehe Bericht40; unabhängige Abnahme ausstehend.
+Rolle: ein Umsetzer, R01-UMSETZUNG. Schreibhoheit für unabhängiges Review zurückgegeben.
 Branch `work/client-v2/ap-iv2-020`, Base `feat/client-v2`, tatsächlicher Parent
 `b80ed8b81ad92bd02ac32553883443d2b7673bcd`.
 Serverbasis `ada13b011e1d3829f78e7f389e3b927795a2b3be`.

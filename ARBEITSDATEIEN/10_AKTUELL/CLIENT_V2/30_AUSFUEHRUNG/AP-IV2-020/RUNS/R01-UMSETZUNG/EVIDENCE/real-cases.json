@@ -84,12 +84,11 @@
         "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
       },
       "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
         "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
-        "proven": "Existing native source two-segment/Finish plus three real old-final/new-speech overlaps; no repeated source action requested.",
-        "remaining": null,
-        "evidence": "final-probes-20261022/qualification-matrix.json",
-        "aggregate": "PASS_SCOPED_SOURCE"
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-01"
       }
     },
     {
@@ -164,12 +163,11 @@
         "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
       },
       "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
         "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
-        "proven": "Both actual Wake IDs and controls with manual idle admission disabled; adapter and prior native evidence remain separate.",
-        "remaining": null,
-        "evidence": "final-probes-20261022/qualification-matrix.json",
-        "aggregate": "PASS_SCOPED_SOURCE"
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-02"
       }
     },
     {
@@ -230,12 +228,11 @@
         "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
       },
       "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
         "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
-        "proven": "Close manual-first and wake-first cases, one admission and final; existing rearm/active-Wake evidence retained.",
-        "remaining": null,
-        "evidence": "final-probes-20261022/qualification-matrix.json",
-        "aggregate": "PASS_SCOPED_SOURCE"
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-03"
       }
     },
     {
@@ -314,12 +311,11 @@
         "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
       },
       "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
         "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
-        "proven": "18 actual phase/action/slot cases plus existing NONE/native collision/Refresh/watchdog.",
-        "remaining": null,
-        "evidence": "final-probes-20261022/qualification-matrix.json",
-        "aggregate": "PASS_SCOPED_SOURCE"
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-04"
       }
     },
     {
@@ -366,12 +362,11 @@
         "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
       },
       "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
         "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
-        "proven": "Existing distinct run-pause masks, Wake models/recovery/restart and hardware-Mute subcases.",
-        "remaining": "Physical loss/pause/older pending-final combination not completely observed.",
-        "evidence": "final-probes-20261022/qualification-matrix.json",
-        "aggregate": "NOT_PROVEN"
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-05"
       }
     },
     {
@@ -409,12 +404,11 @@
         "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
       },
       "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
         "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
-        "proven": "Existing physical USB loss/cancel/reopen; actual native LED-only loss during same open input.",
-        "remaining": "Physical USB/mute combination retaining an older pending final; no identical USB basic repeat.",
-        "evidence": "final-probes-20261022/qualification-matrix.json",
-        "aggregate": "NOT_PROVEN"
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-06"
       }
     },
     {
@@ -505,12 +499,11 @@
         "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
       },
       "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
         "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
-        "proven": "Real TLS preview and pending-final transport faults plus actual independent SQLite writer lock.",
-        "remaining": null,
-        "evidence": "final-probes-20261022/qualification-matrix.json",
-        "aggregate": "PASS_SCOPED_SOURCE"
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-07"
       }
     },
     {
@@ -548,12 +541,11 @@
         "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
       },
       "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
         "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
-        "proven": "Actual open-input cancel/finish/defer, missing-choice guards and explicit idle-drain wait.",
-        "remaining": null,
-        "evidence": "final-probes-20261022/qualification-matrix.json",
-        "aggregate": "PASS_SCOPED_SOURCE"
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-08"
       }
     },
     {
@@ -591,12 +583,11 @@
         "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
       },
       "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
         "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
-        "proven": "Wrong actual origin Admin guard, no global mutation; previous native secure-store operations. Actual positive guard, generation invalidation/reverify, unchanged defaults/vault and own-file secret scan PASS_SCOPED.",
-        "remaining": null,
-        "evidence": "final-probes-20261022/qualification-matrix.json",
-        "aggregate": "PASS_SCOPED"
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-09"
       }
     },
     {
@@ -668,12 +659,11 @@
         "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
       },
       "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
         "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
-        "proven": "Final actual normal Frozen/PortAudio/remote bootstrap startup; three source ASR overlaps. Normal EXE/StereoMix actual manual/Alexa/Jarvis ASR/history/native paste match; actual ReSpeaker user ASR and separate explicit Frozen reinsert pass. Subjective evaluation complete by human disposition.",
-        "remaining": "ReSpeaker automatic insertion failed once; minimal actual Wake control prepared. Frozen A-final/B-active UI effect still not directly observed.",
-        "evidence": "final-probes-20261022/qualification-matrix.json",
-        "aggregate": "NOT_PROVEN"
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-10"
       }
     },
     {
@@ -759,12 +749,11 @@
         "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
       },
       "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
         "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
-        "proven": "Actual normal Unicode paste, foreign clipboard lock and real process exits before/after SendInput, durable unknown/no auto retry; prior reinsert. Actual elevated UAC target observed: native4/4, command_sent, visible0; no retry, original clipboard restored. API receipt is not an insertion guarantee.",
-        "remaining": null,
-        "evidence": "final-probes-20261022/qualification-matrix.json",
-        "aggregate": "PASS_SCOPED"
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-11"
       }
     },
     {
@@ -803,20 +792,19 @@
         "scope": "Historical attempts retained; only explicit missing effects are new actions. No blanket physical/Frozen PASS."
       },
       "currentQualification20261022": {
+        "status": "PASS_SCOPED_COMPOSITE",
         "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
         "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
-        "proven": "Existing1800.015s/100 actual-model runtime loop plus18 traced generation-release activations, unchanged chosen config.",
-        "remaining": "Physical device-change/endurance/environment boundaries not fully proven. Human subjective calibration complete; no identical model replay or perception block requested.",
-        "evidence": "final-probes-20261022/qualification-matrix.json",
-        "aggregate": "NOT_PROVEN"
+        "evidence": "review-ready-20261022/qualification-matrix.json",
+        "case": "M-12"
       }
     }
   ],
   "wakeBoundary": "NOT_PROVEN",
   "calibration": "HUMAN_ASSESSMENT_COMPLETE_BY_DISPOSITION",
-  "realGate": "NOT_PROVEN",
+  "realGate": "IMPLEMENTATION_PASS_REVIEW_PENDING",
   "duration100Activations": "PASS_SCOPED_REAL_MODELS_ADAPTER_BOUNDARIES",
-  "note": "Prechecks are separate evidence and do not mark complete M cases PASS.",
+  "note": "Current matrix supersedes dated partial states below; historical attempts retain their original results. No independent acceptance claimed.",
   "currentTechnicalQualification": "ux02/qualification-summary.json",
   "humanExecution": "IN_PROGRESS; real manual baseline completed; no complete M PASS",
   "currentProductCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
@@ -840,6 +828,11 @@
     "newServerAuthorized": false,
     "explicitlyInvalidatedEarlyRecords": "server-identity-audit-20261018/early-image-exclusions.json"
   },
-  "currentConsolidatedEvidence": "final-probes-20261022/qualification-matrix.json",
-  "currentReport": "../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md"
+  "currentConsolidatedEvidence": "review-ready-20261022/qualification-matrix.json",
+  "currentReport": "../40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+  "finalHumanObservation": {
+    "status": "HUMAN_REPORTED_SUCCESS_UNBOUND",
+    "evidence": "probe-followup-20261022/human-confirmation.json",
+    "technicalLiveGate": "NOT_PROVEN"
+  }
 }

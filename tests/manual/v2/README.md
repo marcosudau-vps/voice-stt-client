@@ -77,13 +77,31 @@ hat einen30min-Schutz. Schließen des Fensters wartet auf reguläres Clientende.
 
 ## Ehrliche Grenzen
 
-Die Oberfläche zeigt separat offene Pflichtanteile. Insbesondere bleiben
-W01/Issue7, wiederholte Wake-/Both-Folgen, Wake-Parität und der gemischte
-30min/100-Lauf zurückgestellt. Die elf Bedienaufgaben sind **Teilprüfungen**,
-keine vollständige Abdeckung von M-01 bis M-12. Faulttests mit offenen Finals,
-isolierter LED-/Logstörung, Run-Pausen, Sessiontransaktionen, Credentials,
-elevated Ziel/Clipboardkonflikt/Crash und Frozen-Build brauchen ihre eigenen
-Vorbereitungen/Nachweise. Sie werden nicht durch Klicks auf Weiter geschlossen.
+Die elf Bedienaufgaben sind ein wiederverwendbarer **Testkatalog**, kein neuer
+Restauftrag. Die Oberfläche zeigt den aktuellen Paketstatus aus WORKFLOW_STATUS
+und setzt vorhandene Nachweise nicht zurück. Maßgeblich ist die kumulative
+Paketakte einschließlich der gesonderten Fault-, Native-, Frozen-, Credential-
+und Dauerbelege. Ein Klick auf Weiter erzeugt keinen fachlichen PASS.
+
+Normaler Windows-Desktopstart per Doppelklick auf **Start-GuidedTests.vbs**.
+Der Starter verwendet die Projektvenv, den genehmigten Qualifikationsnamensraum
+und das gepinnte Pro-V2-Serverinfo-Dokument. Ohne diesen Beleg startet die
+Qualifikation nicht. Kein V1-/AppData-/Loopbackfallback, keine Execution-Policy-
+Änderung und kein automatischer Sprechtest.
+
+Autonome Abschlussfälle: native_pending_fault_probe öffnet den tatsächlichen
+ReSpeaker über DirectSound, bricht seinen Stream ab und prüft Recovery mit
+älterem echtem ASRfinal; PCM/Clipboardgrenzen bleiben ausdrücklich kontrolliert.
+frozen_acoustic_probe --only manual --device <Index> --native-overlap verwendet
+den Produktions-Win32backend als eng auf das eigene Ziel begrenzten Hotkey-
+Testtreiber. Er wartet auf den tatsächlichen Eingabeschluss vor dem Neustart,
+prüft reale EXE-/ASR-/History-/Pasteereignisse und wartet auf beide Finals.
+Stereomix bleibt eine andere Eingabe als der ReSpeaker. Kein Fake-ASR-PASS.
+
+isolated_windows_suite führt die vollständige Discovery je Modul in frischen
+Windows-Prozessen aus und prüft die exakte Test-ID-Menge. Qt-Module laufen
+gegeneinander serialisiert. Vollständige Logs einschließlich Fehlversuchen
+und expliziter Wiederholungen erhalten; keine Auswahlreduktion oder Skips.
 
 ## Helferprüfungen
 
@@ -100,6 +118,10 @@ der idle Versuch mit Abweichung beendet und dieselbe Aufgabe wiederholt
 werden; Test beenden ist jederzeit erreichbar. Ein Fokusverlust nach Start
 beendet den eigenen Client. Reale Ergebnisse stehen im gewählten result.json;
 History-/Profilbytes bleiben privat und werden vor Cleanup hasharchiviert.
+Vor dem Startklick gibt es kein Test-Timeout. Die begrenzte Laufzeit beginnt
+erst beim tatsächlichen Clientstart. --fixture-on-ready ist ausschließlich
+eine ausdrücklich gekennzeichnete autonome Prüfung des Bedienpfads mit
+gewähltem Wiedergabe-Eingang; sie ist kein menschlicher Mikrofonnachweis.
 
 Ohne --human können bewusste WAVs über Fixtureknöpfe abgespielt werden. Ein
 explizit gewählter --device verwendet dessen native Rate/Kanalzahl und echte

@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "canonicalBranch": "feat/client-v2",
   "repository": "marcosudau-vps/voice-stt-client",
-  "workflowPhase": "IMPLEMENTATION_IN_PROGRESS",
-  "packageStatus": "BLOCKED",
+  "workflowPhase": "REVIEW_READY",
+  "packageStatus": "REVIEW_READY",
   "activePackage": "AP-IV2-020",
   "nextPackage": null,
   "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
@@ -18,13 +18,11 @@
   },
   "reviewedCommit": null,
   "reviewReport": null,
-  "openFindingIds": [
-    "IV2-020-T02"
-  ],
+  "openFindingIds": [],
   "humanApproval": null,
-  "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "Admin and elevated API/clipboard checks completed; human perception explicitly complete. Initial real ReSpeaker EXE automatic insertion failed despite correct ASR; minimal one-phrase retry prepared. Physical pending-final/Frozen-overlap/endurance boundaries remain NOT_PROVEN.",
-  "nextAction": "Human starts prepared single Alexa probe (no hotkeys); agent evaluates, archives/removes its runtime, then resolves specific remaining technical gates. No repeated perception block, self-review or merge.",
+  "writeOwner": null,
+  "blockingReason": null,
+  "nextAction": "Fresh independent review of exact submitted PR15 head against canonical parent; implementation writes/ pushes paused. No self-review, canonical merge or next package.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -41,7 +39,9 @@
     "guidedSuiteSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/018_GEFUEHRTER_RESTTESTLAUF.md",
     "dedicatedTestRuntimeWithCleanupSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/019_TESTABLAGE_MIT_AUFRAEUMPFLICHT.md",
     "liveProgressCorrectionSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/020_LIVE_FORTSCHRITT_TESTOBERFLAECHE.md",
-    "finalAdminUacPerceptionSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/036_ADMIN_UAC_UND_WAHRNEHMUNGSABSCHLUSS.md"
+    "finalAdminUacPerceptionSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/036_ADMIN_UAC_UND_WAHRNEHMUNGSABSCHLUSS.md",
+    "unboundHumanObservationSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/038_RUECKMELDUNG_OHNE_LAUFZUORDNUNG.md",
+    "efficientAutonomousCompletionSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/039_EFFIZIENTER_AUTONOMER_ABSCHLUSS.md"
   },
   "candidateSelection": {
     "candidateId": "AP-IV2-020",
@@ -77,7 +77,7 @@
     "externalIssueAction": "UNCHANGED_BY_CLIENT_AGENT"
   },
   "technicalProductCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
-  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/endurance-wake-20261020/validation.json",
+  "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/review-ready-20261022/validation.json",
   "observations": [
     {
       "id": "IV2-020-O01",
@@ -181,6 +181,12 @@
       "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/36_W02_ABSCHLUSS_UND_FREIGABERESTE.md",
       "source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/034_W02_SCHLIESSEN_UND_FREIGABERESTE.md",
       "summary": "W02 auf ausdrückliche menschliche Entscheidung als aktuell nicht mehr reproduzierbar geschlossen; kein eigener Freigabeblocker. Historische2FAIL erhalten, keine identifizierte Codekorrektur behauptet. Rest: technische Kombinationen, finaler EXE-/Admin-/Clipboard-/physischer Abschluss und Akten/ unabhängige Abnahme. Keine Wiederholung bestandener Standarddiktate, USB-Grundprobe oder des identischen30min100-Replaylaufs."
+    },
+    {
+      "id": "IV2-020-FINAL-QUALIFICATION",
+      "status": "IMPLEMENTATION_PASS_REVIEW_PENDING",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+      "summary": "Current consolidated matrix supersedes historical open subcase lists; native pending-final recovery, normal EXE overlap and desktop start now evidenced. Original failures/dispositions retained. No own ROOT_PASS."
     }
   ],
   "testInfrastructure": {
@@ -212,24 +218,24 @@
     "w01ExecutionOrder": "Fix returned and verified; continue remaining mandatory real qualification",
     "w01Impact": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/19_W01_BLOCKIERUNGSUMFANG_UND_TESTZIEL.md",
     "guidedSuite": {
-      "status": "BOTH_SOURCE_SCOPED_PASS_NO_IDENTICAL_OPERATOR_REPEATS",
+      "status": "COMPLETE_REVIEW_PENDING",
       "tasks": 11,
       "source": "../../../tests/manual/v2/README.md",
-      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/36_W02_ABSCHLUSS_UND_FREIGABERESTE.md",
+      "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
       "profilePathAuthorization": "APPROVED_WITH_EXPORT_AND_CLEANUP_OBLIGATION",
       "proposedRuntimePath": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
-      "helperTests": "70 PASS; actual Qt PASS",
-      "windowsRegression": "1400PASS,0skips,194.744s; full new log, initial environment FAIL separately preserved",
+      "helperTests": "83PASS/0skips",
+      "windowsRegression": "1400PASS/0skips/79isolated modules; complete logs and serial34-test settings retry retained",
       "cleanup": {
         "required": true,
         "source": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/019_TESTABLAGE_MIT_AUFRAEUMPFLICHT.md",
         "approvedRoot": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020",
         "existedBefore": false,
         "completedAutonomousRunDirectories": 4,
-        "pending": "NONE; authorized profile namespace empty",
-        "ledger": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/endurance-wake-20261020/cleanup-receipts.json",
-        "blockedPath": "C:/Users/marco/.voice-stt/qualification/AP-IV2-020/progress-regression-20261019-162446",
-        "blocker": "Automatic approval review rejected deletion: blocked by policy",
+        "pending": null,
+        "ledger": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/review-ready-20261022/cleanup.json",
+        "blockedPath": null,
+        "blocker": null,
         "state": "DONE"
       },
       "focusedTests": "43 PASS",
@@ -263,8 +269,8 @@
       "W02": "CLOSED_BY_HUMAN_DISPOSITION_NOT_REPRODUCED"
     }
   },
-  "qualificationStatus": "BLOCKED_BY_OPEN_MANDATORY_FINDINGS",
-  "latestAutonomousRestEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/technical-rest-20261021",
+  "qualificationStatus": "IMPLEMENTATION_PASS_REVIEW_PENDING",
+  "latestAutonomousRestEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
   "technicalServerCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
   "autonomousRest20261021": {
     "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
@@ -280,5 +286,48 @@
       "FINAL_FROZEN_PHYSICAL_ENVIRONMENT_OVERLAY"
     ],
     "package": "BLOCKED"
+  },
+  "currentQualification20261022": {
+    "result": "REVIEW_READY",
+    "sourceHeadAtStart": "344f8693a83b0f0cc6dbd8afd8d5a60e6d7a00e4",
+    "sourceTreeAtStart": "604062ea3de62375dcee257308eb2b1d0497f32d",
+    "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+    "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+    "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "pythonExecutable": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "windows": [
+      "11",
+      "10.0.26300",
+      "SP0",
+      "Multiprocessor Free"
+    ],
+    "windowsTests": 1400,
+    "windowsSkips": 0,
+    "windowsModules": 79,
+    "fullSuite": "review-final-windows-assessment.json",
+    "helpers": {
+      "tests": 83,
+      "skips": 0,
+      "seconds": 3.949,
+      "log": "review-final-helpers.log.gz"
+    },
+    "compileall": "PASS",
+    "runtimeCases": [
+      "native-pending-directsound.json",
+      "frozen-native-overlap-complete.json",
+      "desktop-launch-assessment.json"
+    ],
+    "commands": [
+      ".\\venv\\Scripts\\python.exe -m tests.manual.v2.isolated_windows_suite (full per-module commands/exit codes in windows-original-module-assessment.json)",
+      ".\\venv\\Scripts\\python.exe -m unittest discover -v -s tests -p test_v2_settings_service.py (complete34-test serial retry)",
+      ".\\venv\\Scripts\\python.exe -m unittest discover -v -s tests/manual/v2 -p test_*.py",
+      ".\\venv\\Scripts\\python.exe -m compileall -q tests/manual/v2"
+    ],
+    "productSourcesUnchanged": true,
+    "testOnlyChange": "test_v2_audio_recovery: configurable fake ACK timeout and bounded wait for actual watchdog state; no assertion removed.",
+    "independentReview": "NOT_RUN_IN_THIS_SESSION",
+    "cleanup": "cleanup.json"
   }
 }

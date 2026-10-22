@@ -13806,14 +13806,14 @@
       "requirement": "Manual/Wake/both/pausiert auf echtem Windows/ASRbuild mit mehrsegmentigem Diktat.",
       "contract": "K-04",
       "ap": "AP-IV2-020",
-      "test": "M-01..M-12; native prechecks separately evidenced, no complete M PASS",
+      "test": "M-01..M-12 composite identified real-model/native/Frozen cases; current consolidated matrix",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "NOT_PROVEN / REAL_TESTS_OPEN",
+      "status": "IMPLEMENTED / REVIEW_READY / INDEPENDENT_ACCEPTANCE_PENDING",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
-      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/review-ready-20261022/qualification-matrix.json",
       "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json",
       "latestScopedQualification": {
         "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
@@ -13823,9 +13823,11 @@
         "status": "PARTIAL_PASS_MANDATORY_HUMAN_GATES_OPEN"
       },
       "currentQualification20261022": {
-        "status": "NOT_PROVEN",
-        "report": "../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md",
-        "meaning": "Positive Admin/elevated API/StereoMix Frozen checks added; human perception complete. Exact remaining mandatory boundaries retained in qualification matrix, no global PASS."
+        "status": "REVIEW_READY",
+        "report": "../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "meaning": "Full implementation evidence consolidated with explicit method boundaries; not independently ACCEPTED."
       }
     },
     {
@@ -13833,14 +13835,14 @@
       "requirement": "EchteWakepositive/negative Aufnahmen mit unmittelbar folgenderNutzsprache, keine pauschale Kalibrierungsbehauptung.",
       "contract": "K-04",
       "ap": "AP-IV2-020",
-      "test": "M-01..M-12; native prechecks separately evidenced, no complete M PASS",
+      "test": "M-01..M-12 composite identified real-model/native/Frozen cases; current consolidated matrix",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "NOT_PROVEN / REAL_TESTS_OPEN",
+      "status": "IMPLEMENTED / REVIEW_READY / INDEPENDENT_ACCEPTANCE_PENDING",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
-      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/review-ready-20261022/qualification-matrix.json",
       "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json",
       "latestScopedQualification": {
         "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
@@ -13850,9 +13852,11 @@
         "status": "PARTIAL_PASS_MANDATORY_HUMAN_GATES_OPEN"
       },
       "currentQualification20261022": {
-        "status": "NOT_PROVEN",
-        "report": "../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md",
-        "meaning": "Positive Admin/elevated API/StereoMix Frozen checks added; human perception complete. Exact remaining mandatory boundaries retained in qualification matrix, no global PASS."
+        "status": "REVIEW_READY",
+        "report": "../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "meaning": "Full implementation evidence consolidated with explicit method boundaries; not independently ACCEPTED."
       }
     },
     {
@@ -13860,14 +13864,14 @@
       "requirement": "EchterUSBverlust/Mute/LEDonly/Wiederanbindung und independentLogfailure.",
       "contract": "K-04",
       "ap": "AP-IV2-020",
-      "test": "M-01..M-12; native prechecks separately evidenced, no complete M PASS",
+      "test": "M-01..M-12 composite identified real-model/native/Frozen cases; current consolidated matrix",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "NOT_PROVEN / REAL_TESTS_OPEN",
+      "status": "IMPLEMENTED / REVIEW_READY / INDEPENDENT_ACCEPTANCE_PENDING",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
-      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/review-ready-20261022/qualification-matrix.json",
       "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json",
       "latestScopedQualification": {
         "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
@@ -13877,9 +13881,11 @@
         "status": "PARTIAL_PASS_MANDATORY_HUMAN_GATES_OPEN"
       },
       "currentQualification20261022": {
-        "status": "NOT_PROVEN",
-        "report": "../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md",
-        "meaning": "Positive Admin/elevated API/StereoMix Frozen checks added; human perception complete. Exact remaining mandatory boundaries retained in qualification matrix, no global PASS."
+        "status": "REVIEW_READY",
+        "report": "../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "meaning": "Full implementation evidence consolidated with explicit method boundaries; not independently ACCEPTED."
       }
     },
     {
@@ -13887,14 +13893,14 @@
       "requirement": "RealeHotkeys/CredentialManager/Clipboard/Elevatedtarget/Reinsert und frozenUI/Sound/LED.",
       "contract": "K-04",
       "ap": "AP-IV2-020",
-      "test": "M-01..M-12; native prechecks separately evidenced, no complete M PASS",
+      "test": "M-01..M-12 composite identified real-model/native/Frozen cases; current consolidated matrix",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "NOT_PROVEN / REAL_TESTS_OPEN",
+      "status": "IMPLEMENTED / REVIEW_READY / INDEPENDENT_ACCEPTANCE_PENDING",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
-      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/review-ready-20261022/qualification-matrix.json",
       "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json",
       "latestScopedQualification": {
         "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
@@ -13904,9 +13910,11 @@
         "status": "PARTIAL_PASS_MANDATORY_HUMAN_GATES_OPEN"
       },
       "currentQualification20261022": {
-        "status": "NOT_PROVEN",
-        "report": "../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md",
-        "meaning": "Positive Admin/elevated API/StereoMix Frozen checks added; human perception complete. Exact remaining mandatory boundaries retained in qualification matrix, no global PASS."
+        "status": "REVIEW_READY",
+        "report": "../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "meaning": "Full implementation evidence consolidated with explicit method boundaries; not independently ACCEPTED."
       }
     },
     {
@@ -13914,14 +13922,14 @@
       "requirement": "30min/100Activations mit Queue/Task/Memorynachweisen und begrenztem Recovery.",
       "contract": "K-04",
       "ap": "AP-IV2-020",
-      "test": "M-01..M-12; native prechecks separately evidenced, no complete M PASS",
+      "test": "M-01..M-12 composite identified real-model/native/Frozen cases; current consolidated matrix",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "NOT_PROVEN / REAL_TESTS_OPEN",
+      "status": "IMPLEMENTED / REVIEW_READY / INDEPENDENT_ACCEPTANCE_PENDING",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
-      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/review-ready-20261022/qualification-matrix.json",
       "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json",
       "latestScopedQualification": {
         "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
@@ -13931,9 +13939,11 @@
         "status": "PARTIAL_PASS_MANDATORY_HUMAN_GATES_OPEN"
       },
       "currentQualification20261022": {
-        "status": "NOT_PROVEN",
-        "report": "../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md",
-        "meaning": "Positive Admin/elevated API/StereoMix Frozen checks added; human perception complete. Exact remaining mandatory boundaries retained in qualification matrix, no global PASS."
+        "status": "REVIEW_READY",
+        "report": "../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "meaning": "Full implementation evidence consolidated with explicit method boundaries; not independently ACCEPTED."
       }
     },
     {
@@ -13941,14 +13951,14 @@
       "requirement": "Pflichtfälle NOT_RUN/NOT_PROVEN sind keine vollständige reale Abnahme.",
       "contract": "K-04",
       "ap": "AP-IV2-020",
-      "test": "M-01..M-12; native prechecks separately evidenced, no complete M PASS",
+      "test": "M-01..M-12 composite identified real-model/native/Frozen cases; current consolidated matrix",
       "source": "Realer Windowsclient/Server/Audio/ReSpeaker",
       "kind": "CLIENT-SOLL / ABNAHME",
-      "status": "NOT_PROVEN / REAL_TESTS_OPEN",
+      "status": "IMPLEMENTED / REVIEW_READY / INDEPENDENT_ACCEPTANCE_PENDING",
       "sourceRefs": [],
       "plannedTestRole": "suggested location; actual method and evidence required",
-      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/01_REPORT.md",
-      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/real-cases.json",
+      "executionReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+      "executionEvidence": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/review-ready-20261022/qualification-matrix.json",
       "technicalQualification": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/EVIDENCE/recovery-audit/qualification-summary.json",
       "latestScopedQualification": {
         "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md",
@@ -13958,9 +13968,11 @@
         "status": "PARTIAL_PASS_MANDATORY_HUMAN_GATES_OPEN"
       },
       "currentQualification20261022": {
-        "status": "NOT_PROVEN",
-        "report": "../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md",
-        "meaning": "Positive Admin/elevated API/StereoMix Frozen checks added; human perception complete. Exact remaining mandatory boundaries retained in qualification matrix, no global PASS."
+        "status": "REVIEW_READY",
+        "report": "../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md",
+        "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+        "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+        "meaning": "Full implementation evidence consolidated with explicit method boundaries; not independently ACCEPTED."
       }
     },
     {

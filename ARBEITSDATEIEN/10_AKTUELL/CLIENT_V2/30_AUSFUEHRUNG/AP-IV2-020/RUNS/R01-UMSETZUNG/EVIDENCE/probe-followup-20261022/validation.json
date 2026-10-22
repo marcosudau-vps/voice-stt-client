@@ -1,0 +1,19 @@
+{
+  "result": "PASS_SCOPED_HELPER_REGRESSION",
+  "packageStatus": "BLOCKED",
+  "sourceHeadAtStart": "344f8693a83b0f0cc6dbd8afd8d5a60e6d7a00e4",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "helperTests": 82,
+  "helperSkips": 0,
+  "helperTestSeconds": 2.691,
+  "compileall": "PASS",
+  "windowsSuite": "1400/0skips existing complete unchanged-product proof in technical-rest-20261021",
+  "liveRetest": "NOT_PROVEN_UNBOUND_OBSERVATION",
+  "guiStart": "Actual EXE/Ready/countdown observed; recorded-fixture case did not produce speech/final. No full GUI/ASR PASS.",
+  "commands": [
+    ".\\venv\\Scripts\\python.exe -m unittest discover -v -s tests/manual/v2 -p test_*.py",
+    ".\\venv\\Scripts\\python.exe -m compileall -q tests/manual/v2"
+  ],
+  "remaining": "qualification-matrix.json"
+}

@@ -1,0 +1,43 @@
+{
+  "result": "REVIEW_READY",
+  "sourceHeadAtStart": "344f8693a83b0f0cc6dbd8afd8d5a60e6d7a00e4",
+  "sourceTreeAtStart": "604062ea3de62375dcee257308eb2b1d0497f32d",
+  "canonicalParent": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+  "productCommit": "0f6c85e0ecf971e596aae1b7d265dad7132754e2",
+  "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "pythonExecutable": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\workspaces\\client-v2\\venv\\Scripts\\python.exe",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "windows": [
+    "11",
+    "10.0.26300",
+    "SP0",
+    "Multiprocessor Free"
+  ],
+  "windowsTests": 1400,
+  "windowsSkips": 0,
+  "windowsModules": 79,
+  "fullSuite": "review-final-windows-assessment.json",
+  "helpers": {
+    "tests": 83,
+    "skips": 0,
+    "seconds": 3.949,
+    "log": "review-final-helpers.log.gz"
+  },
+  "compileall": "PASS",
+  "runtimeCases": [
+    "native-pending-directsound.json",
+    "frozen-native-overlap-complete.json",
+    "desktop-launch-assessment.json"
+  ],
+  "commands": [
+    ".\\venv\\Scripts\\python.exe -m tests.manual.v2.isolated_windows_suite --output build/ap-iv2-020-suite/review-isolated-windows",
+    ".\\venv\\Scripts\\python.exe -m unittest discover -v -s tests -p test_v2_settings_service.py (complete34-test serial retry)",
+    ".\\venv\\Scripts\\python.exe -m unittest discover -v -s tests/manual/v2 -p test_*.py",
+    ".\\venv\\Scripts\\python.exe -m compileall -q tests/manual/v2"
+  ],
+  "productSourcesUnchanged": true,
+  "testOnlyChange": "test_v2_audio_recovery: configurable fake ACK timeout and bounded wait for actual watchdog state; no assertion removed.",
+  "independentReview": "NOT_RUN_IN_THIS_SESSION",
+  "cleanup": "cleanup.json"
+}

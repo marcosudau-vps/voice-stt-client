@@ -5,3 +5,9 @@ idle:
   color: '#FFFFFF'
   min_brightness: 0.30
   brightness: 1.0
+
+# Persisted recipe for existing session configuration, not a global server PATCH
+# or an undocumented change of release defaults.
+desired_settings:
+  activation.followupTimeoutMs: 5000
+  wakeWord.preRollMs: 320
