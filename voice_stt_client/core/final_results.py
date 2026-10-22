@@ -122,15 +122,17 @@ class V2ResultService:
                         != (final.activation_id, final.segment_sequence, final.event_id, final.event_seq, final.text)):
                     logger.warning('Ignoring final without an authoritative segment identity')
                     continue
-                if final.event_seq <= self._last_final_event_seq:
-                    continue
-                self._last_final_event_seq = final.event_seq
                 identity = (final.activation_id, final.segment_sequence, 'completed', final.text)
                 previous = self._terminals.get(final.segment_id)
                 if previous is not None:
                     outcomes.append(ResultOutcome('deduplicated', final, view.generation,
                                                   reason='duplicate', is_conflict=previous != identity))
                     continue
+                if final.event_seq <= self._last_final_event_seq:
+                    outcomes.append(ResultOutcome('deduplicated', final, view.generation,
+                                                  reason='retired_publication'))
+                    continue
+                self._last_final_event_seq = final.event_seq
                 # Reserve before text checks/storage; an empty first terminal is final too.
                 self._terminals[final.segment_id] = identity
                 if not final.text.strip():
