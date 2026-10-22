@@ -1,3 +1,7 @@
+## 2026-10-22 – AP-IV2-020 / unabhängiges R02-Review: CHANGES_REQUIRED
+
+Frische unabhängige Prüfung von PR15/Head29fb0e159c69051bedba6d097f69a5974fc09528: bestehende reale Windows-/Wake-/ASR-/Frozen- und 1400-Testevidenz anerkannt im jeweils ausgewiesenen Scope. Zwei Pflichtfindings IV2-020-R02-F01 und F02 zur kombinierten 30min/100-/USB-Recovery sowie zur fehlenden Begrenzung des Sessionledgers. [R02-Abnahmebericht](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md). Kein Merge, keine Release-/Serverpromotion; nächste Aktion Korrektur durch Umsetzer und unabhängige Nachabnahme.
+
 ## 2026-10-15 – AP-IV2-020 / R01 fortgesetzt: Recovery technisch requalifiziert
 
 Ausdrückliche enge Scope-Ausnahme gesichert; derselbe Branch/R01/Draft-PR15.
