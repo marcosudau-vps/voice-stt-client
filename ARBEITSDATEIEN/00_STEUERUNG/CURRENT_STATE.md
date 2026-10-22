@@ -1,3 +1,7 @@
+## AP-IV2-020 – abgeschlossen / COMPLETED, 22.10.2026
+
+[Postmerge-Abschlussnachweis](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/NACH_ABSCHLUSS/ABSCHLUSS.json): PR15 als einzelner Squashcommit `9f9fdf2b19f99a6d4f255d76b6cfa9ef3de493b2` auf `feat/client-v2` übernommen; Parent/Tree geprüft, Nachmerge-CI 39760275249 erfolgreich. Alle regulären Client-V2-Pakete kanonisiert; keine automatische Main-/Server-/Release-/Bereinigungsaktion. Der Nachweis liegt als rein administrativer Nachtrag auf dem Paketarbeitsbranch, nicht als zweiter Featurecommit. Die Einträge darunter sind historische Vormergezustände.
+
 ## AP-IV2-020 / R05-UEBERNAHME – READY_FOR_CANONICALIZATION, 22.10.2026
 
 Ausdrückliche menschliche [PR15-Squashfreigabe](../10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md) liegt vor, zu Head `5bb82673f076d145b3c197343d3e144a41626c7e` und `feat/client-v2` / Parent `b80ed8b81ad92bd02ac32553883443d2b7673bcd`. Unabhängiger R04-ROOT_PASS bleibt gültig; letzte CI des Freigabe-Heads ist grün. Merge bis zur abschließenden Head-/CI-Kontrolle noch nicht durchgeführt. Kein Release/Server/Main.

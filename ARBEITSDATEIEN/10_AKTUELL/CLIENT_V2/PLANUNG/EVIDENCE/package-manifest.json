@@ -850,7 +850,7 @@
         "AP-IV2-010"
       ],
       "path": "ARBEITSPAKETE/AP-IV2-020.md",
-      "status": "ROOT_PASS",
+      "status": "ACCEPTED",
       "testModules": [],
       "requirements": [
         "REAL-01",
@@ -892,7 +892,10 @@
       "correctionFindingDisposition": "R02-F02 CLOSED_VERIFIED_R04; R02-F01 WITHDRAWN_BY_REVIEWER; Issue16 technically verified R04",
       "latestReviewRun": "R04-ABNAHME",
       "humanApproval": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md",
-      "canonicalizationReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/01_REPORT.md"
+      "canonicalizationReport": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/01_REPORT.md",
+      "acceptedCommit": "9f9fdf2b19f99a6d4f255d76b6cfa9ef3de493b2",
+      "acceptedTree": "dd2b51e8e91ffaa4854b268ecba1fba278567a65",
+      "completionEvidence": "ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/NACH_ABSCHLUSS/ABSCHLUSS.json"
     },
     {
       "id": "AP-SV2-FIX",

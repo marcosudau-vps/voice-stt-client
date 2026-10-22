@@ -1,3 +1,7 @@
+## AP-IV2-020 – kanonisch übernommen / COMPLETED (22.10.2026)
+
+[Nachmerge-Abschluss](30_AUSFUEHRUNG/AP-IV2-020/NACH_ABSCHLUSS/ABSCHLUSS.json): PR #15 merged, genau ein neuer Squashcommit `9f9fdf2b19f99a6d4f255d76b6cfa9ef3de493b2`, Parent/Tree geprüft und finale Nachmerge-CI erfolgreich. [R04-ROOT_PASS](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md) plus [menschliche R05-Freigabe](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md). Kein neues Main-/Server-/Release-/Tagrecht. Darunter alte Stände historisch.
+
 ## AP-IV2-020 / R04-ABNAHME – ROOT_PASS, 22.10.2026
 
 [Unabhängiger R04-Bericht](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md): PR15-Kandidat `ca56b5ab58c47bd97bae36335e9d9314b2d35294`, 6/6 REAL PASS, R02-F02 geprüft geschlossen, F01 zurückgenommen, Issue #16 technisch verifiziert, Windows-CI 39734511679 grün. Kein offenes Pflichtfinding; **WAITING_FOR_APPROVAL** bis zur ausdrücklichen menschlichen Übernahmefreigabe. Kein Merge. Ältere R03/R02-Vermerke historisch.

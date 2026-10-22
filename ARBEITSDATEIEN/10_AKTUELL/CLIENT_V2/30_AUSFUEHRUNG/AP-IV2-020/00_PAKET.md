@@ -1,3 +1,7 @@
+## AP-IV2-020 / NACH_ABSCHLUSS – ACCEPTED / COMPLETED, 22.10.2026
+
+[Abschlussnachweis](NACH_ABSCHLUSS/ABSCHLUSS.json) für [PR #15](https://github.com/marcosudau-vps/voice-stt-client/pull/15): endgültiger einzelner Squashcommit `9f9fdf2b19f99a6d4f255d76b6cfa9ef3de493b2`, Parent `b80ed8b81ad92bd02ac32553883443d2b7673bcd`, Baum gleich finalem PR-Head. Nachmerge-CI 39760275249 erfolgreich. Dieser Nachtrag ist ausschließlich auf dem Paketarbeitsbranch gespeichert; `feat/client-v2` bleibt auf genau einem neuen Paketcommit. Ältere R05-/R04-/R03-Zustände historisch.
+
 ## AP-IV2-020 / R05-UEBERNAHME – menschlich freigegeben, 22.10.2026
 
 [Originalfreigabe](RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md) · [Übernahmevorbereitung](RUNS/R05-UEBERNAHME/01_REPORT.md). R04-ROOT_PASS für `ca56b5ab58c47bd97bae36335e9d9314b2d35294`, Freigabe für PR15 bei Head `5bb82673f076d145b3c197343d3e144a41626c7e`, Base `feat/client-v2` / Parent `b80ed8b81ad92bd02ac32553883443d2b7673bcd`. CI des Freigabe-Heads 39740375351 erfolgreich. **READY_FOR_CANONICALIZATION; noch kein Merge/ACCEPTED behauptet.** Späterer endgültiger Gitnachweis unter `NACH_ABSCHLUSS/ABSCHLUSS.json` nach tatsächlichem Squash. Vorherige R04- und R03-Abschnitte sind historisch.

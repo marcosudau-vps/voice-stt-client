@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "package": "AP-IV2-020",
+  "repository": "marcosudau-vps/voice-stt-client",
+  "canonicalBranch": "feat/client-v2",
+  "conclusion": "COMPLETED",
+  "packageStatus": "ACCEPTED",
+  "timestampUTC": "2026-10-22",
+  "pullRequest": {
+    "number": 15,
+    "url": "https://github.com/marcosudau-vps/voice-stt-client/pull/15",
+    "merged": true,
+    "mergeMethod": "squash",
+    "state": "closed"
+  },
+  "canonicalization": {
+    "aggregateSha": "9f9fdf2b19f99a6d4f255d76b6cfa9ef3de493b2",
+    "aggregateTree": "dd2b51e8e91ffaa4854b268ecba1fba278567a65",
+    "parentSha": "b80ed8b81ad92bd02ac32553883443d2b7673bcd",
+    "parentCount": 1,
+    "aheadCommitsFromParent": 1,
+    "finalPRHeadSha": "d39fa779a361fc1974b02e93cbf8a7b0b236c021",
+    "finalPRHeadTree": "dd2b51e8e91ffaa4854b268ecba1fba278567a65",
+    "treeEqualityConfirmed": true,
+    "branchHeadEqualsAggregate": true
+  },
+  "review": {
+    "verdict": "ROOT_PASS",
+    "reviewedSha": "ca56b5ab58c47bd97bae36335e9d9314b2d35294",
+    "report": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R04-ABNAHME/01_REPORT.md",
+    "openFindings": [],
+    "withdrawnFinding": "IV2-020-R02-F01",
+    "closedFinding": "IV2-020-R02-F02"
+  },
+  "humanApproval": {
+    "record": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R05-UEBERNAHME/00_PROMPT_ORIGINAL.md",
+    "approvedPRHeadAtGrant": "5bb82673f076d145b3c197343d3e144a41626c7e"
+  },
+  "checks": {
+    "preMergePRRun": {
+      "id": 39759321496,
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/actions/runs/39759321496",
+      "headSha": "d39fa779a361fc1974b02e93cbf8a7b0b236c021",
+      "conclusion": "success"
+    },
+    "postMergeBranchRun": {
+      "id": 39760275249,
+      "url": "https://github.com/marcosudau-vps/voice-stt-client/actions/runs/39760275249",
+      "headSha": "9f9fdf2b19f99a6d4f255d76b6cfa9ef3de493b2",
+      "conclusion": "success"
+    },
+    "suite": "Full Windows suite, compileall, EXE GUI smoke, wheel/sdist, installed wheel smoke, artifact upload"
+  },
+  "scope": {
+    "serverPromotion": false,
+    "mainPromotion": false,
+    "release": false,
+    "tag": false,
+    "cleanup": false,
+    "postMergeProof": "post-merge administrative work-branch commit only; feat/client-v2 remains unchanged"
+  },
+  "remainingKnownBoundaries": [
+    "R01 real hardware/model calibration and high-integrity target application boundaries remain as previously documented.",
+    "Issue #16 has independent technical verification and has been merged but its GitHub issue remains administratively open; no remaining technical correction identified."
+  ]
+}
