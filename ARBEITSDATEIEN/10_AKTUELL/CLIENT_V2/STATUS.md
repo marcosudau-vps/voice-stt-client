@@ -1,3 +1,7 @@
+## AP-IV2-020 / R02-ABNAHME – CHANGES_REQUIRED, 22.10.2026
+
+Unabhängiges Ergebnis auf PR15-Head 29fb0e159c69051bedba6d097f69a5974fc09528: zwei offene Pflichtfindings [R02-F01/F02](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md). Weitere R01-REVIEW_READY-Angaben darunter sind historisch, keine Freigabe. Kein Merge.
+
 ## AP-IV2-020/R01 – REVIEW_READY,22.10.2026
 
 [Abschlussbericht40](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/40_REVIEW_READY_UND_KONSOLIDIERTE_QUALIFIKATION.md): **REVIEW_READY**: native ReSpeaker-Altfinal/Recovery/Runpausen und finale normale EXE mit A-final während B-Sprache sowie zwei sichtbaren Ausgaben belegt. Vollständige1400Windows/0Skips/79Module,83Helfer/0Skips,compileall PASS. Produkt0f6c85e/Server67f3ce45 unverändert.18letzte eigene Profile archiviert entfernt, externer Namensraum leer. Zusammengesetzte Methoden/Grenzen und historische Fehlläufe explizit dokumentiert; kein eigener ROOT_PASS. Gleicher R01/Paketbranch/PR15; Schreibhoheit für unabhängigen Review zurückgegeben.
