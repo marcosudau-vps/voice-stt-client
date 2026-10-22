@@ -19,13 +19,12 @@
   "reviewedCommit": null,
   "reviewReport": null,
   "openFindingIds": [
-    "IV2-020-T02",
-    "IV2-020-T03"
+    "IV2-020-T02"
   ],
   "humanApproval": null,
   "writeOwner": "AP-IV2-020/R01-UMSETZUNG/Codex-local-2026-10-15",
-  "blockingReason": "Technische Restkombinationen abgeschlossen. Gültiger Admincheck, erhöhtes Ziel/UAC sowie endgültige Frozen-/physische/Umwelt-/Overlay- und T02/T03-Abnahme noch nicht vollständig belegt. W02 geschlossen; keine neuen Produktdefekte aus Testhilfen-Fails ableiten.",
-  "nextAction": "Ein gebündelter menschlicher Abschlussblock nur für sichere Adminverfügbarkeit, UAC/erhöhtes Ziel und finale Frozen-/physische/Wahrnehmungsgrenzen. Bereits bestandene Standarddiktate, technische Kombinationen und identischen Replaydauerlauf nicht wiederholen.",
+  "blockingReason": "Admin and elevated API/clipboard checks completed; human perception explicitly complete. Initial real ReSpeaker EXE automatic insertion failed despite correct ASR; minimal one-phrase retry prepared. Physical pending-final/Frozen-overlap/endurance boundaries remain NOT_PROVEN.",
+  "nextAction": "Human starts prepared single Alexa probe (no hotkeys); agent evaluates, archives/removes its runtime, then resolves specific remaining technical gates. No repeated perception block, self-review or merge.",
   "workAuthorization": {
     "scope": "Workflowweit Paketbranches/Worktrees, Kandidatencommits, normale Paketbranch-Pushes, Paket-PRs mit Base feat/client-v2 samt ÃƒÅ“bergabekommentaren; spÃƒÂ¤tere ausdrÃƒÂ¼cklich beauftragte Reviews nur Docs/Evidenz/administrative Verweise. Keine kanonische ÃƒÅ“bernahme, Main/Server-Promotion, Tags, Releases, Force-Pushes oder Cleanup.",
     "source": "30_AUSFUEHRUNG/AP-CV2-000/RUNS/R01-UMSETZUNG/00_PROMPT_ORIGINAL.md",
@@ -41,7 +40,8 @@
     "selectedServerAndDeferralSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/017_W01_AUFSCHUB_UND_V2_TESTZIEL.md",
     "guidedSuiteSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/018_GEFUEHRTER_RESTTESTLAUF.md",
     "dedicatedTestRuntimeWithCleanupSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/019_TESTABLAGE_MIT_AUFRAEUMPFLICHT.md",
-    "liveProgressCorrectionSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/020_LIVE_FORTSCHRITT_TESTOBERFLAECHE.md"
+    "liveProgressCorrectionSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/020_LIVE_FORTSCHRITT_TESTOBERFLAECHE.md",
+    "finalAdminUacPerceptionSource": "30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/ZUSATZPROMPTS/036_ADMIN_UAC_UND_WAHRNEHMUNGSABSCHLUSS.md"
   },
   "candidateSelection": {
     "candidateId": "AP-IV2-020",

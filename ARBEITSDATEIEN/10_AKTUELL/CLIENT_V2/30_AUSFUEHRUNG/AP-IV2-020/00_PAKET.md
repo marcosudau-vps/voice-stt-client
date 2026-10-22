@@ -1,3 +1,7 @@
+## Aktuelle Restqualifikation,22.10.2026
+
+[Bericht38](RUNS/R01-UMSETZUNG/38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md): Adminguard positiv und generationgebunden, erhöhtes eigenes UAC-Ziel/APIstatus und drei native Stereomix-EXE-Einfügungen belegt. Erste ReSpeaker-ASR korrekt, automatische Einfügung fehlte; bewusster EXE-Reinsert erfolgreich. Minimaler Ein-Satz-Wakeversuch ohne Hotkeys vorbereitet, Wiederholen/Weiter repariert.80Helfer/Qt PASS; Produkt0f6c85e und1400Windowsbeleg unverändert. Wahrnehmungsabfragen menschlich abgeschlossen. Zehn beendete Profile plus Helfer-TEMP hashgesichert entfernt; nur ungestartete Abschlussprobe bleibt. Technische Restgrenzen NOT_PROVEN, BLOCKED/gleicher R01/PR15.
+
 ## Aktuelle Paarqualifikation,20.10.2026
 
 Neuer menschlich benannter und tatsächlich belegter Serverstand `67f3ce45f6ea1ff659382e40c194c70bd33d58ff` nach Wakefix/Identitätserweiterung. Bisheriger Pinada13b0 bleibt historische Vertrags-/Testherkunft. [Rückkehr und neue Belege](RUNS/R01-UMSETZUNG/27_SERVERFIX_RUECKKEHR_UND_REQUALIFIKATION.md); keine ungeprüfte Übertragung alter Paar-PASS.
@@ -5,7 +9,7 @@ Neuer menschlich benannter und tatsächlich belegter Serverstand `67f3ce45f6ea1f
 # AP-IV2-020 – reale Windows-, Modell- und Hardwarequalifikation
 
 Status **BLOCKED**, Workflow **IMPLEMENTATION_IN_PROGRESS** für unabhängige Restprüfungen, 2026-10-19.
-W01 ist aktuell geschlossen verifiziert; Gesamtabnahme durch die konkreten Restgates aus Bericht37 blockiert.
+W01 ist aktuell geschlossen verifiziert; Gesamtabnahme durch die konkreten Restgates aus Bericht38 blockiert.
 Rolle: ein Umsetzer, R01-UMSETZUNG. Schreibhoheit: Codex in dieser Session.
 Branch `work/client-v2/ap-iv2-020`, Base `feat/client-v2`, tatsächlicher Parent
 `b80ed8b81ad92bd02ac32553883443d2b7673bcd`.

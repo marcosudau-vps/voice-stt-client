@@ -87,6 +87,27 @@ Vorbereitungen/Nachweise. Sie werden nicht durch Klicks auf Weiter geschlossen.
 
 ## Helferprüfungen
 
+Aktueller minimaler Abschlusslauf mit der normalen gehashten EXE:
+
+```powershell
+.\venv\Scripts\python.exe -m tests.manual.v2.frozen_acoustic_probe --human --only wake --output build/ap-iv2-020-suite/<neuer-eindeutiger-lauf> --expected-server-commit 67f3ce45f6ea1ff659382e40c194c70bd33d58ff
+```
+
+Der eigene Client startet erst nach dem Startklick. Satz und alle Schritte
+vorher sichtbar, acht Sekunden Vorbereitung nach Ready, genau ein Alexa-Satz,
+keine Hotkeys, keine automatische Folgeaufgabe. Bei fehlender Einfügung kann
+der idle Versuch mit Abweichung beendet und dieselbe Aufgabe wiederholt
+werden; Test beenden ist jederzeit erreichbar. Ein Fokusverlust nach Start
+beendet den eigenen Client. Reale Ergebnisse stehen im gewählten result.json;
+History-/Profilbytes bleiben privat und werden vor Cleanup hasharchiviert.
+
+Ohne --human können bewusste WAVs über Fixtureknöpfe abgespielt werden. Ein
+explizit gewählter --device verwendet dessen native Rate/Kanalzahl und echte
+PortAudio-/Wiremetadaten. Stereomix ist eine andere Eingabe und ersetzt keinen
+ReSpeaker-Akustikbeleg. Erfolgreicher ASRtexttransfer bedeutet keine perfekte
+ASRqualität. Bewusstes --reinsert-history akzeptiert nur eigene Qualifikations-
+History im genehmigten Namensraum. Keine V1-Daten oder Secrets importieren.
+
 ```powershell
 .\venv\Scripts\python.exe -m unittest discover -v -s tests/manual/v2 -p test_*.py
 $env:QT_QPA_PLATFORM='offscreen'

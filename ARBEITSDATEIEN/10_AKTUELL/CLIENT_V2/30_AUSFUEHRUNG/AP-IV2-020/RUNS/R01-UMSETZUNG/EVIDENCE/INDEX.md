@@ -1,3 +1,7 @@
+## AP-IV2-020/R01 – Abschlussproben,22.10.2026
+
+[Bericht38](../38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md): Adminguard positiv und generationgebunden, erhöhtes eigenes UAC-Ziel/APIstatus und drei native Stereomix-EXE-Einfügungen belegt. Erste ReSpeaker-ASR korrekt, automatische Einfügung fehlte; bewusster EXE-Reinsert erfolgreich. Minimaler Ein-Satz-Wakeversuch ohne Hotkeys vorbereitet, Wiederholen/Weiter repariert.80Helfer/Qt PASS; Produkt0f6c85e und1400Windowsbeleg unverändert. Wahrnehmungsabfragen menschlich abgeschlossen. Zehn beendete Profile plus Helfer-TEMP hashgesichert entfernt; nur ungestartete Abschlussprobe bleibt. Technische Restgrenzen NOT_PROVEN, BLOCKED/gleicher R01/PR15.
+
 ## Autonome Restqualifikation –21.10.2026
 
 [Bericht37](../37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md), [abschließender29-Fälle-Lauf](technical-rest-20261021/technical-final-all/result.json), [Windows/Helfer](technical-rest-20261021/technical-final-regression/result.json), [Logstoresperre](technical-rest-20261021/logstore-rest-bounded/result.json), [native Einfügung/Crash](technical-rest-20261021/native-rest-preservation.json), [Frozen-Idle](technical-rest-20261021/frozen-native-confirmed.json), [Validierung](technical-rest-20261021/validation.json), [Manifest](technical-rest-20261021/export-manifest.json), [Aufräumen](technical-rest-20261021/cleanup.json). Die historischen Fehlversuche bleiben separat erhalten.

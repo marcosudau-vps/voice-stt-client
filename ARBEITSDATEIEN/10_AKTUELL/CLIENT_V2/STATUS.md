@@ -1,3 +1,7 @@
+## AP-IV2-020/R01 – Abschlussproben,22.10.2026
+
+[Bericht38](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md): Adminguard positiv und generationgebunden, erhöhtes eigenes UAC-Ziel/APIstatus und drei native Stereomix-EXE-Einfügungen belegt. Erste ReSpeaker-ASR korrekt, automatische Einfügung fehlte; bewusster EXE-Reinsert erfolgreich. Minimaler Ein-Satz-Wakeversuch ohne Hotkeys vorbereitet, Wiederholen/Weiter repariert.80Helfer/Qt PASS; Produkt0f6c85e und1400Windowsbeleg unverändert. Wahrnehmungsabfragen menschlich abgeschlossen. Zehn beendete Profile plus Helfer-TEMP hashgesichert entfernt; nur ungestartete Abschlussprobe bleibt. Technische Restgrenzen NOT_PROVEN, BLOCKED/gleicher R01/PR15.
+
 ## AP-IV2-020/R01 – autonome Restprüfung,21.10.2026
 
 [Bericht37](30_AUSFUEHRUNG/AP-IV2-020/RUNS/R01-UMSETZUNG/37_AUTONOME_RESTQUALIFIKATION_UND_MENSCHLICHE_GRENZEN.md): Autonome Restprüfung:29aktuelle Runtime-Kombinationsfälle, beide engen Renngewinner,3Altfinal/B-Sprache-Paare, native Clipboard-/Prozessabbruchfälle, echter LED-only-Ausfall bei offenem Input und separate SQLite-Logstoresperre PASS_SCOPED. Qualifizierte EXE startet nativ mit realem ReSpeaker/Ready. Neue1400Windows/0Skips,73Helfer/0Skips und Qt/retirierter Starter PASS; Produkt0f6c85e unverändert. Alle19neuen Laufzeitordner gesichert entfernt. Menschlicher Rest: gültiger Admincheck, erhöhtes Ziel/UAC, finaler EXE-/physischer/Umwelt-/Overlay-Abschluss einschließlich T02/T03; W02 bleibt geschlossen. BLOCKED/IMPLEMENTATION_IN_PROGRESS, gleicher R01/PR15.

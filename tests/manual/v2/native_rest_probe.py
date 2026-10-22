@@ -38,6 +38,8 @@ def worker(folder,mode,target_pid):
                 save(folder/'barrier.json',dict(phase='before_send_input'))
                 time.sleep(30);raise TimeoutError('Crash barrier not released')
             sent=super().send_input_keyboard(events)
+            save(folder/'native-api.json',dict(sentEvents=sent,expectedEvents=len(events),
+                foregroundPid=self.get_window_thread_process_id(self.get_foreground_window())[1]))
             if mode=='crash-after':
                 save(folder/'barrier.json',dict(phase='after_send_input',sent=sent,expected=len(events)))
                 time.sleep(30);raise TimeoutError('Crash barrier not released')

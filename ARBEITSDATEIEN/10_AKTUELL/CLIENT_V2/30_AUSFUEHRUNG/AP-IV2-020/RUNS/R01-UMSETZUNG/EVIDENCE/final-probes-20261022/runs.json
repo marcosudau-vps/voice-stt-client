@@ -1,0 +1,62 @@
+[
+  {
+    "name": "admin-final-confirmed",
+    "result": "PASS_SCOPED",
+    "runtimeName": "admin-final-beb3fa64dab6",
+    "sourceReportSha256": "f99b7149802a15544ab46780f3f5555a3d870913eef53d94aea47ef827d2bd52"
+  },
+  {
+    "name": "elevated-final-confirmed",
+    "result": "FAIL",
+    "runtimeName": "elevated-final-e689318540dd",
+    "sourceReportSha256": "6e2ecfc167d65d031154878f3cc9d5a59c7157d78c3dde459a4f5e971964d94a"
+  },
+  {
+    "name": "elevated-final-observed",
+    "result": "PASS_SCOPED",
+    "runtimeName": "elevated-final-b6fdc3635ebc",
+    "sourceReportSha256": "80efedacef41ccbb52eabf2ea603a6b3ea7d76e49275500d7d52a66d27b5b96c"
+  },
+  {
+    "name": "frozen-acoustic-final",
+    "result": "TIMEOUT",
+    "runtimeName": "frozen-acoustic-6aa90fb005b7",
+    "sourceReportSha256": "64e9e2c27d92cbfcdcbe426f6a4b10bb9b6e7dd67364b51a6bd2369c8a9e17a0"
+  },
+  {
+    "name": "frozen-live-final",
+    "result": "ABORTED_TARGET_LOST_FOCUS",
+    "runtimeName": "frozen-acoustic-2cb072180ec7",
+    "sourceReportSha256": "eecb652125054ab64a81d9a7dfa0ecacdb84f7a718c8262fb5d4772c04ceb393"
+  },
+  {
+    "name": "native-current-control",
+    "result": "PASS_SCOPED",
+    "runtimeName": "native-rest-2aba87a145f9",
+    "sourceReportSha256": "9220bbb809275156cb1b4bda5251996ac189fe8aa0cc42533a3c6fb53b101cc4"
+  },
+  {
+    "name": "frozen-reinsert-diagnostic",
+    "result": "NOT_PROVEN",
+    "runtimeName": "frozen-acoustic-ab750ff55e48",
+    "sourceReportSha256": "bfddb2a28ea5cef293f02dcbf49e93c6f20b05dffc664fef18999da630fb5998"
+  },
+  {
+    "name": "frozen-stereomix-final",
+    "result": "TIMEOUT",
+    "runtimeName": "frozen-acoustic-3ac6ce0d118d",
+    "sourceReportSha256": "b23e98ff7df7d1404b6385ce02cc99c7e871dc7a2fb60bd6d171e94762439c47"
+  },
+  {
+    "name": "frozen-stereomix-native-format",
+    "result": "PASS_SCOPED",
+    "runtimeName": "frozen-acoustic-a997fd8b1c22",
+    "sourceReportSha256": "d2ecd7992331a9d2c5ca03d1301580d6cd26e0587a304791fb23f2424b3233a7"
+  },
+  {
+    "name": "frozen-live-minimal",
+    "result": "NOT_PROVEN",
+    "runtimeName": "frozen-acoustic-b41865f1a3f3",
+    "sourceReportSha256": "e18ab730787393c665e48e6f31d0186ba528fe5f7b31e2223976cf37ea640696"
+  }
+]

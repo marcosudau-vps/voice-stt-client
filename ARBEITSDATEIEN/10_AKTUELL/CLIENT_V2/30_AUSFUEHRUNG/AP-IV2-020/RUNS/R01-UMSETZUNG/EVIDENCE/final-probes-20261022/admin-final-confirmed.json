@@ -1,0 +1,70 @@
+{
+  "result": "PASS_SCOPED",
+  "pid": 39440,
+  "runtimeFolder": "C:\\Users\\marco\\.voice-stt\\qualification\\AP-IV2-020\\admin-final-beb3fa64dab6",
+  "infoBefore": {
+    "schemaVersion": 1,
+    "protocolVersion": 2,
+    "serverVersion": "2.0.0",
+    "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+    "identityStatus": "complete",
+    "build": {
+      "sourceTree": "74f37cad84c5be9e74d880a4b10c3d9623de7da3",
+      "sourceDirty": false,
+      "sourceDate": "2026-10-20T12:50:26Z"
+    },
+    "distribution": {
+      "name": "voicestt",
+      "packageVersion": "2.0.0"
+    },
+    "runtime": {
+      "krokoVariant": "pro"
+    },
+    "serverInstanceId": "14e6ff8dc2704f7298924b0d1de5cd1b"
+  },
+  "credentialSource": "Explicit user file / VOICESTT_ADMIN_API_KEY; memory only",
+  "remember": false,
+  "checks": {
+    "positiveGuardVerified": true,
+    "oldGenerationInvalidated": true,
+    "freshGenerationVerified": true,
+    "defaultsUnchanged": true,
+    "vaultUnchanged": true,
+    "inMemoryKeyInvalidated": true,
+    "noSecretInOwnFiles": true
+  },
+  "hello": [
+    {
+      "generation": 1,
+      "sessionId": "a01bb729-cea0-40d1-bd5b-69579e3822eb",
+      "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+    },
+    {
+      "generation": 2,
+      "sessionId": "a2586af4-e682-4e54-9251-59e02d70fa0d",
+      "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff"
+    }
+  ],
+  "runtimeCleanupErrors": [],
+  "infoAfter": {
+    "schemaVersion": 1,
+    "protocolVersion": 2,
+    "serverVersion": "2.0.0",
+    "serverCommit": "67f3ce45f6ea1ff659382e40c194c70bd33d58ff",
+    "identityStatus": "complete",
+    "build": {
+      "sourceTree": "74f37cad84c5be9e74d880a4b10c3d9623de7da3",
+      "sourceDirty": false,
+      "sourceDate": "2026-10-20T12:50:26Z"
+    },
+    "distribution": {
+      "name": "voicestt",
+      "packageVersion": "2.0.0"
+    },
+    "runtime": {
+      "krokoVariant": "pro"
+    },
+    "serverInstanceId": "14e6ff8dc2704f7298924b0d1de5cd1b"
+  },
+  "identityStable": true
+}
