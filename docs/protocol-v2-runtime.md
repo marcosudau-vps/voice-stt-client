@@ -71,6 +71,21 @@ History ändert keine Dedupidentität. Späte Finals von A lassen Foreground B
 unverändert. Queuefehler werden thread-safe als sekundäre Diagnose zurückgeführt.
 Sound-/LEDfehler ändern weder Session noch Audioverfügbarkeit.
 
+Der Mirror behält regulär die letzten 64 vollständig abgeschlossenen Activations
+mit ihren Segmentdetails. Ein sicher erledigtes Präfix wird durch Sessionmarken
+für Activation- und Segmentsequenzen ersetzt; alte Segmentereignisse erzeugen
+keine erneuten Outputs. Offene, unvollständige oder noch nicht vollständig
+belegte Activations pinnen das Präfix, ebenso gerade veröffentlichte Finals.
+Cancel-/Failed-Tombstones ohne konkrete Segmentterminals bleiben erhalten.
+Ohne sichere Verdichtung gilt ein Budget von 1024 Activation- bzw.
+Segmentdatensätzen (plus höchstens dem auslösenden Datensatz). Überlauf markiert
+die Ausgabe unvollständig und nutzt den vorhandenen kontrollierten Reconnect.
+ASR-Latenz allein ist kein Ablaufkriterium. Eventfingerprints umfassen die letzten
+1024 Identitäten plus den begrenzten Resyncpuffer; alter Wire-Replay bleibt über
+`last_event_seq` gesperrt. Der Resultservice behält nur projizierte Terminals und
+eine monotone Final-Publikationsmarke. Auch alte Reductionobjekte können dadurch
+nach Historylöschung oder unbekanntem Pasteausgang keine Autoeinfügung auslösen.
+
 Das serverbestätigte Schließen der Vordergrundeingabe mit `finished` oder
 `timed_out` löst einmalig `server.input.closed` aus, auch ohne Sprachsegment.
 Fehlt diese interne Mappingregel, wird ausschließlich der vorhandene

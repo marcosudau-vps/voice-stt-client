@@ -45,6 +45,7 @@ class V2ResultService:
         self._lost_generation = 0
         self._session_id = None
         self._terminals: dict[str, tuple] = {}
+        self._last_final_event_seq = 0
         self._closed = False
         old_attempt = queue.on_attempt_result
 
@@ -98,8 +99,14 @@ class V2ResultService:
             if view.generation > self._generation:
                 self._generation, self._session_id = view.generation, view.session_id
                 self._terminals.clear()
+                self._last_final_event_seq = 0
             if view.session_id != self._session_id:
                 return ()
+            # Mirror retirement removes settled segment details. A publication
+            # watermark independently rejects old Reduction objects, including
+            # after history deletion/disablement or an unknown paste outcome.
+            self._terminals = {key: value for key, value in self._terminals.items()
+                               if key in view.segments}
             # A reduction may emit several salvaged results; preserve event publication order.
             for final in sorted(reduction.finals, key=lambda f: f.event_seq):
                 segment = view.segments.get(final.segment_id)
@@ -115,6 +122,9 @@ class V2ResultService:
                         != (final.activation_id, final.segment_sequence, final.event_id, final.event_seq, final.text)):
                     logger.warning('Ignoring final without an authoritative segment identity')
                     continue
+                if final.event_seq <= self._last_final_event_seq:
+                    continue
+                self._last_final_event_seq = final.event_seq
                 identity = (final.activation_id, final.segment_sequence, 'completed', final.text)
                 previous = self._terminals.get(final.segment_id)
                 if previous is not None:
