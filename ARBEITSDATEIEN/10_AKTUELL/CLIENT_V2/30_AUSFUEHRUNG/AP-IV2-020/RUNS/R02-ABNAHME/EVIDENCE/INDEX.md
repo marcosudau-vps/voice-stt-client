@@ -18,6 +18,7 @@ Geprüft 22.10.2026: PR15 Head 29fb0e159c69051bedba6d097f69a5974fc09528, Tree 2b
 - Retention: voice_stt_client/core/activation_mirror.py (insbesondere _reset, _reduce, _snapshot und view), voice_stt_client/core/final_results.py (V2ResultService._terminals).
 - Tests: tests/test_v2_recovery_audit.py, test_v2_audio_recovery.py, test_v2_transport.py, test_v2_close_feedback.py, test_text_injector_modifiers.py sowie tests/manual/v2/endurance_probe.py und endurance_assessment.py; geänderte Tests auf offensichtliche Abschwächungen überprüft.
 - GitHub CI: https://github.com/marcosudau-vps/voice-stt-client/actions/runs/39712620060, completed/success auf reviewed_sha.
-- Unabhängiger Reviewer hat keine Windows-/ReSpeaker-Hardware ausgeführt; das ist gemäß Hardware-Nachweisregeln keine automatische Ausschlussbedingung. Verbleibende Pflichtwirkung ist in F01/F02 beschrieben.
+- Unabhängiger Reviewer hat keine Windows-/ReSpeaker-Hardware ausgeführt; das ist gemäß Hardware-Nachweisregeln keine automatische Ausschlussbedingung. Getrennte Dauerlauf-/Netz- und physische USB-/Windows-Belege werden komplementär anerkannt; die NOT_PROVEN-Felder eines Replay-Helpers bleiben in dessen Testscope erhalten.
+- **Berichtigung 22.10.2026:** `R02-F01 = WITHDRAWN_BY_REVIEWER`; nur `R02-F02` bleibt offen. Zusätzlich unabhängiges [CI-Issue #16](https://github.com/marcosudau-vps/voice-stt-client/issues/16) auf späterem Dokumentations-Head, [fehlgeschlagene CI 39715130414](https://github.com/marcosudau-vps/voice-stt-client/actions/runs/39715130414), ursprünglicher CI-Lauf 39712620060 war grün.
 
-Verdict: CHANGES_REQUIRED; Pflichtfindings IV2-020-R02-F01 und IV2-020-R02-F02. Kein ROOT_PASS, keine Freigabe zum Merge.
+Verdict: CHANGES_REQUIRED; **ein offenes Pflichtfinding IV2-020-R02-F02**. R02-F01 zurückgenommen. Issue #16 separat. Kein ROOT_PASS, keine Freigabe zum Merge.

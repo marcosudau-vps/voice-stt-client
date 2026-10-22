@@ -1,6 +1,6 @@
 ## AP-IV2-020 – unabhängige R02-Abnahme / CHANGES_REQUIRED, 22.10.2026
 
-Der [unabhängige R02-Bericht](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md) bewertet den eingereichten R01-Kandidaten gegen REAL-01..REAL-06. Zwei Pflichtfindings: IV2-020-R02-F01 (M-12/REAL-03/05: kombinierter 30min100-/USB-Recoverynachweis offen), IV2-020-R02-F02 (REAL-05/06: unbounded Sessionledger/Tombstones). Daher paketweit CHANGES_REQUIRED, keine unabhängige Gesamtannahme; vorheriger REVIEW_READY-Eintrag darunter ist historischer Umsetzerstand.
+Der [unabhängige R02-Bericht](../../../30_AUSFUEHRUNG/AP-IV2-020/RUNS/R02-ABNAHME/01_REPORT.md) bewertet den eingereichten R01-Kandidaten gegen REAL-01..REAL-06. **Berichtigter R02-Stand:** R02-F01 nach Anerkennung der komplementären M-12-Dauerlauf-/USB-Belege als `WITHDRAWN_BY_REVIEWER` zurückgenommen (kein neuer Kombinationslauf); **einzig R02-F02** zu unbounded Sessionledger/Tombstones (REAL-05/06) bleibt blockierend. Eigenständige CI-Flakiness auf späterem Dokumentations-Head in [Issue #16](https://github.com/marcosudau-vps/voice-stt-client/issues/16). Paket weiterhin CHANGES_REQUIRED; früherer REVIEW_READY-Stand ist historisch.
 
 ## AP-IV2-020 – aktuelle Implementierungsnachweise,22.10.2026
 
