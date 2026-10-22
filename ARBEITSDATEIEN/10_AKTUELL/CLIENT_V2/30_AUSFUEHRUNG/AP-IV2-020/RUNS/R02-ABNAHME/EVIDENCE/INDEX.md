@@ -10,7 +10,7 @@ Geprüft 22.10.2026: PR15 Head 29fb0e159c69051bedba6d097f69a5974fc09528, Tree 2b
 - [Real-USB-Bericht23](../../R01-UMSETZUNG/23_USB_BESTAETIGT_UND_IDLE_KALIBRIERUNG.md), [native Capture-/Altfinalprobe](../../R01-UMSETZUNG/EVIDENCE/review-ready-20261022/native-pending-directsound.json). Letztere nutzt kontrolliertes PCM und ist kein physischer USBunplug.
 - [Frozen real Windows Overlap](../../R01-UMSETZUNG/EVIDENCE/review-ready-20261022/frozen-native-overlap-complete.json), [Frozen Eventspur](../../R01-UMSETZUNG/EVIDENCE/review-ready-20261022/frozen-final-events.json). Echte Windows-Einfügung über StereoMix, kein ReSpeaker-Akustiknachweis.
 - [Letzte offene Real-/UAC-Grenzen vor R01-Konsolidierung](../../R01-UMSETZUNG/38_ADMIN_UAC_EXE_UND_MINIMALER_ABSCHLUSS.md) und [Human-Unbound-Abgleich](../../R01-UMSETZUNG/39_LAUFZUORDNUNG_UND_TESTTIMER.md).
-- [M12-Spezifikation und §6-Ressourcenregel](../../../../PLANUNG/REFERENZ/QUALIFIKATION/TEST_UND_ABNAHMEPLAN.md), [Hardwarebelegregel](../../../../PLANUNG/REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md).
+- [M12-Spezifikation und §6-Ressourcenregel](../../../../../PLANUNG/REFERENZ/QUALIFIKATION/TEST_UND_ABNAHMEPLAN.md), [Hardwarebelegregel](../../../../../PLANUNG/REFERENZ/QUALIFIKATION/WINDOWS_UND_HARDWARENACHWEISE.md).
 
 ## Statische unabhängige Quellenprüfung
 
