@@ -59,15 +59,15 @@ a = Analysis(
     # platform.system() while it is being imported. Neutralised once, up front,
     # rather than worked around at each call site.
     runtime_hooks=[str(ROOT / "scripts" / "pyinstaller_runtime_platform.py")],
-    # The embedded controller never serves HTTP. Since lefx.interfaces resolves
-    # create_app lazily, nothing imports this chain any more -- excluding it
-    # keeps that true rather than trusting it to stay true.
+    # The embedded controller never serves HTTP. Since the installed LEFX eagerly imports its HTTP API,
+    # the bundled desktop build must include the supporting FastAPI/Pydantic
+    # imports even though the desktop app itself does not serve HTTP.
     excludes=[
-        "fastapi",
-        "starlette",
+        # The client uses PySide6 only. Filter transitive probes of other bindings.
+        "PyQt5",
+        "PyQt6",
+        "PySide2",
         "uvicorn",
-        "pydantic",
-        "lefx.interfaces.api",
         "lefx.interfaces.cli",
         # The simulator is a diagnostic tool and a separate program; it has no
         # place in a release build.

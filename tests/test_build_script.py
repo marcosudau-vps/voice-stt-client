@@ -14,6 +14,28 @@ class BuildScriptTests(unittest.TestCase):
             spec_text,
         )
 
+    def test_frozen_lefx_import_dependencies_and_single_qt_binding(self) -> None:
+        import ast
+
+        tree = ast.parse(build.SPEC_FILE.read_text(encoding="utf-8"))
+        analysis = next(
+            node
+            for node in ast.walk(tree)
+            if isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Name)
+            and node.func.id == "Analysis"
+        )
+        exclusions = next(
+            ast.literal_eval(keyword.value)
+            for keyword in analysis.keywords
+            if keyword.arg == "excludes"
+        )
+        # LEFX currently imports its API eagerly, even for ControllerService.
+        for required in ("lefx.interfaces.api", "fastapi", "starlette", "pydantic"):
+            self.assertNotIn(required, exclusions)
+        for unsupported_qt in ("PyQt5", "PyQt6", "PySide2"):
+            self.assertIn(unsupported_qt, exclusions)
+
     def test_pyinstaller_bootstrap_fixes_platform_before_import(self) -> None:
         events: list[tuple[str, object]] = []
 
