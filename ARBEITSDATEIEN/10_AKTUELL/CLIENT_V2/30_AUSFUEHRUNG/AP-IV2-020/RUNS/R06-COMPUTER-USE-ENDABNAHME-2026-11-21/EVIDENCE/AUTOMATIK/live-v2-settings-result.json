@@ -1,0 +1,23 @@
+{
+  "source": "real V2 SettingsUISession with real server; all reads, no admin key and no mutation",
+  "origin": "https://final.v2.voice-stt-server.marcosudau.com",
+  "hasV2Schema": true,
+  "schemaFields": 19,
+  "sessionEditableKeys": 11,
+  "serverDefaultEditableKeys": 15,
+  "sessionReadOnlyKeys": 2,
+  "catalogAvailable": true,
+  "wakeCatalogCount": 25,
+  "adminVerifiedInitially": false,
+  "serverReadOnlyWhenUnverified": true,
+  "requestedEqualsEffectiveOnBootstrap": true,
+  "sessionRevision": 0,
+  "serverRevision": 0,
+  "catalogRevision": 2,
+  "manual": true,
+  "wakeWord": false,
+  "requestedServerKeys": 16,
+  "adminWriteWithoutKeyRejected": true,
+  "adminGuardError": "admin_check_required",
+  "outcome": "PASS"
+}

@@ -1,0 +1,34 @@
+{
+  "source": "synthetic de-DE Windows SAPI voice; no microphone recording; V2 transport and real Kroko-Pro-16 model",
+  "url": "wss://final.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "wav": "tts-test-16k.wav",
+  "startedUTC": "2026-11-21T20:24:46.543556+00:00",
+  "serverCommit": "e95858e3c010a7e9324b49bb44fee349abe7128a",
+  "ready": true,
+  "mirrorReady": true,
+  "manualAvailable": true,
+  "audioAvailable": true,
+  "activationAck": "applied",
+  "activationAccepted": true,
+  "packetsSent": 293,
+  "finishAck": "applied",
+  "finishAccepted": true,
+  "eventCounts": {
+    "session.snapshot": 6,
+    "activation.started": 1,
+    "activation.phase_changed": 2,
+    "segment.recording_started": 1,
+    "segment.recording_ended": 1,
+    "transcription.accepted": 1,
+    "activation.input_closed": 1,
+    "transcription.completed": 1,
+    "activation.completed": 1
+  },
+  "text": [
+    "Guten Morgen! Dies ist ein Test der neuen Spracherkennung. Version zwei. Die Verbindung funktioniert."
+  ],
+  "transcriptionComplete": true,
+  "transcriptionFailed": false,
+  "outcome": "PASS",
+  "finishedUTC": "2026-11-21T20:25:05.962449+00:00"
+}
