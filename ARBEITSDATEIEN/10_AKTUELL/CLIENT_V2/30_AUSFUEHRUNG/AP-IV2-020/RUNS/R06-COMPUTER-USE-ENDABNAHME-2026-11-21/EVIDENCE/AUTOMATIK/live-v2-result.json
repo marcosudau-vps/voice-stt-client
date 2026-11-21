@@ -1,0 +1,23 @@
+{
+  "url": "wss://final.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "startedUtc": "2026-11-21T20:18:53.009057+00:00",
+  "source": "actual V2STTSession; no microphone and no outgoing PCM",
+  "clientHelloAccepted": true,
+  "protocolVersion": 2,
+  "hasCanonicalSession": true,
+  "serverCommit": "e95858e3c010a7e9324b49bb44fee349abe7128a",
+  "expectedServerCommit": "e95858e3c010a7e9324b49bb44fee349abe7128a",
+  "serverCommitMatches": true,
+  "transportReady": true,
+  "operationsReady": true,
+  "bootstrap": [
+    "client_hello_accepted",
+    "audio_unavailable_confirmed",
+    "settings_confirmed"
+  ],
+  "settingsRevision": 0,
+  "snapshotAccepted": true,
+  "snapshotResult": "applied",
+  "outcome": "PASS",
+  "finishedUtc": "2026-11-21T20:18:53.963771+00:00"
+}
