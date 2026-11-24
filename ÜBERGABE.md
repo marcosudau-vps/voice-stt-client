@@ -1,3 +1,11 @@
+## AP-IV2-020 ? technische Anwenderabnahme R06 abgeschlossen am 24.11.2026
+
+**GO mit dokumentierten Restrisiken ? durch Auftraggeber best?tigt.** Admin, native Einf?gung und Zielwechsel erfolgreich; verk?rzter repr?sentativer Frozen-Dauerlauf mit 12/12 exakten Serverfinal-Einf?gungen und den dokumentierten Abweichungen akzeptiert. Keine weiteren Anwenderpr?fungen als Freigabeblocker. [Abschlussbericht](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R06-COMPUTER-USE-ENDABNAHME-2026-11-21/27_ABSCHLUSS_ANWENDERABNAHME_2026-11-24.md), [finale Kriterienmatrix](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R06-COMPUTER-USE-ENDABNAHME-2026-11-21/28_FINALER_ABNAHMESTATUS_2026-11-24.md). Formale unabh?ngige Review-/?bernahmeschritte bleiben getrennt. Kein neuer ROOT_PASS, Commit oder Merge.
+
+## AP-IV2-020 · lokale R06-Korrektur am 23.11.2026
+
+Cursor-Isolation, Erhalt von Dialogentwürfen, Hotkey-Fehlertext, Offline-/Pausenanzeige, Mute-Audit und USB-Ausweichratenmeldung sind im lokalen Kandidaten korrigiert. Zehn kontrollierte PCM-Kurztests und das 145-Sekunden-PCM-Diktat funktionierten über die Final-Testinstanz. Die betroffenen Desktop-Nachweise und Freigabe bleiben offen. [Korrekturbericht und Nachweise](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R06-COMPUTER-USE-ENDABNAHME-2026-11-21/10_KORREKTUR_UND_NACHPRUEFUNG_2026-11-23.md)
+
 ## AP-IV2-020 / R03-KORREKTUR – 22.10.2026
 
 Status **REVIEW_READY**. [Aktueller Korrekturbericht](ARBEITSDATEIEN/10_AKTUELL/CLIENT_V2/30_AUSFUEHRUNG/AP-IV2-020/RUNS/R03-KORREKTUR/01_REPORT.md): R02-F02 und separat Issue16 implementiert; unabhängige Nachabnahme nach grüner finaler PR-CI ausstehend. F01 zurückgenommen, Realbelege wiederverwendet. Kein ROOT_PASS/Merge. Nachfolgende datierte Stände sind historisch.

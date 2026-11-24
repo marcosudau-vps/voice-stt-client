@@ -1,0 +1,80 @@
+{
+  "scope": "real ReSpeaker capture, Windows speaker acoustic synthetic WAV, corrected source and real V2 server; mock clipboard only",
+  "folder": "acoustic-845f5c41",
+  "start": "2026-11-24T00:12:49.393917+01:00",
+  "cases": [
+    {
+      "name": "configured",
+      "triggers": {
+        "manual": true,
+        "wakeWord": false
+      },
+      "pass_": true
+    },
+    {
+      "name": "wake_disabled",
+      "activations": 0,
+      "injections": 0,
+      "pass_": true
+    },
+    {
+      "name": "kurz-01",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1,
+      "pass_": true
+    }
+  ],
+  "events": [
+    {
+      "kind": "activation.started",
+      "activation": "6a66b4ab-2345-4ea0-b85a-f680b61da10f",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "6a66b4ab-2345-4ea0-b85a-f680b61da10f",
+      "segment": "efb39b67-84c2-41b3-95f8-15689c8ca7d9"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "6a66b4ab-2345-4ea0-b85a-f680b61da10f",
+      "segment": "efb39b67-84c2-41b3-95f8-15689c8ca7d9"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "6a66b4ab-2345-4ea0-b85a-f680b61da10f",
+      "segment": "efb39b67-84c2-41b3-95f8-15689c8ca7d9"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "6a66b4ab-2345-4ea0-b85a-f680b61da10f",
+      "segment": "efb39b67-84c2-41b3-95f8-15689c8ca7d9"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "6a66b4ab-2345-4ea0-b85a-f680b61da10f",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "6a66b4ab-2345-4ea0-b85a-f680b61da10f",
+      "segment": "efb39b67-84c2-41b3-95f8-15689c8ca7d9"
+    }
+  ],
+  "sessions": [
+    {
+      "generation": 1,
+      "commit": "e95858e3c010a7e9324b49bb44fee349abe7128a"
+    }
+  ],
+  "device": {
+    "index": 9,
+    "name": "Freisprechtelefon mit Echoausschaltung (reSpeaker XVF3800 4-Mic Array)",
+    "output": "Lautsprecher (Realtek(R) Audio)"
+  },
+  "mode": "manual",
+  "result": "PASS_SCOPED",
+  "cleanupErrors": [],
+  "end": "2026-11-24T00:13:02.593472+01:00"
+}

@@ -1,0 +1,38 @@
+{
+  "scope": "corrected frozen EXE normal GUI, pinned V2, invalid input deliberately, no hotkeys, Windows WM_QUIT instead of tray click",
+  "start": "2026-11-24T00:12:27.886463+01:00",
+  "folder": "frozen-valid-4c7e7f28",
+  "exeSha256": "07cab945a8ca568f7a500a62a013a852e60e38a95a919b677453898539a205fe",
+  "productPid": 33480,
+  "states": [
+    "connecting",
+    "accepting",
+    "configuring",
+    "ready"
+  ],
+  "ready": true,
+  "secondExitCode": 2,
+  "firstStillRunning": true,
+  "windowClasses": [
+    "Qt6120QWindowToolSaveBits",
+    "_q_titlebar",
+    "Qt6120TrayIconMessageWindowClass",
+    "Qt6120ThemeChangeObserverWindow",
+    "Qt6120ScreenChangeObserverWindow",
+    "IME"
+  ],
+  "qtThreads": 1,
+  "quitPosted": true,
+  "exitCode": 0,
+  "tempRemaining": [],
+  "profileUnchanged": true,
+  "sharedCursorUnchanged": true,
+  "lifecycleTypes": [
+    "client.app.started",
+    "client.lifecycle.started",
+    "client.app.stopping",
+    "client.lifecycle.stopping"
+  ],
+  "end": "2026-11-24T00:12:42.925516+01:00",
+  "result": "PASS_SCOPED"
+}

@@ -1,0 +1,43 @@
+{
+  "scope": "corrected frozen EXE, real speaker/mic, native hotkeys and paste into owned editor, guided LED/audio observations",
+  "folder": "C:\\Users\\marco\\OneDrive\\Desktop\\Voice-STT-Client-V2-Finalabnahme\\Nachweise\\korrektur-2026-11-23\\guided-final-8a7bd4d4",
+  "exeSha256": "07cab945a8ca568f7a500a62a013a852e60e38a95a919b677453898539a205fe",
+  "result": "STAGE_TIMEOUT_manual_activate",
+  "checks": {},
+  "stages": [
+    {
+      "stage": "ready",
+      "seconds": 0.02
+    },
+    {
+      "stage": "manual_activate",
+      "seconds": 7.22
+    },
+    {
+      "stage": "shutdown",
+      "seconds": 37.3
+    }
+  ],
+  "bootloaderPid": 43928,
+  "stage": "shutdown",
+  "status": {
+    "states": [
+      "configuring",
+      "ready",
+      "stopping",
+      "closed"
+    ],
+    "counts": {
+      "settings.changed": 1
+    },
+    "historyEntries": 0,
+    "editorCharacters": 0,
+    "pid": 39256,
+    "focused": true
+  },
+  "exitCode": 0,
+  "quitPosted": true,
+  "tempRemaining": [],
+  "sharedCursorUnchanged": true,
+  "end": "2026-11-24T00:32:53.822310+01:00"
+}

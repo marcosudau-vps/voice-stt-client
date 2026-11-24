@@ -1,0 +1,25 @@
+{
+  "scope": "real native Qt desktop from corrected source, real pinned V2 TLS server, isolated test profile, no microphone or global hotkeys; synthetic isolated history and mock injection",
+  "start": "2026-11-24T00:09:33.699273+01:00",
+  "checks": {
+    "server_identity": true,
+    "no_audio_no_hotkeys": true,
+    "tray_available_and_visible": true,
+    "tray_tooltip_and_menu": true,
+    "native_settings_tabs": true,
+    "native_local_tabs": true,
+    "invalid_audio_retained_and_no_capture": true,
+    "history_three_seeded_rows": true,
+    "history_order_and_id_binding": true,
+    "selected_reinsert_only": true,
+    "delete_selected_only": true,
+    "clear_synthetic_history_only": true,
+    "shutdown_core_tray": true,
+    "shared_cursor_unchanged": true
+  },
+  "evidenceFolder": "native-desktop-76c26e75",
+  "errorType": "KeyError",
+  "error": "'history.enabled'",
+  "end": "2026-11-24T00:09:36.554151+01:00",
+  "result": "INCOMPLETE_OR_FAIL"
+}

@@ -28,6 +28,12 @@ class ActiveAction(StrEnum):
     NONE = "none"
 
 
+class DuplicateControlHotkey(ValueError):
+    def __init__(self, chord: str, first: str, second: str):
+        self.chord, self.first, self.second = chord, first, second
+        super().__init__("all control and utility keys must differ")
+
+
 @dataclass(frozen=True)
 class ControlConfig:
     primary_key: str = "Ctrl+Shift+Space"
@@ -44,7 +50,7 @@ class ControlConfig:
             raise ValueError("controls.enabled must be boolean")
         for name in ("primary_action", "secondary_action"):
             object.__setattr__(self, name, ActiveAction(getattr(self, name)))
-        keys = []
+        keys = {}
         for name in ("primary_key", "secondary_key", "wake_pause_key", "reinsert_last_key", "overlay_toggle_key"):
             value = getattr(self, name)
             if not isinstance(value, str):
@@ -52,9 +58,9 @@ class ControlConfig:
             canonical = normalize_hotkey_spec(value) if value.strip() else ""
             object.__setattr__(self, name, canonical)
             if canonical:
-                keys.append(canonical)
-        if len(keys) != len(set(keys)):
-            raise ValueError("all control and utility keys must differ")
+                if canonical in keys:
+                    raise DuplicateControlHotkey(canonical, keys[canonical], name)
+                keys[canonical] = name
 
 
 class ControlMigrationConflict(ValueError):

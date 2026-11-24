@@ -432,9 +432,24 @@ class CoreActions(unittest.IsolatedAsyncioTestCase):
         await self.start()
         candidate = asdict(self.ui.settings.profile)
         candidate["controls"]["secondary_key"] = candidate["controls"]["primary_key"]
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(SettingsError, "duplicate_control_hotkey"):
             await self.ui.apply_profile(candidate, self.ui.context())
         self.assertEqual(self.saved, [])
+
+    async def test_stale_trigger_projection_is_hidden_after_disconnect(self):
+        await self.start()
+        online = self.ui.view()
+        self.assertTrue(online.connected_ready)
+        self.assertTrue(online.connected_triggers["manual"])
+        await self.ui.controls.set_pause("wakeWord", True)
+        self.socket.push(deepcopy(self.socket.state))
+        await until(lambda: self.ui.view().pause.confirmed_wake_word is True)
+        self.ui.settings.session.binding = None
+        offline = self.ui.view()
+        self.assertFalse(offline.connected_ready)
+        self.assertEqual(offline.connected_triggers, {})
+        self.assertTrue(offline.pause.desired_wake_word)
+        self.assertIsNone(offline.pause.confirmed_wake_word)
 
     async def test_disconnect_while_decision_open_rejects_old_context(self):
         await self.start(); self.foreground()
@@ -618,9 +633,11 @@ class QtSurface(unittest.TestCase):
         self.dialog.key.setText("synthetic")
         self.dialog.verify_button.click()
         self.wait(lambda: self.dialog._view.admin_verified)
+        self.dialog._editors["session"][KEY].setText("5700")
         self.dialog._editors["server"][KEY].setText("5500")
         self.dialog.apply_server_button.click()
         self.wait(lambda: self.dialog._view.server_requested[KEY] == 5500)
+        self.assertEqual(self.dialog._editors["session"][KEY].text(), "5700")
 
     def test_session_draft_survives_inspect_requested_effective_refresh(self):
         editor = self.dialog._editors["session"][KEY]
@@ -628,6 +645,42 @@ class QtSurface(unittest.TestCase):
         self.dialog._request("inspect")
         self.wait(lambda: not self.bridge.busy)
         self.assertEqual(editor.text(), "5700")
+
+    def test_successful_reload_preserves_drafts_and_updates_unedited_defaults(self):
+        self.dialog._editors["session"][KEY].setText("5700")
+        self.dialog.controls["secondary_key"].setText("Ctrl+F8")
+        self.dialog.wake.setChecked(True)
+        self.dialog.wake_list.item(0).setCheckState(Qt.CheckState.Checked)
+        selection = self.dialog.selected_wake_ids()
+        setting = next(entry for entry in self.http.server["settings"] if entry["key"] == KEY)
+        setting["requestedValue"] = setting["effectiveValue"] = 4200
+        self.http.server["settingsRevision"] += 1
+        self.dialog.reload_button.click()
+        self.wait(lambda: self.dialog._view.server_requested[KEY] == 4200)
+        self.assertEqual(self.dialog._editors["session"][KEY].text(), "5700")
+        self.assertEqual(self.dialog._editors["server"][KEY].text(), "4200")
+        self.assertEqual(self.dialog.controls["secondary_key"].text(), "Ctrl+F8")
+        self.assertTrue(self.dialog.wake.isChecked())
+        self.assertEqual(self.dialog.selected_wake_ids(), selection)
+        self.assertEqual(self.saved, [])
+
+    def test_duplicate_hotkey_names_both_fields_without_saving(self):
+        self.dialog.controls["secondary_key"].setText("Shift+Ctrl+Space")
+        self.dialog.apply_profile_button.click()
+        self.assertIn("Ctrl+Shift+Space", self.dialog.status.text())
+        self.assertIn("Primärer Hotkey", self.dialog.status.text())
+        self.assertIn("Sekundärer Hotkey", self.dialog.status.text())
+        self.assertFalse(self.saved)
+
+    def test_offline_displays_unconfirmed_triggers_and_desired_pause(self):
+        view = self.dialog._view
+        self.dialog._view = replace(view, connected_ready=False, pause=replace(
+            view.pause, desired_wake_word=True, confirmed_wake_word=None, pending=True))
+        self.dialog.render()
+        self.assertIn("Keine betriebsbereite Verbindung", self.dialog.trigger_status.text())
+        table = self.dialog._tables["session"]
+        row = self.dialog._rows["session"]["runtimeSuppression.wakeWord"]
+        self.assertEqual((table.item(row, 2).text(), table.item(row, 3).text()), ("Ja", "—"))
 
     def test_qsettings_export_and_config_have_no_key(self):
         with tempfile.TemporaryDirectory() as folder:

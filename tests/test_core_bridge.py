@@ -206,6 +206,14 @@ class TestCoreBridge(unittest.TestCase):
         self.bridge.stop(timeout=2.0)
         self.application.processEvents()
 
+    def test_boolean_mute_result_reports_its_actual_success(self):
+        with patch.object(type(self.bridge._observe), "audit") as audit:
+            for result in (True, False):
+                with self.subTest(result=result):
+                    self.bridge._observe_command_completed("set_microphone_muted", "cmd", "command:cmd", result)
+                    self.assertIs(audit.call_args.kwargs["details"]["success"], result)
+                    self.assertEqual(audit.call_args.kwargs["level"], "INFO" if result else "WARNING")
+
     def wait_until(self, predicate, timeout=2.0):
         deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:

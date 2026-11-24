@@ -1,0 +1,195 @@
+{
+  "scope": "corrected frozen EXE, real speaker/mic, native hotkeys and paste into owned editor, automated timed endurance, no operator speech",
+  "folder": "C:\\Users\\marco\\OneDrive\\Desktop\\Voice-STT-Client-V2-Finalabnahme\\Nachweise\\korrektur-2026-11-23\\frozen-endurance-a3b21eab",
+  "exeSha256": "07cab945a8ca568f7a500a62a013a852e60e38a95a919b677453898539a205fe",
+  "result": "COMPLETED_WITH_DEVIATION",
+  "checks": {},
+  "stages": [
+    {
+      "stage": "ready",
+      "seconds": 0.0
+    },
+    {
+      "stage": "idle",
+      "seconds": 12.08
+    },
+    {
+      "stage": "activate",
+      "seconds": 12.22
+    },
+    {
+      "stage": "play",
+      "seconds": 13.06
+    },
+    {
+      "stage": "final",
+      "seconds": 17.56
+    },
+    {
+      "stage": "idle",
+      "seconds": 20.28
+    },
+    {
+      "stage": "activate",
+      "seconds": 27.19
+    },
+    {
+      "stage": "play",
+      "seconds": 28.05
+    },
+    {
+      "stage": "final",
+      "seconds": 32.53
+    },
+    {
+      "stage": "idle",
+      "seconds": 36.91
+    },
+    {
+      "stage": "shutdown",
+      "seconds": 42.17
+    }
+  ],
+  "targetSeconds": 30,
+  "cases": [
+    {
+      "number": 1,
+      "fixture": "kurz-01",
+      "startSeconds": 0.99,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": false,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 8.2
+    },
+    {
+      "number": 2,
+      "fixture": "kurz-02",
+      "startSeconds": 15.97,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": false,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 24.83
+    }
+  ],
+  "samples": [
+    {
+      "privateMiB": 465.113,
+      "workingMiB": 104.484,
+      "cpuSeconds": 2.625,
+      "seconds": 0.11,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 475.816,
+      "workingMiB": 110.367,
+      "cpuSeconds": 2.96875,
+      "seconds": 5.14,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 476.488,
+      "workingMiB": 110.656,
+      "cpuSeconds": 3.109375,
+      "seconds": 10.17,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 476.488,
+      "workingMiB": 110.668,
+      "cpuSeconds": 3.4375,
+      "seconds": 15.2,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 476.84,
+      "workingMiB": 111.371,
+      "cpuSeconds": 3.859375,
+      "seconds": 20.24,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 476.488,
+      "workingMiB": 110.852,
+      "cpuSeconds": 4.15625,
+      "seconds": 25.27,
+      "state": "ready"
+    }
+  ],
+  "bootloaderPid": 47560,
+  "stage": "shutdown",
+  "transportTransitions": [
+    {
+      "state": "connecting",
+      "reason": ""
+    },
+    {
+      "state": "accepting",
+      "reason": ""
+    },
+    {
+      "state": "configuring",
+      "reason": ""
+    },
+    {
+      "state": "ready",
+      "reason": ""
+    },
+    {
+      "state": "stopping",
+      "reason": ""
+    },
+    {
+      "state": "closed",
+      "reason": ""
+    }
+  ],
+  "status": {
+    "states": [
+      "configuring",
+      "ready",
+      "stopping",
+      "closed"
+    ],
+    "counts": {
+      "settings.changed": 1,
+      "activation.started": 2,
+      "activation.phase_changed": 4,
+      "segment.recording_started": 2,
+      "transcription.interim": 6,
+      "segment.recording_ended": 2,
+      "activation.input_closed": 2,
+      "transcription.accepted": 2,
+      "transcription.completed": 2,
+      "activation.completed": 2
+    },
+    "historyEntries": 2,
+    "editorCharacters": 83,
+    "pid": 45616,
+    "focused": true,
+    "controlStatuses": [
+      "applied",
+      "applied",
+      "applied",
+      "applied"
+    ],
+    "phase": "idle"
+  },
+  "elapsedSeconds": 30.08,
+  "exitCode": 0,
+  "quitPosted": true,
+  "tempRemaining": [],
+  "sharedCursorUnchanged": true,
+  "end": "2026-11-24T01:17:09.036675+01:00",
+  "resources": {
+    "firstPrivateMiB": 465.113,
+    "lastPrivateMiB": 476.488,
+    "peakPrivateMiB": 476.84,
+    "meanCoreCpuPct": 6.086
+  },
+  "errorLogCount": 0,
+  "fallbackMessages": 0
+}

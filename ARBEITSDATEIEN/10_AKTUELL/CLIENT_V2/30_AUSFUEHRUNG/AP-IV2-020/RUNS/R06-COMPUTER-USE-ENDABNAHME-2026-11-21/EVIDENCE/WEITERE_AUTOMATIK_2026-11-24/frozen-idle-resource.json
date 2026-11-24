@@ -1,0 +1,213 @@
+{
+  "scope": "corrected frozen EXE real ReSpeaker capture and LED enabled, real V2 transport, idle-only no wake or native hotkeys, periodic CPU/RAM metrics, no clipboard, WM_QUIT",
+  "start": "2026-11-24T00:47:22.359141+01:00",
+  "folder": "frozen-idle-8b7031e1",
+  "exeSha256": "07cab945a8ca568f7a500a62a013a852e60e38a95a919b677453898539a205fe",
+  "targetSeconds": 120,
+  "samples": [
+    {
+      "privateMiB": 464.527,
+      "workingMiB": 104.148,
+      "cpuSeconds": 2.515625,
+      "seconds": 0.0,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.543,
+      "workingMiB": 104.184,
+      "cpuSeconds": 2.734375,
+      "seconds": 5.0,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.547,
+      "workingMiB": 104.188,
+      "cpuSeconds": 3.015625,
+      "seconds": 10.0,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.547,
+      "workingMiB": 104.188,
+      "cpuSeconds": 3.171875,
+      "seconds": 15.02,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.801,
+      "workingMiB": 104.203,
+      "cpuSeconds": 3.671875,
+      "seconds": 20.02,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.801,
+      "workingMiB": 104.203,
+      "cpuSeconds": 4.0,
+      "seconds": 25.02,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.801,
+      "workingMiB": 104.324,
+      "cpuSeconds": 4.3125,
+      "seconds": 30.03,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.805,
+      "workingMiB": 104.328,
+      "cpuSeconds": 4.546875,
+      "seconds": 35.03,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.805,
+      "workingMiB": 104.332,
+      "cpuSeconds": 4.90625,
+      "seconds": 40.03,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.805,
+      "workingMiB": 104.332,
+      "cpuSeconds": 5.546875,
+      "seconds": 45.05,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.805,
+      "workingMiB": 104.332,
+      "cpuSeconds": 5.59375,
+      "seconds": 50.05,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.805,
+      "workingMiB": 104.332,
+      "cpuSeconds": 5.671875,
+      "seconds": 55.05,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.344,
+      "cpuSeconds": 5.765625,
+      "seconds": 60.06,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.344,
+      "cpuSeconds": 6.046875,
+      "seconds": 65.09,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.344,
+      "cpuSeconds": 6.140625,
+      "seconds": 70.09,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.344,
+      "cpuSeconds": 6.265625,
+      "seconds": 75.11,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.344,
+      "cpuSeconds": 6.546875,
+      "seconds": 80.11,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.344,
+      "cpuSeconds": 6.671875,
+      "seconds": 85.11,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.344,
+      "cpuSeconds": 6.8125,
+      "seconds": 90.12,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.344,
+      "cpuSeconds": 6.96875,
+      "seconds": 95.12,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.344,
+      "cpuSeconds": 7.078125,
+      "seconds": 100.14,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.344,
+      "cpuSeconds": 7.375,
+      "seconds": 105.14,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.344,
+      "cpuSeconds": 7.65625,
+      "seconds": 110.14,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.344,
+      "cpuSeconds": 7.765625,
+      "seconds": 115.16,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 464.699,
+      "workingMiB": 104.348,
+      "cpuSeconds": 7.875,
+      "seconds": 120.0,
+      "state": "ready"
+    }
+  ],
+  "productPid": 42008,
+  "states": [
+    "connecting",
+    "accepting",
+    "configuring",
+    "ready"
+  ],
+  "ready": true,
+  "elapsedSeconds": 120.0,
+  "quitPosted": true,
+  "exitCode": 0,
+  "tempRemaining": [],
+  "profileUnchanged": true,
+  "sharedCursorUnchanged": true,
+  "audioStartCount": 1,
+  "audioStopCount": 1,
+  "ledAvailable": true,
+  "fallbackMessages": 0,
+  "errorLogCount": 0,
+  "unexpectedStatesAfterReady": [],
+  "resources": {
+    "firstPrivateMiB": 464.527,
+    "lastPrivateMiB": 464.699,
+    "peakPrivateMiB": 464.805,
+    "changeMiB": 0.172,
+    "meanCoreCpuPct": 4.466
+  },
+  "end": "2026-11-24T00:49:31.057334+01:00",
+  "result": "PASS_SCOPED_IDLE"
+}

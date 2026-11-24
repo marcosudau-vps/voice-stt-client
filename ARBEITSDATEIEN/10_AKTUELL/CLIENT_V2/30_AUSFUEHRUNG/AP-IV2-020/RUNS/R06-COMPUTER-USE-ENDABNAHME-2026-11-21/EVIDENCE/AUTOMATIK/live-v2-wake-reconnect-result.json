@@ -1,0 +1,22 @@
+{
+  "endpoint": "wss://final.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "wakeSelection": "hey_jarvis",
+  "manual": true,
+  "wakeWord": true,
+  "physicalWakeDetection": "NOT_RUN",
+  "microphone": "NOT_RUN",
+  "firstAccepted": true,
+  "configuredTrigger": {
+    "manual": true,
+    "wakeWord": true
+  },
+  "firstReady": true,
+  "firstGeneration": 1,
+  "reconnectedReady": true,
+  "secondGeneration": 2,
+  "newSessionId": true,
+  "stillWakeConfigured": true,
+  "stillManualConfigured": true,
+  "afterReconnectSnapshot": true,
+  "outcome": "PASS"
+}

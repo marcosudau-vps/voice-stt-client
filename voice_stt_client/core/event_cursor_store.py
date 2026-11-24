@@ -48,7 +48,11 @@ class CursorRecord:
 
 class EventCursorStore:
     def __init__(self, path: Optional[Path] = None):
-        self.path = Path(path) if path is not None else DEFAULT_CURSOR_PATH
+        if path is None:
+            configured_home = os.environ.get("VOICESTT_CLIENT_HOME")
+            path = (Path(configured_home).expanduser() / "data" / DEFAULT_CURSOR_PATH.name
+                    if configured_home else DEFAULT_CURSOR_PATH)
+        self.path = Path(path)
         self._lock = threading.RLock()
 
     def load(

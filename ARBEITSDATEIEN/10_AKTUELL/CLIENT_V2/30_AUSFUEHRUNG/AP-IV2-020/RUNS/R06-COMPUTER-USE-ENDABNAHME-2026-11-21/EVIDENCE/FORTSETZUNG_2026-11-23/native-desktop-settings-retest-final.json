@@ -1,0 +1,34 @@
+{
+  "scope": "real native Qt desktop from corrected source, real pinned V2 TLS server, isolated test profile, no microphone or global hotkeys",
+  "start": "2026-11-23T23:53:16.225727+01:00",
+  "checks": {
+    "server_identity": true,
+    "no_audio_no_hotkeys": true,
+    "tray_available_and_visible": true,
+    "tray_tooltip_and_menu": true,
+    "native_settings_tabs": true,
+    "native_local_tabs": true,
+    "invalid_audio_retained_and_no_capture": true,
+    "reload_preserves_real_session_draft": true,
+    "duplicate_message_and_atomic_profile": true,
+    "admin_locked_without_key": true,
+    "overlay_visible": true,
+    "overlay_position_opacity": true,
+    "overlay_hide": true,
+    "overlay_show": true,
+    "local_apply_overlay": true,
+    "local_apply_clipboard_history": true,
+    "local_settings_persisted": true,
+    "isolated_cursor_path": true,
+    "shutdown_core_tray": true,
+    "shared_cursor_unchanged": true
+  },
+  "evidenceFolder": "native-desktop-5a90b0e3",
+  "duplicateEvidence": {
+    "primary": "Ctrl+Shift+Space",
+    "status": "Ctrl+Shift+Space ist f\u00fcr \u201ePrim\u00e4rer Hotkey\u201c und \u201eSekund\u00e4rer Hotkey\u201c belegt. Bitte unterschiedliche Hotkeys w\u00e4hlen.",
+    "sameProfileHash": true
+  },
+  "end": "2026-11-23T23:53:19.137910+01:00",
+  "result": "PASS_SCOPED"
+}

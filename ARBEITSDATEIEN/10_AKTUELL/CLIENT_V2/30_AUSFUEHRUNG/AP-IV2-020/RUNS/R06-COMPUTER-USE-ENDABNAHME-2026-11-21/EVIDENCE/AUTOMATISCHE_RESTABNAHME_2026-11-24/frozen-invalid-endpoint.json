@@ -1,0 +1,17 @@
+{
+  "scope": "corrected onefile EXE normal GUI entry, invalid V2 route, deliberately disabled input and hotkeys, no production writes",
+  "start": "2026-11-24T00:11:17.366599+01:00",
+  "folder": "frozen-invalid-f06a03fc",
+  "exeSha256": "07cab945a8ca568f7a500a62a013a852e60e38a95a919b677453898539a205fe",
+  "exitCode": 5,
+  "tempRemaining": [],
+  "profileUnchanged": true,
+  "sharedCursorUnchanged": true,
+  "logFiles": [
+    "client.log"
+  ],
+  "invalidHttpOriginLogged": true,
+  "fatalCoreLogged": true,
+  "end": "2026-11-24T00:11:23.985442+01:00",
+  "result": "PASS_SCOPED_REJECTED_NOT_RECOVERABLE_UI"
+}

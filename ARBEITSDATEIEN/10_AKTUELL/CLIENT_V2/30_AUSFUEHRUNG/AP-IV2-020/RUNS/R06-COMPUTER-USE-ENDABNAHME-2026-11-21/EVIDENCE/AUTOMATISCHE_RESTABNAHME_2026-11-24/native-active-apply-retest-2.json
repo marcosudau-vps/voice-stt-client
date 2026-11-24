@@ -1,0 +1,27 @@
+{
+  "scope": "real native Qt desktop from corrected source, real pinned V2 TLS server, isolated test profile, real native Qt and real server with controlled synthetic PortAudio, mock injection, isolated profile; no OS hotkeys",
+  "start": "2026-11-24T00:14:15.673970+01:00",
+  "checks": {
+    "server_identity": true,
+    "replay_audio_no_hotkeys": true,
+    "tray_available_and_visible": true,
+    "tray_tooltip_and_menu": true,
+    "native_settings_tabs": true,
+    "native_local_tabs": true,
+    "no_decision_default": true,
+    "modal_cancel_preserves_input_profile": true,
+    "defer_choice_present": true,
+    "defer_preserves_active_input_and_connection": true,
+    "cancel_choice_present": true,
+    "cancel_reconnect_hybrid": true,
+    "finish_choice_present": true,
+    "finish_reconnect_manual": true,
+    "saved_trigger_matches_runtime": true,
+    "isolated_cursor_path": true,
+    "shutdown_core_tray": true,
+    "shared_cursor_unchanged": true
+  },
+  "evidenceFolder": "native-desktop-d8cd3a7d",
+  "end": "2026-11-24T00:14:23.202399+01:00",
+  "result": "PASS_SCOPED"
+}

@@ -1,0 +1,706 @@
+{
+  "scope": "historical guided run evidence read-only; safe event fields only",
+  "typeCounts": [
+    [
+      null,
+      544
+    ],
+    [
+      "client.domain.observed",
+      233
+    ],
+    [
+      "client.v2.command_completed",
+      136
+    ],
+    [
+      "inference.completed",
+      93
+    ],
+    [
+      "client.feedback.decision",
+      86
+    ],
+    [
+      "transcription.realtime_emitted",
+      68
+    ],
+    [
+      "client.v2.transport_state",
+      66
+    ],
+    [
+      "client.eventstream.keepalive",
+      32
+    ],
+    [
+      "client.command.requested",
+      27
+    ],
+    [
+      "client.command.completed",
+      27
+    ],
+    [
+      "client.hotkey.pressed",
+      26
+    ],
+    [
+      "client.eventstream.state_changed",
+      22
+    ],
+    [
+      "transcription.recording_started",
+      21
+    ],
+    [
+      "transcription.recording_ended",
+      19
+    ],
+    [
+      "client.eventstream.pong",
+      19
+    ],
+    [
+      "activation.started",
+      18
+    ],
+    [
+      "stream.first_text",
+      15
+    ],
+    [
+      "activation.closed",
+      15
+    ],
+    [
+      "transcription.started",
+      14
+    ],
+    [
+      "transcription.accepted",
+      14
+    ],
+    [
+      "activation.drained",
+      14
+    ],
+    [
+      "transcription.performance_summary",
+      13
+    ],
+    [
+      "transcription.completed",
+      12
+    ],
+    [
+      "stream.final_text",
+      12
+    ],
+    [
+      "client.audio.stream_stopped",
+      9
+    ],
+    [
+      "client.audio.stream_started",
+      9
+    ],
+    [
+      "client.eventstream.subscribed",
+      7
+    ],
+    [
+      "client.eventstream.replay_completed",
+      7
+    ],
+    [
+      "client.eventstream.hello",
+      7
+    ],
+    [
+      "wakeword.wait_started",
+      5
+    ],
+    [
+      "wakeword.wait_ended",
+      4
+    ],
+    [
+      "wakeword.detected",
+      4
+    ],
+    [
+      "transcription.discarded",
+      1
+    ],
+    [
+      "client.lifecycle.stopping",
+      1
+    ],
+    [
+      "client.lifecycle.started",
+      1
+    ],
+    [
+      "client.eventstream.protocol_error",
+      1
+    ],
+    [
+      "client.core.thread_stopped",
+      1
+    ],
+    [
+      "client.core.thread_started",
+      1
+    ],
+    [
+      "client.app.stopping",
+      1
+    ],
+    [
+      "client.app.started",
+      1
+    ]
+  ],
+  "transportHealthRows": [
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "accepting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "configuring",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "ready",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "accepting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "configuring",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "ready",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "accepting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "configuring",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "ready",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "user_settings_apply"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "accepting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "configuring",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "ready",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "accepting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "configuring",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "ready",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.eventstream.protocol_error",
+      "timestamp": null,
+      "details": {
+        "error_type": "ConnectionClosedError"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "accepting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "accepting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "configuring",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "ready",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "backoff",
+        "reason": "network_lost"
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "connecting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "accepting",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "configuring",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "ready",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "stopping",
+        "reason": ""
+      }
+    },
+    {
+      "type": "client.v2.transport_state",
+      "timestamp": null,
+      "details": {
+        "state": "closed",
+        "reason": ""
+      }
+    }
+  ],
+  "logCounts": {
+    "level_WARNING": 4,
+    "old_misleading_fallback": 473
+  }
+}

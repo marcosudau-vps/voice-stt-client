@@ -185,14 +185,9 @@ def build(*, clean: bool = False, smoke_test: bool = True, dist_dir: Path | None
     exe_path = EXE_PATH if dist_dir is None else dist_dir / EXE_PATH.name
 
     version = read_version()
-    temp_path: Path | None = None
-    try:
-        with tempfile.NamedTemporaryFile(
-            "w", encoding="utf-8", suffix="-voice-stt-version.txt", delete=False
-        ) as handle:
-            handle.write(render_windows_version_info(version))
-            temp_path = Path(handle.name)
-
+    with tempfile.TemporaryDirectory(prefix="voice-stt-build-") as folder:
+        temp_path = Path(folder) / "version.txt"
+        temp_path.write_text(render_windows_version_info(version), encoding="utf-8")
         env = os.environ.copy()
         env["VOICE_STT_VERSION_FILE"] = str(temp_path)
         # Same stamp logic as wheel/sdist; never a guessed release SHA.
@@ -200,8 +195,9 @@ def build(*, clean: bool = False, smoke_test: bool = True, dist_dir: Path | None
         import runpy
         # setup.py's identity is deliberately independent of application imports.
         namespace = runpy.run_path(str(REPO_ROOT / 'setup.py'))
-        identity_path = BUILD_DIR / 'build_identity.json'
-        identity_path.parent.mkdir(parents=True, exist_ok=True)
+        # Keep the stamp private to this invocation, including when a build
+        # test runs alongside PyInstaller and supplies its own fixture stamp.
+        identity_path = Path(folder) / 'build_identity.json'
         identity_path.write_text(json.dumps(namespace['identity'](), indent=2)+'\n', encoding='utf-8')
         env['VOICE_STT_BUILD_IDENTITY_FILE'] = str(identity_path)
         env["PATH"] = sanitized_build_path()
@@ -221,10 +217,6 @@ def build(*, clean: bool = False, smoke_test: bool = True, dist_dir: Path | None
             command.extend(("--distpath", str(dist_dir)))
         command.append(str(SPEC_FILE))
         run(command, env=env)
-    finally:
-        if temp_path is not None:
-            temp_path.unlink(missing_ok=True)
-
     if not exe_path.is_file() or exe_path.stat().st_size == 0:
         raise BuildError(f"Expected executable was not created: {exe_path}")
 

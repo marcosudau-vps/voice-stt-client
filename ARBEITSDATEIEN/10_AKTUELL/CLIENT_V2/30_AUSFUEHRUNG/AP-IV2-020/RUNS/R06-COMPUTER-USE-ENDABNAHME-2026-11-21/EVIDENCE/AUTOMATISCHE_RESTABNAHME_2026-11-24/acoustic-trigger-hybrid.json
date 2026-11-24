@@ -1,0 +1,183 @@
+{
+  "scope": "real ReSpeaker capture, Windows speaker acoustic synthetic WAV, corrected source and real V2 server; mock clipboard only",
+  "folder": "acoustic-a6be83ed",
+  "start": "2026-11-24T00:13:42.914646+01:00",
+  "cases": [
+    {
+      "name": "configured",
+      "triggers": {
+        "manual": true,
+        "wakeWord": true
+      },
+      "pass_": true
+    },
+    {
+      "name": "silent_idle",
+      "activations": 0,
+      "injections": 0,
+      "pass_": true
+    },
+    {
+      "name": "ordinary_speech_without_wake",
+      "activations": 0,
+      "injections": 0,
+      "pass_": true
+    },
+    {
+      "name": "wake_paused",
+      "activations": 0,
+      "injections": 0,
+      "pass_": true
+    },
+    {
+      "name": "wake_attempt_1",
+      "activation": "0eb3e72b-9f5f-4073-8a3f-23c1b2f1e5e3",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1,
+      "pass_": true
+    },
+    {
+      "name": "wake_attempt_2",
+      "activation": "86caffed-b084-4536-a796-47f075a623ed",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1,
+      "pass_": true
+    },
+    {
+      "name": "two_wake_finals",
+      "pass_": true,
+      "successful": 2
+    },
+    {
+      "name": "kurz-02",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1,
+      "pass_": true
+    }
+  ],
+  "events": [
+    {
+      "kind": "activation.started",
+      "activation": "0eb3e72b-9f5f-4073-8a3f-23c1b2f1e5e3",
+      "segment": null
+    },
+    {
+      "kind": "wakeword.detected",
+      "activation": "0eb3e72b-9f5f-4073-8a3f-23c1b2f1e5e3",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "0eb3e72b-9f5f-4073-8a3f-23c1b2f1e5e3",
+      "segment": "2608350a-cb7d-4954-b470-3f647946d893"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "0eb3e72b-9f5f-4073-8a3f-23c1b2f1e5e3",
+      "segment": "2608350a-cb7d-4954-b470-3f647946d893"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "0eb3e72b-9f5f-4073-8a3f-23c1b2f1e5e3",
+      "segment": "2608350a-cb7d-4954-b470-3f647946d893"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "0eb3e72b-9f5f-4073-8a3f-23c1b2f1e5e3",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "0eb3e72b-9f5f-4073-8a3f-23c1b2f1e5e3",
+      "segment": "2608350a-cb7d-4954-b470-3f647946d893"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "86caffed-b084-4536-a796-47f075a623ed",
+      "segment": null
+    },
+    {
+      "kind": "wakeword.detected",
+      "activation": "86caffed-b084-4536-a796-47f075a623ed",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "86caffed-b084-4536-a796-47f075a623ed",
+      "segment": "d62451ae-ebe3-4332-8bb1-3adaf24e9549"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "86caffed-b084-4536-a796-47f075a623ed",
+      "segment": "d62451ae-ebe3-4332-8bb1-3adaf24e9549"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "86caffed-b084-4536-a796-47f075a623ed",
+      "segment": "d62451ae-ebe3-4332-8bb1-3adaf24e9549"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "86caffed-b084-4536-a796-47f075a623ed",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "86caffed-b084-4536-a796-47f075a623ed",
+      "segment": "d62451ae-ebe3-4332-8bb1-3adaf24e9549"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "dc87a21c-f29a-4c06-9dc5-9bffd02e54df",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dc87a21c-f29a-4c06-9dc5-9bffd02e54df",
+      "segment": "99da2e18-99a3-47a4-92aa-a388b2f83177"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dc87a21c-f29a-4c06-9dc5-9bffd02e54df",
+      "segment": "99da2e18-99a3-47a4-92aa-a388b2f83177"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dc87a21c-f29a-4c06-9dc5-9bffd02e54df",
+      "segment": "99da2e18-99a3-47a4-92aa-a388b2f83177"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dc87a21c-f29a-4c06-9dc5-9bffd02e54df",
+      "segment": "99da2e18-99a3-47a4-92aa-a388b2f83177"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "dc87a21c-f29a-4c06-9dc5-9bffd02e54df",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "dc87a21c-f29a-4c06-9dc5-9bffd02e54df",
+      "segment": "99da2e18-99a3-47a4-92aa-a388b2f83177"
+    }
+  ],
+  "sessions": [
+    {
+      "generation": 2,
+      "commit": "e95858e3c010a7e9324b49bb44fee349abe7128a"
+    }
+  ],
+  "device": {
+    "index": 9,
+    "name": "Freisprechtelefon mit Echoausschaltung (reSpeaker XVF3800 4-Mic Array)",
+    "output": "Lautsprecher (Realtek(R) Audio)"
+  },
+  "mode": "hybrid",
+  "result": "PASS_SCOPED",
+  "cleanupErrors": [],
+  "end": "2026-11-24T00:14:32.477698+01:00"
+}

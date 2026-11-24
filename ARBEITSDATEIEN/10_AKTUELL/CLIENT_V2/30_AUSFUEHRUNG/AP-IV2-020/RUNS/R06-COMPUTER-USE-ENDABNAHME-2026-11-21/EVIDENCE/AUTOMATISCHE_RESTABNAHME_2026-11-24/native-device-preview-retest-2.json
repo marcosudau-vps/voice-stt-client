@@ -1,0 +1,48 @@
+{
+  "scope": "real native Qt desktop from corrected source, real pinned V2 TLS server, isolated test profile, real native Qt UI, real acoustic ReSpeaker input, pinned V2, mock injection, no global hotkeys",
+  "start": "2026-11-24T00:16:00.526215+01:00",
+  "checks": {
+    "server_identity": true,
+    "no_audio_no_hotkeys": true,
+    "tray_available_and_visible": true,
+    "tray_tooltip_and_menu": true,
+    "native_settings_tabs": true,
+    "native_local_tabs": true,
+    "invalid_audio_retained_and_no_capture": true,
+    "invalid_to_real_device_gui_recovery": true,
+    "kurz-01_one_final": true,
+    "kurz-01_preview_before_injection": true,
+    "device_switch_to_system_default": true,
+    "kurz-02_one_final": true,
+    "kurz-02_preview_before_injection": true,
+    "device_persisted": true,
+    "isolated_cursor_path": true,
+    "shutdown_core_tray": true,
+    "shared_cursor_unchanged": true
+  },
+  "evidenceFolder": "native-desktop-dd15f24b",
+  "before_kurz-01": {
+    "ready": true,
+    "manualAvailable": true,
+    "reportedAvailable": true
+  },
+  "kurz-01": {
+    "previewCount": 2,
+    "previewMarkerMatch": true,
+    "finalCount": 1,
+    "injectionCount": 1
+  },
+  "before_kurz-02": {
+    "ready": true,
+    "manualAvailable": true,
+    "reportedAvailable": true
+  },
+  "kurz-02": {
+    "previewCount": 4,
+    "previewMarkerMatch": true,
+    "finalCount": 1,
+    "injectionCount": 1
+  },
+  "end": "2026-11-24T00:16:16.322390+01:00",
+  "result": "PASS_SCOPED"
+}

@@ -1,0 +1,232 @@
+{
+  "scope": "real native Qt desktop from corrected source, real pinned V2 TLS server, isolated test profile, real native Qt apply, real LED and QSoundEffect, real acoustic input, mock injection; physical visual/audible change not claimed",
+  "start": "2026-11-24T00:50:16.710891+01:00",
+  "checks": {
+    "server_identity": true,
+    "real_usb_sink_available": true,
+    "brightness_and_sound_path_gui_applied": true,
+    "led_worker_replaced": true,
+    "kurz-01_one_final": true,
+    "kurz-01_preview_before_injection": true,
+    "real_sink_after_apply": true,
+    "kurz-03_one_final": false,
+    "kurz-03_preview_before_injection": true,
+    "changed_final_sound_rule": true,
+    "changed_led_rule": false,
+    "real_qsound_effect_volume_and_asset": true,
+    "sound_backend_ready": true,
+    "kurz-02_one_final": true,
+    "kurz-02_preview_before_injection": true,
+    "sound_disabled_no_player_audio_still_running": true,
+    "feedback_profile_persisted": true,
+    "isolated_cursor_path": true,
+    "shutdown_core_tray": true,
+    "shared_cursor_unchanged": true
+  },
+  "evidenceFolder": "native-desktop-2534d1ac",
+  "before_kurz-01": {
+    "ready": true,
+    "manualAvailable": true,
+    "reportedAvailable": true
+  },
+  "kurz-01": {
+    "previewCount": 3,
+    "previewMarkerMatch": true,
+    "finalCount": 1,
+    "injectionCount": 1
+  },
+  "before_kurz-03": {
+    "ready": true,
+    "manualAvailable": true,
+    "reportedAvailable": true
+  },
+  "kurz-03": {
+    "previewCount": 4,
+    "previewMarkerMatch": true,
+    "finalCount": 1,
+    "injectionCount": 1
+  },
+  "outputRules": [
+    {
+      "sound": null,
+      "volume": null,
+      "led": [
+        {
+          "verb": "set_state",
+          "target": "waiting",
+          "brightness": null
+        }
+      ]
+    },
+    {
+      "sound": "wake_word",
+      "volume": 1.0,
+      "led": [
+        {
+          "verb": "emit_event",
+          "target": "wakeword_detected",
+          "brightness": null
+        }
+      ]
+    },
+    {
+      "sound": null,
+      "volume": null,
+      "led": [
+        {
+          "verb": "set_state",
+          "target": "listening",
+          "brightness": null
+        }
+      ]
+    },
+    {
+      "sound": "start",
+      "volume": 1.0,
+      "led": []
+    },
+    {
+      "sound": null,
+      "volume": null,
+      "led": [
+        {
+          "verb": "set_state",
+          "target": "thinking",
+          "brightness": null
+        }
+      ]
+    },
+    {
+      "sound": "stop",
+      "volume": 1.0,
+      "led": []
+    },
+    {
+      "sound": null,
+      "volume": null,
+      "led": [
+        {
+          "verb": "set_state",
+          "target": "ready_state",
+          "brightness": null
+        }
+      ]
+    },
+    {
+      "sound": "stop",
+      "volume": 1.0,
+      "led": []
+    },
+    {
+      "sound": "complete",
+      "volume": 0.25,
+      "led": [
+        {
+          "verb": "emit_event",
+          "target": "success_event",
+          "brightness": null
+        }
+      ]
+    },
+    {
+      "sound": null,
+      "volume": null,
+      "led": [
+        {
+          "verb": "set_state",
+          "target": "waiting",
+          "brightness": null
+        }
+      ]
+    },
+    {
+      "sound": "wake_word",
+      "volume": 1.0,
+      "led": [
+        {
+          "verb": "emit_event",
+          "target": "wakeword_detected",
+          "brightness": null
+        }
+      ]
+    },
+    {
+      "sound": null,
+      "volume": null,
+      "led": [
+        {
+          "verb": "set_state",
+          "target": "listening",
+          "brightness": null
+        }
+      ]
+    },
+    {
+      "sound": "start",
+      "volume": 1.0,
+      "led": []
+    },
+    {
+      "sound": null,
+      "volume": null,
+      "led": [
+        {
+          "verb": "set_state",
+          "target": "thinking",
+          "brightness": null
+        }
+      ]
+    },
+    {
+      "sound": "stop",
+      "volume": 1.0,
+      "led": []
+    },
+    {
+      "sound": null,
+      "volume": null,
+      "led": [
+        {
+          "verb": "set_state",
+          "target": "ready_state",
+          "brightness": null
+        }
+      ]
+    },
+    {
+      "sound": "stop",
+      "volume": 1.0,
+      "led": []
+    },
+    {
+      "sound": "complete",
+      "volume": 0.25,
+      "led": [
+        {
+          "verb": "emit_event",
+          "target": "success_event",
+          "brightness": null
+        }
+      ]
+    }
+  ],
+  "soundOnChecks": {
+    "kurz-01_one_final": true,
+    "kurz-01_preview_before_injection": true,
+    "kurz-03_one_final": false,
+    "kurz-03_preview_before_injection": true
+  },
+  "before_kurz-02": {
+    "ready": true,
+    "manualAvailable": true,
+    "reportedAvailable": true
+  },
+  "kurz-02": {
+    "previewCount": 5,
+    "previewMarkerMatch": true,
+    "finalCount": 1,
+    "injectionCount": 1
+  },
+  "end": "2026-11-24T00:50:50.019832+01:00",
+  "result": "INCOMPLETE_OR_FAIL"
+}

@@ -1,0 +1,22 @@
+{
+  "scope": "real native Qt desktop from corrected source, real pinned V2 TLS server, isolated test profile, real pinned V2 acoustic input, guarded production clipboard/SendInput to owned Notepad then Qt editor; no global hotkeys",
+  "start": "2026-11-24T01:11:41.784297+01:00",
+  "checks": {
+    "server_identity": true,
+    "notepad_owned": true,
+    "kurz-01_exact_native_paste": true,
+    "kurz-01_markers": true,
+    "kurz-01_clipboard_restored": true,
+    "kurz-02_exact_native_paste": true,
+    "kurz-02_markers": true,
+    "kurz-02_clipboard_restored": true,
+    "first_target_unchanged_after_switch": true,
+    "distinct_targets": true,
+    "isolated_cursor_path": true,
+    "shutdown_core_tray": true,
+    "shared_cursor_unchanged": true
+  },
+  "evidenceFolder": "native-desktop-b860b3cc",
+  "end": "2026-11-24T01:12:01.440654+01:00",
+  "result": "PASS_SCOPED"
+}

@@ -12,7 +12,7 @@ from PySide6.QtWidgets import (QCheckBox, QComboBox, QDialog, QDialogButtonBox,
 
 from voice_stt_client.core import protocol_v2 as p
 from voice_stt_client.core.settings_service import NA_KEYS, SERVER_DEFAULT_KEYS, UNSUPPORTED_SESSION
-from voice_stt_client.core.v2_controls import ActiveAction
+from voice_stt_client.core.v2_controls import ActiveAction, ControlConfig, DuplicateControlHotkey
 from voice_stt_client.core.settings_ui_service import ApplyChoice
 
 
@@ -33,6 +33,12 @@ ERROR_TEXT = {
     "profile_persistence_required": "Die Anwendung hat die lokale Profilverwaltung noch nicht angeschlossen.",
     "catalog_unavailable": "Wake-Word-Katalog fehlt oder ist veraltet. Neu laden.",
     "profile_repair_required": "Das migrierte Profil benötigt eine bestätigte Korrektur. Offene Werte prüfen; unbekannte Konflikte bleiben erhalten.",
+    "duplicate_control_hotkey": "Eine Tastenkombination ist mehrfach belegt. Bitte unterschiedliche Hotkeys wählen.",
+}
+HOTKEY_LABELS = {
+    "primary_key": "Primärer Hotkey", "secondary_key": "Sekundärer Hotkey",
+    "wake_pause_key": "Optionaler Wake-Pause-Hotkey", "reinsert_last_key": "Letzten Text erneut einfügen",
+    "overlay_toggle_key": "Overlay umschalten",
 }
 POLICY_TEXT = {"live": "Sofort", "next_activation": "Nächstes Diktat",
                "next_session": "Nächste Verbindung", "server_restart": "Serverneustart"}
@@ -94,6 +100,11 @@ def set_editor(editor, definition, value):
         editor.setText(", ".join(value or []))
     else:
         editor.setText(str(value) if value is not None else "")
+    editor.setProperty("loadedValue", editor_value(editor))
+
+
+def editor_value(editor):
+    return editor.currentData() if isinstance(editor, QComboBox) else editor.text()
 
 
 def read_editor(editor, definition):
@@ -218,9 +229,7 @@ class V2SettingsDialog(QDialog):
         form.addRow("Dauerhaft konfigurierte Trigger", self.manual)
         form.addRow("Beide Quellen sind gleichzeitig nutzbar", self.wake)
         self.controls = {}
-        for key, label in (("primary_key", "Primärer Hotkey"), ("secondary_key", "Sekundärer Hotkey"),
-                           ("wake_pause_key", "Optionaler Wake-Pause-Hotkey"),
-                           ("reinsert_last_key", "Letzten Text erneut einfügen"), ("overlay_toggle_key", "Overlay umschalten")):
+        for key, label in HOTKEY_LABELS.items():
             editor = QLineEdit()
             self.controls[key] = editor
             form.addRow(label, editor)
@@ -340,17 +349,20 @@ class V2SettingsDialog(QDialog):
             return
         if self._request_id is not None and reply.request_id < self._request_id:
             return
-        reset = reply.operation in ("load", "apply_profile", "patch_server") and reply.error is None
+        reset_scope = ({"apply_profile": "session", "patch_server": "server"}.get(reply.operation)
+                       if reply.error is None else None)
         if reply.view is not None:
             previous = self._view
             self._view = reply.view
             if self._decision is not None and (previous is None or previous.context != reply.view.context):
                 self._decision.reject()
-            self.render(reset=reset)
+            self.render(reset_scope=reset_scope, refresh=reply.operation == "load")
         if reply.error:
             self.status.setText(ERROR_TEXT.get(reply.error, "Einstellung konnte nicht übernommen werden: " + reply.error))
         elif reply.operation != "inspect":
-            if reply.operation == "apply_profile" and reply.view and self._reconnect_pending(reply.view):
+            if reply.operation == "apply_profile" and reply.view and not reply.view.connected_ready:
+                self.status.setText("Profil gespeichert. Die Trigger-Auswahl gilt ab der nächsten betriebsbereiten Verbindung.")
+            elif reply.operation == "apply_profile" and reply.view and self._reconnect_pending(reply.view):
                 self.status.setText("Profil gespeichert. Trigger-/Wake-Auswahl für die nächste Verbindung vorgemerkt; aktuelle Eingabe bleibt bestehen.")
             else:
                 self.status.setText("Serverwerte geladen." if reply.operation == "load" else "Anfrage bestätigt.")
@@ -360,13 +372,17 @@ class V2SettingsDialog(QDialog):
         return (view.profile["manual"], view.profile["wake_word"], tuple(view.profile["wake_word_ids"]) if view.profile["wake_word"] else ()) != (
             view.connected_triggers.get("manual"), view.connected_triggers.get("wakeWord"), view.connected_wake_ids)
 
-    def render(self, *, reset=False):
+    def render(self, *, reset=False, reset_scope=None, refresh=False):
         v = self._view
+        initial = not self._profile_loaded
         self.origin_label.setText("Server: " + v.origin)
         self.revisions.setText(f"Sessionrevision: {v.settings.session_revision} · Serverrevision: {v.settings.server_revision} · Katalogrevision: {v.settings.catalog_revision}")
-        self.trigger_status.setText("Aktuelle Verbindung: Manuell " + display(v.connected_triggers.get("manual")) +
-            ", Wake " + display(v.connected_triggers.get("wakeWord")) +
-            (". Gespeicherte Trigger-/Wake-Auswahl ist noch vorgemerkt." if self._reconnect_pending(v) else ". Gespeichertes Triggerprofil ist wirksam."))
+        if v.connected_ready:
+            self.trigger_status.setText("Aktuelle Verbindung: Manuell " + display(v.connected_triggers.get("manual")) +
+                ", Wake " + display(v.connected_triggers.get("wakeWord")) +
+                (". Gespeicherte Trigger-/Wake-Auswahl ist noch vorgemerkt." if self._reconnect_pending(v) else ". Gespeichertes Triggerprofil ist wirksam."))
+        else:
+            self.trigger_status.setText("Keine betriebsbereite Verbindung. Die wirksamen Trigger sind noch nicht bestätigt.")
         self.repair_status.setText("Offene Migrationswerte: " + ", ".join(v.profile["unresolved"]) if v.profile["unresolved"] else "")
         self.repair.setVisible(bool(v.profile["unresolved"]))
         verified = v.admin_verified
@@ -376,7 +392,7 @@ class V2SettingsDialog(QDialog):
         if self.metadata is not None:
             self.metadata.setValue("admin/" + v.credential_target + "/saved", v.credential_saved)
             self.metadata.setValue("admin/" + v.credential_target + "/target", v.credential_target)
-        if not self._profile_loaded or reset:
+        if initial or reset or reset_scope == "session":
             self._profile_loaded = True
             self.manual.setChecked(v.profile["manual"])
             self.wake.setChecked(v.profile["wake_word"])
@@ -388,7 +404,7 @@ class V2SettingsDialog(QDialog):
                     editor.setText(value)
             self.controls_enabled.setChecked(v.profile["controls"]["enabled"])
             self._render_catalog(v)
-        elif self.wake_list.property("revision") != v.settings.catalog_revision:
+        elif refresh or self.wake_list.property("revision") != v.settings.catalog_revision:
             self._render_catalog(v, keep_draft=True)
         self.catalog_status.setText("Katalog fehlt / Ladefehler – Auswahl bleibt erhalten." if v.catalog is None else
             ("Katalog veraltet / Ladefehler – neu laden." if v.settings.catalog_stale else
@@ -396,9 +412,16 @@ class V2SettingsDialog(QDialog):
              "Wake-Auswahl gilt bei nächster Verbindung. Unverfügbare IDs bitte abwählen oder korrigieren."))
         self.pending_label.setText("Ausstehend: " + (", ".join(LABELS.get(k, k) for k in v.settings.pending) or "keine") +
             ". Rauschunterdrückung und VAD sind hier nur lesbar; wirksame Änderung über Serverdefaults.")
+        run_pauses = {"runtimeSuppression.manual": (v.pause.desired_manual, v.pause.confirmed_manual),
+                      "runtimeSuppression.wakeWord": (v.pause.desired_wake_word, v.pause.confirmed_wake_word)}
         for scope, table in self._tables.items():
             keys = [key for key, definition in v.schema.items() if (definition.scope == "session" if scope == "session" else key in SERVER_DEFAULT_KEYS or definition.scope == "server")]
-            if list(self._rows[scope]) != keys:
+            reset_rows = initial or reset or reset_scope == scope
+            drafts = {}
+            if self._rows[scope].keys() != set(keys):
+                if not reset_rows:
+                    drafts = {key: editor_value(editor) for key, editor in self._editors[scope].items()
+                              if editor_value(editor) != editor.property("loadedValue")}
                 self._rows[scope] = {key: row for row, key in enumerate(keys)}
                 self._editors[scope] = {}
                 table.setRowCount(len(keys))
@@ -411,14 +434,23 @@ class V2SettingsDialog(QDialog):
                 value = v.profile["desired_settings"].get(key, requested if requested is not None else default)
                 if scope == "server":
                     value = requested
+                elif key in run_pauses:
+                    requested, effective = run_pauses[key]
+                    value = requested
+                initial_value = value if value is not None else definition.default_value
                 editor = self._editors[scope].get(key)
                 if editor is None:
                     editor = make_editor(definition)
                     self._editors[scope][key] = editor
                     table.setCellWidget(row, 1, editor)
-                    set_editor(editor, definition, value if value is not None else definition.default_value)
-                elif reset:
-                    set_editor(editor, definition, value if value is not None else definition.default_value)
+                    set_editor(editor, definition, initial_value)
+                    if writable and key in drafts:
+                        if isinstance(editor, QComboBox):
+                            editor.setCurrentIndex(editor.findData(drafts[key]))
+                        elif isinstance(drafts[key], str):
+                            editor.setText(drafts[key])
+                elif reset_rows or not writable or (refresh and editor_value(editor) == editor.property("loadedValue")):
+                    set_editor(editor, definition, initial_value)
                 editor.setEnabled(writable and (scope == "session" or verified))
                 hints = constraint_text(definition)
                 if key in UNSUPPORTED_SESSION and scope == "session":
@@ -497,6 +529,7 @@ class V2SettingsDialog(QDialog):
             profile["controls"]["enabled"] = self.controls_enabled.isChecked()
             if not profile["manual"] and not profile["wake_word"]:
                 raise ValueError
+            ControlConfig(**profile["controls"])
             context = self._view.context
             old = self._view.profile
             reconnect = (profile["manual"], profile["wake_word"], tuple(profile["wake_word_ids"]) if profile["wake_word"] else ()) != (
@@ -515,5 +548,8 @@ class V2SettingsDialog(QDialog):
                 choice, drain = plan
             repairs = [key for key in old["unresolved"] if key in ("wake_words", "session.mode", "session.trigger_flags", "hotkey", *NA_KEYS)] if self.repair.isChecked() else []
             self._request("apply_profile", profile=profile, context=context, choice=choice, drain_choice=drain, repair_fields=repairs)
+        except DuplicateControlHotkey as error:
+            first, second = HOTKEY_LABELS[error.first], HOTKEY_LABELS[error.second]
+            self.status.setText(f"{error.chord} ist für „{first}“ und „{second}“ belegt. Bitte unterschiedliche Hotkeys wählen.")
         except (ValueError, TypeError):
             self.status.setText("Ungültige Einstellungen. Mindestens eine Triggerquelle und gültige Werte sind erforderlich.")

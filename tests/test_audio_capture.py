@@ -125,5 +125,17 @@ class TestAFailedStartLeavesNothingBehind(unittest.TestCase):
         half_open.close.assert_called_once()
         self.assertFalse(self.capture.is_running)
 
+    def test_fallback_is_logged_only_when_stream_opens(self) -> None:
+        with patch.object(sd, "query_devices", return_value={"name": "test", "default_samplerate": 44100}), patch.object(
+            sd, "check_input_settings", side_effect=sd.PortAudioError("unavailable")
+        ), patch.object(sd, "InputStream", side_effect=[sd.PortAudioError("disconnected"), MagicMock()]):
+            with self.assertNoLogs("audio", level="INFO"):
+                with self.assertRaises(sd.PortAudioError):
+                    self.capture.start()
+            with self.assertLogs("audio", level="INFO") as messages:
+                self.capture.start()
+            self.addCleanup(self.capture.stop)
+            self.assertTrue(any("opened at 44100 Hz" in message for message in messages.output))
+
 if __name__ == "__main__":
     unittest.main()

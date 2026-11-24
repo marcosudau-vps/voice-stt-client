@@ -1,0 +1,110 @@
+[
+  {
+    "name": "ten-short",
+    "observed": {
+      "noWake": true,
+      "samples": [
+        {
+          "n": 1,
+          "tokensMatch": true,
+          "finals": 1,
+          "injectCalls": 1,
+          "actualCharacters": 32
+        },
+        {
+          "n": 2,
+          "tokensMatch": true,
+          "finals": 1,
+          "injectCalls": 1,
+          "actualCharacters": 41
+        },
+        {
+          "n": 3,
+          "tokensMatch": true,
+          "finals": 1,
+          "injectCalls": 1,
+          "actualCharacters": 42
+        },
+        {
+          "n": 4,
+          "tokensMatch": true,
+          "finals": 1,
+          "injectCalls": 1,
+          "actualCharacters": 35
+        },
+        {
+          "n": 5,
+          "tokensMatch": true,
+          "finals": 1,
+          "injectCalls": 1,
+          "actualCharacters": 41
+        },
+        {
+          "n": 6,
+          "tokensMatch": true,
+          "finals": 1,
+          "injectCalls": 1,
+          "actualCharacters": 38
+        },
+        {
+          "n": 7,
+          "tokensMatch": true,
+          "finals": 1,
+          "injectCalls": 1,
+          "actualCharacters": 37
+        },
+        {
+          "n": 8,
+          "tokensMatch": true,
+          "finals": 1,
+          "injectCalls": 1,
+          "actualCharacters": 35
+        },
+        {
+          "n": 9,
+          "tokensMatch": true,
+          "finals": 1,
+          "injectCalls": 1,
+          "actualCharacters": 36
+        },
+        {
+          "n": 10,
+          "tokensMatch": true,
+          "finals": 1,
+          "injectCalls": 1,
+          "actualCharacters": 36
+        }
+      ],
+      "starts": 10,
+      "elapsedSeconds": 56.38
+    },
+    "sessions": [
+      {
+        "generation": 1,
+        "sessionId": "ee3fac98",
+        "serverCommit": "e95858e3c010a7e9324b49bb44fee349abe7128a"
+      }
+    ],
+    "cleanupErrors": []
+  },
+  {
+    "name": "long",
+    "observed": {
+      "testPCMSeconds": 145.0,
+      "playbackWallSeconds": 147.19,
+      "sameOpenActivationBeforeFinish": true,
+      "finals": 4,
+      "uniqueFinalSegments": 4,
+      "attempts": 4,
+      "totalCharacters": 1575
+    },
+    "sessions": [
+      {
+        "generation": 1,
+        "sessionId": "270a54e2",
+        "serverCommit": "e95858e3c010a7e9324b49bb44fee349abe7128a"
+      }
+    ],
+    "cleanupErrors": []
+  }
+]

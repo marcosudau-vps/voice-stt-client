@@ -1,0 +1,25 @@
+{
+  "scope": "real native Qt desktop from corrected source, real pinned V2 TLS server, isolated test profile, no microphone or global hotkeys, actual Admin UI final test origin only, reversible default with CAS restoration",
+  "start": "2026-11-24T00:57:43.650538+01:00",
+  "checks": {
+    "server_identity": true,
+    "locked_before_verification": true,
+    "invalid_key_rejected": true,
+    "invalid_key_defaults_unchanged": true,
+    "positive_admin_dialog_unlock": false,
+    "final_server_defaults_unchanged": true,
+    "same_server_instance": true,
+    "real_credential_not_modified": true,
+    "no_admin_key_in_owned_files": true,
+    "shutdown_core_tray": true,
+    "shared_cursor_unchanged": true
+  },
+  "evidenceFolder": "native-desktop-d0a273d5",
+  "serverInstance": "8e183f934fe14c81b515815615ca5ea3",
+  "baselineRevision": 0,
+  "baselineValue": 3000,
+  "errorType": "RuntimeError",
+  "restoredExact": null,
+  "end": "2026-11-24T00:57:47.975234+01:00",
+  "result": "INCOMPLETE_OR_FAIL"
+}

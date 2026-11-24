@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "scope": "isolated scratch profile, not user's V2 test profile",
+  "url": "wss://final.v2.voice-stt-server.marcosudau.com/ws/v2",
+  "categories": [
+    "server",
+    "v2_profile hotkeys and wake selection",
+    "overlay",
+    "text_injection",
+    "audio",
+    "feedback",
+    "led"
+  ],
+  "savedPath": "P:\\GithubRepos\\marcosudau-vps\\voice-stt-client\\build-output\\v2-protokoll-abnahme-20261121\\settings-roundtrip-test.yaml"
+}

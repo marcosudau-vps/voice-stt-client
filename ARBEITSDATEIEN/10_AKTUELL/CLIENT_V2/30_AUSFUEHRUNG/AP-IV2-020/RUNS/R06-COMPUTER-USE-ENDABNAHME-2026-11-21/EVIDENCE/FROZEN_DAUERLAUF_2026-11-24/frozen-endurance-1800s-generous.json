@@ -1,0 +1,2021 @@
+{
+  "scope": "corrected frozen EXE, real speaker/mic, native hotkeys and paste into owned editor, automated timed endurance, no operator speech",
+  "folder": "C:\\Users\\marco\\OneDrive\\Desktop\\Voice-STT-Client-V2-Finalabnahme\\Nachweise\\korrektur-2026-11-23\\frozen-endurance-eec5590a",
+  "exeSha256": "07cab945a8ca568f7a500a62a013a852e60e38a95a919b677453898539a205fe",
+  "result": "ACTIVATION_TIMEOUT",
+  "checks": {},
+  "stages": [
+    {
+      "stage": "ready",
+      "seconds": 0.02
+    },
+    {
+      "stage": "idle",
+      "seconds": 12.09
+    },
+    {
+      "stage": "activate",
+      "seconds": 12.24
+    },
+    {
+      "stage": "play",
+      "seconds": 12.97
+    },
+    {
+      "stage": "final",
+      "seconds": 17.89
+    },
+    {
+      "stage": "idle",
+      "seconds": 29.59
+    },
+    {
+      "stage": "activate",
+      "seconds": 102.11
+    },
+    {
+      "stage": "play",
+      "seconds": 102.77
+    },
+    {
+      "stage": "final",
+      "seconds": 108.03
+    },
+    {
+      "stage": "idle",
+      "seconds": 111.62
+    },
+    {
+      "stage": "activate",
+      "seconds": 192.12
+    },
+    {
+      "stage": "play",
+      "seconds": 192.78
+    },
+    {
+      "stage": "final",
+      "seconds": 198.27
+    },
+    {
+      "stage": "idle",
+      "seconds": 201.75
+    },
+    {
+      "stage": "activate",
+      "seconds": 282.17
+    },
+    {
+      "stage": "play",
+      "seconds": 282.92
+    },
+    {
+      "stage": "final",
+      "seconds": 288.06
+    },
+    {
+      "stage": "idle",
+      "seconds": 289.81
+    },
+    {
+      "stage": "activate",
+      "seconds": 372.17
+    },
+    {
+      "stage": "play",
+      "seconds": 372.83
+    },
+    {
+      "stage": "final",
+      "seconds": 378.45
+    },
+    {
+      "stage": "idle",
+      "seconds": 381.91
+    },
+    {
+      "stage": "activate",
+      "seconds": 462.19
+    },
+    {
+      "stage": "play",
+      "seconds": 462.84
+    },
+    {
+      "stage": "final",
+      "seconds": 468.0
+    },
+    {
+      "stage": "idle",
+      "seconds": 471.81
+    },
+    {
+      "stage": "activate",
+      "seconds": 552.09
+    },
+    {
+      "stage": "play",
+      "seconds": 552.75
+    },
+    {
+      "stage": "final",
+      "seconds": 557.69
+    },
+    {
+      "stage": "idle",
+      "seconds": 559.64
+    },
+    {
+      "stage": "activate",
+      "seconds": 642.22
+    },
+    {
+      "stage": "play",
+      "seconds": 643.33
+    },
+    {
+      "stage": "final",
+      "seconds": 648.25
+    },
+    {
+      "stage": "idle",
+      "seconds": 652.06
+    },
+    {
+      "stage": "activate",
+      "seconds": 732.16
+    },
+    {
+      "stage": "play",
+      "seconds": 732.91
+    },
+    {
+      "stage": "final",
+      "seconds": 737.97
+    },
+    {
+      "stage": "idle",
+      "seconds": 741.34
+    },
+    {
+      "stage": "activate",
+      "seconds": 822.16
+    },
+    {
+      "stage": "play",
+      "seconds": 822.83
+    },
+    {
+      "stage": "final",
+      "seconds": 827.97
+    },
+    {
+      "stage": "idle",
+      "seconds": 829.81
+    },
+    {
+      "stage": "activate",
+      "seconds": 912.19
+    },
+    {
+      "stage": "play",
+      "seconds": 912.94
+    },
+    {
+      "stage": "final",
+      "seconds": 917.88
+    },
+    {
+      "stage": "idle",
+      "seconds": 919.72
+    },
+    {
+      "stage": "activate",
+      "seconds": 1002.19
+    },
+    {
+      "stage": "play",
+      "seconds": 1002.84
+    },
+    {
+      "stage": "final",
+      "seconds": 1008.09
+    },
+    {
+      "stage": "idle",
+      "seconds": 1011.7
+    },
+    {
+      "stage": "activate",
+      "seconds": 1092.11
+    },
+    {
+      "stage": "shutdown",
+      "seconds": 1122.19
+    }
+  ],
+  "targetSeconds": 1800,
+  "cases": [
+    {
+      "number": 1,
+      "fixture": "kurz-01",
+      "startSeconds": 0.88,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": true,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 17.5
+    },
+    {
+      "number": 2,
+      "fixture": "kurz-02",
+      "startSeconds": 90.67,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": true,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 99.53
+    },
+    {
+      "number": 3,
+      "fixture": "kurz-03",
+      "startSeconds": 180.69,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": false,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 189.66
+    },
+    {
+      "number": 4,
+      "fixture": "kurz-04",
+      "startSeconds": 270.83,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": true,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 277.72
+    },
+    {
+      "number": 5,
+      "fixture": "kurz-05",
+      "startSeconds": 360.73,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": false,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 369.81
+    },
+    {
+      "number": 6,
+      "fixture": "kurz-06",
+      "startSeconds": 450.75,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": false,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 459.72
+    },
+    {
+      "number": 7,
+      "fixture": "kurz-07",
+      "startSeconds": 540.66,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": true,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 547.55
+    },
+    {
+      "number": 8,
+      "fixture": "kurz-08",
+      "startSeconds": 631.23,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": false,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 639.97
+    },
+    {
+      "number": 9,
+      "fixture": "kurz-09",
+      "startSeconds": 720.81,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": true,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 729.23
+    },
+    {
+      "number": 10,
+      "fixture": "kurz-10",
+      "startSeconds": 810.73,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": false,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 817.72
+    },
+    {
+      "number": 11,
+      "fixture": "kurz-01",
+      "startSeconds": 900.84,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": false,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 907.62
+    },
+    {
+      "number": 12,
+      "fixture": "kurz-02",
+      "startSeconds": 990.75,
+      "hotkeyAttempts": 1,
+      "nativeExact": true,
+      "markers": true,
+      "clipboardRestored": true,
+      "finals": 1,
+      "endSeconds": 999.61
+    }
+  ],
+  "samples": [
+    {
+      "privateMiB": 465.664,
+      "workingMiB": 105.113,
+      "cpuSeconds": 2.71875,
+      "seconds": 0.11,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 476.066,
+      "workingMiB": 110.379,
+      "cpuSeconds": 3.140625,
+      "seconds": 5.14,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 476.66,
+      "workingMiB": 111.02,
+      "cpuSeconds": 3.484375,
+      "seconds": 10.17,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 476.66,
+      "workingMiB": 111.02,
+      "cpuSeconds": 3.875,
+      "seconds": 15.2,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.52,
+      "workingMiB": 111.512,
+      "cpuSeconds": 4.28125,
+      "seconds": 20.23,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.52,
+      "workingMiB": 111.516,
+      "cpuSeconds": 4.609375,
+      "seconds": 25.27,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.52,
+      "workingMiB": 111.516,
+      "cpuSeconds": 4.84375,
+      "seconds": 30.3,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.52,
+      "workingMiB": 111.516,
+      "cpuSeconds": 5.71875,
+      "seconds": 35.33,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.52,
+      "workingMiB": 111.516,
+      "cpuSeconds": 6.03125,
+      "seconds": 40.36,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.52,
+      "workingMiB": 111.516,
+      "cpuSeconds": 6.1875,
+      "seconds": 45.39,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.52,
+      "workingMiB": 111.516,
+      "cpuSeconds": 6.453125,
+      "seconds": 50.42,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.414,
+      "workingMiB": 111.457,
+      "cpuSeconds": 6.59375,
+      "seconds": 55.45,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.414,
+      "workingMiB": 111.457,
+      "cpuSeconds": 6.71875,
+      "seconds": 60.48,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.414,
+      "workingMiB": 111.457,
+      "cpuSeconds": 7.046875,
+      "seconds": 65.52,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.414,
+      "workingMiB": 111.457,
+      "cpuSeconds": 7.21875,
+      "seconds": 70.55,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.414,
+      "workingMiB": 111.457,
+      "cpuSeconds": 7.6875,
+      "seconds": 75.58,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.414,
+      "workingMiB": 111.457,
+      "cpuSeconds": 7.9375,
+      "seconds": 80.61,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.414,
+      "workingMiB": 111.457,
+      "cpuSeconds": 8.1875,
+      "seconds": 85.64,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.332,
+      "workingMiB": 111.309,
+      "cpuSeconds": 8.328125,
+      "seconds": 90.67,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.496,
+      "workingMiB": 111.637,
+      "cpuSeconds": 8.71875,
+      "seconds": 95.7,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.414,
+      "workingMiB": 111.5,
+      "cpuSeconds": 8.953125,
+      "seconds": 100.73,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.414,
+      "workingMiB": 111.5,
+      "cpuSeconds": 9.234375,
+      "seconds": 105.77,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.414,
+      "workingMiB": 111.5,
+      "cpuSeconds": 9.625,
+      "seconds": 110.8,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.414,
+      "workingMiB": 111.5,
+      "cpuSeconds": 9.6875,
+      "seconds": 115.84,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.383,
+      "workingMiB": 111.484,
+      "cpuSeconds": 9.921875,
+      "seconds": 120.86,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.383,
+      "workingMiB": 111.484,
+      "cpuSeconds": 10.296875,
+      "seconds": 125.89,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.469,
+      "cpuSeconds": 10.546875,
+      "seconds": 130.92,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.469,
+      "cpuSeconds": 10.609375,
+      "seconds": 135.95,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.469,
+      "cpuSeconds": 10.96875,
+      "seconds": 140.98,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.469,
+      "cpuSeconds": 11.34375,
+      "seconds": 146.02,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.469,
+      "cpuSeconds": 11.625,
+      "seconds": 151.06,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.469,
+      "cpuSeconds": 11.796875,
+      "seconds": 156.08,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.469,
+      "cpuSeconds": 12.109375,
+      "seconds": 161.11,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.469,
+      "cpuSeconds": 12.34375,
+      "seconds": 166.14,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.469,
+      "cpuSeconds": 12.828125,
+      "seconds": 171.17,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.469,
+      "cpuSeconds": 12.984375,
+      "seconds": 176.2,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.266,
+      "workingMiB": 111.312,
+      "cpuSeconds": 13.203125,
+      "seconds": 181.23,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.434,
+      "workingMiB": 111.648,
+      "cpuSeconds": 13.359375,
+      "seconds": 186.27,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 13.65625,
+      "seconds": 191.3,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 13.8125,
+      "seconds": 196.33,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 14.265625,
+      "seconds": 201.36,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 14.390625,
+      "seconds": 206.39,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 14.625,
+      "seconds": 211.42,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 14.765625,
+      "seconds": 216.47,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 15.125,
+      "seconds": 221.5,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 15.40625,
+      "seconds": 226.53,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 15.90625,
+      "seconds": 231.56,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 15.96875,
+      "seconds": 236.59,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 16.046875,
+      "seconds": 241.62,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 16.21875,
+      "seconds": 246.66,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 16.390625,
+      "seconds": 251.69,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.352,
+      "workingMiB": 111.492,
+      "cpuSeconds": 16.5625,
+      "seconds": 256.72,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.32,
+      "workingMiB": 111.48,
+      "cpuSeconds": 17.234375,
+      "seconds": 261.75,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.32,
+      "workingMiB": 111.48,
+      "cpuSeconds": 17.53125,
+      "seconds": 266.78,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.434,
+      "workingMiB": 111.668,
+      "cpuSeconds": 17.578125,
+      "seconds": 271.81,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.434,
+      "workingMiB": 111.691,
+      "cpuSeconds": 17.859375,
+      "seconds": 276.86,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.434,
+      "workingMiB": 111.691,
+      "cpuSeconds": 17.96875,
+      "seconds": 281.89,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.434,
+      "workingMiB": 111.691,
+      "cpuSeconds": 18.078125,
+      "seconds": 286.91,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.434,
+      "workingMiB": 111.691,
+      "cpuSeconds": 18.3125,
+      "seconds": 291.94,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 112.031,
+      "cpuSeconds": 18.453125,
+      "seconds": 296.97,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 112.031,
+      "cpuSeconds": 18.578125,
+      "seconds": 302.0,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 112.031,
+      "cpuSeconds": 18.796875,
+      "seconds": 307.03,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 112.031,
+      "cpuSeconds": 19.09375,
+      "seconds": 312.06,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 112.031,
+      "cpuSeconds": 19.40625,
+      "seconds": 317.09,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 112.031,
+      "cpuSeconds": 19.8125,
+      "seconds": 322.12,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 111.777,
+      "cpuSeconds": 19.90625,
+      "seconds": 327.16,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 111.777,
+      "cpuSeconds": 20.015625,
+      "seconds": 332.19,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 111.777,
+      "cpuSeconds": 20.71875,
+      "seconds": 337.22,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 111.777,
+      "cpuSeconds": 20.828125,
+      "seconds": 342.25,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 111.777,
+      "cpuSeconds": 20.921875,
+      "seconds": 347.3,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 111.777,
+      "cpuSeconds": 21.03125,
+      "seconds": 352.31,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.441,
+      "workingMiB": 111.777,
+      "cpuSeconds": 21.390625,
+      "seconds": 357.34,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.555,
+      "workingMiB": 112.117,
+      "cpuSeconds": 21.625,
+      "seconds": 362.38,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.555,
+      "workingMiB": 112.125,
+      "cpuSeconds": 21.796875,
+      "seconds": 367.41,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 22.078125,
+      "seconds": 372.44,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 22.390625,
+      "seconds": 377.47,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 22.4375,
+      "seconds": 382.5,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 22.875,
+      "seconds": 387.53,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 22.953125,
+      "seconds": 392.56,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 23.09375,
+      "seconds": 397.59,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 23.3125,
+      "seconds": 402.62,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 23.484375,
+      "seconds": 407.66,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 23.59375,
+      "seconds": 412.7,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 24.078125,
+      "seconds": 417.72,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 24.21875,
+      "seconds": 422.75,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 24.53125,
+      "seconds": 427.78,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 25.078125,
+      "seconds": 432.81,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 25.15625,
+      "seconds": 437.84,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 25.296875,
+      "seconds": 442.88,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.473,
+      "workingMiB": 111.969,
+      "cpuSeconds": 25.453125,
+      "seconds": 447.92,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.555,
+      "workingMiB": 112.148,
+      "cpuSeconds": 25.765625,
+      "seconds": 452.94,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.555,
+      "workingMiB": 112.152,
+      "cpuSeconds": 26.09375,
+      "seconds": 457.97,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 26.15625,
+      "seconds": 463.0,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 26.375,
+      "seconds": 468.03,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 26.640625,
+      "seconds": 473.06,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 26.84375,
+      "seconds": 478.09,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 27.0625,
+      "seconds": 483.12,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 27.421875,
+      "seconds": 488.16,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 27.859375,
+      "seconds": 493.19,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 28.015625,
+      "seconds": 498.22,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 28.375,
+      "seconds": 503.25,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 28.578125,
+      "seconds": 508.28,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 28.8125,
+      "seconds": 513.31,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 28.984375,
+      "seconds": 518.34,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.406,
+      "workingMiB": 111.965,
+      "cpuSeconds": 29.0625,
+      "seconds": 523.38,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.379,
+      "workingMiB": 111.961,
+      "cpuSeconds": 29.21875,
+      "seconds": 528.41,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.379,
+      "workingMiB": 111.961,
+      "cpuSeconds": 29.359375,
+      "seconds": 533.44,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.379,
+      "workingMiB": 111.961,
+      "cpuSeconds": 29.78125,
+      "seconds": 538.47,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.492,
+      "workingMiB": 112.168,
+      "cpuSeconds": 29.921875,
+      "seconds": 543.5,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 30.234375,
+      "seconds": 548.53,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 30.296875,
+      "seconds": 553.58,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 30.515625,
+      "seconds": 558.59,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 30.6875,
+      "seconds": 563.62,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 30.734375,
+      "seconds": 568.66,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 30.96875,
+      "seconds": 573.69,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 31.171875,
+      "seconds": 578.72,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 31.296875,
+      "seconds": 583.75,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 31.75,
+      "seconds": 588.78,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.051,
+      "cpuSeconds": 32.0625,
+      "seconds": 593.81,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.051,
+      "cpuSeconds": 32.34375,
+      "seconds": 598.84,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.051,
+      "cpuSeconds": 32.53125,
+      "seconds": 603.88,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.051,
+      "cpuSeconds": 32.65625,
+      "seconds": 608.91,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.051,
+      "cpuSeconds": 32.921875,
+      "seconds": 613.94,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.051,
+      "cpuSeconds": 33.171875,
+      "seconds": 618.97,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.051,
+      "cpuSeconds": 33.265625,
+      "seconds": 624.0,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.051,
+      "cpuSeconds": 33.609375,
+      "seconds": 629.03,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.527,
+      "workingMiB": 112.223,
+      "cpuSeconds": 33.796875,
+      "seconds": 634.06,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.102,
+      "cpuSeconds": 34.609375,
+      "seconds": 639.09,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.004,
+      "cpuSeconds": 35.046875,
+      "seconds": 644.14,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 111.984,
+      "cpuSeconds": 35.3125,
+      "seconds": 649.16,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 111.984,
+      "cpuSeconds": 35.609375,
+      "seconds": 654.19,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 111.984,
+      "cpuSeconds": 35.90625,
+      "seconds": 659.22,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 111.973,
+      "cpuSeconds": 36.1875,
+      "seconds": 664.25,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 111.973,
+      "cpuSeconds": 36.25,
+      "seconds": 669.28,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 111.973,
+      "cpuSeconds": 36.546875,
+      "seconds": 674.31,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 111.973,
+      "cpuSeconds": 36.640625,
+      "seconds": 679.34,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 111.973,
+      "cpuSeconds": 36.828125,
+      "seconds": 684.39,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 111.973,
+      "cpuSeconds": 37.078125,
+      "seconds": 689.42,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 111.977,
+      "cpuSeconds": 37.265625,
+      "seconds": 694.44,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 111.977,
+      "cpuSeconds": 37.421875,
+      "seconds": 699.47,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 111.977,
+      "cpuSeconds": 37.640625,
+      "seconds": 704.52,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 111.977,
+      "cpuSeconds": 37.859375,
+      "seconds": 709.55,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 111.977,
+      "cpuSeconds": 37.953125,
+      "seconds": 714.59,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 111.996,
+      "cpuSeconds": 38.140625,
+      "seconds": 719.62,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.527,
+      "workingMiB": 112.172,
+      "cpuSeconds": 38.453125,
+      "seconds": 724.64,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 38.890625,
+      "seconds": 729.67,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 39.0625,
+      "seconds": 734.7,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 39.15625,
+      "seconds": 739.73,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 39.3125,
+      "seconds": 744.77,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 39.546875,
+      "seconds": 749.8,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 39.828125,
+      "seconds": 754.83,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 40.125,
+      "seconds": 759.86,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 40.296875,
+      "seconds": 764.89,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 40.53125,
+      "seconds": 769.92,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 40.859375,
+      "seconds": 774.95,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 41.046875,
+      "seconds": 779.98,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 41.109375,
+      "seconds": 785.03,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 41.25,
+      "seconds": 790.05,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.445,
+      "workingMiB": 112.012,
+      "cpuSeconds": 41.5625,
+      "seconds": 795.08,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.0,
+      "cpuSeconds": 41.703125,
+      "seconds": 800.11,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.0,
+      "cpuSeconds": 41.90625,
+      "seconds": 805.14,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.0,
+      "cpuSeconds": 42.03125,
+      "seconds": 810.17,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.492,
+      "workingMiB": 112.168,
+      "cpuSeconds": 42.265625,
+      "seconds": 815.2,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 42.5625,
+      "seconds": 820.25,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 42.8125,
+      "seconds": 825.27,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 42.84375,
+      "seconds": 830.3,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 43.40625,
+      "seconds": 835.33,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 43.5625,
+      "seconds": 840.36,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 44.046875,
+      "seconds": 845.39,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 44.234375,
+      "seconds": 850.42,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 44.5,
+      "seconds": 855.45,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 44.8125,
+      "seconds": 860.48,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 45.1875,
+      "seconds": 865.52,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 45.359375,
+      "seconds": 870.55,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 45.546875,
+      "seconds": 875.58,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 45.65625,
+      "seconds": 880.61,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 45.828125,
+      "seconds": 885.64,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 45.96875,
+      "seconds": 890.67,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.008,
+      "cpuSeconds": 46.3125,
+      "seconds": 895.7,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.242,
+      "workingMiB": 111.68,
+      "cpuSeconds": 46.578125,
+      "seconds": 900.73,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.492,
+      "workingMiB": 112.176,
+      "cpuSeconds": 47.046875,
+      "seconds": 905.77,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 47.25,
+      "seconds": 910.8,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 47.578125,
+      "seconds": 915.83,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 47.8125,
+      "seconds": 920.86,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 47.96875,
+      "seconds": 925.89,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 48.328125,
+      "seconds": 930.92,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 48.578125,
+      "seconds": 935.95,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 48.609375,
+      "seconds": 940.98,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 48.71875,
+      "seconds": 946.02,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 48.9375,
+      "seconds": 951.05,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 49.203125,
+      "seconds": 956.08,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 49.3125,
+      "seconds": 961.11,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 49.40625,
+      "seconds": 966.14,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 49.671875,
+      "seconds": 971.17,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 50.0,
+      "seconds": 976.2,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 50.15625,
+      "seconds": 981.23,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.016,
+      "cpuSeconds": 50.21875,
+      "seconds": 986.27,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.492,
+      "workingMiB": 112.184,
+      "cpuSeconds": 50.8125,
+      "seconds": 991.3,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.492,
+      "workingMiB": 112.195,
+      "cpuSeconds": 51.1875,
+      "seconds": 996.33,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 51.28125,
+      "seconds": 1001.36,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 51.28125,
+      "seconds": 1006.41,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 51.4375,
+      "seconds": 1011.44,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 51.859375,
+      "seconds": 1016.47,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 51.953125,
+      "seconds": 1021.5,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 52.328125,
+      "seconds": 1026.53,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 52.546875,
+      "seconds": 1031.56,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 52.96875,
+      "seconds": 1036.59,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 53.125,
+      "seconds": 1041.62,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 53.3125,
+      "seconds": 1046.66,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 53.515625,
+      "seconds": 1051.69,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 54.015625,
+      "seconds": 1056.72,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 54.15625,
+      "seconds": 1061.75,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 54.546875,
+      "seconds": 1066.78,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.199,
+      "cpuSeconds": 54.921875,
+      "seconds": 1071.81,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.41,
+      "workingMiB": 112.211,
+      "cpuSeconds": 55.09375,
+      "seconds": 1076.84,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 477.324,
+      "workingMiB": 112.172,
+      "cpuSeconds": 55.171875,
+      "seconds": 1081.88,
+      "state": "backoff"
+    },
+    {
+      "privateMiB": 478.328,
+      "workingMiB": 112.227,
+      "cpuSeconds": 55.359375,
+      "seconds": 1086.91,
+      "state": "connecting"
+    },
+    {
+      "privateMiB": 478.328,
+      "workingMiB": 112.227,
+      "cpuSeconds": 55.359375,
+      "seconds": 1091.94,
+      "state": "connecting"
+    },
+    {
+      "privateMiB": 478.328,
+      "workingMiB": 112.477,
+      "cpuSeconds": 55.4375,
+      "seconds": 1096.97,
+      "state": "connecting"
+    },
+    {
+      "privateMiB": 478.328,
+      "workingMiB": 112.477,
+      "cpuSeconds": 55.5625,
+      "seconds": 1102.0,
+      "state": "backoff"
+    },
+    {
+      "privateMiB": 478.66,
+      "workingMiB": 112.879,
+      "cpuSeconds": 55.6875,
+      "seconds": 1107.03,
+      "state": "connecting"
+    }
+  ],
+  "missedTrials": [],
+  "timeouts": {
+    "initialSpeechMs": 15000,
+    "followupMs": 10000,
+    "startSeconds": 120,
+    "activationSeconds": 30,
+    "finalSeconds": 120,
+    "maximumNoSpeechRetries": 2
+  },
+  "serverBefore": {
+    "serverCommit": "e95858e3c010a7e9324b49bb44fee349abe7128a",
+    "serverInstanceId": "8e183f934fe14c81b515815615ca5ea3"
+  },
+  "startedAt": "2026-11-24T02:42:48.099527+01:00",
+  "bootloaderPid": 37744,
+  "stage": "shutdown",
+  "transportTransitions": [
+    {
+      "state": "connecting",
+      "reason": ""
+    },
+    {
+      "state": "accepting",
+      "reason": ""
+    },
+    {
+      "state": "configuring",
+      "reason": ""
+    },
+    {
+      "state": "ready",
+      "reason": ""
+    },
+    {
+      "state": "backoff",
+      "reason": "audio_send_failed"
+    },
+    {
+      "state": "backoff",
+      "reason": "network_lost"
+    },
+    {
+      "state": "connecting",
+      "reason": ""
+    },
+    {
+      "state": "backoff",
+      "reason": "network_lost"
+    },
+    {
+      "state": "connecting",
+      "reason": ""
+    },
+    {
+      "state": "backoff",
+      "reason": "network_lost"
+    },
+    {
+      "state": "connecting",
+      "reason": ""
+    },
+    {
+      "state": "stopping",
+      "reason": ""
+    },
+    {
+      "state": "closed",
+      "reason": ""
+    }
+  ],
+  "status": {
+    "states": [
+      "backoff",
+      "connecting",
+      "stopping",
+      "closed"
+    ],
+    "counts": {
+      "settings.changed": 1,
+      "activation.started": 12,
+      "activation.phase_changed": 24,
+      "segment.recording_started": 12,
+      "segment.recording_ended": 12,
+      "activation.input_closed": 12,
+      "transcription.accepted": 12,
+      "transcription.completed": 12,
+      "activation.completed": 12
+    },
+    "historyEntries": 12,
+    "editorCharacters": 465,
+    "pid": 29832,
+    "focused": true,
+    "controlStatuses": [
+      "applied",
+      "applied",
+      "applied",
+      "error"
+    ],
+    "phase": "idle"
+  },
+  "elapsedSeconds": 1110.09,
+  "forcedCleanup": true,
+  "exitCode": 1,
+  "quitPosted": true,
+  "tempRemaining": [
+    "_MEI377442"
+  ],
+  "sharedCursorUnchanged": true,
+  "end": "2026-11-24T03:02:00.734740+01:00",
+  "resources": {
+    "firstPrivateMiB": 465.664,
+    "lastPrivateMiB": 478.66,
+    "peakPrivateMiB": 478.66,
+    "meanCoreCpuPct": 4.785
+  },
+  "errorLogCount": 1,
+  "fallbackMessages": 0,
+  "markerPassCount": 6,
+  "nativePastePassCount": 12,
+  "serverAfter": null
+}

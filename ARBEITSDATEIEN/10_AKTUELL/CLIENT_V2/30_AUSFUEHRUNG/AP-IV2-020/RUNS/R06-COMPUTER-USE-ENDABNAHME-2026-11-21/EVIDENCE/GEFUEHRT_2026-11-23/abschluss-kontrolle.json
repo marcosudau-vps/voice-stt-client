@@ -1,0 +1,22 @@
+{
+  "At": "2026-11-23T21:13:09.0932712+01:00",
+  "CandidateProcesses": 1,
+  "CandidatePids": [
+    25652
+  ],
+  "RelayStopped": true,
+  "EditorStopped": true,
+  "RestoredCopy": true,
+  "Outside": [
+    {
+      "File": "config.yaml",
+      "Unchanged": true
+    },
+    {
+      "File": "event_cursor.json",
+      "Unchanged": true
+    }
+  ],
+  "ClipboardMarker": true,
+  "GitHead": "17fce388e747daf37b97e96ed1fcf6421338873d"
+}

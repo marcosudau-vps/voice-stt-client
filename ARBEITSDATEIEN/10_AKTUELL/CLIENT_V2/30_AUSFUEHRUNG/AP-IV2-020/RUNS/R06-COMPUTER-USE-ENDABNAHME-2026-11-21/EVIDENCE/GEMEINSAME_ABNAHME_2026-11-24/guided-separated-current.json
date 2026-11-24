@@ -1,0 +1,51 @@
+{
+  "scope": "corrected source native GUI, real ReSpeaker LEDs and sound, real acoustic input, pinned V2, mock paste and no global hotkeys",
+  "folder": "guided-separated-8034d8bf",
+  "checks": {
+    "server_pin": true,
+    "manual_final": true,
+    "cancel_no_injection": true
+  },
+  "stages": [
+    {
+      "name": "boot",
+      "time": "2026-11-24T00:34:48.245950+01:00"
+    },
+    {
+      "name": "idle",
+      "time": "2026-11-24T00:34:50.426294+01:00"
+    },
+    {
+      "name": "recording",
+      "time": "2026-11-24T00:34:54.486244+01:00"
+    },
+    {
+      "name": "final",
+      "time": "2026-11-24T00:35:00.532293+01:00"
+    },
+    {
+      "name": "cancel",
+      "time": "2026-11-24T00:35:03.942403+01:00"
+    },
+    {
+      "name": "pause",
+      "time": "2026-11-24T00:35:11.151144+01:00"
+    },
+    {
+      "name": "hardware_done",
+      "time": "2026-11-24T00:35:15.163788+01:00"
+    },
+    {
+      "name": "human",
+      "time": "2026-11-24T00:35:31.596126+01:00"
+    },
+    {
+      "name": "error",
+      "time": "2026-11-24T00:36:01.593046+01:00"
+    }
+  ],
+  "result": "INCOMPLETE",
+  "error": "TimeoutError",
+  "sharedCursorUnchanged": true,
+  "end": "2026-11-24T00:37:17.060066+01:00"
+}

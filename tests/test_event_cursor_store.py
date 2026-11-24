@@ -1,6 +1,7 @@
 """Tests for atomic and binding-aware AP07 cursor persistence."""
 
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -13,6 +14,24 @@ ENDPOINT = "wss://stt.voice.marcosudau.com/ws/logs"
 
 
 class TestEventCursorStore(unittest.TestCase):
+    def test_explicit_client_home_isolates_default_cursor(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            shared = root / "shared" / "event_cursor.json"
+            shared.parent.mkdir()
+            shared.write_bytes(b"existing shared cursor")
+            profile = root / "profile"
+            with patch.dict(os.environ, {"VOICESTT_CLIENT_HOME": str(profile)}), patch(
+                "voice_stt_client.core.event_cursor_store.DEFAULT_CURSOR_PATH", shared
+            ):
+                store = EventCursorStore()
+                store.commit(1, endpoint=ENDPOINT, server_instance_id="server-1", protocol_version=2)
+                self.assertEqual(store.path, profile / "data" / "event_cursor.json")
+                self.assertTrue(store.path.is_file())
+                explicit = root / "explicit.json"
+                self.assertEqual(EventCursorStore(explicit).path, explicit)
+            self.assertEqual(shared.read_bytes(), b"existing shared cursor")
+
     def test_commit_and_load_are_bound_to_endpoint_instance_and_protocol(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "cursor.json"

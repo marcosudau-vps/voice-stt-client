@@ -1,0 +1,526 @@
+{
+  "scope": "real ReSpeaker capture, Windows speaker acoustic synthetic WAV, corrected source and real V2 server; mock clipboard only",
+  "folder": "acoustic-e4b26bfc",
+  "start": "2026-11-23T23:58:58.484026+01:00",
+  "cases": [
+    {
+      "name": "ready",
+      "pass_": true
+    },
+    {
+      "name": "wake_paused",
+      "pass_": true
+    },
+    {
+      "name": "wake_1",
+      "wake": true,
+      "match": false,
+      "finals": 1,
+      "injectionRequests": 1
+    },
+    {
+      "name": "wake_2",
+      "wake": true,
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1
+    },
+    {
+      "name": "kurz-01",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1
+    },
+    {
+      "name": "kurz-02",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1
+    },
+    {
+      "name": "kurz-03",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1
+    },
+    {
+      "name": "kurz-04",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1
+    },
+    {
+      "name": "kurz-05",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1
+    },
+    {
+      "name": "kurz-06",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1
+    },
+    {
+      "name": "kurz-07",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1
+    },
+    {
+      "name": "kurz-08",
+      "error": "TimeoutError"
+    },
+    {
+      "name": "kurz-09",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1
+    },
+    {
+      "name": "kurz-10",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1
+    },
+    {
+      "name": "reconnect",
+      "pass_": true
+    },
+    {
+      "name": "kurz-01",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1
+    }
+  ],
+  "events": [
+    {
+      "kind": "activation.started",
+      "activation": "1b80994c-93c9-4ea5-a1df-46831c09f0bb",
+      "segment": null
+    },
+    {
+      "kind": "wakeword.detected",
+      "activation": "1b80994c-93c9-4ea5-a1df-46831c09f0bb",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "1b80994c-93c9-4ea5-a1df-46831c09f0bb",
+      "segment": "081e8b9e-ec8a-4b75-af1c-e7ecbed81578"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "1b80994c-93c9-4ea5-a1df-46831c09f0bb",
+      "segment": "081e8b9e-ec8a-4b75-af1c-e7ecbed81578"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "1b80994c-93c9-4ea5-a1df-46831c09f0bb",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "1b80994c-93c9-4ea5-a1df-46831c09f0bb",
+      "segment": "081e8b9e-ec8a-4b75-af1c-e7ecbed81578"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "2baae8fc-de12-4d58-bb78-b5a97c2595db",
+      "segment": null
+    },
+    {
+      "kind": "wakeword.detected",
+      "activation": "2baae8fc-de12-4d58-bb78-b5a97c2595db",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "2baae8fc-de12-4d58-bb78-b5a97c2595db",
+      "segment": "7b4b66b6-3075-4d0b-9830-a1cd6c12e985"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "2baae8fc-de12-4d58-bb78-b5a97c2595db",
+      "segment": "7b4b66b6-3075-4d0b-9830-a1cd6c12e985"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "2baae8fc-de12-4d58-bb78-b5a97c2595db",
+      "segment": "7b4b66b6-3075-4d0b-9830-a1cd6c12e985"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "2baae8fc-de12-4d58-bb78-b5a97c2595db",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "2baae8fc-de12-4d58-bb78-b5a97c2595db",
+      "segment": "7b4b66b6-3075-4d0b-9830-a1cd6c12e985"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "31bff03f-9372-4297-8655-41c3b3b986c6",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "31bff03f-9372-4297-8655-41c3b3b986c6",
+      "segment": "cc0c9237-a3d8-4a41-ae54-36916ed516eb"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "31bff03f-9372-4297-8655-41c3b3b986c6",
+      "segment": "cc0c9237-a3d8-4a41-ae54-36916ed516eb"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "31bff03f-9372-4297-8655-41c3b3b986c6",
+      "segment": "cc0c9237-a3d8-4a41-ae54-36916ed516eb"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "31bff03f-9372-4297-8655-41c3b3b986c6",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "31bff03f-9372-4297-8655-41c3b3b986c6",
+      "segment": "cc0c9237-a3d8-4a41-ae54-36916ed516eb"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "9e6a2cb5-85e4-47b4-a251-34429f59f6c4",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "9e6a2cb5-85e4-47b4-a251-34429f59f6c4",
+      "segment": "239fe06a-39fa-4880-8b50-b087d1133420"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "9e6a2cb5-85e4-47b4-a251-34429f59f6c4",
+      "segment": "239fe06a-39fa-4880-8b50-b087d1133420"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "9e6a2cb5-85e4-47b4-a251-34429f59f6c4",
+      "segment": "239fe06a-39fa-4880-8b50-b087d1133420"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "9e6a2cb5-85e4-47b4-a251-34429f59f6c4",
+      "segment": "239fe06a-39fa-4880-8b50-b087d1133420"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "9e6a2cb5-85e4-47b4-a251-34429f59f6c4",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "9e6a2cb5-85e4-47b4-a251-34429f59f6c4",
+      "segment": "239fe06a-39fa-4880-8b50-b087d1133420"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "2f922b35-f25f-4a29-a0d5-5dd2b31cf59e",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "2f922b35-f25f-4a29-a0d5-5dd2b31cf59e",
+      "segment": "3e2b8b3a-5530-43f3-a9dc-6299035b5e5b"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "2f922b35-f25f-4a29-a0d5-5dd2b31cf59e",
+      "segment": "3e2b8b3a-5530-43f3-a9dc-6299035b5e5b"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "2f922b35-f25f-4a29-a0d5-5dd2b31cf59e",
+      "segment": "3e2b8b3a-5530-43f3-a9dc-6299035b5e5b"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "2f922b35-f25f-4a29-a0d5-5dd2b31cf59e",
+      "segment": "3e2b8b3a-5530-43f3-a9dc-6299035b5e5b"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "2f922b35-f25f-4a29-a0d5-5dd2b31cf59e",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "2f922b35-f25f-4a29-a0d5-5dd2b31cf59e",
+      "segment": "3e2b8b3a-5530-43f3-a9dc-6299035b5e5b"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "45a19f87-1590-400b-9a27-d6aa0d9af9ed",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "45a19f87-1590-400b-9a27-d6aa0d9af9ed",
+      "segment": "84b16689-78f1-4110-ad37-c91e0ffbc1a7"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "45a19f87-1590-400b-9a27-d6aa0d9af9ed",
+      "segment": "84b16689-78f1-4110-ad37-c91e0ffbc1a7"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "45a19f87-1590-400b-9a27-d6aa0d9af9ed",
+      "segment": "84b16689-78f1-4110-ad37-c91e0ffbc1a7"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "45a19f87-1590-400b-9a27-d6aa0d9af9ed",
+      "segment": "84b16689-78f1-4110-ad37-c91e0ffbc1a7"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "45a19f87-1590-400b-9a27-d6aa0d9af9ed",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "45a19f87-1590-400b-9a27-d6aa0d9af9ed",
+      "segment": "84b16689-78f1-4110-ad37-c91e0ffbc1a7"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "4d04b510-0d39-40eb-bb62-30e396f5f1b2",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "4d04b510-0d39-40eb-bb62-30e396f5f1b2",
+      "segment": "8a252a5e-637c-44c9-ba05-753d6705507b"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "4d04b510-0d39-40eb-bb62-30e396f5f1b2",
+      "segment": "8a252a5e-637c-44c9-ba05-753d6705507b"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "4d04b510-0d39-40eb-bb62-30e396f5f1b2",
+      "segment": "8a252a5e-637c-44c9-ba05-753d6705507b"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "4d04b510-0d39-40eb-bb62-30e396f5f1b2",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "4d04b510-0d39-40eb-bb62-30e396f5f1b2",
+      "segment": "8a252a5e-637c-44c9-ba05-753d6705507b"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "be791598-66cc-45cf-8902-b3cbf52d744a",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "be791598-66cc-45cf-8902-b3cbf52d744a",
+      "segment": "9628e16f-dc6b-43d6-8530-0f3ca0b04a5d"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "be791598-66cc-45cf-8902-b3cbf52d744a",
+      "segment": "9628e16f-dc6b-43d6-8530-0f3ca0b04a5d"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "be791598-66cc-45cf-8902-b3cbf52d744a",
+      "segment": "9628e16f-dc6b-43d6-8530-0f3ca0b04a5d"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "be791598-66cc-45cf-8902-b3cbf52d744a",
+      "segment": "9628e16f-dc6b-43d6-8530-0f3ca0b04a5d"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "be791598-66cc-45cf-8902-b3cbf52d744a",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "be791598-66cc-45cf-8902-b3cbf52d744a",
+      "segment": "9628e16f-dc6b-43d6-8530-0f3ca0b04a5d"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "9dd9aa0f-45e0-4705-bf27-f9147c0dca1f",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "9dd9aa0f-45e0-4705-bf27-f9147c0dca1f",
+      "segment": "4b9cd739-781f-4558-b0f9-411c0ea72e3d"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "9dd9aa0f-45e0-4705-bf27-f9147c0dca1f",
+      "segment": "4b9cd739-781f-4558-b0f9-411c0ea72e3d"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "9dd9aa0f-45e0-4705-bf27-f9147c0dca1f",
+      "segment": "4b9cd739-781f-4558-b0f9-411c0ea72e3d"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "9dd9aa0f-45e0-4705-bf27-f9147c0dca1f",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "9dd9aa0f-45e0-4705-bf27-f9147c0dca1f",
+      "segment": "4b9cd739-781f-4558-b0f9-411c0ea72e3d"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "7c618f76-19a3-4629-b6e7-e67329e84e35",
+      "segment": null
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "7c618f76-19a3-4629-b6e7-e67329e84e35",
+      "segment": null
+    },
+    {
+      "kind": "activation.started",
+      "activation": "0c83eb22-1df3-427f-9650-9f9b5b50e884",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "0c83eb22-1df3-427f-9650-9f9b5b50e884",
+      "segment": "68d01f49-da3f-4690-899e-e7e493a67075"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "0c83eb22-1df3-427f-9650-9f9b5b50e884",
+      "segment": "68d01f49-da3f-4690-899e-e7e493a67075"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "0c83eb22-1df3-427f-9650-9f9b5b50e884",
+      "segment": "68d01f49-da3f-4690-899e-e7e493a67075"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "0c83eb22-1df3-427f-9650-9f9b5b50e884",
+      "segment": "68d01f49-da3f-4690-899e-e7e493a67075"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "0c83eb22-1df3-427f-9650-9f9b5b50e884",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "0c83eb22-1df3-427f-9650-9f9b5b50e884",
+      "segment": "68d01f49-da3f-4690-899e-e7e493a67075"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "b9a80187-38d6-49d1-b184-f26ae4d1dfcc",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "b9a80187-38d6-49d1-b184-f26ae4d1dfcc",
+      "segment": "f757f731-97d1-4f50-8db6-cd5caf666feb"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "b9a80187-38d6-49d1-b184-f26ae4d1dfcc",
+      "segment": "f757f731-97d1-4f50-8db6-cd5caf666feb"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "b9a80187-38d6-49d1-b184-f26ae4d1dfcc",
+      "segment": "f757f731-97d1-4f50-8db6-cd5caf666feb"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "b9a80187-38d6-49d1-b184-f26ae4d1dfcc",
+      "segment": "f757f731-97d1-4f50-8db6-cd5caf666feb"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "b9a80187-38d6-49d1-b184-f26ae4d1dfcc",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "b9a80187-38d6-49d1-b184-f26ae4d1dfcc",
+      "segment": "f757f731-97d1-4f50-8db6-cd5caf666feb"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "7d977fc7-4349-4350-966f-c29fd440395e",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "7d977fc7-4349-4350-966f-c29fd440395e",
+      "segment": "96f5bddc-4394-4076-88c2-449244dd8260"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "7d977fc7-4349-4350-966f-c29fd440395e",
+      "segment": "96f5bddc-4394-4076-88c2-449244dd8260"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "7d977fc7-4349-4350-966f-c29fd440395e",
+      "segment": "96f5bddc-4394-4076-88c2-449244dd8260"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "7d977fc7-4349-4350-966f-c29fd440395e",
+      "segment": "96f5bddc-4394-4076-88c2-449244dd8260"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "7d977fc7-4349-4350-966f-c29fd440395e",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "7d977fc7-4349-4350-966f-c29fd440395e",
+      "segment": "96f5bddc-4394-4076-88c2-449244dd8260"
+    }
+  ],
+  "sessions": [
+    {
+      "generation": 1,
+      "commit": "e95858e3c010a7e9324b49bb44fee349abe7128a"
+    },
+    {
+      "generation": 2,
+      "commit": "e95858e3c010a7e9324b49bb44fee349abe7128a"
+    }
+  ],
+  "device": {
+    "index": 9,
+    "name": "Freisprechtelefon mit Echoausschaltung (reSpeaker XVF3800 4-Mic Array)",
+    "output": "Lautsprecher (Realtek(R) Audio)"
+  },
+  "cleanupErrors": [],
+  "end": "2026-11-24T00:00:35.833591+01:00"
+}

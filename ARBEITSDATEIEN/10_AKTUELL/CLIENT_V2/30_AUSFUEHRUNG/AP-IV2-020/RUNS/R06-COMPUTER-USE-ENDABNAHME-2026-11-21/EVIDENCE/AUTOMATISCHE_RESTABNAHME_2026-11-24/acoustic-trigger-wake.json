@@ -1,0 +1,120 @@
+{
+  "scope": "real ReSpeaker capture, Windows speaker acoustic synthetic WAV, corrected source and real V2 server; mock clipboard only",
+  "folder": "acoustic-4f15ccab",
+  "start": "2026-11-24T00:13:04.366775+01:00",
+  "cases": [
+    {
+      "name": "configured",
+      "triggers": {
+        "manual": false,
+        "wakeWord": true
+      },
+      "pass_": true
+    },
+    {
+      "name": "manual_disabled",
+      "pass_": true
+    },
+    {
+      "name": "silent_idle",
+      "activations": 0,
+      "injections": 0,
+      "pass_": true
+    },
+    {
+      "name": "ordinary_speech_without_wake",
+      "activations": 0,
+      "injections": 0,
+      "pass_": true
+    },
+    {
+      "name": "wake_paused",
+      "activations": 0,
+      "injections": 0,
+      "pass_": true
+    },
+    {
+      "name": "wake_attempt_1",
+      "activation": "e5d31e7c-ddfc-4f77-8bc6-b595a7bfa529",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1,
+      "pass_": true
+    },
+    {
+      "name": "wake_attempt_2",
+      "activation": "c86a9df5-dbb8-4f80-bb30-f47c333853f1",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1,
+      "pass_": true
+    },
+    {
+      "name": "two_wake_finals",
+      "pass_": true,
+      "successful": 2
+    }
+  ],
+  "events": [
+    {
+      "kind": "activation.started",
+      "activation": "e5d31e7c-ddfc-4f77-8bc6-b595a7bfa529",
+      "segment": null
+    },
+    {
+      "kind": "wakeword.detected",
+      "activation": "e5d31e7c-ddfc-4f77-8bc6-b595a7bfa529",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "e5d31e7c-ddfc-4f77-8bc6-b595a7bfa529",
+      "segment": "5720e835-8ee5-4509-92fd-25cadc2fea7a"
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "e5d31e7c-ddfc-4f77-8bc6-b595a7bfa529",
+      "segment": "5720e835-8ee5-4509-92fd-25cadc2fea7a"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "e5d31e7c-ddfc-4f77-8bc6-b595a7bfa529",
+      "segment": null
+    },
+    {
+      "kind": "activation.started",
+      "activation": "c86a9df5-dbb8-4f80-bb30-f47c333853f1",
+      "segment": null
+    },
+    {
+      "kind": "wakeword.detected",
+      "activation": "c86a9df5-dbb8-4f80-bb30-f47c333853f1",
+      "segment": null
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "c86a9df5-dbb8-4f80-bb30-f47c333853f1",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "c86a9df5-dbb8-4f80-bb30-f47c333853f1",
+      "segment": "e8e0c972-a0a4-4856-b01c-30d4ba474d71"
+    }
+  ],
+  "sessions": [
+    {
+      "generation": 1,
+      "commit": "e95858e3c010a7e9324b49bb44fee349abe7128a"
+    }
+  ],
+  "device": {
+    "index": 9,
+    "name": "Freisprechtelefon mit Echoausschaltung (reSpeaker XVF3800 4-Mic Array)",
+    "output": "Lautsprecher (Realtek(R) Audio)"
+  },
+  "mode": "wake",
+  "result": "PASS_SCOPED",
+  "cleanupErrors": [],
+  "end": "2026-11-24T00:13:41.857784+01:00"
+}

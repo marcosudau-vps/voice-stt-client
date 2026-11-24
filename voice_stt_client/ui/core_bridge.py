@@ -221,7 +221,7 @@ class CoreBridge(QObject):
             return
         status = getattr(result, "status", None)
         status_text = getattr(status, "value", status)
-        success = getattr(result, "success", None)
+        success = result if type(result) is bool else getattr(result, "success", None)
         if success is None:
             # ReinsertionResult has no ``success``; its status enum carries it.
             success = status_text == "queued"

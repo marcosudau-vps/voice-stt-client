@@ -1,0 +1,20 @@
+{
+  "scope": "real native Qt desktop from corrected source, real pinned V2 TLS server, isolated test profile, real native Qt apply, real LED and QSoundEffect, real acoustic input, mock injection; physical visual/audible change not claimed",
+  "start": "2026-11-24T00:51:06.114157+01:00",
+  "checks": {
+    "server_identity": true,
+    "real_usb_sink_available": true,
+    "brightness_and_sound_path_gui_applied": true,
+    "led_worker_replaced": true,
+    "persistent_waiting_rule_contains_brightness": true,
+    "usb_available_after_mapped_phase": true,
+    "cancel_no_injection": true,
+    "audio_unaffected_by_mapping": true,
+    "isolated_cursor_path": true,
+    "shutdown_core_tray": true,
+    "shared_cursor_unchanged": true
+  },
+  "evidenceFolder": "native-desktop-f6db47f8",
+  "end": "2026-11-24T00:51:12.145652+01:00",
+  "result": "PASS_SCOPED"
+}

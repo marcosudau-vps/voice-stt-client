@@ -175,16 +175,8 @@ class AudioCapture:
                 dtype=self._config.dtype,
                 samplerate=preferred_rate,
             )
-            logger.info(
-                "Using preferred sample rate %d Hz on '%s'.",
-                preferred_rate, device_name,
-            )
         except sd.PortAudioError:
             self._device_sample_rate = default_rate
-            logger.info(
-                "Device '%s' doesn't support %d Hz, using default %d Hz (server will resample).",
-                device_name, preferred_rate, default_rate,
-            )
 
         chunk_frames = int(
             self._device_sample_rate * self._config.chunk_duration_ms / 1000
@@ -233,6 +225,11 @@ class AudioCapture:
                     logger.debug("Could not close the half-open stream.", exc_info=True)
             raise
 
+        if self._device_sample_rate != preferred_rate:
+            logger.info(
+                "Audio capture on '%s' opened at %d Hz after %d Hz was unavailable.",
+                device_name, self._device_sample_rate, preferred_rate,
+            )
         logger.info(
             "Audio capture started: device=%s, rate=%d, channels=%d, chunk=%dms (%d frames)",
             device_name,

@@ -1,0 +1,500 @@
+{
+  "scope": "real ReSpeaker capture, Windows speaker acoustic synthetic WAV, corrected source and real V2 server; mock clipboard only",
+  "folder": "acoustic-e5aa40b1",
+  "start": "2026-11-24T00:08:32.578391+01:00",
+  "cases": [
+    {
+      "name": "ready",
+      "pass_": true
+    },
+    {
+      "name": "long_started",
+      "duration": 208.985,
+      "fixtureSha256": "e307d0c819a5186faf2162371af6318cdf7e8781406ee95771d60a91202928aa",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c"
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 5.0,
+      "finals": 0,
+      "injectionRequests": 0,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 10.0,
+      "finals": 0,
+      "injectionRequests": 0,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 15.0,
+      "finals": 0,
+      "injectionRequests": 0,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 20.0,
+      "finals": 0,
+      "injectionRequests": 0,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 25.0,
+      "finals": 0,
+      "injectionRequests": 0,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 30.0,
+      "finals": 0,
+      "injectionRequests": 0,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 35.0,
+      "finals": 0,
+      "injectionRequests": 0,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 40.0,
+      "finals": 1,
+      "injectionRequests": 1,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 45.0,
+      "finals": 1,
+      "injectionRequests": 1,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 50.0,
+      "finals": 1,
+      "injectionRequests": 1,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 55.0,
+      "finals": 1,
+      "injectionRequests": 1,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 60.0,
+      "finals": 1,
+      "injectionRequests": 1,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 65.0,
+      "finals": 1,
+      "injectionRequests": 1,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 70.0,
+      "finals": 1,
+      "injectionRequests": 1,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 75.0,
+      "finals": 2,
+      "injectionRequests": 2,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 80.0,
+      "finals": 2,
+      "injectionRequests": 2,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 85.1,
+      "finals": 2,
+      "injectionRequests": 2,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 90.1,
+      "finals": 2,
+      "injectionRequests": 2,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 95.1,
+      "finals": 2,
+      "injectionRequests": 2,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 100.1,
+      "finals": 2,
+      "injectionRequests": 2,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 105.1,
+      "finals": 3,
+      "injectionRequests": 3,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 110.1,
+      "finals": 3,
+      "injectionRequests": 3,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 115.1,
+      "finals": 3,
+      "injectionRequests": 3,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 120.1,
+      "finals": 3,
+      "injectionRequests": 3,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 125.1,
+      "finals": 3,
+      "injectionRequests": 3,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 130.1,
+      "finals": 3,
+      "injectionRequests": 3,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 135.1,
+      "finals": 4,
+      "injectionRequests": 4,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 140.1,
+      "finals": 4,
+      "injectionRequests": 4,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 145.1,
+      "finals": 4,
+      "injectionRequests": 4,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 150.1,
+      "finals": 4,
+      "injectionRequests": 4,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 155.1,
+      "finals": 4,
+      "injectionRequests": 4,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 160.1,
+      "finals": 4,
+      "injectionRequests": 4,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 165.1,
+      "finals": 5,
+      "injectionRequests": 5,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 170.1,
+      "finals": 5,
+      "injectionRequests": 5,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 175.1,
+      "finals": 5,
+      "injectionRequests": 5,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 180.1,
+      "finals": 5,
+      "injectionRequests": 5,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 185.1,
+      "finals": 5,
+      "injectionRequests": 5,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 190.1,
+      "finals": 5,
+      "injectionRequests": 5,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 195.1,
+      "finals": 6,
+      "injectionRequests": 6,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 200.1,
+      "finals": 6,
+      "injectionRequests": 6,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 205.1,
+      "finals": 6,
+      "injectionRequests": 6,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_progress",
+      "elapsed": 210.1,
+      "finals": 6,
+      "injectionRequests": 6,
+      "ready": true,
+      "sameActivation": true
+    },
+    {
+      "name": "long_result",
+      "finals": 7,
+      "injectionRequests": 7,
+      "characters": 2741,
+      "uniqueSegments": 7,
+      "sessionCount": 1,
+      "pass_": true
+    },
+    {
+      "name": "kurz-01",
+      "match": true,
+      "finals": 1,
+      "injectionRequests": 1,
+      "pass_": true
+    }
+  ],
+  "events": [
+    {
+      "kind": "activation.started",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": null
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "9549121f-5f3e-4bba-aa2b-3d6e96cc678e"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "9549121f-5f3e-4bba-aa2b-3d6e96cc678e"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "9549121f-5f3e-4bba-aa2b-3d6e96cc678e"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "9549121f-5f3e-4bba-aa2b-3d6e96cc678e"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "9549121f-5f3e-4bba-aa2b-3d6e96cc678e"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "9549121f-5f3e-4bba-aa2b-3d6e96cc678e"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "9549121f-5f3e-4bba-aa2b-3d6e96cc678e"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "9549121f-5f3e-4bba-aa2b-3d6e96cc678e"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "9549121f-5f3e-4bba-aa2b-3d6e96cc678e"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "9549121f-5f3e-4bba-aa2b-3d6e96cc678e"
+    },
+    {
+      "kind": "transcription.interim",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "9549121f-5f3e-4bba-aa2b-3d6e96cc678e"
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "9549121f-5f3e-4bba-aa2b-3d6e96cc678e"
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "f794b863-e7ba-4195-bf50-797eca9dd6d4"
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "cc1f5c3a-f2ce-4c47-ad29-89cde4c7e127"
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "0fc86cf6-8172-4163-bcb5-e176b73bef4b"
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "977c78ba-aafa-468d-84ca-e2eee4b4f4fd"
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "0e303e60-a0b5-4d23-856f-536ec9efe4ea"
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "dbb8c4ce-eeaa-45f3-8da9-2612430f6a4c",
+      "segment": "e06a1cbf-4ee3-43ba-bf5e-5bd084bad899"
+    },
+    {
+      "kind": "activation.started",
+      "activation": "0ece9943-62bb-4ba9-91d0-15ff0ee0cdea",
+      "segment": null
+    },
+    {
+      "kind": "activation.input_closed",
+      "activation": "0ece9943-62bb-4ba9-91d0-15ff0ee0cdea",
+      "segment": null
+    },
+    {
+      "kind": "transcription.completed",
+      "activation": "0ece9943-62bb-4ba9-91d0-15ff0ee0cdea",
+      "segment": "d1fd03a5-7de4-4f2c-86d4-4ce6da5e59f0"
+    }
+  ],
+  "sessions": [
+    {
+      "generation": 1,
+      "commit": "e95858e3c010a7e9324b49bb44fee349abe7128a"
+    }
+  ],
+  "device": {
+    "index": 9,
+    "name": "Freisprechtelefon mit Echoausschaltung (reSpeaker XVF3800 4-Mic Array)",
+    "output": "Lautsprecher (Realtek(R) Audio)"
+  },
+  "result": "PASS_SCOPED",
+  "cleanupErrors": [],
+  "end": "2026-11-24T00:12:27.301776+01:00"
+}

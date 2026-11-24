@@ -89,10 +89,17 @@ class BuildScriptTests(unittest.TestCase):
         )
 
     def test_build_invokes_bootstrap_instead_of_module_entrypoint(self) -> None:
+        def check_stamp(command, *, env):
+            identity_path = build.Path(env["VOICE_STT_BUILD_IDENTITY_FILE"])
+            self.assertEqual(identity_path.name, "build_identity.json")
+            self.assertNotEqual(identity_path.parent, build.BUILD_DIR)
+            self.assertTrue(identity_path.is_file())
+            self.assertEqual(identity_path.parent, build.Path(env["VOICE_STT_VERSION_FILE"]).parent)
+
         with (
             patch.object(build, "read_version", return_value="1.2.3"),
             patch.object(build, "render_windows_version_info", return_value="info"),
-            patch.object(build, "run") as run_command,
+            patch.object(build, "run", side_effect=check_stamp) as run_command,
             patch.object(build, "EXE_PATH") as exe_path,
         ):
             exe_path.is_file.return_value = True
@@ -103,6 +110,7 @@ class BuildScriptTests(unittest.TestCase):
 
         command = run_command.call_args.args[0]
         environment = run_command.call_args.kwargs["env"]
+        self.assertFalse(build.Path(environment["VOICE_STT_BUILD_IDENTITY_FILE"]).exists())
         self.assertEqual(command[1:3], ["-c", build.PYINSTALLER_BOOTSTRAP])
         self.assertNotIn("-m", command)
         self.assertEqual(

@@ -1,0 +1,87 @@
+{
+  "time": "2026-11-23T23:53:43.379633+01:00",
+  "head": "17fce388e747daf37b97e96ed1fcf6421338873d",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "windows": [
+    10,
+    0,
+    26300,
+    2,
+    ""
+  ],
+  "pyside6": "6.12.0",
+  "productDiffSHA256": "f6bff20f30623fdfeee7633d936575ce05c7da274bb61ecee13e3b581e9fc53b",
+  "files": [
+    {
+      "path": "scripts/build.py",
+      "sha256": "ce85edf9e2c40e836f2009839c4bf2506e96493ad2234ccad43b79a191abefa5",
+      "lastWrite": "2026-11-23T21:57:38.728824+00:00"
+    },
+    {
+      "path": "tests/test_audio_capture.py",
+      "sha256": "a635729af5ddcef5fecca980ac7893ae52d8cd299a108da76474a01f84e938a9",
+      "lastWrite": "2026-11-23T21:42:36.102298+00:00"
+    },
+    {
+      "path": "tests/test_build_script.py",
+      "sha256": "01c17db117a5b6cfa1e4b5fc4feb5bb747062256c674f9b832e6972fae7f82ff",
+      "lastWrite": "2026-11-23T21:57:38.729326+00:00"
+    },
+    {
+      "path": "tests/test_core_bridge.py",
+      "sha256": "c0af14b5195be148a33dacce2f2c171844363f33ad6d1e66d34af8f095a36337",
+      "lastWrite": "2026-11-23T21:42:36.103297+00:00"
+    },
+    {
+      "path": "tests/test_event_cursor_store.py",
+      "sha256": "68773a7438cbdb481de99c7b1a6de1cea941cb1558e7305a06a81df0948c8886",
+      "lastWrite": "2026-11-23T21:41:07.742882+00:00"
+    },
+    {
+      "path": "tests/test_v2_settings_ui.py",
+      "sha256": "a1aa3ef60fdbb920fb5e63a689fc62ff3aef3d775d5b742b885f83ab0eb5924b",
+      "lastWrite": "2026-11-23T21:42:36.104799+00:00"
+    },
+    {
+      "path": "voice_stt_client/core/audio_capture.py",
+      "sha256": "6b9f317d717d7521299a55b91c0339d8df5263d681f51237143760763f357c96",
+      "lastWrite": "2026-11-23T21:38:28.023634+00:00"
+    },
+    {
+      "path": "voice_stt_client/core/event_cursor_store.py",
+      "sha256": "85dbf6696e20e56b62002d9620ae6c91b734b564096b1bddc0d876bc793b2a4f",
+      "lastWrite": "2026-11-23T21:38:28.019627+00:00"
+    },
+    {
+      "path": "voice_stt_client/core/settings_ui_service.py",
+      "sha256": "31f4d3c5ab57cd56ee11b04efb9a8ecee5787b6ea640f06cc0afdcb63c76c75d",
+      "lastWrite": "2026-11-23T21:39:54.263102+00:00"
+    },
+    {
+      "path": "voice_stt_client/core/v2_controls.py",
+      "sha256": "8ab330fc465d2f704e4b98673fc9592356bc284af5603a3302fb583d8b4770e0",
+      "lastWrite": "2026-11-23T21:38:28.020638+00:00"
+    },
+    {
+      "path": "voice_stt_client/ui/core_bridge.py",
+      "sha256": "5af51d84fd21cb026386d36f0bfd81ff843beef5009deaab774c2f196b3f436f",
+      "lastWrite": "2026-11-23T21:38:28.022638+00:00"
+    },
+    {
+      "path": "voice_stt_client/ui/v2_settings_dialog.py",
+      "sha256": "400e649c4d487ecafaf9c6c245732e841c492f357fda9a024df853f5ba5e9fb5",
+      "lastWrite": "2026-11-23T21:44:25.372382+00:00"
+    }
+  ],
+  "exeSHA256": "07cab945a8ca568f7a500a62a013a852e60e38a95a919b677453898539a205fe",
+  "cursor": {
+    "isolatedPath": true,
+    "writeReadback": true,
+    "sharedUnchanged": true
+  },
+  "freshProcessSettingsReadback": {
+    "overlayPosition": true,
+    "overlayOpacity": true,
+    "historyLimit": true
+  }
+}

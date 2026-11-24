@@ -1,0 +1,45 @@
+{
+  "scope": "real native Qt desktop from corrected source, real pinned V2 TLS server, isolated test profile, real native Qt UI and Win32 hotkey registration, targeted WM_HOTKEY to own thread, real acoustic ReSpeaker, mock injection (no foreign input/clipboard)",
+  "start": "2026-11-24T00:46:30.257607+01:00",
+  "checks": {
+    "server_identity": true,
+    "startup_real_registered": true,
+    "gui_rebind_registered": true,
+    "old_native_id_rejected": true,
+    "rebound_persisted": true,
+    "kurz-01_one_final": true,
+    "kurz-01_preview_before_injection": true,
+    "kurz-02_one_final": true,
+    "kurz-02_preview_before_injection": true,
+    "rebound_activations_distinct": true,
+    "native_utility_hotkey_dispatched": true,
+    "isolated_cursor_path": true,
+    "shutdown_core_tray": true,
+    "shared_cursor_unchanged": true
+  },
+  "evidenceFolder": "native-desktop-22a6b6fd",
+  "before_kurz-01": {
+    "ready": true,
+    "manualAvailable": true,
+    "reportedAvailable": true
+  },
+  "kurz-01": {
+    "previewCount": 3,
+    "previewMarkerMatch": true,
+    "finalCount": 1,
+    "injectionCount": 1
+  },
+  "before_kurz-02": {
+    "ready": true,
+    "manualAvailable": true,
+    "reportedAvailable": true
+  },
+  "kurz-02": {
+    "previewCount": 4,
+    "previewMarkerMatch": true,
+    "finalCount": 1,
+    "injectionCount": 1
+  },
+  "end": "2026-11-24T00:46:45.033025+01:00",
+  "result": "PASS_SCOPED"
+}

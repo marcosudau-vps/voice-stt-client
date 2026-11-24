@@ -1,0 +1,176 @@
+{
+  "scope": "corrected frozen EXE, real speaker/mic, native hotkeys and paste into owned editor, automated timed endurance, no operator speech",
+  "folder": "C:\\Users\\marco\\OneDrive\\Desktop\\Voice-STT-Client-V2-Finalabnahme\\Nachweise\\korrektur-2026-11-23\\frozen-endurance-3717b229",
+  "exeSha256": "07cab945a8ca568f7a500a62a013a852e60e38a95a919b677453898539a205fe",
+  "result": "FINAL_TIMEOUT",
+  "checks": {},
+  "stages": [
+    {
+      "stage": "ready",
+      "seconds": 0.0
+    },
+    {
+      "stage": "idle",
+      "seconds": 12.09
+    },
+    {
+      "stage": "activate",
+      "seconds": 12.25
+    },
+    {
+      "stage": "play",
+      "seconds": 13.95
+    },
+    {
+      "stage": "final",
+      "seconds": 18.47
+    },
+    {
+      "stage": "shutdown",
+      "seconds": 53.55
+    }
+  ],
+  "targetSeconds": 1800,
+  "cases": [],
+  "samples": [
+    {
+      "privateMiB": 465.227,
+      "workingMiB": 104.684,
+      "cpuSeconds": 3.046875,
+      "seconds": 0.11,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 475.414,
+      "workingMiB": 109.562,
+      "cpuSeconds": 3.484375,
+      "seconds": 5.14,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 475.332,
+      "workingMiB": 109.551,
+      "cpuSeconds": 3.6875,
+      "seconds": 10.17,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 475.332,
+      "workingMiB": 109.559,
+      "cpuSeconds": 3.828125,
+      "seconds": 15.2,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 475.586,
+      "workingMiB": 109.566,
+      "cpuSeconds": 3.921875,
+      "seconds": 20.23,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 475.586,
+      "workingMiB": 109.57,
+      "cpuSeconds": 4.328125,
+      "seconds": 25.27,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 475.586,
+      "workingMiB": 109.57,
+      "cpuSeconds": 4.421875,
+      "seconds": 30.3,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 475.586,
+      "workingMiB": 109.57,
+      "cpuSeconds": 4.65625,
+      "seconds": 35.33,
+      "state": "ready"
+    },
+    {
+      "privateMiB": 475.586,
+      "workingMiB": 109.57,
+      "cpuSeconds": 4.984375,
+      "seconds": 40.36,
+      "state": "ready"
+    }
+  ],
+  "serverBefore": {
+    "serverCommit": "e95858e3c010a7e9324b49bb44fee349abe7128a",
+    "serverInstanceId": "8e183f934fe14c81b515815615ca5ea3"
+  },
+  "startedAt": "2026-11-24T01:17:44.095728+01:00",
+  "bootloaderPid": 40004,
+  "stage": "shutdown",
+  "transportTransitions": [
+    {
+      "state": "connecting",
+      "reason": ""
+    },
+    {
+      "state": "accepting",
+      "reason": ""
+    },
+    {
+      "state": "configuring",
+      "reason": ""
+    },
+    {
+      "state": "ready",
+      "reason": ""
+    },
+    {
+      "state": "stopping",
+      "reason": ""
+    },
+    {
+      "state": "closed",
+      "reason": ""
+    }
+  ],
+  "status": {
+    "states": [
+      "configuring",
+      "ready",
+      "stopping",
+      "closed"
+    ],
+    "counts": {
+      "settings.changed": 1,
+      "activation.started": 1,
+      "activation.completed": 1,
+      "activation.input_closed": 1
+    },
+    "historyEntries": 0,
+    "editorCharacters": 0,
+    "pid": 38696,
+    "focused": true,
+    "controlStatuses": [
+      "applied",
+      "applied"
+    ],
+    "phase": "idle"
+  },
+  "elapsedSeconds": 41.45,
+  "exitCode": 0,
+  "quitPosted": true,
+  "tempRemaining": [],
+  "sharedCursorUnchanged": true,
+  "end": "2026-11-24T01:18:39.527384+01:00",
+  "resources": {
+    "firstPrivateMiB": 465.227,
+    "lastPrivateMiB": 475.586,
+    "peakPrivateMiB": 475.586,
+    "meanCoreCpuPct": 4.814
+  },
+  "errorLogCount": 0,
+  "fallbackMessages": 0,
+  "markerPassCount": 0,
+  "nativePastePassCount": 0,
+  "serverAfter": {
+    "serverCommit": "e95858e3c010a7e9324b49bb44fee349abe7128a",
+    "serverInstanceId": "8e183f934fe14c81b515815615ca5ea3"
+  }
+}

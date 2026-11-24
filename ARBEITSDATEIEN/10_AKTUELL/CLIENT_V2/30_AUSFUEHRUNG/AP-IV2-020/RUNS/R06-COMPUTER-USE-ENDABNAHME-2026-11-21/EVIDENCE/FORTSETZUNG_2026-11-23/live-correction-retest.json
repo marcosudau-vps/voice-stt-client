@@ -1,0 +1,35 @@
+{
+  "scope": "corrected source; real pinned final V2 TLS server; synthetic PCM, mock clipboard, isolated profile; no physical input",
+  "start": "2026-11-23T23:50:01.755910+01:00",
+  "checks": {
+    "ready_hybrid": true,
+    "pause_requested_confirmed": true,
+    "offline_trigger_unconfirmed": true,
+    "offline_pause_wish_preserved": true,
+    "new_session": true,
+    "reconnect_pause_still_confirmed": true,
+    "resume_confirmed": true,
+    "manual_final_once_after_reconnect": true
+  },
+  "final": {
+    "tokensMatch": true,
+    "finals": 1,
+    "injectCalls": 1,
+    "actualCharacters": 32
+  },
+  "sessions": [
+    {
+      "generation": 1,
+      "sessionId": "77bd24e3-6d48-49de-878b-2f49f999eadd",
+      "serverCommit": "e95858e3c010a7e9324b49bb44fee349abe7128a"
+    },
+    {
+      "generation": 2,
+      "sessionId": "88aaf253-e214-4f74-b0cb-a91aa01efeb3",
+      "serverCommit": "e95858e3c010a7e9324b49bb44fee349abe7128a"
+    }
+  ],
+  "cleanupErrors": [],
+  "end": "2026-11-23T23:50:21.949375+01:00",
+  "result": "PASS_SCOPED"
+}

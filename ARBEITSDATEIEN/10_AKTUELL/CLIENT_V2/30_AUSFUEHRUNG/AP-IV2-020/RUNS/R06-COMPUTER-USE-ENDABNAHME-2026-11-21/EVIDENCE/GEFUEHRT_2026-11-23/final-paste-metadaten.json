@@ -1,0 +1,165 @@
+{
+  "history": 12,
+  "injectionAttempts": 13,
+  "metadata": [
+    {
+      "activation": "fdbebfe3",
+      "segment": "d510a12f",
+      "timestamp": 1795462787.7164395,
+      "text_length": 32,
+      "protocol_version": 2,
+      "primary_source": "manual",
+      "paste_status": "command_sent",
+      "paste_source": "automatic",
+      "paste_time": 1795462787.7316833
+    },
+    {
+      "activation": "9c1c7a88",
+      "segment": "67fd2930",
+      "timestamp": 1795462830.738846,
+      "text_length": 32,
+      "protocol_version": 2,
+      "primary_source": "manual",
+      "paste_status": "command_sent",
+      "paste_source": "automatic",
+      "paste_time": 1795462830.7519279
+    },
+    {
+      "activation": "f5a0a0c7",
+      "segment": "ef73b03c",
+      "timestamp": 1795463090.5822124,
+      "text_length": 42,
+      "protocol_version": 2,
+      "primary_source": "manual",
+      "paste_status": "command_sent",
+      "paste_source": "automatic",
+      "paste_time": 1795463090.6002393
+    },
+    {
+      "activation": "1fc393e2",
+      "segment": "552171d0",
+      "timestamp": 1795463230.045702,
+      "text_length": 24,
+      "protocol_version": 2,
+      "primary_source": "manual",
+      "paste_status": "command_sent",
+      "paste_source": "automatic",
+      "paste_time": 1795463230.0662713
+    },
+    {
+      "activation": "571f8c1f",
+      "segment": "49e31541",
+      "timestamp": 1795463291.4968567,
+      "text_length": 32,
+      "protocol_version": 2,
+      "primary_source": "manual",
+      "paste_status": "command_sent",
+      "paste_source": "automatic",
+      "paste_time": 1795463291.512918
+    },
+    {
+      "activation": "88c837cb",
+      "segment": "47cfcf26",
+      "timestamp": 1795463531.5033638,
+      "text_length": 23,
+      "protocol_version": 2,
+      "primary_source": "wake_word",
+      "paste_status": "command_sent",
+      "paste_source": "automatic",
+      "paste_time": 1795463531.5255919
+    },
+    {
+      "activation": "667a918a",
+      "segment": "8300b652",
+      "timestamp": 1795464074.5154066,
+      "text_length": 28,
+      "protocol_version": 2,
+      "primary_source": "wake_word",
+      "paste_status": "command_sent",
+      "paste_source": "automatic",
+      "paste_time": 1795464074.5329912
+    },
+    {
+      "activation": "8824b260",
+      "segment": "b9d80c05",
+      "timestamp": 1795464387.401878,
+      "text_length": 29,
+      "protocol_version": 2,
+      "primary_source": "wake_word",
+      "paste_status": "command_sent",
+      "paste_source": "automatic",
+      "paste_time": 1795464387.4194283
+    },
+    {
+      "activation": "3d3fa64c",
+      "segment": "30e6d8f4",
+      "timestamp": 1795464435.327341,
+      "text_length": 41,
+      "protocol_version": 2,
+      "primary_source": "manual",
+      "paste_status": "command_sent",
+      "paste_source": "automatic",
+      "paste_time": 1795464435.3438885
+    },
+    {
+      "activation": "bb6218f1",
+      "segment": "b8a773c8",
+      "timestamp": 1795464461.3751316,
+      "text_length": 34,
+      "protocol_version": 2,
+      "primary_source": "manual",
+      "paste_status": "command_sent",
+      "paste_source": "automatic",
+      "paste_time": 1795464461.3891659
+    },
+    {
+      "activation": "bb6218f1",
+      "segment": "f195396a",
+      "timestamp": 1795464474.4770708,
+      "text_length": 42,
+      "protocol_version": 2,
+      "primary_source": "manual",
+      "paste_status": "command_sent",
+      "paste_source": "automatic",
+      "paste_time": 1795464474.4986002
+    },
+    {
+      "activation": "4a6e46e1",
+      "segment": "c638a4cb",
+      "timestamp": 1795464496.9068818,
+      "text_length": 41,
+      "protocol_version": 2,
+      "primary_source": "manual",
+      "paste_status": "command_sent",
+      "paste_source": "automatic",
+      "paste_time": 1795464497.9570153
+    },
+    {
+      "activation": "4a6e46e1",
+      "segment": "c638a4cb",
+      "timestamp": 1795464496.9068818,
+      "text_length": 41,
+      "protocol_version": 2,
+      "primary_source": "manual",
+      "paste_status": "command_sent",
+      "paste_source": "manual",
+      "paste_time": 1795464558.1251235
+    }
+  ],
+  "humanVoiceProbe": [
+    {
+      "activation": "8824b260",
+      "source": "wake_word",
+      "expectedWordPositions": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "exact": false,
+      "recognizedWords": 6
+    }
+  ]
+}

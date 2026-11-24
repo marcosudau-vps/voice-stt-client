@@ -18,7 +18,7 @@ from .activation_mirror import ACTIVATION_TERMINALS, freeze
 from .command_tracker import TransportLost
 from .credential_store import CredentialStore, credential_target
 from .settings_service import SettingsError, NA_KEYS, UNSUPPORTED_SESSION
-from .v2_controls import ControlConfig, ControlIntent
+from .v2_controls import ControlConfig, ControlIntent, DuplicateControlHotkey, PauseView
 from .v2_profile import V2Profile, migrate_profile
 
 
@@ -52,6 +52,8 @@ class SettingsUIView:
     metadata_error: str | None
     connected_triggers: Mapping
     connected_wake_ids: tuple[str, ...]
+    connected_ready: bool
+    pause: PauseView
 
 
 class SettingsUISession:
@@ -107,14 +109,20 @@ class SettingsUISession:
 
     def view(self):
         self._guard()
-        generation = self.settings.session.generation
+        session = self.settings.session
+        generation, binding = session.generation, session.binding
         view = self.mirror.mirror.view
+        ready = (session.is_ready and binding is not None and view.operations_ready
+                 and not view.snapshot_pending and view.session_id == binding.session_id
+                 and view.generation == binding.generation)
         return SettingsUIView(self.origin, self.context(), freeze(asdict(self.settings.profile)),
             freeze(self.settings.schema), self.settings.report(), freeze(self.settings.server_requested),
             freeze(self.settings.server_effective), self.settings.catalog,
             self._key is not None and self._verified_generation == generation,
             self._credential_saved, credential_target(self.origin), self.settings.last_metadata_error,
-            view.trigger.get("configured", freeze({})), tuple(view.effective_settings.get("wakeWord.selection", ())))
+            freeze(view.trigger.get("configured", {}) if ready else {}),
+            tuple(view.effective_settings.get("wakeWord.selection", ())) if ready else (),
+            ready, self.controls.pause_view)
 
     async def load(self):
         self._guard()
@@ -182,6 +190,13 @@ class SettingsUISession:
         if not isinstance(profile, dict):
             raise SettingsError("invalid_profile")
         candidate = V2Profile(**deepcopy(profile))
+        try:
+            ControlConfig(**candidate.controls)
+        except DuplicateControlHotkey:
+            raise SettingsError("duplicate_control_hotkey") from None
+        except (ValueError, TypeError):
+            # Invalid data still follows the existing migration/repair path.
+            pass
         # Migration provenance isn't an editable UI value. Only expressly
         # acknowledged, represented fields may be repaired; unknowns survive.
         candidate.unresolved = deepcopy(self.settings.profile.unresolved)
@@ -228,10 +243,18 @@ class SettingsUISession:
             old = self.settings.profile
             # Saved/deferred intent may already differ from the current Hello.
             # Compare with the authoritative connection, not the saved profile.
-            projected = self.view()
-            reconnect = (candidate.manual, candidate.wake_word, tuple(candidate.wake_word_ids) if candidate.wake_word else ()) != (
-                projected.connected_triggers.get("manual", old.manual),
-                projected.connected_triggers.get("wakeWord", old.wake_word), projected.connected_wake_ids)
+            mirror = self.mirror.mirror.view
+            configured = mirror.trigger.get("configured", {})
+            # An in-progress resync can hide the public status while the last
+            # mirror still protects open input on the same connection.
+            same_binding = (current.session_id is not None and mirror.session_id == current.session_id
+                            and mirror.generation == current.generation)
+            active = (old.manual, old.wake_word, tuple(old.wake_word_ids) if old.wake_word else ())
+            if same_binding:
+                active = (configured.get("manual", old.manual), configured.get("wakeWord", old.wake_word),
+                          tuple(mirror.effective_settings.get("wakeWord.selection", ())))
+            reconnect = (candidate.manual, candidate.wake_word,
+                         tuple(candidate.wake_word_ids) if candidate.wake_word else ()) != active
             choice = ApplyChoice(choice) if choice is not None else None
             if reconnect and current.activation_id and choice is None:
                 raise SettingsError("activation_choice_required")
